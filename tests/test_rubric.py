@@ -14,6 +14,11 @@ VALID = {
 }
 
 
+def test_the_amendment_is_frozen():
+    from adtone.score import check_frozen
+    check_frozen(config.ROOT / "PREREGISTRATION-AMENDMENT-1.md", config.ROOT / "PREREGISTRATION-AMENDMENT-1.sha256")
+
+
 def test_rubric_is_frozen_and_loads():
     r = load_rubric()
     assert r.version == "tone-v1"

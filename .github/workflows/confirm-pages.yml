@@ -1,0 +1,48 @@
+name: confirm-pages
+run-name: confirm pages ${{ inputs.accept }}${{ inputs.freeze && ', freeze' || '' }}
+# One tap from the phone: accept the automatic page picks shown on the status page, add any ids
+# found by hand, and optionally freeze the registry.
+on:
+  workflow_dispatch:
+    inputs:
+      accept:
+        description: "accept automatic exact-name picks: all, or comma-separated house ids"
+        default: all
+      overrides:
+        description: "ids found by hand, as house=id pairs, e.g. hermes=123,loro_piana=456"
+        default: ""
+      freeze:
+        description: "freeze the registry once every panel house has a page"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-registry
+  cancel-in-progress: false
+
+jobs:
+  confirm:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 10
+    env:
+      ACCEPT: ${{ inputs.accept }}
+      OVERRIDES: ${{ inputs.overrides }}
+      FREEZE: ${{ inputs.freeze }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Confirm pages
+        timeout-minutes: 3
+        run: |
+          if [ "$FREEZE" = "true" ]; then F="--freeze"; else F=""; fi
+          python -m adtone.confirm --accept "$ACCEPT" --overrides "$OVERRIDES" $F
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh confirm "confirm pages"

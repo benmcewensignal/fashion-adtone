@@ -124,8 +124,44 @@ def build(ads: dict[str, dict], media: dict[str, dict], obs: dict[str, dict], ve
     return concepts
 
 
-def assign_blocks(concepts: list[Concept], gap_days: int = config.BLOCK_GAP_DAYS) -> None:
-    """Within each house, a new block starts when the gap since the last launch exceeds gap_days."""
+def assign_blocks(concepts: list[Concept], rule: str | None = None, gap_days: int = config.BLOCK_GAP_DAYS) -> None:
+    """Group each house's concepts into campaign blocks.
+
+    month (primary, Amendment 1): one block per calendar month of launch.
+    gap21 (sensitivity): a new block starts when the gap since the last launch exceeds gap_days,
+    which merges everything into one block for a house that launches more often than that.
+    """
+    rule = rule or config.BLOCK_RULE
+    if rule == "month":
+        for c in concepts:
+            c.block = c.first_seen.year * 12 + c.first_seen.month
+        return
+    if rule == "hybrid":
+        # Gap blocks keep a discrete campaign whole even across a month boundary; a block that
+        # runs longer than MAX_BLOCK_SPAN_DAYS is continuous launching, and is cut into months.
+        assign_blocks(concepts, "gap21", gap_days)
+        groups: dict[tuple, list[Concept]] = defaultdict(list)
+        spans: dict[tuple, tuple[date, date]] = {}
+        for c in concepts:
+            k = (c.house_id, c.block)
+            lo, hi = spans.get(k, (c.first_seen, c.first_seen))
+            spans[k] = (min(lo, c.first_seen), max(hi, c.first_seen))
+        for c in concepts:
+            k = (c.house_id, c.block)
+            lo, hi = spans[k]
+            month = c.first_seen.year * 12 + c.first_seen.month if (hi - lo).days > config.MAX_BLOCK_SPAN_DAYS else 0
+            groups[(c.house_id, c.block, month)].append(c)
+        by_house_groups: dict[str, list[list[Concept]]] = defaultdict(list)
+        for (hid, _, _), cs in groups.items():
+            by_house_groups[hid].append(cs)
+        for hid, gs in by_house_groups.items():
+            gs.sort(key=lambda g: min(c.first_seen for c in g))
+            for i, g in enumerate(gs):
+                for c in g:
+                    c.block = i
+        return
+    if rule != "gap21":
+        raise ValueError(f"unknown block rule {rule!r}")
     by_house: dict[str, list[Concept]] = defaultdict(list)
     for c in concepts:
         by_house[c.house_id].append(c)

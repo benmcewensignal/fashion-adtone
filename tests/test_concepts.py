@@ -40,5 +40,26 @@ def test_blocks_break_on_gaps_longer_than_three_weeks():
     days = [1, 5, 12, 40, 44, 90]
     cs = [Concept("h", f"c{i}", date(2026, 1, 1).fromordinal(date(2026, 1, 1).toordinal() + d), [], [], _vec(i))
           for i, d in enumerate(days)]
-    assign_blocks(cs)
+    assign_blocks(cs, "gap21")
     assert [c.block for c in sorted(cs, key=lambda c: c.first_seen)] == [0, 0, 0, 1, 1, 2]
+
+
+def test_month_blocks_follow_the_calendar_and_survive_continuous_launching():
+    weekly = [Concept("h", f"w{i}", date(2026, 1, 1) + __import__("datetime").timedelta(days=7 * i), [], [], _vec(i))
+              for i in range(13)]
+    assign_blocks(weekly, "gap21")
+    assert len({c.block for c in weekly}) == 1, "weekly launches merge into a single gap block"
+    assign_blocks(weekly, "month")
+    assert len({c.block for c in weekly}) == 3 and weekly[0].block == 2026 * 12 + 1
+    assign_blocks(weekly)   # primary rule, hybrid: the continuous run is cut into its three months
+    assert len({c.block for c in weekly}) == 3
+
+
+def test_hybrid_keeps_a_discrete_campaign_whole_across_a_month_boundary():
+    import datetime as dt
+    days = [dt.date(2026, 1, 28), dt.date(2026, 2, 2), dt.date(2026, 2, 5), dt.date(2026, 3, 20), dt.date(2026, 3, 24)]
+    cs = [Concept("h", f"c{i}", d, [], [], _vec(i)) for i, d in enumerate(days)]
+    assign_blocks(cs)
+    assert [c.block for c in cs] == [0, 0, 0, 1, 1]
+    assign_blocks(cs, "month")
+    assert len({c.block for c in cs}) == 3, "month blocks split the January to February campaign"

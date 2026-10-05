@@ -71,7 +71,9 @@ MODEL_MAX_EDGE = 1568
 
 # Analysis (frozen with PREREGISTRATION.md).
 PHASH_MAX_DIST = 6           # of 64 bits: near-duplicate crops and resizes of one creative
-BLOCK_GAP_DAYS = 21          # a gap this long between concepts starts a new campaign block
+BLOCK_RULE = "hybrid"        # Amendment 1: gap blocks, long runs cut into calendar months; "gap21" is the sensitivity rule
+MAX_BLOCK_SPAN_DAYS = 35     # hybrid rule: a gap block spanning longer than this is cut at month boundaries
+BLOCK_GAP_DAYS = 21          # gap rule: a gap this long between concepts starts a new campaign block
 POST_LAG_DAYS = 90           # post-debut window starts this long after the debut show
 MIN_BLOCKS_SIDE = 3
 MIN_CONCEPTS_SIDE = 8

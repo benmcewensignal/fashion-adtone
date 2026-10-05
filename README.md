@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (88 tests).
+- Built and tested on synthetic data with known ground truth (96 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -81,17 +81,29 @@ Analysis waits until both files are frozen.
 
 What is left for a person afterwards:
 
-- Confirm the automatic page picks. They are listed in the collect run's summary and in
-  `data/registry/page_candidates.json`. Copy the right ids into `registry/houses.yml` and set its
-  status to FROZEN. A house with no automatic match needs its id found by hand: open the house in
-  the public Ad Library and read `view_all_page_id` from the URL.
+- Confirm the automatic page picks. The status page lists them. Run **confirm-pages** with accept
+  set to all, add any ids found by hand as overrides (house=id), and tick freeze once every panel
+  house has a page. A house with no automatic match needs its id found by hand: open it in the public
+  Ad Library and read `view_all_page_id` from the URL.
 - Renew the Meta token every 60 days or so.
 - Code the 120-image agreement sample once a few hundred images are scored (analyse workflow,
   agreement-sample mode).
 
+A status page built for a phone (collection per house, backlog, page picks, token expiry, forward
+tests, and what needs you) publishes to GitHub Pages after every run. One-time setup: Settings > Pages
+> Source: GitHub Actions.
+
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and
 `ADTONE_RESOLVER` (auto, static or browser).
+
+## Before reading any result
+
+`docs/POWER.md` simulates the real calendar. Whether the main test can run at all depends less on
+effect size than on two things the first backfill will reveal: how long brand-image ads run, and how
+often they launch. Collection timing matters too: under middle assumptions, starting in December 2026
+instead of early October leaves too few testable houses. Amendment 1 (`PREREGISTRATION-AMENDMENT-1.md`,
+dated before any data) changed how campaign blocks are formed for that reason.
 
 ## Limits known before any data
 

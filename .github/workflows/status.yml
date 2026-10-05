@@ -1,0 +1,41 @@
+name: status
+# Publishes a phone-friendly status page to GitHub Pages. One-time setup: Settings > Pages >
+# Build and deployment > Source: GitHub Actions.
+on:
+  workflow_run:
+    workflows: [collect, process, analyse, confirm-pages]
+    types: [completed]
+  schedule:
+    - cron: "10 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: adtone-pages
+  cancel-in-progress: true   # only the newest page matters, and nothing is committed
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Build page
+        timeout-minutes: 3
+        run: python -m adtone.status --out site
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site }
+      - id: deploy
+        uses: actions/deploy-pages@v4

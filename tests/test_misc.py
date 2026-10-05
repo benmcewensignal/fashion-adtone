@@ -118,7 +118,7 @@ def test_workflows_only_persist_as_workflows_the_guard_knows():
     import yaml
     root = Path(__file__).resolve().parent.parent / ".github" / "workflows"
     files = sorted(root.glob("*.yml"))
-    assert len(files) == 6
+    assert len(files) == 8
     for f in files:
         text = f.read_text()
         yaml.safe_load(text)

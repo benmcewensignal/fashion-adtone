@@ -369,7 +369,7 @@ def gate(reg: registry.Registry, prereg_path=None) -> list[str]:
         reasons.append("PREREGISTRATION.md is not frozen")
     if reg.status != "FROZEN":
         reasons.append("registry/houses.yml is not frozen")
-    missing = [h.id for h in reg.houses if not h.page_ids]
+    missing = [h.id for h in reg.houses if not h.page_ids and h.group != "watch"]
     if reg.status == "FROZEN" and missing:
         reasons.append(f"the frozen registry has no confirmed pages for {', '.join(missing)}")
     return reasons
@@ -432,9 +432,15 @@ def main(argv: list[str] | None = None) -> int:
         "registry_status": reg.status, "inputs": info,
         "params": {k: getattr(config, k) for k in ("PHASH_MAX_DIST", "BLOCK_GAP_DAYS", "POST_LAG_DAYS",
                                                    "MIN_BLOCKS_SIDE", "MIN_CONCEPTS_SIDE")} | {"n_perm": args.n_perm},
+        "block_rule": config.BLOCK_RULE,
         "primary": analyse(concepts, reg, args.n_perm, config.PRIMARY_TYPES),
         "sensitivity": analyse(concepts, reg, args.n_perm, config.SENSITIVITY_TYPES)["event_study"]["h1"],
     }
+    # Amendment 1: the pre-registered 21-day gap rule, reported for H1 beside the primary result.
+    from .concepts import assign_blocks
+    assign_blocks(concepts, "gap21")
+    summary["sensitivity_gap21"] = analyse(concepts, reg, args.n_perm, config.PRIMARY_TYPES)["event_study"]["h1"]
+    assign_blocks(concepts, config.BLOCK_RULE)
     config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (config.RESULTS_DIR / "summary.json").write_text(json.dumps(summary, indent=2, default=str) + "\n")
     (config.RESULTS_DIR / "report.md").write_text(report_md(summary))

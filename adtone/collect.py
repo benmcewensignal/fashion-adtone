@@ -294,6 +294,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"::warning::Ad Library token expires in {expiry['days_left']} days; refresh META_AD_LIBRARY_TOKEN")
         summary = run(client, reg, args.mode, rid)
         summary["token"] = expiry
+        if expiry.get("checked"):
+            st = store.read_state(config.STATE_DIR / "collect.json")
+            st["token"] = expiry
+            store.write_state(config.STATE_DIR / "collect.json", st)
     except TokenError as e:
         print(f"::error::Ad Library token rejected ({e}). Refresh the long-lived token in the META_AD_LIBRARY_TOKEN secret.")
         return 3
