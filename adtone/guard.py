@@ -19,7 +19,10 @@ ALLOW = {
     "process": ["data/media/*.jsonl", "data/obs/*.jsonl", "data/vectors/*/*.npz", "data/state/process.json",
                 "data/provenance/process.jsonl"],
     "confirm": ["registry/houses.yml"],
+    "backcat": ["data/backcat/campaigns/*.jsonl", "data/backcat/media/*.jsonl", "data/backcat/obs/*.jsonl",
+                "data/backcat/vectors/*/*.npz", "data/state/backcat.json", "data/provenance/backcat.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
+                "data/results/calibration.json",
                 "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }

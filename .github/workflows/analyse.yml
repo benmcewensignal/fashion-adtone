@@ -40,6 +40,10 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 20
         run: python -m adtone.forward
+      - name: Calibrate the back catalogue
+        if: env.MODE == 'analyse'
+        timeout-minutes: 15
+        run: python -m adtone.calibrate
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5

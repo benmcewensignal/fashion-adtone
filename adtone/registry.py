@@ -27,6 +27,7 @@ class House:
     search_terms: list[str]
     page_ids: list[str]
     events: list[Event] = field(default_factory=list)
+    models_slug: str | None = None   # models.com client slug, when it is not the slugified name
 
     @property
     def debut(self) -> Event | None:
@@ -90,6 +91,7 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
             search_terms=list(h.get("search_terms") or [h["name"]]),
             page_ids=[str(p) for p in h.get("page_ids") or []],
             events=events,
+            models_slug=h.get("models_slug"),
         ))
     reg = Registry(version=int(raw["version"]), status=str(raw["status"]), houses=houses)
     reg.page_to_house()  # raises on a page claimed twice

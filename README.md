@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (96 tests).
+- Built and tested on synthetic data with known ground truth (104 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -121,6 +121,28 @@ dated before any data) changed how campaign blocks are formed for that reason.
 - **Re-scoring.** Pixels are not kept, so a new rubric version can only see ads still in the
   repository. A private raw archive would remove that limit. That is a decision for later, not a
   default.
+
+## Back catalogue
+
+The Meta repository forgets after a year, so older campaigns come from two other sources (the
+**backcat** workflow, monthly):
+
+- **models.com** gives the spine: each house's campaigns with crew, publication date, the page the
+  campaign was published on, and picture and film counts. It serves no images to an anonymous reader.
+- **The Wayback Machine** gives the images, from captures of that source page made around the
+  publication date. Campaigns published on Instagram stay metadata-only, because the archive holds
+  login walls there.
+
+Both are read politely (robots.txt honoured, a pause between requests) and under the same rule as
+everything else: derived rows only, no images committed. Coverage is unknown until the first run, and
+the probe reports it.
+
+A different source is a different sensor, so the back catalogue is never pooled with the live series.
+`adtone.calibrate` finds campaign images that reappear in the paid Meta ads during the overlap year,
+measures the offset between the channels from those matched pairs, and splices the back catalogue on
+only with at least 20 pairs. None of the v1 pre-registered tests use the back catalogue; it exists for
+later registered questions, such as the decade-long arc towards and away from streetwear, and separating
+photographers from houses through the credits.
 
 ## Forward tests
 
