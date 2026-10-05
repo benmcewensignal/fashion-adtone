@@ -253,8 +253,8 @@ def mover(by_house: dict[str, list[Concept]], res: dict[str, np.ndarray], reg: r
     rivals = {}
     g_pre, g_post = d_pre.vecs.mean(axis=0), d_post.vecs.mean(axis=0)
     for h in reg.houses:
-        if h.id in (origin, destination):
-            continue
+        if h.id in (origin, destination) or h.group == "watch":
+            continue   # watch houses are collected for forward tests, outside the v1 panel
         cs = by_house.get(h.id, [])
         if h.group == "treated":
             cs = [c for c in cs if c.first_seen < h.debut.date]

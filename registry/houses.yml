@@ -111,3 +111,8 @@ houses:
   - {id: burberry, name: Burberry, group: control, owner: Burberry, search_terms: ["Burberry"], page_ids: [], events: []}
   - {id: valentino, name: Valentino, group: control, owner: Mayhoola and Kering, search_terms: ["Valentino"], page_ids: [], events: []}
   - {id: loro_piana, name: Loro Piana, group: control, owner: LVMH, search_terms: ["Loro Piana"], page_ids: [], events: []}
+
+  # Watch: collected for forward tests only, outside the v1 panel and never in its field or tests.
+  # Chloé is here because speculation names its creative director as Saint Laurent's next
+  # (forward/saint-laurent-v1.md); archiving its advertising now is the only way to have it later.
+  - {id: chloe, name: Chloé, group: watch, owner: Richemont, search_terms: ["Chloé"], page_ids: [], events: []}

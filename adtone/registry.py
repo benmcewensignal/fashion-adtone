@@ -77,14 +77,14 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
         if h["id"] in seen:
             raise ValueError(f"duplicate house id {h['id']}")
         seen.add(h["id"])
-        if h["group"] not in ("treated", "control"):
-            raise ValueError(f"{h['id']}: group must be treated or control")
+        if h["group"] not in ("treated", "control", "watch"):
+            raise ValueError(f"{h['id']}: group must be treated, control or watch")
         events = [Event(e["kind"], e.get("designer", ""), _as_date(e["date"]), bool(e.get("verified", False)))
                   for e in h.get("events") or []]
         if h["group"] == "treated" and not any(e.kind == "designer_debut" for e in events):
             raise ValueError(f"{h['id']}: a treated house needs a designer_debut event")
-        if h["group"] == "control" and events:
-            raise ValueError(f"{h['id']}: a control house has no events by definition")
+        if h["group"] in ("control", "watch") and events:
+            raise ValueError(f"{h['id']}: a {h['group']} house has no events by definition")
         houses.append(House(
             id=h["id"], name=h["name"], group=h["group"], owner=h.get("owner", ""),
             search_terms=list(h.get("search_terms") or [h["name"]]),

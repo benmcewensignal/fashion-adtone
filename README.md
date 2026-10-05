@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (79 tests).
+- Built and tested on synthetic data with known ground truth (88 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -109,6 +109,15 @@ claude-sonnet-5-5; part of the instrument's identity, so changing it starts a se
 - **Re-scoring.** Pixels are not kept, so a new rubric version can only see ads still in the
   repository. A private raw archive would remove that limit. That is a decision for later, not a
   default.
+
+## Forward tests
+
+Predictions registered before the event they predict live in `forward/`, each frozen by hash, with
+later facts (a successor's name and first show) recorded in `forward/events.yml`. A test computes
+nothing until its adjudication date and is never recomputed once recorded. The first,
+`saint-laurent-v1`, was registered on 5 October 2026 while Anthony Vaccarello's reported departure was
+unconfirmed and no successor had been named. Recording the successor and the date of their first show
+in `events.yml` is all it needs.
 
 ## Relation to fashion-position
 

@@ -18,7 +18,8 @@ ALLOW = {
                 "data/registry/page_candidates.json"],
     "process": ["data/media/*.jsonl", "data/obs/*.jsonl", "data/vectors/*/*.npz", "data/state/process.json",
                 "data/provenance/process.jsonl"],
-    "analyse": ["data/results/summary.json", "data/results/report.md", "data/provenance/analyse.jsonl",
+    "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
+                "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }
 DENY_EXT = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff", ".heic", ".avif",

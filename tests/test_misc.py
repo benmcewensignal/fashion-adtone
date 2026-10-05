@@ -68,7 +68,7 @@ def test_shipped_registry_is_coherent():
     reg = registry.load()
     assert reg.status in ("DRAFT", "FROZEN")
     treated, control = reg.group("treated"), reg.group("control")
-    assert len(treated) == 10 and len(control) == 8
+    assert len(treated) == 10 and len(control) == 8 and [h.id for h in reg.group("watch")] == ["chloe"]
     assert all(h.debut and date(2025, 7, 1) <= h.debut.date <= date(2026, 3, 1) for h in treated)
     assert {"balenciaga", "gucci"} <= {h.id for h in treated}
 

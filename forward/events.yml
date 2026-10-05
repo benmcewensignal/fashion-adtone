@@ -1,0 +1,9 @@
+# Facts for the forward tests, recorded as they happen, each with a source. Dates are the
+# only thing written here; the designs in forward/*.md are frozen and never change.
+
+saint_laurent_successor_announced: null       # date the successor was named
+saint_laurent_successor_name: null
+saint_laurent_successor_previous_house: null  # registry house id, if their last house is in the panel or watch list
+saint_laurent_successor_debut: null           # date of the first show credited to the successor
+control_leadership_changes: {}                # house_id: date of a creative leadership change
+sources: []

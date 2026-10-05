@@ -36,6 +36,10 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 45
         run: python -m adtone.analysis
+      - name: Forward tests
+        if: env.MODE == 'analyse'
+        timeout-minutes: 20
+        run: python -m adtone.forward
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5

@@ -63,6 +63,12 @@ Still to do before the registry is frozen: confirm each house's page ids. Page i
 pages only: a beauty or fragrance page, whether run by the house or a licensee, carries a different
 tone and a different budget.
 
+## Watch houses
+
+Chloé is collected but sits outside the v1 panel: never in the field, never in the tests. Speculation
+names its creative director as Saint Laurent's next, and if that happens the forward test needs
+Chloé's advertising from before the move, which can only be archived in advance.
+
 ## Relation to the September selection
 
 fashion-position froze twenty houses for its runway tracks. This panel is separate because the design
