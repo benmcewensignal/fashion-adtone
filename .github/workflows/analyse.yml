@@ -1,0 +1,49 @@
+name: analyse
+run-name: analyse ${{ inputs.mode || 'weekly' }}
+on:
+  schedule:
+    - cron: "30 6 * * 2"
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: analyse
+        options: [analyse, agreement-sample]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-analyse
+  cancel-in-progress: false
+
+jobs:
+  analyse:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: "1"
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      MODE: ${{ inputs.mode || 'analyse' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Analyse
+        if: env.MODE == 'analyse'
+        timeout-minutes: 45
+        run: python -m adtone.analysis
+      - name: Draw the agreement sample
+        if: env.MODE == 'agreement-sample'
+        timeout-minutes: 5
+        run: python -m adtone.agreement sample --n 120
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh analyse "analyse $MODE"
+      - name: Summary
+        if: always()
+        run: |
+          if [ -f data/results/report.md ]; then cat data/results/report.md >> "$GITHUB_STEP_SUMMARY"; fi

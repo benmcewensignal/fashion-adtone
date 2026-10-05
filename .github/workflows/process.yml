@@ -1,0 +1,97 @@
+name: process
+run-name: process ${{ github.event_name }}
+on:
+  workflow_run:
+    workflows: [collect]
+    types: [completed]
+  schedule:
+    - cron: "40 */6 * * *"   # drains the backlog in budgeted batches; the first backfill needs several runs
+  workflow_dispatch:
+    inputs:
+      max_ads:
+        description: "ads per run"
+        default: "600"
+      resolver:
+        description: "auto reads the render page HTML and falls back to Chromium; static and browser force one"
+        type: choice
+        default: auto
+        options: [auto, static, browser]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-process
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 150
+    env:
+      PYTHONUNBUFFERED: "1"
+      META_AD_LIBRARY_TOKEN: ${{ secrets.META_AD_LIBRARY_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_RESOLVER: ${{ inputs.resolver || vars.ADTONE_RESOLVER || 'auto' }}
+      MAX_ADS: ${{ inputs.max_ads || '600' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: pip install -r requirements.txt -r requirements-embed.txt
+      - name: Cache browser
+        if: env.ADTONE_RESOLVER != 'static'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-v1
+      - name: Install browser
+        if: env.ADTONE_RESOLVER != 'static'
+        timeout-minutes: 10
+        run: pip install playwright && python -m playwright install --with-deps chromium
+      - name: Cache embedder weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+
+      - name: Process
+        id: process
+        continue-on-error: true
+        timeout-minutes: 115   # the pipeline stops itself at 100 minutes and saves what it has
+        run: python -m adtone.pipeline --max-ads "$MAX_ADS" --budget-min 100
+
+      - name: Completeness probe
+        timeout-minutes: 5
+        run: python -m adtone.probe process --run "gh${GITHUB_RUN_ID}"
+
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh process "process"
+
+      - name: Fail if processing failed
+        if: steps.process.outcome == 'failure'
+        run: |
+          echo "::error::processing stopped early; progress before the failure was kept"
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("data/provenance/process.jsonl")
+          if p.exists() and p.read_text().strip():
+              s = json.loads(p.read_text().strip().splitlines()[-1])
+              print(f"`{s.get('instrument')}` via the {s.get('resolver')} resolver: {s.get('processed', 0)} ads, "
+                    f"{s.get('resolved', 0)} resolved, {s.get('no_candidates', 0)} without candidates, "
+                    f"{s.get('no_usable_image', 0)} without a usable image, {s.get('error', 0)} errors. "
+                    f"{s.get('scored_ok', 0)} images scored, {s.get('scored_invalid', 0)} invalid. "
+                    f"{s.get('pending_after', '?')} ads still pending.")
+              if s.get("stopped_on"):
+                  print(f"\nStopped early: {s['stopped_on']}")
+          PY

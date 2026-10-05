@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.tmp
+*.tmp.npz
+.venv/
+# Pixels never live in the repo. The pipeline holds images in memory only; this is the backstop.
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.mp4

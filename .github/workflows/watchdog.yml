@@ -1,0 +1,62 @@
+name: watchdog
+# GitHub does not always fire scheduled runs (signal-sonic lost two weeks to a cron that
+# never ran). The repository's one-year retention makes a late collection harmless, but
+# only if it does eventually happen, so this asks the question every day.
+on:
+  schedule:
+    - cron: "50 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: adtone-watchdog   # never shares a group with the pipelines it restarts
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Restart collection or processing if either has stalled
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOKEN_PRESENT: ${{ secrets.META_AD_LIBRARY_TOKEN != '' }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from datetime import datetime, timezone
+
+          def age_days(ts):
+              if not ts:
+                  return None
+              return (datetime.now(timezone.utc) - datetime.fromisoformat(ts.replace("Z", "+00:00"))).days
+
+          def load(p):
+              return json.load(open(p)) if os.path.exists(p) else {}
+
+          c = load("data/state/collect.json")
+          if not c.get("last_success") and os.environ.get("TOKEN_PRESENT") == "true":
+              # The first backfill starts itself once the token exists: no one has to remember.
+              subprocess.run(["gh", "workflow", "run", "collect.yml", "-f", "mode=backfill"], check=True)
+              print("::notice::no collection yet and the token is set; dispatched the first backfill")
+          a = age_days(c.get("last_success"))
+          print(f"last successful collection: {c.get('last_success')} ({a} days ago)")
+          if a is not None and a >= 9:
+              subprocess.run(["gh", "workflow", "run", "collect.yml", "-f", "mode=incremental"], check=True)
+              print("::warning::weekly collection overdue; dispatched collect")
+
+          p = load("data/state/process.json")
+          b = age_days(p.get("last_finished"))
+          pending = p.get("pending_after") or 0
+          print(f"last processing run: {p.get('last_finished')} ({b} days ago), {pending} ads pending")
+          if pending and b is not None and b >= 2:
+              subprocess.run(["gh", "workflow", "run", "process.yml"], check=True)
+              print("::warning::backlog not draining; dispatched process")
+          PY

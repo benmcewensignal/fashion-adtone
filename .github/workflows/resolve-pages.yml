@@ -1,0 +1,49 @@
+name: resolve-pages
+# Run once, by hand, before the first backfill: lists the Facebook pages advertising under
+# each house's name so a person can confirm the right ones in registry/houses.yml.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-collect   # shares the collect group: both write the collect workflow's files
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 40
+    env:
+      PYTHONUNBUFFERED: "1"
+      META_AD_LIBRARY_TOKEN: ${{ secrets.META_AD_LIBRARY_TOKEN }}
+      GRAPH_API_VERSION: ${{ vars.GRAPH_API_VERSION || 'v26.0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Find candidate pages
+        timeout-minutes: 30
+        run: python -m adtone.collect resolve
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh collect "page candidates"
+      - name: Summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("data/registry/page_candidates.json")
+          if not p.exists():
+              print("No candidates file was written.")
+          else:
+              d = json.loads(p.read_text())
+              print("| house | page id | page name | ads |\n|---|---|---|---|")
+              for h, rows in d["houses"].items():
+                  for r in rows[:3]:
+                      print(f"| {h} | {r['page_id']} | {r['page_name']} | {r['n_ads']} |")
+          PY

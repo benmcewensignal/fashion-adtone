@@ -1,0 +1,28 @@
+name: tests
+on:
+  push:
+    paths: ["adtone/**", "tests/**", "rubric/**", "registry/**", "scripts/**", "requirements.txt", ".github/workflows/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true   # nothing is persisted here, so a superseded run is safe to cancel
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt pytest
+      - name: Test
+        timeout-minutes: 8
+        run: python -m pytest -q

@@ -1,0 +1,113 @@
+# Panel for fashion-adtone v1. Reasoning is in SELECTION.md.
+#
+# status DRAFT: event dates are verified (5 October 2026); page ids are not yet confirmed.
+# The first collect run picks each house's page automatically and records the picks in
+# data/registry/page_candidates.json. Freeze by copying the right ids in here and setting
+# status to FROZEN in a dated commit. After freezing, changes are a v2 panel, never edits.
+#
+# page_ids: the Facebook Page ids the house advertises from. Only fashion pages: a
+# beauty or fragrance page run by the house or a licensee does not belong here.
+# events: dates are the first show of the new creative director, checked on 5 October 2026
+# against published fashion week schedules and show reports (sources in SELECTION.md).
+
+version: 1
+status: DRAFT
+
+houses:
+  # Treated: a creative director debut between July 2025 and February 2026, so the
+  # one-year repository window can hold advertising from both sides.
+  - id: chanel
+    name: Chanel
+    group: treated
+    owner: Chanel
+    search_terms: ["CHANEL"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Matthieu Blazy, date: 2025-10-06, verified: true}
+  - id: dior
+    name: Dior
+    group: treated
+    owner: LVMH
+    search_terms: ["Dior"]
+    page_ids: []
+    events:
+      # Anderson showed Dior Men in June 2025; the womenswear debut is the house-level event.
+      - {kind: designer_debut, designer: Jonathan Anderson, date: 2025-10-01, verified: true}
+  - id: gucci
+    name: Gucci
+    group: treated
+    owner: Kering
+    search_terms: ["Gucci"]
+    page_ids: []
+    events:
+      # First presentation, on the opening day of Milan Fashion Week; first full runway show February 2026.
+      - {kind: designer_debut, designer: Demna, date: 2025-09-23, verified: true}
+  - id: balenciaga
+    name: Balenciaga
+    group: treated
+    owner: Kering
+    search_terms: ["Balenciaga"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Pierpaolo Piccioli, date: 2025-10-04, verified: true}
+  - id: loewe
+    name: Loewe
+    group: treated
+    owner: LVMH
+    search_terms: ["LOEWE"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Jack McCollough and Lazaro Hernandez, date: 2025-10-03, verified: true}
+  - id: bottega_veneta
+    name: Bottega Veneta
+    group: treated
+    owner: Kering
+    search_terms: ["Bottega Veneta"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Louise Trotter, date: 2025-09-28, verified: true}
+  - id: celine
+    name: Celine
+    group: treated
+    owner: LVMH
+    search_terms: ["CELINE"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Michael Rider, date: 2025-07-06, verified: true}
+  - id: fendi
+    name: Fendi
+    group: treated
+    owner: LVMH
+    search_terms: ["FENDI"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Maria Grazia Chiuri, date: 2026-02-25, verified: true}
+  - id: jil_sander
+    name: Jil Sander
+    group: treated
+    owner: OTB
+    search_terms: ["Jil Sander"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Simone Bellotti, date: 2025-09-24, verified: true}
+  - id: margiela
+    name: Maison Margiela
+    group: treated
+    owner: OTB
+    search_terms: ["Maison Margiela"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Glenn Martens, date: 2025-07-09, verified: true}
+
+  # Controls: stable creative leadership through the window, drawn from the same
+  # owners where possible, so a group-level change in media buying does not read as
+  # a designer effect. Any control with a leadership change inside the window must be
+  # moved to treated before freezing.
+  - {id: hermes, name: Hermès, group: control, owner: Hermès, search_terms: ["Hermès"], page_ids: [], events: []}
+  - {id: louis_vuitton, name: Louis Vuitton, group: control, owner: LVMH, search_terms: ["Louis Vuitton"], page_ids: [], events: []}
+  - {id: prada, name: Prada, group: control, owner: Prada Group, search_terms: ["Prada"], page_ids: [], events: []}
+  - {id: miu_miu, name: Miu Miu, group: control, owner: Prada Group, search_terms: ["Miu Miu"], page_ids: [], events: []}
+  - {id: saint_laurent, name: Saint Laurent, group: control, owner: Kering, search_terms: ["Saint Laurent"], page_ids: [], events: []}
+  - {id: burberry, name: Burberry, group: control, owner: Burberry, search_terms: ["Burberry"], page_ids: [], events: []}
+  - {id: valentino, name: Valentino, group: control, owner: Mayhoola and Kering, search_terms: ["Valentino"], page_ids: [], events: []}
+  - {id: loro_piana, name: Loro Piana, group: control, owner: LVMH, search_terms: ["Loro Piana"], page_ids: [], events: []}

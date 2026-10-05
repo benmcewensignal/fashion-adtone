@@ -1,0 +1,78 @@
+name: collect
+run-name: collect ${{ inputs.mode || 'incremental' }}
+on:
+  schedule:
+    - cron: "15 4 * * 1"   # weekly; the repository keeps ads a year, so a missed week is recovered next run
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "backfill pulls everything still retained (run this first); incremental overlaps the last run by 35 days"
+        type: choice
+        default: incremental
+        options: [incremental, backfill]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 150
+    env:
+      PYTHONUNBUFFERED: "1"
+      META_AD_LIBRARY_TOKEN: ${{ secrets.META_AD_LIBRARY_TOKEN }}
+      META_APP_ID: ${{ secrets.META_APP_ID }}
+      META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+      GRAPH_API_VERSION: ${{ vars.GRAPH_API_VERSION || 'v26.0' }}
+      MODE: ${{ inputs.mode || 'incremental' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+
+      # A failed collection still keeps what arrived before the failure (adtone.collect saves
+      # it and does not advance the window), so the probe and persist steps run regardless
+      # and the job is failed at the end.
+      - name: Collect
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 120
+        run: python -m adtone.collect run --mode "$MODE"
+
+      - name: Completeness probe
+        timeout-minutes: 5
+        run: python -m adtone.probe collect --run "gh${GITHUB_RUN_ID}" --mode "$MODE"
+
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh collect "collect $MODE"
+
+      - name: Fail if collection failed
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "::error::collection failed; partial results were kept and the next run repeats the window"
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("data/provenance/collect.jsonl")
+          if p.exists() and p.read_text().strip():
+              s = json.loads(p.read_text().strip().splitlines()[-1])
+              print(f"**{s.get('mode')}** since {s.get('since')}: {s.get('new', 0)} new, {s.get('updated', 0)} updated, "
+                    f"{s.get('total_ads', 0)} ads on file, {s.get('api_calls', 0)} API calls"
+                    + (" (partial)" if s.get("partial") else ""))
+              for h, n in (s.get("per_house") or {}).items():
+                  print(f"- {h}: {n}")
+              for note in s.get("notes") or []:
+                  print(f"- note: {note}")
+          PY
