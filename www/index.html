@@ -20,7 +20,7 @@
     --graphite: #6b6b6b;
     --frame: #ececec;
     --gutter: clamp(1.25rem, 4vw, 3rem);
-    --gap: clamp(4.5rem, 11vw, 9rem);
+    --gap: clamp(3rem, 8vw, 6.5rem);
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -43,7 +43,7 @@
   }
   .page { max-width: 84rem; margin: 0 auto; padding: 0 var(--gutter); }
   a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
-  a:hover { text-decoration-thickness: 2px; }
+  @media (hover: hover) { a:hover { text-decoration-thickness: 2px; } }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; text-decoration: none; }
   p { margin: 0 0 1em; }
   p:last-child { margin-bottom: 0; }
@@ -70,7 +70,7 @@
 
   /* The empty plate and its questions */
   .plate {
-    margin: clamp(3rem, 8vw, 6rem) 0 0;
+    margin: clamp(2.25rem, 6vw, 5rem) 0 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "frame" "fields" "caption";
@@ -133,8 +133,11 @@
       left: -0.9rem;
       top: 50%;
       width: 3rem;
-      border-top: 1px solid var(--ink);
+      border-top: 1px solid var(--graphite);
+      opacity: .45;
+      transition: opacity .2s;
     }
+    .fields li:has(button[aria-pressed="true"])::before { opacity: 1; border-top-color: var(--ink); }
   }
 
   /* Sections */
@@ -156,35 +159,27 @@
   .sub { margin: 0 0 0.6rem; font-weight: 560; }
   .note { color: var(--graphite); font-size: 0.9375rem; }
 
-  .debuts { list-style: none; margin: 0 0 2.5rem; padding: 0; }
+  .debuts { list-style: none; margin: 0 0 1.75rem; padding: 0; }
   .debuts li {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 1rem;
-    padding: 0.55rem 0;
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+    column-gap: 0.6rem;
+    padding: 0.3rem 0;
+    font-size: 0.875rem;
   }
   .debuts .house { font-weight: 560; }
-  .debuts .designer { grid-column: 1; }
-  .debuts time {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: start;
-    color: var(--graphite);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
+  .debuts time { color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
   @media (min-width: 40rem) {
-    .debuts li { grid-template-columns: 11rem minmax(0, 1fr) auto; }
-    .debuts .designer { grid-column: 2; }
-    .debuts time { grid-column: 3; grid-row: 1; }
+    .debuts li { grid-template-columns: 11rem minmax(0, 1fr) auto; column-gap: 1rem; font-size: 1.0625rem; }
   }
 
   .tests { margin: 1.5rem 0 0; padding: 0.1rem 0 0.1rem 1.4rem; list-style: none; border-left: 1px solid var(--ink); }
   .tests li { margin: 0 0 0.85rem; }
   .tests li:last-child { margin-bottom: 0; }
+  .after-tests { margin-top: 1.25rem; }
 
   .timeline { list-style: none; margin: 0 0 2rem; padding: 0; }
-  .timeline li { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 0 1.25rem; }
+  .timeline li { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 0 0.9rem; }
   .timeline time { color: var(--graphite); font-variant-numeric: tabular-nums; }
   @media (min-width: 40rem) {
     .timeline li { grid-template-columns: 10.5rem minmax(0, 1fr); column-gap: 1rem; }
@@ -195,8 +190,8 @@
 
   /* The frame, read */
   .frame { position: relative; }
-  .reading { position: absolute; inset: clamp(1rem, 4%, 1.6rem); display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
-  .reading .q { font-size: 0.8125rem; color: var(--graphite); }
+  .reading { position: absolute; inset: clamp(1rem, 4%, 1.6rem); display: flex; flex-direction: column; justify-content: flex-end; pointer-events: none; }
+  .reading .q { font-size: 0.8125rem; color: var(--graphite); margin: 0 0 0.6rem; }
   .reading ul { list-style: none; margin: 0; padding: 0; font-size: clamp(1.05rem, 2.2vw, 1.55rem); line-height: 1.28; font-weight: 300; }
   .reading.long ul { font-size: clamp(0.95rem, 1.7vw, 1.2rem); line-height: 1.3; }
   .reading li { animation: appear .35s ease-out both; animation-delay: calc(var(--j) * 35ms); }
@@ -204,17 +199,27 @@
     all: unset; cursor: pointer; display: inline; font: inherit; color: inherit; line-height: inherit;
     border-radius: 2px;
   }
-  .fields button:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-  .fields button[aria-pressed="true"] { font-weight: 600; }
+  @media (hover: hover) { .fields button:hover { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; } }
+  .fields button { color: var(--graphite); transition: color .2s; }
+  .fields button[aria-pressed="true"] { font-weight: 600; color: var(--ink); }
   .fields button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
   /* Designer moves */
-  .moves { display: grid; gap: 2.25rem; margin: 0 0 2rem; }
+  .moves { display: grid; gap: 1.5rem; margin: 0 0 1.5rem; }
   .move p { margin: 0; }
   .move .who { font-weight: 560; margin-bottom: 0.35rem; }
   .move .path { display: flex; align-items: center; gap: 0.75rem; }
   .move .path .line { flex: 1; border-top: 1px solid var(--ink); min-width: 2rem; }
-  .move .crew { list-style: none; margin: 0.6rem 0 0; padding: 0; color: var(--graphite); }
+  .move .crew { margin: 0.35rem 0 0; color: var(--graphite); }
+
+  /* The ten photographers, folded */
+  details.links { margin: 0 0 1.25rem; }
+  details.links summary { cursor: pointer; list-style: none; font-weight: 560; display: flex; justify-content: space-between; gap: 1rem; }
+  details.links summary::-webkit-details-marker { display: none; }
+  details.links summary::after { content: "+"; font-weight: 300; }
+  details.links[open] summary::after { content: "\2212"; }
+  details.links summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  details.links .cross { margin-top: 0.75rem; }
 
   /* Photographers who link houses */
   .cross { margin: 0 0 1.5rem; }
@@ -236,7 +241,7 @@
     <h1 class="mark">Adtone</h1>
     <p class="question">Does a new creative director change how a house advertises?</p>
     <figure class="plate">
-      <div class="mount"><div class="frame" role="img" aria-label="An empty campaign frame"><div class="reading" aria-live="polite"></div></div></div>
+      <div class="mount"><div class="frame" role="img" aria-label="An empty campaign frame"><div class="reading" aria-live="off"></div></div></div>
       <ul class="fields" aria-label="The eighteen questions asked of every image">
         <li style="--i:0"><button type="button" data-k="creative_type" aria-pressed="false">Creative type</button></li>
         <li style="--i:1"><button type="button" data-k="category" aria-pressed="false">Category</button></li>
@@ -257,7 +262,7 @@
         <li style="--i:16"><button type="button" data-k="street_couture_axis" aria-pressed="false">Street to couture</button></li>
         <li style="--i:17"><button type="button" data-k="confidence" aria-pressed="false">Confidence</button></li>
       </ul>
-      <figcaption>No picture is kept. Every image is read against these eighteen questions, reduced to its answers and a numerical fingerprint, and discarded. Choose a question to see the answers it allows.</figcaption>
+      <figcaption>No picture is kept. Every image is reduced to its answers to these eighteen questions and a numerical fingerprint. Tap a question to hold it in the frame.</figcaption>
     </figure>
   </header>
 
@@ -265,8 +270,7 @@
     <section class="row" aria-labelledby="question">
       <h2 id="question">The question</h2>
       <div class="body">
-        <p>Between July 2025 and February 2026, ten houses showed a new creative director's first collection. Adtone asks whether their advertising changed more than that of eight houses whose leadership held.</p>
-        <p>Under the Digital Services Act, Meta keeps every ad shown in the European Union for a year after it last ran, and British ads are kept as well. That record is the material.</p>
+        <p>Between July 2025 and February 2026, ten houses showed a new creative director's first collection. Adtone asks whether their advertising changed more than that of eight houses whose leadership held, using the ads Meta keeps for a year under the Digital Services Act.</p>
       </div>
     </section>
 
@@ -275,16 +279,16 @@
       <div class="body">
         <p class="sub">New creative director</p>
         <ol class="debuts">
-          <li><span class="house">Celine</span><span class="designer">Michael Rider</span><time datetime="2025-07-06">6 July 2025</time></li>
-          <li><span class="house">Maison Margiela</span><span class="designer">Glenn Martens</span><time datetime="2025-07-09">9 July 2025</time></li>
-          <li><span class="house">Gucci</span><span class="designer">Demna</span><time datetime="2025-09-23">23 September 2025</time></li>
-          <li><span class="house">Jil Sander</span><span class="designer">Simone Bellotti</span><time datetime="2025-09-24">24 September 2025</time></li>
-          <li><span class="house">Bottega Veneta</span><span class="designer">Louise Trotter</span><time datetime="2025-09-28">28 September 2025</time></li>
-          <li><span class="house">Dior</span><span class="designer">Jonathan Anderson</span><time datetime="2025-10-01">1 October 2025</time></li>
-          <li><span class="house">Loewe</span><span class="designer">Jack McCollough and Lazaro Hernandez</span><time datetime="2025-10-03">3 October 2025</time></li>
-          <li><span class="house">Balenciaga</span><span class="designer">Pierpaolo Piccioli</span><time datetime="2025-10-04">4 October 2025</time></li>
-          <li><span class="house">Chanel</span><span class="designer">Matthieu Blazy</span><time datetime="2025-10-06">6 October 2025</time></li>
-          <li><span class="house">Fendi</span><span class="designer">Maria Grazia Chiuri</span><time datetime="2026-02-25">25 February 2026</time></li>
+          <li><span class="house">Celine</span><span class="designer">Michael Rider</span><time datetime="2025-07-06">6 Jul 2025</time></li>
+          <li><span class="house">Maison Margiela</span><span class="designer">Glenn Martens</span><time datetime="2025-07-09">9 Jul 2025</time></li>
+          <li><span class="house">Gucci</span><span class="designer">Demna</span><time datetime="2025-09-23">23 Sep 2025</time></li>
+          <li><span class="house">Jil Sander</span><span class="designer">Simone Bellotti</span><time datetime="2025-09-24">24 Sep 2025</time></li>
+          <li><span class="house">Bottega Veneta</span><span class="designer">Louise Trotter</span><time datetime="2025-09-28">28 Sep 2025</time></li>
+          <li><span class="house">Dior</span><span class="designer">Jonathan Anderson</span><time datetime="2025-10-01">1 Oct 2025</time></li>
+          <li><span class="house">Loewe</span><span class="designer">Jack McCollough, Lazaro Hernandez</span><time datetime="2025-10-03">3 Oct 2025</time></li>
+          <li><span class="house">Balenciaga</span><span class="designer">Pierpaolo Piccioli</span><time datetime="2025-10-04">4 Oct 2025</time></li>
+          <li><span class="house">Chanel</span><span class="designer">Matthieu Blazy</span><time datetime="2025-10-06">6 Oct 2025</time></li>
+          <li><span class="house">Fendi</span><span class="designer">Maria Grazia Chiuri</span><time datetime="2026-02-25">25 Feb 2026</time></li>
         </ol>
         <p class="sub">Leadership held</p>
         <p>Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent and Valentino.</p>
@@ -295,82 +299,68 @@
     <section class="row" aria-labelledby="method">
       <h2 id="method">How it measures</h2>
       <div class="body">
-        <p>Each image is scored against a rubric frozen by its hash and placed by a fixed model. Each house is measured against the controls month by month, so a movement of the whole market does not read as a movement of one house.</p>
-        <p>Three tests were written and frozen on 5 October 2026, before a single ad was collected.</p>
+        <p>Each house is measured against the controls month by month, so a movement of the whole market doesn't read as a movement of one house. Three tests were frozen on 5 October 2026, before a single ad was collected.</p>
         <ul class="tests">
           <li>Did the ten move further after their debuts than the controls moved at placebo dates?</li>
           <li>Did Gucci's advertising move towards Balenciaga's, following Demna from one house to the other?</li>
           <li>Does a scan that is not told the dates find the breaks in the ten, and stay quiet on the controls?</li>
         </ul>
+        <p class="after-tests">It reads paid advertising on Meta's platforms in Europe and Britain, not print, posters or the clothes themselves. It can show that a house's advertising changed, not that the change worked.</p>
       </div>
     </section>
 
     <section class="row" aria-labelledby="prediction">
       <h2 id="prediction">A prediction, made in advance</h2>
       <div class="body">
-        <p>When it was frozen on 5 October 2026, Anthony Vaccarello's departure from Saint Laurent had been reported but not confirmed, and no successor had been named.</p>
-        <p>After the successor's first show, Saint Laurent's advertising should shift more than nine in ten control placebos, with the break inside 120 days, and towards the successor's former house if that house is collected. It is judged once, 270 days after the show, and void if there is no show by the end of 2027.</p>
+        <p>Frozen before Saint Laurent named a successor to Anthony Vaccarello: after the successor's first show, its advertising should shift more than nine in ten control placebos, break within 120 days, and move towards the successor's former house if that house is collected. Judged once, 270 days after the show.</p>
       </div>
     </section>
 
     <section class="row" aria-labelledby="team">
-      <h2 id="team">What moves with a designer</h2>
+      <h2 id="team">Who makes the pictures</h2>
       <div class="body">
-        <p>The campaign credits show image-makers moving with designers.</p>
+        <p>The campaign credits show designers bringing their image-makers with them.</p>
         <div class="moves">
           <div class="move">
             <p class="who">Matthieu Blazy</p>
             <p class="path"><span>Bottega Veneta</span><span class="line" aria-hidden="true"></span><span>Chanel</span></p>
-            <ul class="crew"><li>Alec Soth, photographer</li><li>Louise and Maria Thornfeldt, photographers</li><li>Rahim Fortune, films</li></ul>
+            <p class="crew">Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
           </div>
           <div class="move">
             <p class="who">Jonathan Anderson</p>
             <p class="path"><span>Loewe</span><span class="line" aria-hidden="true"></span><span>Dior</span></p>
-            <ul class="crew"><li>David Sims, photographer</li><li>Benjamin Bruno, stylist</li><li>Benoît Delhomme, cinematographer</li><li>Poppy Bartlett, set designer</li></ul>
+            <p class="crew">David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
           </div>
           <div class="move">
             <p class="who">Demna</p>
             <p class="path"><span>Balenciaga</span><span class="line" aria-hidden="true"></span><span>Gucci</span></p>
-            <ul class="crew"><li>Demna himself, credited as photographer at both</li></ul>
+            <p class="crew">Demna himself, credited as photographer at both.</p>
           </div>
         </div>
-        <p>Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. So a change in a house's advertising is read as a change of team, not of designer alone.</p>
-      </div>
-    </section>
-
-    <section class="row" aria-labelledby="links">
-      <h2 id="links">Who shoots for whom</h2>
-      <div class="body">
-        <p>Most houses change photographer from one campaign to the next, with or without a new designer. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
-        <dl class="cross">
-          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-        </dl>
-        <p class="note">Between them they join sixteen of the eighteen houses on file. Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+        <p>Chiuri's move from Dior to Fendi carried nobody on file. A change in a house's advertising is read as a change of team, not of designer alone, and photographers who work for several houses let the two be told apart.</p>
+        <details class="links">
+          <summary>Ten photographers link sixteen of the eighteen houses</summary>
+          <dl class="cross">
+            <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+            <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+            <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+            <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+            <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+            <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+            <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+            <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+            <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+            <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+          </dl>
+          <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+        </details>
       </div>
     </section>
 
     <section class="row" aria-labelledby="attention">
       <h2 id="attention">Change and attention</h2>
       <div class="body">
-        <p>The obvious measure of brand heat, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior that quarter, so its rankings either side of the debuts do not compare.</p>
-        <p>Attention is measured instead from Wikipedia page views, counted the same way throughout, and set against each house's shift. It describes whether bigger shifts drew more attention. It cannot say whether they sold more.</p>
-      </div>
-    </section>
-
-    <section class="row" aria-labelledby="limits">
-      <h2 id="limits">What it cannot say</h2>
-      <div class="body">
-        <p>It reads paid advertising on Meta's platforms in Europe and Britain. Not print, posters, runways or the clothes themselves.</p>
-        <p>It can show that a house's advertising changed. It cannot show that the change worked.</p>
+        <p>The obvious heat measure, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior, so its rankings either side of the debuts don't compare. Wikipedia page views, counted the same way throughout, stand in as attention: whether bigger shifts drew more of it, not whether they sold more.</p>
       </div>
     </section>
 
@@ -378,9 +368,9 @@
       <h2 id="status">Where it stands</h2>
       <div class="body">
         <ol class="timeline">
-          <li><time datetime="2026-10-05">5 October 2026</time><span>The tests and the Saint Laurent prediction are frozen. No data exists yet.</span></li>
-          <li><time datetime="2026-10-06">6 October 2026</time><span>Crew credits are compiled for eighteen houses from public pages. A second amendment, adding three descriptive analyses, is drafted and not yet frozen.</span></li>
-          <li><time>Next</time><span>Collection begins when access to Meta's ad record is granted. Results on the 2025 debuts check the instrument; predictions count only after a first silent season.</span></li>
+          <li><time datetime="2026-10-05">5 Oct 2026</time><span>Tests and the Saint Laurent prediction frozen, before any data.</span></li>
+          <li><time datetime="2026-10-06">6 Oct 2026</time><span>Credits compiled for eighteen houses. A second amendment drafted, not yet frozen.</span></li>
+          <li><time>Next</time><span>Collection starts when Meta grants access. Results on the 2025 debuts check the instrument; predictions count only after a silent first season.</span></li>
         </ol>
         <p>The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
       </div>
@@ -421,6 +411,7 @@
   }
   const reading = document.querySelector(".reading");
   const buttons = [...document.querySelectorAll(".fields button")];
+  let timer = null, held = false, i = 2;
   function clear() {
     reading.innerHTML = "";
     reading.classList.remove("long");
@@ -437,10 +428,20 @@
     opts.forEach((o, j) => { const li = document.createElement("li"); li.textContent = o; li.style.setProperty("--j", j); ul.appendChild(li); });
     reading.classList.toggle("long", opts.length > 8);
     reading.append(q, ul);
-    reveal();
   }
-  buttons.forEach(b => b.addEventListener("click", () => b.getAttribute("aria-pressed") === "true" ? clear() : show(b)));
-  document.addEventListener("keydown", e => { if (e.key === "Escape") clear(); });
+  function step() { show(buttons[i % buttons.length]); i += 1; }
+  function play() { if (held || still.matches || timer) return; step(); timer = setInterval(step, 2600); }
+  function pause() { clearInterval(timer); timer = null; }
+  buttons.forEach(b => b.addEventListener("click", () => {
+    held = true; pause();
+    reading.setAttribute("aria-live", "polite");
+    show(b); reveal();
+  }));
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && held) { clear(); } });
+  if (still.matches) { show(buttons[15]); }
+  else {
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? setTimeout(play, 900) : pause()), { threshold: 0.35 }).observe(mount);
+  }
 })();
 </script>
 </body>
