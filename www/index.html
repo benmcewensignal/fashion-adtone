@@ -9,7 +9,7 @@
 <meta property="og:description" content="Focal measures the character of fashion brands.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23d7261e' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%236050dc' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
@@ -18,14 +18,14 @@
     --paper: #ffffff;
     --ink: #000000;
     --graphite: #6b6b6b;
-    --accent: #d7261e;      /* the one colour: used for the current tab's dot and the favicon, nowhere else */
+    --accent: #6050dc;      /* the one colour, bleu Majorelle: the O in Focal, the current tab's dot and the favicon, nowhere else */
     --gutter: clamp(1.25rem, 4vw, 3rem);
     --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
     --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; --accent: #ff5547; }
+    :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; --accent: #8a7dff; }
   }
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
@@ -50,49 +50,69 @@
   p { margin: 0 0 1em; }
   p:last-child { margin-bottom: 0; }
 
-  /* Masthead and tabs, on one axis */
-  header { text-align: center; }
-  .mark {
-    margin: clamp(1.75rem, 5vw, 3.5rem) 0 0;
+  /* The spine: Focal stood on end, reading upwards */
+  .spine, .mark, .word {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     font-variation-settings: "wdth" 125;
     font-weight: 200;
-    font-size: min(calc((100vw - 2 * var(--gutter)) / 4.59), calc((84rem - 2 * var(--gutter)) / 4.59));
-    line-height: 0.86;
+    line-height: 0.72;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     white-space: nowrap;
-    text-indent: 0.04em;
   }
-  .mark a { text-decoration: none; }
-  nav { margin: clamp(1.5rem, 3.5vw, 2.5rem) 0 0; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0.25rem clamp(0.7rem, 3.1vw, 2.25rem); }
-  nav a { text-decoration: none; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; padding: 0.4rem 0; display: inline-block; }
-  nav a[aria-current="page"] { color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; letter-spacing: 0; }
-  nav a { position: relative; }
-  nav a[aria-current="page"]::after { content: ""; position: absolute; left: 50%; bottom: -0.2rem; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
-  .accent { color: var(--accent); }
-  @media (hover: hover) { nav a:hover { color: var(--ink); } }
+  .o { color: var(--accent); }
 
-  main { margin: clamp(3.5rem, 10vw, 7.5rem) 0 0; }
-  section { max-width: 36rem; margin: 0 auto; }
-  section > h2 {
-    margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
-    text-align: center;
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(1.75rem, 4.2vw, 2.75rem);
-    line-height: 1.1;
-    text-wrap: balance;
+  /* The menu, a vertical list */
+  .sections { list-style: none; margin: 0; padding: 0; }
+  .sections a { position: relative; display: block; padding: 0.8125rem 0; font-size: 0.8125rem; line-height: 1.125rem; letter-spacing: 0.06em; color: var(--graphite); text-decoration: none; }
+  .sections a[aria-current="page"] { padding: 0.75rem 0; color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.25rem; letter-spacing: 0; }
+  .sections a[aria-current="page"]::before { content: ""; position: absolute; left: -0.75rem; top: 50%; width: 4px; height: 4px; margin-top: -2px; border-radius: 50%; background: var(--accent); }
+  @media (hover: hover) { .sections a:hover { color: var(--ink); } }
+
+  /* Landing: the spine fills the visible height */
+  .landing {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(1.5rem, 5vw, 5rem);
+    min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    padding: 1.25rem 0 2rem;
   }
+  .spine {
+    grid-column: 1; grid-row: 1 / span 2; align-self: end;
+    margin: 0;
+    font-size: min(calc((100vh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+    font-size: min(calc((100svh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+  }
+  .landing nav { grid-column: 2; grid-row: 1; }
+  .statement { grid-column: 2; grid-row: 2; align-self: end; max-width: 17em; margin: 2rem 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 1rem + 2.4vw, 3.5rem); line-height: 1.15; }
+  @media (min-width: 48rem) { .landing nav { justify-self: end; text-align: right; } }
+
+  /* Page heroes: the page's name stood on end beside the menu and the heading */
+  .hero {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(1.5rem, 5vw, 5rem);
+    padding: 1.25rem 0 0;
+    margin: 0 0 clamp(3rem, 9vw, 6rem);
+  }
+  .mark { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; margin: 0 0 0 -0.875rem; padding: 0.25rem 0.875rem; font-size: 1.0625rem; color: var(--ink); text-decoration: none; }
+  .word { grid-column: 1; grid-row: 1 / span 2; align-self: end; margin: 6.5rem 0 0; font-size: clamp(5.25rem, 7.5vw, 7rem); }
+  .hero nav { grid-column: 2; grid-row: 1; }
+  .hero .intro { grid-column: 2; grid-row: 2; align-self: end; padding-top: 2rem; }
+  .hero h2 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 4.4vw, 3.25rem); line-height: 1.06; text-wrap: balance; }
+  .hero .intro p { margin: 0.85rem 0 0; max-width: 30rem; font-size: 0.9375rem; text-wrap: pretty; }
+
+  main { margin: 0; }
+  .body { max-width: 36rem; margin: 0 auto; }
   .note { color: var(--graphite); font-size: 0.875rem; }
   .block { margin: 0 0 2.75rem; }
   .sub { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; line-height: 1.2; text-align: center; }
 
-  /* Overview: an invitation */
-  #overview { max-width: 54rem; text-align: center; }
-  .lede { max-width: 28rem; margin: clamp(2.25rem, 5vw, 3.25rem) auto 0; color: var(--ink); font-size: 0.9375rem; text-wrap: pretty; }
-  section.wide { max-width: 60rem; }
+  .body.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
   .triad h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.75rem; line-height: 1.1; }
@@ -156,202 +176,307 @@
 </head>
 <body>
 <div class="page">
-  <header>
-    <h1 class="mark"><a href="#/overview">Focal</a></h1>
-    <nav aria-label="Sections">
-      <ul>
-        <li><a href="#/readings">Readings</a></li>
-        <li><a href="#/people">People</a></li>
-        <li><a href="#/brands">Brands</a></li>
-        <li><a href="#/sources">Sources</a></li>
-        <li><a href="#/offer">Offer</a></li>
-        <li><a href="#/status">Status</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <main>
-    <section id="overview" data-panel aria-label="Overview">
-      <p class="lede">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
-    </section>
-
-    <section id="readings" data-panel aria-labelledby="readings-h" class="wide">
-      <h2 id="readings-h">What it shows</h2>
-      <p class="block" style="text-align:center">Four readings for every brand, every month.</p>
-      <div class="triad duo">
-        <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood, and the cast of people who make it.</p></div>
-        <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image has moved from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
-        <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>The attention, desire and revenue that follow, beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
-        <div><h3>Alignment</h3><p class="q">Does the image say what the brand says?</p><p>Its advertising set against its show notes and campaign statements, question by question, beside the same check for its peers.</p></div>
-      </div>
-      <div class="narrow">
-        <p>Each image is read against eighteen fixed questions and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
-        <p class="note">Current advertising comes from Meta's platforms in Europe and Britain, past campaigns from public archives. Contribution firms up as the record grows: each month adds attention, each quarter adds desire and revenue.</p>
-        <details>
-          <summary>The eighteen questions</summary>
-          <dl class="pairs">
-            <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
-            <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
-            <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
-            <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
-            <div><dt>People</dt><dd>none, one, two, group</dd></div>
-            <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
-            <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
-            <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
-            <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
-            <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
-            <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
-            <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
-            <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
-            <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
-            <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
-            <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
-            <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
-            <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
-          </dl>
-        </details>
+    <section id="overview" data-panel aria-label="Focal">
+      <div class="landing">
+      <h1 class="spine" aria-label="Focal">F<span class="o">O</span>CAL</h1>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <p class="statement">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
       </div>
     </section>
-
-    <section id="people" data-panel aria-labelledby="people-h" class="wide">
-      <h2 id="people-h">Who makes the image</h2>
-      <div class="narrow">
-        <p class="block" style="text-align:center">A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal reads the cast as part of the brand's character.</p>
+    <section id="readings" data-panel aria-labelledby="readings-h">
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">Readings</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="readings-h">What it shows</h2>
+        <p>Four readings for every brand, every month.</p>
       </div>
-      <div class="triad duo">
-        <div><h3>Continuity</h3><p>How long a brand keeps the same image-makers.</p></div>
-        <div><h3>Concentration</h3><p>How much of its image comes from one or two hands.</p></div>
-        <div><h3>Overlap</h3><p>How many of its image-makers also work for its peers, which pulls looks together.</p></div>
-        <div><h3>Movement</h3><p>Who arrives and leaves with a designer, and what changes with them.</p></div>
-      </div>
-      <div class="narrow">
-        <p class="sub" style="margin-top:3rem">Shared hands</p>
-        <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for seven of the twenty-eight.</p>
-        <details>
-          <summary>Ten photographers, sixteen brands</summary>
-          <dl class="pairs">
-            <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-            <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-            <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-            <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-            <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-            <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-            <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-            <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-            <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-            <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-          </dl>
-          <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
-        </details>
-        <p class="sub" style="margin-top:2.75rem">When people move</p>
-        <div class="people">
-          <div class="person">
-            <p class="n">Matthieu Blazy</p>
-            <p class="w">Bottega Veneta, then Chanel</p>
-            <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
-          </div>
-          <div class="person">
-            <p class="n">Jonathan Anderson</p>
-            <p class="w">Loewe, then Dior</p>
-            <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
-          </div>
-          <div class="person">
-            <p class="n">Demna</p>
-            <p class="w">Balenciaga, then Gucci</p>
-            <p class="c">Credited as photographer himself, at both.</p>
-          </div>
+      </header>
+      <div class="body wide">
+        <div class="triad duo">
+          <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood, and the cast of people who make it.</p></div>
+          <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image has moved from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
+          <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>The attention, desire and revenue that follow, beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
+          <div><h3>Alignment</h3><p class="q">Does the image say what the brand says?</p><p>Its advertising set against its show notes and campaign statements, question by question, beside the same check for its peers.</p></div>
         </div>
-        <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file.</p>
+        <div class="narrow">
+          <p>Each image is read against eighteen fixed questions and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
+          <p class="note">Current advertising comes from Meta's platforms in Europe and Britain, past campaigns from public archives. Contribution firms up as the record grows: each month adds attention, each quarter adds desire and revenue.</p>
+          <details>
+            <summary>The eighteen questions</summary>
+            <dl class="pairs">
+              <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
+              <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
+              <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
+              <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
+              <div><dt>People</dt><dd>none, one, two, group</dd></div>
+              <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
+              <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
+              <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
+              <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
+              <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
+              <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
+              <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
+              <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
+              <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
+              <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
+              <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
+              <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
+              <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
+            </dl>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="people" data-panel aria-labelledby="people-h">
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">People</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="people-h">Who makes the image</h2>
+        <p>A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal reads the cast as part of the brand's character.</p>
+      </div>
+      </header>
+      <div class="body wide">
+        <div class="triad duo">
+          <div><h3>Continuity</h3><p>How long a brand keeps the same image-makers.</p></div>
+          <div><h3>Concentration</h3><p>How much of its image comes from one or two hands.</p></div>
+          <div><h3>Overlap</h3><p>How many of its image-makers also work for its peers, which pulls looks together.</p></div>
+          <div><h3>Movement</h3><p>Who arrives and leaves with a designer, and what changes with them.</p></div>
+        </div>
+        <div class="narrow">
+          <p class="sub" style="margin-top:3rem">Shared hands</p>
+          <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for seven of the twenty-eight.</p>
+          <details>
+            <summary>Ten photographers, sixteen brands</summary>
+            <dl class="pairs">
+              <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+              <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+              <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+              <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+              <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+              <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+              <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+              <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+              <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+              <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+            </dl>
+            <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+          </details>
+          <p class="sub" style="margin-top:2.75rem">When people move</p>
+          <div class="people">
+            <div class="person">
+              <p class="n">Matthieu Blazy</p>
+              <p class="w">Bottega Veneta, then Chanel</p>
+              <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
+            </div>
+            <div class="person">
+              <p class="n">Jonathan Anderson</p>
+              <p class="w">Loewe, then Dior</p>
+              <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
+            </div>
+            <div class="person">
+              <p class="n">Demna</p>
+              <p class="w">Balenciaga, then Gucci</p>
+              <p class="c">Credited as photographer himself, at both.</p>
+            </div>
+          </div>
+          <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file.</p>
+        </div>
       </div>
     </section>
 
     <section id="brands" data-panel aria-labelledby="brands-h">
-      <h2 id="brands-h">Twenty-eight brands</h2>
-      <p class="block" style="text-align:center">Each is read every month, against the other twenty-seven. Here they are by owner.</p>
-      <ul class="groups">
-        <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro Piana, Louis Vuitton</span></li>
-        <li><span class="o">Kering</span><span class="b">Balenciaga, Bottega Veneta, Gucci, Saint Laurent</span></li>
-        <li><span class="o">Prada Group</span><span class="b">Miu Miu, Prada, Versace</span></li>
-        <li><span class="o">OTB</span><span class="b">Jil Sander, Maison Margiela</span></li>
-        <li><span class="o">Richemont</span><span class="b">Alaïa, Chloé</span></li>
-        <li><span class="o">Zegna Group</span><span class="b">Tom Ford, Zegna</span></li>
-        <li><span class="o">Mayhoola and Kering</span><span class="b">Valentino</span></li>
-        <li><span class="o">Puig</span><span class="b">Dries Van Noten</span></li>
-        <li><span class="o">Independent</span><span class="b">Brunello Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max Mara</span></li>
-      </ul>
-      <p class="note" style="text-align:center">Zegna runs Tom Ford's fashion under licence from Estée Lauder.</p>
-      <details style="margin-top:2.5rem">
-        <summary>Fourteen with new creative directors since 2025</summary>
-        <ol class="order">
-          <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">July 2025</time></li>
-          <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">July 2025</time></li>
-          <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">September 2025</time></li>
-          <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">September 2025</time></li>
-          <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">September 2025</time></li>
-          <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">October 2025</time></li>
-          <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">October 2025</time></li>
-          <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">October 2025</time></li>
-          <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">October 2025</time></li>
-          <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">February 2026</time></li>
-        </ol>
-        <p class="note" style="text-align:center">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale, then Pieter Mulier's first collection.</p>
-      </details>
-    </section>
-
-    <section id="sources" data-panel aria-labelledby="sources-h" class="wide">
-      <h2 id="sources-h">What it reads</h2>
-      <p class="sub">For character</p>
-      <ul class="src" style="margin-bottom:3.25rem">
-        <li><span class="h">Advertising</span><span class="d">Every ad a brand runs on Meta's platforms in Europe and Britain, read image by image.</span><span class="s">As it runs</span></li>
-        <li><span class="h">Campaign archive</span><span class="d">Past campaigns from public archives, so today's image can be set against the brand's history.</span><span class="s">Back through each brand's history</span></li>
-        <li><span class="h">Shows</span><span class="d">Every show, dated and sourced, with what the brand said about it.</span><span class="s">Each season</span></li>
-        <li><span class="h">Credits</span><span class="d">Who photographed, styled and filmed each campaign.</span><span class="s">Each campaign</span></li>
-      </ul>
-      <p class="sub">For success</p>
-      <ul class="src">
-        <li><span class="h">Attention</span><span class="d">Wikipedia page views for every brand.</span><span class="s">Daily, from July 2015</span></li>
-        <li><span class="h">Press</span><span class="d">News coverage of every brand, and its tone.</span><span class="s">Daily, from 2017</span></li>
-        <li><span class="h">Desire</span><span class="d">The Lyst Index, under the method it adopted in 2026.</span><span class="s">Quarterly, from 2026</span></li>
-        <li><span class="h">Revenue</span><span class="d">Wherever a brand's revenue is reported on its own.</span><span class="s">Quarterly or yearly</span></li>
-      </ul>
-    </section>
-
-    <section id="offer" data-panel aria-labelledby="offer-h" class="wide">
-      <h2 id="offer-h">What we offer</h2>
-      <div class="triad duo">
-        <div>
-          <h3>Brand reading</h3>
-          <p class="q">How is each brand doing?</p>
-          <p>The four readings for every brand: its character and the cast behind it, how it shifted, what it added to attention, desire and revenue, and where it parts from what the brand says. Each comes with its uncertainty.</p>
-          <span class="when">Monthly</span>
-        </div>
-        <div>
-          <h3>Alignment check</h3>
-          <p class="q">Does the advertising say what the brand says?</p>
-          <p>Show notes and campaign statements read into the same eighteen questions as the ads, reported question by question, beside the same check for the brand's peers.</p>
-          <span class="when">Per brand, per season</span>
-        </div>
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">Brands</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="brands-h">Twenty‑eight brands</h2>
+        <p>Each is read every month, against the other twenty-seven. Here they are by owner.</p>
       </div>
-      <div class="narrow">
-        <div class="for"><p class="sub">For brands</p><p>How the brand's character reads today, which way it is moving, and what it adds to attention and demand, beside its peers.</p></div>
-        <div class="for"><p class="sub">For investors</p><p>Whether a brand's image is strengthening or drifting, brand by brand and group by group, on a dated record before results are reported.</p></div>
-        <p class="note" style="text-align:center">Neither is a sales forecast. Both start once the advertising is collected.</p>
+      </header>
+      <div class="body">
+        <ul class="groups">
+          <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro Piana, Louis Vuitton</span></li>
+          <li><span class="o">Kering</span><span class="b">Balenciaga, Bottega Veneta, Gucci, Saint Laurent</span></li>
+          <li><span class="o">Prada Group</span><span class="b">Miu Miu, Prada, Versace</span></li>
+          <li><span class="o">OTB</span><span class="b">Jil Sander, Maison Margiela</span></li>
+          <li><span class="o">Richemont</span><span class="b">Alaïa, Chloé</span></li>
+          <li><span class="o">Zegna Group</span><span class="b">Tom Ford, Zegna</span></li>
+          <li><span class="o">Mayhoola and Kering</span><span class="b">Valentino</span></li>
+          <li><span class="o">Puig</span><span class="b">Dries Van Noten</span></li>
+          <li><span class="o">Independent</span><span class="b">Brunello Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max Mara</span></li>
+        </ul>
+        <p class="note" style="text-align:center">Zegna runs Tom Ford's fashion under licence from Estée Lauder.</p>
+        <details style="margin-top:2.5rem">
+          <summary>Fourteen with new creative directors since 2025</summary>
+          <ol class="order">
+            <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">July 2025</time></li>
+            <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">July 2025</time></li>
+            <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">September 2025</time></li>
+            <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">September 2025</time></li>
+            <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">September 2025</time></li>
+            <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">October 2025</time></li>
+            <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">October 2025</time></li>
+            <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">October 2025</time></li>
+            <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">October 2025</time></li>
+            <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">February 2026</time></li>
+          </ol>
+          <p class="note" style="text-align:center">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale, then Pieter Mulier's first collection.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="sources" data-panel aria-labelledby="sources-h">
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">Sources</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="sources-h">What it reads</h2>
+      </div>
+      </header>
+      <div class="body wide">
+        <p class="sub">For character</p>
+        <ul class="src" style="margin-bottom:3.25rem">
+          <li><span class="h">Advertising</span><span class="d">Every ad a brand runs on Meta's platforms in Europe and Britain, read image by image.</span><span class="s">As it runs</span></li>
+          <li><span class="h">Campaign archive</span><span class="d">Past campaigns from public archives, so today's image can be set against the brand's history.</span><span class="s">Back through each brand's history</span></li>
+          <li><span class="h">Shows</span><span class="d">Every show, dated and sourced, with what the brand said about it.</span><span class="s">Each season</span></li>
+          <li><span class="h">Credits</span><span class="d">Who photographed, styled and filmed each campaign.</span><span class="s">Each campaign</span></li>
+        </ul>
+        <p class="sub">For success</p>
+        <ul class="src">
+          <li><span class="h">Attention</span><span class="d">Wikipedia page views for every brand.</span><span class="s">Daily, from July 2015</span></li>
+          <li><span class="h">Press</span><span class="d">News coverage of every brand, and its tone.</span><span class="s">Daily, from 2017</span></li>
+          <li><span class="h">Desire</span><span class="d">The Lyst Index, under the method it adopted in 2026.</span><span class="s">Quarterly, from 2026</span></li>
+          <li><span class="h">Revenue</span><span class="d">Wherever a brand's revenue is reported on its own.</span><span class="s">Quarterly or yearly</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="offer" data-panel aria-labelledby="offer-h">
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">Offer</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="offer-h">What we offer</h2>
+      </div>
+      </header>
+      <div class="body wide">
+        <div class="triad duo">
+          <div>
+            <h3>Brand reading</h3>
+            <p class="q">How is each brand doing?</p>
+            <p>The four readings for every brand: its character and the cast behind it, how it shifted, what it added to attention, desire and revenue, and where it parts from what the brand says. Each comes with its uncertainty.</p>
+            <span class="when">Monthly</span>
+          </div>
+          <div>
+            <h3>Alignment check</h3>
+            <p class="q">Does the advertising say what the brand says?</p>
+            <p>Show notes and campaign statements read into the same eighteen questions as the ads, reported question by question, beside the same check for the brand's peers.</p>
+            <span class="when">Per brand, per season</span>
+          </div>
+        </div>
+        <div class="narrow">
+          <div class="for"><p class="sub">For brands</p><p>How the brand's character reads today, which way it is moving, and what it adds to attention and demand, beside its peers.</p></div>
+          <div class="for"><p class="sub">For investors</p><p>Whether a brand's image is strengthening or drifting, brand by brand and group by group, on a dated record before results are reported.</p></div>
+          <p class="note" style="text-align:center">Neither is a sales forecast. Both start once the advertising is collected.</p>
+        </div>
       </div>
     </section>
 
     <section id="status" data-panel aria-labelledby="status-h">
-      <h2 id="status-h">Where it stands</h2>
-      <ul class="status">
-        <li><span class="t">Advertising</span>Waiting on Meta's access.</li>
-        <li><span class="t">Campaign archive</span>422 Chanel and Dior campaigns listed, images still to come.</li>
-        <li><span class="t">Shows</span>35 dated, from September 2025 to October 2026.</li>
-        <li><span class="t">Credits</span>Compiled for eighteen brands.</li>
-        <li><span class="t">Attention</span>All 28 brands, daily to 5 October 2026, 22 of them back to July 2015.</li>
-        <li><span class="t">Press</span>Nine brands so far, from early 2017, filling week by week.</li>
-        <li><span class="t">Desire</span>The Lyst top 20 for the first two quarters of 2026.</li>
-        <li><span class="t">Revenue</span>Being compiled.</li>
-      </ul>
-      <p class="note" style="text-align:center">The first monthly readings follow the advertising.</p>
+      <header class="hero">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <p class="word" aria-hidden="true">Status</p>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/people">People</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/sources">Sources</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      <div class="intro">
+        <h2 id="status-h">Where it stands</h2>
+      </div>
+      </header>
+      <div class="body">
+        <ul class="status">
+          <li><span class="t">Advertising</span>Waiting on Meta's access.</li>
+          <li><span class="t">Campaign archive</span>422 Chanel and Dior campaigns listed, images still to come.</li>
+          <li><span class="t">Shows</span>35 dated, from September 2025 to October 2026.</li>
+          <li><span class="t">Credits</span>Compiled for eighteen brands.</li>
+          <li><span class="t">Attention</span>All 28 brands, daily to 5 October 2026, 22 of them back to July 2015.</li>
+          <li><span class="t">Press</span>Nine brands so far, from early 2017, filling week by week.</li>
+          <li><span class="t">Desire</span>The Lyst top 20 for the first two quarters of 2026.</li>
+          <li><span class="t">Revenue</span>Being compiled.</li>
+        </ul>
+        <p class="note" style="text-align:center">The first monthly readings follow the advertising.</p>
+      </div>
     </section>
   </main>
 
