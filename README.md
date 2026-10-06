@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (177 tests).
+- Built and tested on synthetic data with known ground truth (189 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
