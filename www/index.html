@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adtone</title>
+<meta name="description" content="A study of whether a new creative director changes how a luxury house advertises.">
+<meta property="og:title" content="Adtone">
+<meta property="og:description" content="Does a new creative director change how a house advertises?">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --graphite: #6b6b6b;
+    --frame: #ececec;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --gap: clamp(4.5rem, 11vw, 9rem);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; --frame: #171717; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variation-settings: "wdth" 100;
+    font-weight: 380;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 84rem; margin: 0 auto; padding: 0 var(--gutter); }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; text-decoration: none; }
+  p { margin: 0 0 1em; }
+  p:last-child { margin-bottom: 0; }
+
+  /* Masthead: the one loud thing */
+  .mark {
+    margin: clamp(2rem, 6vw, 4.5rem) 0 0;
+    font-variation-settings: "wdth" 125;
+    font-weight: 200;
+    font-size: clamp(3.5rem, 15.2vw, 12.5rem);
+    line-height: 0.86;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: -0.05em;
+  }
+  .question {
+    margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.22;
+    font-weight: 330;
+    max-width: 19ch;
+    letter-spacing: -0.005em;
+  }
+
+  /* The empty plate and its questions */
+  .plate {
+    margin: clamp(3rem, 8vw, 6rem) 0 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "frame" "caption" "fields";
+    gap: 1.5rem;
+  }
+  .mount {
+    grid-area: frame;
+    position: relative;
+    padding: 0.9rem;
+    --t: linear-gradient(var(--ink), var(--ink));
+    background:
+      var(--t) 0 0.9rem / 0.55rem 1px no-repeat,
+      var(--t) 0.9rem 0 / 1px 0.55rem no-repeat,
+      var(--t) 100% 0.9rem / 0.55rem 1px no-repeat,
+      var(--t) calc(100% - 0.9rem) 0 / 1px 0.55rem no-repeat,
+      var(--t) 0 calc(100% - 0.9rem) / 0.55rem 1px no-repeat,
+      var(--t) 0.9rem 100% / 1px 0.55rem no-repeat,
+      var(--t) 100% calc(100% - 0.9rem) / 0.55rem 1px no-repeat,
+      var(--t) calc(100% - 0.9rem) 100% / 1px 0.55rem no-repeat;
+  }
+  .frame {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    background: var(--frame);
+    animation: develop 2.4s cubic-bezier(.2, .6, .2, 1) both;
+  }
+  @keyframes develop { from { background: var(--paper); } to { background: var(--frame); } }
+  .fields {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 1.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    grid-area: fields;
+    padding: 0 0.9rem;
+  }
+  .fields li { break-inside: avoid; animation: appear .5s ease-out both; animation-delay: calc(1.1s + var(--i) * 70ms); }
+  @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+  .plate figcaption { grid-area: caption; color: var(--graphite); font-size: 0.9375rem; max-width: 34ch; padding: 0 0.9rem; }
+
+  @media (min-width: 56rem) {
+    .hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; }
+    .mark { grid-column: 1 / -1; }
+    .question { grid-column: 1 / span 5; align-self: start; }
+    .plate {
+      grid-column: 7 / -1;
+      grid-row: 2 / span 2;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-areas: "frame fields" "caption .";
+      column-gap: 0;
+      row-gap: 1.25rem;
+    }
+    .fields { columns: 1; align-self: center; line-height: 1.72; padding: 0; }
+    .fields li { position: relative; padding-left: 2.75rem; }
+    .fields li::before {
+      content: "";
+      position: absolute;
+      left: -0.9rem;
+      top: 50%;
+      width: 3rem;
+      border-top: 1px solid var(--ink);
+    }
+  }
+
+  /* Sections */
+  main { margin-top: var(--gap); }
+  .row { margin: 0 0 var(--gap); }
+  .row h2 {
+    margin: 0 0 1.1rem;
+    font-size: 1.0625rem;
+    line-height: 1.35;
+    font-weight: 560;
+    letter-spacing: 0;
+  }
+  .body { max-width: 38rem; }
+  @media (min-width: 56rem) {
+    .row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .row h2 { grid-column: 1 / span 4; }
+    .row .body { grid-column: 5 / span 7; }
+  }
+  .sub { margin: 0 0 0.6rem; font-weight: 560; }
+  .note { color: var(--graphite); font-size: 0.9375rem; }
+
+  .debuts { list-style: none; margin: 0 0 2.5rem; padding: 0; }
+  .debuts li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding: 0.55rem 0;
+  }
+  .debuts .house { font-weight: 560; }
+  .debuts .designer { grid-column: 1; }
+  .debuts time {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+    color: var(--graphite);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  @media (min-width: 40rem) {
+    .debuts li { grid-template-columns: 11rem minmax(0, 1fr) auto; }
+    .debuts .designer { grid-column: 2; }
+    .debuts time { grid-column: 3; grid-row: 1; }
+  }
+
+  .tests { margin: 1.5rem 0 0; padding: 0.1rem 0 0.1rem 1.4rem; list-style: none; border-left: 1px solid var(--ink); }
+  .tests li { margin: 0 0 0.85rem; }
+  .tests li:last-child { margin-bottom: 0; }
+
+  .timeline { list-style: none; margin: 0 0 2rem; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 0 1.25rem; }
+  .timeline time { color: var(--graphite); font-variant-numeric: tabular-nums; }
+  @media (min-width: 40rem) {
+    .timeline li { grid-template-columns: 10.5rem minmax(0, 1fr); column-gap: 1rem; }
+  }
+
+  footer { padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); color: var(--graphite); font-size: 0.875rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .frame, .fields li { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <h1 class="mark">Adtone</h1>
+    <p class="question">Does a new creative director change how a house advertises?</p>
+    <figure class="plate">
+      <div class="mount"><div class="frame" role="img" aria-label="An empty campaign frame"></div></div>
+      <ul class="fields" aria-label="The eighteen questions asked of every image">
+        <li style="--i:0">Creative type</li>
+        <li style="--i:1">Category</li>
+        <li style="--i:2">Light</li>
+        <li style="--i:3">Colour temperature</li>
+        <li style="--i:4">Saturation</li>
+        <li style="--i:5">Setting</li>
+        <li style="--i:6">People</li>
+        <li style="--i:7">Gaze</li>
+        <li style="--i:8">Expression</li>
+        <li style="--i:9">Pose</li>
+        <li style="--i:10">Framing</li>
+        <li style="--i:11">Primary subject</li>
+        <li style="--i:12">Styling register</li>
+        <li style="--i:13">Production</li>
+        <li style="--i:14">Text in image</li>
+        <li style="--i:15">Mood</li>
+        <li style="--i:16">Street to couture</li>
+        <li style="--i:17">Confidence</li>
+      </ul>
+      <figcaption>No picture is kept. Every image is read against these eighteen questions, reduced to its answers and a numerical fingerprint, and discarded.</figcaption>
+    </figure>
+  </header>
+
+  <main>
+    <section class="row" aria-labelledby="question">
+      <h2 id="question">The question</h2>
+      <div class="body">
+        <p>Between July 2025 and February 2026, ten houses showed a new creative director's first collection. Adtone asks whether their advertising changed more than that of eight houses whose leadership held.</p>
+        <p>Under the Digital Services Act, Meta keeps every ad shown in the European Union for a year after it last ran, and British ads are kept as well. That record is the material.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="houses">
+      <h2 id="houses">The houses</h2>
+      <div class="body">
+        <p class="sub">New creative director</p>
+        <ol class="debuts">
+          <li><span class="house">Celine</span><span class="designer">Michael Rider</span><time datetime="2025-07-06">6 July 2025</time></li>
+          <li><span class="house">Maison Margiela</span><span class="designer">Glenn Martens</span><time datetime="2025-07-09">9 July 2025</time></li>
+          <li><span class="house">Gucci</span><span class="designer">Demna</span><time datetime="2025-09-23">23 September 2025</time></li>
+          <li><span class="house">Jil Sander</span><span class="designer">Simone Bellotti</span><time datetime="2025-09-24">24 September 2025</time></li>
+          <li><span class="house">Bottega Veneta</span><span class="designer">Louise Trotter</span><time datetime="2025-09-28">28 September 2025</time></li>
+          <li><span class="house">Dior</span><span class="designer">Jonathan Anderson</span><time datetime="2025-10-01">1 October 2025</time></li>
+          <li><span class="house">Loewe</span><span class="designer">Jack McCollough and Lazaro Hernandez</span><time datetime="2025-10-03">3 October 2025</time></li>
+          <li><span class="house">Balenciaga</span><span class="designer">Pierpaolo Piccioli</span><time datetime="2025-10-04">4 October 2025</time></li>
+          <li><span class="house">Chanel</span><span class="designer">Matthieu Blazy</span><time datetime="2025-10-06">6 October 2025</time></li>
+          <li><span class="house">Fendi</span><span class="designer">Maria Grazia Chiuri</span><time datetime="2026-02-25">25 February 2026</time></li>
+        </ol>
+        <p class="sub">Leadership held</p>
+        <p>Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent and Valentino.</p>
+        <p class="note">Dates are first shows. Chloé is collected for a forward test and kept out of the comparison.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="method">
+      <h2 id="method">How it measures</h2>
+      <div class="body">
+        <p>Each image is scored against a rubric frozen by its hash and placed by a fixed model. Each house is measured against the controls month by month, so a movement of the whole market does not read as a movement of one house.</p>
+        <p>Three tests were written and frozen on 5 October 2026, before a single ad was collected.</p>
+        <ul class="tests">
+          <li>Did the ten move further after their debuts than the controls moved at placebo dates?</li>
+          <li>Did Gucci's advertising move towards Balenciaga's, following Demna from one house to the other?</li>
+          <li>Does a scan that is not told the dates find the breaks in the ten, and stay quiet on the controls?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="prediction">
+      <h2 id="prediction">A prediction, made in advance</h2>
+      <div class="body">
+        <p>When it was frozen on 5 October 2026, Anthony Vaccarello's departure from Saint Laurent had been reported but not confirmed, and no successor had been named.</p>
+        <p>After the successor's first show, Saint Laurent's advertising should shift more than nine in ten control placebos, with the break inside 120 days, and towards the successor's former house if that house is collected. It is judged once, 270 days after the show, and void if there is no show by the end of 2027.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="team">
+      <h2 id="team">What moves with a designer</h2>
+      <div class="body">
+        <p>The campaign credits show image-makers moving with designers. Alec Soth and Louise and Maria Thornfeldt photographed Matthieu Blazy's campaigns at Bottega Veneta, and now photograph his Chanel. Jonathan Anderson brought the photographer David Sims, the stylist Benjamin Bruno, the cinematographer Benoît Delhomme and the set designer Poppy Bartlett from Loewe to Dior.</p>
+        <p>So a change in a house's advertising is read as a change of team, not of designer alone.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="limits">
+      <h2 id="limits">What it cannot say</h2>
+      <div class="body">
+        <p>It reads paid advertising on Meta's platforms in Europe and Britain. Not print, posters, runways or the clothes themselves.</p>
+        <p>It can show that a house's advertising changed. It cannot show that the change worked.</p>
+        <p>Whether larger shifts drew more attention is described separately, against Wikipedia page views. Attention is not success, and the description is not proof.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="status">
+      <h2 id="status">Where it stands</h2>
+      <div class="body">
+        <ol class="timeline">
+          <li><time datetime="2026-10-05">5 October 2026</time><span>The tests and the Saint Laurent prediction are frozen. No data exists yet.</span></li>
+          <li><time datetime="2026-10-06">6 October 2026</time><span>Crew credits are compiled for sixteen houses from public sources.</span></li>
+          <li><time>Next</time><span>Collection begins when access to Meta's ad record is granted. Results on the 2025 debuts check the instrument; predictions count only after a first silent season.</span></li>
+        </ol>
+        <p>The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Adtone, 2026.</footer>
+</div>
+</body>
+</html>
