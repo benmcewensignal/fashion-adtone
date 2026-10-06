@@ -262,13 +262,29 @@ def captures(c: Crawler, url: str, around: date, window_days: int = 75, limit: i
     return [row[0] for row in _cdx_rows(r)[1:]]
 
 
+def archived_work(c: Crawler, url: str, limit: int = 3) -> dict | None:
+    """models.com now hides the source link and the crew from anonymous readers. The Wayback Machine
+    keeps copies of the same page from before the login wall: read the most recent that has the link."""
+    r = c.get(CDX, {"url": url.split("://", 1)[-1], "output": "json", "fl": "timestamp",
+                    "filter": "statuscode:200", "limit": f"-{limit}"})
+    for row in reversed(_cdx_rows(r)[1:]):
+        a = c.get(WAYBACK_RAW.format(ts=row[0], url=url))
+        if a.status_code == 200:
+            got = parse_work(a.text, url)
+            if got.get("source_url"):
+                return {**got, "archived_page": row[0]}
+    return None
+
+
 def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400) -> dict:
     """Each house on its own: a failure is noted against that house and the stage moves on, and every
     house's campaigns are saved before the next is read, so a run cut short keeps what it found."""
     from collections import Counter
     table = store.ShardedTable(paths()["campaigns"], "campaign_id")
     found, read, skipped, errors, statuses = {}, 0, 0, {}, Counter()
+    per_house = max(5, max_reads // max(1, len(reg.houses)))     # every house gets its share of the reading budget
     for h in reg.houses:
+        house_reads = 0
         try:
             slug = h.models_slug or slugify(h.name)
             urls: list[str] = []
@@ -285,25 +301,47 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400)
             urls = [u for u in dict.fromkeys(urls) if u.rsplit("/", 1)[-1] not in table]
             found[h.id] = len(urls)
             for u in urls:
-                if read >= max_reads:
+                if read >= max_reads or house_reads >= per_house:
                     break
                 if not c.allowed(u):
                     skipped += 1
                     continue
                 r = c.get(u)
                 read += 1
+                house_reads += 1
                 statuses[f"work {r.status_code}"] += 1
                 if r.status_code != 200:
                     continue
                 row = parse_work(r.text, u)
+                if not row.get("source_url"):
+                    old_copy = archived_work(c, u)
+                    statuses["archived copy used" if old_copy else "no archived copy"] += 1
+                    if old_copy:
+                        row.update({k: v for k, v in old_copy.items() if v not in (None, [], {}, 0) and k != "url"})
                 row.update({"house_id": h.id, "read_run": rid})
                 table.upsert({k: v for k, v in row.items() if v not in (None, [], {})} | {"campaign_id": row["campaign_id"]},
                              shard=h.id)
         except (requests.RequestException, ValueError, KeyError, AttributeError) as e:
             errors[h.id] = f"{e.__class__.__name__}: {str(e)[:160]}"
         table.save()
+    repaired = 0
+    for row in list(table.rows.values()):      # campaigns read before archived copies were used
+        if repaired >= max_reads or row.get("source_url") or row.get("archive_checked"):
+            continue
+        try:
+            old_copy = archived_work(c, row["url"])
+        except (requests.RequestException, ValueError) as e:
+            errors.setdefault("repair", f"{e.__class__.__name__}: {str(e)[:160]}")
+            break
+        upd = {k: v for k, v in (old_copy or {}).items() if v not in (None, [], {}, 0) and k != "url"}
+        table.upsert({**row, **upd, "archive_checked": rid}, shard=row["house_id"])
+        statuses["repaired from archive" if old_copy else "no archived copy"] += 1
+        repaired += 1
+        if repaired % 25 == 0:
+            table.save()
+    table.save()
     return {"new_urls": found, "pages_read": read, "robots_skipped": skipped, "campaigns_on_file": len(table.rows),
-            "statuses": dict(statuses), "errors": errors}
+            "statuses": dict(statuses), "errors": errors, "repaired": repaired}
 
 
 def images(c: Crawler, embedder, scorer, rid: str, max_campaigns: int = 150, budget_s: float = 5400,

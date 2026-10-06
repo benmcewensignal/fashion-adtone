@@ -185,3 +185,69 @@ def test_a_crash_still_leaves_a_record(tmp_data, monkeypatch):
     assert backcat.main(["discover", "--run", "r9"]) == 1
     rows = store.read_jsonl(backcat.paths()["prov"])
     assert rows[-1]["crashed"].startswith("RuntimeError") and rows[-1]["run_id"] == "r9"
+
+
+WALLED = WORK.replace("complete story", "log in to see the story").replace("Credits for this picture", "Log in")
+
+
+def test_a_walled_page_takes_its_source_and_crew_from_an_archived_copy(tmp_data):
+    def h(url, params):
+        if url.endswith("winter-25-campaign") and "web.archive.org" not in url:
+            return FakeResponse(200, text=WALLED)            # today's page: behind the login wall
+        if url == backcat.CDX and params.get("url", "").startswith("models.com/work/") and "matchType" not in params:
+            return FakeResponse(200, payload=[["timestamp"], ["20240301000000"]])
+        if "web.archive.org/web/20240301000000id_/https://models.com/work/" in url:
+            return FakeResponse(200, text=WORK)              # the archived copy from before the wall
+        return _handler()(url, params)
+    d = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), Registry(1, "DRAFT", [
+        House("bottega_veneta", "Bottega Veneta", "treated", "Kering", ["Bottega Veneta"], [], [])]), "r1")
+    rows = store.ShardedTable(backcat.paths()["campaigns"], "campaign_id").rows
+    walled = [r for r in rows.values() if r["campaign_id"].endswith("winter-25-campaign")][0]
+    assert walled.get("source_url", "").startswith("http") and walled.get("archived_page") == "20240301000000"
+    assert d["statuses"].get("archived copy used") == 1
+
+
+def test_every_house_gets_a_share_of_the_reading_budget(tmp_data):
+    many = [House(f"h{i}", f"House {i}", "control", "G", [f"House {i}"], [], []) for i in range(10)]
+    pages = {f"https://models.com/client/house-{i}": "".join(
+        f'<a href="/work/house-{i}-house-{i}-c{k}">c</a>' for k in range(20)) for i in range(10)}
+
+    def h(url, params):
+        if url.endswith("/robots.txt"):
+            return FakeResponse(200, text="")
+        if url in pages:
+            return FakeResponse(200, text=pages[url])
+        if url == backcat.CDX:
+            return FakeResponse(200, payload=[["original"]])
+        if "/work/" in url:
+            return FakeResponse(200, text=WORK)
+        return FakeResponse(404, text="")
+    d = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), Registry(1, "DRAFT", many), "r1", max_reads=50)
+    by_house = {}
+    for r in store.ShardedTable(backcat.paths()["campaigns"], "campaign_id").rows.values():
+        by_house[r["house_id"]] = by_house.get(r["house_id"], 0) + 1
+    assert len(by_house) == 10 and max(by_house.values()) <= 5 and d["pages_read"] == 50
+
+
+def test_campaigns_read_before_the_fix_are_repaired_once(tmp_data):
+    table = store.ShardedTable(backcat.paths()["campaigns"], "campaign_id")
+    table.upsert({"campaign_id": "bottega-veneta-bottega-veneta-winter-25-campaign", "house_id": "bottega_veneta",
+                  "url": "https://models.com/work/bottega-veneta-bottega-veneta-winter-25-campaign"}, shard="bottega_veneta")
+    table.save()
+
+    def h(url, params):
+        if url == backcat.CDX and params.get("url", "").startswith("models.com/work/") and "matchType" not in params:
+            return FakeResponse(200, payload=[["timestamp"], ["20240301000000"]])
+        if "web.archive.org/web/20240301000000id_/https://models.com/work/" in url:
+            return FakeResponse(200, text=WORK)
+        if url == backcat.CDX and params.get("matchType") == "prefix":
+            return FakeResponse(200, payload=[["original"]])
+        if url.endswith("/robots.txt"):
+            return FakeResponse(200, text="")
+        return FakeResponse(404, text="")
+    reg = Registry(1, "DRAFT", [House("bottega_veneta", "Bottega Veneta", "treated", "Kering", ["Bottega Veneta"], [], [])])
+    d = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), reg, "r2")
+    row = store.ShardedTable(backcat.paths()["campaigns"], "campaign_id").rows["bottega-veneta-bottega-veneta-winter-25-campaign"]
+    assert d["repaired"] == 1 and row["source_url"].startswith("http") and row["archive_checked"] == "r2"
+    again = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), reg, "r3")
+    assert again["repaired"] == 0      # checked once, never again
