@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Focal</title>
-<meta name="description" content="Fashion advertising runs on hope. Focal measures the look itself: what the advertising shows, whether it says what the house says, and whose look it is.">
+<meta name="description" content="Fashion runs on hope. Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.">
 <meta property="og:title" content="Focal">
-<meta property="og:description" content="Fashion advertising runs on hope. Focal measures the look itself.">
+<meta property="og:description" content="Fashion runs on hope. Focal measures the look.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23d7261e' stroke-width='2'/%3E%3C/svg%3E">
@@ -103,9 +103,6 @@
     text-wrap: balance;
   }
   .lede { max-width: 28rem; margin: clamp(2.25rem, 5vw, 3.25rem) auto 0; color: var(--ink); font-size: 0.9375rem; text-wrap: pretty; }
-  .lede.beneath { margin-top: 1.1rem; color: var(--graphite); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.45; }
-  .go { margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2.25rem;
-    font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
   section.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
@@ -119,7 +116,7 @@
   .for { margin: 0 0 1.75rem; text-align: center; }
   .for p { margin: 0; }
 
-  /* Houses: the season's running order */
+  /* Brands: the new creative directors, folded away */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
   .order li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
   .order li::before { counter-increment: look; content: counter(look); font-family: var(--serif); font-size: 0.875rem; color: var(--graphite); font-variant-numeric: lining-nums; }
@@ -131,10 +128,6 @@
   .held { text-align: center; font-family: var(--serif); font-size: 1.1875rem; line-height: 1.5; margin: 0 0 1.25rem; }
 
   /* Method */
-  .tests { list-style: none; margin: 1.5rem 0 0; padding: 0; }
-  .tests li { margin: 0 0 1.25rem; }
-  .tests li:last-child { margin: 0; }
-  .tests em { font-family: var(--serif); font-size: 1.1875rem; font-style: italic; margin-right: 0.35rem; }
   details { margin: 0 0 1.25rem; border-top: 1px solid currentColor; padding-top: 1rem; }
   details + details { border-top: 0; }
   summary { cursor: pointer; list-style: none; display: block; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; }
@@ -156,11 +149,17 @@
   .person .w { margin: 0.2rem 0 0.5rem; font-family: var(--serif); font-style: italic; color: var(--graphite); }
   .person .c { margin: 0 auto; max-width: 26rem; font-size: 0.9375rem; }
 
-  /* Record */
-  .timeline { list-style: none; margin: 0 0 2rem; padding: 0; }
-  .timeline li { text-align: center; margin: 0 0 1.4rem; }
-  .timeline time { display: block; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
-  .record-link { text-align: center; }
+  /* Sources: what it reads */
+  .src { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 1.9rem; text-align: center; }
+  .src .h { display: block; font-family: var(--serif); font-size: 1.5rem; line-height: 1.15; }
+  .src .d { display: block; margin: 0.3rem auto 0; max-width: 24rem; font-size: 0.9375rem; }
+  .src .s { display: block; margin-top: 0.35rem; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.04em; }
+  @media (min-width: 48rem) { .src { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); row-gap: 2.5rem; } }
+
+  /* Status */
+  .status { list-style: none; margin: 0; padding: 0; }
+  .status li { text-align: center; margin: 0 0 1.4rem; }
+  .status .t { display: block; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
 
   footer { margin: clamp(4rem, 10vw, 7rem) 0 0; padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); text-align: center; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; }
 </style>
@@ -171,50 +170,118 @@
     <h1 class="mark"><a href="#/overview">Focal</a></h1>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#/season">Season</a></li>
-        <li><a href="#/cast">Cast</a></li>
-        <li><a href="#/method">Method</a></li>
-        <li><a href="#/results">Results</a></li>
-        <li><a href="#/record">Record</a></li>
+        <li><a href="#/sources">Sources</a></li>
+        <li><a href="#/readings">Readings</a></li>
+        <li><a href="#/brands">Brands</a></li>
+        <li><a href="#/people">People</a></li>
         <li><a href="#/offer">Offer</a></li>
+        <li><a href="#/status">Status</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section id="overview" data-panel aria-label="Overview">
-      <p class="ask">Fashion advertising runs on <span class="accent">hope</span></p>
-      <p class="lede">Houses count every impression, every euro of media value and every sale. The look itself, what the advertising actually shows, goes unmeasured. Focal measures it as the ads run: whether a house's advertising says what the house says, whether a new creative director's look has reached the campaigns, and whose look it is when designers and their image-makers move between houses.</p>
-      <p class="lede beneath">Underneath is a research question, with its tests frozen before any data: whose look is it, and does it move people?</p>
-      <p class="go"><a href="#/season">The season</a><a href="#/results">From reading to result</a><a href="#/offer">What we offer</a></p>
+      <p class="ask">Fashion runs on <span class="accent">hope</span></p>
+      <p class="lede">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
     </section>
 
-    <section id="season" data-panel aria-labelledby="season-h">
-      <h2 id="season-h">The season</h2>
-      <ol class="order">
-        <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">6 July 2025</time></li>
-        <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">9 July 2025</time></li>
-        <li class="pause" aria-hidden="true">Then seven debuts in fourteen days</li>
-        <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">23 September</time></li>
-        <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">24 September</time></li>
-        <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">28 September</time></li>
-        <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">1 October</time></li>
-        <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">3 October</time></li>
-        <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">4 October</time></li>
-        <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">6 October 2025</time></li>
-        <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">25 February 2026</time></li>
-      </ol>
-      <p class="sub">Leadership held</p>
-      <p class="held">Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent, Valentino</p>
-      <p class="note" style="text-align:center">Dates are first shows. Chloé is collected for a forward test and kept out of the comparison.</p>
-      <p class="sub" style="margin-top:2.75rem">Proposed additions</p>
-      <p class="held">Versace, Givenchy, Tom Ford, Dries Van Noten, Alaïa</p>
-      <p class="note" style="text-align:center">Versace showed one season by Dario Vitale, who came from Miu Miu, then Pieter Mulier's first collection, from Alaïa. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Dolce&amp;Gabbana, Max Mara, Brunello Cucinelli and Zegna would join the houses whose leadership held. None of them enters the three frozen tests; they are fixed when the second amendment is frozen.</p>
+    <section id="sources" data-panel aria-labelledby="sources-h" class="wide">
+      <h2 id="sources-h">What it reads</h2>
+      <ul class="src">
+        <li><span class="h">Advertising</span><span class="d">Every ad a brand runs on Meta's platforms in Europe and Britain, read image by image.</span><span class="s">From when Meta grants access</span></li>
+        <li><span class="h">Campaign archive</span><span class="d">Past campaigns, so a brand's image today can be set against its own history.</span><span class="s">Back to the earliest campaigns on record</span></li>
+        <li><span class="h">Shows</span><span class="d">Every show, dated and sourced, with what the brand said about it.</span><span class="s">Each season</span></li>
+        <li><span class="h">Credits</span><span class="d">Who photographed, styled and filmed each campaign.</span><span class="s">Each campaign</span></li>
+        <li><span class="h">Attention</span><span class="d">Daily Wikipedia page views for every brand.</span><span class="s">Daily, from July 2015</span></li>
+        <li><span class="h">Press</span><span class="d">Daily news coverage of every brand, and its tone.</span><span class="s">Daily, from 2017</span></li>
+        <li><span class="h">Desire</span><span class="d">The Lyst Index, under the method it adopted in 2026.</span><span class="s">Quarterly</span></li>
+        <li><span class="h">Revenue</span><span class="d">The seven brands whose revenue is reported separately.</span><span class="s">Quarterly</span></li>
+      </ul>
     </section>
 
-    <section id="cast" data-panel aria-labelledby="cast-h">
-      <h2 id="cast-h">Who came with whom</h2>
-      <p class="block" style="text-align:center">Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
+    <section id="readings" data-panel aria-labelledby="readings-h" class="wide">
+      <h2 id="readings-h">What it shows</h2>
+      <div class="triad duo">
+        <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its advertising, from light and setting to mood, and the cast of people who make it.</p></div>
+        <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image moves from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
+        <div><h3>Alignment</h3><p class="q">Does the advertising say what the brand said at the show?</p><p>Question by question, beside the same check for its peers.</p></div>
+        <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>Attention, desire and revenue beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
+      </div>
+      <div class="narrow">
+        <p>Each image is read against eighteen fixed questions, from light and setting to mood, and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
+        <p class="note">It sees paid advertising on Meta's platforms in Europe and Britain, not print. Contribution builds with the record: each month adds attention, each quarter adds desire and revenue.</p>
+        <details>
+          <summary>The eighteen questions</summary>
+          <dl class="pairs">
+            <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
+            <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
+            <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
+            <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
+            <div><dt>People</dt><dd>none, one, two, group</dd></div>
+            <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
+            <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
+            <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
+            <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
+            <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
+            <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
+            <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
+            <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
+            <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
+            <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
+            <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
+            <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
+            <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
+          </dl>
+        </details>
+      </div>
+    </section>
+
+    <section id="brands" data-panel aria-labelledby="brands-h">
+      <h2 id="brands-h">Twenty-eight brands</h2>
+      <p class="held">Alaïa, Balenciaga, Bottega Veneta, Brunello Cucinelli, Burberry, Celine, Chanel, Chloé, Dior, Dolce&amp;Gabbana, Dries Van Noten, Fendi, Givenchy, Gucci, Hermès, Jil Sander, Loewe, Loro Piana, Louis Vuitton, Maison Margiela, Max Mara, Miu Miu, Prada, Saint Laurent, Tom Ford, Valentino, Versace, Zegna</p>
+      <p class="block" style="text-align:center">Each is read every month, against the other twenty-seven.</p>
+      <details>
+        <summary>Fourteen new creative directors since 2025</summary>
+        <ol class="order">
+          <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">6 July 2025</time></li>
+          <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">9 July 2025</time></li>
+          <li class="pause" aria-hidden="true">Then seven debuts in fourteen days</li>
+          <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">23 September</time></li>
+          <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">24 September</time></li>
+          <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">28 September</time></li>
+          <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">1 October</time></li>
+          <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">3 October</time></li>
+          <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">4 October</time></li>
+          <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">6 October 2025</time></li>
+          <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">25 February 2026</time></li>
+        </ol>
+        <p class="note" style="text-align:center">Dates are first shows. Versace showed one season by Dario Vitale, then Pieter Mulier's first collection. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025.</p>
+      </details>
+    </section>
+
+    <section id="people" data-panel aria-labelledby="people-h">
+      <h2 id="people-h">Who makes the image</h2>
+      <p class="block" style="text-align:center">A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal records who made each campaign, so a brand's character is read with the people behind it.</p>
+      <p class="sub">Shared hands</p>
+      <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for seven of the twenty-eight.</p>
+      <details>
+        <summary>Ten photographers, sixteen brands</summary>
+        <dl class="pairs">
+          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+        </dl>
+        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+      </details>
+      <p class="sub" style="margin-top:2.75rem">When people move</p>
       <div class="people">
         <div class="person">
           <p class="n">Matthieu Blazy</p>
@@ -232,140 +299,44 @@
           <p class="c">Credited as photographer himself, at both.</p>
         </div>
       </div>
-      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
-      <p class="sub">Read in advance</p>
-      <ul class="tests" style="margin-bottom:2.75rem">
-        <li><em>Chiuri's look moves too.</em> It travels with the designer, even alone.</li>
-        <li><em>Blazy's and Anderson's move, Chiuri's does not.</em> It travels with the team.</li>
-        <li><em>Only Blazy's moves.</em> It belongs to the photographers.</li>
-        <li><em>Only Demna's moves.</em> Designer and photographer can't be told apart here.</li>
-      </ul>
-      <details>
-        <summary>Ten photographers, sixteen houses</summary>
-        <dl class="pairs">
-          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-        </dl>
-        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
-      </details>
+      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file.</p>
     </section>
 
-    <section id="method" data-panel aria-labelledby="method-h">
-      <h2 id="method-h">How it's tested</h2>
-      <div class="block">
-        <p>Under the Digital Services Act, Meta keeps every ad shown in the European Union for a year after it last ran. Each image is read against eighteen fixed questions, from light and setting to mood, and kept only as its answers and a numerical fingerprint. Each house is measured against the controls month by month, so a movement of the whole market doesn't read as a movement of one house.</p>
-        <p>Three tests were frozen on 5 October 2026, before a single ad was collected.</p>
-        <ul class="tests">
-          <li><em>Shift.</em> Did the ten move further after their debuts than the controls moved at placebo dates?</li>
-          <li><em>Transfer.</em> Did Gucci's advertising move towards Balenciaga's earlier look, following Demna? This is the mechanism: a look that belongs to people should travel with them.</li>
-          <li><em>Detection.</em> Does a scan that isn't told the dates find the breaks, and stay quiet on the controls?</li>
-        </ul>
-      </div>
-      <div class="block">
-        <p class="sub">A prediction, made in advance</p>
-        <p>Frozen before Saint Laurent named a successor to Anthony Vaccarello: after the successor's first show, its advertising should shift more than nine in ten control placebos, break within 120 days, and move towards the successor's former house if that house is collected. Judged once, 270 days after the show.</p>
-      </div>
-      <div class="block">
-        <p class="sub">What it can't say</p>
-        <p>It reads paid advertising on Meta's platforms in Europe and Britain, not print or the clothes. Image-makers moved with the designers, so a transfer is read as a team's, not a designer's alone. And it can show that advertising changed, not that the change worked.</p>
-      </div>
-      <div class="block">
-        <p class="sub">What the design can detect</p>
-        <p>A simulation run before any data, on the real calendar, found that collecting from early October leaves about six of the ten houses testable. Starting in December leaves about one. So results will lead with the pooled shift, the transfer family and how often the controls raise a false alarm, never with a ranking of houses.</p>
-      </div>
-      <details>
-        <summary>Planned, not yet frozen</summary>
-        <ul class="tests" style="margin-top:1.25rem">
-          <li><em>One shock, not seven.</em> The seven debuts of late September are pooled and set against control shifts at fashion weeks, rather than counted as seven events.</li>
-          <li><em>Transfer as a family.</em> Five moves scored both ways: did the new house move towards the look the designer left, and did the old house move away from it?</li>
-          <li><em>The reader.</em> It sees only the image, never the house's name, but a logo in the frame can still give the house away, so every result is repeated without such images and a second reader checks a sample.</li>
-        </ul>
-      </details>
-      <details>
-        <summary>The eighteen questions</summary>
-        <dl class="pairs">
-          <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
-          <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
-          <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
-          <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
-          <div><dt>People</dt><dd>none, one, two, group</dd></div>
-          <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
-          <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
-          <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
-          <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
-          <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
-          <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
-          <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
-          <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
-          <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
-          <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
-          <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
-          <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
-          <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
-        </dl>
-      </details>
-    </section>
-
-    <section id="results" data-panel aria-labelledby="results-h" class="wide">
-      <h2 id="results-h">From reading to result</h2>
-      <div class="narrow">
-        <p>A reading is worth what it predicts. Each month, every house gets four readings of its advertising: how far its look moved from its own past, how far it sits from the market, how consistent it is, and whether it is drifting towards the house of the moment.</p>
-      </div>
-      <div class="triad">
-        <div><h3>Curiosity</h3><p>Wikipedia page views, search interest, press volume and tone.</p><span class="when">Monthly, every house</span></div>
-        <div><h3>Desire</h3><p>The Lyst Index under its new method, and resale demand.</p><span class="when">Quarterly and yearly</span></div>
-        <div><h3>Money</h3><p>Revenue at the seven houses that report it by house.</p><span class="when">Quarterly</span></div>
-      </div>
-      <div class="narrow">
-        <p>The test is whether this month's readings predict next month's change, beyond each house's own momentum, the reach it paid for and the months after a debut. It counts only months after the test is frozen and after six months of live collection; everything earlier trains the model and never scores it. If the look predicts curiosity but not desire, it got people talking without creating demand.</p>
-        <p class="note">Lyst changed its method in early 2026 and began counting Chanel and Dior, so its rankings are compared only within the new method. This test is planned for the second amendment, to be frozen before any data is collected. There are no results yet.</p>
-      </div>
-    </section>
-
-    <section id="record" data-panel aria-labelledby="record-h">
-      <h2 id="record-h">Where it stands</h2>
-      <ol class="timeline">
-        <li><time datetime="2026-10-05">5 October 2026</time>Tests and the Saint Laurent prediction frozen, before any data.</li>
-        <li><time datetime="2026-10-06">6 October 2026</time>Credits compiled for eighteen houses. A second amendment drafted, adding nine houses, the transfer family and the outcome test. Not yet frozen.</li>
-        <li><time>Next</time>Collection starts when Meta grants access. Results on the 2025 debuts check the instrument; predictions count only after a silent first season.</li>
-        <li><time>Then</time>Forecasts scored month by month against curiosity, desire and revenue.</li>
-      </ol>
-      <p class="record-link">The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
-    </section>
     <section id="offer" data-panel aria-labelledby="offer-h" class="wide">
-      <h2 id="offer-h">Before the forecast</h2>
-      <div class="narrow">
-        <p style="text-align:center">Whether the look moves people is the forecast, and it needs about eighteen months of live data to prove itself. The alignment check and the insights don't wait for it.</p>
-      </div>
+      <h2 id="offer-h">What we offer</h2>
       <div class="triad duo">
         <div>
           <h3>Alignment check</h3>
-          <p class="q">Does the advertising say what the house says?</p>
-          <p>Show notes and campaign statements are read into the same eighteen questions as the ads. The check reports, question by question, where the advertising carries the stated intent and where it parts from it, set beside the same check for the house's peers.</p>
-          <span class="when">Per house, per season</span>
+          <p class="q">Does the advertising say what the brand says?</p>
+          <p>Show notes and campaign statements are read into the same eighteen questions as the ads. The check reports, question by question, where the advertising carries the stated intent and where it parts from it, set beside the same check for the brand's peers.</p>
+          <span class="when">Per brand, per season</span>
         </div>
         <div>
           <h3>Insights</h3>
-          <p class="q">What moved, and who moved it?</p>
-          <p>A monthly reading of the panel: whose look moved, converged or held, how the mix of ads shifted, and which designers and image-makers moved between houses. Each reading is shown with its uncertainty and never ranked as a finding.</p>
+          <p class="q">How is each brand doing?</p>
+          <p>A monthly reading of every brand: its character and how it shifted, where it sits among its peers, who is making its image, and how its attention, desire and revenue moved alongside. Each reading comes with its uncertainty.</p>
           <span class="when">Monthly</span>
         </div>
       </div>
       <div class="narrow">
-        <div class="for"><p class="sub">For houses</p><p>Whether a creative reset is reaching the marketing, market by market, and how far the house now sits from its peers.</p></div>
-        <div class="for"><p class="sub">For investors</p><p>Whether a turnaround's message is being carried out in the advertising, on a dated record, before results are reported.</p></div>
-        <p class="note" style="text-align:center">Both begin once collection is running and the 2025 debuts have passed the calibration fixed in advance. Neither is a forecast: that claim waits for its own frozen test, scored from mid-2028 at the earliest. Saint Laurent is left out until its prediction is judged, so that the prediction is scored on data nobody has looked at.</p>
+        <div class="for"><p class="sub">For brands</p><p>How the brand's character reads today, which way it is moving, and what it adds to attention and demand, beside its peers.</p></div>
+        <div class="for"><p class="sub">For investors</p><p>Whether a brand's image is strengthening or drifting, on a dated record, before results are reported.</p></div>
+        <p class="note" style="text-align:center">Neither is a sales forecast. Both start once the advertising is collected.</p>
       </div>
     </section>
 
+    <section id="status" data-panel aria-labelledby="status-h">
+      <h2 id="status-h">Where it stands</h2>
+      <ul class="status">
+        <li><span class="t">Attention</span>Page views for all 28 brands, daily to 5 October 2026, 22 of them back to July 2015.</li>
+        <li><span class="t">Shows</span>35 dated, from September 2025 to October 2026.</li>
+        <li><span class="t">Credits</span>Compiled for eighteen brands.</li>
+        <li><span class="t">Desire</span>The Lyst top 20 for the first two quarters of 2026.</li>
+        <li><span class="t">Press</span>Nine brands so far, from early 2017, filling week by week.</li>
+        <li><span class="t">Campaign archive</span>422 Chanel and Dior campaigns listed, images still to come.</li>
+        <li><span class="t">Advertising</span>Waiting on Meta's access. The first alignment checks and monthly readings follow it.</li>
+      </ul>
+    </section>
   </main>
 
   <footer>Focal, 2026</footer>
