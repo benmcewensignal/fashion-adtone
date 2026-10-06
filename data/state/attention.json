@@ -1,37 +1,36 @@
 {
   "days": {
+    "alaia": 4115,
     "balenciaga": 4115,
     "bottega_veneta": 4115,
+    "brunello_cucinelli": 900,
+    "burberry": 4115,
     "celine": 4115,
     "chanel": 4115,
+    "chloe": 4115,
     "dior": 4115,
+    "dolce_gabbana": 4115,
+    "dries_van_noten": 4115,
+    "fendi": 4115,
+    "givenchy": 4115,
     "gucci": 4115,
-    "loewe": 2689
+    "hermes": 4115,
+    "jil_sander": 447,
+    "loewe": 2689,
+    "loro_piana": 4115,
+    "louis_vuitton": 4115,
+    "margiela": 4115,
+    "max_mara": 4115,
+    "miu_miu": 4115,
+    "prada": 4115,
+    "saint_laurent": 1189,
+    "tom_ford": 2061,
+    "valentino": 2862,
+    "versace": 4115,
+    "zegna": 4114
   },
   "end": "2026-10-05",
-  "failed": {
-    "alaia": "page views for 'Azzedine Alaïa' failed with HTTP 429",
-    "brunello_cucinelli": "page views for 'Brunello Cucinelli (brand)' failed with HTTP 429",
-    "burberry": "page views for 'Burberry' failed with HTTP 429",
-    "chloe": "page views for 'Chloé' failed with HTTP 429",
-    "dolce_gabbana": "page views for 'Dolce & Gabbana' failed with HTTP 429",
-    "dries_van_noten": "page views for 'Dries van Noten' failed with HTTP 429",
-    "fendi": "page views for 'Fendi' failed with HTTP 429",
-    "givenchy": "page views for 'Givenchy' failed with HTTP 429",
-    "hermes": "page views for 'Hermès' failed with HTTP 429",
-    "jil_sander": "page views for 'Jil Sander (company)' failed with HTTP 429",
-    "loro_piana": "page views for 'Loro Piana' failed with HTTP 429",
-    "louis_vuitton": "page views for 'Louis Vuitton' failed with HTTP 429",
-    "margiela": "page views for 'Maison Margiela' failed with HTTP 429",
-    "max_mara": "page views for 'Max Mara' failed with HTTP 429",
-    "miu_miu": "page views for 'Miu Miu' failed with HTTP 429",
-    "prada": "page views for 'Prada' failed with HTTP 429",
-    "saint_laurent": "page views for 'Yves Saint Laurent (fashion house)' failed with HTTP 429",
-    "tom_ford": "page views for 'Tom Ford (brand)' failed with HTTP 429",
-    "valentino": "page views for 'Valentino (fashion house)' failed with HTTP 429",
-    "versace": "page views for 'Versace' failed with HTTP 429",
-    "zegna": "page views for 'Zegna' failed with HTTP 429"
-  },
+  "failed": {},
   "found_by": {
     "alaia": "listed",
     "balenciaga": "listed",
@@ -63,7 +62,7 @@
     "zegna": "search"
   },
   "project": "en.wikipedia",
-  "run": "gh37490080450",
+  "run": "gh37518507874",
   "start": "2015-07-01",
   "titles": {
     "alaia": "Azzedine Alaïa",
@@ -96,5 +95,5 @@
     "zegna": "Zegna"
   },
   "unresolved": [],
-  "updated_at": "2026-10-06T15:45:13Z"
+  "updated_at": "2026-10-06T19:26:02Z"
 }

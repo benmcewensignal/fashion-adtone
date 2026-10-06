@@ -12,36 +12,7 @@
     "miu_miu": "2017-03-31"
   },
   "end": "2026-10-05",
-  "failed": {
-    "alaia": "GDELT kept refusing: rate limited or unavailable",
-    "balenciaga": "GDELT kept refusing: rate limited or unavailable",
-    "bottega_veneta": "GDELT kept refusing: rate limited or unavailable",
-    "brunello_cucinelli": "GDELT kept refusing: rate limited or unavailable",
-    "burberry": "GDELT kept refusing: rate limited or unavailable",
-    "celine": "GDELT kept refusing: rate limited or unavailable",
-    "chanel": "GDELT kept refusing: rate limited or unavailable",
-    "chloe": "GDELT kept refusing: rate limited or unavailable",
-    "dior": "GDELT said: The specified phrase is too short.",
-    "dolce_gabbana": "GDELT kept refusing: rate limited or unavailable",
-    "dries_van_noten": "GDELT kept refusing: rate limited or unavailable",
-    "fendi": "GDELT kept refusing: rate limited or unavailable",
-    "givenchy": "GDELT kept refusing: rate limited or unavailable",
-    "gucci": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
-    "hermes": "GDELT kept refusing: rate limited or unavailable",
-    "jil_sander": "GDELT kept refusing: rate limited or unavailable",
-    "loewe": "GDELT kept refusing: rate limited or unavailable",
-    "loro_piana": "GDELT kept refusing: rate limited or unavailable",
-    "louis_vuitton": "GDELT kept refusing: rate limited or unavailable",
-    "margiela": "GDELT kept refusing: rate limited or unavailable",
-    "max_mara": "GDELT kept refusing: rate limited or unavailable",
-    "miu_miu": "GDELT kept refusing: rate limited or unavailable",
-    "prada": "GDELT kept refusing: rate limited or unavailable",
-    "saint_laurent": "GDELT kept refusing: rate limited or unavailable",
-    "tom_ford": "GDELT kept refusing: rate limited or unavailable",
-    "valentino": "GDELT kept refusing: rate limited or unavailable",
-    "versace": "GDELT kept refusing: rate limited or unavailable",
-    "zegna": "GDELT kept refusing: rate limited or unavailable"
-  },
+  "failed": {},
   "queries": {
     "alaia": "\"Alaia\"",
     "balenciaga": "\"Balenciaga\"",
@@ -51,7 +22,7 @@
     "celine": "\"Celine\" (fashion OR runway OR collection OR handbag OR couture)",
     "chanel": "\"Chanel\"",
     "chloe": "\"Chloe\" (fashion OR runway OR collection OR handbag OR couture)",
-    "dior": "\"Dior\"",
+    "dior": "(Dior OR \"Christian Dior\")",
     "dolce_gabbana": "\"Dolce\" \"Gabbana\"",
     "dries_van_noten": "\"Dries Van Noten\"",
     "fendi": "\"Fendi\"",
@@ -72,6 +43,8 @@
     "versace": "\"Versace\"",
     "zegna": "\"Zegna\""
   },
-  "run": "gh37490080450",
-  "updated_at": "2026-10-06T17:21:09Z"
+  "rate_limited": "GDELT kept refusing: rate limited or unavailable",
+  "run": "gh37518507874",
+  "span": {},
+  "updated_at": "2026-10-06T19:31:27Z"
 }
