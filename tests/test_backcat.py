@@ -146,3 +146,42 @@ def test_unrelated_images_never_pair_across_houses_or_long_gaps():
     back = _items(5, house="a", seed=3)
     meta = [{**b, "house": "b"} for b in back] + [{**b, "date": date(2025, 1, 1)} for b in back]
     assert calibrate.match(meta, back) == []
+
+
+def _two_houses():
+    return Registry(1, "DRAFT", [House("bottega_veneta", "Bottega Veneta", "treated", "Kering", ["Bottega Veneta"], [], []),
+                                 House("prada", "Prada", "control", "Prada", ["Prada"], [], [])])
+
+
+def test_a_busy_archive_or_a_refusing_site_is_noted_not_fatal(tmp_data):
+    def h(url, params):
+        if url == "https://models.com/client/prada":
+            return FakeResponse(403, text="Forbidden")
+        if url == backcat.CDX and "prada" in params.get("url", ""):
+            return FakeResponse(200, text="<html>Service busy</html>")      # HTML where JSON should be
+        return _handler()(url, params)
+    d = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), _two_houses(), "r1")
+    assert d["campaigns_on_file"] == 2 and d["errors"] == {}
+    assert d["statuses"].get("client 403") == 1 and d["new_urls"]["prada"] == 0
+
+
+def test_one_house_breaking_does_not_lose_the_others(tmp_data):
+    import requests
+
+    def h(url, params):
+        if "prada" in url or "prada" in str(params):
+            raise requests.ConnectionError("reset by peer")
+        return _handler()(url, params)
+    d = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), _two_houses(), "r1")
+    assert "prada" in d["errors"] and d["errors"]["prada"].startswith("ConnectionError")
+    assert d["campaigns_on_file"] == 2      # Bottega's campaigns were found and saved
+
+
+def test_a_crash_still_leaves_a_record(tmp_data, monkeypatch):
+    def boom(*a, **k):
+        raise RuntimeError("something unforeseen")
+    monkeypatch.setattr(backcat, "discover", boom)
+    monkeypatch.setattr(backcat.registry, "load", lambda: _two_houses())
+    assert backcat.main(["discover", "--run", "r9"]) == 1
+    rows = store.read_jsonl(backcat.paths()["prov"])
+    assert rows[-1]["crashed"].startswith("RuntimeError") and rows[-1]["run_id"] == "r9"

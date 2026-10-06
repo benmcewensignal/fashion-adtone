@@ -224,18 +224,34 @@ class Crawler:
             self._robots[base] = rp
         return self._robots[base].can_fetch(UA, url)
 
-    def get(self, url: str, params: dict | None = None):
-        self.calls += 1
-        if self.pause:
-            self.sleep(self.pause)
-        return self.s.get(url, params=params, timeout=60)
+    def get(self, url: str, params: dict | None = None, retries: int = 2):
+        """One polite request; a busy server (429, 5xx) is retried after a longer pause."""
+        for attempt in range(retries + 1):
+            self.calls += 1
+            if self.pause:
+                self.sleep(self.pause * (1 + 3 * attempt))
+            r = self.s.get(url, params=params, timeout=60)
+            if r.status_code not in (429, 500, 502, 503, 504) or attempt == retries:
+                return r
+        return r
 
 
 def cdx_prefix(c: Crawler, prefix: str, limit: int = 5000) -> list[str]:
     r = c.get(CDX, {"url": prefix, "matchType": "prefix", "output": "json", "fl": "original",
                     "collapse": "urlkey", "filter": "statuscode:200", "limit": str(limit)})
-    rows = r.json() if r.status_code == 200 and r.text.strip() else []
-    return [row[0] for row in rows[1:]]
+    return [row[0] for row in _cdx_rows(r)[1:]]
+
+
+def _cdx_rows(r) -> list:
+    """The archive's index as rows. Under load it answers with an HTML page instead of JSON: that is
+    no rows, not a crash."""
+    if r.status_code != 200 or not r.text.strip():
+        return []
+    try:
+        rows = r.json()
+    except ValueError:
+        return []
+    return rows if isinstance(rows, list) else []
 
 
 def captures(c: Crawler, url: str, around: date, window_days: int = 75, limit: int = 6) -> list[str]:
@@ -243,43 +259,51 @@ def captures(c: Crawler, url: str, around: date, window_days: int = 75, limit: i
                     "from": (around - timedelta(days=window_days)).strftime("%Y%m%d"),
                     "to": (around + timedelta(days=window_days)).strftime("%Y%m%d"),
                     "filter": ["statuscode:200", "mimetype:text/html"]})
-    rows = r.json() if r.status_code == 200 and r.text.strip() else []
-    return [row[0] for row in rows[1:]]
+    return [row[0] for row in _cdx_rows(r)[1:]]
 
 
 def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400) -> dict:
+    """Each house on its own: a failure is noted against that house and the stage moves on, and every
+    house's campaigns are saved before the next is read, so a run cut short keeps what it found."""
+    from collections import Counter
     table = store.ShardedTable(paths()["campaigns"], "campaign_id")
-    found, read, skipped = {}, 0, 0
+    found, read, skipped, errors, statuses = {}, 0, 0, {}, Counter()
     for h in reg.houses:
-        slug = h.models_slug or slugify(h.name)
-        urls: list[str] = []
-        client = f"{MODELS}/client/{slug}"
-        if c.allowed(client):
-            r = c.get(client)
-            if r.status_code == 200:
-                urls += parse_client(r.text)
-        for u in cdx_prefix(c, f"models.com/work/{slug}-{slug}-"):
-            w = work_url(urlparse(u).path)
-            if w:
-                urls.append(w)
-        urls = [u for u in dict.fromkeys(urls) if u.rsplit("/", 1)[-1] not in table]
-        found[h.id] = len(urls)
-        for u in urls:
-            if read >= max_reads:
-                break
-            if not c.allowed(u):
-                skipped += 1
-                continue
-            r = c.get(u)
-            read += 1
-            if r.status_code != 200:
-                continue
-            row = parse_work(r.text, u)
-            row.update({"house_id": h.id, "read_run": rid})
-            table.upsert({k: v for k, v in row.items() if v not in (None, [], {})} | {"campaign_id": row["campaign_id"]},
-                         shard=h.id)
-    table.save()
-    return {"new_urls": found, "pages_read": read, "robots_skipped": skipped, "campaigns_on_file": len(table.rows)}
+        try:
+            slug = h.models_slug or slugify(h.name)
+            urls: list[str] = []
+            client = f"{MODELS}/client/{slug}"
+            if c.allowed(client):
+                r = c.get(client)
+                statuses[f"client {r.status_code}"] += 1
+                if r.status_code == 200:
+                    urls += parse_client(r.text)
+            for u in cdx_prefix(c, f"models.com/work/{slug}-{slug}-"):
+                w = work_url(urlparse(u).path)
+                if w:
+                    urls.append(w)
+            urls = [u for u in dict.fromkeys(urls) if u.rsplit("/", 1)[-1] not in table]
+            found[h.id] = len(urls)
+            for u in urls:
+                if read >= max_reads:
+                    break
+                if not c.allowed(u):
+                    skipped += 1
+                    continue
+                r = c.get(u)
+                read += 1
+                statuses[f"work {r.status_code}"] += 1
+                if r.status_code != 200:
+                    continue
+                row = parse_work(r.text, u)
+                row.update({"house_id": h.id, "read_run": rid})
+                table.upsert({k: v for k, v in row.items() if v not in (None, [], {})} | {"campaign_id": row["campaign_id"]},
+                             shard=h.id)
+        except (requests.RequestException, ValueError, KeyError, AttributeError) as e:
+            errors[h.id] = f"{e.__class__.__name__}: {str(e)[:160]}"
+        table.save()
+    return {"new_urls": found, "pages_read": read, "robots_skipped": skipped, "campaigns_on_file": len(table.rows),
+            "statuses": dict(statuses), "errors": errors}
 
 
 def images(c: Crawler, embedder, scorer, rid: str, max_campaigns: int = 150, budget_s: float = 5400,
@@ -399,18 +423,26 @@ def main(argv: list[str] | None = None) -> int:
             print(f"::error::{e}")
         return 1 if errs else 0
     c = Crawler()
-    if a.stage == "discover":
-        out = discover(c, reg, rid, max_reads=a.max * 3)
-    else:
-        from .embed import OpenClipEmbedder
-        from .score import load_rubric, make_scorer
-        out = images(c, OpenClipEmbedder(), make_scorer(load_rubric()), rid, a.max, a.budget_min * 60)
+    crashed = None
+    try:
+        if a.stage == "discover":
+            out = discover(c, reg, rid, max_reads=a.max * 3)
+        else:
+            from .embed import OpenClipEmbedder
+            from .score import load_rubric, make_scorer
+            out = images(c, OpenClipEmbedder(), make_scorer(load_rubric()), rid, a.max, a.budget_min * 60)
+    except Exception as e:   # whatever happens, leave a record of it: the run's log is not always readable
+        crashed = f"{e.__class__.__name__}: {str(e)[:300]}"
+        out = {"crashed": crashed}
     out.update({"run_id": rid, "stage": a.stage, "finished_at": store.utc_now(), "requests": c.calls})
     store.append_jsonl(paths()["prov"], [out])
     st = store.read_state(paths()["state"])
     st[f"last_{a.stage}"] = out["finished_at"]
     store.write_state(paths()["state"], st)
     print({k: v for k, v in out.items() if k != "new_urls"})
+    if crashed:
+        print(f"::error::{a.stage} crashed, recorded in provenance: {crashed}")
+        return 1
     if out.get("stopped_on"):
         print(f"::error::scoring API failed, progress saved: {out['stopped_on']}")
         return 4
