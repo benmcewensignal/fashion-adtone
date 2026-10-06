@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Focal</title>
-<meta name="description" content="Fashion runs on hope. Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.">
+<meta name="description" content="Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.">
 <meta property="og:title" content="Focal">
-<meta property="og:description" content="Fashion runs on hope. Focal measures the character of fashion brands.">
+<meta property="og:description" content="Focal measures the character of fashion brands.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23d7261e' stroke-width='2'/%3E%3C/svg%3E">
@@ -18,7 +18,7 @@
     --paper: #ffffff;
     --ink: #000000;
     --graphite: #6b6b6b;
-    --accent: #d7261e;      /* the one colour: used for the hero's last word, the current tab's dot and the favicon, nowhere else */
+    --accent: #d7261e;      /* the one colour: used for the current tab's dot and the favicon, nowhere else */
     --gutter: clamp(1.25rem, 4vw, 3rem);
     --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
     --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -91,17 +91,6 @@
 
   /* Overview: an invitation */
   #overview { max-width: 54rem; text-align: center; }
-  .ask {
-    margin: 0 auto;
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(2.6rem, 7vw, 5.25rem);
-    line-height: 1.02;
-    letter-spacing: -0.01em;
-    max-width: 14ch;
-    text-wrap: balance;
-  }
   .lede { max-width: 28rem; margin: clamp(2.25rem, 5vw, 3.25rem) auto 0; color: var(--ink); font-size: 0.9375rem; text-wrap: pretty; }
   section.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
@@ -183,7 +172,6 @@
 
   <main>
     <section id="overview" data-panel aria-label="Overview">
-      <p class="ask">Fashion runs on <span class="accent">hope</span></p>
       <p class="lede">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
     </section>
 
