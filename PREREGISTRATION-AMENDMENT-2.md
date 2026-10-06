@@ -44,6 +44,24 @@ match first, otherwise by the date rule in the code at this commit. Shares are r
 least 3 photographers linked at two or more houses and 10 spare degrees of freedom. It is descriptive:
 no hypothesis, no p-value, no claim of support.
 
+### Change and attention, described
+
+`adtone.success` sets each changed house's measured shift (its event-study z) against the change in
+its English Wikipedia page views. The change is the log ratio of mean daily views in the 182 days
+after the debut over the 182 days before, less the median change of the control houses over the same
+days, with at least 80 per cent of days present on each side. It reports Spearman's rank correlation,
+a permutation p-value from 20,000 permutations, and the correlation needed to stand out from noise
+with that many houses. It is descriptive: no hypothesis, and no claim that a change worked.
+
+It also reports whether the other houses' advertising moved towards the house the Lyst Index ranks
+first, using `reference/lyst_leaders.csv` at this commit: the change in similarity to the leader's
+look in its spell against the six months before, ranked against the same change towards each other
+house.
+
+The Lyst Index is not used as the measure of success. It changed its method in the first quarter of
+2026 and counted Chanel and Dior for the first time, so its ranks either side of the debuts do not
+compare. Page views are counted the same way throughout.
+
 ## Expectations recorded before data
 
 These change no test.
@@ -55,6 +73,10 @@ These change no test.
   result about the window, not about the hypothesis.
 - From the seed credits alone, 14 of the 16 covered houses fall in one connected set. Jil Sander and
   Margiela sit outside it and stay out of the decomposition unless their crews cross into it.
+
+- A debut draws attention whatever it does to sales. A positive association would show that larger
+  shifts drew more attention, not that they sold more. With ten houses, only a correlation beyond
+  about 0.6 stands out from noise.
 
 ## What it does not change
 

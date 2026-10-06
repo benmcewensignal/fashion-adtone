@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (128 tests).
+- Built and tested on synthetic data with known ground truth (139 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -55,6 +55,7 @@ writes the same files.
 |---|---|
 | collect, resolve-pages | `data/ads/`, `data/state/collect.json`, `data/provenance/collect.jsonl`, `data/registry/page_candidates.json` |
 | process | `data/media/`, `data/obs/`, `data/vectors/`, `data/state/process.json`, `data/provenance/process.jsonl` |
+| attention | `data/attention/`, `data/state/attention.json`, `data/provenance/attention.jsonl` |
 | analyse | `data/results/`, `data/provenance/analyse.jsonl`, `data/human_check/` |
 
 Every workflow carries the signal-sonic lessons: persist by replaying onto the new head with five
@@ -166,6 +167,15 @@ nothing until its adjudication date and is never recomputed once recorded. The f
 `saint-laurent-v1`, was registered on 5 October 2026 while Anthony Vaccarello's reported departure was
 unconfirmed and no successor had been named. Recording the successor and the date of their first show
 in `events.yml` is all it needs.
+
+## Change and attention
+
+There is no clean house-level measure of success. Revenue is reported by house for only a few of the
+eighteen, and the Lyst Index changed its method in early 2026. So the **attention** workflow collects
+daily Wikipedia page views for every house, and `adtone.success` describes two things. One is whether
+the houses that shifted most also gained the most attention, relative to the controls. The other is
+whether the other houses' advertising drifts towards whichever house Lyst ranks first. Both are
+description, not effects (`docs/SUCCESS.md`).
 
 ## Site
 

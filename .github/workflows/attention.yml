@@ -1,0 +1,47 @@
+name: attention
+run-name: attention weekly
+# Daily Wikipedia page views for every house: a consistent outside measure of attention, for the
+# descriptive success analysis. Each run is a full refresh, so a missed week loses nothing.
+on:
+  schedule:
+    - cron: "15 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-attention
+  cancel-in-progress: false
+
+jobs:
+  attention:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 20
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Collect page views
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.attention collect --run "gh${GITHUB_RUN_ID}"
+      - name: Completeness probe
+        id: probe
+        continue-on-error: true
+        timeout-minutes: 2
+        run: python -m adtone.attention probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh attention "attention weekly"
+      - name: Fail if a step failed
+        if: steps.collect.outcome == 'failure' || steps.probe.outcome == 'failure'
+        run: |
+          echo "::error::page-view collection or its probe failed; whatever was collected was kept"
+          exit 1
