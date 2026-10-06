@@ -121,6 +121,22 @@
   .for { margin: 0 0 1.75rem; text-align: center; }
   .for p { margin: 0; }
 
+  /* The eighteen questions, on one invented image */
+  .anat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin: 0 0 1.5rem; }
+  .anat figure { margin: 0; }
+  .anat svg { display: block; width: 100%; height: auto; }
+  .anat figcaption { margin-top: 0.6rem; color: var(--graphite); font-size: 0.8125rem; text-align: center; }
+  .pin circle { fill: var(--accent); stroke: var(--paper); stroke-width: 4; }
+  .pin text { fill: var(--paper); }
+  .qs { list-style: none; margin: 0; padding: 0; }
+  .qs li { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); column-gap: 0.75rem; align-items: start; padding: 0.55rem 0; }
+  .qs .n { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-top: 0.15rem; border-radius: 50%; background: var(--accent); color: var(--paper); font-size: 0.75rem; font-weight: 560; line-height: 1; }
+  .qs .whole .n { background: none; color: var(--graphite); box-shadow: inset 0 0 0 1px var(--graphite); }
+  .qs .q { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
+  .qs .a { margin: 0.15rem 0 0; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; }
+  .qs .a b { color: var(--ink); font-weight: 600; }
+  @media (min-width: 56rem) { .anat { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; } .anat figure { position: sticky; top: 1.5rem; } }
+
   /* Brands: the new creative directors, folded away */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
   .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
@@ -218,29 +234,111 @@
         <div class="narrow">
           <p>Each image is read against eighteen fixed questions and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
           <p class="note">Current advertising comes from Meta's platforms in Europe and Britain, past campaigns from public archives. Contribution firms up as the record grows: each month adds attention, each quarter adds desire and revenue.</p>
-          <details>
-            <summary>The eighteen questions</summary>
-            <dl class="pairs">
-              <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
-              <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
-              <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
-              <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
-              <div><dt>People</dt><dd>none, one, two, group</dd></div>
-              <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
-              <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
-              <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
-              <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
-              <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
-              <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
-              <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
-              <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
-              <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
-              <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
-              <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
-              <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
-              <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
-            </dl>
-          </details>
+        </div>
+        <div class="anatomy">
+          <p class="sub" style="margin-top:3rem">The eighteen questions</p>
+          <p class="block" style="text-align:center">Here they are on one invented campaign image, with the answer the reader would give each.</p>
+          <div class="anat">
+          <figure>
+            <svg viewBox="0 0 1080 1350" role="img" aria-labelledby="anat-title">
+              <title id="anat-title">An invented campaign image: a model in a long camel coat walks along a stone street at dusk under a street lamp, carrying a structured bag, with a small wordmark at the foot</title>
+              <defs>
+                <radialGradient id="an-glow" cx="860" cy="300" r="640" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#f0c48a" stop-opacity="0.62"/>
+                  <stop offset="0.22" stop-color="#cf975c" stop-opacity="0.32"/>
+                  <stop offset="0.6" stop-color="#8a5f3a" stop-opacity="0.10"/>
+                  <stop offset="1" stop-color="#8a5f3a" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="an-coat" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#5e4530"/>
+                  <stop offset="0.55" stop-color="#8f6c4a"/>
+                  <stop offset="1" stop-color="#c39a6b"/>
+                </linearGradient>
+                <linearGradient id="an-ground" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2a201a"/>
+                  <stop offset="1" stop-color="#15100d"/>
+                </linearGradient>
+                <linearGradient id="an-bag" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#3e2a1c"/>
+                  <stop offset="0.7" stop-color="#6b4a30"/>
+                  <stop offset="1" stop-color="#d9a873"/>
+                </linearGradient>
+              </defs>
+              <rect width="1080" height="1350" fill="#2b211b"/>
+              <g stroke="#352920" stroke-width="3">
+                <path d="M0 180H1080M0 360H1080M0 540H1080M0 720H1080M0 900H1080"/>
+                <path d="M520 0V180M880 180V360M560 360V540M940 540V720M600 720V900M980 900V1080"/>
+              </g>
+              <path d="M110 1112V500A150 150 0 0 1 410 500V1112Z" fill="#17120e"/>
+              <path d="M110 1112V500A150 150 0 0 1 410 500V1112" fill="none" stroke="#3d2f25" stroke-width="10"/>
+              <path d="M150 1112V520A110 110 0 0 1 370 520V1112" fill="none" stroke="#231a14" stroke-width="4"/>
+              <rect y="1112" width="1080" height="238" fill="url(#an-ground)"/>
+              <path d="M0 1112H1080" stroke="#433327" stroke-width="6"/>
+              <ellipse cx="770" cy="1162" rx="380" ry="58" fill="#c99a66" opacity="0.2"/>
+              <path d="M872 1112V330" stroke="#120d0a" stroke-width="16"/>
+              <path d="M872 330q0 -60 -70 -70" fill="none" stroke="#120d0a" stroke-width="12"/>
+              <path d="M770 262h64l-10 34h-44z" fill="#120d0a"/>
+              <ellipse cx="802" cy="300" rx="22" ry="9" fill="#ffe2b0"/>
+              <rect width="1080" height="1350" fill="url(#an-glow)"/>
+              <ellipse cx="420" cy="1168" rx="230" ry="20" fill="#0d0a08" opacity="0.55"/>
+              <path d="M598 990L652 1150L628 1158L566 1000Z" fill="#17120f"/>
+              <path d="M624 1146l52 6l-4 14l-56 -4z" fill="#0f0b09"/>
+              <path d="M528 990L466 1146L492 1154L560 1000Z" fill="#1c1612"/>
+              <path d="M462 1142l-46 10l2 14l52 -6z" fill="#0f0b09"/>
+              <path d="M500 432C478 444 470 470 468 500L452 760L430 1010C470 1022 520 1012 548 996C584 1012 628 1018 664 1004L640 760L626 498C624 468 616 444 596 432C566 422 530 422 500 432Z" fill="url(#an-coat)"/>
+              <path d="M548 446L532 700L548 996" fill="none" stroke="#4b3626" stroke-width="5"/>
+              <path d="M470 640C510 650 590 650 632 640" fill="none" stroke="#4b3626" stroke-width="7"/>
+              <path d="M520 438L548 520L578 438" fill="none" stroke="#4b3626" stroke-width="5"/>
+              <path d="M494 452C470 520 462 600 470 690L488 690C486 610 496 530 514 462Z" fill="#5a412d"/>
+              <path d="M600 450C622 520 634 600 640 740L620 744C612 620 600 540 582 466Z" fill="#a9825a"/>
+              <path d="M630 752c-30 -4 -44 22 -44 22" fill="none" stroke="#2a1c12" stroke-width="7"/>
+              <path d="M608 776c0 -34 66 -34 66 0" fill="none" stroke="#2a1c12" stroke-width="8"/>
+              <rect x="588" y="776" width="112" height="86" rx="10" fill="url(#an-bag)"/>
+              <path d="M588 800H700" stroke="#2a1c12" stroke-width="3" opacity="0.6"/>
+              <rect x="636" y="796" width="16" height="10" rx="2" fill="#e8c48f"/>
+              <path d="M546 388h26l6 50h-36z" fill="#a37e64"/>
+              <path d="M542 316C530 322 524 334 524 346L515 359L523 363C521 369 523 373 527 375C525 380 527 386 533 390C541 397 553 399 564 396L590 380L592 330Z" fill="#c09a82"/>
+              <path d="M538 318C548 300 578 296 598 308C616 320 620 346 612 368C606 384 596 394 584 400C590 380 590 358 578 346C566 334 552 330 540 334C537 328 536 323 538 318Z" fill="#17110d"/>
+              <circle cx="618" cy="334" r="21" fill="#17110d"/>
+              <text x="540" y="1272" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, sans-serif" font-size="40" font-weight="300" letter-spacing="14" fill="#eadbc4" opacity="0.92" style="font-variation-settings: 'wdth' 125">MAISON</text>
+              <g class="pins" font-family="Archivo, 'Helvetica Neue', Helvetica, sans-serif" font-size="30" font-weight="560" text-anchor="middle">
+                <g class="pin"><circle cx="744" cy="214" r="31"/><text x="744" y="225">1</text></g>
+                <g class="pin"><circle cx="968" cy="430" r="31"/><text x="968" y="441">2</text></g>
+                <g class="pin"><circle cx="260" cy="760" r="31"/><text x="260" y="771">4</text></g>
+                <g class="pin"><circle cx="404" cy="560" r="31"/><text x="404" y="571">5</text></g>
+                <g class="pin"><circle cx="466" cy="338" r="31"/><text x="466" y="349">6</text></g>
+                <g class="pin"><circle cx="486" cy="410" r="31"/><text x="486" y="421">7</text></g>
+                <g class="pin"><circle cx="548" cy="1074" r="31"/><text x="548" y="1085">8</text></g>
+                <g class="pin"><circle cx="392" cy="1206" r="31"/><text x="392" y="1217">9</text></g>
+                <g class="pin"><circle cx="740" cy="818" r="31"/><text x="740" y="829">10</text></g>
+                <g class="pin"><circle cx="584" cy="584" r="31"/><text x="584" y="595">11</text></g>
+                <g class="pin"><circle cx="772" cy="1260" r="31"/><text x="772" y="1271">15</text></g>
+              </g>
+            </svg>
+            <figcaption>Drawn for illustration. Not a real brand or campaign.</figcaption>
+          </figure>
+          <ol class="qs">
+          <li><span class="n" aria-hidden="true">1</span><div><p class="q">Light</p><p class="a">high key, <b>low key</b>, natural daylight, mixed, unclear</p></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><p class="q">Colour temperature</p><p class="a"><b>warm</b>, cool, neutral, mixed</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">3</span><div><p class="q">Saturation</p><p class="a"><b>muted</b>, moderate, vivid, monochrome</p></div></li>
+          <li><span class="n" aria-hidden="true">4</span><div><p class="q">Setting</p><p class="a">plain studio, studio set, interior, <b>urban exterior</b>, landscape, water or beach, abstract or digital, unclear</p></div></li>
+          <li><span class="n" aria-hidden="true">5</span><div><p class="q">People</p><p class="a">none, <b>one</b>, two, group</p></div></li>
+          <li><span class="n" aria-hidden="true">6</span><div><p class="q">Gaze</p><p class="a">to camera, <b>away</b>, eyes hidden, no face, not applicable</p></div></li>
+          <li><span class="n" aria-hidden="true">7</span><div><p class="q">Expression</p><p class="a"><b>neutral</b>, smiling, intense, playful, not applicable</p></div></li>
+          <li><span class="n" aria-hidden="true">8</span><div><p class="q">Pose</p><p class="a">posed and static, <b>candid and moving</b>, performative, not applicable</p></div></li>
+          <li><span class="n" aria-hidden="true">9</span><div><p class="q">Framing</p><p class="a">close-up, medium, <b>full length</b>, wide scene, product only</p></div></li>
+          <li><span class="n" aria-hidden="true">10</span><div><p class="q">Primary subject</p><p class="a">garment, <b>bag</b>, footwear, accessory, jewellery, face, body, scene, object, text</p></div></li>
+          <li><span class="n" aria-hidden="true">11</span><div><p class="q">Styling register</p><p class="a"><b>formal and tailored</b>, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">12</span><div><p class="q">Production</p><p class="a">polished commercial, <b>editorial or art</b>, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">13</span><div><p class="q">Mood, up to three</p><p class="a">austere, <b>serene</b>, intimate, sensual, playful, ironic, <b>nostalgic</b>, opulent, surreal, aggressive, romantic, documentary</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">14</span><div><p class="q">Street to couture</p><p class="a">one point on a scale of 1 to 5: 1, 2, 3, <b>4</b>, 5</p></div></li>
+          <li><span class="n" aria-hidden="true">15</span><div><p class="q">Text in image</p><p class="a">none, <b>logo only</b>, headline, price or offer, call to action</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">16</span><div><p class="q">Creative type</p><p class="a">brand image, <b>product on model</b>, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">17</span><div><p class="q">Category</p><p class="a">ready-to-wear, <b>leather goods</b>, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">18</span><div><p class="q">Confidence</p><p class="a">how sure the reading is, from 0 to 1: <b>0.86</b></p></div></li>
+          </ol>
+          </div>
+          <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
         </div>
       </div>
     </section>
