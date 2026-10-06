@@ -9,7 +9,7 @@
 <meta property="og:description" content="Focal measures the character of fashion brands.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%236050dc' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%233627be' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
@@ -18,14 +18,14 @@
     --paper: #ffffff;
     --ink: #000000;
     --graphite: #6b6b6b;
-    --accent: #6050dc;      /* the one colour, bleu Majorelle: the O in Focal, the current tab's dot and the favicon, nowhere else */
+    --accent: #3627be;      /* the one colour, a deep Majorelle blue: the O in Focal, the current tab's dot and the favicon, nowhere else */
     --gutter: clamp(1.25rem, 4vw, 3rem);
     --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
     --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; --accent: #8a7dff; }
+    :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; --accent: #7d70f5; }
   }
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
@@ -50,8 +50,8 @@
   p { margin: 0 0 1em; }
   p:last-child { margin-bottom: 0; }
 
-  /* The spine: Focal stood on end, reading upwards */
-  .spine, .mark, .word {
+  /* The spine: Focal stood on end, reading upwards, on the landing only */
+  .spine {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     font-variation-settings: "wdth" 125;
@@ -67,7 +67,7 @@
   .sections { list-style: none; margin: 0; padding: 0; }
   .sections a { position: relative; display: block; padding: 0.8125rem 0; font-size: 0.8125rem; line-height: 1.125rem; letter-spacing: 0.06em; color: var(--graphite); text-decoration: none; }
   .sections a[aria-current="page"] { padding: 0.75rem 0; color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.25rem; letter-spacing: 0; }
-  .sections a[aria-current="page"]::before { content: ""; position: absolute; left: -0.75rem; top: 50%; width: 4px; height: 4px; margin-top: -2px; border-radius: 50%; background: var(--accent); }
+  .sections a[aria-current="page"]::before { content: ""; position: absolute; left: 50%; bottom: 0.25rem; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
   @media (hover: hover) { .sections a:hover { color: var(--ink); } }
 
   /* Landing: the spine fills the visible height */
@@ -90,21 +90,17 @@
   .statement { grid-column: 2; grid-row: 2; align-self: end; max-width: 17em; margin: 2rem 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 1rem + 2.4vw, 3.5rem); line-height: 1.15; }
   @media (min-width: 48rem) { .landing nav { justify-self: end; text-align: right; } }
 
-  /* Page heroes: the page's name stood on end beside the menu and the heading */
-  .hero {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
-    column-gap: clamp(1.5rem, 5vw, 5rem);
-    padding: 1.25rem 0 0;
-    margin: 0 0 clamp(3rem, 9vw, 6rem);
-  }
-  .mark { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; margin: 0 0 0 -0.875rem; padding: 0.25rem 0.875rem; font-size: 1.0625rem; color: var(--ink); text-decoration: none; }
-  .word { grid-column: 1; grid-row: 1 / span 2; align-self: end; margin: 6.5rem 0 0; font-size: clamp(5.25rem, 7.5vw, 7rem); }
-  .hero nav { grid-column: 2; grid-row: 1; }
-  .hero .intro { grid-column: 2; grid-row: 2; align-self: end; padding-top: 2rem; }
-  .hero h2 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 4.4vw, 3.25rem); line-height: 1.06; text-wrap: balance; }
-  .hero .intro p { margin: 0.85rem 0 0; max-width: 30rem; font-size: 0.9375rem; text-wrap: pretty; }
+  /* Pages: a small Focal and the menu across the top, the heading centred beneath */
+  .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; column-gap: 2rem; padding: 0.75rem 0 0; margin: 0 0 clamp(3rem, 9vw, 5.5rem); }
+  .mark { display: inline-block; padding: 0.5rem 0; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1; font-variation-settings: "wdth" 125; font-weight: 200; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; color: var(--ink); text-decoration: none; }
+  .top nav { flex: 1 1 auto; }
+  .top .sections { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: 0.625rem; }
+  .top .sections a { font-size: clamp(0.6875rem, 3vw, 0.8125rem); letter-spacing: 0.04em; }
+  .top .sections a[aria-current="page"] { font-size: clamp(0.8125rem, 3.6vw, 1rem); letter-spacing: 0; }
+  @media (min-width: 48rem) { .top .sections { justify-content: flex-end; column-gap: clamp(1.25rem, 2.5vw, 2.25rem); } }
+  .intro { max-width: 36rem; margin: 0 auto clamp(2.5rem, 7vw, 4rem); text-align: center; }
+  .intro h2 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 5vw, 3.25rem); line-height: 1.08; text-wrap: balance; }
+  .intro p { margin: 0.85rem auto 0; max-width: 30rem; font-size: 0.9375rem; text-wrap: pretty; }
 
   main { margin: 0; }
   .body { max-width: 36rem; margin: 0 auto; }
@@ -195,9 +191,8 @@
       </div>
     </section>
     <section id="readings" data-panel aria-labelledby="readings-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">Readings</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -208,11 +203,11 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="readings-h">What it shows</h2>
         <p>Four readings for every brand, every month.</p>
       </div>
-      </header>
       <div class="body wide">
         <div class="triad duo">
           <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood, and the cast of people who make it.</p></div>
@@ -251,9 +246,8 @@
     </section>
 
     <section id="people" data-panel aria-labelledby="people-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">People</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -264,11 +258,11 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="people-h">Who makes the image</h2>
         <p>A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal reads the cast as part of the brand's character.</p>
       </div>
-      </header>
       <div class="body wide">
         <div class="triad duo">
           <div><h3>Continuity</h3><p>How long a brand keeps the same image-makers.</p></div>
@@ -319,9 +313,8 @@
     </section>
 
     <section id="brands" data-panel aria-labelledby="brands-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">Brands</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -332,11 +325,11 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="brands-h">Twenty‑eight brands</h2>
         <p>Each is read every month, against the other twenty-seven. Here they are by owner.</p>
       </div>
-      </header>
       <div class="body">
         <ul class="groups">
           <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro Piana, Louis Vuitton</span></li>
@@ -370,9 +363,8 @@
     </section>
 
     <section id="sources" data-panel aria-labelledby="sources-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">Sources</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -383,10 +375,10 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="sources-h">What it reads</h2>
       </div>
-      </header>
       <div class="body wide">
         <p class="sub">For character</p>
         <ul class="src" style="margin-bottom:3.25rem">
@@ -406,9 +398,8 @@
     </section>
 
     <section id="offer" data-panel aria-labelledby="offer-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">Offer</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -419,10 +410,10 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="offer-h">What we offer</h2>
       </div>
-      </header>
       <div class="body wide">
         <div class="triad duo">
           <div>
@@ -447,9 +438,8 @@
     </section>
 
     <section id="status" data-panel aria-labelledby="status-h">
-      <header class="hero">
+      <header class="top">
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
-      <p class="word" aria-hidden="true">Status</p>
       <nav aria-label="Sections">
         <ul class="sections">
           <li><a href="#/readings">Readings</a></li>
@@ -460,10 +450,10 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
+      </header>
       <div class="intro">
         <h2 id="status-h">Where it stands</h2>
       </div>
-      </header>
       <div class="body">
         <ul class="status">
           <li><span class="t">Advertising</span>Waiting on Meta's access.</li>
