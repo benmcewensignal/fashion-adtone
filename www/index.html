@@ -12,13 +12,15 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #ffffff;
     --ink: #000000;
     --graphite: #6b6b6b;
     --gutter: clamp(1.25rem, 4vw, 3rem);
+    --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
+    --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -31,23 +33,24 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: var(--sans);
     font-variation-settings: "wdth" 100;
     font-weight: 380;
-    font-size: 1.0625rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.65;
     padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   .page { max-width: 84rem; margin: 0 auto; padding: 0 var(--gutter); }
-  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em; }
   @media (hover: hover) { a:hover { text-decoration-thickness: 2px; } }
-  a:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  a:focus-visible, summary:focus-visible { outline: 1px solid var(--ink); outline-offset: 5px; }
   p { margin: 0 0 1em; }
   p:last-child { margin-bottom: 0; }
 
-  /* Masthead */
+  /* Masthead and tabs, on one axis */
+  header { text-align: center; }
   .mark {
     margin: clamp(1.75rem, 5vw, 3.5rem) 0 0;
     font-variation-settings: "wdth" 125;
@@ -57,123 +60,90 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     white-space: nowrap;
-    margin-left: -0.05em;
+    text-indent: 0.04em;
   }
   .mark a { text-decoration: none; }
-
-  /* Tabs */
-  nav { margin: clamp(1.25rem, 3vw, 2rem) 0 0; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem clamp(0.85rem, 3.4vw, 1.4rem); font-size: clamp(0.875rem, 2.4vw, 0.9375rem); }
-  nav a { text-decoration: none; color: var(--graphite); padding: 0.35rem 0; display: inline-block; }
-  nav a[aria-current="page"] { color: var(--ink); font-weight: 560; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.4em; }
+  nav { margin: clamp(1.5rem, 3.5vw, 2.5rem) 0 0; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0.25rem clamp(1rem, 4vw, 2.25rem); }
+  nav a { text-decoration: none; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; padding: 0.4rem 0; display: inline-block; }
+  nav a[aria-current="page"] { color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; letter-spacing: 0; }
   @media (hover: hover) { nav a:hover { color: var(--ink); } }
 
-  main { margin: clamp(2.25rem, 6vw, 4.5rem) 0 0; }
-  section > h2 { margin: 0 0 1rem; font-size: 1.0625rem; line-height: 1.35; font-weight: 560; }
-  .body { max-width: 38rem; }
-  .block { margin: 0 0 2.5rem; }
-  .note { color: var(--graphite); font-size: 0.9375rem; }
-
-  /* Overview: the loop */
-  .hero { display: grid; gap: clamp(2rem, 5vw, 3rem); grid-template-areas: "ask" "loop" "routes" "lede"; }
-  .ask { grid-area: ask; } .loop { grid-area: loop; } .routes { grid-area: routes; } .lede { grid-area: lede; }
-  .ask { margin: 0; font-size: clamp(1.35rem, 3vw, 2.35rem); line-height: 1.2; font-weight: 330; max-width: 22ch; letter-spacing: -0.005em; }
-  .lede { max-width: 34rem; margin: 0; }
-  .lede a { white-space: nowrap; }
-  .loop { margin: 0; color: var(--ink); }
-  .loop svg { display: block; width: 100%; height: auto; max-width: 40rem; overflow: visible; }
-  .loop .houses text { fill: currentColor; font-variation-settings: "wdth" 112; font-weight: 300; font-size: 38px; text-anchor: middle; dominant-baseline: middle; }
-  .loop .who text { fill: var(--graphite); font-size: 17px; text-anchor: middle; }
-  .loop .arc { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0;
-    animation: draw 1.7s cubic-bezier(.3, .1, .2, 1) forwards; }
-  .loop .a2 { animation-delay: .7s; } .loop .a3 { animation-delay: 1.4s; } .loop .a1 { animation-delay: 0s; }
-  .loop .who text { opacity: 0; animation: appear .8s ease-out 2.6s forwards; }
-  @keyframes draw { 0% { stroke-dashoffset: 1; opacity: 0; } 12% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
-  @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
-
-  /* Routes: house, designer, house */
-  .routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
-  .route { display: flex; flex-direction: column; align-items: flex-start; }
-  .route .node { font-variation-settings: "wdth" 112; font-weight: 300; font-size: clamp(1.15rem, 2.6vw, 2rem); line-height: 1.05; }
-  .route .edge { position: relative; width: 1px; height: 3.1rem; margin: 0.45rem 0 0.5rem 0.45rem; background: var(--ink); }
-  .route .edge::after { content: ""; position: absolute; left: -3.5px; bottom: 0; width: 7px; height: 7px;
-    border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform: rotate(45deg); transform-origin: center; }
-  .route .edge span { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: max-content; max-width: 9.5rem;
-    font-size: 0.75rem; line-height: 1.3; color: var(--graphite); }
-  .route.row, .route.wide { flex-direction: row; align-items: center; gap: 0.75rem; width: 100%; }
-  .route.row .node, .route.wide .node { white-space: nowrap; }
-  .route.row .edge, .route.wide .edge { flex: 1; width: auto; min-width: 3rem; height: 1px; margin: 0; }
-  .route.row .edge::after, .route.wide .edge::after { left: auto; right: 1px; bottom: -3px; transform: rotate(-45deg); }
-  .route.row .edge span, .route.wide .edge span { left: 50%; top: auto; bottom: 0.5rem; transform: translateX(-50%); max-width: 100%; text-align: center; }
-  .route.row .node { font-size: clamp(1.05rem, 2.2vw, 1.4rem); }
-  @media (min-width: 56rem) {
-    .hero { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gutter); row-gap: 1.75rem; align-items: start;
-      grid-template-areas: "ask loop" "lede loop" "routes routes"; grid-template-rows: auto 1fr auto; }
-    .ask { padding-top: 1rem; }
-    .loop { justify-self: end; width: 100%; }
-    .loop .who text { font-size: 13.5px; }
-    .routes { margin-top: clamp(1.5rem, 4vw, 3rem); grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: clamp(2rem, 5vw, 4rem); }
-    .route { flex-direction: row; align-items: center; gap: 0.9rem; }
-    .route .node { white-space: nowrap; }
-    .route .edge { flex: 1; width: auto; min-width: 3rem; height: 1px; margin: 0; }
-    .route .edge::after { left: auto; right: 1px; bottom: -3px; transform: rotate(-45deg); }
-    .route .edge span { left: 50%; top: auto; bottom: 0.55rem; transform: translateX(-50%); max-width: 100%; text-align: center; font-size: 0.875rem; }
+  main { margin: clamp(3.5rem, 10vw, 7.5rem) 0 0; }
+  section { max-width: 36rem; margin: 0 auto; }
+  section > h2 {
+    margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 4.2vw, 2.75rem);
+    line-height: 1.1;
   }
+  .note { color: var(--graphite); font-size: 0.875rem; }
+  .block { margin: 0 0 2.75rem; }
+  .sub { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; line-height: 1.2; text-align: center; }
 
-  /* Houses */
-  .sub { margin: 0 0 0.6rem; font-weight: 560; }
-  .debuts { list-style: none; margin: 0 0 1.75rem; padding: 0; }
-  .debuts li { display: grid; grid-template-columns: 7rem minmax(0, 1fr) auto; column-gap: 0.6rem; padding: 0.3rem 0; font-size: 0.875rem; }
-  .debuts .h { font-weight: 560; }
-  .debuts li.c { box-shadow: inset 1px 0 0 var(--ink); padding-left: 0.75rem; margin-left: -0.75rem; }
-  .debuts li.c-label { display: block; padding: 0.6rem 0 0.15rem 0.75rem; margin-left: -0.75rem; box-shadow: inset 1px 0 0 var(--ink);
-    font-size: 0.75rem; color: var(--graphite); }
-  .debuts time { color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  @media (min-width: 40rem) {
-    .debuts li { grid-template-columns: 11rem minmax(0, 1fr) auto; column-gap: 1rem; font-size: 1.0625rem; }
+  /* Overview: an invitation */
+  #overview { max-width: 54rem; text-align: center; }
+  .ask {
+    margin: 0 auto;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.1rem, 6.4vw, 4.75rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    max-width: 15ch;
+    text-wrap: balance;
   }
+  .lede { max-width: 28rem; margin: clamp(2.25rem, 5vw, 3.25rem) auto 0; color: var(--ink); font-size: 0.9375rem; text-wrap: pretty; }
+  .go { margin: clamp(1.5rem, 3vw, 2rem) 0 0; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+
+  /* Houses: the season's running order */
+  .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
+  .order li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
+  .order li::before { counter-increment: look; content: counter(look); font-family: var(--serif); font-size: 0.875rem; color: var(--graphite); font-variant-numeric: lining-nums; }
+  .order .h { font-family: var(--serif); font-size: 1.3125rem; line-height: 1.2; }
+  .order .d { display: block; font-size: 0.8125rem; color: var(--graphite); }
+  .order time { font-size: 0.8125rem; color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .order .pause { display: block; padding: 1rem 0 0.35rem; text-align: center; font-family: var(--serif); font-style: italic; color: var(--graphite); font-size: 1rem; }
+  .order .pause::before { content: none; }
+  .held { text-align: center; font-family: var(--serif); font-size: 1.1875rem; line-height: 1.5; margin: 0 0 1.25rem; }
 
   /* Method */
-  .tests { list-style: none; margin: 1.25rem 0 0; padding: 0 0 0 1.4rem; border-left: 1px solid var(--ink); }
-  .tests li { margin: 0 0 0.9rem; }
+  .tests { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .tests li { margin: 0 0 1.25rem; }
   .tests li:last-child { margin: 0; }
-  .tests b { font-weight: 560; }
-  details { margin: 0 0 1.25rem; }
-  summary { cursor: pointer; list-style: none; font-weight: 560; display: flex; justify-content: space-between; gap: 1rem; }
+  .tests em { font-family: var(--serif); font-size: 1.1875rem; font-style: italic; margin-right: 0.35rem; }
+  details { margin: 0 0 1.25rem; border-top: 1px solid currentColor; padding-top: 1rem; }
+  details + details { border-top: 0; }
+  summary { cursor: pointer; list-style: none; display: block; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; font-weight: 300; }
+  summary::after { content: "+"; margin-left: 0.6rem; font-family: var(--sans); font-style: normal; font-weight: 300; }
   details[open] summary::after { content: "\2212"; }
-  .pairs { margin: 0.75rem 0 0; }
-  .pairs div { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0.4rem 0; }
-  .pairs dt { font-weight: 560; }
-  .pairs dd { margin: 0; color: var(--graphite); }
+  .pairs { margin: 1rem 0 0; }
+  .pairs div { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0.45rem 0; }
+  .pairs dt { font-weight: 560; font-size: 0.9375rem; }
+  .pairs dd { margin: 0; color: var(--graphite); font-size: 0.9375rem; }
   @media (min-width: 40rem) {
-    .pairs div { grid-template-columns: 13rem minmax(0, 1fr); column-gap: 1rem; }
+    .pairs div { grid-template-columns: 12rem minmax(0, 1fr); column-gap: 1rem; }
   }
 
-  /* Findings */
-  .moves { display: grid; gap: 1.6rem; margin: 0 0 1.5rem; }
-  .moves .crew { margin: 0.45rem 0 0; color: var(--graphite); }
+  /* Findings: who came with whom */
+  .people { margin: 0 0 2rem; }
+  .person { text-align: center; margin: 0 0 1.9rem; }
+  .person .n { margin: 0; font-family: var(--serif); font-size: 1.625rem; line-height: 1.15; }
+  .person .w { margin: 0.2rem 0 0.5rem; font-family: var(--serif); font-style: italic; color: var(--graphite); }
+  .person .c { margin: 0 auto; max-width: 26rem; font-size: 0.9375rem; }
 
   /* Record */
   .timeline { list-style: none; margin: 0 0 2rem; padding: 0; }
-  .timeline li { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 0 0.9rem; }
-  .timeline time { color: var(--graphite); font-variant-numeric: tabular-nums; }
-  @media (min-width: 40rem) {
-    .timeline li { grid-template-columns: 10.5rem minmax(0, 1fr); column-gap: 1rem; }
-  }
+  .timeline li { text-align: center; margin: 0 0 1.4rem; }
+  .timeline time { display: block; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .record-link { text-align: center; }
 
-  footer { margin-top: clamp(3rem, 8vw, 5rem); padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); color: var(--graphite); font-size: 0.875rem; }
-
-  @media (min-width: 56rem) {
-    .split { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
-    .split > h2 { grid-column: 1 / span 4; }
-    .split > .body { grid-column: 5 / span 7; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .loop .arc { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; animation: none; }
-    .loop .who text { opacity: 1; animation: none; }
-  }
+  footer { margin: clamp(4rem, 10vw, 7rem) 0 0; padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); text-align: center; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
@@ -192,168 +162,131 @@
   </header>
 
   <main>
-    <section id="overview" data-panel aria-label="Overview" class="hero">
+    <section id="overview" data-panel aria-label="Overview">
       <p class="ask">Does a house's look belong to the house, or to the people who make its pictures?</p>
-      <p class="lede">Since 2024 the same people have moved among the same houses. If a house's look belongs to its people, its advertising should move with them. Adtone measures the ads of eighteen houses before and after each debut to find out. <a href="#/method">How it's tested</a></p>
-      <figure class="loop">
-        <svg viewBox="0 0 520 490" role="img" aria-labelledby="loop-title">
-          <title id="loop-title">A loop: Alessandro Michele moved from Gucci to Valentino in 2024, Pierpaolo Piccioli from Valentino to Balenciaga in 2025, and Demna from Balenciaga back to Gucci in 2025.</title>
-          <defs>
-            <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
-              <path d="M1.5 1.5 L9 5 L1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.1"/>
-            </marker>
-            <path id="t-michele" d="M314 70 Q470 112 436 352"/>
-            <path id="t-piccioli" d="M170 424 Q260 478 350 424"/>
-            <path id="t-demna" d="M84 352 Q50 112 206 70"/>
-          </defs>
-          <path class="arc a1" d="M314 70 Q470 112 436 352" pathLength="1" marker-end="url(#tip)"/>
-          <path class="arc a2" d="M350 424 Q260 478 170 424" pathLength="1" marker-end="url(#tip)"/>
-          <path class="arc a3" d="M84 352 Q50 112 206 70" pathLength="1" marker-end="url(#tip)"/>
-          <g class="houses">
-            <text x="260" y="50">Gucci</text>
-            <text x="408" y="392">Valentino</text>
-            <text x="116" y="392">Balenciaga</text>
-          </g>
-          <g class="who">
-            <text dy="-11"><textPath href="#t-michele" startOffset="52%">Alessandro Michele, 2024</textPath></text>
-            <text dy="23"><textPath href="#t-piccioli" startOffset="50%">Pierpaolo Piccioli, 2025</textPath></text>
-            <text dy="-11"><textPath href="#t-demna" startOffset="48%">Demna, 2025</textPath></text>
-          </g>
-        </svg>
-      </figure>
-      <div class="routes" aria-label="Two more moves between houses in the study">
-        <div class="route"><span class="node">Loewe</span><span class="edge"><span>Jonathan Anderson, 2025</span></span><span class="node">Dior</span><span class="edge"><span>Maria Grazia Chiuri, 2026</span></span><span class="node">Fendi</span></div>
-        <div class="route"><span class="node">Bottega Veneta</span><span class="edge"><span>Matthieu Blazy, 2025</span></span><span class="node">Chanel</span></div>
-      </div>
+      <p class="lede">Ten houses changed creative director between July 2025 and February 2026, and several of the designers moved between houses in the study. Adtone reads the advertising of eighteen houses before and after each debut, to see whether a look stays with the house or leaves with its people.</p>
+      <p class="go"><a href="#/method">How it's tested</a></p>
     </section>
 
-    <section id="houses" data-panel aria-labelledby="houses-h" class="split">
-      <h2 id="houses-h">The houses</h2>
-      <div class="body">
-        <p class="sub">New creative director</p>
-        <ol class="debuts">
-          <li><span class="h">Celine</span><span>Michael Rider</span><time datetime="2025-07-06">6 Jul 2025</time></li>
-          <li><span class="h">Maison Margiela</span><span>Glenn Martens</span><time datetime="2025-07-09">9 Jul 2025</time></li>
-          <li class="c-label" aria-hidden="true">Seven debuts in fourteen days</li>
-          <li class="c"><span class="h">Gucci</span><span>Demna</span><time datetime="2025-09-23">23 Sep 2025</time></li>
-          <li class="c"><span class="h">Jil Sander</span><span>Simone Bellotti</span><time datetime="2025-09-24">24 Sep 2025</time></li>
-          <li class="c"><span class="h">Bottega Veneta</span><span>Louise Trotter</span><time datetime="2025-09-28">28 Sep 2025</time></li>
-          <li class="c"><span class="h">Dior</span><span>Jonathan Anderson</span><time datetime="2025-10-01">1 Oct 2025</time></li>
-          <li class="c"><span class="h">Loewe</span><span>Jack McCollough, Lazaro Hernandez</span><time datetime="2025-10-03">3 Oct 2025</time></li>
-          <li class="c"><span class="h">Balenciaga</span><span>Pierpaolo Piccioli</span><time datetime="2025-10-04">4 Oct 2025</time></li>
-          <li class="c"><span class="h">Chanel</span><span>Matthieu Blazy</span><time datetime="2025-10-06">6 Oct 2025</time></li>
-          <li><span class="h">Fendi</span><span>Maria Grazia Chiuri</span><time datetime="2026-02-25">25 Feb 2026</time></li>
-        </ol>
-        <p class="sub">Leadership held</p>
-        <p>Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent and Valentino.</p>
-        <p class="note">Dates are first shows. Chloé is collected for a forward test and kept out of the comparison.</p>
-      </div>
+    <section id="houses" data-panel aria-labelledby="houses-h">
+      <h2 id="houses-h">The season</h2>
+      <ol class="order">
+        <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">6 July 2025</time></li>
+        <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">9 July 2025</time></li>
+        <li class="pause" aria-hidden="true">Then seven debuts in fourteen days</li>
+        <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">23 September</time></li>
+        <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">24 September</time></li>
+        <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">28 September</time></li>
+        <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">1 October</time></li>
+        <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">3 October</time></li>
+        <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">4 October</time></li>
+        <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">6 October 2025</time></li>
+        <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">25 February 2026</time></li>
+      </ol>
+      <p class="sub">Leadership held</p>
+      <p class="held">Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent, Valentino</p>
+      <p class="note" style="text-align:center">Dates are first shows. Chloé is collected for a forward test and kept out of the comparison.</p>
     </section>
 
-    <section id="method" data-panel aria-labelledby="method-h" class="split">
+    <section id="method" data-panel aria-labelledby="method-h">
       <h2 id="method-h">How it's tested</h2>
-      <div class="body">
-        <div class="block">
-          <p>Under the Digital Services Act, Meta keeps every ad shown in the European Union for a year after it last ran. Each image is read against eighteen fixed questions, from light and setting to mood, and kept only as its answers and a numerical fingerprint. Each house is measured against the controls month by month, so a movement of the whole market doesn't read as a movement of one house.</p>
-          <p>Three tests were frozen on 5 October 2026, before a single ad was collected.</p>
-          <ul class="tests">
-            <li><b>Shift.</b> Did the ten move further after their debuts than the controls moved at placebo dates?</li>
-            <li><b>Transfer.</b> Did Gucci's advertising move towards Balenciaga's earlier look, following Demna? This is the mechanism: a look that belongs to people should travel with them.</li>
-            <li><b>Detection.</b> Does a scan that isn't told the dates find the breaks, and stay quiet on the controls?</li>
-          </ul>
-        </div>
-        <div class="block">
-          <p class="sub">A prediction, made in advance</p>
-          <p>Frozen before Saint Laurent named a successor to Anthony Vaccarello: after the successor's first show, its advertising should shift more than nine in ten control placebos, break within 120 days, and move towards the successor's former house if that house is collected. Judged once, 270 days after the show.</p>
-        </div>
-        <div class="block">
-          <p class="sub">What it can't say</p>
-          <p>It reads paid advertising on Meta's platforms in Europe and Britain, not print or the clothes. Image-makers moved with the designers, so a transfer is read as a team's, not a designer's alone. And it can show that advertising changed, not that the change worked.</p>
-        </div>
-        <details>
-          <summary>The eighteen questions</summary>
-          <dl class="pairs">
-            <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
-            <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
-            <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
-            <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
-            <div><dt>People</dt><dd>none, one, two, group</dd></div>
-            <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
-            <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
-            <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
-            <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
-            <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
-            <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
-            <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
-            <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
-            <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
-            <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
-            <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
-            <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
-            <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
-          </dl>
-        </details>
+      <div class="block">
+        <p>Under the Digital Services Act, Meta keeps every ad shown in the European Union for a year after it last ran. Each image is read against eighteen fixed questions, from light and setting to mood, and kept only as its answers and a numerical fingerprint. Each house is measured against the controls month by month, so a movement of the whole market doesn't read as a movement of one house.</p>
+        <p>Three tests were frozen on 5 October 2026, before a single ad was collected.</p>
+        <ul class="tests">
+          <li><em>Shift.</em> Did the ten move further after their debuts than the controls moved at placebo dates?</li>
+          <li><em>Transfer.</em> Did Gucci's advertising move towards Balenciaga's earlier look, following Demna? This is the mechanism: a look that belongs to people should travel with them.</li>
+          <li><em>Detection.</em> Does a scan that isn't told the dates find the breaks, and stay quiet on the controls?</li>
+        </ul>
       </div>
+      <div class="block">
+        <p class="sub">A prediction, made in advance</p>
+        <p>Frozen before Saint Laurent named a successor to Anthony Vaccarello: after the successor's first show, its advertising should shift more than nine in ten control placebos, break within 120 days, and move towards the successor's former house if that house is collected. Judged once, 270 days after the show.</p>
+      </div>
+      <div class="block">
+        <p class="sub">What it can't say</p>
+        <p>It reads paid advertising on Meta's platforms in Europe and Britain, not print or the clothes. Image-makers moved with the designers, so a transfer is read as a team's, not a designer's alone. And it can show that advertising changed, not that the change worked.</p>
+      </div>
+      <details>
+        <summary>The eighteen questions</summary>
+        <dl class="pairs">
+          <div><dt>Light</dt><dd>high key, low key, natural daylight, mixed, unclear</dd></div>
+          <div><dt>Colour temperature</dt><dd>warm, cool, neutral, mixed</dd></div>
+          <div><dt>Saturation</dt><dd>muted, moderate, vivid, monochrome</dd></div>
+          <div><dt>Setting</dt><dd>plain studio, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</dd></div>
+          <div><dt>People</dt><dd>none, one, two, group</dd></div>
+          <div><dt>Gaze</dt><dd>to camera, away, eyes hidden, no face, not applicable</dd></div>
+          <div><dt>Expression</dt><dd>neutral, smiling, intense, playful, not applicable</dd></div>
+          <div><dt>Pose</dt><dd>posed and static, candid and moving, performative, not applicable</dd></div>
+          <div><dt>Framing</dt><dd>close-up, medium, full length, wide scene, product only</dd></div>
+          <div><dt>Primary subject</dt><dd>garment, bag, footwear, accessory, jewellery, face, body, scene, object, text</dd></div>
+          <div><dt>Styling register</dt><dd>formal and tailored, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</dd></div>
+          <div><dt>Production</dt><dd>polished commercial, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</dd></div>
+          <div><dt>Mood, up to three</dt><dd>austere, serene, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</dd></div>
+          <div><dt>Street to couture</dt><dd>one point on a scale of 1 to 5</dd></div>
+          <div><dt>Text in image</dt><dd>none, logo only, headline, price or offer, call to action</dd></div>
+          <div><dt>Creative type</dt><dd>brand image, product on model, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</dd></div>
+          <div><dt>Category</dt><dd>ready-to-wear, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</dd></div>
+          <div><dt>Confidence</dt><dd>how sure the reading is, from 0 to 1</dd></div>
+        </dl>
+      </details>
     </section>
 
-    <section id="findings" data-panel aria-labelledby="findings-h" class="split">
+    <section id="findings" data-panel aria-labelledby="findings-h">
       <h2 id="findings-h">Who makes the pictures</h2>
-      <div class="body">
-        <div class="block">
-          <p>Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
-          <div class="moves">
-            <div>
-              <div class="route row"><span class="node">Bottega Veneta</span><span class="edge"><span>Matthieu Blazy</span></span><span class="node">Chanel</span></div>
-              <p class="crew">Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
-            </div>
-            <div>
-              <div class="route row"><span class="node">Loewe</span><span class="edge"><span>Jonathan Anderson</span></span><span class="node">Dior</span></div>
-              <p class="crew">David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
-            </div>
-            <div>
-              <div class="route row"><span class="node">Balenciaga</span><span class="edge"><span>Demna</span></span><span class="node">Gucci</span></div>
-              <p class="crew">Demna himself, credited as photographer at both.</p>
-            </div>
-          </div>
-          <p>Chiuri's move from Dior to Fendi carried nobody on file. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
-          <details>
-            <summary>Ten photographers link sixteen of the eighteen houses</summary>
-            <dl class="pairs">
-              <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-              <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-              <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-              <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-              <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-              <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-              <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-              <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-              <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-              <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-            </dl>
-            <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
-          </details>
+      <p class="block" style="text-align:center">Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
+      <div class="people">
+        <div class="person">
+          <p class="n">Matthieu Blazy</p>
+          <p class="w">Bottega Veneta, then Chanel</p>
+          <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
         </div>
-        <div class="block">
-          <p class="sub">Change and attention</p>
-          <p>The obvious heat measure, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior, so its rankings either side of the debuts don't compare. Wikipedia page views, counted the same way throughout, stand in as attention: whether bigger shifts drew more of it, not whether they sold more.</p>
+        <div class="person">
+          <p class="n">Jonathan Anderson</p>
+          <p class="w">Loewe, then Dior</p>
+          <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
+        </div>
+        <div class="person">
+          <p class="n">Demna</p>
+          <p class="w">Balenciaga, then Gucci</p>
+          <p class="c">Credited as photographer himself, at both.</p>
         </div>
       </div>
+      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
+      <details>
+        <summary>Ten photographers, sixteen houses</summary>
+        <dl class="pairs">
+          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+        </dl>
+        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+      </details>
+      <details>
+        <summary>Change and attention</summary>
+        <p style="margin-top:1rem">The obvious heat measure, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior, so its rankings either side of the debuts don't compare. Wikipedia page views, counted the same way throughout, stand in as attention: whether bigger shifts drew more of it, not whether they sold more.</p>
+      </details>
     </section>
 
-    <section id="record" data-panel aria-labelledby="record-h" class="split">
+    <section id="record" data-panel aria-labelledby="record-h">
       <h2 id="record-h">Where it stands</h2>
-      <div class="body">
-        <ol class="timeline">
-          <li><time datetime="2026-10-05">5 Oct 2026</time><span>Tests and the Saint Laurent prediction frozen, before any data.</span></li>
-          <li><time datetime="2026-10-06">6 Oct 2026</time><span>Credits compiled for eighteen houses. A second amendment drafted, not yet frozen.</span></li>
-          <li><time>Next</time><span>Collection starts when Meta grants access. Results on the 2025 debuts check the instrument; predictions count only after a silent first season.</span></li>
-        </ol>
-        <p>The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
-      </div>
+      <ol class="timeline">
+        <li><time datetime="2026-10-05">5 October 2026</time>Tests and the Saint Laurent prediction frozen, before any data.</li>
+        <li><time datetime="2026-10-06">6 October 2026</time>Credits compiled for eighteen houses. A second amendment drafted, not yet frozen.</li>
+        <li><time>Next</time>Collection starts when Meta grants access. Results on the 2025 debuts check the instrument; predictions count only after a silent first season.</li>
+      </ol>
+      <p class="record-link">The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
     </section>
   </main>
 
-  <footer>Adtone, 2026.</footer>
+  <footer>Adtone, 2026</footer>
 </div>
 
 <script>
