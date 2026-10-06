@@ -1,0 +1,60 @@
+name: homepages
+run-name: homepages ${{ github.event_name }}
+# Each brand's homepage, month by month, from the Wayback Machine: the share image and the page's
+# large images, read by the reader and fingerprinted. Daily while the history back to 2014 fills,
+# a few hundred months a run; once caught up a run reads the one new month and stops.
+on:
+  schedule:
+    - cron: "20 3 * * *"
+  workflow_dispatch:
+    inputs:
+      max_captures:
+        description: "brand-months to read in this run"
+        default: "600"
+  push:   # editing .github/kick/homepages starts a run
+    branches: [main]
+    paths: [".github/kick/homepages"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-homepages
+  cancel-in-progress: false
+
+jobs:
+  homepages:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 120
+    env:
+      PYTHONUNBUFFERED: "1"
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      MAX: ${{ inputs.max_captures || '600' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: pip install -r requirements.txt -r requirements-embed.txt
+      - name: Cache embedder weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Read homepages
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 100   # the stage stops itself at 90 minutes and saves what it has
+        run: python -m adtone.homepages collect --run "gh${GITHUB_RUN_ID}" --max-captures "$MAX" --budget-min 90
+      - name: Completeness probe
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.homepages probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh homepages "homepages"

@@ -22,7 +22,15 @@ ALLOW = {
     "backcat": ["data/backcat/campaigns/*.jsonl", "data/backcat/media/*.jsonl", "data/backcat/obs/*.jsonl",
                 "data/backcat/vectors/*/*.npz", "data/state/backcat.json", "data/provenance/backcat.jsonl"],
     "attention": ["data/attention/*.jsonl", "data/state/attention.json", "data/provenance/attention.jsonl",
-                  "data/press/*.jsonl", "data/state/press.json", "data/provenance/press.jsonl"],
+                  "data/wikiviews/*/*.jsonl", "data/state/wikiviews.json", "data/provenance/wikiviews.jsonl",
+                  "data/wikidata/houses.json", "data/state/wikidata.json", "data/provenance/wikidata.jsonl"],
+    "press": ["data/press/*.jsonl", "data/state/press.json", "data/provenance/press.jsonl"],
+    "homepages": ["data/homepages/captures/*.jsonl", "data/homepages/obs/*.jsonl", "data/homepages/vectors/*/*.npz",
+                  "data/state/homepages.json", "data/provenance/homepages.jsonl"],
+    "youtube": ["data/youtube/*.jsonl", "data/youtube/videos/*.jsonl", "data/state/youtube.json",
+                "data/provenance/youtube.jsonl"],
+    "tiktok": ["data/tiktok/ads/*.jsonl", "data/tiktok/obs/*.jsonl", "data/tiktok/vectors/*/*.npz",
+               "data/state/tiktok.json", "data/provenance/tiktok.jsonl"],
     "reader": ["data/state/reader.json", "data/provenance/reader.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
@@ -66,7 +74,8 @@ def main(argv: list[str] | None = None) -> int:
     if len(argv) < 1:
         print("usage: python -m adtone.guard <workflow> <path>...")
         return 2
-    secrets = [os.environ.get(k, "") for k in ("META_AD_LIBRARY_TOKEN", "ANTHROPIC_API_KEY", "META_APP_SECRET")]
+    secrets = [os.environ.get(k, "") for k in ("META_AD_LIBRARY_TOKEN", "ANTHROPIC_API_KEY", "META_APP_SECRET",
+                                                "YOUTUBE_API_KEY", "TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET")]
     v = violations(argv[0], argv[1:], secrets=secrets)
     for line in v:
         print(f"::error::{line}")

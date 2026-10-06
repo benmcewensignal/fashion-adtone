@@ -138,7 +138,8 @@ def test_the_thread_is_one_row_per_show_with_every_source(tmp_path):
 
 
 def test_the_guard_knows_the_press_files_and_the_thread():
-    assert guard.violations("attention", ["data/press/prada.jsonl", "data/state/press.json"]) == []
+    assert guard.violations("press", ["data/press/prada.jsonl", "data/state/press.json"]) == []
+    assert guard.violations("attention", ["data/press/prada.jsonl"])   # press has its own daily workflow now
     assert guard.violations("analyse", ["data/results/runway_events.csv"]) == []
 
 

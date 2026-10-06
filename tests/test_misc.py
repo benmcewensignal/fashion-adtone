@@ -121,7 +121,7 @@ def test_workflows_only_persist_as_workflows_the_guard_knows():
     import yaml
     root = Path(__file__).resolve().parent.parent / ".github" / "workflows"
     files = sorted(root.glob("*.yml"))
-    assert len(files) == 11   # the reader workflow joined the ten (Amendment 2, section 2e)
+    assert len(files) == 13   # reader (Amendment 2, 2e), then press split out and homepages added
     for f in files:
         text = f.read_text()
         yaml.safe_load(text)

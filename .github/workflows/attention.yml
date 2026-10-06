@@ -1,11 +1,16 @@
 name: attention
 run-name: attention weekly
 # Daily Wikipedia page views for every house: a consistent outside measure of attention, for the
-# descriptive success analysis. Each run is a full refresh, so a missed week loses nothing.
+# descriptive success analysis. Each run is a full refresh, so a missed week loses nothing. Then the
+# same in nine more languages, with renamed articles joined to their old titles, and the houses'
+# facts from Wikidata checked against the registry. Press tone has its own daily workflow (press.yml).
 on:
   schedule:
     - cron: "15 4 * * 1"
   workflow_dispatch:
+  push:   # editing .github/kick/attention starts a run, for when the Actions page is out of reach
+    branches: [main]
+    paths: [".github/kick/attention"]
 
 permissions:
   contents: write
@@ -17,7 +22,7 @@ concurrency:
 jobs:
   attention:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 150   # the press backfill resumes across runs within this
+    timeout-minutes: 90
     env:
       PYTHONUNBUFFERED: "1"
     steps:
@@ -32,17 +37,22 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         run: python -m adtone.attention collect --run "gh${GITHUB_RUN_ID}"
-      - name: Collect press tone
-        id: press
+      - name: Page views in ten languages
+        id: langs
         continue-on-error: true
-        timeout-minutes: 110
-        # GDELT asks for one request every five seconds: the first backfill to January 2017 takes a few
-        # runs, each resuming where the last stopped. Weekly runs afterwards take a minute or two.
-        run: python -m adtone.press collect --run "gh${GITHUB_RUN_ID}" --budget-min 100
-      - name: Press probe
+        timeout-minutes: 60
+        # the first scan of redirects reads every former title's monthly views once; later weeks
+        # refresh the daily series in a few minutes. It stops at its budget and resumes.
+        run: python -m adtone.wikiviews collect --run "gh${GITHUB_RUN_ID}" --budget-min 50
+      - name: Languages probe
         continue-on-error: true
         timeout-minutes: 2
-        run: python -m adtone.press probe --run "gh${GITHUB_RUN_ID}"
+        run: python -m adtone.wikiviews probe --run "gh${GITHUB_RUN_ID}"
+      - name: Wikidata facts
+        id: wikidata
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python -m adtone.wikidata collect --run "gh${GITHUB_RUN_ID}"
       - name: Completeness probe
         id: probe
         continue-on-error: true

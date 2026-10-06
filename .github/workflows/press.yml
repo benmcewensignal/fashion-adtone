@@ -1,0 +1,45 @@
+name: press
+run-name: press daily
+# News tone and volume for every house from GDELT, the reception term for adtone.runway. GDELT asks
+# for one request every five seconds and refuses bursts, so the backfill to January 2017 fills a
+# little each day, resuming where the last run stopped; once complete a run takes a minute or two.
+on:
+  schedule:
+    - cron: "35 2 * * *"
+  workflow_dispatch:
+  push:   # editing .github/kick/press starts a run
+    branches: [main]
+    paths: [".github/kick/press"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-press
+  cancel-in-progress: false
+
+jobs:
+  press:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 120
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Collect press tone
+        id: press
+        continue-on-error: true
+        timeout-minutes: 110
+        run: python -m adtone.press collect --run "gh${GITHUB_RUN_ID}" --budget-min 100
+      - name: Press probe
+        continue-on-error: true
+        timeout-minutes: 2
+        run: python -m adtone.press probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh press "press daily"

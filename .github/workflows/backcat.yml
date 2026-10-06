@@ -14,6 +14,9 @@ on:
       max_campaigns:
         description: "campaigns to fetch images for in this run"
         default: "150"
+  push:   # editing .github/kick/backcat starts a run of both stages
+    branches: [main]
+    paths: [".github/kick/backcat"]
 
 permissions:
   contents: write
