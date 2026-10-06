@@ -69,32 +69,59 @@ def synthetic_jpegs(n: int, seed: int = 0, size=(1080, 1350)) -> list[bytes]:
 
 
 def pilot(remote, rubric, gpu: str, n: int = 64, batch: int = 8, clock=time.monotonic) -> dict:
-    from .score import ScoreError, json_schema, parse
-    schema = json_schema(rubric)
+    """remote(jpegs, system, schema, grammar) returns replies: strings, or dicts carrying the text with
+    why it stopped and how long it ran. A failure of the remote itself is recorded, not raised, so the
+    record survives a reader that does not start."""
+    from collections import Counter
+
+    from .score import ScoreError, gbnf, json_schema, parse
+    schema, grammar = json_schema(rubric), gbnf(rubric)
     jpegs = synthetic_jpegs(n)
     batches = [jpegs[i:i + batch] for i in range(0, len(jpegs), batch)]
-    times, valid, invalid, errors = [], 0, 0, []
+    times, valid, invalid, errors, samples = [], 0, 0, [], []
+    finish, tokens, modes, mode_errors = Counter(), [], Counter(), []
+    failure = None
     for b in batches:
         t0 = clock()
-        texts = remote(b, rubric.prompt, schema)
+        try:
+            replies = remote(b, rubric.prompt, schema, grammar)
+        except Exception as e:
+            failure = f"{e.__class__.__name__}: {str(e)[:400]}"
+            break
         times.append(clock() - t0)
-        for t in texts:
+        for r in replies:
+            text = r["text"] if isinstance(r, dict) else r
+            if isinstance(r, dict):
+                finish[str(r.get("finish_reason"))] += 1
+                tokens.append(int(r.get("tokens") or 0))
+                modes[str(r.get("mode"))] += 1
+                if r.get("mode_errors") and not mode_errors:
+                    mode_errors = list(r["mode_errors"])
+            if len(samples) < 3:
+                samples.append({"chars": len(text or ""), "head": (text or "")[:160], "tail": (text or "")[-60:]})
             try:
-                parse(t, rubric)
+                parse(text, rubric)
                 valid += 1
             except ScoreError as e:
                 invalid += 1
                 errors.append(str(e)[:120])
-    cold = times[0]
+    out = {"gpu": gpu, "images": n, "batch": batch, "valid": valid, "invalid": invalid,
+           "valid_share": round(valid / max(1, valid + invalid), 3), "sample_errors": errors[:5],
+           "sample_replies": samples, "finish_reasons": dict(finish), "modes": dict(modes),
+           "mode_errors": mode_errors[:3],
+           "tokens_mean": round(sum(tokens) / len(tokens), 1) if tokens else None,
+           "tokens_max": max(tokens) if tokens else None,
+           "price_source": "modal.com/pricing, read 6 October 2026"}
+    if failure:
+        out["failure"] = failure
+    if not times:
+        return {**out, "cold_start_s": None, "warm_seconds_per_image": None, "cost_per_10k_images_usd": None}
     warm = times[1:] or times
-    warm_images = sum(len(b) for b in batches[1:]) or len(batches[0])
+    warm_images = sum(len(b) for b in batches[1:len(times)]) or len(batches[0])
     sec_per_image = sum(warm) / warm_images
     price = GPU_PRICE_PER_S.get(gpu)
-    return {"gpu": gpu, "images": n, "batch": batch, "cold_start_s": round(cold, 1),
-            "warm_seconds_per_image": round(sec_per_image, 3), "valid": valid, "invalid": invalid,
-            "valid_share": round(valid / max(1, valid + invalid), 3), "sample_errors": errors[:5],
-            "cost_per_10k_images_usd": None if price is None else round(sec_per_image * price * 10_000, 2),
-            "price_source": "modal.com/pricing, read 6 October 2026"}
+    return {**out, "cold_start_s": round(times[0], 1), "warm_seconds_per_image": round(sec_per_image, 3),
+            "cost_per_10k_images_usd": None if price is None else round(sec_per_image * price * 10_000, 2)}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -117,8 +144,9 @@ def main(argv: list[str] | None = None) -> int:
     if ident.get("revision") != config.open_model_revision():
         print(f"::error::deployed reader runs {ident.get('revision')!r}, recorded pin is {config.open_model_revision()!r}")
         return 1
-    res = pilot(reader.read.remote, load_rubric(), ident.get("gpu", "L4"), n=a.n)
-    res = {"run": config.run_id(), "at": store.utc_now(), "instrument": config.instrument("modal"), **res}
+    res = pilot(reader.read_meta.remote, load_rubric(), ident.get("gpu", "L4"), n=a.n)
+    res = {"run": config.run_id(), "at": store.utc_now(), "instrument": config.instrument("modal"),
+           "vllm": ident.get("vllm"), **res}
     store.append_jsonl(config.PROV_DIR / "reader.jsonl", [res])
     state = store.read_state(config.READER_STATE)
     state["last_pilot"] = res

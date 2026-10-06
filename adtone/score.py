@@ -168,6 +168,42 @@ def json_schema(rubric: Rubric) -> dict:
     return {"type": "object", "properties": props, "required": sorted(props), "additionalProperties": False}
 
 
+
+def gbnf(rubric: Rubric) -> str:
+    """The rubric as an exact grammar: keys in a fixed order, every value one of the rubric's options,
+    no whitespace anywhere. A reply has exactly one shape and ends with the last answer, so a constrained
+    decoder cannot pad it out to the token limit. (Whether a picture without people has a gaze is left to
+    validation: a grammar cannot see the image.)"""
+    s = rubric.spec
+
+    def lit(x: str) -> str:
+        return '"\\"' + x + '\\""'
+
+    rules, parts = [], []
+    for i, k in enumerate(rubric.keys):
+        name = "v" + str(i)
+        if k in s["enums"]:
+            rules.append(f"{name} ::= " + " | ".join(lit(v) for v in s["enums"][k]))
+        elif k in s.get("lists", {}):
+            rule = s["lists"][k]
+            item = name + "i"
+            rules.append(f"{item} ::= " + " | ".join(lit(v) for v in rule["options"]))
+            tail = ""
+            for _ in range(rule["max"] - rule["min"]):
+                tail = f'( "," {item} {tail})?'
+            head = " ".join([item] + [f'"," {item}'] * (rule["min"] - 1))
+            rules.append(f'{name} ::= "[" {head} {tail} "]"')
+        elif k in s.get("integers", {}):
+            rule = s["integers"][k]
+            rules.append(f"{name} ::= " + " | ".join(f'"{n}"' for n in range(rule["min"], rule["max"] + 1)))
+        else:
+            rule = s["numbers"][k]
+            assert (rule["min"], rule["max"]) == (0, 1), "the grammar writes numbers between 0 and 1 only"
+            rules.append(f'{name} ::= "0" | "1" | "1.0" | "0." [0-9] | "0." [0-9] [0-9]')
+        parts.append(('"," ' if i else "") + '"\\"' + k + '\\":" ' + name)
+    root = 'root ::= "{" ' + " ".join(parts) + ' "}"'
+    return "\n".join([root, *rules]) + "\n"
+
 class ModalScorer:
     """The frozen rubric read by an open vision model with pinned weights, on a Modal GPU.
 
@@ -184,13 +220,14 @@ class ModalScorer:
             remote = modal.Cls.from_name(config.MODAL_APP, "Reader")().read.remote
         self.remote, self.rubric, self.revision = remote, rubric, revision
         self.schema = json_schema(rubric)
+        self.grammar = gbnf(rubric)
         self.instrument = f"{rubric.version}@{config.OPEN_MODEL.split('/')[-1].lower()}@{revision[:12]}"
         self.calls = 0
 
     def score_many(self, jpegs: list[bytes]) -> list[dict | ScoreError]:
         self.calls += 1
         try:
-            texts = self.remote(jpegs, self.rubric.prompt, self.schema)
+            texts = self.remote(jpegs, self.rubric.prompt, self.schema, self.grammar)
         except Exception as e:   # Modal client errors vary by version; any failure here is the service's
             raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
         out: list[dict | ScoreError] = []
