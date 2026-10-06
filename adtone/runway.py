@@ -40,6 +40,7 @@ MIN_PRIOR_SHOWS = 2        # before a show's surprise can be measured
 PLACEBO_GAP = 30           # placebo dates stay this far from any show of the house
 PLACEBO_REPS = 1000
 MIN_BRIDGE_SHOWS = 30      # shows with advertising data before the bridge is reported as more than description
+MIN_DECOMPOSE = 60         # shows with every term before what the clothes add is read
 EXCLUDE_ADS = ("saint_laurent",)
 
 
@@ -119,6 +120,137 @@ class Panel:
         sp, la = self.spike[self.row[house], t], self.lasting[self.row[house], t]
         return None if np.isnan(sp) or np.isnan(la) else (float(sp), float(la))
 
+
+
+MOMENTUM_EARLY = (-150, -90)   # page views well before the show, against the baseline: the trend coming in
+PRESS_AFTER = (0, 3)
+TONE_MIN_DAYS = (2, 10)        # days with coverage needed after the show, and in the baseline
+
+
+class PressPanel:
+    """Daily press tone and article counts on the attention panel's index. Tone is missing on days with
+    no matching articles, so tone windows need a minimum number of covered days rather than a share."""
+
+    def __init__(self, panel: Panel, press: dict[str, dict[date, dict]]):
+        n = len(panel.days)
+        self.panel = panel
+        T = np.full((len(panel.houses), n), np.nan)
+        A = np.full((len(panel.houses), n), np.nan)
+        for i, h in enumerate(panel.houses):
+            for d, r in press.get(h, {}).items():
+                t = (d - panel.start).days
+                if 0 <= t < n:
+                    A[i, t] = np.log1p(r.get("articles") or 0)
+                    if r.get("tone") is not None:
+                        T[i, t] = float(r["tone"])
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", RuntimeWarning)
+            self.reception = self._mean(T, PRESS_AFTER, TONE_MIN_DAYS[0]) - self._mean(T, BASELINE, TONE_MIN_DAYS[1])
+            base_a = self._mean(A, BASELINE, int(COVERAGE * (BASELINE[1] - BASELINE[0] + 1)))
+            peak_a = np.nanmax(np.where(np.isnan(st := self._stack(A, PEAK)), -np.inf, st), axis=0)
+            peak_a[np.isinf(peak_a)] = np.nan
+            self.press_spike = peak_a - base_a
+            Y = panel.Y
+            self.momentum = (self._mean(Y, BASELINE, int(COVERAGE * 51))
+                             - self._mean(Y, MOMENTUM_EARLY, int(COVERAGE * 61)))
+
+    @staticmethod
+    def _stack(M, span):
+        out = []
+        for k in range(span[0], span[1] + 1):
+            sh = np.full_like(M, np.nan)
+            if k >= 0:
+                sh[:, :M.shape[1] - k] = M[:, k:]
+            else:
+                sh[:, -k:] = M[:, :M.shape[1] + k]
+            out.append(sh)
+        return np.stack(out)
+
+    def _mean(self, M, span, min_days):
+        st = self._stack(M, span)
+        m = np.nanmean(st, axis=0)
+        m[np.sum(~np.isnan(st), axis=0) < min_days] = np.nan
+        return m
+
+    def at(self, house: str, d: date) -> dict:
+        i, t = self.panel.row.get(house), (d - self.panel.start).days
+        if i is None or not 0 <= t < len(self.panel.days):
+            return {}
+        vals = {"reception": self.reception[i, t], "press_spike": self.press_spike[i, t], "momentum": self.momentum[i, t]}
+        return {k: (None if np.isnan(v) else float(v)) for k, v in vals.items()}
+
+
+def event_table(panel: Panel, dates_by_house: dict[str, list[date]], press: PressPanel | None = None,
+                concepts_by_house: dict | None = None) -> list[dict]:
+    """The thread: one row per show, every source joined on house and date. Attention gives the spike,
+    the surprise and the lasting lift; the press gives reception and its own spike; page views before
+    the show give momentum; the archive gives reach after the show and the campaign's alignment."""
+    rows = events(panel, dates_by_house)
+    for r in rows:
+        if press is not None:
+            r.update(press.at(r["house"], r["date"]))
+        if concepts_by_house is not None and r["house"] not in EXCLUDE_ADS:
+            f = bridge_features(concepts_by_house.get(r["house"], []), r["date"])
+            if f:
+                r.update({"log_reach_after": f["log_reach_after"], "alignment": f["alignment"]})
+    return rows
+
+
+def what_the_clothes_add(rows: list[dict], controls=("spike", "momentum"), term: str = "reception",
+                         target: str = "lasting", perms: int = PLACEBO_REPS, boot: int = 1000, seed: int = 41) -> dict:
+    """How much lasting attention reception predicts once spectacle and momentum are accounted for,
+    within houses. The increment in R-squared is set against the same increment with reception shuffled
+    among each house's own shows, so a house's general press climate cannot pass for its clothes."""
+    names = [term, *controls]
+    use = [r for r in rows if all(r.get(k) is not None for k in (*names, target))]
+    by: dict[str, list[int]] = {}
+    for i, r in enumerate(use):
+        by.setdefault(r["house"], []).append(i)
+    keep = [i for g in by.values() if len(g) >= 3 for i in g]
+    out = {"n_shows": len(keep), "n_houses": sum(1 for g in by.values() if len(g) >= 3), "term": term,
+           "controls": list(controls), "target": target}
+    if len(keep) < MIN_DECOMPOSE:
+        return {**out, "status": f"insufficient: fewer than {MIN_DECOMPOSE} shows with every term"}
+    use = [use[i] for i in keep]
+    groups = [r["house"] for r in use]
+
+    def demean(vals):
+        v = np.array(vals, float)
+        for h in set(groups):
+            idx = [i for i, g in enumerate(groups) if g == h]
+            v[idx] -= v[idx].mean()
+        return v
+
+    X = np.column_stack([demean([r[k] for r in use]) for k in names])
+    y = demean([r[target] for r in use])
+    X = X / (X.std(axis=0) + 1e-12)
+
+    def r2(M):
+        beta = np.linalg.lstsq(M, y, rcond=None)[0]
+        resid = y - M @ beta
+        return 1 - float(resid @ resid) / float(y @ y), beta
+
+    full, beta = r2(X)
+    base, _ = r2(X[:, 1:])
+    inc = full - base
+    rng = np.random.default_rng(seed)
+    null = []
+    idx_by = {h: [i for i, g in enumerate(groups) if g == h] for h in set(groups)}
+    for _ in range(perms):
+        Xp = X.copy()
+        for idx in idx_by.values():
+            Xp[idx, 0] = Xp[rng.permutation(idx), 0]
+        null.append(r2(Xp)[0] - base)
+    draws = []
+    for _ in range(boot):
+        b = rng.integers(0, len(y), len(y))
+        draws.append(np.linalg.lstsq(X[b], y[b], rcond=None)[0][0])
+    lo, hi = np.quantile(draws, [0.05, 0.95])
+    p = (1 + sum(n >= inc for n in null)) / (1 + len(null))
+    return {**out, "status": "ok", "r2_without_term": round(base, 4), "r2_with_term": round(full, 4),
+            "increment": round(inc, 4), "p": round(float(p), 4),
+            "coefficient": round(float(beta[0]), 4), "interval_90": [round(float(lo), 4), round(float(hi), 4)],
+            "supported": bool(p <= 0.05 and beta[0] > 0)}
 
 def events(panel: Panel, dates_by_house: dict[str, list[date]]) -> list[dict]:
     """One record per event: spike, surprise (the spike against the house's earlier events) and lasting
@@ -239,6 +371,21 @@ def bridge(records: list[dict], concepts_by_house, boot: int = 2000, seed: int =
                              for n, c, a, b in zip(names, coef, lo, hi)}}
 
 
+TABLE_FIELDS = ["house", "date", "spike", "surprise", "lasting", "reception", "press_spike", "momentum",
+                "log_reach_after", "alignment"]
+
+
+def write_table(rows: list[dict], path) -> None:
+    """The thread as a file anyone can open: one row per show, every joined measure, blanks where a
+    source has no data for that show. Derived numbers only."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=TABLE_FIELDS, extrasaction="ignore")
+        w.writeheader()
+        for r in sorted(rows, key=lambda r: (r["house"], r["date"])):
+            w.writerow({k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()})
+
+
 def main(argv: list[str] | None = None) -> int:
     from .analysis import amendment_frozen, load_concepts
     from .attention import load_series
@@ -253,6 +400,8 @@ def main(argv: list[str] | None = None) -> int:
     by_house: dict[str, list[date]] = {}
     for r in shows:
         by_house.setdefault(r["house"], []).append(r["date"])
+    from .press import load_series as press_series
+    press = PressPanel(panel, {h: press_series(h) for h in panel.houses})
     out = {"generated_at": store.utc_now(), "n_show_dates": len(shows),
            "attention_half": sticky_test(panel, by_house)}
     try:
@@ -260,11 +409,14 @@ def main(argv: list[str] | None = None) -> int:
     except Exception as e:   # no archive yet: the attention half stands alone
         concepts = []
         out["advertising_half"] = {"status": f"no advertising data: {e}"}
+    cb: dict[str, list] = {}
+    for c in concepts:
+        cb.setdefault(c.house_id, []).append(c)
     if concepts:
-        cb: dict[str, list] = {}
-        for c in concepts:
-            cb.setdefault(c.house_id, []).append(c)
         out["advertising_half"] = bridge(events(panel, by_house), cb)
+    table = event_table(panel, by_house, press, cb or None)
+    out["what_the_clothes_add"] = what_the_clothes_add(table)
+    write_table(table, config.RESULTS_DIR / "runway_events.csv")
     config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (config.RESULTS_DIR / "runway.json").write_text(json.dumps(out, indent=2, default=str) + "\n")
     print(json.dumps({k: v.get("status") if isinstance(v, dict) else v for k, v in out.items()}, indent=2))

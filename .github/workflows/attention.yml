@@ -17,7 +17,7 @@ concurrency:
 jobs:
   attention:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 20
+    timeout-minutes: 150   # the press backfill resumes across runs within this
     env:
       PYTHONUNBUFFERED: "1"
     steps:
@@ -32,6 +32,17 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         run: python -m adtone.attention collect --run "gh${GITHUB_RUN_ID}"
+      - name: Collect press tone
+        id: press
+        continue-on-error: true
+        timeout-minutes: 110
+        # GDELT asks for one request every five seconds: the first backfill to January 2017 takes a few
+        # runs, each resuming where the last stopped. Weekly runs afterwards take a minute or two.
+        run: python -m adtone.press collect --run "gh${GITHUB_RUN_ID}" --budget-min 100
+      - name: Press probe
+        continue-on-error: true
+        timeout-minutes: 2
+        run: python -m adtone.press probe --run "gh${GITHUB_RUN_ID}"
       - name: Completeness probe
         id: probe
         continue-on-error: true

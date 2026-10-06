@@ -191,6 +191,14 @@ Saint Laurent prediction is not scored. `docs/CLOCK.md` estimates when each hous
 leaves Meta's archive; Balenciaga's, which H2 needs, goes first, around 21 October 2026, and collection
 now runs in deadline order.
 
+## What the clothes add
+
+`adtone.press` collects daily news tone and volume from GDELT for every house back to January 2017,
+in the weekly attention workflow. `adtone.runway` then joins every source into one row per show
+(`data/results/runway_events.csv`) and asks whether reception predicts lasting attention beyond the
+show's spectacle and the house's momentum, within houses, against shuffled reception. Registered in
+Amendment 2, section 13b. How the pieces join is in `docs/THREAD.md`.
+
 ## The reader
 
 Each image's eighteen answers come from an open vision model, Qwen2.5-VL-7B-Instruct, on a Modal GPU

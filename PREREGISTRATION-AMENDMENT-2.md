@@ -284,6 +284,30 @@ year per house, so this rests on many events rather than ten debuts.
   looks the house chose to promote, not the runway. Saint Laurent stays out of the bridge until its
   forward prediction is judged.
 
+## 13b. What the clothes add
+
+Does how a collection is received predict the attention that lasts, beyond the show's spectacle and
+the house's momentum? This is the question of how much the clothes matter, asked of attention.
+
+- **Reception.** GDELT's average tone of news matching the house's query (`adtone/press.py`; the house
+  name, with fashion context for the ambiguous ones), on the show day and the three days after, less
+  its mean from 60 to 10 days before. It needs two covered days after and ten in the baseline.
+- **Spectacle** is the attention spike of section 13. **Momentum** is the mean log page views from 60
+  to 10 days before, less the mean from 150 to 90 days before.
+- **Test.** Within houses (each house's own averages removed, so a house whose press is always warm
+  cannot pass for good clothes), the increase in R-squared from adding reception to spectacle and
+  momentum, set against 1,000 shuffles of reception among each house's own shows. Supported if p is
+  at most 0.05 and the coefficient is positive; reported with a 90 per cent bootstrap interval. Read
+  only from 60 shows with every term, in houses with at least three.
+- **Reading.** Supported: a well-received collection is followed by more lasting attention than its
+  spectacle and the house's momentum predict. Not supported: nothing beyond spectacle and momentum
+  is detectable at this sample. Desire (the next Lyst rank change) and money (revenue growth two
+  quarters on) get the same decomposition, reported as description: too few observations to test.
+- **Limits.** News tone is not criticism; celebrity coverage enters it; reception may follow momentum,
+  which is why momentum is in the model. Predictive, not causal.
+- **The thread.** Every show is one row of `data/results/runway_events.csv`, joining attention,
+  press, momentum and, inside the archive, reach and alignment, on house and date.
+
 ## Before freezing
 
 Extension dates verified and page ids confirmed; appointment dates added and verified; older show
