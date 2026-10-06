@@ -102,6 +102,16 @@
   .lede.beneath { margin-top: 1.1rem; color: var(--graphite); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.45; }
   .go { margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2.25rem;
     font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  /* The edge: four numbered claims, true today */
+  .edge { max-width: 38rem; margin: clamp(3rem, 7vw, 4.75rem) auto 0; text-align: left; }
+  .kicker { margin: 0 0 1.4rem; text-align: center; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--graphite); }
+  .edges { list-style: none; margin: 0; padding: 0; border-top: 1px solid currentColor; }
+  .edges li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: 1.1rem; align-items: baseline; padding: 1.35rem 0;
+    border-bottom: 1px solid var(--graphite); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+  .edges .num { font-family: var(--serif); font-style: italic; font-size: 2.1rem; line-height: 1; letter-spacing: -0.02em; }
+  .edges h3 { margin: 0 0 0.35rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.375rem; line-height: 1.2; text-wrap: balance; }
+  .edges p { margin: 0; font-size: 0.9375rem; }
+  .edge .coda { margin: 1.4rem 0 0; text-align: center; color: var(--graphite); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.45; }
   section.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
@@ -181,6 +191,16 @@
     <section id="overview" data-panel aria-label="Overview">
       <p class="ask">Fashion advertising runs on hope</p>
       <p class="lede">Houses count every impression, every euro of media value and every sale. The look itself, what the advertising actually shows, goes unmeasured. Adtone measures it as the ads run: whether a house's advertising says what the house says, whether a new creative director's look has reached the campaigns, and whose look it is when designers and their image-makers move between houses.</p>
+      <div class="edge" aria-labelledby="edge-k">
+        <p class="kicker" id="edge-k">The edge</p>
+        <ol class="edges">
+          <li><span class="num" aria-hidden="true">I</span><div><h3>A record that cannot be rebuilt</h3><p>Meta deletes each ad a year after it last runs. Adtone keeps the reading of every ad from the day collection begins, so its history lengthens while the public one expires.</p></div></li>
+          <li><span class="num" aria-hidden="true">II</span><div><h3>The look itself, in numbers</h3><p>Houses count impressions, spend and media value. Adtone reads what each image shows, question by question, and traces whose hand it carries.</p></div></li>
+          <li><span class="num" aria-hidden="true">III</span><div><h3>Monthly, ahead of the quarter</h3><p>Readings land every month. Only seven of the eighteen houses report their own sales each quarter.</p></div></li>
+          <li><span class="num" aria-hidden="true">IV</span><div><h3>Dated before the data</h3><p>The tests were frozen and published before a single ad was read, so no result can be fitted after the fact.</p></div></li>
+        </ol>
+        <p class="coda">Whether the look predicts attention, desire or revenue is the open question, scored in public from 2028.</p>
+      </div>
       <p class="lede beneath">Underneath is a research question, with its tests frozen before any data: whose look is it, and does it move people?</p>
       <p class="go"><a href="#/season">The season</a><a href="#/results">From reading to result</a><a href="#/offer">What we offer</a></p>
     </section>
