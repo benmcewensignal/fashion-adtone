@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (162 tests).
+- Built and tested on synthetic data with known ground truth (167 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -190,6 +190,16 @@ measured against controls of other owners only, and the kill rule. If the calibr
 Saint Laurent prediction is not scored. `docs/CLOCK.md` estimates when each house's pre-debut look
 leaves Meta's archive; Balenciaga's, which H2 needs, goes first, around 21 October 2026, and collection
 now runs in deadline order.
+
+## Runway to attention
+
+`adtone.runway` asks whether a show's attention lasts, and whether the campaign that follows carries it.
+The attention half needs no advertising: page views now go back to July 2015, and the test compares
+how well a show's unexpected attention lasts against equal jumps on ordinary days, so ordinary decay
+is not mistaken for runway power. The advertising half, for shows inside Meta's archive, adds the
+reach pushed after each show and how closely the campaign resembles the house's own show-period ads.
+`reference/shows.csv` holds 35 verified show dates from September 2025 to October 2026; older
+seasons come from the published fashion-week calendars. Registered in Amendment 2, section 13.
 
 ## Change and attention
 

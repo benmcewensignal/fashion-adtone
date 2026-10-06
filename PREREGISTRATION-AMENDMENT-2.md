@@ -235,8 +235,36 @@ revised instrument is a new version, registered before it is pointed at another 
 `forward/saint-laurent-v1-addendum-1.md` settles the branches the frozen Saint Laurent file leaves
 open, and gives Chloé a forward test of its own. It is frozen with this amendment.
 
+## 13. Runway to attention
+
+Does a show's attention last, and does the campaign that follows carry it? Shows recur, two to four a
+year per house, so this rests on many events rather than ten debuts.
+
+- **Events.** Show dates from `reference/shows.csv`, verified rows only, each with its source. Older
+  seasons are added from the published fashion-week calendars before any result is read.
+- **Spike.** The peak of log daily Wikipedia page views from the day before a show to three days after,
+  over the mean from 60 to 10 days before. **Surprise** is the spike less the mean spike of the house's
+  earlier events, once it has two.
+- **Lasting attention.** The mean from 30 to 120 days after, over the same baseline, less the median
+  house's change over the same days. A window needs 80 per cent of its days.
+- **Sticky test.** The slope of lasting attention on surprise, within houses. The same slope is
+  computed at placebo dates, at least 30 days from any show of the house, the same number per house,
+  1,000 times. Supported if the show slope exceeds 95 per cent of placebo slopes: a show's attention
+  lasts better than an equal jump on an ordinary day. It runs on page views back to July 2015 and
+  needs no advertising.
+- **The bridge.** For shows inside Meta's archive: lasting attention regressed on surprise, the log of
+  EU and UK reach in the 90 days after the show, and alignment, the cosine between the centroid of the
+  house's ads first seen from 7 days before to 21 days after the show and the centroid of those first
+  seen 45 to 150 days after. Each needs three concepts. Standardised, with 90 per cent bootstrap
+  intervals. Reported as more than description only from 30 shows. Predictive, not causal: houses push
+  more after a show that went well.
+- **Limits.** A front-row celebrity can make a spike, not the clothes. The show-period ads are the
+  looks the house chose to promote, not the runway. Saint Laurent stays out of the bridge until its
+  forward prediction is judged.
+
 ## Before freezing
 
-Extension dates verified and page ids confirmed; appointment dates added and verified; the second
+Extension dates verified and page ids confirmed; appointment dates added and verified; older show
+dates compiled from the fashion-week calendars; the second
 reader named; the Trends API status recorded; the outcome evaluator, the second reader, the weights
 checksum and the video flag in place and tested on synthetic worlds with known answers. Then this file and the registry are hashed, committed and timestamped together.

@@ -28,7 +28,7 @@ import requests
 from . import config, registry, store
 
 PROJECT = "en.wikipedia"
-START = date(2024, 7, 1)   # a year of baseline before the first debut
+START = date(2015, 7, 1)   # the first day of Wikimedia's per-article page views: a decade of shows for adtone.runway
 API = "https://en.wikipedia.org/w/api.php"
 VIEWS = "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/{project}/all-access/user/{title}/daily/{start}/{end}"
 UA = "fashion-adtone research (attention series; contact via the repository)"
