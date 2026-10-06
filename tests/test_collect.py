@@ -94,3 +94,29 @@ def test_a_failure_mid_backfill_keeps_what_arrived_and_does_not_advance_the_wind
     assert "1" in store.ShardedTable(config.ADS_DIR, "ad_id")
     assert "last_success" not in store.read_state(config.STATE_DIR / "collect.json")
     assert store.read_jsonl(config.PROV_DIR / "collect.jsonl")[-1]["partial"] is True
+
+
+def test_houses_whose_old_look_expires_soonest_are_collected_first():
+    from adtone import collect
+    from adtone.registry import House, Registry
+    hs = [House(h, h, "control", "G", [h], [f"p-{h}"], []) for h in ("hermes", "gucci", "prada", "balenciaga", "dior")]
+    order = [h.id for h in collect.deadline_first(Registry(1, "T", hs))]
+    assert order[:3] == ["balenciaga", "gucci", "dior"] and order[3:] == ["hermes", "prada"]
+
+
+def test_page_batches_keep_the_order_they_are_given():
+    from adtone.adlib import AdLibraryClient
+    seen = []
+
+    class S:
+        def get(self, url, params=None, timeout=None):
+            seen.append(params["search_page_ids"])
+            class R:
+                status_code = 200
+                headers = {}
+                def json(self):
+                    return {"data": []}
+            return R()
+    c = AdLibraryClient("tok", session=S(), sleep=lambda s: None)
+    list(c.ads_for_pages(["9", "1", "5", "9"], ["FR"], ["id"], [], None))
+    assert '"9"' in seen[0] and seen[0].index('"9"') < seen[0].index('"1"') < seen[0].index('"5"')

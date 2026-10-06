@@ -113,3 +113,78 @@ def test_an_unknown_tier_is_refused(tmp_path):
     p.write_text("version: 1\nstatus: DRAFT\nhouses:\n  - {id: x, name: X, group: control, tier: maybe, search_terms: [X], page_ids: [], events: []}\n")
     with pytest.raises(ValueError, match="tier"):
         registry.load(p)
+
+
+LONG = dict(dim=32, noise=0.12, campaign_sd=0.08, start=date(2024, 10, 1), days=720, campaigns=24)
+
+
+def _world(spec_debuts, registered, controls_shift=None, seed=8):
+    spec = {h: {"debut": d, "shift": 1.5} for h, d in spec_debuts.items()}
+    spec.update({c: {"debut": (controls_shift or {}).get(c), "shift": 1.5 if (controls_shift or {}).get(c) else 0.0}
+                 for c in CONTROLS})
+    cs = make_world(spec, seed=seed, **LONG).concepts
+    hs = [House(h, h, "treated", "G", [h], [h], [Event("designer_debut", "D", d, True)]) for h, d in registered.items()]
+    hs += [House(c, c, "control", "G", [c], [c], []) for c in CONTROLS]
+    from adtone.analysis import residuals
+    res = residuals(cs, set(CONTROLS))
+    by = {}
+    for c in cs:
+        by.setdefault(c.house_id, []).append(c)
+    return by, res, Registry(1, "T", hs)
+
+
+SEPT = {"t1": date(2025, 9, 23), "t2": date(2025, 9, 28), "t3": date(2025, 10, 1), "t4": date(2025, 10, 4)}
+
+
+def test_treated_houses_do_not_shift_at_a_fake_debut_before_the_real_one():
+    by, res, r = _world(SEPT, SEPT)
+    out = family.in_time_placebo(by, res, r, N_PERM)
+    assert out["n_tested"] >= 3 and out["rate"] <= 0.25
+
+
+def test_a_change_registered_half_a_year_late_trips_the_in_time_placebo():
+    late = {h: date(d.year + (d.month + 6 > 12), (d.month + 6 - 1) % 12 + 1, d.day) for h, d in SEPT.items()}
+    by, res, r = _world(SEPT, late)
+    out = family.in_time_placebo(by, res, r, N_PERM)
+    assert out["rate"] >= 0.75
+
+
+def test_the_detector_is_finding_debuts_not_september():
+    by, res, r = _world(SEPT, SEPT)
+    ok = family.season_check(by, res, r, N_PERM)
+    assert ok["treated_hit_rate"] >= 0.75 and ok["control_september_rate"] <= 0.2 and ok["passes"] is True
+    sept_controls = {c: date(2025, 9, 25) for c in CONTROLS[:4]}
+    by, res, r = _world(SEPT, SEPT, controls_shift=sept_controls)
+    bad = family.season_check(by, res, r, N_PERM)
+    assert bad["control_september_rate"] >= 0.5 and bad["passes"] is False
+
+
+@pytest.mark.parametrize("primary,mix,verdict", [
+    ({"season_check": {"controls": {"c": {}}, "control_false_positive_rate": 0.1, "passes": True},
+      "in_time_placebo": {"rate": 0.0, "n_tested": 4}, "pooled_shift": {"status": "ok", "p": 0.01}}, None, "pass"),
+    ({"season_check": {"controls": {"c": {}}, "control_false_positive_rate": 0.4, "passes": True},
+      "in_time_placebo": {"rate": 0.0, "n_tested": 4}}, None, "fail"),
+    ({"season_check": {"controls": {"c": {}}, "control_false_positive_rate": 0.1, "passes": False}}, None, "fail"),
+    ({"season_check": {"controls": {"c": {}}, "control_false_positive_rate": 0.0, "passes": True},
+      "pooled_shift": {"status": "ok", "p": 0.4}},
+     {"houses": {"a": {"control_percentile": 1.0}, "b": {"control_percentile": 0.97}}}, "fail"),
+    ({"season_check": {}, "in_time_placebo": {"n_tested": 0}}, None, "not yet testable"),
+])
+def test_the_kill_rule_is_written_before_the_data(primary, mix, verdict):
+    out = family.kill_rule(primary, mix)
+    assert out["verdict"] == verdict
+    assert out["saint_laurent"] == {"pass": "scored as frozen", "fail": "not scored", "not yet testable": "pending"}[verdict]
+
+
+def test_the_whole_amendment_runs_end_to_end_with_owner_clustering():
+    spec = {h: {"debut": d, "shift": 0.8} for h, d in DEBUTS.items()}
+    spec.update({h: {"debut": None, "shift": 0.0} for h in CONTROLS})
+    cs = make_world(spec, movers=[("bottega_veneta", "chanel", 0.6)], seed=9, **WORLD).concepts
+    hs = [House(h, h, "treated", "Kering" if h in ("gucci", "balenciaga", "bottega_veneta") else "LVMH", [h], [h],
+                [Event("designer_debut", "D", d, True)]) for h, d in DEBUTS.items()]
+    hs += [House(c, c, "control", "Kering" if c == "c1" else "Other", [c], [c], []) for c in CONTROLS]
+    out = family.run(cs, Registry(1, "T", hs), n_perm=49)
+    assert set(out) >= {"primary", "kill_rule", "owner_clustered", "mix", "sensitivity"}
+    assert set(out["sensitivity"]) == {"high_confidence", "no_logo_or_text", "core_controls_only",
+                                       "without_art_direction_changes"}
+    assert out["kill_rule"]["verdict"] in ("pass", "fail", "not yet testable")

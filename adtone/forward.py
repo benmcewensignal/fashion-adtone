@@ -161,7 +161,8 @@ def main(argv: list[str] | None = None) -> int:
             cache["c"] = analysis.load_concepts(a.instrument, a.embedder, reg)[0]
         return cache["c"]
 
-    for path in sorted(FORWARD_DIR.glob("*-v*.md")):
+    for path in sorted(p for p in FORWARD_DIR.glob("*-v*.md") if re.fullmatch(r"[a-z0-9-]+-v\d+\.md", p.name)):
+        # designs only: <id>-v<n>.md; an addendum such as <id>-v1-addendum-1.md is frozen with an amendment
         spec = load_spec(path)
         out = config.RESULTS_DIR / f"forward-{spec['id']}.json"
         if out.exists() and json.loads(out.read_text()).get("status") in FINAL:

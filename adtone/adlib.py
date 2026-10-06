@@ -158,7 +158,7 @@ class AdLibraryClient:
         """
         fields = core + optional
         seen: set[str] = set()
-        for group in chunks(sorted(set(page_ids)), 10):
+        for group in chunks(list(dict.fromkeys(page_ids)), 10):   # caller's order: deadlines first
             country_sets = [countries]
             while True:
                 try:

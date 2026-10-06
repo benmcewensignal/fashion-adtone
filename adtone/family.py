@@ -18,13 +18,13 @@ from __future__ import annotations
 import json
 import sys
 from collections import Counter
-from datetime import date
+from datetime import date, timedelta
 
 import numpy as np
 
 from . import config, registry, store
-from .analysis import (Concept, amendment_frozen, eligible, gate, holm, load_concepts, permuted_shift, residuals,
-                       split_sides, sufficient, toward)
+from .analysis import (Concept, amendment_frozen, changepoint, eligible, gate, holm, load_concepts, permuted_shift,
+                       residuals, split_sides, sufficient, toward)
 
 # label, origin, destination, origin cut (None: the origin's registry debut), who travelled with the designer
 TRANSFERS = (
@@ -39,6 +39,11 @@ CLUSTER = (date(2025, 9, 23), date(2025, 10, 6))
 PLACEBO_DATES = (date(2026, 3, 2), date(2026, 6, 23), date(2026, 9, 28))   # Paris fashion weeks in the window
 ART_DIRECTION_CHANGED = ("miu_miu", "valentino")                          # 2026 changes in the credits
 DRAWS = 20000
+DETECT_HORIZON_DAYS = 120          # the frozen detection window
+# The kill rule, fixed before any data. Breach any one and the 2025 calibration fails: the Saint Laurent
+# prediction is not scored, and nothing in this amendment is reported as a finding.
+KILL = {"control_false_positive_rate": 0.20, "in_time_placebo_rate": 0.20,
+        "season_control_rate": 0.20, "season_ratio": 0.5}
 
 
 def modal(c: Concept, field: str):
@@ -106,20 +111,21 @@ def _debut_in(h: registry.House, window: tuple[date, date]) -> date | None:
 
 
 def pooled_shift(by_house, res, reg: registry.Registry, n_perm: int, window=CLUSTER, placebos=PLACEBO_DATES,
-                 draws: int = DRAWS, seed: int = 11) -> dict:
+                 draws: int = DRAWS, seed: int = 11, res_for: dict[str, dict] | None = None) -> dict:
     rng = np.random.default_rng(seed)
+    res_for = res_for or {}
     tz = {}
     for h in reg.group("treated"):
         d = _debut_in(h, window)
         if d is None:
             continue
-        pre, post, _, _ = split_sides(by_house.get(h.id, []), res, d, config.POST_LAG_DAYS)
+        pre, post, _, _ = split_sides(by_house.get(h.id, []), res_for.get(h.id, res), d, config.POST_LAG_DAYS)
         if sufficient(pre, post):
             tz[h.id] = permuted_shift(pre, post, n_perm, rng)["z"]
     pz = []
     for h in reg.group("control"):
         for d in placebos:
-            pre, post, _, _ = split_sides(by_house.get(h.id, []), res, d, config.POST_LAG_DAYS)
+            pre, post, _, _ = split_sides(by_house.get(h.id, []), res_for.get(h.id, res), d, config.POST_LAG_DAYS)
             if sufficient(pre, post):
                 pz.append({"house": h.id, "split": d.isoformat(), "z": permuted_shift(pre, post, n_perm, rng)["z"]})
     out = {"cluster": [window[0].isoformat(), window[1].isoformat()], "treated_z": tz, "n_placebo": len(pz),
@@ -133,6 +139,97 @@ def pooled_shift(by_house, res, reg: registry.Registry, n_perm: int, window=CLUS
     flagged = sum(1 for p_ in pz if p_["z"] > float(np.quantile(pool, 0.95)))
     return {**out, "status": "ok", "mean_z": round(obs, 3), "p": round(p, 4),
             "control_false_positive_rate": round(float(np.mean(pool > 1.645)), 3), "placebo_z_flagged": flagged}
+
+
+# ---------- two falsifications the frozen tests do not cover ----------
+
+def in_time_placebo(by_house, res, reg: registry.Registry, n_perm: int, seed: int = 13) -> dict:
+    """Treated houses should not shift at a fake debut inside their own pre-debut period.
+
+    The fake date is the median date of the house's pre-debut concepts, with no gap after it: the
+    archive keeps a year, so pre-debut history is short, and a fixed offset with the frozen 90-day gap
+    left most houses untestable. Only pre-debut concepts are used, so the real change cannot leak in.
+    Houses with more than one event in the window (Versace) are left out: their earlier event is real."""
+    rng = np.random.default_rng(seed)
+    houses = {}
+    for h in reg.group("treated"):
+        if len([e for e in h.events if e.kind in ("designer_debut", "designer_exit")]) > 1:
+            continue
+        real = h.debut.date
+        cs = sorted((c for c in by_house.get(h.id, []) if c.first_seen < real), key=lambda c: c.first_seen)
+        if len(cs) < 2 * config.MIN_CONCEPTS_SIDE:
+            houses[h.id] = {"status": "insufficient"}
+            continue
+        fake = cs[len(cs) // 2].first_seen
+        pre, post, _, _ = split_sides(cs, res, fake, 0)
+        houses[h.id] = ({**permuted_shift(pre, post, n_perm, rng), "fake_date": fake.isoformat()}
+                        if sufficient(pre, post) else {"status": "insufficient"})
+    tested = [v for v in houses.values() if "p" in v]
+    rate = round(float(np.mean([v["p"] < 0.05 for v in tested])), 3) if tested else None
+    return {"rule": "median pre-debut date, no gap", "houses": houses, "n_tested": len(tested), "rate": rate}
+
+
+def season_check(by_house, res, reg: registry.Registry, n_perm: int, window=CLUSTER,
+                 horizon: int = DETECT_HORIZON_DAYS, seed: int = 17) -> dict:
+    """Is the detector finding debuts, or finding September? Controls scanned blind should not break
+    inside the same fashion weeks as often as the treated houses break after their debuts."""
+    rng = np.random.default_rng(seed)
+    end = window[1] + timedelta(days=horizon)
+
+    def scan(hid):
+        return changepoint(by_house.get(hid, []), res, n_perm, rng)
+
+    treated, controls = {}, {}
+    for h in reg.group("treated"):
+        d = _debut_in(h, window)
+        if d is None:
+            continue
+        cp = scan(h.id)
+        if "p" in cp:
+            split = date.fromisoformat(cp["split"])
+            treated[h.id] = {**cp, "hit": bool(cp["p"] < 0.05 and d <= split <= d + timedelta(days=horizon))}
+    for h in reg.group("control"):
+        cp = scan(h.id)
+        if "p" in cp:
+            split = date.fromisoformat(cp["split"])
+            controls[h.id] = {**cp, "any_break": bool(cp["p"] < 0.05),
+                              "september_break": bool(cp["p"] < 0.05 and window[0] <= split <= end)}
+    t_rate = float(np.mean([v["hit"] for v in treated.values()])) if treated else None
+    c_sep = float(np.mean([v["september_break"] for v in controls.values()])) if controls else None
+    c_any = float(np.mean([v["any_break"] for v in controls.values()])) if controls else None
+    passes = None
+    if t_rate is not None and c_sep is not None:
+        passes = bool(c_sep <= KILL["season_control_rate"] and (t_rate == 0 or c_sep <= KILL["season_ratio"] * t_rate))
+    return {"window": [window[0].isoformat(), end.isoformat()], "treated": treated, "controls": controls,
+            "treated_hit_rate": None if t_rate is None else round(t_rate, 3),
+            "control_september_rate": None if c_sep is None else round(c_sep, 3),
+            "control_false_positive_rate": None if c_any is None else round(c_any, 3), "passes": passes}
+
+
+# ---------- the kill rule ----------
+
+def kill_rule(primary: dict, mix: dict | None = None) -> dict:
+    """Written before the data: when the 2025 calibration fails, nothing is narrated."""
+    reasons = []
+    season = primary.get("season_check") or {}
+    fpr = season.get("control_false_positive_rate")
+    if fpr is not None and fpr > KILL["control_false_positive_rate"]:
+        reasons.append(f"controls raise a false alarm in {fpr:.0%} of scans, above {KILL['control_false_positive_rate']:.0%}")
+    if season.get("passes") is False:
+        reasons.append("controls break inside the same fashion weeks too often: the detector is finding September")
+    placebo = primary.get("in_time_placebo") or {}
+    if placebo.get("rate") is not None and placebo["rate"] > KILL["in_time_placebo_rate"]:
+        reasons.append(f"treated houses shift at fake pre-debut dates in {placebo['rate']:.0%} of tests")
+    pooled = primary.get("pooled_shift") or {}
+    if mix and pooled.get("status") == "ok" and pooled.get("p", 1) > 0.05:
+        houses = [v for v in mix.get("houses", {}).values() if v.get("control_percentile") is not None]
+        if houses and np.mean([v["control_percentile"] >= 0.95 for v in houses]) >= 0.5:
+            reasons.append("the ad mix changed but the brand-image look did not: the change is mix, not look")
+    tested = bool(season.get("controls")) or placebo.get("n_tested")
+    if not tested:
+        return {"verdict": "not yet testable", "reasons": [], "saint_laurent": "pending"}
+    return {"verdict": "fail" if reasons else "pass", "reasons": reasons,
+            "saint_laurent": "not scored" if reasons else "scored as frozen"}
 
 
 # ---------- the ad mix, reported as its own outcome ----------
@@ -193,16 +290,37 @@ def run(concepts: list[Concept], reg: registry.Registry, n_perm: int = config.N_
         for c in cs:
             by.setdefault(c.house_id, []).append(c)
         away = event_study(by, res, r, n_perm)["treated"]
-        return {"transfer": transfer_family(by, res, r, n_perm, away), "pooled_shift": pooled_shift(by, res, r, n_perm)}
+        return {"transfer": transfer_family(by, res, r, n_perm, away), "pooled_shift": pooled_shift(by, res, r, n_perm),
+                "in_time_placebo": in_time_placebo(by, res, r, n_perm), "season_check": season_check(by, res, r, n_perm)}
+
+    def owner_fields(cs, r, fld):
+        """Residuals for each house against controls of other owners only: a group-wide media policy
+        cannot then move a treated house and its control together."""
+        controls = {h.id: h.owner for h in r.group("control")}
+        out = {}
+        for owner in {h.owner for h in r.houses}:
+            res_o = residuals(cs, {c for c in fld if controls.get(c) != owner})
+            for h in r.houses:
+                if h.owner == owner:
+                    out[h.id] = res_o
+        return out
 
     by_all = {}
     for c in concepts:
         by_all.setdefault(c.house_id, []).append(c)
     core_field = {h.id for h in reg.core().group("control")}
+    main = family_on(primary, reg, field)
+    by_primary = {}
+    for c in primary:
+        by_primary.setdefault(c.house_id, []).append(c)
+    mix = {"creative_type": mix_change(by_all, reg, field="creative_type"),
+           "category": mix_change(by_all, reg, field="category")}
     return {
-        "primary": family_on(primary, reg, field),
-        "mix": {"creative_type": mix_change(by_all, reg, field="creative_type"),
-                "category": mix_change(by_all, reg, field="category")},
+        "primary": main,
+        "kill_rule": kill_rule(main, mix["creative_type"]),
+        "owner_clustered": {"pooled_shift": pooled_shift(by_primary, residuals(primary, field), reg, n_perm,
+                                                         res_for=owner_fields(primary, reg, field))},
+        "mix": mix,
         "sensitivity": {
             "high_confidence": family_on(high_confidence(primary), reg, field),
             "no_logo_or_text": family_on(no_text(primary), reg, field),
@@ -230,7 +348,7 @@ def main(argv: list[str] | None = None) -> int:
            "generated_at": store.utc_now(), "instrument": instrument, "inputs": info, **run(concepts, reg)}
     config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (config.RESULTS_DIR / "family.json").write_text(json.dumps(out, indent=2, default=str) + "\n")
-    print(json.dumps({"reading": out["primary"]["transfer"]["reading"],
+    print(json.dumps({"kill_rule": out["kill_rule"], "reading": out["primary"]["transfer"]["reading"],
                       "pooled": {k: out["primary"]["pooled_shift"].get(k) for k in ("status", "mean_z", "p")}}, indent=2))
     return 0
 

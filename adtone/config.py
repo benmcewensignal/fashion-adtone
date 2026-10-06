@@ -28,8 +28,11 @@ RUBRIC_DIR = ROOT / "rubric"
 GRAPH_API_VERSION = os.environ.get("GRAPH_API_VERSION", "v26.0")
 GRAPH_BASE = "https://graph.facebook.com"
 
-# EU27 plus GB. Meta keeps every ad delivered to these in the Ad Library for a year
-# after its last impression, with reach and targeting attached (DSA Article 39).
+# EU27 plus GB. Meta keeps every ad delivered to these in the Ad Library for a year after its
+# last impression, with reach and targeting attached. For the EU this is the law (DSA Article 39);
+# Britain is outside the DSA and is archived on the same terms by Meta's own policy, so it could
+# change separately. beneficiary_payers is EU-only, and eu_total_reach counts EU reach only, so
+# anything that sums reach uses the per-country breakdown, which includes GB.
 EU_UK_COUNTRIES = [
     "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GR", "HR", "HU",
     "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK", "GB",
@@ -46,7 +49,17 @@ CORE_FIELDS = [
 OPTIONAL_FIELDS = [
     "publisher_platforms", "languages", "eu_total_reach", "target_ages", "target_gender",
     "target_locations", "age_country_gender_reach_breakdown", "beneficiary_payers",
+    "total_reach_by_location",
 ]
+
+# Collection order when time is short. Each house's pre-debut look leaves the archive about a year
+# after its last old-look ad ran, which the credits put near its first new-era campaign: Balenciaga's
+# by late October 2026 (Piccioli's first campaign, 21 October 2025, ends Demna's era and H2 needs it),
+# then Gucci, Bottega Veneta, Dior and Chanel around January 2027, Jil Sander and Loewe around
+# February. Celine and Margiela come next in case any old ad ran late. Everything else follows in
+# registry order. Estimates from reference/credits.csv on 6 October 2026, in docs/CLOCK.md.
+DEADLINE_ORDER = ("balenciaga", "gucci", "bottega_veneta", "dior", "chanel", "jil_sander", "loewe",
+                  "celine", "margiela")
 # ad_snapshot_url is deliberately never requested or stored: the URL the API returns
 # can carry the caller's access token. The render URL is rebuilt from the ad id at
 # processing time and lives only in memory.

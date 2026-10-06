@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (151 tests).
+- Built and tested on synthetic data with known ground truth (162 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -182,6 +182,14 @@ with Chiuri, who moved with nobody on file, as the contrast and the reading of e
 advance; the late-September debuts pooled as one shock against fashion-week placebos; the change in
 ad mix as its own outcome; and four declared sensitivities. Its results stay labelled exploratory
 until Amendment 2 is frozen.
+
+It also runs the checks that decide whether the 2025 season can be trusted at all: an in-time
+placebo (treated houses split at a fake date inside their own pre-debut period), a September check
+(controls scanned blind must not break in the same fashion weeks as often as the debuts), the shift
+measured against controls of other owners only, and the kill rule. If the calibration fails, the
+Saint Laurent prediction is not scored. `docs/CLOCK.md` estimates when each house's pre-debut look
+leaves Meta's archive; Balenciaga's, which H2 needs, goes first, around 21 October 2026, and collection
+now runs in deadline order.
 
 ## Change and attention
 

@@ -151,6 +151,12 @@ def select_page(house: registry.House, ranked: list[dict]) -> dict | None:
     return None
 
 
+def deadline_first(reg: registry.Registry) -> list[registry.House]:
+    """Houses in collection order: those whose old look leaves the archive soonest come first."""
+    rank = {h: i for i, h in enumerate(config.DEADLINE_ORDER)}
+    return sorted(reg.houses, key=lambda h: rank.get(h.id, len(rank)))   # stable: the rest keep registry order
+
+
 def page_map(reg: registry.Registry, candidates: dict | None) -> tuple[dict[str, str], dict[str, str]]:
     """page id -> house id, and each house's status: confirmed (registry) or provisional (automatic)."""
     mapping: dict[str, str] = {}
@@ -180,7 +186,7 @@ def resolve(client: AdLibraryClient, reg: registry.Registry, per_term: int = 200
     since = (date.today() - timedelta(days=config.BACKFILL_LOOKBACK_DAYS)).isoformat()
     out = {"generated_at": store.utc_now(), "note": "selected pages are provisional until confirmed in registry/houses.yml",
            "houses": {}, "selected": {}}
-    for h in reg.houses:
+    for h in deadline_first(reg):
         counts: Counter = Counter()
         names: dict[str, str] = {}
         for term in h.search_terms:
@@ -226,7 +232,9 @@ def run(client: AdLibraryClient, reg: registry.Registry, mode: str, rid: str, to
     new = updated = unknown_page = 0
     failure: GraphError | None = None
     try:
-        for raw in client.ads_for_pages(list(pages), config.EU_UK_COUNTRIES, config.CORE_FIELDS,
+        rank = {h.id: i for i, h in enumerate(deadline_first(reg))}
+        ordered = sorted(pages, key=lambda p: rank.get(pages[p], len(rank)))
+        for raw in client.ads_for_pages(ordered, config.EU_UK_COUNTRIES, config.CORE_FIELDS,
                                         config.OPTIONAL_FIELDS, since.isoformat()):
             pid = str(raw.get("page_id") or "")
             hid = pages.get(pid)
