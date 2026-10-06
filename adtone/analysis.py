@@ -14,6 +14,7 @@ of the instrument, run on history; under the standing rule they never count as c
 from __future__ import annotations
 
 import argparse
+import hashlib
 import itertools
 import json
 import math
@@ -283,6 +284,41 @@ def mover(by_house: dict[str, list[Concept]], res: dict[str, np.ndarray], reg: r
     return out
 
 
+def holm(ps: list, m: int) -> list:
+    """Holm-adjusted p-values over m planned tests; a test that could not run still counts in m."""
+    out: list = [None] * len(ps)
+    running = 0.0
+    for rank, (p, i) in enumerate(sorted((p, i) for i, p in enumerate(ps) if p is not None)):
+        running = max(running, min(1.0, (m - rank) * p))
+        out[i] = round(running, 4)
+    return out
+
+
+def amendment_frozen(path=None) -> bool:
+    """True when the amendment says FROZEN and still matches the hash it was frozen with."""
+    path = path or config.AMENDMENT2_FILE
+    sha = path.with_suffix(".sha256")
+    if not path.exists() or not sha.exists():
+        return False
+    frozen = re.search(r"^STATUS: FROZEN", path.read_text(encoding="utf-8"), re.M)
+    return bool(frozen) and hashlib.sha256(path.read_bytes()).hexdigest() == sha.read_text().strip()
+
+
+def secondary_movers(by_house: dict[str, list[Concept]], res: dict[str, np.ndarray], reg: registry.Registry,
+                     n_perm: int) -> dict:
+    """The other designer moves inside the panel, each tested exactly like H2, Holm-adjusted as a pair."""
+    ids = {h.id for h in reg.houses}
+    tests = [mover(by_house, res, reg, o, d, n_perm) for o, d in config.SECONDARY_MOVERS if {o, d} <= ids]
+    for t, adj in zip(tests, holm([t.get("p") for t in tests], m=len(config.SECONDARY_MOVERS))):
+        t["p_holm"] = adj
+        if "p" in t:
+            t["supported"] = bool(t["transfer"] > 0 and adj <= 0.05 and t["specific"])
+    registered = amendment_frozen()
+    return {"registered": registered,
+            "basis": "Amendment 2" if registered else "exploratory: Amendment 2 is not frozen",
+            "tests": tests}
+
+
 def rubric_deltas(pre: list[Concept], post: list[Concept], top: int = 8) -> list[dict]:
     def shares(cs, fld):
         vals = [v for v in (_concept_value(c, fld) for c in cs) if v is not None]
@@ -349,6 +385,7 @@ def analyse(concepts: list[Concept], reg: registry.Registry, n_perm: int = confi
         if pre and post:
             deltas[h.id] = rubric_deltas(pre, post)
     mv = mover(by_house, res, reg, "balenciaga", "gucci", n_perm) if {"balenciaga", "gucci"} <= {h.id for h in reg.houses} else None
+    mv2 = secondary_movers(by_house, res, reg, n_perm)
     coverage = {h.id: {"concepts": len(by_house.get(h.id, [])),
                        "blocks": len({c.block for c in by_house.get(h.id, [])}),
                        "first": min((c.first_seen for c in by_house.get(h.id, [])), default=None),
@@ -357,7 +394,7 @@ def analyse(concepts: list[Concept], reg: registry.Registry, n_perm: int = confi
         v["first"] = v["first"].isoformat() if v["first"] else None
         v["last"] = v["last"].isoformat() if v["last"] else None
     return {"types": list(types), "n_concepts": len(cs), "coverage": coverage, "event_study": es,
-            "changepoints": cps, "h3": h3, "mover": mv, "rubric_deltas": deltas}
+            "changepoints": cps, "h3": h3, "mover": mv, "movers_secondary": mv2, "rubric_deltas": deltas}
 
 
 def gate(reg: registry.Registry, prereg_path=None) -> list[str]:
@@ -408,6 +445,9 @@ def report_md(summary: dict) -> str:
         f"({h1.get('n_treated_sufficient', 0)} treated houses with enough data).",
         f"- H2, Gucci moved towards Balenciaga's pre-Piccioli tone: {word(mv.get('supported'))}.",
         f"- H3, the detector finds known breaks and stays quiet on controls: {word(h3.get('supported'))}.",
+        *[f"- {t['destination']} towards {t['origin']}'s tone before its new director "
+          f"({p['movers_secondary']['basis']}): {word(t.get('supported'))}."
+          for t in p.get("movers_secondary", {}).get("tests", [])],
         "", "Per-house detail is in summary.json.",
     ]
     return "\n".join(lines) + "\n"

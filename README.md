@@ -14,10 +14,13 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (115 tests).
+- Built and tested on synthetic data with known ground truth (128 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
+- `PREREGISTRATION-AMENDMENT-2.md` is a draft dated 6 October 2026. Frozen before the first collect run,
+  it would register two more designer-move tests (Blazy, Bottega Veneta to Chanel; Anderson, Loewe to
+  Dior) and the crew decomposition. Until then both are reported as exploratory.
 - `PREREGISTRATION.md` was frozen on 5 October 2026, before any data. Debut dates in
   `registry/houses.yml` are verified; the registry stays DRAFT until its page ids are confirmed.
   Analysis refuses to run until both are frozen.
@@ -151,7 +154,9 @@ houses, each with its source page, read on 6 October 2026. It records who shot, 
 and art-directed each campaign, never who appears in it. `python -m adtone.credits` summarises it:
 who stayed through each debut, who moved with each designer, and which photographers work for several
 houses. It is groundwork for separating photographers from houses, a later registered question, and
-nothing in the v1 tests reads it. Details and soft spots are in `docs/CREDITS.md`.
+nothing in the v1 tests reads it. Details and soft spots are in `docs/CREDITS.md`. `adtone.crews` ties each
+collected ad concept to a campaign's crew and splits tone into house and photographer parts, on the
+houses that photographers working for several houses connect (`docs/CREWS.md`).
 
 ## Forward tests
 

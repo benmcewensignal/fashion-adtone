@@ -107,3 +107,36 @@ def test_specificity_survives_the_full_panel_collinearity():
     mv = analysis.analyse(w.concepts, real, N_PERM)["mover"]
     assert mv["supported"] is True
     assert "gucci:pre" in mv["coefficients"] and mv["coefficients"]["gucci:pre"] < 0
+
+
+def test_holm_adjusts_over_the_planned_pair():
+    assert analysis.holm([0.01, 0.04], 2) == [0.02, 0.04]
+    assert analysis.holm([0.03, None], 2) == [0.06, None]
+    assert analysis.holm([0.2, 0.01], 2) == [0.2, 0.02]
+
+
+def test_an_amendment_counts_only_when_frozen_and_unchanged(tmp_path):
+    import hashlib
+    p = tmp_path / "A.md"
+    p.write_text("# A\n\nSTATUS: DRAFT\n")
+    p.with_suffix(".sha256").write_text(hashlib.sha256(p.read_bytes()).hexdigest())
+    assert analysis.amendment_frozen(p) is False
+    p.write_text("# A\n\nSTATUS: FROZEN\n")
+    p.with_suffix(".sha256").write_text(hashlib.sha256(p.read_bytes()).hexdigest() + "\n")
+    assert analysis.amendment_frozen(p) is True
+    p.write_text("# A\n\nSTATUS: FROZEN\nedited after freezing\n")
+    assert analysis.amendment_frozen(p) is False
+
+
+def test_the_other_designer_moves_are_found_on_the_real_registry_and_stay_exploratory():
+    from adtone import registry
+    real = registry.load()
+    spec = {h.id: {"debut": h.debut.date if h.debut else None, "shift": 1.5 if h.group == "treated" else 0.0}
+            for h in real.houses}
+    w = make_world(spec, dim=32, noise=0.12, campaign_sd=0.08, start=date(2025, 6, 1), days=480, campaigns=14,
+                   mover=("bottega_veneta", "chanel", 0.7), seed=4)
+    out = analysis.analyse(w.concepts, real, N_PERM)["movers_secondary"]
+    assert out["registered"] is False and out["basis"].startswith("exploratory")
+    by = {(t["origin"], t["destination"]): t for t in out["tests"]}
+    assert by[("bottega_veneta", "chanel")]["supported"] is True and by[("bottega_veneta", "chanel")]["p_holm"] <= 0.05
+    assert by[("loewe", "dior")]["supported"] is False

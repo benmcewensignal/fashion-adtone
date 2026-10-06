@@ -21,6 +21,7 @@ CANDIDATES_FILE = DATA / "registry" / "page_candidates.json"
 HUMAN_DIR = DATA / "human_check"
 REGISTRY_FILE = ROOT / "registry" / "houses.yml"
 PREREG_FILE = ROOT / "PREREGISTRATION.md"
+AMENDMENT2_FILE = ROOT / "PREREGISTRATION-AMENDMENT-2.md"
 RUBRIC_DIR = ROOT / "rubric"
 
 # Meta Graph API. The version moves quarterly; override with GRAPH_API_VERSION.
@@ -79,6 +80,9 @@ MIN_BLOCKS_SIDE = 3
 MIN_CONCEPTS_SIDE = 8
 PRIMARY_TYPES = ("brand_image",)
 MOVER_RIDGE = 0.1           # ridge penalty for the H2 specificity regression on unit-normalised references
+# Two more designer moves inside the panel, tested exactly like H2 (origin, destination).
+# Exploratory unless PREREGISTRATION-AMENDMENT-2.md is frozen by hash.
+SECONDARY_MOVERS = (("bottega_veneta", "chanel"), ("loewe", "dior"))
 SENSITIVITY_TYPES = ("brand_image", "product_on_model")
 EXCLUDED_CATEGORIES = ("fragrance_beauty", "jewellery_watches", "eyewear", "home")
 N_PERM = int(os.environ.get("ADTONE_N_PERM", "1999"))

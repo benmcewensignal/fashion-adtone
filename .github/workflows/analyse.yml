@@ -44,6 +44,10 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 15
         run: python -m adtone.calibrate
+      - name: Crews (exploratory)
+        if: env.MODE == 'analyse'
+        timeout-minutes: 15
+        run: python -m adtone.crews --decompose
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5
