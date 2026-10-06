@@ -167,6 +167,11 @@ nothing until its adjudication date and is never recomputed once recorded. The f
 unconfirmed and no successor had been named. Recording the successor and the date of their first show
 in `events.yml` is all it needs.
 
+## Site
+
+`site/index.html` is the public page that frames the project: one static file, no images, no
+scripts. It deploys to Vercel as its own project (`adtone`), separate from the timestamp record.
+
 ## Relation to fashion-position
 
 This is the advertising track in the fashion-position architecture: a T1 source, derived data
