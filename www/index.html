@@ -64,7 +64,7 @@
   }
   .mark a { text-decoration: none; }
   nav { margin: clamp(1.5rem, 3.5vw, 2.5rem) 0 0; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0.25rem clamp(1rem, 4vw, 2.25rem); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0.25rem clamp(0.7rem, 3.1vw, 2.25rem); }
   nav a { text-decoration: none; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; padding: 0.4rem 0; display: inline-block; }
   nav a[aria-current="page"] { color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.0625rem; letter-spacing: 0; }
   @media (hover: hover) { nav a:hover { color: var(--ink); } }
@@ -107,6 +107,11 @@
   .triad p { margin: 0; font-size: 0.9375rem; }
   .triad .when { display: block; margin-top: 0.4rem; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.04em; }
   @media (min-width: 48rem) { .triad { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); } }
+  .triad .q { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
+  .triad.duo > div { max-width: 26rem; margin: 0 auto; }
+  @media (min-width: 48rem) { .triad.duo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .for { margin: 0 0 1.75rem; text-align: center; }
+  .for p { margin: 0; }
 
   /* Houses: the season's running order */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
@@ -165,6 +170,7 @@
         <li><a href="#/method">Method</a></li>
         <li><a href="#/results">Results</a></li>
         <li><a href="#/record">Record</a></li>
+        <li><a href="#/offer">Offer</a></li>
       </ul>
     </nav>
   </header>
@@ -173,7 +179,7 @@
     <section id="overview" data-panel aria-label="Overview">
       <p class="ask">Whose look is it, and does it move people?</p>
       <p class="lede">Adtone reads the advertising of eighteen luxury houses as it runs. In 2025 ten of them changed creative director, and designers moved between houses with their image-makers. Adtone measures whether a house's look stays with the house or leaves with its people, and is built to test whether a change in the look shows up in attention, desire and revenue before the results are in.</p>
-      <p class="go"><a href="#/season">The season</a><a href="#/results">From reading to result</a></p>
+      <p class="go"><a href="#/season">The season</a><a href="#/results">From reading to result</a><a href="#/offer">What we offer</a></p>
     </section>
 
     <section id="season" data-panel aria-labelledby="season-h">
@@ -327,6 +333,32 @@
       </ol>
       <p class="record-link">The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
     </section>
+    <section id="offer" data-panel aria-labelledby="offer-h" class="wide">
+      <h2 id="offer-h">Before the forecast</h2>
+      <div class="narrow">
+        <p style="text-align:center">The forecast needs about eighteen months of live data to prove itself. Two things don't: measuring what a house's advertising shows, and checking it against what the house says it is.</p>
+      </div>
+      <div class="triad duo">
+        <div>
+          <h3>Alignment check</h3>
+          <p class="q">Does the advertising say what the house says?</p>
+          <p>Show notes and campaign statements are read into the same eighteen questions as the ads. The check reports, question by question, where the advertising carries the stated intent and where it parts from it, set beside the same check for the house's peers.</p>
+          <span class="when">Per house, per season</span>
+        </div>
+        <div>
+          <h3>Insights</h3>
+          <p class="q">What moved, and who moved it?</p>
+          <p>A monthly reading of the panel: whose look moved, converged or held, how the mix of ads shifted, and which designers and image-makers moved between houses. Each reading is shown with its uncertainty and never ranked as a finding.</p>
+          <span class="when">Monthly</span>
+        </div>
+      </div>
+      <div class="narrow">
+        <div class="for"><p class="sub">For houses</p><p>Whether a creative reset is reaching the marketing, market by market, and how far the house now sits from its peers.</p></div>
+        <div class="for"><p class="sub">For investors</p><p>Whether a turnaround's message is being carried out in the advertising, on a dated record, before results are reported.</p></div>
+        <p class="note" style="text-align:center">Both begin once collection is running and the 2025 debuts have passed the calibration fixed in advance. Neither is a forecast: that claim waits for its own frozen test, scored from mid-2028 at the earliest. Saint Laurent is left out until its prediction is judged, so that the prediction is scored on data nobody has looked at.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer>Adtone, 2026</footer>
