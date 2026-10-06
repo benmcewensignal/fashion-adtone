@@ -1,25 +1,46 @@
 {
   "last_pilot": {
-    "at": "2026-10-06T15:00:06Z",
+    "at": "2026-10-06T15:09:29Z",
     "batch": 8,
-    "cold_start_s": 13.4,
-    "cost_per_10k_images_usd": 1.48,
+    "cold_start_s": 24.8,
+    "cost_per_10k_images_usd": 5.08,
+    "finish_reasons": {
+      "stop": 64
+    },
     "gpu": "L4",
     "images": 64,
     "instrument": "tone-v1@qwen2.5-vl-7b-instruct@cc594898137f",
-    "invalid": 64,
+    "invalid": 0,
+    "mode_errors": [],
+    "modes": {
+      "grammar": 64
+    },
     "price_source": "modal.com/pricing, read 6 October 2026",
-    "run": "gh37482489663",
-    "sample_errors": [
-      "no JSON object in response",
-      "no JSON object in response",
-      "no JSON object in response",
-      "no JSON object in response",
-      "no JSON object in response"
+    "run": "gh37484199810",
+    "sample_errors": [],
+    "sample_replies": [
+      {
+        "chars": 484,
+        "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.8,\"creative_type\":\"text_graphic\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"",
+        "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
+      },
+      {
+        "chars": 454,
+        "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.2,\"creative_type\":\"text_graphic\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"",
+        "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
+      },
+      {
+        "chars": 478,
+        "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.8,\"creative_type\":\"text_graphic\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"",
+        "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
+      }
     ],
-    "valid": 0,
-    "valid_share": 0.0,
-    "warm_seconds_per_image": 0.666
+    "tokens_max": 137,
+    "tokens_mean": 132.9,
+    "valid": 64,
+    "valid_share": 1.0,
+    "vllm": "0.8.5",
+    "warm_seconds_per_image": 2.29
   },
   "model": "Qwen/Qwen2.5-VL-7B-Instruct",
   "pinned_at": "2026-10-06T14:55:47Z",
