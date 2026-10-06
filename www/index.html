@@ -25,6 +25,7 @@
     :root { --paper: #000000; --ink: #ffffff; --graphite: #a3a3a3; }
   }
   *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
@@ -51,10 +52,11 @@
     margin: clamp(1.75rem, 5vw, 3.5rem) 0 0;
     font-variation-settings: "wdth" 125;
     font-weight: 200;
-    font-size: clamp(3.5rem, 15.2vw, 12.5rem);
+    font-size: min(calc((100vw - 2 * var(--gutter)) / 5.72), calc((84rem - 2 * var(--gutter)) / 5.72));
     line-height: 0.86;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
     margin-left: -0.05em;
   }
   .mark a { text-decoration: none; }
@@ -72,49 +74,60 @@
   .block { margin: 0 0 2.5rem; }
   .note { color: var(--graphite); font-size: 0.9375rem; }
 
-  /* Overview: who moved where */
-  .ask {
-    margin: 0;
-    font-size: clamp(1.35rem, 3vw, 2.35rem);
-    line-height: 1.2;
-    font-weight: 330;
-    max-width: 24ch;
-    letter-spacing: -0.005em;
-  }
-  .map {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: clamp(0.75rem, 3vw, 3rem);
-    margin: clamp(2.25rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem);
-    max-width: 62rem;
-    align-items: start;
-  }
-  .chain { list-style: none; margin: 0; padding: 0; }
-  .chain .house {
-    font-variation-settings: "wdth" 112;
-    font-weight: 300;
-    font-size: clamp(1.05rem, 3.4vw, 2.4rem);
-    line-height: 1.05;
-  }
-  .chain .move {
-    margin: 0.45rem 0 0.55rem 0.15em;
-    padding: 0.2rem 0 0.2rem 0.75rem;
-    border-left: 1px solid var(--ink);
-    min-height: clamp(2.5rem, 6vw, 4.25rem);
-    display: flex;
-    align-items: center;
-    font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
-    line-height: 1.3;
-    color: var(--graphite);
-  }
-  .lede { max-width: 38rem; }
+  /* Overview: the loop */
+  .hero { display: grid; gap: clamp(2rem, 5vw, 3rem); grid-template-areas: "ask" "loop" "routes" "lede"; }
+  .ask { grid-area: ask; } .loop { grid-area: loop; } .routes { grid-area: routes; } .lede { grid-area: lede; }
+  .ask { margin: 0; font-size: clamp(1.35rem, 3vw, 2.35rem); line-height: 1.2; font-weight: 330; max-width: 22ch; letter-spacing: -0.005em; }
+  .lede { max-width: 34rem; margin: 0; }
   .lede a { white-space: nowrap; }
+  .loop { margin: 0; color: var(--ink); }
+  .loop svg { display: block; width: 100%; height: auto; max-width: 40rem; overflow: visible; }
+  .loop .houses text { fill: currentColor; font-variation-settings: "wdth" 112; font-weight: 300; font-size: 38px; text-anchor: middle; dominant-baseline: middle; }
+  .loop .who text { fill: var(--graphite); font-size: 17px; text-anchor: middle; }
+  .loop .arc { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0;
+    animation: draw 1.7s cubic-bezier(.3, .1, .2, 1) forwards; }
+  .loop .a2 { animation-delay: .7s; } .loop .a3 { animation-delay: 1.4s; } .loop .a1 { animation-delay: 0s; }
+  .loop .who text { opacity: 0; animation: appear .8s ease-out 2.6s forwards; }
+  @keyframes draw { 0% { stroke-dashoffset: 1; opacity: 0; } 12% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
+  @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Routes: house, designer, house */
+  .routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
+  .route { display: flex; flex-direction: column; align-items: flex-start; }
+  .route .node { font-variation-settings: "wdth" 112; font-weight: 300; font-size: clamp(1.15rem, 2.6vw, 2rem); line-height: 1.05; }
+  .route .edge { position: relative; width: 1px; height: 3.1rem; margin: 0.45rem 0 0.5rem 0.45rem; background: var(--ink); }
+  .route .edge::after { content: ""; position: absolute; left: -3.5px; bottom: 0; width: 7px; height: 7px;
+    border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform: rotate(45deg); transform-origin: center; }
+  .route .edge span { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: max-content; max-width: 9.5rem;
+    font-size: 0.75rem; line-height: 1.3; color: var(--graphite); }
+  .route.row, .route.wide { flex-direction: row; align-items: center; gap: 0.75rem; width: 100%; }
+  .route.row .node, .route.wide .node { white-space: nowrap; }
+  .route.row .edge, .route.wide .edge { flex: 1; width: auto; min-width: 3rem; height: 1px; margin: 0; }
+  .route.row .edge::after, .route.wide .edge::after { left: auto; right: 1px; bottom: -3px; transform: rotate(-45deg); }
+  .route.row .edge span, .route.wide .edge span { left: 50%; top: auto; bottom: 0.5rem; transform: translateX(-50%); max-width: 100%; text-align: center; }
+  .route.row .node { font-size: clamp(1.05rem, 2.2vw, 1.4rem); }
+  @media (min-width: 56rem) {
+    .hero { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gutter); row-gap: 1.75rem; align-items: start;
+      grid-template-areas: "ask loop" "lede loop" "routes routes"; grid-template-rows: auto 1fr auto; }
+    .ask { padding-top: 1rem; }
+    .loop { justify-self: end; width: 100%; }
+    .loop .who text { font-size: 13.5px; }
+    .routes { margin-top: clamp(1.5rem, 4vw, 3rem); grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: clamp(2rem, 5vw, 4rem); }
+    .route { flex-direction: row; align-items: center; gap: 0.9rem; }
+    .route .node { white-space: nowrap; }
+    .route .edge { flex: 1; width: auto; min-width: 3rem; height: 1px; margin: 0; }
+    .route .edge::after { left: auto; right: 1px; bottom: -3px; transform: rotate(-45deg); }
+    .route .edge span { left: 50%; top: auto; bottom: 0.55rem; transform: translateX(-50%); max-width: 100%; text-align: center; font-size: 0.875rem; }
+  }
 
   /* Houses */
   .sub { margin: 0 0 0.6rem; font-weight: 560; }
   .debuts { list-style: none; margin: 0 0 1.75rem; padding: 0; }
   .debuts li { display: grid; grid-template-columns: 7rem minmax(0, 1fr) auto; column-gap: 0.6rem; padding: 0.3rem 0; font-size: 0.875rem; }
   .debuts .h { font-weight: 560; }
+  .debuts li.c { box-shadow: inset 1px 0 0 var(--ink); padding-left: 0.75rem; margin-left: -0.75rem; }
+  .debuts li.c-label { display: block; padding: 0.6rem 0 0.15rem 0.75rem; margin-left: -0.75rem; box-shadow: inset 1px 0 0 var(--ink);
+    font-size: 0.75rem; color: var(--graphite); }
   .debuts time { color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
   @media (min-width: 40rem) {
     .debuts li { grid-template-columns: 11rem minmax(0, 1fr) auto; column-gap: 1rem; font-size: 1.0625rem; }
@@ -139,12 +152,8 @@
   }
 
   /* Findings */
-  .moves { display: grid; gap: 1.4rem; margin: 0 0 1.5rem; }
-  .moves p { margin: 0; }
-  .moves .who { font-weight: 560; margin-bottom: 0.3rem; }
-  .moves .path { display: flex; align-items: center; gap: 0.75rem; }
-  .moves .path .line { flex: 1; border-top: 1px solid var(--ink); min-width: 2rem; }
-  .moves .crew { margin-top: 0.3rem; color: var(--graphite); }
+  .moves { display: grid; gap: 1.6rem; margin: 0 0 1.5rem; }
+  .moves .crew { margin: 0.45rem 0 0; color: var(--graphite); }
 
   /* Record */
   .timeline { list-style: none; margin: 0 0 2rem; padding: 0; }
@@ -161,51 +170,60 @@
     .split > h2 { grid-column: 1 / span 4; }
     .split > .body { grid-column: 5 / span 7; }
   }
+  @media (prefers-reduced-motion: reduce) {
+    .loop .arc { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; animation: none; }
+    .loop .who text { opacity: 1; animation: none; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
   <header>
-    <h1 class="mark"><a href="#overview">Adtone</a></h1>
+    <h1 class="mark"><a href="#/overview">Adtone</a></h1>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#houses">Houses</a></li>
-        <li><a href="#method">Method</a></li>
-        <li><a href="#findings">Findings</a></li>
-        <li><a href="#record">Record</a></li>
+        <li><a href="#/overview">Overview</a></li>
+        <li><a href="#/houses">Houses</a></li>
+        <li><a href="#/method">Method</a></li>
+        <li><a href="#/findings">Findings</a></li>
+        <li><a href="#/record">Record</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="overview" data-panel aria-label="Overview">
+    <section id="overview" data-panel aria-label="Overview" class="hero">
       <p class="ask">Does a house's look belong to the house, or to the people who make its pictures?</p>
-      <div class="map" role="img" aria-label="Designers moving between houses: Alessandro Michele from Gucci to Valentino in 2024, Pierpaolo Piccioli from Valentino to Balenciaga in 2025, Demna from Balenciaga to Gucci in 2025; Jonathan Anderson from Loewe to Dior in 2025, Maria Grazia Chiuri from Dior to Fendi in 2026; Matthieu Blazy from Bottega Veneta to Chanel in 2025.">
-        <ol class="chain">
-          <li class="house">Gucci</li>
-          <li class="move">Alessandro Michele, 2024</li>
-          <li class="house">Valentino</li>
-          <li class="move">Pierpaolo Piccioli, 2025</li>
-          <li class="house">Balenciaga</li>
-          <li class="move">Demna, 2025</li>
-          <li class="house">Gucci</li>
-        </ol>
-        <ol class="chain">
-          <li class="house">Loewe</li>
-          <li class="move">Jonathan Anderson, 2025</li>
-          <li class="house">Dior</li>
-          <li class="move">Maria Grazia Chiuri, 2026</li>
-          <li class="house">Fendi</li>
-        </ol>
-        <ol class="chain">
-          <li class="house">Bottega Veneta</li>
-          <li class="move">Matthieu Blazy, 2025</li>
-          <li class="house">Chanel</li>
-        </ol>
-      </div>
-      <div class="lede">
-        <p>Since 2024 the same people have moved among the same houses. If a house's look belongs to its people, its advertising should move with them. Adtone measures the ads of eighteen houses before and after each debut to find out. <a href="#method">How it's tested</a></p>
+      <p class="lede">Since 2024 the same people have moved among the same houses. If a house's look belongs to its people, its advertising should move with them. Adtone measures the ads of eighteen houses before and after each debut to find out. <a href="#/method">How it's tested</a></p>
+      <figure class="loop">
+        <svg viewBox="0 0 520 490" role="img" aria-labelledby="loop-title">
+          <title id="loop-title">A loop: Alessandro Michele moved from Gucci to Valentino in 2024, Pierpaolo Piccioli from Valentino to Balenciaga in 2025, and Demna from Balenciaga back to Gucci in 2025.</title>
+          <defs>
+            <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+              <path d="M1.5 1.5 L9 5 L1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.1"/>
+            </marker>
+            <path id="t-michele" d="M314 70 Q470 112 436 352"/>
+            <path id="t-piccioli" d="M170 424 Q260 478 350 424"/>
+            <path id="t-demna" d="M84 352 Q50 112 206 70"/>
+          </defs>
+          <path class="arc a1" d="M314 70 Q470 112 436 352" pathLength="1" marker-end="url(#tip)"/>
+          <path class="arc a2" d="M350 424 Q260 478 170 424" pathLength="1" marker-end="url(#tip)"/>
+          <path class="arc a3" d="M84 352 Q50 112 206 70" pathLength="1" marker-end="url(#tip)"/>
+          <g class="houses">
+            <text x="260" y="50">Gucci</text>
+            <text x="408" y="392">Valentino</text>
+            <text x="116" y="392">Balenciaga</text>
+          </g>
+          <g class="who">
+            <text dy="-11"><textPath href="#t-michele" startOffset="52%">Alessandro Michele, 2024</textPath></text>
+            <text dy="23"><textPath href="#t-piccioli" startOffset="50%">Pierpaolo Piccioli, 2025</textPath></text>
+            <text dy="-11"><textPath href="#t-demna" startOffset="48%">Demna, 2025</textPath></text>
+          </g>
+        </svg>
+      </figure>
+      <div class="routes" aria-label="Two more moves between houses in the study">
+        <div class="route"><span class="node">Loewe</span><span class="edge"><span>Jonathan Anderson, 2025</span></span><span class="node">Dior</span><span class="edge"><span>Maria Grazia Chiuri, 2026</span></span><span class="node">Fendi</span></div>
+        <div class="route"><span class="node">Bottega Veneta</span><span class="edge"><span>Matthieu Blazy, 2025</span></span><span class="node">Chanel</span></div>
       </div>
     </section>
 
@@ -216,13 +234,14 @@
         <ol class="debuts">
           <li><span class="h">Celine</span><span>Michael Rider</span><time datetime="2025-07-06">6 Jul 2025</time></li>
           <li><span class="h">Maison Margiela</span><span>Glenn Martens</span><time datetime="2025-07-09">9 Jul 2025</time></li>
-          <li><span class="h">Gucci</span><span>Demna</span><time datetime="2025-09-23">23 Sep 2025</time></li>
-          <li><span class="h">Jil Sander</span><span>Simone Bellotti</span><time datetime="2025-09-24">24 Sep 2025</time></li>
-          <li><span class="h">Bottega Veneta</span><span>Louise Trotter</span><time datetime="2025-09-28">28 Sep 2025</time></li>
-          <li><span class="h">Dior</span><span>Jonathan Anderson</span><time datetime="2025-10-01">1 Oct 2025</time></li>
-          <li><span class="h">Loewe</span><span>Jack McCollough, Lazaro Hernandez</span><time datetime="2025-10-03">3 Oct 2025</time></li>
-          <li><span class="h">Balenciaga</span><span>Pierpaolo Piccioli</span><time datetime="2025-10-04">4 Oct 2025</time></li>
-          <li><span class="h">Chanel</span><span>Matthieu Blazy</span><time datetime="2025-10-06">6 Oct 2025</time></li>
+          <li class="c-label" aria-hidden="true">Seven debuts in fourteen days</li>
+          <li class="c"><span class="h">Gucci</span><span>Demna</span><time datetime="2025-09-23">23 Sep 2025</time></li>
+          <li class="c"><span class="h">Jil Sander</span><span>Simone Bellotti</span><time datetime="2025-09-24">24 Sep 2025</time></li>
+          <li class="c"><span class="h">Bottega Veneta</span><span>Louise Trotter</span><time datetime="2025-09-28">28 Sep 2025</time></li>
+          <li class="c"><span class="h">Dior</span><span>Jonathan Anderson</span><time datetime="2025-10-01">1 Oct 2025</time></li>
+          <li class="c"><span class="h">Loewe</span><span>Jack McCollough, Lazaro Hernandez</span><time datetime="2025-10-03">3 Oct 2025</time></li>
+          <li class="c"><span class="h">Balenciaga</span><span>Pierpaolo Piccioli</span><time datetime="2025-10-04">4 Oct 2025</time></li>
+          <li class="c"><span class="h">Chanel</span><span>Matthieu Blazy</span><time datetime="2025-10-06">6 Oct 2025</time></li>
           <li><span class="h">Fendi</span><span>Maria Grazia Chiuri</span><time datetime="2026-02-25">25 Feb 2026</time></li>
         </ol>
         <p class="sub">Leadership held</p>
@@ -284,18 +303,15 @@
           <p>Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
           <div class="moves">
             <div>
-              <p class="who">Matthieu Blazy</p>
-              <p class="path"><span>Bottega Veneta</span><span class="line" aria-hidden="true"></span><span>Chanel</span></p>
+              <div class="route row"><span class="node">Bottega Veneta</span><span class="edge"><span>Matthieu Blazy</span></span><span class="node">Chanel</span></div>
               <p class="crew">Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
             </div>
             <div>
-              <p class="who">Jonathan Anderson</p>
-              <p class="path"><span>Loewe</span><span class="line" aria-hidden="true"></span><span>Dior</span></p>
+              <div class="route row"><span class="node">Loewe</span><span class="edge"><span>Jonathan Anderson</span></span><span class="node">Dior</span></div>
               <p class="crew">David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
             </div>
             <div>
-              <p class="who">Demna</p>
-              <p class="path"><span>Balenciaga</span><span class="line" aria-hidden="true"></span><span>Gucci</span></p>
+              <div class="route row"><span class="node">Balenciaga</span><span class="edge"><span>Demna</span></span><span class="node">Gucci</span></div>
               <p class="crew">Demna himself, credited as photographer at both.</p>
             </div>
           </div>
@@ -344,15 +360,14 @@
 (() => {
   const panels = [...document.querySelectorAll("[data-panel]")];
   const links = [...document.querySelectorAll("nav a")];
-  let first = true;
   function route() {
-    const want = location.hash.slice(1);
+    const want = location.hash.replace(/^#\/?/, "");
     const id = panels.some(p => p.id === want) ? want : "overview";
     panels.forEach(p => { p.hidden = p.id !== id; });
-    links.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + id ? "page" : "false"));
-    if (!first) window.scrollTo(0, 0);
-    first = false;
+    links.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#/" + id ? "page" : "false"));
+    window.scrollTo(0, 0);
   }
+  if (/^#[a-z]+$/.test(location.hash)) history.replaceState(null, "", "#/" + location.hash.slice(1));
   addEventListener("hashchange", route);
   route();
 })();
