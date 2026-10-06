@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (140 tests).
+- Built and tested on synthetic data with known ground truth (151 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -167,6 +167,21 @@ nothing until its adjudication date and is never recomputed once recorded. The f
 `saint-laurent-v1`, was registered on 5 October 2026 while Anthony Vaccarello's reported departure was
 unconfirmed and no successor had been named. Recording the successor and the date of their first show
 in `events.yml` is all it needs.
+
+## Beyond the 18
+
+`registry/houses.yml` has two tiers. The core tier is the frozen v1 panel of 19 houses, the only
+houses H1 to H3 ever read. The extension tier, proposed by Amendment 2 and fixed when it is frozen,
+adds Versace (Dario Vitale's season, then Pieter Mulier from Alaïa), the March 2025 debuts at
+Givenchy, Tom Ford and Dries Van Noten, Alaïa as the origin of the Mulier move, and four candidate
+controls: Dolce&Gabbana, Max Mara, Brunello Cucinelli and Zegna. Its dates stay unverified until
+they are checked against show schedules before the freeze.
+
+`adtone.family` runs the amendment's analyses: transfer as a family of five moves scored both ways,
+with Chiuri, who moved with nobody on file, as the contrast and the reading of each pattern fixed in
+advance; the late-September debuts pooled as one shock against fashion-week placebos; the change in
+ad mix as its own outcome; and four declared sensitivities. Its results stay labelled exploratory
+until Amendment 2 is frozen.
 
 ## Change and attention
 

@@ -116,3 +116,53 @@ houses:
   # Chloé is here because speculation names its creative director as Saint Laurent's next
   # (forward/saint-laurent-v1.md); archiving its advertising now is the only way to have it later.
   - {id: chloe, name: Chloé, group: watch, owner: Richemont, search_terms: ["Chloé"], page_ids: [], events: []}
+
+  # Extension tier, proposed by Amendment 2 (draft) and fixed when it is frozen. H1 to H3 never read
+  # these houses. Dates marked unverified are checked against show schedules before the freeze.
+  - id: versace
+    name: Versace
+    group: treated
+    tier: extension
+    owner: Prada Group
+    search_terms: ["Versace"]
+    page_ids: []
+    events:
+      # Vitale came from Miu Miu, a core control, showed one season and left in December 2025.
+      # Mulier joined from Alaia on 1 July 2026 and showed his first collection in Milan in September 2026.
+      - {kind: designer_debut, designer: Dario Vitale, date: 2025-09-26, verified: false}
+      - {kind: designer_exit, designer: Dario Vitale, date: 2025-12-04, verified: false}
+      - {kind: designer_debut, designer: Pieter Mulier, date: 2026-09-25, verified: false}
+  - id: givenchy
+    name: Givenchy
+    group: treated
+    tier: extension
+    owner: LVMH
+    search_terms: ["Givenchy"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Sarah Burton, date: 2025-03-07, verified: false}
+  - id: tom_ford
+    name: Tom Ford
+    group: treated
+    tier: extension
+    owner: Zegna Group
+    search_terms: ["TOM FORD"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Haider Ackermann, date: 2025-03-06, verified: false}
+  - id: dries_van_noten
+    name: Dries Van Noten
+    group: treated
+    tier: extension
+    owner: Puig
+    search_terms: ["Dries Van Noten"]
+    page_ids: []
+    events:
+      - {kind: designer_debut, designer: Julian Klausner, date: 2025-03-05, verified: false}
+  # Origin of the Mulier move; collected for the transfer test, outside every comparison.
+  - {id: alaia, name: Alaïa, group: watch, tier: extension, owner: Richemont, search_terms: ["ALAÏA", "Alaia"], page_ids: [], events: []}
+  # Candidate controls: leadership held through the window, checked again at the freeze.
+  - {id: dolce_gabbana, name: Dolce&Gabbana, group: control, tier: extension, owner: Dolce&Gabbana, search_terms: ["Dolce&Gabbana", "Dolce & Gabbana"], page_ids: [], events: []}
+  - {id: max_mara, name: Max Mara, group: control, tier: extension, owner: Max Mara Fashion Group, search_terms: ["Max Mara"], page_ids: [], events: []}
+  - {id: brunello_cucinelli, name: Brunello Cucinelli, group: control, tier: extension, owner: Brunello Cucinelli, search_terms: ["Brunello Cucinelli"], page_ids: [], events: []}
+  - {id: zegna, name: Zegna, group: control, tier: extension, owner: Zegna Group, search_terms: ["ZEGNA", "Zegna"], page_ids: [], events: []}

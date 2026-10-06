@@ -52,6 +52,10 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 10
         run: python -m adtone.success
+      - name: Amendment 2 analyses (exploratory until frozen)
+        if: env.MODE == 'analyse'
+        timeout-minutes: 15
+        run: python -m adtone.family
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5

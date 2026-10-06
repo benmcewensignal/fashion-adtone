@@ -28,6 +28,7 @@ class House:
     page_ids: list[str]
     events: list[Event] = field(default_factory=list)
     models_slug: str | None = None   # models.com client slug, when it is not the slugified name
+    tier: str = "core"               # core: the frozen v1 panel; extension: added by Amendment 2
 
     @property
     def debut(self) -> Event | None:
@@ -63,6 +64,13 @@ class Registry:
     def group(self, name: str) -> list[House]:
         return [h for h in self.houses if h.group == name]
 
+    def core(self) -> "Registry":
+        """The v1 panel the frozen tests read; extension houses are left out."""
+        return Registry(version=self.version, status=self.status, houses=[h for h in self.houses if h.tier == "core"])
+
+    def tier(self, name: str) -> list[House]:
+        return [h for h in self.houses if h.tier == name]
+
 
 def _as_date(v) -> date:
     if isinstance(v, date):
@@ -84,6 +92,9 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
                   for e in h.get("events") or []]
         if h["group"] == "treated" and not any(e.kind == "designer_debut" for e in events):
             raise ValueError(f"{h['id']}: a treated house needs a designer_debut event")
+        tier = h.get("tier", "core")
+        if tier not in ("core", "extension"):
+            raise ValueError(f"{h['id']}: tier must be core or extension")
         if h["group"] in ("control", "watch") and events:
             raise ValueError(f"{h['id']}: a {h['group']} house has no events by definition")
         houses.append(House(
@@ -92,6 +103,7 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
             page_ids=[str(p) for p in h.get("page_ids") or []],
             events=events,
             models_slug=h.get("models_slug"),
+            tier=tier,
         ))
     reg = Registry(version=int(raw["version"]), status=str(raw["status"]), houses=houses)
     reg.page_to_house()  # raises on a page claimed twice

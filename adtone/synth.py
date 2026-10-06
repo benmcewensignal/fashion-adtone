@@ -103,13 +103,14 @@ def _unit(v):
 def make_world(houses: dict[str, dict], dim: int = 16, start: date = date(2025, 10, 10), days: int = 360,
                campaigns: int = 10, per_campaign: tuple[int, int] = (3, 6), noise: float = 0.30,
                campaign_sd: float = 0.25, season_amp: float = 0.6, mover: tuple[str, str, float] | None = None,
-               seed: int = 0) -> World:
+               seed: int = 0, movers: list[tuple[str, str, float]] | None = None) -> World:
     """houses: id -> {"debut": date|None, "shift": float}. A shift starts 45 days after the debut.
 
     Every house shares a seasonal drift (which the control field must remove) and each
     campaign shares a shoot effect (which block permutation must absorb).
     """
     rng = np.random.default_rng(seed)
+    planted = ([mover] if mover else []) + list(movers or [])
     season_dir = _unit(rng.normal(size=dim))
     base = {h: _unit(rng.normal(size=dim)) for h in houses}
     new_dir = {h: _unit(rng.normal(size=dim)) for h in houses}
@@ -125,8 +126,9 @@ def make_world(houses: dict[str, dict], dim: int = 16, start: date = date(2025, 
             centre = base[h]
             if post and spec.get("shift"):
                 centre = _unit(base[h] + spec["shift"] * new_dir[h])
-            if mover and post and h == mover[1]:
-                centre = _unit((1 - mover[2]) * centre + mover[2] * base[mover[0]])
+            for m in planted:
+                if post and h == m[1]:
+                    centre = _unit((1 - m[2]) * centre + m[2] * base[m[0]])
             for j in range(int(rng.integers(per_campaign[0], per_campaign[1] + 1))):
                 d = launch + timedelta(days=int(rng.integers(0, 10)))
                 t = (d - start).days
@@ -136,8 +138,9 @@ def make_world(houses: dict[str, dict], dim: int = 16, start: date = date(2025, 
                        "colour_temperature": "neutral", "saturation": "moderate", "setting": "studio_plain",
                        "people": "one", "framing": "medium", "styling_register": "formal_tailored",
                        "production": "polished_commercial", "primary_subject": "garment",
-                       "street_couture_axis": 2 if post and spec.get("shift") else 4}
+                       "street_couture_axis": 2 if post and spec.get("shift") else 4,
+                       "text_in_image": "none", "confidence": 0.8}
                 concepts.append(Concept(house_id=h, concept_id=f"{h}:{k}:{j}", first_seen=d,
                                         ad_ids=[f"{h}{k}{j}"], shas=[f"{h}{k}{j}"], vec=_unit(v), outputs=[out]))
     assign_blocks(concepts)
-    return World(concepts=concepts, truth={"houses": houses, "mover": mover})
+    return World(concepts=concepts, truth={"houses": houses, "mover": mover, "movers": planted})

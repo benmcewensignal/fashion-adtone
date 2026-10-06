@@ -54,6 +54,15 @@ ARTICLES = {
     "burberry": ["Burberry"],
     "valentino": ["Valentino (fashion house)", "Valentino S.p.A."],
     "loro_piana": ["Loro Piana"],
+    "versace": ["Versace"],
+    "givenchy": ["Givenchy"],
+    "tom_ford": ["Tom Ford (brand)", "Tom Ford (fashion house)"],
+    "dries_van_noten": ["Dries Van Noten (brand)", "Dries Van Noten"],
+    "alaia": ["Alaïa (brand)", "Alaïa"],
+    "dolce_gabbana": ["Dolce & Gabbana"],
+    "max_mara": ["Max Mara"],
+    "brunello_cucinelli": ["Brunello Cucinelli (company)", "Brunello Cucinelli"],
+    "zegna": ["Zegna (company)", "Ermenegildo Zegna"],
     "chloe": ["Chloé"],
 }
 

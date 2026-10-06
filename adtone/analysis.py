@@ -230,10 +230,17 @@ def _cos(a: np.ndarray, b: np.ndarray) -> float:
 def mover(by_house: dict[str, list[Concept]], res: dict[str, np.ndarray], reg: registry.Registry,
           origin: str, destination: str, n_perm: int, seed: int = 7) -> dict:
     """Did the destination's tone move towards the origin's pre-departure tone, and towards it specifically?"""
-    rng = np.random.default_rng(seed)
     o, d = reg.by_id(origin), reg.by_id(destination)
-    o_pre, _, _, _ = split_sides(by_house.get(origin, []), res, o.debut.date, config.POST_LAG_DAYS)
-    d_pre, d_post, _, _ = split_sides(by_house.get(destination, []), res, d.debut.date, config.POST_LAG_DAYS)
+    return toward(by_house, res, reg, origin, destination, o.debut.date, d.debut.date, n_perm, seed)
+
+
+def toward(by_house: dict[str, list[Concept]], res: dict[str, np.ndarray], reg: registry.Registry,
+           origin: str, destination: str, origin_cut: date, dest_cut: date, n_perm: int, seed: int = 7) -> dict:
+    """The transfer test with explicit dates: the origin's look before origin_cut, the destination
+    either side of dest_cut. mover() calls this with the registry's debut dates."""
+    rng = np.random.default_rng(seed)
+    o_pre, _, _, _ = split_sides(by_house.get(origin, []), res, origin_cut, config.POST_LAG_DAYS)
+    d_pre, d_post, _, _ = split_sides(by_house.get(destination, []), res, dest_cut, config.POST_LAG_DAYS)
     out = {"origin": origin, "destination": destination, "n_origin_pre": o_pre.n, "n_dest_pre": d_pre.n,
            "n_dest_post": d_post.n}
     if o_pre.n < config.MIN_CONCEPTS_SIDE or not sufficient(d_pre, d_post):
@@ -466,6 +473,7 @@ def main(argv: list[str] | None = None) -> int:
         print("analysis waits until the design is frozen: " + "; ".join(reasons))
         return 0
     concepts, info = load_concepts(args.instrument, args.embedder, reg)
+    core = reg.core()   # H1 to H3 read the frozen v1 panel only; extension houses are Amendment 2's
     summary = {
         "status": "VALIDATION: retrospective analysis of the 2025 debuts. Derived analysis, never calls.",
         "generated_at": store.utc_now(), "instrument": args.instrument, "embedder": args.embedder,
@@ -473,13 +481,13 @@ def main(argv: list[str] | None = None) -> int:
         "params": {k: getattr(config, k) for k in ("PHASH_MAX_DIST", "BLOCK_GAP_DAYS", "POST_LAG_DAYS",
                                                    "MIN_BLOCKS_SIDE", "MIN_CONCEPTS_SIDE")} | {"n_perm": args.n_perm},
         "block_rule": config.BLOCK_RULE,
-        "primary": analyse(concepts, reg, args.n_perm, config.PRIMARY_TYPES),
-        "sensitivity": analyse(concepts, reg, args.n_perm, config.SENSITIVITY_TYPES)["event_study"]["h1"],
+        "primary": analyse(concepts, core, args.n_perm, config.PRIMARY_TYPES),
+        "sensitivity": analyse(concepts, core, args.n_perm, config.SENSITIVITY_TYPES)["event_study"]["h1"],
     }
     # Amendment 1: the pre-registered 21-day gap rule, reported for H1 beside the primary result.
     from .concepts import assign_blocks
     assign_blocks(concepts, "gap21")
-    summary["sensitivity_gap21"] = analyse(concepts, reg, args.n_perm, config.PRIMARY_TYPES)["event_study"]["h1"]
+    summary["sensitivity_gap21"] = analyse(concepts, core, args.n_perm, config.PRIMARY_TYPES)["event_study"]["h1"]
     assign_blocks(concepts, config.BLOCK_RULE)
     config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (config.RESULTS_DIR / "summary.json").write_text(json.dumps(summary, indent=2, default=str) + "\n")

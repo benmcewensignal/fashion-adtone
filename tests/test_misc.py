@@ -65,12 +65,15 @@ def test_process_probe_catches_a_resolver_that_finds_nothing(tmp_data):
 # ---------- registry ----------
 
 def test_shipped_registry_is_coherent():
-    reg = registry.load()
-    assert reg.status in ("DRAFT", "FROZEN")
+    full = registry.load()
+    assert full.status in ("DRAFT", "FROZEN")
+    reg = full.core()   # the frozen v1 panel; extension houses belong to Amendment 2
     treated, control = reg.group("treated"), reg.group("control")
     assert len(treated) == 10 and len(control) == 8 and [h.id for h in reg.group("watch")] == ["chloe"]
     assert all(h.debut and date(2025, 7, 1) <= h.debut.date <= date(2026, 3, 1) for h in treated)
     assert {"balenciaga", "gucci"} <= {h.id for h in treated}
+    ext = full.tier("extension")
+    assert ext and all(not e.verified for h in ext for e in h.events), "extension dates stay unverified until checked"
 
 
 def test_registry_rejects_a_page_claimed_by_two_houses(tmp_path):
