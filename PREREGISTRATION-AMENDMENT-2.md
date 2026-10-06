@@ -82,6 +82,28 @@ A video ad enters only as its preview still. The tests do not cover moving image
 in the credits (Rahim Fortune, Benoît Delhomme) is mostly invisible to them, and a transfer carried
 by film would be missed. Stills taken from video are flagged, and every test is repeated without them.
 
+## 2e. The reader
+
+The frozen design reads each image with the Claude model named in `ADTONE_CLAUDE_MODEL`. This amendment
+replaces it, before any ad has been collected, with an open vision model run on Modal:
+Qwen2.5-VL-7B-Instruct (Apache-2.0 weights), pinned to the commit the reader workflow records,
+answering the same frozen rubric at temperature 0 under the rubric's JSON schema, so no reply outside
+the fixed options can be generated.
+
+- **Why.** Cost: at the estimated throughput, roughly a fiftieth of the API price per image, which the
+  pilot measures. Durability: pinned open weights can be re-run identically for as long as they exist,
+  while API models are retired on a schedule, which would strand a frozen instrument.
+- **What does not change.** The rubric and its hash, the validation code, the image the reader sees
+  (the image alone, never the house), and the blind human check: a question enters claims only at a
+  kappa of 0.6 or above. The rule that an image without people has no gaze is enforced by validation,
+  not by the schema, and a reply that breaks it is recorded as invalid.
+- **Name.** The instrument is `tone-v1@qwen2.5-vl-7b-instruct@` followed by the first 12 characters of
+  the weights' commit. The commit is recorded once and changes only by a dated re-pin before the freeze.
+- **Fitness.** Before the reader runs on ads, a pilot on drawn test cards must return at least 95 per
+  cent of replies that pass the rubric.
+- **Second reader.** Named at the freeze: Claude on the stratified 10 per cent sample of section 4 if
+  the Anthropic key is set, otherwise a second open model from a different family.
+
 ## 3. Transfer is a family
 
 Each move is scored both ways. Toward: does the destination move towards the look the designer
@@ -265,6 +287,6 @@ year per house, so this rests on many events rather than ten debuts.
 ## Before freezing
 
 Extension dates verified and page ids confirmed; appointment dates added and verified; older show
-dates compiled from the fashion-week calendars; the second
+dates compiled from the fashion-week calendars; the reader's weights pinned and its pilot passed; the second
 reader named; the Trends API status recorded; the outcome evaluator, the second reader, the weights
 checksum and the video flag in place and tested on synthetic worlds with known answers. Then this file and the registry are hashed, committed and timestamped together.

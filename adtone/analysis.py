@@ -462,7 +462,7 @@ def report_md(summary: dict) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.analysis")
-    ap.add_argument("--instrument", default=f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}")
+    ap.add_argument("--instrument", default=config.instrument())
     ap.add_argument("--embedder", default=config.EMBED_TAG)
     ap.add_argument("--n-perm", type=int, default=config.N_PERM)
     args = ap.parse_args(argv)

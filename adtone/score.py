@@ -152,6 +152,70 @@ class ClaudeScorer:
             return parse(self._call(jpeg, nudge=True), self.rubric)
 
 
+
+def json_schema(rubric: Rubric) -> dict:
+    """The rubric as a JSON schema, so a constrained decoder cannot produce an answer outside it."""
+    s, props = rubric.spec, {}
+    for k, allowed in s["enums"].items():
+        props[k] = {"type": "string", "enum": list(allowed)}
+    for k, rule in s.get("lists", {}).items():
+        props[k] = {"type": "array", "items": {"type": "string", "enum": list(rule["options"])},
+                    "minItems": rule["min"], "maxItems": rule["max"], "uniqueItems": True}
+    for k, rule in s.get("integers", {}).items():
+        props[k] = {"type": "integer", "minimum": rule["min"], "maximum": rule["max"]}
+    for k, rule in s.get("numbers", {}).items():
+        props[k] = {"type": "number", "minimum": rule["min"], "maximum": rule["max"]}
+    return {"type": "object", "properties": props, "required": sorted(props), "additionalProperties": False}
+
+
+class ModalScorer:
+    """The frozen rubric read by an open vision model with pinned weights, on a Modal GPU.
+
+    The model sees only the image and the rubric, exactly as the Claude reader does. Its replies are
+    constrained to the rubric's schema and then validated by the same code, so the two readers'
+    observations are interchangeable in every analysis."""
+
+    def __init__(self, rubric: Rubric, remote=None, revision: str | None = None):
+        revision = config.open_model_revision() if revision is None else revision
+        if not revision:
+            raise ScoreError("API: the open model's weights are not pinned; run the reader workflow first")
+        if remote is None:
+            import modal
+            remote = modal.Cls.from_name(config.MODAL_APP, "Reader")().read.remote
+        self.remote, self.rubric, self.revision = remote, rubric, revision
+        self.schema = json_schema(rubric)
+        self.instrument = f"{rubric.version}@{config.OPEN_MODEL.split('/')[-1].lower()}@{revision[:12]}"
+        self.calls = 0
+
+    def score_many(self, jpegs: list[bytes]) -> list[dict | ScoreError]:
+        self.calls += 1
+        try:
+            texts = self.remote(jpegs, self.rubric.prompt, self.schema)
+        except Exception as e:   # Modal client errors vary by version; any failure here is the service's
+            raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
+        out: list[dict | ScoreError] = []
+        for text in texts:
+            try:
+                out.append(parse(text, self.rubric))
+            except ScoreError as e:
+                out.append(e)
+        return out
+
+    def score(self, jpeg: bytes) -> dict:
+        res = self.score_many([jpeg])[0]
+        if isinstance(res, ScoreError):
+            raise res
+        return res
+
+
+def make_scorer(rubric: Rubric, reader: str | None = None):
+    reader = reader or config.READER
+    if reader == "claude":
+        return ClaudeScorer(rubric)
+    if reader == "modal":
+        return ModalScorer(rubric)
+    raise ValueError(f"unknown reader {reader!r}")
+
 class FakeScorer:
     """Deterministic valid output from image brightness, for tests."""
 

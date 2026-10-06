@@ -22,8 +22,10 @@ ALLOW = {
     "backcat": ["data/backcat/campaigns/*.jsonl", "data/backcat/media/*.jsonl", "data/backcat/obs/*.jsonl",
                 "data/backcat/vectors/*/*.npz", "data/state/backcat.json", "data/provenance/backcat.jsonl"],
     "attention": ["data/attention/*.jsonl", "data/state/attention.json", "data/provenance/attention.jsonl"],
+    "reader": ["data/state/reader.json", "data/provenance/reader.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
+                "data/results/family.json", "data/results/runway.json",
                 "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }

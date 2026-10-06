@@ -72,6 +72,40 @@ INCREMENTAL_LOOKBACK_DAYS = 35  # overlap, so a skipped weekly run loses nothing
 # Instruments.
 RUBRIC_VERSION = "tone-v1"
 CLAUDE_MODEL = os.environ.get("ADTONE_CLAUDE_MODEL", "claude-sonnet-5-5")
+
+# The reader (Amendment 2, section 2e). By default the rubric is read by an open vision model with
+# pinned weights on a Modal GPU: about a fiftieth of the cost of the API, and re-runnable identically
+# for as long as the weights exist. Claude remains available as the second reader on a sample, or as
+# the primary reader with ADTONE_READER=claude.
+READER = os.environ.get("ADTONE_READER", "modal")
+OPEN_MODEL = os.environ.get("ADTONE_OPEN_MODEL", "Qwen/Qwen2.5-VL-7B-Instruct")   # Apache-2.0 weights
+MODAL_APP = os.environ.get("ADTONE_MODAL_APP", "adtone-reader")
+READER_STATE = ROOT / "data" / "state" / "reader.json"
+
+
+def open_model_revision() -> str:
+    """The commit of the open model's weights: set in the environment, or recorded by the reader workflow."""
+    env = os.environ.get("ADTONE_OPEN_MODEL_REVISION", "")
+    if env:
+        return env
+    try:
+        import json as _json
+        st = _json.loads(READER_STATE.read_text(encoding="utf-8"))
+        return st.get("revision", "") if st.get("model") == OPEN_MODEL else ""
+    except (OSError, ValueError):
+        return ""
+
+
+def reader_id(reader: str | None = None) -> str:
+    reader = reader or READER
+    if reader == "claude":
+        return CLAUDE_MODEL
+    rev = open_model_revision()
+    return f"{OPEN_MODEL.split('/')[-1].lower()}@{rev[:12] if rev else 'unpinned'}"
+
+
+def instrument(reader: str | None = None) -> str:
+    return f"{RUBRIC_VERSION}@{reader_id(reader)}"
 EMBED_MODEL = "ViT-B-32"
 EMBED_PRETRAINED = "laion2b_s34b_b79k"
 EMBED_TAG = "openclip-vitb32-laion2b"

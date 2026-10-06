@@ -320,7 +320,7 @@ def format_graph(g: dict) -> str:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.crews")
     ap.add_argument("--decompose", action="store_true", help="link collected concepts to crews and decompose")
-    ap.add_argument("--instrument", default=f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}")
+    ap.add_argument("--instrument", default=config.instrument())
     ap.add_argument("--embedder", default=config.EMBED_TAG)
     args = ap.parse_args(argv)
     reg = registry.load()

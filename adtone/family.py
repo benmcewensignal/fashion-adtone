@@ -337,7 +337,7 @@ def main(argv: list[str] | None = None) -> int:
     if reasons:
         print("Amendment 2 analyses wait until the design is frozen: " + "; ".join(reasons))
         return 0
-    instrument = f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}"
+    instrument = config.instrument()
     concepts, info = load_concepts(instrument, config.EMBED_TAG, reg)
     watch = {h.id for h in reg.group("watch")} - {"alaia"}
     concepts = [c for c in concepts if c.house_id not in watch]

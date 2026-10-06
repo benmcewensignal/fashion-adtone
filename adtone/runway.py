@@ -256,7 +256,7 @@ def main(argv: list[str] | None = None) -> int:
     out = {"generated_at": store.utc_now(), "n_show_dates": len(shows),
            "attention_half": sticky_test(panel, by_house)}
     try:
-        concepts, _ = load_concepts(f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}", config.EMBED_TAG, reg)
+        concepts, _ = load_concepts(config.instrument(), config.EMBED_TAG, reg)
     except Exception as e:   # no archive yet: the attention half stands alone
         concepts = []
         out["advertising_half"] = {"status": f"no advertising data: {e}"}

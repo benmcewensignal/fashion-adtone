@@ -81,7 +81,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--n", type=int, default=120)
     c = sub.add_parser("score")
     c.add_argument("file", type=Path)
-    ap.add_argument("--instrument", default=f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}")
+    ap.add_argument("--instrument", default=config.instrument())
     a = ap.parse_args(argv)
     if a.cmd == "sample":
         print(f"wrote {sample(a.n, a.instrument)}")

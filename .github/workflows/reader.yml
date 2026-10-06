@@ -1,0 +1,85 @@
+name: reader
+run-name: reader ${{ github.event_name == 'workflow_dispatch' && 'pin, deploy and pilot' || 'deploy and pilot' }}
+# The Modal reader (Amendment 2, section 2e): pins the open model's weights once, deploys the reader at
+# that revision and measures it on drawn test cards. Needs MODAL_TOKEN_ID and MODAL_TOKEN_SECRET; without
+# them it stands down. A recorded revision is never changed here unless a person asks for a re-pin,
+# because the instrument is named by its weights and frozen with them.
+
+on:
+  workflow_dispatch:
+    inputs:
+      repin:
+        description: "Re-resolve the weights to the latest commit (only before the freeze)"
+        type: boolean
+        default: false
+      n:
+        description: "Pilot images"
+        default: "64"
+  push:
+    paths: ["reader/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-reader
+  cancel-in-progress: false
+
+jobs:
+  reader:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    env:
+      PYTHONUNBUFFERED: "1"
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      ADTONE_MODAL_GPU: ${{ vars.ADTONE_MODAL_GPU || 'L4' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Stand down without Modal
+        id: gate
+        run: |
+          if [ -z "$MODAL_TOKEN_ID" ] || [ -z "$MODAL_TOKEN_SECRET" ]; then
+            echo "::notice::no Modal token yet; the reader is not deployed"
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Install
+        if: steps.gate.outputs.go == 'yes'
+        timeout-minutes: 10
+        run: pip install -q -r requirements.txt
+      - name: Pin the weights
+        if: steps.gate.outputs.go == 'yes'
+        timeout-minutes: 40
+        run: |
+          pinned=$(python -c "from adtone import config; print(config.open_model_revision())")
+          if [ -z "$pinned" ] || [ "${{ inputs.repin }}" = "true" ]; then
+            modal run reader/modal_app.py | tee /tmp/pin.log
+            python -m adtone.reader_pilot record-pin /tmp/pin.log ${{ inputs.repin == true && '--force' || '' }}
+          else
+            echo "weights already pinned at ${pinned:0:12}; not re-resolved"
+          fi
+      - name: Deploy at the pinned revision
+        if: steps.gate.outputs.go == 'yes'
+        timeout-minutes: 20
+        run: |
+          export ADTONE_OPEN_MODEL_REVISION="$(python -c "from adtone import config; print(config.open_model_revision())")"
+          modal deploy reader/modal_app.py
+      - name: Pilot
+        id: pilot
+        if: steps.gate.outputs.go == 'yes'
+        continue-on-error: true
+        timeout-minutes: 30
+        run: python -m adtone.reader_pilot pilot --n "${{ inputs.n || '64' }}"
+      - name: Persist
+        if: steps.gate.outputs.go == 'yes'
+        timeout-minutes: 5
+        run: bash scripts/persist.sh reader "reader pinned, deployed and measured"
+      - name: Fail if the pilot failed
+        if: steps.pilot.outcome == 'failure'
+        run: |
+          echo "::error::the pilot failed; see its log. The pin and any measurement were kept"
+          exit 1

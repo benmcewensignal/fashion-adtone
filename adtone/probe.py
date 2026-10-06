@@ -77,7 +77,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("what", choices=["collect", "process"])
     ap.add_argument("--run", required=True)
     ap.add_argument("--mode", default="incremental")
-    ap.add_argument("--instrument", default=f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}")
+    ap.add_argument("--instrument", default=config.instrument())
     ap.add_argument("--embedder", default=config.EMBED_TAG)
     a = ap.parse_args(argv)
     errs = probe_collect(a.run, a.mode) if a.what == "collect" else probe_process(a.run, a.instrument, a.embedder)

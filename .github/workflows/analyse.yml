@@ -24,6 +24,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
       MODE: ${{ inputs.mode || 'analyse' }}
     steps:
       - uses: actions/checkout@v4

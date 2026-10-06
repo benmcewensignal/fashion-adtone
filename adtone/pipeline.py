@@ -136,14 +136,14 @@ def main(argv: list[str] | None = None) -> int:
     import requests
     from .embed import OpenClipEmbedder, VectorStore
     from .media import AutoResolver, BrowserResolver, StaticResolver
-    from .score import ClaudeScorer, load_rubric
+    from .score import load_rubric, make_scorer
 
     token = os.environ.get("META_AD_LIBRARY_TOKEN", "")
     if not token:
         print("::error::META_AD_LIBRARY_TOKEN is not set")
         return 3
     rubric = load_rubric()
-    scorer = ClaudeScorer(rubric)
+    scorer = make_scorer(rubric)
     embedder = OpenClipEmbedder()
     vectors = VectorStore(embedder.tag)
     session = requests.Session()
@@ -160,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
         resolver.close()
     summary = {"run_id": rid, "finished_at": store.utc_now(), "instrument": scorer.instrument,
                "embedder": embedder.tag, "resolver": resolver.name, "resolver_used": getattr(resolver, "used", None),
-               "claude_calls": scorer.calls, **counts}
+               "reader_calls": scorer.calls, "reader": config.READER, **counts}
     store.append_jsonl(config.PROV_DIR / "process.jsonl", [summary])
     state = store.read_state(config.STATE_DIR / "process.json")
     state.update({"last_run": rid, "last_finished": summary["finished_at"], "pending_after": counts["pending_after"],

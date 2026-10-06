@@ -394,7 +394,7 @@ def main(argv: list[str] | None = None) -> int:
     rid = a.run or config.run_id()
     reg = registry.load()
     if a.stage == "probe":
-        errs = probe(rid, f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}", config.EMBED_TAG)
+        errs = probe(rid, config.instrument(), config.EMBED_TAG)
         for e in errs:
             print(f"::error::{e}")
         return 1 if errs else 0
@@ -403,8 +403,8 @@ def main(argv: list[str] | None = None) -> int:
         out = discover(c, reg, rid, max_reads=a.max * 3)
     else:
         from .embed import OpenClipEmbedder
-        from .score import ClaudeScorer, load_rubric
-        out = images(c, OpenClipEmbedder(), ClaudeScorer(load_rubric()), rid, a.max, a.budget_min * 60)
+        from .score import load_rubric, make_scorer
+        out = images(c, OpenClipEmbedder(), make_scorer(load_rubric()), rid, a.max, a.budget_min * 60)
     out.update({"run_id": rid, "stage": a.stage, "finished_at": store.utc_now(), "requests": c.calls})
     store.append_jsonl(paths()["prov"], [out])
     st = store.read_state(paths()["state"])

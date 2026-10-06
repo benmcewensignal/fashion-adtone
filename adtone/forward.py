@@ -147,7 +147,7 @@ def evaluate(spec: dict, events: dict, get_concepts: Callable[[], list[Concept]]
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.forward")
     ap.add_argument("--today", default=None)
-    ap.add_argument("--instrument", default=f"{config.RUBRIC_VERSION}@{config.CLAUDE_MODEL}")
+    ap.add_argument("--instrument", default=config.instrument())
     ap.add_argument("--embedder", default=config.EMBED_TAG)
     ap.add_argument("--n-perm", type=int, default=config.N_PERM)
     a = ap.parse_args(argv)

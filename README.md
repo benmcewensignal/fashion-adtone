@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (167 tests).
+- Built and tested on synthetic data with known ground truth (177 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -190,6 +190,15 @@ measured against controls of other owners only, and the kill rule. If the calibr
 Saint Laurent prediction is not scored. `docs/CLOCK.md` estimates when each house's pre-debut look
 leaves Meta's archive; Balenciaga's, which H2 needs, goes first, around 21 October 2026, and collection
 now runs in deadline order.
+
+## The reader
+
+Each image's eighteen answers come from an open vision model, Qwen2.5-VL-7B-Instruct, on a Modal GPU
+(`reader/modal_app.py`). Its weights are pinned to a recorded commit, and its replies are constrained
+to the rubric's schema, then validated by the same code as the Claude reader, which stays available
+with `ADTONE_READER=claude` and as the second reader. The reader workflow pins the weights once, deploys
+the reader and runs a pilot that measures throughput, valid replies and cost per 10,000 images. It needs
+the `MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET` secrets. Registered in Amendment 2, section 2e.
 
 ## Runway to attention
 
