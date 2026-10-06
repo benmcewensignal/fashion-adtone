@@ -19,7 +19,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    # Stand down, not fail, until the Meta token exists: nothing can be collected or processed before it,
+    # and a red run four times a day would bury real failures. The watchdog starts the first backfill
+    # itself once the token is set.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - id: check
+        env:
+          META_AD_LIBRARY_TOKEN: ${{ secrets.META_AD_LIBRARY_TOKEN }}
+        run: |
+          if [ -z "$META_AD_LIBRARY_TOKEN" ]; then
+            echo "::notice::no Meta token yet; this run stands down"
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
+
   collect:
+    needs: gate
+    if: needs.gate.outputs.go == 'yes'
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
     timeout-minutes: 150
     env:

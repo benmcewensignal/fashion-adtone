@@ -35,7 +35,20 @@ jobs:
       - name: Build page
         timeout-minutes: 3
         run: python -m adtone.status --out site
+      - name: Is Pages switched on
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "on=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::GitHub Pages is not switched on (Settings > Pages > Source: GitHub Actions); the page was built but not published"
+            echo "on=no" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.on == 'yes'
         with: { path: site }
       - id: deploy
+        if: steps.pages.outputs.on == 'yes'
         uses: actions/deploy-pages@v4
