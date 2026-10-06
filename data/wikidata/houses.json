@@ -1,0 +1,907 @@
+{
+  "alaia": {
+    "item": "Q2553832",
+    "label": "Azzedine Alaïa"
+  },
+  "balenciaga": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Cristóbal Balenciaga"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "preferred",
+        "value": "1917-00-00"
+      },
+      {
+        "rank": "normal",
+        "value": "1919-00-00"
+      },
+      {
+        "rank": "normal",
+        "value": "1955-01-01"
+      }
+    ],
+    "item": "Q1530892",
+    "label": "Balenciaga",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ]
+  },
+  "bottega_veneta": {
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Vicenza"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1966-01-01"
+      }
+    ],
+    "item": "Q894874",
+    "label": "Bottega Veneta",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Matthieu Blazy"
+      }
+    ]
+  },
+  "brunello_cucinelli": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Brunello Cucinelli"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Corciano"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1978-00-00"
+      }
+    ],
+    "item": "Q3645582",
+    "label": "Brunello Cucinelli"
+  },
+  "burberry": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Thomas Burberry"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "London"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1856-01-01"
+      }
+    ],
+    "item": "Q390107",
+    "label": "Burberry"
+  },
+  "celine": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Céline Vipiana"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1945-01-01"
+      },
+      {
+        "rank": "normal",
+        "value": "1957-01-01"
+      }
+    ],
+    "item": "Q948531",
+    "label": "Celine",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "start": "1996-00-00",
+        "value": "LVMH"
+      }
+    ]
+  },
+  "chanel": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Coco Chanel"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Neuilly-sur-Seine"
+      },
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "preferred",
+        "value": "2010-00-00"
+      },
+      {
+        "rank": "normal",
+        "value": "1909-00-00"
+      },
+      {
+        "rank": "normal",
+        "value": "1900-01-01"
+      }
+    ],
+    "item": "Q218115",
+    "label": "Chanel"
+  },
+  "chloe": {
+    "director": [
+      {
+        "end": "2010-00-00",
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "1999-00-00",
+        "value": "Ralph Toledano"
+      },
+      {
+        "end": "2019-00-00",
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "2010-00-00",
+        "value": "Geoffroy de la Bourdonnaye"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Gaby Aghion"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1952-01-01"
+      },
+      {
+        "rank": "normal",
+        "value": "1956-01-01"
+      }
+    ],
+    "item": "Q1075391",
+    "label": "Chloé",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Richemont"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Karl Lagerfeld"
+      }
+    ]
+  },
+  "dior": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Christian Dior"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1946-01-01"
+      },
+      {
+        "rank": "normal",
+        "value": "1958-00-00"
+      }
+    ],
+    "item": "Q542767",
+    "label": "Christian Dior",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Financière Agache"
+      },
+      {
+        "rank": "preferred",
+        "start": "2024-00-00",
+        "value": "Agache"
+      }
+    ]
+  },
+  "dolce_gabbana": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Domenico Dolce"
+      },
+      {
+        "rank": "normal",
+        "value": "Stefano Gabbana"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1980-00-00"
+      }
+    ],
+    "item": "Q214480",
+    "label": "Dolce & Gabbana"
+  },
+  "dries_van_noten": {
+    "item": "Q1258918",
+    "label": "Dries van Noten"
+  },
+  "fendi": {
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Rome"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1925-00-00"
+      }
+    ],
+    "item": "Q926575",
+    "label": "Fendi",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ]
+  },
+  "givenchy": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Hubert de Givenchy"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1952-00-00"
+      },
+      {
+        "rank": "normal",
+        "value": "1955-01-01"
+      }
+    ],
+    "item": "Q759210",
+    "label": "Givenchy",
+    "parent": [
+      {
+        "rank": "normal",
+        "start": "1988-00-00",
+        "value": "LVMH"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "preferred",
+        "role": [
+          "creative director"
+        ],
+        "start": "2020-00-00",
+        "value": "Matthew M. Williams"
+      },
+      {
+        "rank": "normal",
+        "value": "Hubert de Givenchy"
+      }
+    ]
+  },
+  "gucci": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Guccio Gucci"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Florence"
+      },
+      {
+        "rank": "normal",
+        "value": "Italy"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1921-00-00"
+      }
+    ],
+    "item": "Q178516",
+    "label": "Gucci",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ]
+  },
+  "hermes": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Thierry Hermès"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1837-01-01"
+      }
+    ],
+    "item": "Q843887",
+    "label": "Hermès",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "H51"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Émile-Maurice Hermès"
+      },
+      {
+        "rank": "normal",
+        "value": "Jean-Louis Dumas"
+      }
+    ]
+  },
+  "jil_sander": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Jil Sander"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1968-00-00"
+      }
+    ],
+    "item": "Q17101930",
+    "label": "Jil Sander",
+    "parent": [
+      {
+        "rank": "normal",
+        "start": "2021-00-00",
+        "value": "OTB Group"
+      }
+    ]
+  },
+  "loewe": {
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Madrid"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1846-01-01"
+      }
+    ],
+    "item": "Q966905",
+    "label": "Loewe",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Jonathan Anderson"
+      }
+    ]
+  },
+  "loro_piana": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Pietro Loro Piana"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Quarona"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1924-00-00"
+      }
+    ],
+    "item": "Q1686544",
+    "label": "Loro Piana",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ]
+  },
+  "louis_vuitton": {
+    "director": [
+      {
+        "rank": "normal",
+        "value": "Michael Burke"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Louis Vuitton"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      },
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1854-01-01"
+      },
+      {
+        "rank": "normal",
+        "value": "1980-01-01"
+      }
+    ],
+    "item": "Q191485",
+    "label": "Louis Vuitton",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "LVMH"
+      }
+    ]
+  },
+  "margiela": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Martin Margiela"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1987-00-00"
+      }
+    ],
+    "item": "Q1726925",
+    "label": "Maison Margiela",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "OTB Group"
+      }
+    ]
+  },
+  "max_mara": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Achille Maramotti"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Reggio Emilia"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1951-01-01"
+      }
+    ],
+    "item": "Q1151774",
+    "label": "Max Mara",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Max Mara Fashion Group"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Max Mara Fashion Group"
+      }
+    ]
+  },
+  "miu_miu": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Miuccia Prada"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1993-00-00"
+      }
+    ],
+    "item": "Q552230",
+    "label": "Miu Miu",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Prada"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Prada"
+      }
+    ]
+  },
+  "prada": {
+    "director": [
+      {
+        "rank": "normal",
+        "value": "Patrizio Bertelli"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Mario Prada"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1913-01-01"
+      }
+    ],
+    "item": "Q193136",
+    "label": "Prada",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Miuccia Prada"
+      }
+    ]
+  },
+  "saint_laurent": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Yves Saint Laurent"
+      },
+      {
+        "rank": "normal",
+        "value": "Pierre Bergé"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1961-01-01"
+      }
+    ],
+    "item": "Q2282172",
+    "label": "Yves Saint Laurent",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Anthony Vaccarello"
+      }
+    ]
+  },
+  "tom_ford": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Tom Ford"
+      }
+    ],
+    "item": "Q105476592",
+    "label": "Tom Ford",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Estée Lauder Companies"
+      }
+    ]
+  },
+  "valentino": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Valentino"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1960-01-01"
+      },
+      {
+        "rank": "normal",
+        "value": "2003-07-22"
+      }
+    ],
+    "item": "Q649646",
+    "label": "Valentino",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Mayhoola for Investments"
+      }
+    ]
+  },
+  "versace": {
+    "director": [
+      {
+        "end": "2022-00-00",
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "2016-00-00",
+        "value": "Jonathan Akeroyd"
+      },
+      {
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "2022-00-00",
+        "value": "Emmanuel Gintzburger"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Gianni Versace"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1978-00-00"
+      }
+    ],
+    "item": "Q696376",
+    "label": "Versace",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "start": "2025-04-10",
+        "value": "Prada"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "start": "2025-12-02",
+        "value": "Prada"
+      }
+    ],
+    "significant_person": [
+      {
+        "rank": "normal",
+        "value": "Donatella Versace"
+      }
+    ]
+  },
+  "zegna": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Ermenegildo Zegna"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1910-00-00"
+      }
+    ],
+    "item": "Q1355904",
+    "label": "Zegna"
+  }
+}
