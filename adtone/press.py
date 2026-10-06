@@ -27,8 +27,9 @@ from . import config, registry, store
 
 API = "https://api.gdeltproject.org/api/v2/doc/doc"
 START = date(2017, 1, 1)       # the DOC 2.0 API's fixed horizon
-WINDOW_DAYS = 90               # short enough for a daily timeline
-SLEEP_S = 5.5                  # GDELT asks for no more than one request every five seconds
+WINDOW_DAYS = 366              # tried first; if a year does not come back day by day, a house drops to SHORT_DAYS
+SHORT_DAYS = 90                # always short enough for a daily timeline
+SLEEP_S = 8.0                  # GDELT asks for one request every five seconds; shared runner addresses need more
 UA = "fashion-adtone research (press series; contact via the repository)"
 CONTEXT = "(fashion OR runway OR collection OR handbag OR couture)"
 QUERIES = {   # houses whose names mean something else too
@@ -42,7 +43,16 @@ QUERIES = {   # houses whose names mean something else too
     "dolce_gabbana": '"Dolce" "Gabbana"',
     "brunello_cucinelli": '"Cucinelli"',
     "margiela": '"Margiela"',
+    "dior": '(Dior OR "Christian Dior")',     # a quoted four-letter phrase is too short for GDELT
 }
+
+
+class RateLimited(RuntimeError):
+    """GDELT kept refusing: stop the run and resume next time, rather than hammer on house by house."""
+
+
+class NotDaily(RuntimeError):
+    """The timeline came back coarser than daily for this span."""
 
 
 def query_for(house: registry.House) -> str:
@@ -82,7 +92,8 @@ def fetch(sess, query: str, start: date, end: date, mode: str, sleep=time.sleep,
     for attempt in range(retries + 1):
         r = sess.get(API, params=params, timeout=60)
         if r.status_code == 429 or r.status_code >= 500:
-            sleep(SLEEP_S * (attempt + 2))
+            if attempt < retries:
+                sleep(30.0 * 2 ** attempt)     # 30 s, 60 s, 120 s
             continue
         if r.status_code != 200:
             raise RuntimeError(f"GDELT HTTP {r.status_code}")
@@ -94,12 +105,15 @@ def fetch(sess, query: str, start: date, end: date, mode: str, sleep=time.sleep,
         except ValueError:
             # GDELT answers a malformed or too-broad query with a plain-text message, not JSON
             raise RuntimeError(f"GDELT said: {text[:160]}") from None
-    raise RuntimeError("GDELT kept refusing: rate limited or unavailable")
+    raise RateLimited("GDELT kept refusing: rate limited or unavailable")
 
 
 def window(sess, query: str, start: date, end: date, sleep=time.sleep) -> list[dict]:
     """Daily rows for one window: article count, all-article total, and average tone."""
     vol = fetch(sess, query, start, end, "timelinevolraw", sleep=sleep)
+    days = (end - start).days + 1
+    if days > SHORT_DAYS and vol and len(vol) < 0.9 * days:
+        raise NotDaily(f"{len(vol)} points for {days} days")
     sleep(SLEEP_S)
     tone = fetch(sess, query, start, end, "timelinetone", sleep=sleep)
     rows = []
@@ -128,8 +142,11 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
     state = store.read_state(P["state"])
     covered = state.get("covered", {})
     queries = {h.id: query_for(h) for h in reg.houses}
-    failed, fetched, t0 = {}, 0, clock()
+    span = state.get("span", {})
+    failed, fetched, t0, limited = {}, 0, clock(), None
     for h in reg.houses:
+        if limited:
+            break
         q = queries[h.id]
         if state.get("queries", {}).get(h.id, q) != q:
             covered.pop(h.id, None)      # a changed query is a different series: refetch it from the start
@@ -138,9 +155,15 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
         while nxt <= end:
             if clock() - t0 > budget_s:
                 break
-            stop = min(end, nxt + timedelta(days=WINDOW_DAYS - 1))
+            stop = min(end, nxt + timedelta(days=span.get(h.id, WINDOW_DAYS) - 1))
             try:
                 rows = window(sess, q, nxt, stop, sleep=sleep)
+            except NotDaily:
+                span[h.id] = SHORT_DAYS
+                continue
+            except RateLimited as e:
+                limited = str(e)
+                break
             except (RuntimeError, requests.RequestException) as e:
                 failed[h.id] = str(e)[:200]
                 break
@@ -152,11 +175,12 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
             nxt = stop + timedelta(days=1)
             sleep(SLEEP_S)
     complete = sorted(h for h in queries if covered.get(h) == end.isoformat())
-    state = {"run": run, "updated_at": store.utc_now(), "covered": covered, "queries": queries,
-             "end": end.isoformat(), "complete": complete, "failed": failed}
+    state = {"run": run, "updated_at": store.utc_now(), "covered": covered, "queries": queries, "span": span,
+             "end": end.isoformat(), "complete": complete, "failed": failed, "rate_limited": limited}
     store.write_state(P["state"], state)
     store.append_jsonl(P["prov"], [{"run": run, "updated_at": state["updated_at"], "windows": fetched,
-                                    "complete": len(complete), "houses": len(queries), "failed": sorted(failed)}])
+                                    "complete": len(complete), "houses": len(queries), "failed": sorted(failed),
+                                    "rate_limited": bool(limited)}])
     return state
 
 
@@ -179,7 +203,8 @@ def main(argv: list[str] | None = None) -> int:
     if a.cmd == "collect":
         st = collect(session(), registry.load(), a.run, budget_s=a.budget_min * 60)
         print(f"press: {len(st['complete'])} of {len(st['queries'])} houses complete to {st['end']}; "
-              f"failed: {sorted(st['failed']) or 'none'}")
+              f"failed: {sorted(st['failed']) or 'none'}; "
+              f"{'stopped: GDELT rate limit, resumes next run' if st['rate_limited'] else 'no rate limit'}")
         return 0
     errs = probe(a.run)
     for e in errs:

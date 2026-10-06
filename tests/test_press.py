@@ -60,6 +60,7 @@ def test_the_backfill_resumes_where_the_budget_stopped(tmp_path, monkeypatch):
     monkeypatch.setattr(press, "paths", lambda: {"dir": tmp_path / "press", "state": tmp_path / "press.json",
                                                  "prov": tmp_path / "press.jsonl"})
     monkeypatch.setattr(press, "START", date(2026, 1, 1))
+    monkeypatch.setattr(press, "WINDOW_DAYS", 90)
     reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], []),
                             House("gucci", "Gucci", "treated", "G", [], [], [])])
     ticks = iter(range(0, 10_000, 30))
@@ -139,3 +140,74 @@ def test_the_thread_is_one_row_per_show_with_every_source(tmp_path):
 def test_the_guard_knows_the_press_files_and_the_thread():
     assert guard.violations("attention", ["data/press/prada.jsonl", "data/state/press.json"]) == []
     assert guard.violations("analyse", ["data/results/runway_events.csv"]) == []
+
+
+def _press_paths(monkeypatch, tmp_path):
+    monkeypatch.setattr(press, "paths", lambda: {"dir": tmp_path / "press", "state": tmp_path / "press.json",
+                                                 "prov": tmp_path / "press.jsonl"})
+
+
+def test_a_year_comes_back_in_one_window_when_it_is_daily(tmp_path, monkeypatch):
+    _press_paths(monkeypatch, tmp_path)
+    monkeypatch.setattr(press, "START", date(2024, 1, 1))
+    fake = FakeGdelt()
+    reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
+    st = press.collect(fake, reg, "r1", end=date(2025, 12, 31), sleep=lambda s: None)
+    assert st["complete"] == ["prada"] and len(fake.calls) == 4          # two windows, two modes each
+
+
+class WeeklyGdelt(FakeGdelt):
+    """Answers spans longer than 90 days with one point a week, as a coarse timeline would."""
+    def get(self, url, params=None, timeout=None):
+        r = super().get(url, params, timeout)
+        body = r._body
+        if body and len(body["timeline"][0]["data"]) > 90:
+            body["timeline"][0]["data"] = body["timeline"][0]["data"][::7]
+        return R(body=body)
+
+
+def test_a_coarse_timeline_drops_the_house_to_short_windows(tmp_path, monkeypatch):
+    _press_paths(monkeypatch, tmp_path)
+    monkeypatch.setattr(press, "START", date(2025, 1, 1))
+    reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
+    st = press.collect(WeeklyGdelt(), reg, "r1", end=date(2025, 12, 31), sleep=lambda s: None)
+    assert st["span"] == {"prada": press.SHORT_DAYS} and st["complete"] == ["prada"]
+    rows = [json.loads(l) for l in (tmp_path / "press" / "prada.jsonl").read_text().splitlines()]
+    assert len(rows) == 365
+
+
+class Refusing(FakeGdelt):
+    def get(self, url, params=None, timeout=None):
+        self.calls.append(params)
+        return R(status=429, text="")
+
+
+def test_a_rate_limit_stops_the_run_instead_of_hammering_on(tmp_path, monkeypatch):
+    _press_paths(monkeypatch, tmp_path)
+    reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], []),
+                            House("gucci", "Gucci", "treated", "G", [], [], [])])
+    fake, waits = Refusing(), []
+    st = press.collect(fake, reg, "r1", end=date(2026, 12, 31), sleep=waits.append)
+    assert st["rate_limited"] and st["failed"] == {} and len(fake.calls) == 4     # one window tried, then stop
+    assert {30.0, 60.0, 120.0} <= set(waits)
+
+
+def test_page_views_wait_and_retry_after_too_many_requests():
+    from adtone import attention
+
+    class Wiki:
+        def __init__(self):
+            self.n = 0
+
+        def get(self, url, timeout=None):
+            self.n += 1
+            if self.n < 3:
+                r = R(status=429, text="")
+                r.headers = {"Retry-After": "7"}
+                return r
+            r = R(body={"items": [{"timestamp": "2026010100", "views": 12}]})
+            r.headers = {}
+            return r
+    waits = []
+    got = attention.daily_views(Wiki(), "Prada", date(2026, 1, 1), date(2026, 1, 1), sleep=waits.append)
+    assert got == {"2026-01-01": 12} and waits == [7.0, 7.0]

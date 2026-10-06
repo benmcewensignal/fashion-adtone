@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -128,10 +129,26 @@ def resolve_all(sess, reg: registry.Registry) -> tuple[dict[str, str | None], di
     return titles, how
 
 
-def daily_views(sess, title: str, start: date, end: date) -> dict[str, int]:
+PAUSE_S = 1.5          # between houses: Wikimedia answered a burst of requests with HTTP 429
+
+
+def _wait(r, attempt: int) -> float:
+    """Honour the server's Retry-After when it gives one; otherwise back off exponentially."""
+    try:
+        return min(120.0, float(r.headers.get("Retry-After", "")))
+    except (TypeError, ValueError):
+        return 5.0 * 2 ** attempt
+
+
+def daily_views(sess, title: str, start: date, end: date, sleep=time.sleep, retries: int = 5) -> dict[str, int]:
     url = VIEWS.format(project=PROJECT, title=quote(title.replace(" ", "_"), safe=""),
                        start=start.strftime("%Y%m%d00"), end=end.strftime("%Y%m%d00"))
-    r = sess.get(url, timeout=60)
+    for attempt in range(retries + 1):
+        r = sess.get(url, timeout=60)
+        if r.status_code in (429, 500, 502, 503, 504) and attempt < retries:
+            sleep(_wait(r, attempt))
+            continue
+        break
     if r.status_code == 404:
         return {}
     if r.status_code != 200:
@@ -143,8 +160,9 @@ def daily_views(sess, title: str, start: date, end: date) -> dict[str, int]:
     return out
 
 
-def collect(sess, reg: registry.Registry, run: str, start: date = START, end: date | None = None) -> dict:
-    """Full refresh of every house's series (small: one request per house). Idempotent."""
+def collect(sess, reg: registry.Registry, run: str, start: date = START, end: date | None = None,
+            sleep=time.sleep) -> dict:
+    """Full refresh of every house's series (small: one request per house), paced. Idempotent."""
     end = end or (datetime.now(timezone.utc).date() - timedelta(days=1))
     P = paths()
     titles, how = resolve_all(sess, reg)
@@ -153,10 +171,12 @@ def collect(sess, reg: registry.Registry, run: str, start: date = START, end: da
         if not title:
             continue
         try:
-            series = daily_views(sess, title, start, end)
+            series = daily_views(sess, title, start, end, sleep=sleep)
         except RuntimeError as e:
             failed[house] = str(e)
             continue
+        finally:
+            sleep(PAUSE_S)
         store.write_jsonl(P["dir"] / f"{house}.jsonl",
                           [{"date": d, "views": v, "article": title, "project": PROJECT} for d, v in sorted(series.items())])
         counts[house] = len(series)
