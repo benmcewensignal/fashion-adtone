@@ -180,7 +180,8 @@ description, not effects (`docs/SUCCESS.md`).
 ## Site
 
 `www/index.html` is the public page that frames the project: one static file, no images, no
-scripts. It deploys to Vercel as its own project (`adtone`), separate from the timestamp record.
+scripts. It is live at https://adtone-benmcewen20-9581s-projects.vercel.app (Vercel project `adtone`,
+first deployed 6 October 2026), separate from the timestamp record.
 (`site/` is not used for it: the status workflow builds the GitHub Pages status page there.)
 
 ## Relation to fashion-position
