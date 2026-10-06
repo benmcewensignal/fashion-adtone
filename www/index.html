@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Adtone</title>
-<meta name="description" content="Does a luxury house's look belong to the house, or to the people who make its pictures? A study of advertising before and after ten creative-director debuts.">
+<meta name="description" content="Whose look is it, and does it move people? Adtone reads the advertising of eighteen luxury houses as it runs.">
 <meta property="og:title" content="Adtone">
-<meta property="og:description" content="Does a house's look belong to the house, or to the people who make its pictures?">
+<meta property="og:description" content="Whose look is it, and does it move people?">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E">
@@ -91,14 +91,22 @@
     font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(2.1rem, 6.4vw, 4.75rem);
-    line-height: 1.04;
+    font-size: clamp(2.6rem, 7vw, 5.25rem);
+    line-height: 1.02;
     letter-spacing: -0.01em;
-    max-width: 15ch;
+    max-width: 14ch;
     text-wrap: balance;
   }
   .lede { max-width: 28rem; margin: clamp(2.25rem, 5vw, 3.25rem) auto 0; color: var(--ink); font-size: 0.9375rem; text-wrap: pretty; }
-  .go { margin: clamp(1.5rem, 3vw, 2rem) 0 0; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .go { margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2.25rem;
+    font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  section.wide { max-width: 60rem; }
+  .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
+  .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
+  .triad h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.75rem; line-height: 1.1; }
+  .triad p { margin: 0; font-size: 0.9375rem; }
+  .triad .when { display: block; margin-top: 0.4rem; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.04em; }
+  @media (min-width: 48rem) { .triad { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); } }
 
   /* Houses: the season's running order */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
@@ -152,10 +160,10 @@
     <h1 class="mark"><a href="#/overview">Adtone</a></h1>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#/overview">Overview</a></li>
-        <li><a href="#/houses">Houses</a></li>
+        <li><a href="#/season">Season</a></li>
+        <li><a href="#/cast">Cast</a></li>
         <li><a href="#/method">Method</a></li>
-        <li><a href="#/findings">Findings</a></li>
+        <li><a href="#/results">Results</a></li>
         <li><a href="#/record">Record</a></li>
       </ul>
     </nav>
@@ -163,13 +171,13 @@
 
   <main>
     <section id="overview" data-panel aria-label="Overview">
-      <p class="ask">Does a house's look belong to the house, or to the people who make its pictures?</p>
-      <p class="lede">Ten houses changed creative director between July 2025 and February 2026, and several of the designers moved between houses in the study. Adtone reads the advertising of eighteen houses before and after each debut, to see whether a look stays with the house or leaves with its people.</p>
-      <p class="go"><a href="#/method">How it's tested</a></p>
+      <p class="ask">Whose look is it, and does it move people?</p>
+      <p class="lede">Adtone reads the advertising of eighteen luxury houses as it runs. In 2025 ten of them changed creative director, and designers moved between houses with their image-makers. Adtone measures whether a house's look stays with the house or leaves with its people, and is built to test whether a change in the look shows up in attention, desire and revenue before the results are in.</p>
+      <p class="go"><a href="#/season">The season</a><a href="#/results">From reading to result</a></p>
     </section>
 
-    <section id="houses" data-panel aria-labelledby="houses-h">
-      <h2 id="houses-h">The season</h2>
+    <section id="season" data-panel aria-labelledby="season-h">
+      <h2 id="season-h">The season</h2>
       <ol class="order">
         <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">6 July 2025</time></li>
         <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">9 July 2025</time></li>
@@ -186,6 +194,45 @@
       <p class="sub">Leadership held</p>
       <p class="held">Burberry, Hermès, Loro Piana, Louis Vuitton, Miu Miu, Prada, Saint Laurent, Valentino</p>
       <p class="note" style="text-align:center">Dates are first shows. Chloé is collected for a forward test and kept out of the comparison.</p>
+    </section>
+
+    <section id="cast" data-panel aria-labelledby="cast-h">
+      <h2 id="cast-h">Who came with whom</h2>
+      <p class="block" style="text-align:center">Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
+      <div class="people">
+        <div class="person">
+          <p class="n">Matthieu Blazy</p>
+          <p class="w">Bottega Veneta, then Chanel</p>
+          <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
+        </div>
+        <div class="person">
+          <p class="n">Jonathan Anderson</p>
+          <p class="w">Loewe, then Dior</p>
+          <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
+        </div>
+        <div class="person">
+          <p class="n">Demna</p>
+          <p class="w">Balenciaga, then Gucci</p>
+          <p class="c">Credited as photographer himself, at both.</p>
+        </div>
+      </div>
+      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
+      <details>
+        <summary>Ten photographers, sixteen houses</summary>
+        <dl class="pairs">
+          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+        </dl>
+        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+      </details>
     </section>
 
     <section id="method" data-panel aria-labelledby="method-h">
@@ -232,47 +279,20 @@
       </details>
     </section>
 
-    <section id="findings" data-panel aria-labelledby="findings-h">
-      <h2 id="findings-h">Who makes the pictures</h2>
-      <p class="block" style="text-align:center">Before any ad is read, the campaign credits already show designers bringing their image-makers with them.</p>
-      <div class="people">
-        <div class="person">
-          <p class="n">Matthieu Blazy</p>
-          <p class="w">Bottega Veneta, then Chanel</p>
-          <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
-        </div>
-        <div class="person">
-          <p class="n">Jonathan Anderson</p>
-          <p class="w">Loewe, then Dior</p>
-          <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
-        </div>
-        <div class="person">
-          <p class="n">Demna</p>
-          <p class="w">Balenciaga, then Gucci</p>
-          <p class="c">Credited as photographer himself, at both.</p>
-        </div>
+    <section id="results" data-panel aria-labelledby="results-h" class="wide">
+      <h2 id="results-h">From reading to result</h2>
+      <div class="narrow">
+        <p>A reading is worth what it predicts. Each month, every house gets four readings of its advertising: how far its look moved from its own past, how far it sits from the market, how consistent it is, and whether it is drifting towards the house of the moment.</p>
       </div>
-      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
-      <details>
-        <summary>Ten photographers, sixteen houses</summary>
-        <dl class="pairs">
-          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-        </dl>
-        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
-      </details>
-      <details>
-        <summary>Change and attention</summary>
-        <p style="margin-top:1rem">The obvious heat measure, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior, so its rankings either side of the debuts don't compare. Wikipedia page views, counted the same way throughout, stand in as attention: whether bigger shifts drew more of it, not whether they sold more.</p>
-      </details>
+      <div class="triad">
+        <div><h3>Curiosity</h3><p>Wikipedia page views, search interest, press volume and tone.</p><span class="when">Monthly, every house</span></div>
+        <div><h3>Desire</h3><p>The Lyst Index under its new method, and resale demand.</p><span class="when">Quarterly and yearly</span></div>
+        <div><h3>Money</h3><p>Revenue at the seven houses that report it by house.</p><span class="when">Quarterly</span></div>
+      </div>
+      <div class="narrow">
+        <p>The test is whether this month's readings predict the next months' change, beyond each house's own momentum and the reach it paid for, scored only on months after the test is frozen. If the look predicts curiosity but not desire, it got people talking without creating demand.</p>
+        <p class="note">Lyst changed its method in early 2026 and began counting Chanel and Dior, so its rankings are compared only within the new method. This test is planned for the second amendment, to be frozen before any data is collected. There are no results yet.</p>
+      </div>
     </section>
 
     <section id="record" data-panel aria-labelledby="record-h">
@@ -281,6 +301,7 @@
         <li><time datetime="2026-10-05">5 October 2026</time>Tests and the Saint Laurent prediction frozen, before any data.</li>
         <li><time datetime="2026-10-06">6 October 2026</time>Credits compiled for eighteen houses. A second amendment drafted, not yet frozen.</li>
         <li><time>Next</time>Collection starts when Meta grants access. Results on the 2025 debuts check the instrument; predictions count only after a silent first season.</li>
+        <li><time>Then</time>Forecasts scored month by month against curiosity, desire and revenue.</li>
       </ol>
       <p class="record-link">The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
     </section>
