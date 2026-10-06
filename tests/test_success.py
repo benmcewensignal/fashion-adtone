@@ -156,3 +156,16 @@ def test_main_waits_for_the_freeze(tmp_data, capsys):
     assert success.main([]) == 0
     assert "waits until the design is frozen" in capsys.readouterr().out
     assert not (config.RESULTS_DIR / success.OUT_NAME).exists()
+
+
+def test_lyst_ranks_are_complete_within_the_new_method_and_never_mixed_across_it():
+    import csv
+    from adtone.success import RANKS_FILE, load_lyst_ranks
+    rows = list(csv.DictReader(open(RANKS_FILE, encoding="utf-8")))
+    for q in ("2026Q1", "2026Q2"):
+        ranks = sorted(int(r["rank"]) for r in rows if r["quarter"] == q)
+        assert ranks == list(range(1, 21)), q
+    assert {r["basis"] for r in rows} <= {"stated", "derived", "inferred"}
+    v2 = load_lyst_ranks()
+    assert set(v2) == {"2026Q1", "2026Q2"} and v2["2026Q2"]["chanel"] == 1 and v2["2026Q1"]["celine"] == 20
+    assert "2025Q4" not in v2 and load_lyst_ranks(method="lyst-v1")["2025Q4"]["gucci"] == 9

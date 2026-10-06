@@ -40,6 +40,19 @@ MIN_CONTROLS = 3
 BEFORE_MONTHS = 6
 N_PERM = 20000
 LEADERS_FILE = config.ROOT / "reference" / "lyst_leaders.csv"
+RANKS_FILE = config.ROOT / "reference" / "lyst_ranks.csv"
+
+
+def load_lyst_ranks(path=RANKS_FILE, method: str | None = "lyst-v2") -> dict[str, dict[str, int]]:
+    """quarter -> house_id -> rank, panel houses only, one method. Ranks are compared only within a
+    method: Lyst changed it in Q1 2026 and began counting Chanel and Dior."""
+    import csv
+    out: dict[str, dict[str, int]] = {}
+    with open(path, encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if r["house_id"] and (method is None or r["method"] == method):
+                out.setdefault(r["quarter"], {})[r["house_id"]] = int(r["rank"])
+    return out
 OUT_NAME = "success.json"
 
 
