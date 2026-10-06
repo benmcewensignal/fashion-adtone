@@ -14,7 +14,7 @@ their clothes look like.
 
 ## Status, 5 October 2026
 
-- Built and tested on synthetic data with known ground truth (139 tests).
+- Built and tested on synthetic data with known ground truth (140 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -150,7 +150,7 @@ photographers from houses through the credits.
 
 ## Campaign credits
 
-`reference/credits.csv` is a hand-made seed of campaign crew credits: 290 rows for 16 of the panel's
+`reference/credits.csv` is a hand-made seed of campaign crew credits: 353 rows for 18 of the panel's
 houses, each with its source page, read on 6 October 2026. It records who shot, filmed, styled, cast
 and art-directed each campaign, never who appears in it. `python -m adtone.credits` summarises it:
 who stayed through each debut, who moved with each designer, and which photographers work for several

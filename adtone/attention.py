@@ -10,8 +10,10 @@ compare. Page views are counted the same way throughout and cover every house, e
 measure attention, which a debut produces whether or not it works.
 
 English Wikipedia, all access methods, human users only. Each house has candidate article titles;
-the first that exists, after redirects and skipping disambiguation pages, is used and recorded. The
-Wikimedia APIs are free and need no key, only a descriptive User-Agent.
+the first that exists, after redirects and skipping disambiguation pages, is used. If none does,
+Wikipedia's own search supplies candidates that start with the house's name. Each title is recorded
+with how it was found, and the probe flags search-found ones for a glance. The Wikimedia APIs are
+free and need no key, only a descriptive User-Agent.
 """
 from __future__ import annotations
 
@@ -93,6 +95,30 @@ def resolve(sess, wanted: dict[str, list[str]]) -> dict[str, str | None]:
     return out
 
 
+def search_candidates(sess, name: str, limit: int = 5) -> list[str]:
+    """Wikipedia's own search, for a house whose listed titles all miss: titles that start with its name."""
+    r = sess.get(API, params={"action": "query", "format": "json", "formatversion": "2", "list": "search",
+                              "srsearch": f"{name} fashion house", "srnamespace": "0", "srlimit": str(limit)}, timeout=30)
+    if r.status_code != 200:
+        return []
+    first = name.split()[0].lower()
+    return [h["title"] for h in r.json().get("query", {}).get("search", []) if h["title"].lower().startswith(first)]
+
+
+def resolve_all(sess, reg: registry.Registry) -> tuple[dict[str, str | None], dict[str, str]]:
+    """Listed candidates first; for houses they miss, Wikipedia search. Returns titles and how each was found."""
+    wanted = {h.id: ARTICLES.get(h.id, [h.name]) for h in reg.houses}
+    titles = resolve(sess, wanted)
+    how = {h: "listed" for h, t in titles.items() if t}
+    missing = {h.id: h.name for h in reg.houses if not titles.get(h.id)}
+    if missing:
+        found = resolve(sess, {h: search_candidates(sess, name) for h, name in missing.items()})
+        for h, t in found.items():
+            if t:
+                titles[h], how[h] = t, "search"
+    return titles, how
+
+
 def daily_views(sess, title: str, start: date, end: date) -> dict[str, int]:
     url = VIEWS.format(project=PROJECT, title=quote(title.replace(" ", "_"), safe=""),
                        start=start.strftime("%Y%m%d00"), end=end.strftime("%Y%m%d00"))
@@ -112,8 +138,7 @@ def collect(sess, reg: registry.Registry, run: str, start: date = START, end: da
     """Full refresh of every house's series (small: one request per house). Idempotent."""
     end = end or (datetime.now(timezone.utc).date() - timedelta(days=1))
     P = paths()
-    wanted = {h.id: ARTICLES[h.id] for h in reg.houses if h.id in ARTICLES}
-    titles = resolve(sess, wanted)
+    titles, how = resolve_all(sess, reg)
     counts, failed = {}, {}
     for house, title in titles.items():
         if not title:
@@ -128,7 +153,8 @@ def collect(sess, reg: registry.Registry, run: str, start: date = START, end: da
         counts[house] = len(series)
     unresolved = sorted(h for h, t in titles.items() if not t)
     state = {"run": run, "updated_at": store.utc_now(), "project": PROJECT, "start": start.isoformat(),
-             "end": end.isoformat(), "titles": titles, "unresolved": unresolved, "failed": failed, "days": counts}
+             "end": end.isoformat(), "titles": titles, "found_by": how, "unresolved": unresolved, "failed": failed,
+             "days": counts}
     store.write_state(P["state"], state)
     store.append_jsonl(P["prov"], [{k: state[k] for k in ("run", "updated_at", "end", "unresolved")} | {"houses": len(counts)}])
     return state
@@ -142,7 +168,7 @@ def probe(run: str) -> list[str]:
     st = store.read_state(paths()["state"])
     if st.get("run") != run:
         return [f"no attention run {run} on file"]
-    errs = [f"{h}: no Wikipedia article found among {ARTICLES[h]}" for h in st.get("unresolved", [])]
+    errs = [f"{h}: no Wikipedia article found, listed or by search" for h in st.get("unresolved", [])]
     errs += [f"{h}: {msg}" for h, msg in st.get("failed", {}).items()]
     errs += [f"{h}: only {n} days of page views" for h, n in st.get("days", {}).items() if n < MIN_DAYS]
     if not st.get("days"):
@@ -160,6 +186,10 @@ def main(argv: list[str] | None = None) -> int:
         print({k: st[k] for k in ("end", "unresolved", "failed")} | {"houses": len(st["days"])})
         return 0
     errs = probe(args.run)
+    st = store.read_state(paths()["state"])
+    for h, way in sorted(st.get("found_by", {}).items()):
+        if way == "search":   # worth a glance: chosen by Wikipedia's search, not from the list
+            print(f"::warning::{h}: article found by search: {st['titles'][h]}")
     for e in errs:
         print(f"::error::{e}")
     return 1 if errs else 0

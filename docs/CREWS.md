@@ -45,7 +45,7 @@ a true 0.04, and the corrected share was right on average.
 Designers and their crews moved together in 2025 (`docs/CREDITS.md`), so a debut cannot separate a
 designer from a photographer. What separates photographers from houses is photographers crossing
 between houses within the window, such as David Sims, Steven Meisel and Glen Luchford. From the
-seed credits alone, 14 of the 16 covered houses fall in one connected set. Jil Sander and Margiela
+seed credits alone, 16 of the 18 covered houses fall in one connected set. Hermès and Margiela
 sit outside it.
 
 ## Limits

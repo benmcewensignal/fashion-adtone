@@ -6,8 +6,8 @@ work pages, campaign reviews, Ads of the World, press). Every row names the page
 
 ## What is in it
 
-290 rows from 99 source pages, covering 16 of the 19 registry houses (not Hermès, Loro Piana or Chloé).
-120 rows are photographer credits; the rest are film, art direction, styling, casting, set design, hair
+353 rows from 123 source pages, covering 18 of the 19 registry houses (all but Chloé, the watch house).
+139 rows are photographer credits; the rest are film, art direction, styling, casting, set design, hair
 and makeup. Chanel's beauty campaigns are included with `scope` beauty, because photographers cross
 between beauty and fashion. Summaries leave beauty out by default, as the panel does.
 
@@ -40,7 +40,6 @@ show, such as Piccioli and David Sims at Valentino, which is outside the table.
 
 - These are search snapshots, not complete records. The table holds what the pages showed, not every
   campaign each house ran.
-- Nothing is on file for the before side at Jil Sander and Margiela.
 - Rows that may describe one campaign twice say so in `notes` (Gucci's Blommers and Schumm, Chanel's
   Métiers d'Art, Prada's two Spring 2026 reviews). They can double a person's count at one house. They
   cannot create a crossing or an import.
@@ -49,19 +48,19 @@ show, such as Piccioli and David Sims at Valentino, which is outside the table.
 - Juergen Teller's Loewe SS25 pre-collection campaign is not in the table, because no public page for
   it was to hand.
 
-## What it shows on 6 October 2026
+## What it shows (seed of 6 October 2026)
 
 `python -m adtone.credits` prints coverage, carry-over, crossings and designer moves. On this seed:
 
-- None of the eight treated houses with both sides on file kept an advertising photographer across the debut.
-- From 2025 to 2026, Prada kept Oliver Hadlee Pearch and Valentino kept Glen Luchford. Saint Laurent,
-  Miu Miu and Burberry kept nobody.
+- None of the ten treated houses kept an advertising photographer across the debut.
+- From 2025 to 2026, Prada kept Oliver Hadlee Pearch, Valentino kept Glen Luchford and Loro Piana kept
+  Mario Sorrenti. Saint Laurent, Miu Miu, Burberry and Hermès kept nobody.
 - Three designer moves inside the table carried crew with them. Blazy brought Alec Soth, Louise and Maria
   Thornfeldt and Rahim Fortune from Bottega Veneta to Chanel. Anderson brought David Sims, the stylist
   Benjamin Bruno, the cinematographer Benoît Delhomme and the set designer Poppy Bartlett from Loewe to
   Dior. Demna brought himself, as photographer, from Balenciaga to Gucci. Chiuri's move from Dior to
   Fendi carried nobody on file.
-- Nine photographers are credited at two or more houses, David Sims at six.
+- Ten photographers are credited at two or more houses, David Sims at seven.
 
 ## Use
 

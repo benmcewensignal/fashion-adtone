@@ -15,8 +15,16 @@ QUERY = {"query": {
               {"title": "Jil Sander", "pageprops": {"disambiguation": ""}}]}}
 
 
+SEARCH = {"query": {"search": [{"title": "Jil Sander (fashion house)"}, {"title": "Fashion in Hamburg"}]}}
+FOUND = {"query": {"pages": [{"title": "Jil Sander (fashion house)"}]}}
+
+
 def _handler(views: dict[str, dict[str, int]]):
     def h(url, params):
+        if url == attention.API and params.get("list") == "search":
+            return FakeResponse(200, payload=SEARCH)
+        if url == attention.API and params.get("titles") == "Jil Sander (fashion house)":
+            return FakeResponse(200, payload=FOUND)
         if url == attention.API:
             return FakeResponse(200, payload=QUERY)
         for title, series in views.items():
@@ -28,7 +36,18 @@ def _handler(views: dict[str, dict[str, int]]):
 
 
 def _reg(*ids):
-    return Registry(1, "T", [House(i, i, "control", "o", [i], [], []) for i in ids])
+    names = {"gucci": "Gucci", "saint_laurent": "Saint Laurent", "jil_sander": "Jil Sander", "nowhere": "Nowhere House"}
+    return Registry(1, "T", [House(i, names.get(i, i), "control", "o", [i], [], []) for i in ids])
+
+
+def test_a_house_whose_article_cannot_be_found_is_named_by_the_probe(tmp_data):
+    def h(url, params):
+        if params and params.get("list") == "search":
+            return FakeResponse(200, payload={"query": {"search": [{"title": "Something Else"}]}})
+        return FakeResponse(200, payload={"query": {"pages": [{"title": "Nowhere House", "missing": True}]}})
+    st = attention.collect(FakeSession(h), _reg("nowhere"), "r2", date(2025, 1, 1), date(2025, 1, 3))
+    assert st["unresolved"] == ["nowhere"]
+    assert any("nowhere: no Wikipedia article found" in e for e in attention.probe("r2"))
 
 
 def test_titles_resolve_through_redirects_and_skip_missing_and_disambiguation_pages():
@@ -42,12 +61,14 @@ def test_collect_writes_each_series_and_the_probe_names_the_gaps(tmp_data):
     days = {f"2025-01-{d:02d}": 100 + d for d in range(1, 11)}
     sess = FakeSession(_handler({"Gucci": days, "Saint Laurent Paris": days}))
     st = attention.collect(sess, _reg("gucci", "saint_laurent", "jil_sander"), "r1", date(2025, 1, 1), date(2025, 1, 10))
-    assert st["titles"]["saint_laurent"] == "Saint Laurent Paris" and st["unresolved"] == ["jil_sander"]
+    assert st["titles"]["saint_laurent"] == "Saint Laurent Paris"
+    assert st["titles"]["jil_sander"] == "Jil Sander (fashion house)" and st["found_by"]["jil_sander"] == "search"
+    assert st["found_by"]["gucci"] == "listed" and st["unresolved"] == []
     series = attention.load_series("gucci")
     assert len(series) == 10 and series[date(2025, 1, 3)] == 103
     errs = attention.probe("r1")
-    assert any("jil_sander: no Wikipedia article" in e for e in errs)
     assert any("gucci: only 10 days" in e for e in errs)
+    assert any("jil_sander: only 0 days" in e for e in errs)   # found by search, but no views in the fake
     assert attention.probe("other-run") == ["no attention run other-run on file"]
 
 

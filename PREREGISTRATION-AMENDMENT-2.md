@@ -71,7 +71,7 @@ These change no test.
   directors' first campaigns (a teaser in September 2025, the main campaign in February 2026) may
   already be thin by the first backfill. Either test may report insufficient data. That would be a
   result about the window, not about the hypothesis.
-- From the seed credits alone, 14 of the 16 covered houses fall in one connected set. Jil Sander and
+- From the seed credits alone, 16 of the 18 covered houses fall in one connected set. Hermès and
   Margiela sit outside it and stay out of the decomposition unless their crews cross into it.
 
 - A debut draws attention whatever it does to sales. A positive association would show that larger

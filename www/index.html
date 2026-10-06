@@ -73,7 +73,7 @@
     margin: clamp(3rem, 8vw, 6rem) 0 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "frame" "caption" "fields";
+    grid-template-areas: "frame" "fields" "caption";
     gap: 1.5rem;
   }
   .mount {
@@ -192,8 +192,41 @@
 
   footer { padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); color: var(--graphite); font-size: 0.875rem; }
 
+
+  /* The frame, read */
+  .frame { position: relative; }
+  .reading { position: absolute; inset: clamp(1rem, 4%, 1.6rem); display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+  .reading .q { font-size: 0.8125rem; color: var(--graphite); }
+  .reading ul { list-style: none; margin: 0; padding: 0; font-size: clamp(1.05rem, 2.2vw, 1.55rem); line-height: 1.28; font-weight: 300; }
+  .reading.long ul { font-size: clamp(0.95rem, 1.7vw, 1.2rem); line-height: 1.3; }
+  .reading li { animation: appear .35s ease-out both; animation-delay: calc(var(--j) * 35ms); }
+  .fields button {
+    all: unset; cursor: pointer; display: inline; font: inherit; color: inherit; line-height: inherit;
+    border-radius: 2px;
+  }
+  .fields button:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .fields button[aria-pressed="true"] { font-weight: 600; }
+  .fields button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  /* Designer moves */
+  .moves { display: grid; gap: 2.25rem; margin: 0 0 2rem; }
+  .move p { margin: 0; }
+  .move .who { font-weight: 560; margin-bottom: 0.35rem; }
+  .move .path { display: flex; align-items: center; gap: 0.75rem; }
+  .move .path .line { flex: 1; border-top: 1px solid var(--ink); min-width: 2rem; }
+  .move .crew { list-style: none; margin: 0.6rem 0 0; padding: 0; color: var(--graphite); }
+
+  /* Photographers who link houses */
+  .cross { margin: 0 0 1.5rem; }
+  .cross div { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0.45rem 0; }
+  .cross dt { font-weight: 560; }
+  .cross dd { margin: 0; color: var(--graphite); }
+  @media (min-width: 40rem) {
+    .cross div { grid-template-columns: 13rem minmax(0, 1fr); column-gap: 1rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .frame, .fields li { animation: none; }
+    .frame, .fields li, .reading li { animation: none; }
   }
 </style>
 </head>
@@ -203,28 +236,28 @@
     <h1 class="mark">Adtone</h1>
     <p class="question">Does a new creative director change how a house advertises?</p>
     <figure class="plate">
-      <div class="mount"><div class="frame" role="img" aria-label="An empty campaign frame"></div></div>
+      <div class="mount"><div class="frame" role="img" aria-label="An empty campaign frame"><div class="reading" aria-live="polite"></div></div></div>
       <ul class="fields" aria-label="The eighteen questions asked of every image">
-        <li style="--i:0">Creative type</li>
-        <li style="--i:1">Category</li>
-        <li style="--i:2">Light</li>
-        <li style="--i:3">Colour temperature</li>
-        <li style="--i:4">Saturation</li>
-        <li style="--i:5">Setting</li>
-        <li style="--i:6">People</li>
-        <li style="--i:7">Gaze</li>
-        <li style="--i:8">Expression</li>
-        <li style="--i:9">Pose</li>
-        <li style="--i:10">Framing</li>
-        <li style="--i:11">Primary subject</li>
-        <li style="--i:12">Styling register</li>
-        <li style="--i:13">Production</li>
-        <li style="--i:14">Text in image</li>
-        <li style="--i:15">Mood</li>
-        <li style="--i:16">Street to couture</li>
-        <li style="--i:17">Confidence</li>
+        <li style="--i:0"><button type="button" data-k="creative_type" aria-pressed="false">Creative type</button></li>
+        <li style="--i:1"><button type="button" data-k="category" aria-pressed="false">Category</button></li>
+        <li style="--i:2"><button type="button" data-k="light" aria-pressed="false">Light</button></li>
+        <li style="--i:3"><button type="button" data-k="colour_temperature" aria-pressed="false">Colour temperature</button></li>
+        <li style="--i:4"><button type="button" data-k="saturation" aria-pressed="false">Saturation</button></li>
+        <li style="--i:5"><button type="button" data-k="setting" aria-pressed="false">Setting</button></li>
+        <li style="--i:6"><button type="button" data-k="people" aria-pressed="false">People</button></li>
+        <li style="--i:7"><button type="button" data-k="gaze" aria-pressed="false">Gaze</button></li>
+        <li style="--i:8"><button type="button" data-k="expression" aria-pressed="false">Expression</button></li>
+        <li style="--i:9"><button type="button" data-k="pose" aria-pressed="false">Pose</button></li>
+        <li style="--i:10"><button type="button" data-k="framing" aria-pressed="false">Framing</button></li>
+        <li style="--i:11"><button type="button" data-k="primary_subject" aria-pressed="false">Primary subject</button></li>
+        <li style="--i:12"><button type="button" data-k="styling_register" aria-pressed="false">Styling register</button></li>
+        <li style="--i:13"><button type="button" data-k="production" aria-pressed="false">Production</button></li>
+        <li style="--i:14"><button type="button" data-k="text_in_image" aria-pressed="false">Text in image</button></li>
+        <li style="--i:15"><button type="button" data-k="mood" aria-pressed="false">Mood</button></li>
+        <li style="--i:16"><button type="button" data-k="street_couture_axis" aria-pressed="false">Street to couture</button></li>
+        <li style="--i:17"><button type="button" data-k="confidence" aria-pressed="false">Confidence</button></li>
       </ul>
-      <figcaption>No picture is kept. Every image is read against these eighteen questions, reduced to its answers and a numerical fingerprint, and discarded.</figcaption>
+      <figcaption>No picture is kept. Every image is read against these eighteen questions, reduced to its answers and a numerical fingerprint, and discarded. Choose a question to see the answers it allows.</figcaption>
     </figure>
   </header>
 
@@ -283,8 +316,53 @@
     <section class="row" aria-labelledby="team">
       <h2 id="team">What moves with a designer</h2>
       <div class="body">
-        <p>The campaign credits show image-makers moving with designers. Alec Soth and Louise and Maria Thornfeldt photographed Matthieu Blazy's campaigns at Bottega Veneta, and now photograph his Chanel. Jonathan Anderson brought the photographer David Sims, the stylist Benjamin Bruno, the cinematographer Benoît Delhomme and the set designer Poppy Bartlett from Loewe to Dior.</p>
-        <p>So a change in a house's advertising is read as a change of team, not of designer alone.</p>
+        <p>The campaign credits show image-makers moving with designers.</p>
+        <div class="moves">
+          <div class="move">
+            <p class="who">Matthieu Blazy</p>
+            <p class="path"><span>Bottega Veneta</span><span class="line" aria-hidden="true"></span><span>Chanel</span></p>
+            <ul class="crew"><li>Alec Soth, photographer</li><li>Louise and Maria Thornfeldt, photographers</li><li>Rahim Fortune, films</li></ul>
+          </div>
+          <div class="move">
+            <p class="who">Jonathan Anderson</p>
+            <p class="path"><span>Loewe</span><span class="line" aria-hidden="true"></span><span>Dior</span></p>
+            <ul class="crew"><li>David Sims, photographer</li><li>Benjamin Bruno, stylist</li><li>Benoît Delhomme, cinematographer</li><li>Poppy Bartlett, set designer</li></ul>
+          </div>
+          <div class="move">
+            <p class="who">Demna</p>
+            <p class="path"><span>Balenciaga</span><span class="line" aria-hidden="true"></span><span>Gucci</span></p>
+            <ul class="crew"><li>Demna himself, credited as photographer at both</li></ul>
+          </div>
+        </div>
+        <p>Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file. So a change in a house's advertising is read as a change of team, not of designer alone.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="links">
+      <h2 id="links">Who shoots for whom</h2>
+      <div class="body">
+        <p>Most houses change photographer from one campaign to the next, with or without a new designer. Photographers who work for several houses are what let a photographer's look be told apart from a house's.</p>
+        <dl class="cross">
+          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+        </dl>
+        <p class="note">Between them they join sixteen of the eighteen houses on file. Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="attention">
+      <h2 id="attention">Change and attention</h2>
+      <div class="body">
+        <p>The obvious measure of brand heat, the Lyst Index, changed its method in early 2026 and began counting Chanel and Dior that quarter, so its rankings either side of the debuts do not compare.</p>
+        <p>Attention is measured instead from Wikipedia page views, counted the same way throughout, and set against each house's shift. It describes whether bigger shifts drew more attention. It cannot say whether they sold more.</p>
       </div>
     </section>
 
@@ -293,7 +371,6 @@
       <div class="body">
         <p>It reads paid advertising on Meta's platforms in Europe and Britain. Not print, posters, runways or the clothes themselves.</p>
         <p>It can show that a house's advertising changed. It cannot show that the change worked.</p>
-        <p>Whether larger shifts drew more attention is described separately, against Wikipedia page views. Attention is not success, and the description is not proof.</p>
       </div>
     </section>
 
@@ -302,7 +379,7 @@
       <div class="body">
         <ol class="timeline">
           <li><time datetime="2026-10-05">5 October 2026</time><span>The tests and the Saint Laurent prediction are frozen. No data exists yet.</span></li>
-          <li><time datetime="2026-10-06">6 October 2026</time><span>Crew credits are compiled for sixteen houses from public sources.</span></li>
+          <li><time datetime="2026-10-06">6 October 2026</time><span>Crew credits are compiled for eighteen houses from public pages. A second amendment, adding three descriptive analyses, is drafted and not yet frozen.</span></li>
           <li><time>Next</time><span>Collection begins when access to Meta's ad record is granted. Results on the 2025 debuts check the instrument; predictions count only after a first silent season.</span></li>
         </ol>
         <p>The frozen design and its hashes are on the <a href="https://adtone-registry-benmcewen20-9581s-projects.vercel.app">public record</a>.</p>
@@ -312,5 +389,59 @@
 
   <footer>Adtone, 2026.</footer>
 </div>
+
+<script>
+(() => {
+  const A = {
+    creative_type: ["brand image", "product on model", "product packshot", "catalogue grid", "promotional", "event or announcement", "text graphic", "other"],
+    category: ["ready-to-wear", "leather goods", "footwear", "jewellery and watches", "eyewear", "fragrance and beauty", "home", "mixed", "unclear"],
+    light: ["high key", "low key", "natural daylight", "mixed", "unclear"],
+    colour_temperature: ["warm", "cool", "neutral", "mixed"],
+    saturation: ["muted", "moderate", "vivid", "monochrome"],
+    setting: ["plain studio", "studio set", "interior", "urban exterior", "landscape", "water or beach", "abstract or digital", "unclear"],
+    people: ["none", "one", "two", "group"],
+    gaze: ["to camera", "away", "eyes hidden", "no face", "not applicable"],
+    expression: ["neutral", "smiling", "intense", "playful", "not applicable"],
+    pose: ["posed, static", "candid, moving", "performative", "not applicable"],
+    framing: ["close-up", "medium", "full length", "wide scene", "product only"],
+    primary_subject: ["garment", "bag", "footwear", "accessory", "jewellery", "face", "body", "scene", "object", "text"],
+    styling_register: ["formal, tailored", "eveningwear", "casual", "sport and street", "utilitarian", "mixed", "not applicable"],
+    production: ["polished commercial", "editorial, art", "documentary, lo-fi", "user-generated in style", "graphic, typographic", "CGI or 3D"],
+    text_in_image: ["none", "logo only", "headline", "price or offer", "call to action"],
+    mood: ["austere", "serene", "intimate", "sensual", "playful", "ironic", "nostalgic", "opulent", "surreal", "aggressive", "romantic", "documentary"],
+    street_couture_axis: ["1, street", "2", "3", "4", "5, couture"],
+    confidence: ["from 0, unsure", "to 1, certain"]
+  };
+  const NOTE = { mood: "up to three", street_couture_axis: "one point on the scale", confidence: "how sure the reading is" };
+  const mount = document.querySelector(".mount");
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+  function reveal() {
+    const r = mount.getBoundingClientRect();
+    if (r.top < 0 || r.bottom > innerHeight) mount.scrollIntoView({ block: "start", behavior: still.matches ? "auto" : "smooth" });
+  }
+  const reading = document.querySelector(".reading");
+  const buttons = [...document.querySelectorAll(".fields button")];
+  function clear() {
+    reading.innerHTML = "";
+    reading.classList.remove("long");
+    buttons.forEach(b => b.setAttribute("aria-pressed", "false"));
+  }
+  function show(b) {
+    const k = b.dataset.k, opts = A[k];
+    clear();
+    b.setAttribute("aria-pressed", "true");
+    const q = document.createElement("p");
+    q.className = "q";
+    q.textContent = b.textContent + (NOTE[k] ? ", " + NOTE[k] : "");
+    const ul = document.createElement("ul");
+    opts.forEach((o, j) => { const li = document.createElement("li"); li.textContent = o; li.style.setProperty("--j", j); ul.appendChild(li); });
+    reading.classList.toggle("long", opts.length > 8);
+    reading.append(q, ul);
+    reveal();
+  }
+  buttons.forEach(b => b.addEventListener("click", () => b.getAttribute("aria-pressed") === "true" ? clear() : show(b)));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") clear(); });
+})();
+</script>
 </body>
 </html>
