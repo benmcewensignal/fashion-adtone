@@ -6,7 +6,7 @@
 <title>Focal</title>
 <meta name="description" content="Fashion runs on hope. Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.">
 <meta property="og:title" content="Focal">
-<meta property="og:description" content="Fashion runs on hope. Focal measures the look.">
+<meta property="og:description" content="Fashion runs on hope. Focal measures the character of fashion brands.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%23d7261e' stroke-width='2'/%3E%3C/svg%3E">
@@ -118,13 +118,14 @@
 
   /* Brands: the new creative directors, folded away */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
-  .order li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
-  .order li::before { counter-increment: look; content: counter(look); font-family: var(--serif); font-size: 0.875rem; color: var(--graphite); font-variant-numeric: lining-nums; }
+  .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
   .order .h { font-family: var(--serif); font-size: 1.3125rem; line-height: 1.2; }
   .order .d { display: block; font-size: 0.8125rem; color: var(--graphite); }
   .order time { font-size: 0.8125rem; color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .order .pause { display: block; padding: 1rem 0 0.35rem; text-align: center; font-family: var(--serif); font-style: italic; color: var(--graphite); font-size: 1rem; }
-  .order .pause::before { content: none; }
+  .groups { list-style: none; margin: 0 0 2.5rem; padding: 0; }
+  .groups li { text-align: center; margin: 0 0 1.35rem; }
+  .groups .o { display: block; font-family: var(--serif); font-style: italic; color: var(--graphite); font-size: 1rem; }
+  .groups .b { display: block; font-family: var(--serif); font-size: 1.1875rem; line-height: 1.45; }
   .held { text-align: center; font-family: var(--serif); font-size: 1.1875rem; line-height: 1.5; margin: 0 0 1.25rem; }
 
   /* Method */
@@ -170,10 +171,10 @@
     <h1 class="mark"><a href="#/overview">Focal</a></h1>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#/sources">Sources</a></li>
         <li><a href="#/readings">Readings</a></li>
-        <li><a href="#/brands">Brands</a></li>
         <li><a href="#/people">People</a></li>
+        <li><a href="#/brands">Brands</a></li>
+        <li><a href="#/sources">Sources</a></li>
         <li><a href="#/offer">Offer</a></li>
         <li><a href="#/status">Status</a></li>
       </ul>
@@ -186,31 +187,18 @@
       <p class="lede">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
     </section>
 
-    <section id="sources" data-panel aria-labelledby="sources-h" class="wide">
-      <h2 id="sources-h">What it reads</h2>
-      <ul class="src">
-        <li><span class="h">Advertising</span><span class="d">Every ad a brand runs on Meta's platforms in Europe and Britain, read image by image.</span><span class="s">From when Meta grants access</span></li>
-        <li><span class="h">Campaign archive</span><span class="d">Past campaigns, so a brand's image today can be set against its own history.</span><span class="s">Back to the earliest campaigns on record</span></li>
-        <li><span class="h">Shows</span><span class="d">Every show, dated and sourced, with what the brand said about it.</span><span class="s">Each season</span></li>
-        <li><span class="h">Credits</span><span class="d">Who photographed, styled and filmed each campaign.</span><span class="s">Each campaign</span></li>
-        <li><span class="h">Attention</span><span class="d">Daily Wikipedia page views for every brand.</span><span class="s">Daily, from July 2015</span></li>
-        <li><span class="h">Press</span><span class="d">Daily news coverage of every brand, and its tone.</span><span class="s">Daily, from 2017</span></li>
-        <li><span class="h">Desire</span><span class="d">The Lyst Index, under the method it adopted in 2026.</span><span class="s">Quarterly</span></li>
-        <li><span class="h">Revenue</span><span class="d">The seven brands whose revenue is reported separately.</span><span class="s">Quarterly</span></li>
-      </ul>
-    </section>
-
     <section id="readings" data-panel aria-labelledby="readings-h" class="wide">
       <h2 id="readings-h">What it shows</h2>
+      <p class="block" style="text-align:center">Four readings for every brand, every month.</p>
       <div class="triad duo">
-        <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its advertising, from light and setting to mood, and the cast of people who make it.</p></div>
-        <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image moves from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
-        <div><h3>Alignment</h3><p class="q">Does the advertising say what the brand said at the show?</p><p>Question by question, beside the same check for its peers.</p></div>
-        <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>Attention, desire and revenue beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
+        <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood, and the cast of people who make it.</p></div>
+        <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image has moved from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
+        <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>The attention, desire and revenue that follow, beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
+        <div><h3>Alignment</h3><p class="q">Does the image say what the brand says?</p><p>Its advertising set against its show notes and campaign statements, question by question, beside the same check for its peers.</p></div>
       </div>
       <div class="narrow">
-        <p>Each image is read against eighteen fixed questions, from light and setting to mood, and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
-        <p class="note">It sees paid advertising on Meta's platforms in Europe and Britain, not print. Contribution builds with the record: each month adds attention, each quarter adds desire and revenue.</p>
+        <p>Each image is read against eighteen fixed questions and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
+        <p class="note">Current advertising comes from Meta's platforms in Europe and Britain, past campaigns from public archives. Contribution firms up as the record grows: each month adds attention, each quarter adds desire and revenue.</p>
         <details>
           <summary>The eighteen questions</summary>
           <dl class="pairs">
@@ -237,90 +225,128 @@
       </div>
     </section>
 
+    <section id="people" data-panel aria-labelledby="people-h" class="wide">
+      <h2 id="people-h">Who makes the image</h2>
+      <div class="narrow">
+        <p class="block" style="text-align:center">A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal reads the cast as part of the brand's character.</p>
+      </div>
+      <div class="triad duo">
+        <div><h3>Continuity</h3><p>How long a brand keeps the same image-makers.</p></div>
+        <div><h3>Concentration</h3><p>How much of its image comes from one or two hands.</p></div>
+        <div><h3>Overlap</h3><p>How many of its image-makers also work for its peers, which pulls looks together.</p></div>
+        <div><h3>Movement</h3><p>Who arrives and leaves with a designer, and what changes with them.</p></div>
+      </div>
+      <div class="narrow">
+        <p class="sub" style="margin-top:3rem">Shared hands</p>
+        <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for seven of the twenty-eight.</p>
+        <details>
+          <summary>Ten photographers, sixteen brands</summary>
+          <dl class="pairs">
+            <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
+            <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
+            <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
+            <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
+            <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
+            <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
+            <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+            <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
+            <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
+            <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
+          </dl>
+          <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
+        </details>
+        <p class="sub" style="margin-top:2.75rem">When people move</p>
+        <div class="people">
+          <div class="person">
+            <p class="n">Matthieu Blazy</p>
+            <p class="w">Bottega Veneta, then Chanel</p>
+            <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
+          </div>
+          <div class="person">
+            <p class="n">Jonathan Anderson</p>
+            <p class="w">Loewe, then Dior</p>
+            <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
+          </div>
+          <div class="person">
+            <p class="n">Demna</p>
+            <p class="w">Balenciaga, then Gucci</p>
+            <p class="c">Credited as photographer himself, at both.</p>
+          </div>
+        </div>
+        <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file.</p>
+      </div>
+    </section>
+
     <section id="brands" data-panel aria-labelledby="brands-h">
       <h2 id="brands-h">Twenty-eight brands</h2>
-      <p class="held">Alaïa, Balenciaga, Bottega Veneta, Brunello Cucinelli, Burberry, Celine, Chanel, Chloé, Dior, Dolce&amp;Gabbana, Dries Van Noten, Fendi, Givenchy, Gucci, Hermès, Jil Sander, Loewe, Loro Piana, Louis Vuitton, Maison Margiela, Max Mara, Miu Miu, Prada, Saint Laurent, Tom Ford, Valentino, Versace, Zegna</p>
-      <p class="block" style="text-align:center">Each is read every month, against the other twenty-seven.</p>
-      <details>
-        <summary>Fourteen new creative directors since 2025</summary>
+      <p class="block" style="text-align:center">Each is read every month, against the other twenty-seven. Here they are by owner.</p>
+      <ul class="groups">
+        <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro Piana, Louis Vuitton</span></li>
+        <li><span class="o">Kering</span><span class="b">Balenciaga, Bottega Veneta, Gucci, Saint Laurent</span></li>
+        <li><span class="o">Prada Group</span><span class="b">Miu Miu, Prada, Versace</span></li>
+        <li><span class="o">OTB</span><span class="b">Jil Sander, Maison Margiela</span></li>
+        <li><span class="o">Richemont</span><span class="b">Alaïa, Chloé</span></li>
+        <li><span class="o">Zegna Group</span><span class="b">Tom Ford, Zegna</span></li>
+        <li><span class="o">Mayhoola and Kering</span><span class="b">Valentino</span></li>
+        <li><span class="o">Puig</span><span class="b">Dries Van Noten</span></li>
+        <li><span class="o">Independent</span><span class="b">Brunello Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max Mara</span></li>
+      </ul>
+      <p class="note" style="text-align:center">Zegna runs Tom Ford's fashion under licence from Estée Lauder.</p>
+      <details style="margin-top:2.5rem">
+        <summary>Fourteen with new creative directors since 2025</summary>
         <ol class="order">
-          <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">6 July 2025</time></li>
-          <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">9 July 2025</time></li>
-          <li class="pause" aria-hidden="true">Then seven debuts in fourteen days</li>
-          <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">23 September</time></li>
-          <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">24 September</time></li>
-          <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">28 September</time></li>
-          <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">1 October</time></li>
-          <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">3 October</time></li>
-          <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">4 October</time></li>
-          <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">6 October 2025</time></li>
-          <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">25 February 2026</time></li>
+          <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">July 2025</time></li>
+          <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">July 2025</time></li>
+          <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">September 2025</time></li>
+          <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">September 2025</time></li>
+          <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">September 2025</time></li>
+          <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">October 2025</time></li>
+          <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">October 2025</time></li>
+          <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">October 2025</time></li>
+          <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">October 2025</time></li>
+          <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">February 2026</time></li>
         </ol>
-        <p class="note" style="text-align:center">Dates are first shows. Versace showed one season by Dario Vitale, then Pieter Mulier's first collection. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025.</p>
+        <p class="note" style="text-align:center">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale, then Pieter Mulier's first collection.</p>
       </details>
     </section>
 
-    <section id="people" data-panel aria-labelledby="people-h">
-      <h2 id="people-h">Who makes the image</h2>
-      <p class="block" style="text-align:center">A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal records who made each campaign, so a brand's character is read with the people behind it.</p>
-      <p class="sub">Shared hands</p>
-      <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for seven of the twenty-eight.</p>
-      <details>
-        <summary>Ten photographers, sixteen brands</summary>
-        <dl class="pairs">
-          <div><dt>David Sims</dt><dd>Balenciaga, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
-          <div><dt>Steven Meisel</dt><dd>Fendi, Louis Vuitton, Miu Miu, Prada</dd></div>
-          <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
-          <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
-          <div><dt>Sam Rock</dt><dd>Burberry, Gucci, Loro Piana</dd></div>
-          <div><dt>Alec Soth</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
-          <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
-          <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
-          <div><dt>Zoë Ghertner</dt><dd>Celine, Miu Miu</dd></div>
-        </dl>
-        <p class="note">Hermès and Maison Margiela stand apart. Credits from public pages, compiled 6 October 2026.</p>
-      </details>
-      <p class="sub" style="margin-top:2.75rem">When people move</p>
-      <div class="people">
-        <div class="person">
-          <p class="n">Matthieu Blazy</p>
-          <p class="w">Bottega Veneta, then Chanel</p>
-          <p class="c">With him: Alec Soth and Louise and Maria Thornfeldt, photographers; Rahim Fortune, films.</p>
-        </div>
-        <div class="person">
-          <p class="n">Jonathan Anderson</p>
-          <p class="w">Loewe, then Dior</p>
-          <p class="c">With him: David Sims, photographer; Benjamin Bruno, stylist; Benoît Delhomme, cinematographer; Poppy Bartlett, set designer.</p>
-        </div>
-        <div class="person">
-          <p class="n">Demna</p>
-          <p class="w">Balenciaga, then Gucci</p>
-          <p class="c">Credited as photographer himself, at both.</p>
-        </div>
-      </div>
-      <p class="block" style="text-align:center">Maria Grazia Chiuri's move from Dior to Fendi carried nobody on file.</p>
+    <section id="sources" data-panel aria-labelledby="sources-h" class="wide">
+      <h2 id="sources-h">What it reads</h2>
+      <p class="sub">For character</p>
+      <ul class="src" style="margin-bottom:3.25rem">
+        <li><span class="h">Advertising</span><span class="d">Every ad a brand runs on Meta's platforms in Europe and Britain, read image by image.</span><span class="s">As it runs</span></li>
+        <li><span class="h">Campaign archive</span><span class="d">Past campaigns from public archives, so today's image can be set against the brand's history.</span><span class="s">Back through each brand's history</span></li>
+        <li><span class="h">Shows</span><span class="d">Every show, dated and sourced, with what the brand said about it.</span><span class="s">Each season</span></li>
+        <li><span class="h">Credits</span><span class="d">Who photographed, styled and filmed each campaign.</span><span class="s">Each campaign</span></li>
+      </ul>
+      <p class="sub">For success</p>
+      <ul class="src">
+        <li><span class="h">Attention</span><span class="d">Wikipedia page views for every brand.</span><span class="s">Daily, from July 2015</span></li>
+        <li><span class="h">Press</span><span class="d">News coverage of every brand, and its tone.</span><span class="s">Daily, from 2017</span></li>
+        <li><span class="h">Desire</span><span class="d">The Lyst Index, under the method it adopted in 2026.</span><span class="s">Quarterly, from 2026</span></li>
+        <li><span class="h">Revenue</span><span class="d">Wherever a brand's revenue is reported on its own.</span><span class="s">Quarterly or yearly</span></li>
+      </ul>
     </section>
 
     <section id="offer" data-panel aria-labelledby="offer-h" class="wide">
       <h2 id="offer-h">What we offer</h2>
       <div class="triad duo">
         <div>
-          <h3>Alignment check</h3>
-          <p class="q">Does the advertising say what the brand says?</p>
-          <p>Show notes and campaign statements are read into the same eighteen questions as the ads. The check reports, question by question, where the advertising carries the stated intent and where it parts from it, set beside the same check for the brand's peers.</p>
-          <span class="when">Per brand, per season</span>
+          <h3>Brand reading</h3>
+          <p class="q">How is each brand doing?</p>
+          <p>The four readings for every brand: its character and the cast behind it, how it shifted, what it added to attention, desire and revenue, and where it parts from what the brand says. Each comes with its uncertainty.</p>
+          <span class="when">Monthly</span>
         </div>
         <div>
-          <h3>Insights</h3>
-          <p class="q">How is each brand doing?</p>
-          <p>A monthly reading of every brand: its character and how it shifted, where it sits among its peers, who is making its image, and how its attention, desire and revenue moved alongside. Each reading comes with its uncertainty.</p>
-          <span class="when">Monthly</span>
+          <h3>Alignment check</h3>
+          <p class="q">Does the advertising say what the brand says?</p>
+          <p>Show notes and campaign statements read into the same eighteen questions as the ads, reported question by question, beside the same check for the brand's peers.</p>
+          <span class="when">Per brand, per season</span>
         </div>
       </div>
       <div class="narrow">
         <div class="for"><p class="sub">For brands</p><p>How the brand's character reads today, which way it is moving, and what it adds to attention and demand, beside its peers.</p></div>
-        <div class="for"><p class="sub">For investors</p><p>Whether a brand's image is strengthening or drifting, on a dated record, before results are reported.</p></div>
+        <div class="for"><p class="sub">For investors</p><p>Whether a brand's image is strengthening or drifting, brand by brand and group by group, on a dated record before results are reported.</p></div>
         <p class="note" style="text-align:center">Neither is a sales forecast. Both start once the advertising is collected.</p>
       </div>
     </section>
@@ -328,14 +354,16 @@
     <section id="status" data-panel aria-labelledby="status-h">
       <h2 id="status-h">Where it stands</h2>
       <ul class="status">
-        <li><span class="t">Attention</span>Page views for all 28 brands, daily to 5 October 2026, 22 of them back to July 2015.</li>
+        <li><span class="t">Advertising</span>Waiting on Meta's access.</li>
+        <li><span class="t">Campaign archive</span>422 Chanel and Dior campaigns listed, images still to come.</li>
         <li><span class="t">Shows</span>35 dated, from September 2025 to October 2026.</li>
         <li><span class="t">Credits</span>Compiled for eighteen brands.</li>
-        <li><span class="t">Desire</span>The Lyst top 20 for the first two quarters of 2026.</li>
+        <li><span class="t">Attention</span>All 28 brands, daily to 5 October 2026, 22 of them back to July 2015.</li>
         <li><span class="t">Press</span>Nine brands so far, from early 2017, filling week by week.</li>
-        <li><span class="t">Campaign archive</span>422 Chanel and Dior campaigns listed, images still to come.</li>
-        <li><span class="t">Advertising</span>Waiting on Meta's access. The first alignment checks and monthly readings follow it.</li>
+        <li><span class="t">Desire</span>The Lyst top 20 for the first two quarters of 2026.</li>
+        <li><span class="t">Revenue</span>Being compiled.</li>
       </ul>
+      <p class="note" style="text-align:center">The first monthly readings follow the advertising.</p>
     </section>
   </main>
 
