@@ -57,8 +57,9 @@ MAX_ATTEMPTS = 3        # captures tried for a month before it is left: the arch
 NO_IMAGE_ATTEMPTS = 2   # captures holding no picture: the archive did not keep the page's pictures
 TRIES_PER_RUN = 2       # a month whose capture fails is tried on its next capture in the same run
 IMAGE_CANDIDATES = 10
-CHUNK = 12              # months fetched together; the reader is called once per batch of images
-BATCH = 16
+CHUNK = 12              # months fetched together
+BATCH = 16              # images per reader call
+READ_EVERY = 64         # images queued before the reader is called, in back-to-back batches
 WORKERS = 5
 REWRITE = re.compile(r"(?:https?:)?(?://web\.archive\.org)?/web/\d{1,14}(?:[a-z]{2}_)?/(?=https?://|//)")
 WRAPPED = re.compile(r"^https://web\.archive\.org/web/\d{1,14}(?:[a-z]{2}_)?/")
@@ -361,14 +362,15 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
     stopped = None
     finished_chunks = 0
 
-    def finish(futs) -> None:
-        """Fingerprint and read the chunk's new images, then file its months. If the reader fails this
-        raises before anything from the chunk is filed, so those months are read again next run."""
-        nonlocal new_obs, finished_chunks
-        results = [f.result() for f in futs]
-        pending: list[tuple[object, dict]] = []
-        queued: set[str] = set()
-        for row, images in results:
+    held: list[dict] = []                         # months fetched, waiting for their new images to be read
+    pending: list[tuple[object, dict]] = []      # new images to read, in arrival order; only these stay in memory
+    queued: set[str] = set()
+
+    def take(futs) -> None:
+        """Fingerprint a chunk's images as they arrive, keep the new ones for the reader and let the rest go."""
+        for row, images in (f.result() for f in futs):
+            if images:
+                row["images"] = [{"sha": f.sha, "phash": f.phash, "w": f.w, "h": f.h} for f in images]
             for f in images:
                 counts["images"] += 1
                 if f.sha not in vectors:
@@ -379,6 +381,15 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
                     pending.append((f, {"sha": f.sha, "instrument": scorer.instrument,
                                         "rubric_version": scorer.rubric.version, "run_id": rid,
                                         "house_id": row["house_id"], "month": row["month"]}))
+                else:
+                    f.image.close()
+            held.append(row)
+
+    def flush() -> None:
+        """Read every queued image in back-to-back batches, then file the months waiting on them. The reader
+        is called in bursts rather than a trickle, so its GPU is not kept warm between slow fetches. If the
+        reader fails this raises before any held month is filed, so those months are read again next run."""
+        nonlocal new_obs, finished_chunks
         obs = []
         for i in range(0, len(pending), BATCH):
             part = pending[i:i + BATCH]
@@ -395,9 +406,9 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
                 obs.append(ob)
         scored.update((sha, scorer.instrument) for sha in queued)
         new_obs += obs
-        for row, images in results:
-            if images:
-                row["images"] = [{"sha": f.sha, "phash": f.phash, "w": f.w, "h": f.h} for f in images]
+        for f, _ in pending:
+            f.image.close()
+        for row in held:
             if row["status"] == "resolved" and row.get("attempts", 1) > 1:
                 counts["later_capture"] += 1
             if row.get("via"):
@@ -405,14 +416,19 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
             counts[row["status"]] += 1
             counts["captures"] += 1
             table.upsert(row, shard=row["house_id"])
-            for f in images:
-                f.image.close()
+        held.clear()
+        pending.clear()
+        queued.clear()
         finished_chunks += 1
-        if finished_chunks % 4 == 0:   # a run cut off by its job timeout keeps most of its work
-            table.save()
-            store.append_jsonl(obs_path, new_obs)
-            new_obs = []
-            vectors.save()
+        table.save()                       # a run cut off by its job timeout keeps what was read
+        store.append_jsonl(obs_path, new_obs)
+        new_obs = []
+        vectors.save()
+
+    def finish(futs) -> None:
+        take(futs)
+        if len(pending) >= READ_EVERY:
+            flush()
 
     chunks = [todo[i:i + CHUNK] for i in range(0, len(todo), CHUNK)]
     with ThreadPoolExecutor(max_workers=max(1, workers)) as ex:
@@ -435,6 +451,11 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
         if in_flight is not None:
             try:
                 finish(in_flight)
+            except ScoreError as e:
+                stopped = f"reader: {str(e)[:200]}"
+        if held and not (stopped or "").startswith("reader"):
+            try:
+                flush()
             except ScoreError as e:
                 stopped = f"reader: {str(e)[:200]}"
     table.save()

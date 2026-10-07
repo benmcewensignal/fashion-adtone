@@ -48,7 +48,7 @@ def pin(model: str = MODEL, revision: str = "main") -> dict:
     return {"model": model, "revision": sha}
 
 
-@app.cls(image=image, gpu=GPU, volumes={"/weights": weights}, timeout=1800, scaledown_window=120, max_containers=1)
+@app.cls(image=image, gpu=GPU, volumes={"/weights": weights}, timeout=1800, scaledown_window=45, max_containers=1)
 class Reader:
     @modal.enter()
     def load(self):
