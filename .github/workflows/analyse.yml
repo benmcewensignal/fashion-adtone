@@ -1,5 +1,5 @@
 name: analyse
-run-name: analyse ${{ inputs.mode || 'weekly' }}
+run-name: analyse ${{ inputs.mode || github.event_name }}
 on:
   schedule:
     - cron: "30 6 * * 2"
@@ -9,6 +9,9 @@ on:
         type: choice
         default: analyse
         options: [analyse, agreement-sample]
+  push:   # editing .github/kick/analyse starts a weekly-style run
+    branches: [main]
+    paths: [".github/kick/analyse"]
 
 permissions:
   contents: write
@@ -61,6 +64,11 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 20
         run: python -m adtone.runway
+      - name: Character from the homepages (exploratory)
+        if: env.MODE == 'analyse'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python -m adtone.character
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5

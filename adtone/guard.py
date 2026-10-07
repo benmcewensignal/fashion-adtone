@@ -35,6 +35,7 @@ ALLOW = {
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
+                "data/results/character.json",
                 "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }
