@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T18:57:07Z",
+ "generated_at": "2026-10-07T20:26:17Z",
  "source": "homepages",
  "status": "exploratory: descriptive readings, not in the pre-registration",
  "images": 3153,
@@ -63436,8 +63436,8 @@
      "zegna"
     ],
     "own_answers_score": 0.401,
-    "controls_answers_score": 0.865,
-    "controls_answers_above": 0.8,
+    "controls_answers_score": 0.826,
+    "controls_answers_above": 0.75,
     "own_print_score": 1.692,
     "controls_print_score": 1.001,
     "controls_print_above": 0.0
@@ -63752,8 +63752,8 @@
      "zegna"
     ],
     "own_answers_score": 1.002,
-    "controls_answers_score": 0.876,
-    "controls_answers_above": 0.4,
+    "controls_answers_score": 0.657,
+    "controls_answers_above": 0.25,
     "own_print_score": 1.125,
     "controls_print_score": 0.983,
     "controls_print_above": 0.4
@@ -64073,8 +64073,8 @@
      "zegna"
     ],
     "own_answers_score": 0.973,
-    "controls_answers_score": 0.772,
-    "controls_answers_above": 0.4,
+    "controls_answers_score": 0.605,
+    "controls_answers_above": 0.25,
     "own_print_score": 1.233,
     "controls_print_score": 0.996,
     "controls_print_above": 0.2
@@ -64394,8 +64394,8 @@
      "zegna"
     ],
     "own_answers_score": 0.188,
-    "controls_answers_score": 0.719,
-    "controls_answers_above": 0.8,
+    "controls_answers_score": 0.564,
+    "controls_answers_above": 0.75,
     "own_print_score": 0.597,
     "controls_print_score": 0.935,
     "controls_print_above": 1.0
@@ -64715,8 +64715,8 @@
      "zegna"
     ],
     "own_answers_score": 0.414,
-    "controls_answers_score": 0.758,
-    "controls_answers_above": 0.8,
+    "controls_answers_score": 0.621,
+    "controls_answers_above": 0.75,
     "own_print_score": 1.045,
     "controls_print_score": 1.034,
     "controls_print_above": 0.4
@@ -65046,8 +65046,8 @@
      "zegna"
     ],
     "own_answers_score": 0.8,
-    "controls_answers_score": 0.915,
-    "controls_answers_above": 0.6,
+    "controls_answers_score": 0.698,
+    "controls_answers_above": 0.5,
     "own_print_score": 0.832,
     "controls_print_score": 0.977,
     "controls_print_above": 1.0
@@ -65362,8 +65362,8 @@
      "zegna"
     ],
     "own_answers_score": 0.879,
-    "controls_answers_score": 1.04,
-    "controls_answers_above": 0.6,
+    "controls_answers_score": 0.765,
+    "controls_answers_above": 0.5,
     "own_print_score": 0.853,
     "controls_print_score": 0.992,
     "controls_print_above": 1.0
@@ -65412,9 +65412,13 @@
   "summary": {
    "events": 53,
    "tested": 17,
-   "answers_ratio_to_controls": 0.978,
-   "answers_above_controls": 8,
-   "answers_p": 0.56,
+   "unjudged": {
+    "answers": 0,
+    "print": 0
+   },
+   "answers_ratio_to_controls": 1.074,
+   "answers_above_controls": 10,
+   "answers_p": 0.341,
    "print_ratio_to_controls": 1.041,
    "print_above_controls": 9,
    "print_p": 0.343
@@ -66692,9 +66696,7 @@
      "saint_laurent",
      "zegna"
     ],
-    "own_answers_score": 99.0,
-    "controls_answers_score": 0.382,
-    "controls_answers_above": 0.0,
+    "answers_unjudged": true,
     "own_print_score": 2.405,
     "controls_print_score": 0.603,
     "controls_print_above": 0.0
@@ -69170,8 +69172,8 @@
      "zegna"
     ],
     "own_answers_score": 0.32,
-    "controls_answers_score": 0.457,
-    "controls_answers_above": 0.667,
+    "controls_answers_score": 0.4,
+    "controls_answers_above": 0.6,
     "own_print_score": 0.974,
     "controls_print_score": 1.004,
     "controls_print_above": 0.5
@@ -70780,8 +70782,8 @@
      "zegna"
     ],
     "own_answers_score": 0.991,
-    "controls_answers_score": 0.92,
-    "controls_answers_above": 0.4,
+    "controls_answers_score": 0.666,
+    "controls_answers_above": 0.25,
     "own_print_score": 1.444,
     "controls_print_score": 1.015,
     "controls_print_above": 0.0
@@ -71101,8 +71103,8 @@
      "zegna"
     ],
     "own_answers_score": 0.281,
-    "controls_answers_score": 0.906,
-    "controls_answers_above": 0.8,
+    "controls_answers_score": 0.673,
+    "controls_answers_above": 0.75,
     "own_print_score": 0.938,
     "controls_print_score": 0.937,
     "controls_print_above": 0.4
@@ -71500,12 +71502,16 @@
   "summary": {
    "events": 53,
    "tested": 17,
-   "answers_ratio_to_controls": 1.39,
-   "answers_above_controls": 9,
-   "answers_p": 0.242,
+   "unjudged": {
+    "answers": 1,
+    "print": 0
+   },
+   "answers_ratio_to_controls": 1.051,
+   "answers_above_controls": 8,
+   "answers_p": 0.423,
    "print_ratio_to_controls": 1.041,
    "print_above_controls": 7,
-   "print_p": 0.402
+   "print_p": 0.387
   }
  },
  "success": {
@@ -71588,121 +71594,121 @@
    "pairs": 64,
    "brands": 21,
    "spearman": 0.13,
-   "p_two_sided": 0.366
+   "p_two_sided": 0.361
   },
   "attention_vs_next_like_for_like_shift_answers": {
    "pairs": 87,
    "brands": 21,
    "spearman": -0.135,
-   "p_two_sided": 0.267
+   "p_two_sided": 0.268
   },
   "like_for_like_shift_print_vs_next_attention": {
    "pairs": 64,
    "brands": 21,
    "spearman": 0.138,
-   "p_two_sided": 0.395
+   "p_two_sided": 0.396
   },
   "attention_vs_next_like_for_like_shift_print": {
    "pairs": 87,
    "brands": 21,
    "spearman": 0.049,
-   "p_two_sided": 0.712
+   "p_two_sided": 0.701
   },
   "against_market_shift_answers_vs_next_attention": {
    "pairs": 70,
    "brands": 22,
    "spearman": 0.148,
-   "p_two_sided": 0.283
+   "p_two_sided": 0.287
   },
   "attention_vs_next_against_market_shift_answers": {
    "pairs": 96,
    "brands": 22,
    "spearman": -0.034,
-   "p_two_sided": 0.765
+   "p_two_sided": 0.761
   },
   "against_market_shift_print_vs_next_attention": {
    "pairs": 70,
    "brands": 22,
    "spearman": 0.057,
-   "p_two_sided": 0.683
+   "p_two_sided": 0.688
   },
   "attention_vs_next_against_market_shift_print": {
    "pairs": 96,
    "brands": 22,
    "spearman": 0.068,
-   "p_two_sided": 0.571
+   "p_two_sided": 0.574
   },
   "distinct_vs_next_attention": {
    "pairs": 112,
    "brands": 27,
    "spearman": -0.029,
-   "p_two_sided": 0.769
+   "p_two_sided": 0.765
   },
   "like_for_like_shift_answers_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": -0.309,
-   "p_two_sided": 0.314
+   "p_two_sided": 0.306
   },
   "revenue_vs_next_like_for_like_shift_answers": {
    "pairs": 26,
    "brands": 8,
    "spearman": 0.1,
-   "p_two_sided": 0.617
+   "p_two_sided": 0.608
   },
   "like_for_like_shift_print_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": 0.154,
-   "p_two_sided": 0.6
+   "p_two_sided": 0.609
   },
   "revenue_vs_next_like_for_like_shift_print": {
    "pairs": 26,
    "brands": 8,
    "spearman": 0.084,
-   "p_two_sided": 0.7
+   "p_two_sided": 0.703
   },
   "against_market_shift_answers_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": -0.065,
-   "p_two_sided": 0.86
+   "p_two_sided": 0.859
   },
   "revenue_vs_next_against_market_shift_answers": {
    "pairs": 26,
    "brands": 8,
    "spearman": 0.231,
-   "p_two_sided": 0.299
+   "p_two_sided": 0.303
   },
   "against_market_shift_print_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": 0.152,
-   "p_two_sided": 0.59
+   "p_two_sided": 0.593
   },
   "revenue_vs_next_against_market_shift_print": {
    "pairs": 26,
    "brands": 8,
    "spearman": 0.11,
-   "p_two_sided": 0.576
+   "p_two_sided": 0.59
   },
   "distinct_vs_next_revenue": {
    "pairs": 31,
    "brands": 11,
    "spearman": 0.233,
-   "p_two_sided": 0.326
+   "p_two_sided": 0.325
   },
   "like_for_like_shift_answers_vs_next_steady_attention": {
    "pairs": 67,
    "brands": 21,
    "spearman": 0.11,
-   "p_two_sided": 0.508
+   "p_two_sided": 0.494
   },
   "steady_attention_vs_next_like_for_like_shift_answers": {
    "pairs": 92,
    "brands": 21,
    "spearman": -0.064,
-   "p_two_sided": 0.595
+   "p_two_sided": 0.583
   },
   "like_for_like_shift_print_vs_next_steady_attention": {
    "pairs": 67,
@@ -71714,37 +71720,37 @@
    "pairs": 92,
    "brands": 21,
    "spearman": 0.142,
-   "p_two_sided": 0.236
+   "p_two_sided": 0.241
   },
   "against_market_shift_answers_vs_next_steady_attention": {
    "pairs": 73,
    "brands": 22,
    "spearman": 0.036,
-   "p_two_sided": 0.805
+   "p_two_sided": 0.802
   },
   "steady_attention_vs_next_against_market_shift_answers": {
    "pairs": 101,
    "brands": 22,
    "spearman": 0.058,
-   "p_two_sided": 0.619
+   "p_two_sided": 0.622
   },
   "against_market_shift_print_vs_next_steady_attention": {
    "pairs": 73,
    "brands": 22,
    "spearman": -0.009,
-   "p_two_sided": 0.95
+   "p_two_sided": 0.949
   },
   "steady_attention_vs_next_against_market_shift_print": {
    "pairs": 101,
    "brands": 22,
    "spearman": 0.112,
-   "p_two_sided": 0.35
+   "p_two_sided": 0.351
   },
   "distinct_vs_next_steady_attention": {
    "pairs": 118,
    "brands": 28,
    "spearman": -0.09,
-   "p_two_sided": 0.38
+   "p_two_sided": 0.393
   }
  },
  "moment": {
@@ -71822,7 +71828,7 @@
   ],
   "transitions": 7,
   "towards_leader_less_any_brand": 0.0024,
-  "p_one_sided": 0.762,
+  "p_one_sided": 0.738,
   "rule": "the leader is the brand whose attention rose most on a year before, net of the market; a negative difference means brands moved towards the leader more than towards a brand drawn at random; p is the share of random leaders with a difference as negative"
  },
  "moment_steady": {
@@ -71900,7 +71906,7 @@
   ],
   "transitions": 7,
   "towards_leader_less_any_brand": 0.002,
-  "p_one_sided": 0.691,
+  "p_one_sided": 0.707,
   "rule": "the leader is the brand whose attention rose most on a year before, net of the market; a negative difference means brands moved towards the leader more than towards a brand drawn at random; p is the share of random leaders with a difference as negative"
  }
 }
