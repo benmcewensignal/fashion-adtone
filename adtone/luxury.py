@@ -379,6 +379,76 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
 READINGS = ("clip", "positions", "pixels", "csd", "dino", "fashion")
 
 
+def within_brands(images: list[dict], keys: list[str], min_per_brand: int = 12) -> dict:
+    """Is a brand's character a point or a range? For each measure (in standard units): the share of all
+    variation that lies between brands, and how the rest, inside brands, divides: by the kind of picture
+    (campaign, product on a model, packshot), by half-year, by the creative director's era, and what is
+    left; and how much of the inside is no more than the noise between two crops of one picture. Each
+    picture counted once, where it was first shown."""
+    from . import readings
+    uniq = readings.once([i for i in images if i["vec"] is not None])
+    by: dict[str, list] = defaultdict(list)
+    for im in uniq:
+        by[im["house"]].append(im)
+    by = {h: ims for h, ims in by.items() if len(ims) >= min_per_brand}
+    pics = [im for ims in by.values() for im in ims]
+    if len(by) < 3:
+        return {"brands": len(by), "note": "too few brands with enough pictures"}
+    X = np.vstack([np.asarray(im["vec"], float) for im in pics])
+    house = np.array([im["house"] for im in pics])
+    events = defaultdict(list)
+    for e in readings.designer_events():
+        events[e["house"]].append(e["date"][:7])
+    era = np.array([f'{im["house"]}:{sum(d <= im["month"] for d in events.get(im["house"], []))}' for im in pics])
+    kind = np.array([f'{im["house"]}:{im["type"]}' for im in pics])
+    half = np.array([f'{im["house"]}:{im["period"]}' for im in pics])
+    crops = readings.duplicate_pairs(readings.once([i for i in images if i["vec"] is not None], lambda m: m))
+    idx = {(im["house"], im["sha"]): n for n, im in enumerate(pics)}
+    pairs = [(idx[(a["house"], a["sha"])], idx[(b["house"], b["sha"])]) for a, b in crops
+             if (a["house"], a["sha"]) in idx and (b["house"], b["sha"]) in idx]
+
+    n_brands = len(by)
+
+    def explained(v: np.ndarray, groups: np.ndarray) -> float:
+        """Share of v's variance (v centred within brand) explained by group means, less what as many
+        groups would explain by chance (epsilon squared): small groups explain something by luck alone."""
+        tot = float((v ** 2).sum())
+        if not tot:
+            return 0.0
+        levels = sorted(set(groups))
+        ssb = float(sum((groups == g).sum() * v[groups == g].mean() ** 2 for g in levels))
+        df_b = len(levels) - n_brands
+        df_w = len(v) - len(levels)
+        if df_b <= 0 or df_w <= 0:
+            return 0.0
+        msw = (tot - ssb) / df_w
+        return float(max(0.0, (ssb - df_b * msw) / tot))
+    out = {}
+    for j, k in enumerate(keys):
+        v = X[:, j] - X[:, j].mean()
+        tot = float((v ** 2).sum())
+        brand_mean = {h: v[house == h].mean() for h in by}
+        w = v - np.array([brand_mean[h] for h in house])        # inside brands
+        ssw = float((w ** 2).sum())
+        msw = ssw / max(1, len(v) - n_brands)
+        between = max(0.0, (tot - ssw - (n_brands - 1) * msw) / tot) if tot else 0.0      # net of chance
+        noise = float(np.mean([(X[a, j] - X[b, j]) ** 2 / 2 for a, b in pairs])) if len(pairs) >= 10 else None
+        inside_var = float((w ** 2).mean())
+        out[k] = {"between_brands": round(between, 3), "inside_brands": round(1 - between, 3),
+                  "inside_by_kind": round(explained(w, kind), 3), "inside_by_half_year": round(explained(w, half), 3),
+                  "inside_by_designer_era": round(explained(w, era), 3),
+                  "inside_that_is_crop_noise": None if noise is None or not inside_var else round(min(1.0, noise / inside_var), 3),
+                  "crop_pairs": len(pairs)}
+    spread = {h: round(float(np.sqrt(np.mean([((np.asarray(im["vec"], float) - X.mean(0)) ** 2).sum() for im in ims]))), 3)
+              for h, ims in by.items()}
+    return {"brands": len(by), "pictures": len(pics), "measures": out,
+            "spread_by_brand": dict(sorted(spread.items(), key=lambda kv: -kv[1])),
+            "note": "shares of variance; inside_by_* are shares of the variation inside brands, each on its own "
+                    "and net of what as many groups explain by chance (they overlap: a designer era is also a run of "
+                    "half-years); crop noise is half the mean squared difference between two crops of one picture, "
+                    "against the variation inside brands"}
+
+
 def _tone_of(name: str) -> dict[str, dict]:
     out = {}
     for r in store.read_jsonl(DIR / "readings" / f"{name}-tone.jsonl"):
@@ -437,6 +507,11 @@ def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
             continue
         t0 = time.monotonic()
         res = readings.run(ims, spec, reg, euclid=kind in ("positions", "pixels"))
+        if kind == "pixels":
+            res["within_brands"] = within_brands(ims, bakeoff.PIXEL_KEYS)
+        elif kind == "positions":
+            rows = store.read_jsonl(DIR / f"positions-{reader}.jsonl")
+            res["within_brands"] = within_brands(ims, sorted({k for r in rows for k in r if k != "sha"}))
         res["seconds"] = round(time.monotonic() - t0)
         out["readings"][kind] = res
     path = config.RESULTS_DIR / "luxury.json"

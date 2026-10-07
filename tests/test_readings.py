@@ -236,3 +236,33 @@ def test_crops_are_found_by_the_fingerprint_kept_apart():
     a = {"house": "a", "month": "2024-01", "sha": "x", "vec": np.array([1.0, 2.0]), "dup": c}
     b = {"house": "a", "month": "2024-01", "sha": "y", "vec": np.array([5.0, -3.0]), "dup": c}
     assert len(R.duplicate_pairs([a, b])) == 1
+
+
+def test_brands_moving_towards_the_brand_of_the_moment_are_found_and_still_brands_are_not():
+    rng = np.random.default_rng(11)
+    halves = [("2024", 1), ("2024", 7), ("2025", 1), ("2025", 7), ("2026", 1)]
+    centres = {f"b{k}": rng.normal(size=16) for k in range(8)}
+    leaders = {"2024H1": "b0", "2024H2": "b1", "2025H1": "b2", "2025H2": "b3", "2026H1": "b4"}
+    momentum = {h: {p: (1.0 if leaders.get(p) == h else 0.0) for p in leaders} for h in centres}
+
+    def world(follow):
+        cur = {h: c.copy() for h, c in centres.items()}
+        ims = []
+        for y, m0 in halves:
+            p = f"{y}H{1 if m0 == 1 else 2}"
+            for h, c in cur.items():
+                for m in range(m0, m0 + 6):
+                    month = f"{y}-{m:02d}"
+                    for i in range(2):
+                        v = c + rng.normal(scale=0.4, size=16)
+                        ims.append({"house": h, "month": month, "sha": f"{h}-{month}-{i}", "type": "campaign",
+                                    "period": period_of(month), "out": _out(), "vec": v / np.linalg.norm(v)})
+            if follow:      # everyone but the leader moves a third of the way towards it
+                lead = cur[leaders[p]].copy()
+                cur = {h: (c if h == leaders[p] else c + (lead - c) / 3) for h, c in cur.items()}
+        return ims
+    moved = R.moment(world(True), rng, momentum=momentum, n_perm=199)
+    still = R.moment(world(False), rng, momentum=momentum, n_perm=199)
+    assert moved["transitions"] == 4 and [r["leader"] for r in moved["half_years"]] == ["b0", "b1", "b2", "b3"]
+    assert moved["towards_leader_less_any_brand"] < 0 and moved["p_one_sided"] < 0.05
+    assert still["p_one_sided"] > 0.05

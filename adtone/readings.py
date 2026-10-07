@@ -1080,6 +1080,85 @@ def success(half_rows: dict[str, list[dict]], cross: dict, reg: registry.Registr
     return out
 
 
+# ---------- 7. the brand of the moment ----------
+
+def attention_momentum(houses: list[str]) -> dict[str, dict[str, float]]:
+    """How fast each brand's attention is rising: mean log daily views in a half-year against the same
+    half-year a year before (so the season cancels), net of the market's median rise that half-year."""
+    att = attention_halves(houses)
+    ch: dict[str, dict[str, float]] = defaultdict(dict)
+    for h, s in att.items():
+        for p, v in s.items():
+            prev = next((q for q in s if next_period(next_period(q)) == p), None)
+            if prev is not None:
+                ch[h][p] = v - s[prev]
+    by_p: dict[str, list] = defaultdict(list)
+    for s in ch.values():
+        for p, v in s.items():
+            by_p[p].append(v)
+    return {h: {p: v - float(np.median(by_p[p])) for p, v in s.items() if len(by_p[p]) >= 5} for h, s in ch.items()}
+
+
+def moment(images: list[dict], rng, momentum: dict[str, dict[str, float]] | None = None, min_pics: int = 4,
+           n_perm: int = N_PERM) -> dict:
+    """Do other brands' pictures move towards the brand of the moment? The brand of the moment in a half-year
+    is the one whose attention rose most against a year before, net of the market. For every other brand
+    with pictures in that half-year and the next, the change in its distance to the leader's pictures
+    (negative: it moved closer), beside the same change towards a brand drawn at random from those present,
+    which carries any general drift towards the middle. Campaign pictures and product on a model, once a
+    half-year."""
+    led = by_half([i for i in images if i["type"] in LED and i["vec"] is not None])
+    cell: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
+    for im in led:
+        cell[im["period"]][im["house"]].append(im)
+    houses = sorted({im["house"] for im in led})
+    mom = momentum if momentum is not None else attention_momentum(houses)
+    rows, draws = [], []
+    for p in sorted(cell):
+        q = next_period(p)
+        if q not in cell:
+            continue
+        here = {h for h, ims in cell[p].items() if len(ims) >= min_pics}
+        scored = {h: mom.get(h, {}).get(p) for h in here}
+        scored = {h: v for h, v in scored.items() if v is not None}
+        if len(scored) < 5:
+            continue
+        leader = max(scored, key=scored.get)
+        movers = sorted(h for h in here if h != leader and len(cell[q].get(h, [])) >= min_pics)
+        if len(movers) < 4:
+            continue
+        C = {h: _centroid(cell[p][h]) for h in here}
+        N = {h: _centroid(cell[q][h]) for h in movers}
+        toward = {h: _away(N[h], C[leader]) - _away(C[h], C[leader]) for h in movers}
+        # the same change towards every other brand present, for the null
+        others = {h: {g: _away(N[h], C[g]) - _away(C[h], C[g]) for g in here if g != h} for h in movers}
+        rows.append({"from": p, "to": q, "leader": leader, "leader_momentum": round(scored[leader], 3),
+                     "brands": len(movers), "mean_change": round(float(np.mean(list(toward.values()))), 4),
+                     "mean_change_any_brand": round(float(np.mean([v for d in others.values() for v in d.values()])), 4),
+                     "moved_closer": sum(v < 0 for v in toward.values())})
+        draws.append((here, movers, others, leader))
+    if not rows:
+        return {"half_years": [], "note": "too few half-years with attention and pictures on both sides"}
+    obs = float(np.mean([r["mean_change"] - r["mean_change_any_brand"] for r in rows]))
+    null = []
+    for _ in range(n_perm):
+        vals = []
+        for here, movers, others, leader in draws:
+            fake = rng.choice(sorted(here))
+            ch = [others[h][fake] for h in movers if h != fake]
+            base = np.mean([v for d in others.values() for v in d.values()])
+            if ch:
+                vals.append(float(np.mean(ch)) - float(base))
+        null.append(float(np.mean(vals)))
+    null = np.array(null)
+    return {"half_years": rows, "transitions": len(rows),
+            "towards_leader_less_any_brand": round(obs, 4),
+            "p_one_sided": round((1 + int((null <= obs + 1e-12).sum())) / (1 + n_perm), 4),
+            "rule": "the leader is the brand whose attention rose most on a year before, net of the market; a "
+                    "negative difference means brands moved towards the leader more than towards a brand drawn "
+                    "at random; p is the share of random leaders with a difference as negative"}
+
+
 # ---------- coverage and the run ----------
 
 def coverage(images: list[dict]) -> dict:
@@ -1124,7 +1203,7 @@ def _run(images: list[dict], spec: dict, reg: registry.Registry, seed: int) -> d
         "by_lag": by_lag(houses, ans, rng), "power": power(houses, half, ans, rng),
         "cross_brand": cross, "spread": spread(images, rng), "market": market(images, ans, rng),
         "events": event_study(houses, events, ans, rng), "crew_turnover": crew_turnover(),
-        "success": success(half, cross, reg, rng),
+        "success": success(half, cross, reg, rng), "moment": moment(images, rng),
     }
 
 

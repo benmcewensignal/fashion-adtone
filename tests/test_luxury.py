@@ -219,3 +219,19 @@ def test_the_standing_check_compares_the_two_readers_on_the_same_work(tmp_path, 
         n = v["comparisons"]
         assert v["both_decided"] == n and abs(v["agree"] - sum(i % 4 != 0 for i in range(n)) / n) < 1e-3
         assert v["open_reader_split"] == 0 and v["claude_split"] == 0
+
+
+def test_inside_brands_the_kind_of_picture_and_noise_are_told_apart():
+    rng = np.random.default_rng(4)
+    ims = []
+    for h in range(6):
+        base = rng.normal()
+        for m in range(1, 13):
+            month = f"2024-{m:02d}"
+            for i, kind in enumerate(("campaign", "on_model", "packshot")):
+                v = base + {"campaign": 1.0, "on_model": 0.0, "packshot": -1.0}[kind] + rng.normal(scale=0.3)
+                ims.append({"house": f"b{h}", "month": month, "sha": f"{h}-{m}-{i}", "type": kind,
+                            "period": "2024H1" if m <= 6 else "2024H2", "vec": np.array([v]), "dup": None})
+    r = L.within_brands(ims, ["x"])
+    x = r["measures"]["x"]
+    assert x["inside_by_kind"] > 0.8 and x["inside_by_half_year"] < 0.05 and x["inside_brands"] > 0.3
