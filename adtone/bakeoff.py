@@ -212,47 +212,62 @@ def _jpeg(img, edge: int, quality: int) -> bytes:
     return buf.getvalue()
 
 
-def fetch(s: dict | None = None, pause: float = 0.5, session=None) -> list[dict]:
+def fetch(s: dict | None = None, pause: float = 0.4, workers: int = 4, budget_min: float = 110,
+          session_factory=None) -> list[dict]:
     """Each sampled picture fetched again from the archived page where it was found: the page's picture
     addresses are read again, and a picture is kept when its bytes hash to the recorded sha. Kept: a
     copy for the readers (at most 896 pixels a side) and a thumbnail for the judging page, on the runner
-    only, and the pixel measures, which go into the repository."""
+    only, and the pixel measures, which go into the repository. Pictures found by an earlier run are not
+    fetched again; a few workers share the archive politely; past the time budget no new page is
+    started, and what was found is written whatever happens."""
+    import threading
     import requests
     from . import homepages, media
     s = s or json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
-    sess = session or requests.Session()
-    sess.headers.setdefault("User-Agent", media.UA)
+    prev_path = DIR / "pictures.jsonl"
+    prev = {r["sha"]: r for r in store.read_jsonl(prev_path)} if prev_path.exists() else {}
+    have = {sha for sha, r in prev.items() if r.get("found")}
     want: dict[tuple, set] = defaultdict(set)
     for p in s["pictures"]:
         page = p.get("page") or p.get("url")     # older capture rows kept only the address asked for
-        if p.get("capture") and page:
+        if p.get("capture") and page and p["sha"] not in have:
             want[(p["capture"], page)].add(p["sha"])
     (LOCAL / "read").mkdir(parents=True, exist_ok=True)
     (LOCAL / "thumb").mkdir(parents=True, exist_ok=True)
     found: dict[str, dict] = {}
+    deadline = time.monotonic() + budget_min * 60
+    local = threading.local()
+
+    def sess():
+        if not hasattr(local, "s"):
+            local.s = session_factory() if session_factory else requests.Session()
+            local.s.headers.setdefault("User-Agent", media.UA)
+        return local.s
 
     def get(url):
         for attempt in range(4):
             try:
-                r = sess.get(url, timeout=45)
+                r = sess().get(url, timeout=45)
             except requests.RequestException:
                 r = None
-            if r is not None and r.status_code == 200:
-                return r
-            if r is not None and r.status_code not in (429, 500, 502, 503, 504):
+            if r is not None and (r.status_code == 200 or r.status_code not in (429, 500, 502, 503, 504)):
                 return r
             time.sleep(min(60, 5 * 2 ** attempt))
         return None
 
-    for (ts, page), shas in sorted(want.items()):
+    def work(item):
+        (ts, page), shas = item
+        got = {}
+        if time.monotonic() > deadline:
+            return got
         r = get(homepages.REPLAY.format(ts=ts, url=page))
         time.sleep(pause)
         if r is None or r.status_code != 200:
-            continue
+            return got
         urls = homepages.page_images(r.text, homepages.final_url(getattr(r, "url", "") or "", page), ts)
-        left = set(shas) - set(found)
+        left = set(shas)
         for u in urls[:homepages.IMAGE_CANDIDATES + 4]:
-            if not left:
+            if not left or time.monotonic() > deadline + 300:
                 break
             ri = get(u)
             time.sleep(pause)
@@ -267,11 +282,20 @@ def fetch(s: dict | None = None, pause: float = 0.5, session=None) -> list[dict]
                 continue
             (LOCAL / "read" / f"{sha}.jpg").write_bytes(_jpeg(img, READ_EDGE, 90))
             (LOCAL / "thumb" / f"{sha}.jpg").write_bytes(_jpeg(img, THUMB_EDGE, 80))
-            found[sha] = {"sha": sha, "found": True, "w": img.width, "h": img.height, "pixel": pixel_measures(img)}
+            got[sha] = {"sha": sha, "found": True, "w": img.width, "h": img.height, "pixel": pixel_measures(img)}
             left.discard(sha)
-    rows = [found.get(p["sha"], {"sha": p["sha"], "found": False}) for p in s["pictures"]]
-    store.write_jsonl(DIR / "pictures.jsonl", rows)
-    _log("fetch", pictures=len(rows), found=sum(r["found"] for r in rows))
+        return got
+
+    try:
+        with ThreadPoolExecutor(max(1, workers)) as ex:
+            for got in ex.map(work, sorted(want.items())):
+                found.update(got)
+    finally:
+        rows = [prev[p["sha"]] if p["sha"] in have else found.get(p["sha"], {"sha": p["sha"], "found": False})
+                for p in s["pictures"]]
+        store.write_jsonl(prev_path, rows)
+        _log("fetch", pictures=len(rows), found=sum(r["found"] for r in rows), this_run=len(found),
+             pages=len(want), out_of_time=time.monotonic() > deadline)
     return rows
 
 

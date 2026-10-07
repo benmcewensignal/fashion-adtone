@@ -142,3 +142,46 @@ def test_sealed_thumbnails_open_only_with_the_private_key(tmp_path, monkeypatch)
         nacl.SealedBox(nacl.PrivateKey.generate()).decrypt(sealed)
     tar = tarfile.open(fileobj=io.BytesIO(nacl.SealedBox(sk).decrypt(sealed)))
     assert tar.getnames() == ["abc.jpg"]
+
+
+def test_fetch_keeps_a_picture_only_when_its_bytes_match_and_resumes(tmp_path, monkeypatch):
+    import hashlib
+    import io
+    monkeypatch.setattr(B, "DIR", tmp_path / "bakeoff")
+    monkeypatch.setattr(B, "LOCAL", tmp_path / "local")
+    monkeypatch.setattr(B, "PROV", tmp_path / "prov.jsonl")
+    (tmp_path / "bakeoff").mkdir()
+
+    def jpg(rgb):
+        b = io.BytesIO()
+        Image.new("RGB", (400, 500), rgb).save(b, format="JPEG")
+        return b.getvalue()
+    imgs = {f"https://x.com/{i}.jpg": jpg((40 * i, 80, 120)) for i in range(3)}
+    shas = [hashlib.sha256(v).hexdigest() for v in imgs.values()]
+    html = "<html><body>" + "".join(f'<img src="{u}">' for u in imgs) + "</body></html>"
+    calls = []
+
+    class R:
+        def __init__(self, code, content=b"", text="", url=""):
+            self.status_code, self.content, self.text, self.url = code, content, text, url
+
+    class S:
+        headers = {}
+
+        def get(self, url, timeout=0):
+            calls.append(url)
+            if "/web/1/" in url:
+                return R(200, text=html, url="https://web.archive.org/web/1/https://x.com/")
+            for k, v in imgs.items():
+                if url.endswith(k):
+                    return R(200, content=v)
+            return R(404)
+    s = {"pictures": [{"sha": h, "capture": "1", "page": "https://x.com/"} for h in shas[:2]]
+         + [{"sha": "not-there", "capture": "1", "page": "https://x.com/"}]}
+    rows = B.fetch(s, pause=0, workers=2, session_factory=S)
+    assert [r["found"] for r in rows] == [True, True, False]
+    assert set(rows[0]["pixel"]) == set(B.PIXEL_KEYS)
+    assert sorted(p.stem for p in (tmp_path / "local" / "read").glob("*.jpg")) == sorted(shas[:2])
+    n = len(calls)
+    rows = B.fetch(s, pause=0, workers=2, session_factory=S)
+    assert [r["found"] for r in rows] == [True, True, False] and len(calls) > n      # only the missing one is sought again
