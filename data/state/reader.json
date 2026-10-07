@@ -1,9 +1,9 @@
 {
   "last_pilot": {
-    "at": "2026-10-06T15:09:29Z",
+    "at": "2026-10-07T08:10:48Z",
     "batch": 8,
-    "cold_start_s": 24.8,
-    "cost_per_10k_images_usd": 5.08,
+    "cold_start_s": 30.6,
+    "cost_per_10k_images_usd": 5.98,
     "finish_reasons": {
       "stop": 64
     },
@@ -16,7 +16,7 @@
       "grammar": 64
     },
     "price_source": "modal.com/pricing, read 6 October 2026",
-    "run": "gh37484199810",
+    "run": "gh37591071836",
     "sample_errors": [],
     "sample_replies": [
       {
@@ -25,22 +25,22 @@
         "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
       },
       {
-        "chars": 454,
-        "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.2,\"creative_type\":\"text_graphic\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"",
-        "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
+        "chars": 452,
+        "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.2,\"creative_type\":\"other\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"not_app",
+        "tail": ",\"styling_register\":\"not_applicable\",\"text_in_image\":\"none\"}"
       },
       {
-        "chars": 478,
+        "chars": 464,
         "head": "{\"category\":\"unclear\",\"colour_temperature\":\"neutral\",\"confidence\":0.8,\"creative_type\":\"text_graphic\",\"expression\":\"not_applicable\",\"framing\":\"close_up\",\"gaze\":\"",
         "tail": "ling_register\":\"not_applicable\",\"text_in_image\":\"logo_only\"}"
       }
     ],
-    "tokens_max": 137,
-    "tokens_mean": 132.9,
+    "tokens_max": 144,
+    "tokens_mean": 133.3,
     "valid": 64,
     "valid_share": 1.0,
     "vllm": "0.8.5",
-    "warm_seconds_per_image": 2.29
+    "warm_seconds_per_image": 2.695
   },
   "model": "Qwen/Qwen2.5-VL-7B-Instruct",
   "pinned_at": "2026-10-06T14:55:47Z",
