@@ -24,8 +24,12 @@ CONTAINERS = int(os.environ.get("BAKEOFF_CONTAINERS", "1"))
 SEQS = int(os.environ.get("BAKEOFF_SEQS", "16"))
 VLLM = "vllm==0.11.0"
 
+# Everything resolved as it stood on 20 October 2025, a fortnight after vLLM 0.11.0: it names no upper
+# bound for transformers, and transformers 5 (January 2026) is not what it was built against.
+RESOLVED_AS_OF = "2025-10-20T00:00:00Z"
 image = (modal.Image.debian_slim(python_version="3.12")
-         .pip_install(VLLM, "huggingface_hub[hf_transfer]", "pillow")
+         .uv_pip_install(VLLM, "transformers>=4.57.0,<5", "huggingface_hub[hf_transfer]", "pillow",
+                         extra_options=f"--exclude-newer {RESOLVED_AS_OF}")
          .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "BAKEOFF_MODEL": MODEL, "BAKEOFF_REVISION": REVISION,
                "BAKEOFF_GPU": GPU, "BAKEOFF_APP": APP, "BAKEOFF_CONTAINERS": str(CONTAINERS),
                "BAKEOFF_SEQS": str(SEQS)}))
@@ -80,13 +84,20 @@ class Reader:
     def _chat(self, conversations, constraint: dict | None, max_tokens: int):
         """With the constraint if the engine takes it, else without; the mode in use is reported."""
         from vllm import SamplingParams
-        from vllm.sampling_params import StructuredOutputsParams
+
+        def params(mode):
+            if not mode:
+                return SamplingParams(temperature=0, max_tokens=max_tokens)
+            try:      # vLLM 0.11 calls it structured outputs; earlier versions, guided decoding
+                from vllm.sampling_params import StructuredOutputsParams
+                return SamplingParams(temperature=0, max_tokens=max_tokens, structured_outputs=StructuredOutputsParams(**mode))
+            except ImportError:
+                from vllm.sampling_params import GuidedDecodingParams
+                return SamplingParams(temperature=0, max_tokens=max_tokens, guided_decoding=GuidedDecodingParams(**mode))
         errors = []
         for mode in ([constraint, None] if constraint else [None]):
             try:
-                so = StructuredOutputsParams(**mode) if mode else None
-                outs = self.llm.chat(conversations, SamplingParams(temperature=0, max_tokens=max_tokens, structured_outputs=so),
-                                     use_tqdm=False)
+                outs = self.llm.chat(conversations, params(mode), use_tqdm=False)
                 self.mode = "constrained" if mode else "free"
                 self.errors = errors
                 return [o.outputs[0].text for o in outs]

@@ -584,16 +584,24 @@ def read_pairs(name: str, jpegs: dict[str, bytes], jobs: list[tuple[str, str, st
     return out
 
 
-def read(name: str, what: str) -> dict:
+def read(name: str, what: str, chunk: int = 480) -> dict:
+    """Reads what is not yet read: answers already in hand are kept, and new ones are written chunk by
+    chunk, so a run that stops keeps what came back and a second run costs nothing once all is read."""
     t0 = time.monotonic()
     s = json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
     found = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
-    jpegs = from_volume(found)
     out_dir = DIR / "readings"
     out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{name}-{what}.jsonl"
+    prev = store.read_jsonl(out) if out.exists() else []
     if what == "tone":
-        rows = read_tone(name, jpegs)
-        store.write_jsonl(out_dir / f"{name}-tone.jsonl", rows)
+        rows = [r for r in prev if r.get("out")]
+        done = {r["sha"] for r in rows}
+        todo = [sh for sh in sorted(found) if sh not in done]
+        for i in range(0, len(todo), chunk // 8):
+            jpegs = from_volume(todo[i:i + chunk // 8])
+            rows += read_tone(name, jpegs)
+            store.write_jsonl(out, rows)
     else:
         d = json.loads((DIR / "pairs.json").read_text(encoding="utf-8"))
         if what == "human":
@@ -601,12 +609,19 @@ def read(name: str, what: str) -> dict:
         else:
             base = [(ax, a, b) for ax, es in d["reader"].items() for a, b in es]
         jobs = base + [(ax, b, a) for ax, a, b in base]
-        rows = read_pairs(name, jpegs, jobs)
-        store.write_jsonl(out_dir / f"{name}-{what}.jsonl", rows)
+        rows = [r for r in prev if r.get("answer")]
+        done = {(r["axis"], r["first"], r["second"]) for r in rows}
+        todo = [j for j in jobs if j not in done]
+        jpegs = from_volume(sorted({x for _, a, b in todo for x in (a, b)})) if todo else {}
+        for i in range(0, len(todo), chunk):
+            rows += read_pairs(name, jpegs, todo[i:i + chunk])
+            store.write_jsonl(out, rows)
+    if not out.exists():
+        store.write_jsonl(out, rows)
     bad = sum(1 for r in rows if r.get("error") or ("answer" in r and r["answer"] is None))
-    _log("read", reader=name, what=what, rows=len(rows), failed=bad, pictures=len(jpegs), sample=len(s["pictures"]),
+    _log("read", reader=name, what=what, rows=len(rows), failed=bad, asked=len(todo), sample=len(s["pictures"]),
          seconds=round(time.monotonic() - t0))
-    return {"rows": len(rows), "failed": bad}
+    return {"rows": len(rows), "failed": bad, "asked": len(todo)}
 
 
 # ---------- image models ----------
@@ -682,12 +697,18 @@ def _fashion():
     return f, {"weights": "Marqo/marqo-fashionSigLIP"}
 
 
-def embed(name: str, shas: list[str] | None = None, vol_dir: str = VOL_DIR, out: Path | None = None, log=None) -> dict:
+def embed(name: str, shas: list[str] | None = None, vol_dir: str = VOL_DIR, out: Path | None = None, log=None,
+          again: bool = False) -> dict:
+    """One image model's vectors for the pictures; kept, not made again, once every picture has one."""
     from PIL import Image
     t0 = time.monotonic()
     if shas is None:
         shas = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
     out = out or DIR / "vectors" / f"{name}.npz"
+    if out.exists() and not again:
+        with np.load(out, allow_pickle=False) as z:
+            if set(shas) <= {str(x) for x in z["shas"]}:
+                return {"pictures": len(z["shas"]), "kept": True}
     f, info = {"csd": _csd, "dino": _dino, "fashion": _fashion}[name]()
     done, vecs = [], []
     for i in range(0, len(shas), 200):           # a few hundred pictures in memory at a time

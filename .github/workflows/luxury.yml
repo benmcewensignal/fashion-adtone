@@ -38,6 +38,9 @@ jobs:
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Start from the latest main
+        # a queued run starts after the run before it has persisted, so it reads that run's results
+        run: git fetch -q --depth=1 origin main && git reset -q --hard FETCH_HEAD && git log --oneline -1
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - name: Mode
