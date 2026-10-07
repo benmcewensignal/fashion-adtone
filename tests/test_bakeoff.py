@@ -201,3 +201,45 @@ def test_positions_survive_a_reader_that_leans_hard_on_one_position():
     th, beta = B.bradley_terry(n, np.array(first), np.array(second), np.array(y))
     assert np.all(np.isfinite(th)) and np.isfinite(beta)
     assert np.corrcoef(th, truth)[0, 1] > 0.9 and abs(beta + 2.0) < 0.3
+
+
+def test_a_checkpoint_loads_with_only_benign_objects_allowed_under_their_saved_names(tmp_path):
+    import contextlib
+    import pickle
+
+    class Ser:
+        def __init__(self, names, needs):
+            self.names, self.needs, self.allowed = names, needs, []
+
+        def get_unsafe_globals_in_checkpoint(self, path):
+            if self.names is None:
+                raise AttributeError("old torch")
+            return self.names
+
+        @contextlib.contextmanager
+        def safe_globals(self, allow):
+            self.allowed = [a[1] if isinstance(a, tuple) else a for a in allow]
+            yield
+
+    class Torch:
+        def __init__(self, names, needs):
+            self.serialization = Ser(names, needs)
+
+        def load(self, path, map_location=None, weights_only=None):
+            assert weights_only is True
+            for n in self.serialization.needs:
+                if n not in self.serialization.allowed:
+                    raise pickle.UnpicklingError(f"Weights only load failed. Unsupported global: GLOBAL {n} was not an allowed global")
+            return {"model_state_dict": {"w": 1}}
+
+    need = ["numpy.core.multiarray.scalar", "numpy.dtype"]
+    t = Torch(list(need), need)                         # the checkpoint names what it holds
+    assert B._load_checkpoint(tmp_path / "c.pth", torch=t)["model_state_dict"] == {"w": 1}
+    assert t.serialization.allowed == need               # allowed under the names it was saved with
+    t = Torch(None, need)                                # older torch: the names are learnt from the refusals
+    assert B._load_checkpoint(tmp_path / "c.pth", torch=t)["model_state_dict"] == {"w": 1}
+    import pytest
+    with pytest.raises(RuntimeError):
+        B._load_checkpoint(tmp_path / "c.pth", torch=Torch(["os.system"], ["os.system"]))
+    with pytest.raises(pickle.UnpicklingError):
+        B._load_checkpoint(tmp_path / "c.pth", torch=Torch(None, ["builtins.eval"]))

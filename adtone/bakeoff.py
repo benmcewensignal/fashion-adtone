@@ -635,6 +635,52 @@ EMBEDDERS = {
 }
 
 
+# What a checkpoint may hold besides tensors and plain containers before it is loaded: numpy scalars and dtypes,
+# numpy arrays and a training run's argument list. Anything else stays refused, since unpickling can run code.
+BENIGN_GLOBALS = ("numpy.core.multiarray.scalar", "numpy._core.multiarray.scalar", "numpy.dtype",
+                  "numpy.core.multiarray._reconstruct", "numpy._core.multiarray._reconstruct", "numpy.ndarray",
+                  "argparse.Namespace")
+
+
+def _benign(name: str) -> bool:
+    return name in BENIGN_GLOBALS or (name.startswith("numpy.dtypes.") and name.endswith("DType"))
+
+
+def _load_checkpoint(path, torch=None):
+    """torch.load with weights_only, allowing only the benign objects the checkpoint names, each under the
+    name it was saved with (a checkpoint saved under numpy 1 names numpy.core.multiarray.scalar, which numpy 2
+    keeps as numpy._core.multiarray.scalar, so allowing the object alone does not match)."""
+    import importlib
+    import pickle
+    if torch is None:
+        import torch
+    try:
+        names = list(torch.serialization.get_unsafe_globals_in_checkpoint(path))
+    except Exception:                       # older torch: learn the names from the refusals below
+        names = []
+    bad = [g for g in names if not _benign(g)]
+    if bad:
+        raise RuntimeError(f"the checkpoint holds objects that are not plain data: {bad[:5]}")
+    for _ in range(16):
+        allow = []
+        for g in names:
+            mod, _, attr = g.rpartition(".")
+            allow.append((getattr(importlib.import_module(mod), attr), g))
+        try:
+            try:
+                ctx = torch.serialization.safe_globals(allow)
+            except TypeError:               # torch before named entries: the objects alone
+                ctx = torch.serialization.safe_globals([a for a, _ in allow])
+            with ctx:
+                return torch.load(path, map_location="cpu", weights_only=True)
+        except pickle.UnpicklingError as e:
+            m = re.search(r"Unsupported global: GLOBAL ([\w.]+)", str(e))
+            if not m or m.group(1) in names or not _benign(m.group(1)):
+                raise
+            names.append(m.group(1))
+    raise RuntimeError("the checkpoint would not load")
+
+
 def _csd():
     import torch
     from huggingface_hub import hf_hub_download, list_repo_files
@@ -649,16 +695,7 @@ def _csd():
         sd = load_file(hf_hub_download("tomg-group-umd/CSD-ViT-L", "model.safetensors"))
     else:
         name = next(f for f in files if f.endswith((".pth", ".pt", ".bin")))
-        # the checkpoint keeps a few numpy scalars beside the weights; allow just those, not arbitrary objects
-        safe = [getattr(np, "dtype")]
-        for mod in ("numpy.core.multiarray", "numpy._core.multiarray"):
-            try:
-                safe.append(getattr(__import__(mod, fromlist=["scalar"]), "scalar"))
-            except (ImportError, AttributeError):
-                pass
-        safe += [getattr(np.dtypes, n) for n in dir(np.dtypes) if n.endswith("DType")] if hasattr(np, "dtypes") else []
-        with torch.serialization.safe_globals(safe):
-            ck = torch.load(hf_hub_download("tomg-group-umd/CSD-ViT-L", name), map_location="cpu", weights_only=True)
+        ck = _load_checkpoint(hf_hub_download("tomg-group-umd/CSD-ViT-L", name))
         sd = ck.get("model_state_dict", ck)
     sd = {k.replace("module.", "", 1): v for k, v in sd.items()}
     msg = model.load_state_dict(sd, strict=False)
