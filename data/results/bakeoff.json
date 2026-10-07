@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T19:21:27Z",
+ "generated_at": "2026-10-07T19:25:13Z",
  "status": "exploratory bake-off, not in the pre-registration",
  "sample": {
   "chosen": 307,
@@ -501,6 +501,136 @@
     "pairs": 120,
     "agreement": 0.583
    }
+  },
+  "fashion": {
+   "axes": {
+    "opulent": {
+     "crop_gap_vs_random": 0.063,
+     "crop_icc": 0.991,
+     "between_brands": 0.249,
+     "p": 0.001,
+     "within_brand_signal": 0.988,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.609
+     },
+     "pixels": {
+      "lightness": -0.459,
+      "contrast": 0.159,
+      "high_key": -0.43,
+      "low_key": 0.431,
+      "chroma": 0.161,
+      "colourful": 0.168,
+      "warmth": 0.201,
+      "hue_spread": 0.116,
+      "colourfulness": 0.157
+     }
+    },
+    "intimate": {
+     "crop_gap_vs_random": 0.148,
+     "crop_icc": 0.978,
+     "between_brands": 0.28,
+     "p": 0.001,
+     "within_brand_signal": 0.969,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.783
+     },
+     "pixels": {
+      "lightness": -0.205,
+      "contrast": 0.16,
+      "high_key": -0.199,
+      "low_key": 0.2,
+      "chroma": 0.032,
+      "colourful": 0.036,
+      "warmth": 0.043,
+      "hue_spread": 0.025,
+      "colourfulness": 0.039
+     }
+    },
+    "staged": {
+     "crop_gap_vs_random": 0.059,
+     "crop_icc": 0.997,
+     "between_brands": 0.189,
+     "p": 0.001,
+     "within_brand_signal": 0.996,
+     "human_agreement_by_position": {
+      "pairs": 28,
+      "agreement": 0.5
+     },
+     "pixels": {
+      "lightness": -0.148,
+      "contrast": 0.078,
+      "high_key": -0.123,
+      "low_key": 0.202,
+      "chroma": 0.012,
+      "colourful": -0.019,
+      "warmth": 0.066,
+      "hue_spread": 0.0,
+      "colourfulness": 0.006
+     }
+    },
+    "contemporary": {
+     "crop_gap_vs_random": 0.106,
+     "crop_icc": 0.972,
+     "between_brands": 0.172,
+     "p": 0.001,
+     "within_brand_signal": 0.966,
+     "human_agreement_by_position": {
+      "pairs": 27,
+      "agreement": 0.519
+     },
+     "pixels": {
+      "lightness": -0.133,
+      "contrast": 0.194,
+      "high_key": -0.095,
+      "low_key": 0.128,
+      "chroma": 0.123,
+      "colourful": 0.049,
+      "warmth": -0.041,
+      "hue_spread": 0.213,
+      "colourfulness": 0.151
+     }
+    },
+    "provocative": {
+     "crop_gap_vs_random": 0.133,
+     "crop_icc": 0.97,
+     "between_brands": 0.215,
+     "p": 0.001,
+     "within_brand_signal": 0.962,
+     "human_agreement_by_position": {
+      "pairs": 19,
+      "agreement": 0.632
+     },
+     "pixels": {
+      "lightness": -0.012,
+      "contrast": 0.03,
+      "high_key": -0.012,
+      "low_key": 0.014,
+      "chroma": -0.162,
+      "colourful": -0.204,
+      "warmth": -0.145,
+      "hue_spread": -0.081,
+      "colourfulness": -0.138
+     }
+    }
+   },
+   "axis_correlations": {
+    "contemporary|intimate": 0.049,
+    "contemporary|opulent": -0.022,
+    "contemporary|provocative": 0.381,
+    "contemporary|staged": 0.151,
+    "intimate|opulent": 0.279,
+    "intimate|provocative": 0.021,
+    "intimate|staged": -0.227,
+    "opulent|provocative": -0.076,
+    "opulent|staged": 0.411,
+    "provocative|staged": 0.063
+   },
+   "human_agreement_all": {
+    "pairs": 120,
+    "agreement": 0.6
+   }
   }
  },
  "pairs": {
@@ -569,7 +699,7 @@
     "opulent": {
      "judgements": 1834,
      "first_bias": -1.785,
-     "crop_gap_vs_random": 0.21,
+     "crop_gap_vs_random": 0.205,
      "crop_icc": 0.941,
      "between_brands": 0.242,
      "p": 0.001,
@@ -593,7 +723,7 @@
     "intimate": {
      "judgements": 1832,
      "first_bias": -2.595,
-     "crop_gap_vs_random": 0.307,
+     "crop_gap_vs_random": 0.293,
      "crop_icc": 0.913,
      "between_brands": 0.101,
      "p": 0.001,
@@ -617,7 +747,7 @@
     "staged": {
      "judgements": 1832,
      "first_bias": -4.048,
-     "crop_gap_vs_random": 0.309,
+     "crop_gap_vs_random": 0.311,
      "crop_icc": 0.911,
      "between_brands": 0.23,
      "p": 0.001,
@@ -641,10 +771,10 @@
     "contemporary": {
      "judgements": 1836,
      "first_bias": -2.115,
-     "crop_gap_vs_random": 0.28,
+     "crop_gap_vs_random": 0.287,
      "crop_icc": 0.893,
      "between_brands": 0.094,
-     "p": 0.001,
+     "p": 0.002,
      "within_brand_signal": 0.882,
      "human_agreement_by_position": {
       "pairs": 27,
@@ -665,7 +795,7 @@
     "provocative": {
      "judgements": 1836,
      "first_bias": -1.569,
-     "crop_gap_vs_random": 0.273,
+     "crop_gap_vs_random": 0.261,
      "crop_icc": 0.951,
      "between_brands": 0.306,
      "p": 0.001,
