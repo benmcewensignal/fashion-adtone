@@ -54,6 +54,8 @@ SITES_FILE = config.ROOT / "reference" / "brand_sites.csv"
 KEEP_PER_CAPTURE = 4
 CANDIDATES_PER_MONTH = 4
 MAX_ATTEMPTS = 3        # captures tried for a month before it is left: the archive does not have it
+MAX_TRANSIENT = 6       # runs in which the archive could not be reached for a month before it is left
+COOLDOWN_S = 60.0       # every worker waits this long after the archive refuses a connection
 NO_IMAGE_ATTEMPTS = 2   # captures holding no picture: the archive did not keep the page's pictures
 TRIES_PER_RUN = 2       # a month whose capture fails is tried on its next capture in the same run
 IMAGE_CANDIDATES = 10
@@ -141,7 +143,8 @@ def _locale_rank(path: str) -> float:
         r = 2.0
     else:
         return 0.0
-    return r + (0.5 if any(t in ("en", "eng") for t in toks) else 0.0)
+    r += 0.5 if any(t in ("en", "eng") for t in toks) else 0.0
+    return r + (0.25 if toks and toks[0] in ("gb", "uk", "us", "usa") else 0.0)   # /uk/en_gb/ before /be/en_gb/
 
 
 def next_page(html: str, page_url: str) -> tuple[str, str] | None:
@@ -206,31 +209,46 @@ def save_index(house: str, idx: dict[str, list[list[str]]]) -> None:
     p.write_text(json.dumps({m: idx[m] for m in sorted(idx)}, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
+def _cdx(r) -> list | None:
+    """The index rows, [] when the archive has none, None when it did not answer properly (it was
+    offline, or sent a page instead of JSON): a failed query is not an empty history."""
+    if getattr(r, "status_code", None) != 200:
+        return None
+    if not (r.text or "").strip():
+        return []
+    try:
+        rows = r.json()
+    except ValueError:
+        return None
+    return rows[1:] if isinstance(rows, list) else None
+
+
 def refresh_index(c: Crawler, domains: list[str], idx: dict, first: str = FIRST_MONTH) -> tuple[dict, dict]:
     """Ask the archive for the months from the newest one on file onwards (it may have been part-filled)
     and merge: month -> up to four [timestamp, original url, status]. The current domain comes first; an
-    older one fills months the current one lacks. Returns the index and, for any domain that gave no
-    rows on a full query, what the archive said."""
+    older one fills months the current one lacks. A query that fails leaves what is on file as it was.
+    Returns the index and, for any domain whose query failed, what the archive said."""
     since = max(idx) if idx else first
-    per_domain: list[dict[str, list[list[str]]]] = []
+    fresh: dict[str, list[list[str]]] = {}
     diag: dict[str, dict] = {}
     for d in domains:
         r = c.get(CDX, {"url": d, "output": "json", "fl": "timestamp,original,statuscode",
                         "from": since.replace("-", ""), "collapse": "timestamp:8",
                         "filter": "statuscode:(200|301|302|307|308)"})
-        rows = _cdx_rows(r)[1:]
+        rows = _cdx(r)
+        if rows is None:
+            diag[d] = {"http": getattr(r, "status_code", None), "body": (getattr(r, "text", "") or "")[:200]}
+            continue
         months: dict[str, list[list[str]]] = {}
         for row in rows:
             ts, original, status = row[0], row[1], (row[2] if len(row) > 2 else "")
             months.setdefault(f"{ts[:4]}-{ts[4:6]}", []).append([ts, original, status])
-        if not rows and since == first:
-            diag[d] = {"http": getattr(r, "status_code", None), "body": (getattr(r, "text", "") or "")[:200]}
-        per_domain.append(months)
-    out = {m: v for m, v in idx.items() if m < since}
-    for months in per_domain:
-        for m, rows in months.items():
-            if m not in out or (m >= since and not out[m]):
-                out[m] = _spread(sorted(rows))
+        for m, v in months.items():
+            fresh.setdefault(m, _spread(sorted(v)))
+    out = dict(idx)
+    for m, v in fresh.items():
+        if m >= since or m not in out:
+            out[m] = v
     return out, diag
 
 
@@ -244,6 +262,8 @@ def _done(row: dict | None, n_cands: int) -> bool:
     if not row:
         return False
     if row.get("status") == "resolved":
+        return True
+    if row.get("transient", 0) >= MAX_TRANSIENT:
         return True
     limit = NO_IMAGE_ATTEMPTS if row.get("status") == "no_images" else MAX_ATTEMPTS
     return row.get("attempts", 0) >= min(limit, max(n_cands, 1))
@@ -261,17 +281,95 @@ def plan(index: dict[str, dict[str, list]], rows: dict[str, dict]) -> list[tuple
     return out
 
 
+class Gate:
+    """Shared by the workers: when the archive refuses a connection or says it is busy, everyone waits."""
+
+    def __init__(self, clock=time.monotonic, sleep=time.sleep):
+        self.until, self.trips, self.clock, self.sleep = 0.0, 0, clock, sleep
+        self.lock = threading.Lock()
+
+    def wait(self) -> None:
+        d = self.until - self.clock()
+        if d > 0:
+            self.sleep(d)
+
+    def trip(self, seconds: float = COOLDOWN_S) -> None:
+        with self.lock:
+            self.until = max(self.until, self.clock() + seconds)
+            self.trips += 1
+
+
+class GatedCrawler(Crawler):
+    def __init__(self, gate: Gate, *a, **kw):
+        super().__init__(*a, **kw)
+        self.gate = gate
+
+    def get(self, url: str, params: dict | None = None, retries: int = 2):
+        self.gate.wait()
+        try:
+            r = super().get(url, params, retries)
+        except (requests.ConnectionError, requests.Timeout):
+            self.gate.trip()
+            raise
+        if r.status_code in (429, 500, 502, 503, 504):
+            self.gate.trip()
+        return r
+
+
+class _Watch:
+    """A session stand-in for the image downloads that counts requests that never got an answer."""
+
+    def __init__(self, s):
+        self.s, self.calls, self.failed = s, 0, 0
+        self.headers = getattr(s, "headers", {})
+
+    def get(self, *a, **kw):
+        self.calls += 1
+        try:
+            r = self.s.get(*a, **kw)
+        except (requests.ConnectionError, requests.Timeout):
+            self.failed += 1
+            raise
+        if getattr(r, "status_code", 200) in (429, 500, 502, 503, 504):
+            self.failed += 1
+        return r
+
+
+def _seen(html: str, urls: list[str]) -> dict:
+    """What a page without usable pictures held, so the parsing can be checked against it."""
+    p = _Page()
+    p.feed(unrewrite(html))
+    return {"title": (p.title or "").strip()[:80], "og_image": (p.meta.get("og:image") or "")[:160],
+            "candidates": len(urls), "html_kb": len(html) // 1024}
+
+
+TRANSIENT_HTTP = (429, 500, 502, 503, 504)
+
+
+def _pictures(c: Crawler, html: str, page: str, ts: str) -> tuple[list, list[str], bool]:
+    """(images kept, candidate addresses, whether every candidate failed in transit)."""
+    urls = page_images(html, page, ts)
+    if not urls:
+        return [], urls, False
+    w = _Watch(c.s)
+    got = download(urls, w, keep=KEEP_PER_CAPTURE, max_candidates=IMAGE_CANDIDATES)
+    return got, urls, (not got and w.calls > 0 and w.failed >= w.calls)
+
+
 def read_capture(c: Crawler, ts: str, url: str) -> dict:
-    """One capture: the page, its pictures, and one step onwards when it has none."""
+    """One capture: the page, its pictures, and one step onwards when it has none. An archive that does
+    not answer is marked transient: the capture is tried again in a later run without being used up."""
     r = c.get(REPLAY.format(ts=ts, url=url))
     ctype = (getattr(r, "headers", None) or {}).get("Content-Type", "text/html")
     if r.status_code != 200 or "html" not in ctype:
-        return {"status": "error", "error": f"HTTP {r.status_code} {ctype[:40]}", "images": []}
+        return {"status": "error", "error": f"HTTP {r.status_code} {ctype[:40]}", "images": [],
+                **({"transient": True} if r.status_code in TRANSIENT_HTTP else {})}
     page = final_url(getattr(r, "url", "") or "", url)
-    urls = page_images(r.text, page, ts)
-    got = download(urls, c.s, keep=KEEP_PER_CAPTURE, max_candidates=IMAGE_CANDIDATES) if urls else []
+    got, urls, lost = _pictures(c, r.text, page, ts)
     if got:
         return {"status": "resolved", "page": page, "images": got}
+    if lost:
+        return {"status": "error", "error": "the archive did not answer for the pictures", "transient": True, "images": []}
     step = next_page(r.text, page)
     if step:
         nxt, why = step
@@ -279,34 +377,51 @@ def read_capture(c: Crawler, ts: str, url: str) -> dict:
         ctype2 = (getattr(r2, "headers", None) or {}).get("Content-Type", "text/html")
         if r2.status_code == 200 and "html" in ctype2:
             page2 = final_url(getattr(r2, "url", "") or "", nxt)
-            urls = page_images(r2.text, page2, ts)
-            got = download(urls, c.s, keep=KEEP_PER_CAPTURE, max_candidates=IMAGE_CANDIDATES) if urls else []
+            got, urls2, lost = _pictures(c, r2.text, page2, ts)
             if got:
                 return {"status": "resolved", "page": page2, "via": why, "images": got}
-        return {"status": "no_images", "page": page, "followed": why, "images": []}
-    return {"status": "no_images", "page": page, "images": []}
+            if lost:
+                return {"status": "error", "error": "the archive did not answer for the pictures", "transient": True,
+                        "images": []}
+            return {"status": "no_images", "page": page, "followed": why, "seen": _seen(r2.text, urls2), "images": []}
+        if r2.status_code in TRANSIENT_HTTP:
+            return {"status": "error", "error": f"HTTP {r2.status_code} on the {why}", "transient": True, "images": []}
+        return {"status": "no_images", "page": page, "followed": why, "seen": _seen(r.text, urls), "images": []}
+    return {"status": "no_images", "page": page, "seen": _seen(r.text, urls), "images": []}
 
 
 def read_month(c: Crawler, house: str, month: str, cands: list, prev: dict | None, rid: str) -> tuple[dict, list]:
-    """Try the month's next untried capture, and one more if that fails, keeping the first that works."""
+    """Try the month's next untried capture, and one more if that fails, keeping the first that works. When
+    the archive does not answer, the month is left for a later run on the same capture."""
     prev = prev or {}
     tried = list(prev.get("tried") or [])
-    start = prev.get("attempts", 0)
-    row: dict = {"key": _key(house, month), "house_id": house, "month": month, "run": rid}
+    attempts, transient = prev.get("attempts", 0), prev.get("transient", 0)
+    row: dict = {"key": _key(house, month), "house_id": house, "month": month, "run": rid, "attempts": attempts}
     res: dict = {"status": "error", "error": "no capture left", "images": []}
-    for i in range(start, min(len(cands), start + TRIES_PER_RUN, MAX_ATTEMPTS)):
-        ts, url = cands[i][0], cands[i][1]
+    tries = 0
+    while attempts < min(len(cands), MAX_ATTEMPTS) and tries < TRIES_PER_RUN:
+        ts, url = cands[attempts][0], cands[attempts][1]
+        tries += 1
         try:
             res = read_capture(c, ts, url)
+        except (requests.ConnectionError, requests.Timeout) as e:
+            res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:160]}", "transient": True, "images": []}
         except (requests.RequestException, MediaError, ValueError) as e:
             res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:200]}", "images": []}
+        if res.pop("transient", False):
+            transient += 1
+            row["capture"], row["url"] = ts, url
+            break
+        attempts += 1
         tried.append(ts)
-        row.update({"capture": ts, "url": url, "attempts": i + 1})
-        if res["status"] == "resolved" or (res["status"] == "no_images" and i + 1 >= NO_IMAGE_ATTEMPTS):
+        row.update({"capture": ts, "url": url, "attempts": attempts})
+        if res["status"] == "resolved" or (res["status"] == "no_images" and attempts >= NO_IMAGE_ATTEMPTS):
             break
     images = res.pop("images")
     row.update({k: v for k, v in res.items()})
     row["tried"] = tried
+    if transient:
+        row["transient"] = transient
     return row, images
 
 
@@ -339,6 +454,12 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
         except (requests.RequestException, ValueError) as e:
             index_errors[house] = f"{e.__class__.__name__}: {str(e)[:160]}"
         index[house] = idx
+    for row in list(table.rows.values()):      # months the first runs gave up on when the archive did not answer
+        if row.get("status") == "error" and "transient" not in row and \
+                str(row.get("error", "")).startswith(("ConnectionError", "ConnectTimeout", "ReadTimeout", "HTTP 50", "HTTP 429")):
+            fixed = {**row, "attempts": max(0, row.get("attempts", 1) - 1), "transient": 1,
+                     "tried": (row.get("tried") or [])[:-1]}
+            table.upsert(fixed, shard=row["house_id"], merge=lambda old, new: new)
     todo = plan(index, table.rows)[:max_captures]
 
     made: list[Crawler] = []
@@ -502,12 +623,14 @@ def main(argv: list[str] | None = None) -> int:
         for e in errs:
             print(f"::error::{e}")
         return 1 if errs else 0
-    c = Crawler(pause=1.0)
+    gate = Gate()
+    c = GatedCrawler(gate, pause=1.0)
     try:
         from .embed import OpenClipEmbedder
         from .score import load_rubric, make_scorer
         out = collect(c, registry.load(), OpenClipEmbedder(), make_scorer(load_rubric()), rid, a.max_captures,
-                      a.budget_min * 60, workers=a.workers, make_crawler=lambda: Crawler(pause=1.0))
+                      a.budget_min * 60, workers=a.workers, make_crawler=lambda: GatedCrawler(gate, pause=1.0))
+        out["cooldowns"] = gate.trips
     except Exception as e:   # leave a record whatever happens
         out = {"run_id": rid, "finished_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}",
                "requests": c.calls}

@@ -320,3 +320,69 @@ def test_a_reader_failure_files_nothing_from_the_chunk(tmp_data, monkeypatch, tm
     out = homepages.collect(c, _reg(GUCCI), FakeEmbedder(), Down(load_rubric()), "r1")
     assert out["stopped"].startswith("reader: API") and out["captures"] == 0
     assert not store.read_jsonl(homepages.paths()["captures"] / "gucci.jsonl")
+
+
+def test_an_archive_that_does_not_answer_leaves_the_capture_for_a_later_run(tmp_data, monkeypatch, tmp_path):
+    import requests
+    sites = tmp_path / "sites.csv"
+    sites.write_text("house,domains,note\ngucci,gucci.com,\n", encoding="utf-8")
+    monkeypatch.setattr(homepages, "SITES_FILE", sites)
+    state = {"down": True}
+    cdx_rows = {"gucci.com": [["20240110000000", "https://www.gucci.com/", "200"],
+                              ["20240120000000", "https://www.gucci.com/", "200"]]}
+    inner = _hp_handler({}, {"https://web.archive.org/web/2024": FakeResponse(200, text=HOME)}, cdx_rows, [])
+
+    def h(url, params):
+        if state["down"] and "im_/" in url:
+            raise requests.ConnectionError("connection reset by peer")
+        if state["down"] and url.startswith("https://web.archive.org/web/2024"):
+            return FakeResponse(503, text="Temporarily Offline")
+        return inner(url, params)
+    c = homepages.Crawler(FakeSession(h), pause=0)
+    scorer = FakeScorer(load_rubric())
+    homepages.collect(c, _reg(GUCCI), FakeEmbedder(), scorer, "r1")
+    row = store.read_jsonl(homepages.paths()["captures"] / "gucci.jsonl")[0]
+    assert row["status"] == "error" and row["attempts"] == 0 and row["transient"] == 1 and row["tried"] == []
+    state["down"] = False
+    homepages.collect(c, _reg(GUCCI), FakeEmbedder(), scorer, "r2")     # the real download, now answered
+    row = store.read_jsonl(homepages.paths()["captures"] / "gucci.jsonl")[0]
+    assert row["status"] == "resolved" and row["capture"] == "20240110000000" and row["attempts"] == 1
+    assert homepages._done({"status": "error", "attempts": 0, "transient": homepages.MAX_TRANSIENT}, 4)
+
+
+def test_pictures_that_never_arrive_are_transient_not_missing():
+    import requests
+
+    def h(url, params):
+        if "im_/" in url:
+            raise requests.ConnectionError("reset")
+        return FakeResponse(200, text=HOME)
+    c = homepages.Crawler(FakeSession(h), pause=0)
+    res = homepages.read_capture(c, "20240110000000", "https://www.gucci.com/")
+    assert res["status"] == "error" and res["transient"] is True
+    blank = homepages.read_capture(homepages.Crawler(FakeSession(lambda u, p: FakeResponse(200, text="<html><title>Choose</title></html>")),
+                                                     pause=0), "20240110000000", "https://www.gucci.com/")
+    assert blank["status"] == "no_images" and blank["seen"]["title"] == "Choose" and blank["seen"]["candidates"] == 0
+
+
+def test_a_failed_index_query_keeps_the_months_on_file():
+    idx = {"2024-01": [["20240110000000", "u", "200"]], "2024-02": [["20240203000000", "u", "200"]]}
+    down = homepages.Crawler(FakeSession(lambda u, p: FakeResponse(503, text="<title>Internet Archive: Temporarily Offline</title>")), pause=0)
+    out, diag = homepages.refresh_index(down, ["gucci.com"], idx)
+    assert out == idx and diag["gucci.com"]["http"] == 503
+    empty = homepages.Crawler(FakeSession(lambda u, p: FakeResponse(200, payload=[["timestamp", "original", "statuscode"]])), pause=0)
+    out2, diag2 = homepages.refresh_index(empty, ["gucci.com"], {})
+    assert out2 == {} and diag2 == {}
+
+
+def test_the_gate_holds_every_worker_after_a_refusal_and_choosers_prefer_the_uk_page():
+    now = {"t": 0.0}
+    waits = []
+    g = homepages.Gate(clock=lambda: now["t"], sleep=waits.append)
+    g.wait()
+    g.trip(60)
+    now["t"] = 10
+    g.wait()
+    assert waits == [50] and g.trips == 1
+    html = '<a href="/be/en_gb/">Belgium</a><a href="/uk/en_gb/">United Kingdom</a><a href="/us/en/">US</a>'
+    assert homepages.next_page(html, "https://www.gucci.com/")[0] == "https://www.gucci.com/uk/en_gb/"
