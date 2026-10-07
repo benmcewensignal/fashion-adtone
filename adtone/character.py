@@ -18,8 +18,12 @@ Shift. Between a house's consecutive periods, how far its character moved: for e
 total variation distance between the two distributions of answers (0 the same, 1 nothing in
 common), averaged over the questions, with the mood list and the scale scored the same way; and,
 separately, one minus the cosine between the two fingerprint centroids. Each distance comes with a
-permutation p: the same distance with the images' periods shuffled 999 times. Small samples give
+permutation p: the same distance with whole months moved between the two periods (a month's homepage
+shows one campaign in several crops, so its images are not separate evidence). Small samples give
 large distances by chance; the p says whether this one is larger than chance.
+
+Identity. Before any shift is read, whether the measure tells brands apart at all: for brands with
+images on both sides of July 2025, how many have later images closest to their own earlier ones.
 
 Distinctiveness. How far a house's character sits from the average of the other houses in the same
 period, by the same distance.
@@ -34,7 +38,9 @@ way is a pattern to examine, not an effect.
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
+import math
 import sys
 import warnings
 from collections import defaultdict
@@ -145,28 +151,52 @@ def _cos_dist(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def permuted(enc: Encoder, X0: np.ndarray, X1: np.ndarray, V0: np.ndarray | None, V1: np.ndarray | None,
-             n_perm: int, rng: np.random.Generator) -> dict:
-    """Observed distances between two periods and their permutation p-values."""
+             n_perm: int, rng: np.random.Generator, months0: list[str] | None = None,
+             months1: list[str] | None = None) -> dict:
+    """Observed distances between two periods and their permutation p-values.
+
+    Images from one month's homepage are not independent: the same campaign appears in several crops
+    and sizes. So when each image's month is given, the null moves whole months between the two
+    periods, never single images (every split when there are few enough, else n_perm random ones).
+    Shuffling single images instead treats one campaign's crops as separate evidence and finds shifts
+    that are not there; the first readings did that."""
     obs_r = enc.distance(_nanmean(X0), _nanmean(X1))
     X = np.vstack([X0, X1])
-    n0 = len(X0)
-    null_r = np.empty(n_perm)
-    has_v = V0 is not None and V1 is not None and len(V0) == n0 and len(V1) == len(X1)
+    has_v = V0 is not None and V1 is not None and len(V0) == len(X0) and len(V1) == len(X1)
+    V = np.vstack([V0, V1]) if has_v else None
+    obs_v = _cos_dist(V0.mean(axis=0), V1.mean(axis=0)) if has_v else None
+    if months0 is not None and months1 is not None:
+        labels = np.array(list(months0) + list(months1))
+        units = sorted(set(labels))
+        k = len(set(months0))
+        total = math.comb(len(units), k)
+        if total <= n_perm:
+            picks = [set(c) for c in itertools.combinations(units, k)]
+            exact = True
+        else:
+            picks = [set(rng.choice(units, k, replace=False)) for _ in range(n_perm)]
+            exact = False
+        splits = [np.array([lab in pick for lab in labels]) for pick in picks]
+    else:
+        n0 = len(X0)
+        splits = []
+        for _ in range(n_perm):
+            m = np.zeros(len(X), bool)
+            m[rng.permutation(len(X))[:n0]] = True
+            splits.append(m)
+        exact = False
+    null_r = np.array([enc.distance(_nanmean(X[m]), _nanmean(X[~m])) for m in splits if m.any() and (~m).any()])
+    null_v = np.array([_cos_dist(V[m].mean(axis=0), V[~m].mean(axis=0)) for m in splits if m.any() and (~m).any()]) \
+        if has_v else None
+
+    def p_of(null, obs):
+        ge = int((null >= obs - 1e-12).sum())
+        return ge / len(null) if exact else (1 + ge) / (1 + len(null))
+    out = {"rubric": round(obs_r, 4), "rubric_p": round(p_of(null_r, obs_r), 4),
+           "rubric_chance": round(float(np.median(null_r)), 4), "null": "months" if months0 is not None else "images",
+           "splits": len(null_r)}
     if has_v:
-        V = np.vstack([V0, V1])
-        obs_v = _cos_dist(V0.mean(axis=0), V1.mean(axis=0))
-        null_v = np.empty(n_perm)
-    for i in range(n_perm):
-        idx = rng.permutation(len(X))
-        a, b = idx[:n0], idx[n0:]
-        null_r[i] = enc.distance(_nanmean(X[a]), _nanmean(X[b]))
-        if has_v:
-            null_v[i] = _cos_dist(V[a].mean(axis=0), V[b].mean(axis=0))
-    out = {"rubric": round(obs_r, 4), "rubric_p": round((1 + int((null_r >= obs_r - 1e-12).sum())) / (1 + n_perm), 4),
-           "rubric_chance": round(float(np.median(null_r)), 4)}
-    if has_v:
-        out.update({"fingerprint": round(obs_v, 4),
-                    "fingerprint_p": round((1 + int((null_v >= obs_v - 1e-12).sum())) / (1 + n_perm), 4),
+        out.update({"fingerprint": round(obs_v, 4), "fingerprint_p": round(p_of(null_v, obs_v), 4),
                     "fingerprint_chance": round(float(np.median(null_v)), 4)})
     return out
 
@@ -205,11 +235,13 @@ def read(images: list[dict], enc: Encoder, grain: str = "half", n_perm: int = N_
         groups[(im["house"], period_of(im["month"], grain))].setdefault(im["sha"], im)   # once per period
     houses: dict[str, dict] = defaultdict(lambda: {"periods": {}, "shifts": [], "distinct": {}})
     mats: dict[tuple[str, str], tuple[np.ndarray, np.ndarray | None]] = {}
+    months: dict[tuple[str, str], list[str]] = {}
     for (h, p), ims in sorted(groups.items()):
         X = np.vstack([enc.row(im["out"]) for im in ims.values()])
         vs = [im["vec"] for im in ims.values()]
         V = np.vstack(vs) if all(v is not None for v in vs) else None
         mats[(h, p)] = (X, V)
+        months[(h, p)] = [im["month"] for im in ims.values()]
         houses[h]["periods"][p] = enc.profile(_nanmean(X), len(X))
     for h in sorted(houses):
         ps = sorted(houses[h]["periods"])
@@ -219,8 +251,9 @@ def read(images: list[dict], enc: Encoder, grain: str = "half", n_perm: int = N_
             (X0, V0), (X1, V1) = mats[(h, p0)], mats[(h, p1)]
             if len(X0) < MIN_IMAGES or len(X1) < MIN_IMAGES:
                 continue
-            s = {"from": p0, "to": p1, "n0": len(X0), "n1": len(X1)}
-            s.update(permuted(enc, X0, X1, V0, V1, n_perm, rng))
+            s = {"from": p0, "to": p1, "n0": len(X0), "n1": len(X1),
+                 "months0": len(set(months[(h, p0)])), "months1": len(set(months[(h, p1)]))}
+            s.update(permuted(enc, X0, X1, V0, V1, n_perm, rng, months[(h, p0)], months[(h, p1)]))
             s["moved"] = enc.moved(_nanmean(X0), _nanmean(X1))
             houses[h]["shifts"].append(s)
     by_period: dict[str, dict[str, np.ndarray]] = defaultdict(dict)
@@ -234,6 +267,37 @@ def read(images: list[dict], enc: Encoder, grain: str = "half", n_perm: int = N_
             others = [v for k, v in means.items() if k != h]
             houses[h]["distinct"][p] = round(enc.distance(m, _nanmean(np.vstack(others))), 4)
     return {h: houses[h] for h in sorted(houses)}
+
+
+def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_images: int = 10) -> dict:
+    """Whether character is stable and particular to each brand: for brands with enough images before and
+    after `split`, how many have later images closest to their own earlier ones, by the answers and by the
+    fingerprint, against what chance gives (about one). A measure that cannot tell brands apart cannot
+    say much about how any one of them changes."""
+    early: dict[str, dict] = defaultdict(dict)
+    late: dict[str, dict] = defaultdict(dict)
+    for im in images:
+        (early if im["month"] < split else late)[im["house"]].setdefault(im["sha"], im)
+    hs = sorted(h for h in early if len(early[h]) >= min_images and len(late.get(h, {})) >= min_images)
+    if len(hs) < 3:
+        return {"brands": len(hs), "note": "too few brands with images on both sides"}
+    E = {h: _nanmean(np.vstack([enc.row(i["out"]) for i in early[h].values()])) for h in hs}
+    L = {h: _nanmean(np.vstack([enc.row(i["out"]) for i in late[h].values()])) for h in hs}
+    out = {"brands": len(hs), "split": split}
+
+    def score(dist):
+        hits, ranks = 0, []
+        for h in hs:
+            order = sorted(hs, key=lambda g: dist(h, g))
+            hits += order[0] == h
+            ranks.append(order.index(h) + 1)
+        return hits, round(float(np.mean(ranks)), 2)
+    out["answers_hits"], out["answers_mean_rank"] = score(lambda a, b: enc.distance(E[a], L[b]))
+    if all(i["vec"] is not None for d in (early, late) for h in hs for i in d[h].values()):
+        CE = {h: np.vstack([i["vec"] for i in early[h].values()]).mean(axis=0) for h in hs}
+        CL = {h: np.vstack([i["vec"] for i in late[h].values()]).mean(axis=0) for h in hs}
+        out["fingerprint_hits"], out["fingerprint_mean_rank"] = score(lambda a, b: _cos_dist(CE[a], CL[b]))
+    return out
 
 
 def half_growth(house: str, figs=None) -> dict[str, float]:
@@ -323,6 +387,7 @@ def main(argv: list[str] | None = None) -> int:
     growth = {h.id: half_growth(h.id) for h in reg.houses}
     out = {"generated_at": store.utc_now(), "source": "homepages", "period": a.period,
            "types": "all" if a.all_types else list(IMAGE_LED), "images": len(images),
+           "identity": identity(images, enc),
            "houses": houses, "success": success(houses, growth) if a.period == "half" else None,
            "status": "exploratory: descriptive readings, not in the pre-registration"}
     path = config.RESULTS_DIR / "character.json"

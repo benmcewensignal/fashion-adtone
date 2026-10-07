@@ -31,14 +31,14 @@ def _images(house, month, n, rng, **kw):
 def test_a_planted_shift_is_found_and_a_steady_house_is_not():
     rng = np.random.default_rng(1)
     ims = []
-    for m in ("2024-02", "2024-04"):
-        ims += _images("moved", m, 10, rng, people="one", setting="studio_plain", mood=("austere",), scale=5)
-        ims += _images("steady", m, 10, rng, people="none", setting="landscape_nature", mood=("serene",))
-        ims += _images("third", m, 10, rng, people="group", setting="interior")
-    for m in ("2024-08", "2024-10"):
-        ims += _images("moved", m, 10, rng, people="none", setting="landscape_nature", mood=("playful",), scale=1)
-        ims += _images("steady", m, 10, rng, people="none", setting="landscape_nature", mood=("serene",))
-        ims += _images("third", m, 10, rng, people="group", setting="interior")
+    for m in ("2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06"):
+        ims += _images("moved", m, 4, rng, people="one", setting="studio_plain", mood=("austere",), scale=5)
+        ims += _images("steady", m, 4, rng, people="none", setting="landscape_nature", mood=("serene",))
+        ims += _images("third", m, 4, rng, people="group", setting="interior")
+    for m in ("2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12"):
+        ims += _images("moved", m, 4, rng, people="none", setting="landscape_nature", mood=("playful",), scale=1)
+        ims += _images("steady", m, 4, rng, people="none", setting="landscape_nature", mood=("serene",))
+        ims += _images("third", m, 4, rng, people="group", setting="interior")
     # mixed answers inside one house's periods: the null should see these as exchangeable
     for m, k in (("2024-03", 0), ("2024-09", 1)):
         for i in range(20):
@@ -51,7 +51,8 @@ def test_a_planted_shift_is_found_and_a_steady_house_is_not():
     assert res["steady"]["shifts"][0]["rubric"] == 0 and res["steady"]["shifts"][0]["rubric_p"] == 1.0
     assert res["mixed"]["shifts"][0]["rubric_p"] > 0.2
     assert res["moved"]["periods"]["2024H1"]["street_couture"] == 5.0
-    assert res["moved"]["periods"]["2024H1"]["n"] == 20       # each image once per period
+    assert res["moved"]["periods"]["2024H1"]["n"] == 24       # each image once per period
+    assert s["null"] == "months" and s["months0"] == 6
     assert set(res["third"]["distinct"]) == {"2024H1", "2024H2"}
 
 
@@ -90,3 +91,24 @@ def test_shift_and_next_growth_are_correlated_within_house():
         growth[h] = g
     out = character.success(houses, growth, n_perm=199)
     assert out["pairs"] == 18 and out["spearman"] > 0.8 and out["p_two_sided"] < 0.05
+
+
+def test_one_campaign_in_many_crops_is_not_taken_for_a_shift():
+    """Each month's homepage shows one campaign in several crops: within a month the answers repeat. Two
+    half-years drawn from the same mix of campaigns differ only by which campaigns fell where. Shuffling
+    single images treats every crop as evidence and calls that a shift; moving whole months does not."""
+    rng = np.random.default_rng(5)
+    looks = [dict(people="one", setting="studio_plain"), dict(people="none", setting="interior"),
+             dict(people="group", setting="urban_exterior"), dict(people="two", setting="landscape_nature")]
+    ims = []
+    months = [f"2024-{m:02d}" for m in range(1, 13)]
+    order = [0, 0, 1, 0, 2, 0, 3, 3, 1, 3, 2, 3]       # each half has one of everything, but in different amounts
+    for m, k in zip(months, order):
+        ims += _images("h", m, 8, rng, **looks[k])
+    enc = _enc()
+    by_month = character.read(ims, enc, n_perm=999)["h"]["shifts"][0]
+    X = [i for i in ims]
+    X0 = np.vstack([enc.row(i["out"]) for i in X if i["month"] <= "2024-06"])
+    X1 = np.vstack([enc.row(i["out"]) for i in X if i["month"] > "2024-06"])
+    by_image = character.permuted(enc, X0, X1, None, None, 999, np.random.default_rng(1))
+    assert by_image["rubric_p"] < 0.01 and by_month["rubric_p"] > 0.1
