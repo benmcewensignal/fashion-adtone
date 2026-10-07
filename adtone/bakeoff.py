@@ -697,6 +697,39 @@ def _fashion():
     return f, {"weights": "Marqo/marqo-fashionSigLIP"}
 
 
+TEXT_MODELS = {"clip": (config.EMBED_MODEL, config.EMBED_PRETRAINED), "fashion": ("hf-hub:Marqo/marqo-fashionSigLIP", None)}
+
+
+def axis_prompts() -> list[tuple[str, str]]:
+    """Both ends of each pairs-v1 axis as words, in the rubric's own descriptions."""
+    out = []
+    for ax in _pairs_rubric()["axes"]:
+        for end in ("away", "toward"):
+            out.append((f"{ax['id']}:{end}", f"a luxury fashion photograph that is {ax[end]}: {ax[end + '_means']}"))
+    return out
+
+
+def text(name: str) -> dict:
+    """The axis ends embedded by an image model's own text tower (clip: today's fingerprint model; fashion:
+    Marqo FashionSigLIP), so the model can place a picture on each axis by itself."""
+    import open_clip
+    import torch
+    model_name, pretrained = TEXT_MODELS[name]
+    model = open_clip.create_model_and_transforms(model_name, pretrained=pretrained)[0] if pretrained else \
+        open_clip.create_model_and_transforms(model_name)[0]
+    model.eval()
+    tok = open_clip.get_tokenizer(model_name)
+    keys, texts = zip(*axis_prompts())
+    with torch.no_grad():
+        T = model.encode_text(tok(list(texts))).float().numpy()
+    T = T / np.linalg.norm(T, axis=1, keepdims=True)
+    out = DIR / "vectors" / f"{name}-text.npz"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(out, keys=np.array(keys), vecs=T.astype(np.float32), texts=np.array(texts))
+    _log("text", model=name, prompts=len(texts))
+    return {"prompts": len(texts)}
+
+
 def embed(name: str, shas: list[str] | None = None, vol_dir: str = VOL_DIR, out: Path | None = None, log=None,
           again: bool = False) -> dict:
     """One image model's vectors for the pictures; kept, not made again, once every picture has one."""
@@ -898,17 +931,63 @@ def score() -> dict:
             if sh in shas:
                 vecs["clip"][sh] = v / np.linalg.norm(v)
     for f in sorted((DIR / "vectors").glob("*.npz")) if (DIR / "vectors").exists() else []:
+        if f.stem.endswith("-text"):
+            continue
         with np.load(f, allow_pickle=False) as z:
             vecs[f.stem] = {str(a): b.astype(np.float32) / (np.linalg.norm(b.astype(np.float32)) or 1) for a, b in zip(z["shas"], z["vecs"])}
     out["images"] = {n: {"pictures": len(v), "identity": _identity(v, pics), "knn_brand": _knn_brand(v, pics, crops),
                          "crops": _crop_sep(v, crops, rng)} for n, v in vecs.items()}
-    # pairs
     spec_p = _pairs_rubric()
     axes = [a["id"] for a in spec_p["axes"]]
-    out["pairs"] = {}
     human_file = DIR / "human.json"
     human = json.loads(human_file.read_text(encoding="utf-8")) if human_file.exists() else {}
     hp = {h["id"]: h for h in json.loads((DIR / "pairs.json").read_text(encoding="utf-8"))["human"]} if (DIR / "pairs.json").exists() else {}
+    judged = {hid: ans for hid, ans in human.items() if hid in hp and ans in ("left", "right")}
+    sh = sorted(shas)
+    idx = {x: i for i, x in enumerate(sh)}
+
+    def quality(th: np.ndarray, ax: str) -> dict:
+        """One axis's positions for every picture, judged: do two crops of one picture land together, how
+        much of the spread lies between brands, how much inside brands is more than noise, and how often
+        the higher-placed picture of each of the person's pairs is the one the person picked."""
+        cp = [abs(th[idx[a]] - th[idx[b2]]) for a, b2 in crops]
+        rp = [abs(th[i] - th[j]) for i, j in (nrng.choice(len(sh), 2, replace=False) for _ in range(2000))]
+        icc = _icc([(th[idx[a]], th[idx[b2]]) for a, b2 in crops])
+        eta = _eta2(th, [house[x] for x in sh], nrng)
+        within = 1 - eta.get("between_brands", 0.0)
+        within_signal = None if icc is None or within <= 0 else round(max(0.0, 1 - (1 - icc) / within), 3)
+        pos_agree = [1.0 if (th[idx[h["left"]]] > th[idx[h["right"]]]) == (ans == "left") else 0.0
+                     for hid, ans in judged.items() for h in [hp[hid]]
+                     if h["axis"] == ax and h["left"] in idx and h["right"] in idx]
+        return {"crop_gap_vs_random": round(float(np.mean(cp)) / (float(np.mean(rp)) or 1), 3) if cp else None,
+                "crop_icc": icc, **eta, "within_brand_signal": within_signal,
+                "human_agreement_by_position": {"pairs": len(pos_agree), "agreement": round(float(np.mean(pos_agree)), 3)}
+                if pos_agree else None,
+                "pixels": {k: round(float(_spearman(th, np.array([px[x][k] for x in sh]))), 3) for k in PIXEL_KEYS}}
+
+    # zero-shot: an image model's own text tower places each picture toward the end of the axis whose words it
+    # lies closer to, with no reader at all
+    out["zero_shot"] = {}
+    for name in ("clip", "fashion"):
+        tf = DIR / "vectors" / f"{name}-text.npz"
+        if not tf.exists() or not all(x in vecs.get(name, {}) for x in sh):
+            continue
+        with np.load(tf, allow_pickle=False) as z:
+            T = {str(k): v.astype(np.float64) for k, v in zip(z["keys"], z["vecs"])}
+        scores = {}
+        for ax in axes:
+            if f"{ax}:toward" in T and f"{ax}:away" in T:
+                scores[ax] = np.array([float(vecs[name][x] @ (T[f"{ax}:toward"] - T[f"{ax}:away"])) for x in sh])
+        out["zero_shot"][name] = {"axes": {ax: quality(th, ax) for ax, th in scores.items()},
+                                  "axis_correlations": {f"{a}|{b2}": round(float(_spearman(scores[a], scores[b2])), 3)
+                                                        for a, b2 in itertools.combinations(sorted(scores), 2)}}
+        allv = [x for ax in scores for x in ([] if not out["zero_shot"][name]["axes"][ax]["human_agreement_by_position"]
+                                              else [out["zero_shot"][name]["axes"][ax]["human_agreement_by_position"]])]
+        if allv:
+            n = sum(a["pairs"] for a in allv)
+            out["zero_shot"][name]["human_agreement_all"] = {"pairs": n, "agreement": round(sum(a["pairs"] * a["agreement"] for a in allv) / n, 3)}
+    # pairs
+    out["pairs"] = {}
     for f in sorted((DIR / "readings").glob("*-human.jsonl")) + sorted((DIR / "readings").glob("*-pairs.jsonl")) \
             if (DIR / "readings").exists() else []:
         name, what = f.stem.rsplit("-", 1)
@@ -922,7 +1001,6 @@ def score() -> dict:
         res[f"{what}_order_consistency"] = round(len(consistent) / max(1, len(both)), 3)
         res[f"{what}_first_share"] = round(sum(r["answer"] == "first" for r in rows) / max(1, len(rows)), 3)
         res[f"{what}_judgements"] = len(rows)
-        judged = {hid: ans for hid, ans in human.items() if hid in hp and ans in ("left", "right")}
         if human:
             per_axis = defaultdict(list)
             for hid, ans in judged.items():
@@ -940,8 +1018,6 @@ def score() -> dict:
                 allv = [x for v in per_axis.values() for x in v]
                 res["human_agreement_all"] = {"pairs": len(allv), "agreement": round(float(np.mean(allv)), 3)}
         if what == "pairs":
-            sh = sorted(shas)
-            idx = {x: i for i, x in enumerate(sh)}
             scores = {}
             for ax in axes:
                 rr = [r for r in rows if r["axis"] == ax and r["first"] in idx and r["second"] in idx]
@@ -951,23 +1027,7 @@ def score() -> dict:
                                       np.array([idx[r["second"]] for r in rr]),
                                       np.array([1.0 if r["answer"] == "first" else 0.0 for r in rr]))
                 scores[ax] = th
-                cp = [abs(th[idx[a]] - th[idx[b2]]) for a, b2 in crops]
-                rp = [abs(th[i] - th[j]) for i, j in (nrng.choice(len(sh), 2, replace=False) for _ in range(2000))]
-                icc = _icc([(th[idx[a]], th[idx[b2]]) for a, b2 in crops])
-                eta = _eta2(th, [house[x] for x in sh], nrng)
-                within = 1 - eta.get("between_brands", 0.0)
-                # how much of the spread inside brands is more than the noise two crops of one picture show
-                within_signal = None if icc is None or within <= 0 else round(max(0.0, 1 - (1 - icc) / within), 3)
-                pos_agree = [1.0 if (th[idx[h["left"]]] > th[idx[h["right"]]]) == (ans == "left") else 0.0
-                             for hid, ans in judged.items() for h in [hp[hid]]
-                             if h["axis"] == ax and h["left"] in idx and h["right"] in idx]
-                res.setdefault("axes", {})[ax] = {
-                    "judgements": len(rr), "first_bias": round(b, 3),
-                    "crop_gap_vs_random": round(float(np.mean(cp)) / (float(np.mean(rp)) or 1), 3) if cp else None,
-                    "crop_icc": icc, **eta, "within_brand_signal": within_signal,
-                    "human_agreement_by_position": {"pairs": len(pos_agree), "agreement": round(float(np.mean(pos_agree)), 3)}
-                    if pos_agree else None,
-                    "pixels": {k: round(float(_spearman(th, np.array([px[x][k] for x in sh]))), 3) for k in PIXEL_KEYS}}
+                res.setdefault("axes", {})[ax] = {"judgements": len(rr), "first_bias": round(b, 3), **quality(th, ax)}
             if len(scores) >= 2:
                 res["axis_correlations"] = {f"{a}|{b2}": round(float(_spearman(scores[a], scores[b2])), 3)
                                             for a, b2 in itertools.combinations(sorted(scores), 2)}
@@ -1044,6 +1104,8 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
     e = sub.add_parser("embed")
     e.add_argument("--model", choices=sorted(EMBEDDERS), required=True)
+    tx = sub.add_parser("text")
+    tx.add_argument("--model", choices=sorted(TEXT_MODELS), required=True)
     sub.add_parser("score")
     a = ap.parse_args(argv)
     if a.cmd == "sample":
@@ -1064,6 +1126,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"bakeoff read {a.reader} {a.what}: {read(a.reader, a.what)}")
     elif a.cmd == "embed":
         print(f"bakeoff embed {a.model}: {embed(a.model)}")
+    elif a.cmd == "text":
+        print(f"bakeoff text {a.model}: {text(a.model)}")
     elif a.cmd == "score":
         out = score()
         print("bakeoff score: " + json.dumps({k: out[k] for k in ("sample",)}))

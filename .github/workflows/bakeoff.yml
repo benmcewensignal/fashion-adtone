@@ -4,7 +4,8 @@ run-name: bakeoff ${{ inputs.mode || 'kick' }}
 # fetch: fetch the sampled pictures again; small copies to a private Modal volume, thumbnails sealed
 #        for the judging page, pixel measures and the pairs design into the repository
 # deploy: pin and deploy the open readers (Qwen3-VL-32B, and Qwen2.5-VL-7B for pairs)
-# read / embed / score: the readings, the image models, the yardsticks; all: deploy, read, embed, score
+# read / embed / score: the readings, the image models (and their text towers, to place pictures on the
+#        axes with no reader), the yardsticks; all: deploy, read, embed, score
 # Editing .github/kick/bakeoff starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -132,6 +133,7 @@ jobs:
         run: |
           pip install -q -r requirements-bakeoff.txt
           for m in csd dino fashion; do python -m adtone.bakeoff embed --model "$m" 2>&1 | tee -a /tmp/bakeoff.log || echo "::warning::$m failed"; done
+          for m in clip fashion; do python -m adtone.bakeoff text --model "$m" 2>&1 | tee -a /tmp/bakeoff.log || echo "::warning::$m text failed"; done
 
       - name: Score
         if: steps.m.outputs.mode == 'score' || steps.m.outputs.mode == 'all' || steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'embed'
