@@ -12,7 +12,7 @@ on:
       mode:
         type: choice
         default: all
-        options: [fetch, deploy, read, embed, score, all]
+        options: [fetch, seal, deploy, read, embed, score, all]
   push:
     branches: [main]
     paths: [".github/kick/bakeoff"]
@@ -44,7 +44,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/bakeoff | awk '{print $1}'); fi
-          case "$mode" in fetch|deploy|read|embed|score|all) ;; *) mode=all ;; esac
+          case "$mode" in fetch|seal|deploy|read|embed|score|all) ;; *) mode=all ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "bake-off mode: $mode"
       - name: Install
@@ -55,16 +55,23 @@ jobs:
         if: steps.m.outputs.mode == 'fetch'
         timeout-minutes: 150
         run: |
-          python -m adtone.bakeoff fetch
-          python -m adtone.bakeoff pairs
-      - name: Sealed thumbnails for the judging page
-        if: steps.m.outputs.mode == 'fetch'
+          python -m adtone.bakeoff fetch 2>&1 | tee -a /tmp/bakeoff.log
+          python -m adtone.bakeoff pairs 2>&1 | tee -a /tmp/bakeoff.log
+      - name: Seal thumbnails again from the volume
+        if: steps.m.outputs.mode == 'seal'
+        timeout-minutes: 20
+        run: python -m adtone.bakeoff seal 2>&1 | tee -a /tmp/bakeoff.log
+      - name: Sealed thumbnails for the judging page, on a branch of their own
+        # One file sealed to a key that is not in this repository: it holds no readable picture.
+        if: steps.m.outputs.mode == 'fetch' || steps.m.outputs.mode == 'seal'
         timeout-minutes: 5
         run: |
-          gh release view bakeoff-v1 >/dev/null 2>&1 || gh release create bakeoff-v1 --prerelease \
-            --title "bake-off: sealed thumbnails" \
-            --notes "One file sealed to a key that is not in this repository. It holds no readable pictures."
-          gh release upload bakeoff-v1 bakeoff_pictures/thumbs.tar.sealed --clobber
+          gh release delete bakeoff-v1 --cleanup-tag -y >/dev/null 2>&1 || true
+          tmp=$(mktemp -d)
+          cp bakeoff_pictures/thumbs.tar.sealed "$tmp/"
+          cd "$tmp" && git init -q && git checkout -q -b bakeoff-sealed && git add thumbs.tar.sealed
+          git -c user.name=adtone-bakeoff-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed thumbnails for the judging page"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" bakeoff-sealed
 
       - name: Pin and deploy the open readers
         if: steps.m.outputs.mode == 'deploy' || steps.m.outputs.mode == 'all'
@@ -73,7 +80,7 @@ jobs:
           set -o pipefail
           q3=$(python -c "import json,pathlib; p=pathlib.Path('data/bakeoff/readers.json'); print(json.loads(p.read_text()).get('qwen3',{}).get('revision','') if p.exists() else '')")
           if [ -z "$q3" ]; then
-            BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_APP=adtone-bakeoff-qwen3 modal run bakeoff/modal_reader.py | tee /tmp/pin3.log
+            BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_APP=adtone-bakeoff-qwen3 modal run bakeoff/modal_reader.py 2>&1 | tee /tmp/pin3.log | tee -a /tmp/bakeoff.log
             q3=$(grep -o 'BAKEOFF_PIN .*' /tmp/pin3.log | sed 's/BAKEOFF_PIN //' | python -c "import json,sys; print(json.load(sys.stdin)['revision'])")
           fi
           q25=$(python -c "from adtone import config; print(config.open_model_revision())")
@@ -87,32 +94,33 @@ jobs:
           p.parent.mkdir(parents=True, exist_ok=True)
           p.write_text(json.dumps(d, indent=1) + "\n")
           EOF
-          BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_REVISION="$q3" BAKEOFF_APP=adtone-bakeoff-qwen3 BAKEOFF_GPU=H100 modal deploy bakeoff/modal_reader.py
-          BAKEOFF_MODEL=Qwen/Qwen2.5-VL-7B-Instruct BAKEOFF_REVISION="$q25" BAKEOFF_APP=adtone-bakeoff-qwen25 BAKEOFF_GPU=L4 modal deploy bakeoff/modal_reader.py
+          BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_REVISION="$q3" BAKEOFF_APP=adtone-bakeoff-qwen3 BAKEOFF_GPU=H100 modal deploy bakeoff/modal_reader.py 2>&1 | tee -a /tmp/bakeoff.log
+          BAKEOFF_MODEL=Qwen/Qwen2.5-VL-7B-Instruct BAKEOFF_REVISION="$q25" BAKEOFF_APP=adtone-bakeoff-qwen25 BAKEOFF_GPU=L4 modal deploy bakeoff/modal_reader.py 2>&1 | tee -a /tmp/bakeoff.log
 
       - name: Qwen3-VL-32B, registered questions
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true
         timeout-minutes: 40
-        run: python -m adtone.bakeoff read --reader qwen3 --what tone
+        run: set -o pipefail; python -m adtone.bakeoff read --reader qwen3 --what tone 2>&1 | tee -a /tmp/bakeoff.log
       - name: Qwen3-VL-32B, pairs
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true
         timeout-minutes: 150
-        run: python -m adtone.bakeoff read --reader qwen3 --what pairs
+        run: set -o pipefail; python -m adtone.bakeoff read --reader qwen3 --what pairs 2>&1 | tee -a /tmp/bakeoff.log
       - name: Qwen2.5-VL-7B, the person's pairs
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true
         timeout-minutes: 30
-        run: python -m adtone.bakeoff read --reader qwen25 --what human
+        run: set -o pipefail; python -m adtone.bakeoff read --reader qwen25 --what human 2>&1 | tee -a /tmp/bakeoff.log
       - name: Claude, registered questions and the person's pairs
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true
         timeout-minutes: 60
         run: |
           if [ -z "$ANTHROPIC_API_KEY" ]; then echo "::notice::no Anthropic key; Claude is left out"; exit 0; fi
-          python -m adtone.bakeoff read --reader claude --what tone
-          python -m adtone.bakeoff read --reader claude --what human
+          set -o pipefail
+          python -m adtone.bakeoff read --reader claude --what tone 2>&1 | tee -a /tmp/bakeoff.log
+          python -m adtone.bakeoff read --reader claude --what human 2>&1 | tee -a /tmp/bakeoff.log
 
       - name: Image models
         if: steps.m.outputs.mode == 'embed' || steps.m.outputs.mode == 'all'
@@ -120,14 +128,25 @@ jobs:
         timeout-minutes: 60
         run: |
           pip install -q -r requirements-bakeoff.txt
-          for m in csd dino fashion; do python -m adtone.bakeoff embed --model "$m" || echo "::warning::$m failed"; done
+          for m in csd dino fashion; do python -m adtone.bakeoff embed --model "$m" 2>&1 | tee -a /tmp/bakeoff.log || echo "::warning::$m failed"; done
 
       - name: Score
         if: steps.m.outputs.mode == 'score' || steps.m.outputs.mode == 'all' || steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'embed'
         continue-on-error: true
         timeout-minutes: 20
-        run: python -m adtone.bakeoff score
+        run: set -o pipefail; python -m adtone.bakeoff score 2>&1 | tee -a /tmp/bakeoff.log
 
+      - name: Keep the end of the log
+        if: always()
+        run: |
+          python - <<'EOF'
+          import json, pathlib, datetime
+          p = pathlib.Path("/tmp/bakeoff.log")
+          lines = p.read_text(errors="replace").splitlines()[-300:] if p.exists() else []
+          out = pathlib.Path("data/bakeoff/runlog.json")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps({"at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "lines": lines}, indent=0) + "\n")
+          EOF
       - name: Persist
         if: always()
         timeout-minutes: 10

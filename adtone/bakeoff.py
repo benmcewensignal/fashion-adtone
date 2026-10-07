@@ -312,6 +312,17 @@ def seal_thumbnails() -> Path:
     return out
 
 
+def seal_from_volume() -> Path:
+    """Thumbnails made again from the readers' copies on the volume, sealed, for when the fetch's own
+    thumbnails are gone with its runner."""
+    from PIL import Image
+    found = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
+    (LOCAL / "thumb").mkdir(parents=True, exist_ok=True)
+    for sha, data in from_volume(found).items():
+        (LOCAL / "thumb" / f"{sha}.jpg").write_bytes(_jpeg(Image.open(io.BytesIO(data)), THUMB_EDGE, 80))
+    return seal_thumbnails()
+
+
 # ---------- the pairs ----------
 
 def design(pictures: list[dict], crops: list[list[str]], axes: list[dict], seed: int = SEED,
@@ -869,6 +880,7 @@ def main(argv: list[str] | None = None) -> int:
     f = sub.add_parser("fetch")
     f.add_argument("--no-upload", action="store_true")
     sub.add_parser("pairs")
+    sub.add_parser("seal")
     r = sub.add_parser("read")
     r.add_argument("--reader", choices=sorted(READERS), required=True)
     r.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
@@ -884,6 +896,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"bakeoff fetch: {sum(r['found'] for r in rows)} of {len(rows)} pictures found again")
         if not a.no_upload:
             print(f"to the Modal volume: {to_volume()}; sealed thumbnails: {seal_thumbnails()}")
+    elif a.cmd == "seal":
+        print(f"bakeoff seal: {seal_from_volume()}")
     elif a.cmd == "pairs":
         d = pairs()
         print(f"bakeoff pairs: {len(d['human'])} for a person; " + ", ".join(f"{k} {len(v)}" for k, v in d["reader"].items()))
