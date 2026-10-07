@@ -266,3 +266,16 @@ def test_brands_moving_towards_the_brand_of_the_moment_are_found_and_still_brand
     assert moved["transitions"] == 4 and [r["leader"] for r in moved["half_years"]] == ["b0", "b1", "b2", "b3"]
     assert moved["towards_leader_less_any_brand"] < 0 and moved["p_one_sided"] < 0.05
     assert still["p_one_sided"] > 0.05
+
+
+def test_ambassador_events_take_the_first_fashion_appointment_of_a_year_away_from_a_new_designer(tmp_path):
+    f = tmp_path / "a.csv"
+    f.write_text("house_id,person,role,category,announced_date,ended_date,source_urls,verified,notes\n"
+                 "a,P1,global ambassador,fashion,2024-03-05,,u,true,\n"
+                 "a,P2,global ambassador,fashion,2024-01-10,,u,true,\n"
+                 "a,P3,ambassador,fragrance,2023-02-01,,u,true,\n"
+                 "b,P4,ambassador,fashion,2024-06-01,,u,true,\n"
+                 "c,P5,ambassador,fashion,2025-06-01,,u,false,\n", encoding="utf-8")
+    leads = [{"house": "b", "kind": "creative lead", "date": "2024-10-01"}]
+    ev = R.ambassador_events(f, leads=leads)
+    assert [(e["house"], e["who"]) for e in ev] == [("a", "P2")]

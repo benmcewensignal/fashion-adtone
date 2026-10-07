@@ -887,6 +887,41 @@ def designer_events(path=DESIGNERS_FILE) -> list[dict]:
     return out
 
 
+AMBASSADORS_FILE = config.ROOT / "reference" / "ambassadors.csv"
+FASHION = ("fashion", "fashion (men)", "fashion; beauty", "fashion; jewellery; beauty", "fashion; watches; jewellery",
+           "fashion (men); fragrance", "footwear (men)")
+
+
+def ambassador_events(path=AMBASSADORS_FILE, leads: list[dict] | None = None) -> list[dict]:
+    """The first fashion ambassador each brand names in a calendar year (verified, from 2019): the face in front
+    of the camera, as an event. Beauty, fragrance and corporate roles are left out, and so is any appointment
+    within a year of a change of creative lead at the same brand, which would carry it."""
+    if not path.exists():
+        return []
+    leads = designer_events() if leads is None else leads
+    lead_months = defaultdict(list)
+    for e in leads:
+        lead_months[e["house"]].append(e["date"][:7])
+    first: dict[tuple, dict] = {}
+    with path.open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            d = r["announced_date"]
+            if r["verified"] != "true" or r["category"] not in FASHION or len(d) < 7 or d < "2019":
+                continue
+            m = d[:7]
+            if any(abs(_months_between(m, x)) <= 12 for x in lead_months.get(r["house_id"], [])):
+                continue
+            key = (r["house_id"], d[:4])
+            if key not in first or d < first[key]["date"]:
+                first[key] = {"house": r["house_id"], "kind": "ambassador", "who": r["person"],
+                              "date": d if len(d) == 10 else f"{d}-01", "verified": True}
+    return sorted(first.values(), key=lambda e: (e["date"], e["house"]))
+
+
+def _months_between(a: str, b: str) -> int:
+    return (int(a[:4]) - int(b[:4])) * 12 + int(a[5:7]) - int(b[5:7])
+
+
 def owner_events() -> list[dict]:
     facts = store.read_state(config.DATA / "wikidata" / "houses.json")
     out = []
@@ -905,14 +940,15 @@ def owner_events() -> list[dict]:
     return uniq
 
 
-def event_study(houses: dict[str, list[dict]], events: list[dict], ans: Answers, rng) -> dict:
+def event_study(houses: dict[str, list[dict]], events: list[dict], ans: Answers, rng,
+                leads: list[dict] | None = None) -> dict:
     """Each event: the brand's pictures in the twelve months before the first show against months three to
     fourteen after it (campaigns follow shows), like for like on its own and against the market; and the
     same two windows, like for like, for every brand with no change of creative lead within a year of
     either window. A campaign runs for months, so moving months between two long windows finds some change
     for most brands: the brands without a change are the yardstick."""
     lead_dates: dict[str, list[str]] = defaultdict(list)
-    for e in events:
+    for e in (events if leads is None else leads):
         if e["kind"] == "creative lead":
             lead_dates[e["house"]].append(e["date"][:7])
     rows = []
@@ -1229,6 +1265,7 @@ def _run(images: list[dict], spec: dict, reg: registry.Registry, seed: int) -> d
         "by_lag": by_lag(houses, ans, rng), "power": power(houses, half, ans, rng),
         "cross_brand": cross, "spread": spread(images, rng), "market": market(images, ans, rng),
         "events": event_study(houses, events, ans, rng), "crew_turnover": crew_turnover(),
+        "ambassadors": event_study(houses, ambassador_events(), ans, rng, leads=designer_events()),
         "success": success(half, cross, reg, rng), "moment": moment(images, rng),
         "moment_steady": moment(images, rng, momentum=attention_momentum(
             sorted({i["house"] for i in images}), "median", "all")),

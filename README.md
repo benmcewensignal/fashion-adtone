@@ -28,7 +28,7 @@ their clothes look like.
   about 300 pictures, and `adtone.luxury` fetches every homepage picture again for a second reading
   by the winner (pictures stay on a private volume, never in this repository). See `docs/THREAD.md`
   for every source and its workflow.
-- Built and tested on synthetic data with known ground truth (274 tests).
+- Built and tested on synthetic data with known ground truth (275 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
