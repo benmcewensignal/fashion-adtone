@@ -279,3 +279,30 @@ def test_ambassador_events_take_the_first_fashion_appointment_of_a_year_away_fro
     leads = [{"house": "b", "kind": "creative lead", "date": "2024-10-01"}]
     ev = R.ambassador_events(f, leads=leads)
     assert [(e["house"], e["who"]) for e in ev] == [("a", "P2")]
+
+
+def test_a_change_with_nothing_to_judge_it_against_is_left_out_of_the_event_study(monkeypatch):
+    """A side whose pictures never vary gives a change of no measurable size (the stand-in UNJUDGED); it is
+    noted on the event and kept out of the average against the controls, which it would swamp."""
+    rng = np.random.default_rng(7)
+    centres = _brands(rng)
+    months = [f"{y}-{m:02d}" for y in (2024, 2025) for m in range(1, 13)]
+    ims = []
+    for h, c in centres.items():
+        for m in months:
+            ims += _cloud(h, c, [m], rng, per=2)
+    events = [{"house": f"b{i}", "kind": "creative lead", "who": "new", "date": f"2024-{9 + i % 3:02d}-01", "verified": True}
+              for i in range(4)]
+    real = R.compare
+
+    def fake(houses, h, s0, s1, ans, rng, **kw):
+        c = real(houses, h, s0, s1, ans, rng, **kw)
+        if c and h == "b0" and kw.get("market", True) and c.get("like_for_like"):
+            c["like_for_like"] = {**c["like_for_like"], "print_score": R.UNJUDGED}
+        return c
+    monkeypatch.setattr(R, "compare", fake)
+    got = R.event_study(R.by_house(ims), events, _answers(), rng)
+    b0 = [r for r in got["rows"] if r["house"] == "b0"][0]
+    assert b0.get("print_unjudged") and "own_print_score" not in b0
+    assert got["summary"]["unjudged"]["print"] == 1
+    assert all(r.get("own_print_score") != R.UNJUDGED for r in got["rows"])

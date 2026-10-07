@@ -373,12 +373,16 @@ def _p(null: np.ndarray, obs: float, exact: bool) -> float:
     return ge / len(null) if exact else (1 + ge) / (1 + len(null))
 
 
+UNJUDGED = 99.0      # a change with no spread to judge it against: answers that never vary on one side
+
+
 def _score(obs: float, null: np.ndarray) -> float:
     """The change against the edge of chance: the observed statistic over the 95th percentile of the null,
     so above 1 is beyond what moving months at random gives one time in twenty. (Against the median it
-    overstated changes whose null has a long tail: a brand whose campaigns differ a lot within each year.)"""
+    overstated changes whose null has a long tail: a brand whose campaigns differ a lot within each year.)
+    UNJUDGED when there is nothing to judge it against, which comparisons of size leave out."""
     edge = float(np.quantile(null[np.isfinite(null)], 0.95)) if np.isfinite(null).any() else 0.0
-    return round(obs / edge, 3) if edge > 0 and np.isfinite(obs) else (99.0 if obs > 0 else 1.0)
+    return round(obs / edge, 3) if edge > 0 and np.isfinite(obs) else (UNJUDGED if obs > 0 else 1.0)
 
 
 def _report(out: dict, ans: Answers, d_o, V_o, d_n, V_n, exact: bool) -> dict:
@@ -988,13 +992,19 @@ def event_study(houses: dict[str, list[dict]], events: list[dict], ans: Answers,
             row["controls"] = [h for h, _ in ctrl]
             for k in ("answers", "print"):
                 if f"{k}_score" in own:
-                    sc = [t[f"{k}_score"] for _, t in ctrl if f"{k}_score" in t]
+                    sc = [t[f"{k}_score"] for _, t in ctrl if f"{k}_score" in t and t[f"{k}_score"] != UNJUDGED]
+                    if own[f"{k}_score"] == UNJUDGED or not sc:
+                        # pictures too few or too alike on one side: a change there has no size, and setting
+                        # a stand-in number beside the controls would swamp the average
+                        row[f"{k}_unjudged"] = True
+                        continue
                     row[f"own_{k}_score"] = own[f"{k}_score"]
                     row[f"controls_{k}_score"] = round(float(np.median(sc)), 3)
                     row[f"controls_{k}_above"] = round(float(np.mean([x >= own[f"{k}_score"] for x in sc])), 3)
         rows.append(row)
     tested = [r for r in rows if "controls" in r]
-    summary = {"events": len(rows), "tested": len(tested)}
+    summary = {"events": len(rows), "tested": len(tested),
+               "unjudged": {k: sum(1 for r in tested if r.get(f"{k}_unjudged")) for k in ("answers", "print")}}
     for key in ("answers", "print"):
         d = np.array([math.log(max(r[f"own_{key}_score"], 1e-3) / max(r[f"controls_{key}_score"], 1e-3))
                       for r in tested if f"own_{key}_score" in r])
