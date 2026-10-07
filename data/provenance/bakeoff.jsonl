@@ -15,3 +15,7 @@
 {"at":"2026-10-07T19:24:59Z","event":"text","model":"clip","prompts":10}
 {"at":"2026-10-07T19:25:12Z","event":"text","model":"fashion","prompts":10}
 {"at":"2026-10-07T19:25:17Z","event":"score","images":["clip","dino","fashion"],"pairs":["qwen25","qwen3"],"readers":["qwen25 (today)","qwen3"]}
+{"at":"2026-10-07T19:33:43Z","dim":768,"event":"embed","missing":0,"model":"csd","pictures":296,"seconds":361,"unexpected":0,"weights":"tomg-group-umd/CSD-ViT-L"}
+{"at":"2026-10-07T19:33:55Z","event":"text","model":"clip","prompts":10}
+{"at":"2026-10-07T19:34:09Z","event":"text","model":"fashion","prompts":10}
+{"at":"2026-10-07T19:34:15Z","event":"score","images":["clip","csd","dino","fashion"],"pairs":["qwen25","qwen3"],"readers":["qwen25 (today)","qwen3"]}

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T19:25:13Z",
+ "generated_at": "2026-10-07T19:34:10Z",
  "status": "exploratory bake-off, not in the pre-registration",
  "sample": {
   "chosen": 307,
@@ -342,6 +342,20 @@
     "separation": 5.54
    }
   },
+  "csd": {
+   "pictures": 296,
+   "identity": {
+    "brands": 22,
+    "hits": 7,
+    "mean_rank": 4.14
+   },
+   "knn_brand": 0.402,
+   "crops": {
+    "crop_cos": 0.988,
+    "random_cos": 0.307,
+    "separation": 4.33
+   }
+  },
   "dino": {
    "pictures": 296,
    "identity": {
@@ -352,8 +366,8 @@
    "knn_brand": 0.314,
    "crops": {
     "crop_cos": 0.994,
-    "random_cos": 0.598,
-    "separation": 4.15
+    "random_cos": 0.596,
+    "separation": 4.36
    }
   },
   "fashion": {
@@ -366,8 +380,8 @@
    "knn_brand": 0.443,
    "crops": {
     "crop_cos": 0.991,
-    "random_cos": 0.549,
-    "separation": 5.49
+    "random_cos": 0.552,
+    "separation": 5.37
    }
   }
  },
