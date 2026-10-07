@@ -975,10 +975,38 @@ def score() -> dict:
                 store.write_jsonl(DIR / "positions" / f"{name}.jsonl",
                                   [{"sha": x, **{ax: round(float(scores[ax][i]), 4) for ax in scores}} for i, x in enumerate(sh)])
     out["person"] = {"answered": len(human), "left_or_right": sum(a in ("left", "right") for a in human.values()),
-                     "unsure": sum(a == "unsure" for a in human.values()), "pairs": len(hp)}
+                     "unsure": sum(a == "unsure" for a in human.values()), "pairs": len(hp),
+                     "pixel_baseline": _pixel_baseline(human, hp, px)}
     RESULTS.parent.mkdir(parents=True, exist_ok=True)
     RESULTS.write_text(json.dumps(out, indent=1, default=float) + "\n", encoding="utf-8")
     _log("score", readers=sorted(out["tone"]), images=sorted(out["images"]), pairs=sorted(out["pairs"]))
+    return out
+
+
+def _pixel_baseline(human: dict, hp: dict, px: dict) -> dict:
+    """How often a single colour-and-light measure picks the picture the person picked, on each axis: the
+    measure and its direction chosen on the other pairs and tried on the one left out, so the choice is
+    not flattered by being made on the pairs it is scored on."""
+    by = defaultdict(list)
+    for hid, ans in human.items():
+        h = hp.get(hid)
+        if h and ans in ("left", "right") and h["left"] in px and h["right"] in px:
+            by[h["axis"]].append((h["left"], h["right"]) if ans == "left" else (h["right"], h["left"]))
+    out = {}
+    for ax, rows in sorted(by.items()):
+        if len(rows) < 10:
+            continue
+        hits = 0.0
+        for i, (w, l) in enumerate(rows):
+            rest = [r for j, r in enumerate(rows) if j != i]
+            share = {k: float(np.mean([px[a][k] > px[b][k] for a, b in rest])) for k in PIXEL_KEYS}
+            k = max(PIXEL_KEYS, key=lambda m: abs(share[m] - 0.5))
+            d = (px[w][k] - px[l][k]) * (1 if share[k] >= 0.5 else -1)
+            hits += 1.0 if d > 0 else 0.5 if d == 0 else 0.0
+        full = {k: float(np.mean([px[a][k] > px[b][k] for a, b in rows])) for k in PIXEL_KEYS}
+        best = max(PIXEL_KEYS, key=lambda m: abs(full[m] - 0.5))
+        out[ax] = {"pairs": len(rows), "agreement_left_out": round(hits / len(rows), 3), "best_measure": best,
+                   "best_measure_share": round(full[best], 3)}
     return out
 
 
