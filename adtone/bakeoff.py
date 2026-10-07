@@ -649,7 +649,16 @@ def _csd():
         sd = load_file(hf_hub_download("tomg-group-umd/CSD-ViT-L", "model.safetensors"))
     else:
         name = next(f for f in files if f.endswith((".pth", ".pt", ".bin")))
-        ck = torch.load(hf_hub_download("tomg-group-umd/CSD-ViT-L", name), map_location="cpu")
+        # the checkpoint keeps a few numpy scalars beside the weights; allow just those, not arbitrary objects
+        safe = [getattr(np, "dtype")]
+        for mod in ("numpy.core.multiarray", "numpy._core.multiarray"):
+            try:
+                safe.append(getattr(__import__(mod, fromlist=["scalar"]), "scalar"))
+            except (ImportError, AttributeError):
+                pass
+        safe += [getattr(np.dtypes, n) for n in dir(np.dtypes) if n.endswith("DType")] if hasattr(np, "dtypes") else []
+        with torch.serialization.safe_globals(safe):
+            ck = torch.load(hf_hub_download("tomg-group-umd/CSD-ViT-L", name), map_location="cpu", weights_only=True)
         sd = ck.get("model_state_dict", ck)
     sd = {k.replace("module.", "", 1): v for k, v in sd.items()}
     msg = model.load_state_dict(sd, strict=False)
