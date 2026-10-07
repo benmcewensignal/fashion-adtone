@@ -1,0 +1,11 @@
+# The bake-off's image models (adtone/bakeoff.py embed), on the runner's CPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+torchvision>=0.17
+open_clip_torch>=2.24
+timm>=1.0.20
+safetensors>=0.4
+huggingface_hub>=0.24
+ftfy>=6.1
+regex>=2023.0
+git+https://github.com/openai/CLIP.git

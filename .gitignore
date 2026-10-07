@@ -12,3 +12,6 @@ __pycache__/
 *.gif
 *.mp4
 site/
+# The bake-off's copies of pictures stay on the runner (adtone/bakeoff.py)
+bakeoff_pictures/
+*.sealed

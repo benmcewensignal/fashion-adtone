@@ -1,0 +1,3224 @@
+{
+ "seed": 20261007,
+ "split": "2025-07",
+ "per_side": 6,
+ "pictures": [
+  {
+   "sha": "d63936ff3dabb63168d9d897ed6c58d6e4d6810a71f96c96730347f15570459e",
+   "house": "alaia",
+   "month": "2023-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231101021231",
+   "page": "https://www.maison-alaia.com/us",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "90981093b00f9bd97d45166f915d20bf760f6299a748ddd9a5e6492c49f65ddc",
+   "house": "alaia",
+   "month": "2023-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231219000107",
+   "page": "https://www.maison-alaia.com/fi",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "ca8e99c82addae3cf7a178cb74fda628004651c9f56ce89b23f14de948edbdc1",
+   "house": "alaia",
+   "month": "2024-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240222132637",
+   "page": "https://www.maison-alaia.com/us",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "4522511c09776743c77b18ff0ef8ef9b72c43abe9683edc569089afb0f7cee3e",
+   "house": "alaia",
+   "month": "2024-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241202064700",
+   "page": "https://www.maison-alaia.com/us",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "3432d39716925e9661f28a186e31bc621a724bd18ae5c77e6567b9823bf6437c",
+   "house": "alaia",
+   "month": "2025-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250501002826",
+   "page": "https://www.maison-alaia.com/de",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "a5a81c22634f7f83fe251fbcc1fe6736ad1b5034d161d4abe0f7871004d58608",
+   "house": "alaia",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501002826",
+   "page": "https://www.maison-alaia.com/de",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "f4574ecf2a2f3c00ab267a3b1341a9e83efde03aa59e69fbc703ef9517228551",
+   "house": "alaia",
+   "month": "2025-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250801122300",
+   "page": "https://www.maison-alaia.com/fi",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "523bd284e02c6595de10b2f1b036197f7827f6fed1aa585c7121c8e86cf2d39e",
+   "house": "alaia",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250901022249",
+   "page": "https://www.maison-alaia.com/fr",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "ba8d6c7f56f96d11e0994614d02d07b9fceb9a9d0ab748150917be205fbca737",
+   "house": "alaia",
+   "month": "2025-10",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251003194928",
+   "page": "https://www.maison-alaia.com/us",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "74f994e13fc1123af60460b7b702961d20636a6d97a10608c8d173f64d612fe2",
+   "house": "alaia",
+   "month": "2026-01",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260116211505",
+   "page": "https://www.maison-alaia.com/",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "42346b0abef0ca2060f647a0671e019781fd237c7e5d45ed35e238fc48880808",
+   "house": "alaia",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260213094851",
+   "page": "https://www.maison-alaia.com/",
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "a1332f7b6359abf1ab756ba741db90c47a4258a0ab2938c9bc108008225544c1",
+   "house": "alaia",
+   "month": "2026-04",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260401174502",
+   "page": null,
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "ca0e9f3f5aba67757c997c8cefabf386e599d6aa3efde5af7fb75362c7fdfbcf",
+   "house": "alaia",
+   "month": "2026-04",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260401174502",
+   "page": null,
+   "url": "https://www.maison-alaia.com/"
+  },
+  {
+   "sha": "a80ec19be3627b0a0587c29acf1e5984e81c1655b76a73fd9fbd5e00e1dab678",
+   "house": "balenciaga",
+   "month": "2023-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230514074000",
+   "page": "https://www.balenciaga.com/en-us",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "0de7e48312ea8a5bd6ac54fc55108f22e44341c0e92f8bf38ecb7aa9e74c860a",
+   "house": "balenciaga",
+   "month": "2023-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231010074116",
+   "page": "https://www.balenciaga.com/fr-fr",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "261c4cb3183ecfec7f832b8e2c7f74586478f43c823f795d8d71b532f7d33dd4",
+   "house": "balenciaga",
+   "month": "2023-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231010074116",
+   "page": "https://www.balenciaga.com/fr-fr",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "c2ecce56c64e3d4298e74341561c68177a1ad8766be68a2f6f1696b4aba1dd0c",
+   "house": "balenciaga",
+   "month": "2023-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231010074116",
+   "page": "https://www.balenciaga.com/fr-fr",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "5fdc041587fbf07fd0269549d147a934f51579d5dee082ce452e1fcdf14e36f4",
+   "house": "balenciaga",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240913110106",
+   "page": "https://www.balenciaga.com/en-us",
+   "url": "http://BALENCIAGA.COM/"
+  },
+  {
+   "sha": "fc8384a916c281ae9cf7658cf585392838ad872fb6dd27b1de8affb59af9d8d8",
+   "house": "balenciaga",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241201211143",
+   "page": "https://www.balenciaga.com/en-us",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "d45f95a969926f7392c466889b0ecac5e6c2483fb4e6a2dabf0504597f92ad3d",
+   "house": "balenciaga",
+   "month": "2025-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250701164717",
+   "page": "https://www.balenciaga.com/fr-fr",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "83a3b7802415756ef2cabb9f6a3ee0ab6dd861fb1b1c8d1d29721f1bf25605c2",
+   "house": "balenciaga",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251107203717",
+   "page": "https://www.balenciaga.com/de-de",
+   "url": "http://balenciaga.com/"
+  },
+  {
+   "sha": "122ea420b8150d5e4ed7b05479e14ae3c2b15c7e09477bdd42e08ede94b663ea",
+   "house": "balenciaga",
+   "month": "2026-03",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260306113940",
+   "page": "https://www.balenciaga.com/en-nl",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "804d6fd117836065f49f350a9b85fc96508ad6d93e2b3b7470b4eeb5ea22b222",
+   "house": "balenciaga",
+   "month": "2026-03",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260306113940",
+   "page": "https://www.balenciaga.com/en-nl",
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "2582aae7d7c792f47e733b61823ce550f96b09f55468c04f0c4dd8d02879ea8b",
+   "house": "balenciaga",
+   "month": "2026-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260709232011",
+   "page": null,
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "08ddfed2c10e1e6eb7e8e488c86f8f55fbee74dc3d916c4c7a9a80e352b019ff",
+   "house": "balenciaga",
+   "month": "2026-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20261003125104",
+   "page": null,
+   "url": "https://www.balenciaga.com/"
+  },
+  {
+   "sha": "af56c23b39f77d3ed18d42e88b7f222bd53805a257a669b3f68ff37d28ec54b8",
+   "house": "bottega_veneta",
+   "month": "2023-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230501154930",
+   "page": "https://www.bottegaveneta.com/en-us",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "faf6f62b3143f0a6db4e08af2f97c375860c1e07cf397b1523602a819760b32f",
+   "house": "bottega_veneta",
+   "month": "2023-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230501154930",
+   "page": "https://www.bottegaveneta.com/en-us",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "89d0c3347e03e8ed7cd1574470664dc7dfec3b23c5f642b45f1044407a78b260",
+   "house": "bottega_veneta",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501205052",
+   "page": "https://www.bottegaveneta.com/de-de",
+   "url": "https://bottegaveneta.com/"
+  },
+  {
+   "sha": "91cf5c2b9f9e281c4969552f7259a6d8d8ace3f99d080c4a75e89a4cbb57d3c2",
+   "house": "bottega_veneta",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501080210",
+   "page": "https://www.bottegaveneta.com/de-at",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "d2505a1671cdc3c7e641eb40de93f312f6fb55de825879ce885465c952f241a9",
+   "house": "bottega_veneta",
+   "month": "2025-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250601104951",
+   "page": "https://www.bottegaveneta.com/en-ca",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "db61a3396287096ce59c3c3b0e28afd7fb4810a27b6f7f32b84933162f4fce9c",
+   "house": "bottega_veneta",
+   "month": "2025-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250601104951",
+   "page": "https://www.bottegaveneta.com/en-ca",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "22a72141e0610efba8a9b1a84557088160e1a995e4181187b73e612c72a48331",
+   "house": "bottega_veneta",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250801004452",
+   "page": "https://www.bottegaveneta.com/de-de",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "725becb59c98387135f46d425a003956b664c7849ff7ebae74485703f70d8e4f",
+   "house": "bottega_veneta",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251018041224",
+   "page": "https://www.bottegaveneta.com/de-de",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "a10a84f1c64b9de66299901c97bcf1d70cff1b3b48b07cb2ccc21dfa543d1469",
+   "house": "bottega_veneta",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251118081038",
+   "page": "https://www.bottegaveneta.com/en-us",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "090f2a734c75a8930c0b86370c7d28c8694b00eb81fb57110f53090f3f6723dd",
+   "house": "bottega_veneta",
+   "month": "2026-03",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260310080817",
+   "page": "https://www.bottegaveneta.com/en-us",
+   "url": "https://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "4928dd45117cf6fa8cea3b1454ed0a52485de86152bb61532435f8176ada5f1e",
+   "house": "bottega_veneta",
+   "month": "2026-06",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260602120400",
+   "page": null,
+   "url": "https://bottegaveneta.com/"
+  },
+  {
+   "sha": "d3b69635eceaf21b0e7a198bf212e1e261ea5120b63403f6fc160a9639d0960a",
+   "house": "bottega_veneta",
+   "month": "2026-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260729081343",
+   "page": null,
+   "url": "http://www.bottegaveneta.com/"
+  },
+  {
+   "sha": "5d7961690121b4a42ffc8284ab0d02cbffa52d3cc4ff50eef30c4e01a668e430",
+   "house": "celine",
+   "month": "2023-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230501054643",
+   "page": "https://www.celine.com/de-de/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "1ff2ba249a687e6c9642c828d06b2578ee3cfe3aadfef7d1af5d7d63fdd386c5",
+   "house": "celine",
+   "month": "2023-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231101034241",
+   "page": "https://www.celine.com/en-int/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "eea2c684faef8d9e1f98d66c04f36a8211120dd9ae946e5c56de6ed5fe54e7be",
+   "house": "celine",
+   "month": "2023-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231201074653",
+   "page": "https://www.celine.com/en-int/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "f62da2a6d4f8390bfa2d5f7f4286066a56e55a801b9731cc2d85fb49e920116e",
+   "house": "celine",
+   "month": "2023-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231201074653",
+   "page": "https://www.celine.com/en-int/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "e5e3b1a91923ceaa83ef0aa60605dc4b0aaac2c06901b971e46987f508cc740c",
+   "house": "celine",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240903132432",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "75bab8430ff1200ee7815b2c8183c9e2e6e679fa32b561a518032cec733b209a",
+   "house": "celine",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241202202647",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "e4f5b8c3cf51e8274b7973ec2575087852c75c0a20f8baaacb2778b560e85fb6",
+   "house": "celine",
+   "month": "2025-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250810224054",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "66ce4212c9da965e1be78c4441331092efd0befb3aac24e5b5e42b0c63086da1",
+   "house": "celine",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251206161914",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "77deb751ec89cd2f4b837c1c151deb721e212dc521cd1f28400825c4f8dda117",
+   "house": "celine",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251206161914",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "9de501660a6cb3f351566d640ea4a9ca4eb96e70784598a99191b55cd32bf797",
+   "house": "celine",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251206161914",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "16b0dd2a4630d99eabbc31f0126a666563188c75172315c0d975a9079383c7b8",
+   "house": "celine",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260208002456",
+   "page": "https://www.celine.com/en-us/home",
+   "url": "http://www.celine.com/"
+  },
+  {
+   "sha": "9981adf993d2835518aa6ad493b9b33fdb6916a7655b369b660d5d589465e407",
+   "house": "celine",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260807095904",
+   "page": null,
+   "url": "https://www.celine.com/"
+  },
+  {
+   "sha": "3b27ba50358f92c6dc33be72129170593dd51350105caa0d3ddbd33ed8254aa6",
+   "house": "chloe",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501093550",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "7d03a1e4f2198c7955ed528a56bb74511537384c22f6c848bbea808feee942fa",
+   "house": "chloe",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501093550",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "c02a4ef723768527e862cee269a43b5b2c48c620d20ea30f374a215ef7b10490",
+   "house": "chloe",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501093550",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "0957ef59fc114bf0d9337a865d71bd9c908ea52a277cad4e615c170ffe37ff82",
+   "house": "chloe",
+   "month": "2024-08",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240801182215",
+   "page": "https://www.chloe.com/au",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "1687b95959ec1921fc412fdea803c59b7ca8dde69794cbd08e1ba05ebd3831b8",
+   "house": "chloe",
+   "month": "2024-08",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240801182215",
+   "page": "https://www.chloe.com/au",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "0ae731a9c7484ce0a632642c674e5e7acfa54abe8540f2f6c66c880c688a37f8",
+   "house": "chloe",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240910055055",
+   "page": "https://www.chloe.com/us",
+   "url": "http://test@chloe.com/"
+  },
+  {
+   "sha": "6274beabc2eb0e9a4b8d960a8191892f7f897a724bf0dbf1bb8a19f58100e834",
+   "house": "chloe",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240910055055",
+   "page": "https://www.chloe.com/us",
+   "url": "http://test@chloe.com/"
+  },
+  {
+   "sha": "d0175cade62750a6aa455b31ee9fdb2b3a29985deb83cc6d3faed4fe2b1121d6",
+   "house": "chloe",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241001080752",
+   "page": "https://www.chloe.com/us",
+   "url": "http://test@chloe.com/"
+  },
+  {
+   "sha": "0d576124d3280bbc95f8c0a6427ac4af4d6ac12f4150d80a1c18922dd9676f35",
+   "house": "chloe",
+   "month": "2024-11",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241104023030",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "7d3fea24c314299868cc9082411eefff251d81ce8170c28148836d68aa4657a9",
+   "house": "chloe",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241203212732",
+   "page": "https://www.chloe.com/us",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "95b0cb3a78c446b6301c7a2c668928cf3abb2c2256966a5d508fc80b11ad5d1e",
+   "house": "chloe",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241203212732",
+   "page": "https://www.chloe.com/us",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "505aedf84e6fda4274e029af33160b533c971ada10b15d8c9fa111989ce41493",
+   "house": "chloe",
+   "month": "2025-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250109013459",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "7e5973d22f618c223480e476ec1befa709174b23649c87c7321c7e4a99345878",
+   "house": "chloe",
+   "month": "2025-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250109013459",
+   "page": "https://www.chloe.com/us",
+   "url": "http://chloe.com/"
+  },
+  {
+   "sha": "10c66fecf1aeb980a5b60fef38bf799f35cfc0975e0726485cc70d983f52736f",
+   "house": "chloe",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501104024",
+   "page": "https://www.chloe.com/jp",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "6580731e9652ab7a49d0b971993f35f97e310c9fee6085ccaa3b1b13384f17a3",
+   "house": "chloe",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501104024",
+   "page": "https://www.chloe.com/jp",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "831c6e8e3442bd974c7517dad33bb6a98c0051be6d8152f07e5b5b53e4e95892",
+   "house": "chloe",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501104024",
+   "page": "https://www.chloe.com/jp",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "85c974a334b574c9df146a7045853d06c5d00b81afb8f531bbdad09b12e2c366",
+   "house": "chloe",
+   "month": "2025-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250701045714",
+   "page": "https://www.chloe.com/ca",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "afd168dfe4e4b6157327e0107121a5c53374ad760aff9f19b1fe7a9920b8ebc5",
+   "house": "chloe",
+   "month": "2025-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250701045714",
+   "page": "https://www.chloe.com/ca",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "2367cfa9e3ee6c4a3868c5a6845e92c746ffdfb98660d7de164cf869b60e1665",
+   "house": "chloe",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250801124917",
+   "page": "https://www.chloe.com/nl",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "be590291d4d57702cf8f3629eeb9886afa65fe3ce2586d5b40f525fb2f47c12d",
+   "house": "chloe",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250801124917",
+   "page": "https://www.chloe.com/nl",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "1bc31807710b6584f13603814fc009d340f9c5154b9bdbafda796994ec9ab786",
+   "house": "chloe",
+   "month": "2025-11",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251107083317",
+   "page": "https://www.chloe.com/en-us/",
+   "url": "http://www.chloe.com/"
+  },
+  {
+   "sha": "44f73d13d6829b21f70214a67963df00e27b6629b66e11887d9a7060bca5e6ac",
+   "house": "chloe",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251107083317",
+   "page": "https://www.chloe.com/en-us/",
+   "url": "http://www.chloe.com/"
+  },
+  {
+   "sha": "66205be97cb8106f3e68306c307c4632408404a8c47a80a1b1c0af1288ce95d7",
+   "house": "chloe",
+   "month": "2026-01",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260103162846",
+   "page": "https://www.chloe.com/en-us/",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "7e882f2a91b6bba1bc32da1705c2373d821e2540ea1da8122a99d891feb6faeb",
+   "house": "chloe",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260208120043",
+   "page": "https://www.chloe.com/en-us/",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "d07cf314e484a366efbef6357a34c9da8bacbb92225ae52010112673e11e3750",
+   "house": "chloe",
+   "month": "2026-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260908021410",
+   "page": "https://www.chloe.com/en-us",
+   "url": "https://www.chloe.com/"
+  },
+  {
+   "sha": "6748935397b24cb982dcd785a56388070cb71eb18ed1f23991b50fdadb29654d",
+   "house": "dior",
+   "month": "2023-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230501033811",
+   "page": "https://www.dior.com/en_us",
+   "url": "http://www.dior.com/"
+  },
+  {
+   "sha": "a0d798aff7a18a6b7fbfe05e16506afd9eb6c873e1ffebf4067f2e21f38e76a9",
+   "house": "dior",
+   "month": "2023-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230501033811",
+   "page": "https://www.dior.com/en_us",
+   "url": "http://www.dior.com/"
+  },
+  {
+   "sha": "2557c62cd5b412ba6e23d8942f70b2bdb6fb4824b9f53f77d637f8c5595faae8",
+   "house": "dior",
+   "month": "2024-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240201004845",
+   "page": "https://www.dior.com/fr_fr",
+   "url": "https://www.dior.com/"
+  },
+  {
+   "sha": "360337919fe4a4fcc11c8012f72aff3eec39e63d7bb770202861f55ce876a840",
+   "house": "dior",
+   "month": "2024-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240301071107",
+   "page": "https://www.dior.com/en_us",
+   "url": "http://dior.com/"
+  },
+  {
+   "sha": "b77a361c931168bade464909439301a0d44fbe2e99f9b618660158578f05c951",
+   "house": "dior",
+   "month": "2024-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240601154603",
+   "page": "https://www.dior.com/de_de",
+   "url": "https://www.dior.com/"
+  },
+  {
+   "sha": "9b6b87405489ef3211217b321078cf92c44c365487e6bc42cf8cfb02ffa19d52",
+   "house": "dior",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241003092924",
+   "page": "https://www.dior.com/en_us",
+   "url": "http://www.dior.com/"
+  },
+  {
+   "sha": "2e6f154e5ed31173167d3ae95f911547a04c15ebc11c30ae658e140b6c88b55c",
+   "house": "dior",
+   "month": "2025-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250102081837",
+   "page": "https://www.dior.com/en_us",
+   "url": "http://dior.com/"
+  },
+  {
+   "sha": "01c8403e48c90717b7bec48bd86090f2095a5b78fbe27d2ce287d5e0d3c0eaaa",
+   "house": "dior",
+   "month": "2025-06",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250601003106",
+   "page": "https://www.dior.com/",
+   "url": "https://www.dior.com/"
+  },
+  {
+   "sha": "e6cd91cb8aba6e9240d4ba5885e8b3af584e0115aeffbef25bf1c6c577a4df34",
+   "house": "dior",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250803012844",
+   "page": "https://www.dior.com/",
+   "url": "http://www.dior.com/"
+  },
+  {
+   "sha": "93b968e21766682b4fae1bba891c44935610dffc2b78e5f0002ba65ee8487894",
+   "house": "dior",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251011091115",
+   "page": "https://www.dior.com/",
+   "url": "http://www.dior.com/"
+  },
+  {
+   "sha": "271fa0be133df7b7f77efe4ffa6860797a90a4f07e038466e933a0a2e313fb39",
+   "house": "dior",
+   "month": "2025-11",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251110225618",
+   "page": "https://www.dior.com/en_gb",
+   "url": "https://www.dior.com"
+  },
+  {
+   "sha": "6f62b98543f0bbcdf58e249f7341382f4d128c2ba30767da43dc4382fbb810d6",
+   "house": "dior",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251110225618",
+   "page": "https://www.dior.com/en_gb",
+   "url": "https://www.dior.com"
+  },
+  {
+   "sha": "dfe9779e01d57c22309f99265c49d5301780713d1d50480e258ec10593feec7c",
+   "house": "dior",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251208144510",
+   "page": "https://www.dior.com/",
+   "url": "https://www.dior.com/"
+  },
+  {
+   "sha": "d82d701da382c505fde6506f6d13c70c2ead9cde0512b36d7b8cb0f952cc6173",
+   "house": "dior",
+   "month": "2026-02",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260208140450",
+   "page": "https://www.dior.com/en_gb",
+   "url": "https://www.dior.com/"
+  },
+  {
+   "sha": "d4f9b4ffceacf9a8927983d2f0dd003ecdd8f260999eb3039abae55e58139c6d",
+   "house": "dolce_gabbana",
+   "month": "2023-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230903033731",
+   "page": "https://www.dolcegabbana.com/en/",
+   "url": "http://dolcegabbana.com/"
+  },
+  {
+   "sha": "6fc48bc2f07b9f152dbe78ff8927291ae47c567b6a07424b1e26f95e034dec8d",
+   "house": "dolce_gabbana",
+   "month": "2023-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231004134301",
+   "page": "https://www.dolcegabbana.com/en/",
+   "url": "http://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "bbf18f09b0d4bd474dc135f37ba26a11397ebf0d3091e08f88e8cb0ae1335f91",
+   "house": "dolce_gabbana",
+   "month": "2023-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231004134301",
+   "page": "https://www.dolcegabbana.com/en/",
+   "url": "http://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "32f417adcf2db56b9452ca5515ec07fbeaa19b50f0df3b81c713ce691669f1a0",
+   "house": "dolce_gabbana",
+   "month": "2023-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231106041315",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "b3eb2575b9b28c9f1f686de6c610894bce070204a562a7d51f07b7d02385c5fc",
+   "house": "dolce_gabbana",
+   "month": "2024-04",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240403101924",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "http://dolcegabbana.com/"
+  },
+  {
+   "sha": "21760d2e28dbf7460bca0e4a76df034f475e5fbbc0d7a6dc806e0c278981506a",
+   "house": "dolce_gabbana",
+   "month": "2024-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240601000109",
+   "page": "https://www.dolcegabbana.com/en-fi/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "4da3e984c2b48add802636611b95382be1081e6fd2b72258b9e545b2d70da5f5",
+   "house": "dolce_gabbana",
+   "month": "2024-07",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240703174215",
+   "page": "https://www.dolcegabbana.com/en-fr/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "bb8d7de325d21f8b97076f704858bac46a16964a3adfbc0e1901707bbb42ca4e",
+   "house": "dolce_gabbana",
+   "month": "2024-07",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240703174215",
+   "page": "https://www.dolcegabbana.com/en-fr/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "4c605a21fd2be3aecb4ca03d44c60a62ab0f4cf79bc97b7b07f9540c6810d31d",
+   "house": "dolce_gabbana",
+   "month": "2024-08",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240801081952",
+   "page": "https://www.dolcegabbana.com/en-de/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "8777f7ec4d3e3a7d06d3bbb2e6d3c487973101fa618f5378713eac920c28e255",
+   "house": "dolce_gabbana",
+   "month": "2024-08",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240801081952",
+   "page": "https://www.dolcegabbana.com/en-de/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "923d9d7420740435b76c66885a3f1599e387778d9d60b5727877a42b1becc3a7",
+   "house": "dolce_gabbana",
+   "month": "2024-08",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240801081952",
+   "page": "https://www.dolcegabbana.com/en-de/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "2917ed2a7c5094e1e3d374cc038223dd27fff5e86f9331d24d5843389eb1bd93",
+   "house": "dolce_gabbana",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241001094034",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "9ea616f58d2831a81ca60ec961af5b79d115f13cae9ad00a9bd0666c0513426c",
+   "house": "dolce_gabbana",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241001094034",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "742222ada781c9dd02d7c3870f278a7ccdb30aa05679ed2bed95b65a68875e03",
+   "house": "dolce_gabbana",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250909053022",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://dolcegabbana.com/"
+  },
+  {
+   "sha": "bf58948bba6849438dd48c98c9dc77a65c763427971c9450f6d78de56c349a8f",
+   "house": "dolce_gabbana",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250909053022",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://dolcegabbana.com/"
+  },
+  {
+   "sha": "ef4395fbb51b91e88a8d2a475b2be80dece042a4a43845c345f26572ec2fca6e",
+   "house": "dolce_gabbana",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250909053022",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://dolcegabbana.com/"
+  },
+  {
+   "sha": "56c0cf4717cb7f98883fe6f82ac4562959b0b88d9f0942101316ecc8934fc895",
+   "house": "dolce_gabbana",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251206114001",
+   "page": "https://www.dolcegabbana.com/en-us/",
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "1f713786f974d1d210b3389624efb0f4af380dafe235f9ce471a414ce6415b05",
+   "house": "dolce_gabbana",
+   "month": "2026-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260709115130",
+   "page": null,
+   "url": "http://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "15c432f751358f9ada5a94e29cadea1c91eede92c69aaa22104546e0891949f1",
+   "house": "dolce_gabbana",
+   "month": "2026-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260802214954",
+   "page": null,
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "c58f22a0c2eee9e4162dc5e07b741bbe281cec70d130b9f97c8fae03f2ecb8eb",
+   "house": "dolce_gabbana",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260802214954",
+   "page": null,
+   "url": "https://www.dolcegabbana.com/"
+  },
+  {
+   "sha": "ba28dbb5998f806fc21724014f99f6a24ad0a529552aed371eafa7d0e710f30f",
+   "house": "dries_van_noten",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241203004707",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "c340e8645b36fdcd1b9c2963f4b8f40df88cda4df4005da4dc845f8266f2ab24",
+   "house": "dries_van_noten",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241203004707",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "236d0018960a59f7113f0d7af73869cd858d546f8afadabad4ace9fa0d3d58dd",
+   "house": "dries_van_noten",
+   "month": "2025-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250102222741",
+   "page": "https://www.driesvannoten.com/",
+   "url": "http://www.driesvannoten.com/"
+  },
+  {
+   "sha": "775e8e80ec8f4cb6e0189d7941b99d6efb2dddd36c55ab5b1620c239d3368e8a",
+   "house": "dries_van_noten",
+   "month": "2025-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250102222741",
+   "page": "https://www.driesvannoten.com/",
+   "url": "http://www.driesvannoten.com/"
+  },
+  {
+   "sha": "79404768d3444429b2cdfd9ea439a5de8ad81c7a80941685ea01275d86e01fa0",
+   "house": "dries_van_noten",
+   "month": "2025-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250302002058",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "847c37cd0a480e5e930985d724e6307bc8f2752553a117253053a0d74f8686b4",
+   "house": "dries_van_noten",
+   "month": "2025-06",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250601221709",
+   "page": "https://www.driesvannoten.com/en-de",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "25c01794769291578461f427db70495493bfe6bf60b9e902542d7a8ba357d8f6",
+   "house": "dries_van_noten",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701004659",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "31fee0ffa106f404c19ba24de6bd6ab59d994362fc69b73055976f609e197856",
+   "house": "dries_van_noten",
+   "month": "2026-03",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260312221836",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "4d941d62c39b3282235e8fee8e3124fe3baaec2d553550d3a4c57cb528157530",
+   "house": "dries_van_noten",
+   "month": "2026-04",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260410042343",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "6b85452cf057ddd68e9e52c8aa90ff455b4ee4678e3fe44e5f8f96d977661d85",
+   "house": "dries_van_noten",
+   "month": "2026-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260705130750",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "454a885681e992d7dc743a94c2fefce59ad8c28fbb79d1191a25df7c1384a52d",
+   "house": "dries_van_noten",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260809152931",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "6b4429c5a0e6e6b940cbc6046941fcc263ece949bf426068e7c4fb0d4c6f7ae8",
+   "house": "dries_van_noten",
+   "month": "2026-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260901195240",
+   "page": "https://www.driesvannoten.com/",
+   "url": "https://www.driesvannoten.com/"
+  },
+  {
+   "sha": "5a9d78d23578764e91d8d007952c100c9bae4200d6c78f69d2f34820658210ce",
+   "house": "fendi",
+   "month": "2023-11",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231101030639",
+   "page": "https://www.fendi.com/fi-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "2801605f0709a2639c58f17c7d33aec4d04941866176e62b878579ed58d9d6cf",
+   "house": "fendi",
+   "month": "2024-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240601045532",
+   "page": "https://www.fendi.com/fr-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "8b6ed46cfc23026eee2122b08348b94bbc2481afc27f05862efefb16e6beb4de",
+   "house": "fendi",
+   "month": "2024-11",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241101011819",
+   "page": "https://www.fendi.com/fi-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "ae0042590375adef0353507583b74422dc62aace3707d3611f3d5d8a2a191123",
+   "house": "fendi",
+   "month": "2024-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241202185045",
+   "page": "https://www.fendi.com/gb-en/",
+   "url": "http://www.fendi.com/"
+  },
+  {
+   "sha": "e37c1c609694c47a7a7604e85823cc00a95818db0399bed1d0c699210b1c126a",
+   "house": "fendi",
+   "month": "2025-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250301004537",
+   "page": "https://www.fendi.com/ca-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "57cc070ca18c729323390fe2d1607e345feca74eb7341295b0d076fc6448dd9d",
+   "house": "fendi",
+   "month": "2025-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250501095043",
+   "page": "https://www.fendi.com/at-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "8eda29c7bd298db1e61485d90f9884258b4441ccb7e21bfcf68ed46e62005fc7",
+   "house": "fendi",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701130509",
+   "page": "https://www.fendi.com/nl-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "a0958664aa45fc5306b01092061f12d345c1ae09dd40f251e67bf36397997644",
+   "house": "fendi",
+   "month": "2025-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250801043328",
+   "page": "https://www.fendi.com/de-en/",
+   "url": "http://fendi.com/"
+  },
+  {
+   "sha": "22dbb13ce456343aa5836ace4f3e2e3733c41fd66f5d5ccb0f5e804200be06cc",
+   "house": "fendi",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251009194345",
+   "page": "https://www.fendi.com/gb-en/",
+   "url": "http://fendi.com/"
+  },
+  {
+   "sha": "4079d8e90a31379d14e9127b2f607bf435045cfd7fcae211cc477032e7924318",
+   "house": "fendi",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251113085430",
+   "page": "https://www.fendi.com/fi-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "9e2c06c984747ddf74a038035e96447e743178ebde99fd754aef9518c8644690",
+   "house": "fendi",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251113085430",
+   "page": "https://www.fendi.com/fi-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "ba0554496b8905de2eaade3ecefcf55ca4ccaa0480cb20e414601823f0a716e2",
+   "house": "fendi",
+   "month": "2025-12",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251207184828",
+   "page": "https://www.fendi.com/us-en/",
+   "url": "https://www.fendi.com/"
+  },
+  {
+   "sha": "b38661643c57a0775e2b6033486d8107ef5faac1f5308e04121f8235f94046e8",
+   "house": "givenchy",
+   "month": "2023-07",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230701094614",
+   "page": "https://www.givenchy.com/de/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "0791a5e1054900b121d547ca72946fb3719a940c85516a66e76c9a155a25713d",
+   "house": "givenchy",
+   "month": "2023-08",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230805024023",
+   "page": "https://www.givenchy.com/int/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "99feffadbaa90aebd4a2e151a072dd75aa8bb352ef7458af528079066ef28887",
+   "house": "givenchy",
+   "month": "2023-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231202010133",
+   "page": "https://www.givenchy.com/fr/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "f059b533c2f3a2eb370f2e34d036cc1ad297e0b3bf8b62ff858c8561715cb06d",
+   "house": "givenchy",
+   "month": "2024-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240101234804",
+   "page": "https://www.givenchy.com/int/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "14491c7a8103f6dc0944d3fb0fd469fbc65939c59167aeaf7da97f2945d346d1",
+   "house": "givenchy",
+   "month": "2024-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240303073534",
+   "page": "https://www.givenchy.com/int/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "be96f8408fae2c0060e3eece7109a3da1a06accf15db6163f33d52bd6e686986",
+   "house": "givenchy",
+   "month": "2025-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250301095525",
+   "page": "https://www.givenchy.com/de/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "5b0436fb1dd6ed34030ea77f5759a4bbce9acfd32f129eb6cf01555fb437c270",
+   "house": "givenchy",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250901180843",
+   "page": "https://www.givenchy.com/int/en/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "4dc1baf7cd6b36ca4aedc8311495ddeb507c3b3cf63fcc198cc1d0796bdf4c37",
+   "house": "givenchy",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251101051817",
+   "page": "https://www.givenchy.com/us/en-US/homepage",
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "eb44500037deacf6f1c7fa553d8bda43c812dc712b1442cbc166908be2f13f3d",
+   "house": "givenchy",
+   "month": "2026-05",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260502192019",
+   "page": null,
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "0ca000329458d9b15ddef400e633adc06891ea336f16a93ecd66149e46c06c43",
+   "house": "givenchy",
+   "month": "2026-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260807112359",
+   "page": null,
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "5b1071bd7a9ebf29f4f6892e164489ba7c794cc499e593a23a89f7cad34afaec",
+   "house": "givenchy",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260807112359",
+   "page": null,
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "846f9a45e714b29eabe47e7ba707704ed99808fa46c721c4b8d980aa707979ec",
+   "house": "givenchy",
+   "month": "2026-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260901195239",
+   "page": null,
+   "url": "https://www.givenchy.com/"
+  },
+  {
+   "sha": "bc738ad42880c00baf1410899c9106e8503d2a9464419e5167178f671d2f07e4",
+   "house": "gucci",
+   "month": "2023-08",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230801220011",
+   "page": "https://www.gucci.com/us/en/",
+   "url": "http://www.gucci.com/"
+  },
+  {
+   "sha": "c7bd1a7e0ce5268b8cca176d9e05023e69ece92854e50a21ea115e219b9e8b36",
+   "house": "gucci",
+   "month": "2023-11",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231101101725",
+   "page": "https://www.gucci.com/fi/en_gb/",
+   "url": "https://www.gucci.com/"
+  },
+  {
+   "sha": "0376b06e667e40e060dd9c9853f9a996e86ee658ca3585e435de4e2c4df6b511",
+   "house": "gucci",
+   "month": "2024-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240101030508",
+   "page": "https://www.gucci.com/uk/en_gb/",
+   "url": "http://gucci.com/"
+  },
+  {
+   "sha": "33d9ba933c0ac1dcdc87a646196a2027f07926550c0edabef694849e3ee6a5ba",
+   "house": "gucci",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240911022656",
+   "page": "https://www.gucci.com/be/en_gb/",
+   "url": "https://www.gucci.com/"
+  },
+  {
+   "sha": "4cd596c0a4dd92867d42fd7b713fa7ce7c185068cdea0c72f30bc83d36e0547a",
+   "house": "gucci",
+   "month": "2024-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241103091503",
+   "page": "https://www.gucci.com/be/en_gb/",
+   "url": "https://www.gucci.com"
+  },
+  {
+   "sha": "6fd365d104ace3d7087ea9ff9ab8feed08da6a1d3af7ef5e0c2d3854867ef213",
+   "house": "gucci",
+   "month": "2025-04",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250401004418",
+   "page": "https://www.gucci.com/be/en_gb/",
+   "url": "http://www2.gucci.com/"
+  },
+  {
+   "sha": "0b0cedbf869ce01d887fef2ef557c9e3bceb8eca36b67510b2ad6c9d0a7d57a7",
+   "house": "gucci",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701020608",
+   "page": "https://www.gucci.com/de/de/",
+   "url": "https://www.gucci.com/"
+  },
+  {
+   "sha": "c58bc4d771d6af2d04205de6ea455e2c701230a7779366f1ea284d9e7e285388",
+   "house": "gucci",
+   "month": "2025-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250901221226",
+   "page": "https://www.gucci.com/be/en_gb/",
+   "url": "http://www.gucci.com/"
+  },
+  {
+   "sha": "6bfe9a923e1289168c89492ea9a42877ac0ae013f9ca7080eb2923dd85bc5b20",
+   "house": "gucci",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251007030529",
+   "page": "https://www.gucci.com/uk/en_gb/",
+   "url": "https://www.gucci.com/"
+  },
+  {
+   "sha": "01c2cecc595f0e4c92426128a34160092f2ba2db28bdc9fa80f9e8d8d9e8b8a3",
+   "house": "gucci",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260205132741",
+   "page": "https://www.gucci.com/us/en/",
+   "url": "http://www.gucci.com/"
+  },
+  {
+   "sha": "1ba7348067ffa4c115eabe91866cd98a80638316d55b501ac4ea221e37081f95",
+   "house": "gucci",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260205132741",
+   "page": "https://www.gucci.com/us/en/",
+   "url": "http://www.gucci.com/"
+  },
+  {
+   "sha": "14e1674bf4aea64e420f6b86d6b3b24ab5b504f57e76614fe990d4e3dea40e4a",
+   "house": "gucci",
+   "month": "2026-04",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260420134217",
+   "page": "https://www.gucci.com/de/de/",
+   "url": "http://www.gucci.com/"
+  },
+  {
+   "sha": "e655e456ccefa5a4de46a42643f6a02311bb2231a37eb8f405fe56df1d57c84d",
+   "house": "hermes",
+   "month": "2023-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231001052353",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "http://www.hermes.com/"
+  },
+  {
+   "sha": "c57ad60c03dcca16cefba42be52e75eb3b5e36266e046b1cdab53c8517284512",
+   "house": "hermes",
+   "month": "2024-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240301073049",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "http://www.hermes.com/"
+  },
+  {
+   "sha": "18d7a59ad24e5da4e1f26edd367373d1b692f11708a42b8fcceac6b5056aa5ae",
+   "house": "hermes",
+   "month": "2024-04",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240401094006",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "358ed26734500fa3027d1d8e13cc11352a065ea55ad1cf3885791c0e26d04f12",
+   "house": "hermes",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501134330",
+   "page": "https://www.hermes.com/de/de/",
+   "url": "http://www.hermes.com/"
+  },
+  {
+   "sha": "9af67053ce2d68bcea4020215c81233959db1177a96455a7ac5f9d167535bfd7",
+   "house": "hermes",
+   "month": "2024-11",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241102031709",
+   "page": "https://www.hermes.com/fi/en/",
+   "url": "http://www.hermes.com/"
+  },
+  {
+   "sha": "d591a599ef59b7256d87fec0bdc531ee46e8d3d4991580448635e811d9744a6f",
+   "house": "hermes",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250524002722",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "http://www.hermes.com/"
+  },
+  {
+   "sha": "1be3ea56205b19e6094b2163d131a9ef3eaa022891b449398d73577cbecae15d",
+   "house": "hermes",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250803022617",
+   "page": "https://www.hermes.com/de/de/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "725007526faa492f7cc747df8effec0ac1bcbf1be28b0a8fc78aefbf8a5b7f0e",
+   "house": "hermes",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250803022617",
+   "page": "https://www.hermes.com/de/de/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "7d9c21ea2d1af7413f6f483c1cecdc3f407abe65c849dd0eded5569e6df33e40",
+   "house": "hermes",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250803022617",
+   "page": "https://www.hermes.com/de/de/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "94d658753784ba2bf1fc292df6af0fbf6357db9a95409e5abadb837f8aad3b54",
+   "house": "hermes",
+   "month": "2026-02",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260204005150",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "f89b2e49fbf971f77e094560345bf56fc893a7ee80d575c4d6de3cfed62eef39",
+   "house": "hermes",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260204005150",
+   "page": "https://www.hermes.com/us/en/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "b4beed3386fe94da4b931d26698e12ea8d77eb7153019f07dfcc928716e39205",
+   "house": "hermes",
+   "month": "2026-04",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260421105244",
+   "page": "https://www.hermes.com/de/de/",
+   "url": "https://www.hermes.com/"
+  },
+  {
+   "sha": "5d66dcf5ba325a8c5fba9805450cdae0732e58913ef1a1563259263c9d352ed2",
+   "house": "jil_sander",
+   "month": "2023-08",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230810045915",
+   "page": "https://www.jilsander.com/en-de/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "25184e5ec04306060d35d9acb6bdaabf13366f251787996db666476cd60ee0c8",
+   "house": "jil_sander",
+   "month": "2024-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240302193357",
+   "page": "https://www.jilsander.com/en-us/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "bd494c8626a3258bda975e610711161636e0959257722ce68921a99ac84f255f",
+   "house": "jil_sander",
+   "month": "2024-07",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240702182709",
+   "page": "https://www.jilsander.com/en-fi/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "4a2f8111a9e4ba376d46fb1cc5b6d3934b0169a589a6daa3e9773f2ae385556d",
+   "house": "jil_sander",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241002095041",
+   "page": "https://www.jilsander.com/en-fi/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "0ee3d85d8079dd45395c132c2523aa76f94e2694e310343a7343e886db3a5e53",
+   "house": "jil_sander",
+   "month": "2025-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250317220720",
+   "page": "https://www.jilsander.com/en-us/",
+   "url": "http://www.jilsander.com/"
+  },
+  {
+   "sha": "6feb9284bb834ac74986167482d7a39a9f8711253c1236d623cc5336105fe63d",
+   "house": "jil_sander",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250502095001",
+   "page": "https://www.jilsander.com/en-ca/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "eb555322bc0339da4398bebe1771726c3299e71b0735785f31d110fd196aec04",
+   "house": "jil_sander",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701145013",
+   "page": "https://www.jilsander.com/en-fi/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "5065df8dcb8f6b02d433d159d860cea39a9d383f48aa83904d0b60dba5d82e61",
+   "house": "jil_sander",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250802105716",
+   "page": "https://www.jilsander.com/en-fr/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "c11ba9fb86475353d6a9f89adfa72dc18e94373a0f0046f8642a0b7deec54840",
+   "house": "jil_sander",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250802105716",
+   "page": "https://www.jilsander.com/en-fr/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "5a760f8aa4505dcfe76c14cba52fee2b87fa993b8c2f940fc28046ac02d2101c",
+   "house": "jil_sander",
+   "month": "2025-12",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251213092042",
+   "page": "https://www.jilsander.com/en-nl/",
+   "url": "http://www.jilsander.com/"
+  },
+  {
+   "sha": "4a08a0595ddf6ae27a88099cdaace74c270211a7133314cf804c5a952280db27",
+   "house": "jil_sander",
+   "month": "2026-01",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260110075137",
+   "page": "https://www.jilsander.com/en-us/",
+   "url": "http://jilsander.com/"
+  },
+  {
+   "sha": "3c90d87c79d9cf613d1d85db5971e04bf7a468aafc2340d7f5809153b43f8a03",
+   "house": "jil_sander",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260218091007",
+   "page": "https://www.jilsander.com/en-ca/",
+   "url": "https://www.jilsander.com/"
+  },
+  {
+   "sha": "ad44420625a0655ab3caf062c9fef78e8eac19bb6ea405039040720dc16185ee",
+   "house": "loewe",
+   "month": "2023-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230901235318",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "http://www.loewe.com/"
+  },
+  {
+   "sha": "9083153f4c5caece7db6fcce4f538dd23f82597e72787c80b49c911a30fd8faf",
+   "house": "loewe",
+   "month": "2024-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240501075149",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "0a208081b2d9ebbf417648dcb58ffbdb6b8f2632128e0403705f10f2d574973b",
+   "house": "loewe",
+   "month": "2024-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241001010623",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "http://www.loewe.com/"
+  },
+  {
+   "sha": "c143d5be6b9ab5faeadd9bf6e3dd92d29f1832d5b1eed9d7c3c79386862ad51d",
+   "house": "loewe",
+   "month": "2024-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241001010623",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "http://www.loewe.com/"
+  },
+  {
+   "sha": "ec75ab8abe4b8cd46f6a47e2c1aa0773e1f50ec373bc853eacc0c0c5a5121995",
+   "house": "loewe",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241201014654",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "ba1f8f9e24d9295e2094a2a4d7cf12fd2fb6ee952f869c29edff0ad6a192e345",
+   "house": "loewe",
+   "month": "2025-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250101040616",
+   "page": "https://www.loewe.com/eur/es/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "0215ea3ee4953a0e03a7d4843929607b56d6433255b364fe30ae925fd4237e7e",
+   "house": "loewe",
+   "month": "2025-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250701010448",
+   "page": "https://www.loewe.com/int/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "0be86b8b7f67f7c7cb7c0ff8213476db3aa1ab5bf1d13b34322e0f9f56f7b705",
+   "house": "loewe",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250801044251",
+   "page": "https://www.loewe.com/eur/es/home",
+   "url": "http://www.loewe.com/"
+  },
+  {
+   "sha": "4bc3fbcfd498ca4d27ba680dfa014cde131d33cf5fa740bdb7c00b6a1155d827",
+   "house": "loewe",
+   "month": "2025-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250901071016",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "bace8bda594fc81faedcc53dbe87fa1e44853ee72679fef84a39df6a94254443",
+   "house": "loewe",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250901071016",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "e071647c656b2eead26d398b427ba6e04859ccd2c4d7ac9fd1771943587725f2",
+   "house": "loewe",
+   "month": "2026-01",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260101225705",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "6f0d13074d87eb678b2161a7e7e4dce499c4b9962716d99ba70fe46c1ffbb39c",
+   "house": "loewe",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260201085541",
+   "page": "https://www.loewe.com/eur/en/home",
+   "url": "https://www.loewe.com/"
+  },
+  {
+   "sha": "001cfb177bc0b1270a6930fce3e5dd1c5f848122a646f05c0f977baf110d9931",
+   "house": "louis_vuitton",
+   "month": "2023-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231204035545",
+   "page": "https://uk.louisvuitton.com/eng-gb/homepage",
+   "url": "https://www.louisvuitton.com/"
+  },
+  {
+   "sha": "75d149ec0ef8ca6e8a2391e33dce56c6c7e600bf229341f8b28c1d2d47536318",
+   "house": "louis_vuitton",
+   "month": "2023-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231204035545",
+   "page": "https://uk.louisvuitton.com/eng-gb/homepage",
+   "url": "https://www.louisvuitton.com/"
+  },
+  {
+   "sha": "4855aadc50e5edf681ff94d53748e2c17516e4815d0d1d4b94598251819403b7",
+   "house": "louis_vuitton",
+   "month": "2024-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240102210834",
+   "page": "https://uk.louisvuitton.com/eng-gb/homepage",
+   "url": "http://louisvuitton.com/"
+  },
+  {
+   "sha": "9fb3b3c771c9dd5f1aad332efd8e07d71ed4d57b821ae6d3bfa676b74a613930",
+   "house": "louis_vuitton",
+   "month": "2024-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240102210834",
+   "page": "https://uk.louisvuitton.com/eng-gb/homepage",
+   "url": "http://louisvuitton.com/"
+  },
+  {
+   "sha": "bd6e648b5df1bd5eaf23357e8983ef9a5b3d2205c2fb37b773ffc76f421c2d30",
+   "house": "margiela",
+   "month": "2023-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230609005525",
+   "page": "https://www.maisonmargiela.com/en-us/",
+   "url": "https://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "9575e6c4599a6514779c843aace9503d887ae201f22f6e0fbfede485a9f29403",
+   "house": "margiela",
+   "month": "2024-01",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240111125655",
+   "page": "https://www.maisonmargiela.com/en-fi/",
+   "url": "http://maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "ae484d9e02d73d53ede31c8226780d3758c5d727ac40adfd7fa7098877c0bf2a",
+   "house": "margiela",
+   "month": "2024-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240918022554",
+   "page": "https://www.maisonmargiela.com/fr-fr/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "1c61b7eb005d4f782c0cf188c6e69934abdc7262d30017425dce0b11a3b5432c",
+   "house": "margiela",
+   "month": "2025-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250506021524",
+   "page": "https://www.maisonmargiela.com/de-at/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "923889728c60ddec9ed48151ac97767389794241afa6484110bc7fa5325e7830",
+   "house": "margiela",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250506021524",
+   "page": "https://www.maisonmargiela.com/de-at/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "14cf046e78790997eb925c63354fafeb94857a38eae4fec4536c8ac883ef8eb5",
+   "house": "margiela",
+   "month": "2025-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250617205240",
+   "page": "https://www.maisonmargiela.com/de-de/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "2a450ea530ae997df0f51bb9893e546665eada399278d3550c21063f85cc40c8",
+   "house": "margiela",
+   "month": "2025-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250916181906",
+   "page": "https://www.maisonmargiela.com/en-us/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "5669dfcf5ef503bd3b7edd6564ec7545c566eb7a87b3a21a2c8c4c2432864015",
+   "house": "margiela",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250916181906",
+   "page": "https://www.maisonmargiela.com/en-us/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "90b1d2b0a960997831042c3c26d4e648d6ae58c45964c3df19fdb7fa88602d6d",
+   "house": "margiela",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260224223054",
+   "page": "https://www.maisonmargiela.com/en-ca/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "7dfda9c68ffc475af643793dfd792580d0c3a7478d53266aba8df48408cb5e14",
+   "house": "margiela",
+   "month": "2026-04",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260412214814",
+   "page": "https://www.maisonmargiela.com/en-ca/",
+   "url": "http://www.maisonmartinmargiela.com/"
+  },
+  {
+   "sha": "cba12e3be87c1e8c3216550d6676b929bd36ec1fefe50613a121710b7864486b",
+   "house": "margiela",
+   "month": "2026-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260808050944",
+   "page": null,
+   "url": "https://www.maisonmargiela.com/"
+  },
+  {
+   "sha": "e69d6a105158476b9b1edcd0ac64bd94c881defb75cb6e8d6d52019d81c45102",
+   "house": "margiela",
+   "month": "2026-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260901045636",
+   "page": null,
+   "url": "http://maisonmargiela.com/"
+  },
+  {
+   "sha": "0fe4e7791ee2c04fb4f24207da00f2eea35826b57f0abb33c89a6000d05ef12a",
+   "house": "miu_miu",
+   "month": "2023-07",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230701004347",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "49e831b3b2ead74c73346f7cc85bd63974d1f2022ae79fbf546ec7484306a4a6",
+   "house": "miu_miu",
+   "month": "2023-07",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230701004347",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "fb5f9ecf15b40bd8e38c20d867f6c059e297806a64d96384f06d9538ef8b8243",
+   "house": "miu_miu",
+   "month": "2023-07",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230701004347",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "660f80f63c7e62a050ee4f226df26685150d54c984b131742c837abe010e5c50",
+   "house": "miu_miu",
+   "month": "2023-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231124024057",
+   "page": "https://www.miumiu.com/fi/en.html",
+   "url": "http://www.miumiu.com/"
+  },
+  {
+   "sha": "6f157c59f765349e0175b63b9f76042b644c8666b67ea1ed96c18b6466efaf52",
+   "house": "miu_miu",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501082200",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://miumiu.com/"
+  },
+  {
+   "sha": "f70e969c86df6f6b76c4a5fa7beae11ca8da3aa7f9ad8fe5c37e9a1a1213bb49",
+   "house": "miu_miu",
+   "month": "2024-07",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240701050456",
+   "page": "https://www.miumiu.com/fi/en.html",
+   "url": "http://miumiu.com/"
+  },
+  {
+   "sha": "837ef78915de6efdea2ed5d98eea248945d04f62e8f0f14e526cc264417eba82",
+   "house": "miu_miu",
+   "month": "2024-09",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240901122932",
+   "page": "https://www.miumiu.com/fr/fr.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "224268bd1b2e0cfc2715428cdf5fa45745c62ee92484c10e1718df13d8010d40",
+   "house": "miu_miu",
+   "month": "2025-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250601075335",
+   "page": "https://www.miumiu.com/ww/en.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "f7db3beb7de8cb5e93e89e7832c195969db24a00fe39d4ada95f2293a63e21ea",
+   "house": "miu_miu",
+   "month": "2025-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250601075335",
+   "page": "https://www.miumiu.com/ww/en.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "31a84d37688eb5b9d842c444ad7cb9ee541ed1ea02a11061d6dd25eb6ad50a2f",
+   "house": "miu_miu",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250801002449",
+   "page": "https://www.miumiu.com/nl/en.html",
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "88d5af1f84b04b089f0d0e2caf4740347913a7bbe2f98c65429934f63f217438",
+   "house": "miu_miu",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251007043521",
+   "page": "https://www.miumiu.com/at/de.html",
+   "url": "http://www.miumiu.com/"
+  },
+  {
+   "sha": "0748ac24ee6c96d27b7ebfc0e4771a3c9856722b6a0fa8bb97035b74a7d1c3b8",
+   "house": "miu_miu",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251206125041",
+   "page": "https://www.miumiu.com/us/en.html",
+   "url": "http://miumiu.com/"
+  },
+  {
+   "sha": "3876f78d6c77dd585f59f1c0899aae4bb9cef9f5386467b99691b269ec5863b0",
+   "house": "miu_miu",
+   "month": "2026-02",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260212011255",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://miumiu.com/"
+  },
+  {
+   "sha": "50e4722ce1cd3c869e73073801c6e1f699de5fbdc79ba030f713c6658b879165",
+   "house": "miu_miu",
+   "month": "2026-02",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260212011255",
+   "page": "https://www.miumiu.com/de/de.html",
+   "url": "https://miumiu.com/"
+  },
+  {
+   "sha": "9e9a1d5dec63ce507d9a485f4d8c012fa940407b822c1a0f70ee972a83906989",
+   "house": "miu_miu",
+   "month": "2026-05",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260501015435",
+   "page": null,
+   "url": "https://www.miumiu.com/"
+  },
+  {
+   "sha": "31c2745336ac4ec626807fa8400563663247ebc5459ba8c6e748f7cb6fd86c77",
+   "house": "prada",
+   "month": "2023-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230902053932",
+   "page": "https://www.prada.com/de/de.html",
+   "url": "http://www.prada.com/"
+  },
+  {
+   "sha": "a56fa5574758476621fd1f3cd7b383761c19d2c95f303a7bdebc6694c8870b4e",
+   "house": "prada",
+   "month": "2023-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230902053932",
+   "page": "https://www.prada.com/de/de.html",
+   "url": "http://www.prada.com/"
+  },
+  {
+   "sha": "0648ede669158ff3aeab3874006be48826641f41ea5d62937f5b0193166e6c49",
+   "house": "prada",
+   "month": "2023-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20231201001651",
+   "page": "https://www.prada.com/us/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "66b9a81fe9d8d788bddc58254fc6ab21a9c3a65a2c9e1a615d87341e6db6d007",
+   "house": "prada",
+   "month": "2024-02",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240201163954",
+   "page": "https://www.prada.com/fi/en.html",
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "aee3e2610cd0bcaf87336aebb3a6263a5d05cb5b03abe4986684e04e9c6e673e",
+   "house": "prada",
+   "month": "2024-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240301072907",
+   "page": "https://www.prada.com/nl/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "bc3ecc0b1385b32be2a17f0a411a4cc7945e8528affdb6393baa41cf9a666268",
+   "house": "prada",
+   "month": "2024-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240301072907",
+   "page": "https://www.prada.com/nl/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "d6113079fd16ca1889221107a54a5352f267bc1d565858ec19a2a00ec255b1a9",
+   "house": "prada",
+   "month": "2024-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240301072907",
+   "page": "https://www.prada.com/nl/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "b65d2dc960129843d8e104ac3075977b7761862e41c30eb9a148b8b6c6f25bfd",
+   "house": "prada",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501082628",
+   "page": "https://www.prada.com/fr/fr.html",
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "72d145127ed3b895fac89f778699fa70a6c15441fb7dc7f044c18b5d7cc3177d",
+   "house": "prada",
+   "month": "2025-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250201194827",
+   "page": "https://www.prada.com/us/en.html",
+   "url": "https://www.prada.com//"
+  },
+  {
+   "sha": "8f45b179db370e4aeffd2fcf40ce220cbee6c29c59efa395ea555e6ce46f0823",
+   "house": "prada",
+   "month": "2025-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250301170813",
+   "page": "https://www.prada.com/br/pt.html",
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "a83add0f3727c9f5459a13a5ad9fd49f6303c4b8959aef7c7590b151fac679ff",
+   "house": "prada",
+   "month": "2025-03",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250301170813",
+   "page": "https://www.prada.com/br/pt.html",
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "eb474425d4b47fb71831fa91de3b0c710d744782a9c790275f78a2041cfed013",
+   "house": "prada",
+   "month": "2025-04",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250401010210",
+   "page": "https://www.prada.com/se/en.html",
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "0a6620531ceddedc2a7386cdb54841d22131f92dce9818a1a8c6f3638ee7d92f",
+   "house": "prada",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251016061741",
+   "page": "https://www.prada.com/at/de.html",
+   "url": "http://www.prada.com/"
+  },
+  {
+   "sha": "d1cde475e83d806d0045d230c250d9cd86658c7cba8db9c7625b2e8008f6efcf",
+   "house": "prada",
+   "month": "2025-11",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251114114512",
+   "page": "https://www.prada.com/us/en.html",
+   "url": "https://www.prada.com//"
+  },
+  {
+   "sha": "d31cbc3651c0312890bc3120fd5468c153b3b0d34de0cc768776a5c8f760307f",
+   "house": "prada",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251217162530",
+   "page": "https://www.prada.com/fi/en.html",
+   "url": "http://www.prada.com/"
+  },
+  {
+   "sha": "768202dbb11d8eb71c01d620ec8c834555ff412b50dfbbbc30d755bcb002674e",
+   "house": "prada",
+   "month": "2026-03",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260312212112",
+   "page": "https://www.prada.com/us/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "82d27c6481f255726f8948005180ad632fd6c2dbaedd7a958d75532571ee3153",
+   "house": "prada",
+   "month": "2026-03",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260312212112",
+   "page": "https://www.prada.com/us/en.html",
+   "url": "http://prada.com/"
+  },
+  {
+   "sha": "1dc53c940bc1e7f39591ee74782aedfc9419ee4df1493e74c3d47baf260cff96",
+   "house": "prada",
+   "month": "2026-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260804061517",
+   "page": null,
+   "url": "https://www.prada.com/"
+  },
+  {
+   "sha": "1347992b054288be244fe792bbcb0e6f324b082fe5d8b745a5dd8b92c296ab98",
+   "house": "saint_laurent",
+   "month": "2024-04",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240403001659",
+   "page": "https://www.ysl.com/en-fi",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "8c8b407ce9012c23a93d2c73e8d300b46ce40bf667b9dbaf17257d5473a7c0d6",
+   "house": "saint_laurent",
+   "month": "2024-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240501154041",
+   "page": "https://www.ysl.com/en-fi",
+   "url": "http://ysl.com/"
+  },
+  {
+   "sha": "6e472ed999583e22e8e291740de666ffd6913eae613e30f917e73a325717e6ed",
+   "house": "saint_laurent",
+   "month": "2024-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240601003315",
+   "page": "https://www.ysl.com/fr-fr",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "403e8b24b79ad7d5f8579bae08f820bfd7f957fd88f230f54d0a70551d1c201f",
+   "house": "saint_laurent",
+   "month": "2024-09",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240901085138",
+   "page": "https://www.ysl.com/de-de",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "a7f923c69a48b043eb98fef01eea2ba779e9ef2b7c306f9aaf8afbe25f536342",
+   "house": "saint_laurent",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241002182728",
+   "page": "https://www.ysl.com/en-us",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "ca151a836a66e488d252684183604a6bf14b10bc639030fbcd26ee65d77c8a41",
+   "house": "saint_laurent",
+   "month": "2025-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250203053258",
+   "page": "https://www.ysl.com/en-us",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "727ce664f2061c71f0e2950b37903a30c3fffc56f2326f7e7a7a20b6e201c7a0",
+   "house": "saint_laurent",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701204349",
+   "page": "https://www.ysl.com/fr-fr",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "a53eee4dd194d547ae61881a3e081ab8964990f04fd4a982989a2fe98706e3ad",
+   "house": "saint_laurent",
+   "month": "2025-09",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250901101713",
+   "page": "https://www.ysl.com/fr-fr",
+   "url": "https://www.ysl.com/"
+  },
+  {
+   "sha": "93763817014267058c193f3cb84c1ca561d209671cb8e44b4c386ff91aac9704",
+   "house": "saint_laurent",
+   "month": "2025-10",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251012210213",
+   "page": "https://www.ysl.com/de-at",
+   "url": "https://ysl.com/"
+  },
+  {
+   "sha": "bcaa551b1a49e0090ad6fcb49f78c9cb87f0a988ba21839e984c87e8fffd388f",
+   "house": "saint_laurent",
+   "month": "2025-11",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251105035506",
+   "page": "https://www.ysl.com/en-us",
+   "url": "http://www.ysl.com/"
+  },
+  {
+   "sha": "70d3fcde6ee6f9aaa4a5c34719fd63bc0d8a89baa78ef730f226d3405cb3ed75",
+   "house": "saint_laurent",
+   "month": "2026-05",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260522115254",
+   "page": "https://www.ysl.com/en-fi",
+   "url": "http://www.ysl.com/"
+  },
+  {
+   "sha": "1e687f57d5bc330e491ecd1836a0885a41ec2c7b22821ddd688c866dc06beed5",
+   "house": "saint_laurent",
+   "month": "2026-06",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260622210838",
+   "page": "https://www.ysl.com/en-ca",
+   "url": "http://ysl.com/"
+  },
+  {
+   "sha": "6efda17c3ae019711e2f8c133067eac1e015a63f37587b5bc626c5086c7ce9bb",
+   "house": "tom_ford",
+   "month": "2024-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240214231818",
+   "page": "https://www.tomford.com/",
+   "url": "http://tomford.com/"
+  },
+  {
+   "sha": "1c60677edd6a36937d07c6916fbd7375f337f225653b139bfb329c8243da6e4a",
+   "house": "tom_ford",
+   "month": "2024-04",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240405073508",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "1858785d31cbbf42a783c07b77101e502244621aec742e4204e93578bcae36ca",
+   "house": "tom_ford",
+   "month": "2024-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240501131409",
+   "page": "https://www.tomford.com/",
+   "url": "https://tomford.com/"
+  },
+  {
+   "sha": "5351d79d4f127c925928afe9d10a7b801f9e10809d9545c54184890ef0b87fd3",
+   "house": "tom_ford",
+   "month": "2024-05",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240501131409",
+   "page": "https://www.tomford.com/",
+   "url": "https://tomford.com/"
+  },
+  {
+   "sha": "75de4151f1dd132318493e0df16dd561bb782a827d9adf84f12646d19257b669",
+   "house": "tom_ford",
+   "month": "2024-06",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240602042941",
+   "page": "https://www.tomford.com/",
+   "url": "https://tomford.com/"
+  },
+  {
+   "sha": "3df6fcdffc1c7a15e589b3bbebe8da2fe306033ab4869fccc68e3f25b8fe4b74",
+   "house": "tom_ford",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241003150330",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "89d1848f90cb2ce7b2f193ae510f8fa1b4b22a1fe7ed287f9f286a802f343492",
+   "house": "tom_ford",
+   "month": "2024-10",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241003150330",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "9402e4b3c6881b62518f01f92d98e7527511e8b8921c612f8fb159365186e158",
+   "house": "tom_ford",
+   "month": "2024-12",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241204234505",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "ceafdc7a69bc995110a293732ba060d7ec83b7e1fa8a9c2f83fc8e681b4fef32",
+   "house": "tom_ford",
+   "month": "2025-04",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250420140623",
+   "page": "http://www.tomford.com/",
+   "url": "http://www.tomford.com/"
+  },
+  {
+   "sha": "307a723c68f360feab36d3301148b1c204696b2a9af7b22365f6494909a39116",
+   "house": "tom_ford",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250903061102",
+   "page": "https://www.tomford.com/",
+   "url": "http://tomford.com/"
+  },
+  {
+   "sha": "80f660e547ae48f450cfcf6f24268f2a364c44527adb9ac498273c14fc28a558",
+   "house": "tom_ford",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250903061102",
+   "page": "https://www.tomford.com/",
+   "url": "http://tomford.com/"
+  },
+  {
+   "sha": "4bfb773dfbf9b10154684aeee0a47df4fec71d7590475ec5dc6d0b8dc39231be",
+   "house": "tom_ford",
+   "month": "2025-11",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251110020618",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "4c217ee54e12684de8c8b6268228116a5864cfae8b75dfd54ea3b239b928ac7f",
+   "house": "tom_ford",
+   "month": "2025-11",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251110020618",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "f7bfc8fbc7bd2f2db1d09582428474adc8dbc7248b1489d8f458b0bc6d04b4c2",
+   "house": "tom_ford",
+   "month": "2025-12",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20251213041138",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "60a5404cfdac707ec487c6c560311c29f5a32851eaf672d8c830abed1615913c",
+   "house": "tom_ford",
+   "month": "2026-01",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260112220301",
+   "page": "https://www.tomford.com/",
+   "url": "http://www.tomford.com/"
+  },
+  {
+   "sha": "c0afa390a2ecd01f2b703e2d1c5f4d08b7f1ef041102de7b5b7d50c4a6bea1f5",
+   "house": "tom_ford",
+   "month": "2026-04",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260421045404",
+   "page": "https://www.tomford.com/",
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "b561438cb9009c3dd8734f896b4a686e3eeff69001436bc7be982ae8918df34b",
+   "house": "tom_ford",
+   "month": "2026-06",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260609052512",
+   "page": null,
+   "url": "https://www.tomford.com/"
+  },
+  {
+   "sha": "c05b434073baf6d5329fbc380f2135145d27dd57e12e629cab355208f160b58e",
+   "house": "valentino",
+   "month": "2023-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20231202044515",
+   "page": "https://www.valentino.com/fr-fr/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "c7113f924eb1ad25fc17740c8fad492075c28c4ac919f3a6572bd83629b7502c",
+   "house": "valentino",
+   "month": "2024-11",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20241101020834",
+   "page": "https://www.valentino.com/en-fi/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "a6845d3d805877e38491e4276242b90c6ec7243a3899f6d5c235ea5e11fd0d62",
+   "house": "valentino",
+   "month": "2024-12",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241201155248",
+   "page": "https://www.valentino.com/en-fi/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "2569f94d73403e81f0c6006a6109215dfca8273c19a0bd6e5a587d6d95899793",
+   "house": "valentino",
+   "month": "2025-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250303213004",
+   "page": "https://www.valentino.com/en-us/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "8a6589c7a6769b042acff1d891f0830d4e12c1bbb535ff734296f4985c3bc1e9",
+   "house": "valentino",
+   "month": "2025-03",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250303213004",
+   "page": "https://www.valentino.com/en-us/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "b8703ca91f015ff7005ec6c41877476e2c866154f84e9779aa5f014392d4247a",
+   "house": "valentino",
+   "month": "2025-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20250501192111",
+   "page": "https://www.valentino.com/de-at/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "367b68870309c2cc38bb9e3d9f2aee47822137efd553a45fe3590a18eadd8450",
+   "house": "valentino",
+   "month": "2025-07",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250701210615",
+   "page": "https://www.valentino.com/de-at/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "b369f1608dc72c7156f9d8b27dac5e09466efeb9b84b121c7ebc3e9708e28518",
+   "house": "valentino",
+   "month": "2025-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250901153536",
+   "page": "https://www.valentino.com/de-de/",
+   "url": "https://www.valentino.com/"
+  },
+  {
+   "sha": "5a9f90e110a675fdb588e022e2257d8b5f6d30f4069a7d5a1c63f7dbc66a15be",
+   "house": "valentino",
+   "month": "2025-10",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251011023057",
+   "page": "https://www.valentino.com/en-us/",
+   "url": "http://www.valentino.com/"
+  },
+  {
+   "sha": "ab98af201b8f459d7a77e6d182673e7bd152fad11dae6a09284b90f91afb6c06",
+   "house": "valentino",
+   "month": "2025-12",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20251205143541",
+   "page": "https://www.valentino.com/de-de/",
+   "url": "http://www.valentino.com/"
+  },
+  {
+   "sha": "e4be3224b5e69de3f49a87bee301c90ccb37a9c5a52166cda87e0c80c248d83e",
+   "house": "valentino",
+   "month": "2026-01",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260114184256",
+   "page": "https://www.valentino.com/en-us/",
+   "url": "http://valentino.com/"
+  },
+  {
+   "sha": "aebffc39d5708fdf712c84a1bbe178373f4ab7c0674b7e622154a8946777bca9",
+   "house": "valentino",
+   "month": "2026-06",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260618123241",
+   "page": null,
+   "url": "http://www.valentino.com/"
+  },
+  {
+   "sha": "39ed0cae9ea5e14872bb60f14c302de78c206326c8c96245c39cdd950a7937ea",
+   "house": "versace",
+   "month": "2023-07",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230702071744",
+   "page": "https://www.versace.com/on/demandware.store/Sites-US-Site/en_US/Default-Start",
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "17e096c8a41b1c6f7262179b9b988b248841947d94f75b5898906b17cd6603f5",
+   "house": "versace",
+   "month": "2024-01",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20240112060548",
+   "page": "https://www.versace.com/us/en/",
+   "url": "http://versace.com/"
+  },
+  {
+   "sha": "7854188005a027e61acdd47e04528e8558942c4fffed3efefe56140bab721702",
+   "house": "versace",
+   "month": "2024-04",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240424135509",
+   "page": "https://www.versace.com/us/en/",
+   "url": "http://versace.com/"
+  },
+  {
+   "sha": "bf1ac88aed70420e599041e4f7e45733f3a8fdc051f730c9daa8b8259bc8a3c2",
+   "house": "versace",
+   "month": "2024-04",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240424135509",
+   "page": "https://www.versace.com/us/en/",
+   "url": "http://versace.com/"
+  },
+  {
+   "sha": "5cdf40887679349e8d7909ee67835e6606c3f596516fc44b2937b4090b8f0359",
+   "house": "versace",
+   "month": "2024-10",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20241005182859",
+   "page": "https://www.versace.com/us/en/",
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "fd360462a146017e6a8264bc367e4e9994f757d930180ed3854e4d4589d1f12e",
+   "house": "versace",
+   "month": "2025-02",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250201082421",
+   "page": "https://www.versace.com/us/en/",
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "724fb598fd9d859d8d7f490a7ce305e8ec9f89cd6549578dadb65064e5337e5a",
+   "house": "versace",
+   "month": "2026-03",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260303234351",
+   "page": "https://www.versace.com/us/en/",
+   "url": "http://www.versace.com/"
+  },
+  {
+   "sha": "aa106cde660e33ea442a4f2c20ca95395aef5e12193664b67ed68be98c8117ad",
+   "house": "versace",
+   "month": "2026-05",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260501050507",
+   "page": null,
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "cc62a2b35caff0fd484cb0cfae9121436ccb79178d03a508eaa89636471dd36e",
+   "house": "versace",
+   "month": "2026-05",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260501050507",
+   "page": null,
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "f5e8bb04449fa83eea83c8e178311c2d7afa63f9bfa316f3254b50ddecffc40d",
+   "house": "versace",
+   "month": "2026-06",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20260610035229",
+   "page": null,
+   "url": "http://versace.com/"
+  },
+  {
+   "sha": "f019f729c1cbb3fec3cc404fb932d006228161b31189eacc95c06efb4ca4622d",
+   "house": "versace",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260807052904",
+   "page": null,
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "f590ac7ddae711760432e071858acdd2a347658cee1801ee4936be15abe328a9",
+   "house": "versace",
+   "month": "2026-09",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260901175339",
+   "page": null,
+   "url": "https://www.versace.com/"
+  },
+  {
+   "sha": "c6deb1976ebaa85696d30643fb1bf1e1453d8f02c9c21b3c945c1e9278b787b2",
+   "house": "zegna",
+   "month": "2023-06",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230601165711",
+   "page": "https://www.zegna.com/br-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "d2d858a77cafadd885ca6515c9e660538e28d7aafa281f1ec06a042cb76dad8a",
+   "house": "zegna",
+   "month": "2023-06",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20230601165711",
+   "page": "https://www.zegna.com/br-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "1ac6fcebe8904f7e22667c7442493dd98f0551e58587ef7255bb034f9862ea9d",
+   "house": "zegna",
+   "month": "2023-08",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20230803114216",
+   "page": "https://www.zegna.com/fi-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "0614b0c08ed690dda23da6f7edc7e2925bbdc6c60c6cc3d8aac460ff8187a962",
+   "house": "zegna",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501172858",
+   "page": "https://www.zegna.com/at-en/",
+   "url": "http://zegna.com/"
+  },
+  {
+   "sha": "9d68384ee27be848b0e7fd717e9d74a4d29fda5064a4de51c98658ce02bc3d39",
+   "house": "zegna",
+   "month": "2024-05",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240501172858",
+   "page": "https://www.zegna.com/at-en/",
+   "url": "http://zegna.com/"
+  },
+  {
+   "sha": "2e54261976595d4b4d01ef86c0d6aea3c57f73bb647aa97b677e410fac4c7346",
+   "house": "zegna",
+   "month": "2024-06",
+   "kind": "on_model",
+   "side": "early",
+   "capture": "20240601063714",
+   "page": "https://www.zegna.com/fi-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "fd012e01c63f38ba0606370d9e860fd166ef0861d0f83d4902b31a3b77ea6a84",
+   "house": "zegna",
+   "month": "2025-04",
+   "kind": "campaign",
+   "side": "early",
+   "capture": "20250403170722",
+   "page": "https://www.zegna.com/fr-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "893324af481950ae4578c719b1277b4f098142ee4b4ea15e8872d138a07552be",
+   "house": "zegna",
+   "month": "2025-07",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250701183311",
+   "page": "https://www.zegna.com/us-en/",
+   "url": "http://www.zegna.com/"
+  },
+  {
+   "sha": "6cb2b5215cae0804c4f1a16aa96ae38f351b38adfbf1f789b8f0beaa86695492",
+   "house": "zegna",
+   "month": "2025-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20250803100850",
+   "page": "https://www.zegna.com/us-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "9e86b92f3c15fd75eb021363380b4053dcc1801ffbc3f51c47125ed275081881",
+   "house": "zegna",
+   "month": "2025-08",
+   "kind": "on_model",
+   "side": "late",
+   "capture": "20250803100850",
+   "page": "https://www.zegna.com/us-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "00be8b6df6528e1aad7b359bae0ea69ae8dbd86a4c291c823150b7090c4d1e5c",
+   "house": "zegna",
+   "month": "2026-04",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260402155839",
+   "page": "https://www.zegna.com/ca-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "d6f5a44c2786ca99ecac9543a80549c6e4f4ebf5950648bd002461c45fb521e6",
+   "house": "zegna",
+   "month": "2026-04",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260402155839",
+   "page": "https://www.zegna.com/ca-en/",
+   "url": "https://www.zegna.com/"
+  },
+  {
+   "sha": "a471856e8e901c262a869d7ac20d08285b5d4028b151e3ebfaeba8c5993c1fcb",
+   "house": "zegna",
+   "month": "2026-08",
+   "kind": "campaign",
+   "side": "late",
+   "capture": "20260830075715",
+   "page": "https://www.zegna.com/ca-en/",
+   "url": "https://www.zegna.com/"
+  }
+ ],
+ "crop_pairs": [
+  [
+   "3df6fcdffc1c7a15e589b3bbebe8da2fe306033ab4869fccc68e3f25b8fe4b74",
+   "89d1848f90cb2ce7b2f193ae510f8fa1b4b22a1fe7ed287f9f286a802f343492"
+  ],
+  [
+   "aee3e2610cd0bcaf87336aebb3a6263a5d05cb5b03abe4986684e04e9c6e673e",
+   "d6113079fd16ca1889221107a54a5352f267bc1d565858ec19a2a00ec255b1a9"
+  ],
+  [
+   "7d3fea24c314299868cc9082411eefff251d81ce8170c28148836d68aa4657a9",
+   "95b0cb3a78c446b6301c7a2c668928cf3abb2c2256966a5d508fc80b11ad5d1e"
+  ],
+  [
+   "b561438cb9009c3dd8734f896b4a686e3eeff69001436bc7be982ae8918df34b",
+   "c0afa390a2ecd01f2b703e2d1c5f4d08b7f1ef041102de7b5b7d50c4a6bea1f5"
+  ],
+  [
+   "742222ada781c9dd02d7c3870f278a7ccdb30aa05679ed2bed95b65a68875e03",
+   "ef4395fbb51b91e88a8d2a475b2be80dece042a4a43845c345f26572ec2fca6e"
+  ],
+  [
+   "85c974a334b574c9df146a7045853d06c5d00b81afb8f531bbdad09b12e2c366",
+   "afd168dfe4e4b6157327e0107121a5c53374ad760aff9f19b1fe7a9920b8ebc5"
+  ],
+  [
+   "b561438cb9009c3dd8734f896b4a686e3eeff69001436bc7be982ae8918df34b",
+   "c0afa390a2ecd01f2b703e2d1c5f4d08b7f1ef041102de7b5b7d50c4a6bea1f5"
+  ],
+  [
+   "224268bd1b2e0cfc2715428cdf5fa45745c62ee92484c10e1718df13d8010d40",
+   "f7db3beb7de8cb5e93e89e7832c195969db24a00fe39d4ada95f2293a63e21ea"
+  ],
+  [
+   "2367cfa9e3ee6c4a3868c5a6845e92c746ffdfb98660d7de164cf869b60e1665",
+   "be590291d4d57702cf8f3629eeb9886afa65fe3ce2586d5b40f525fb2f47c12d"
+  ],
+  [
+   "a1332f7b6359abf1ab756ba741db90c47a4258a0ab2938c9bc108008225544c1",
+   "ca0e9f3f5aba67757c997c8cefabf386e599d6aa3efde5af7fb75362c7fdfbcf"
+  ],
+  [
+   "60a5404cfdac707ec487c6c560311c29f5a32851eaf672d8c830abed1615913c",
+   "f7bfc8fbc7bd2f2db1d09582428474adc8dbc7248b1489d8f458b0bc6d04b4c2"
+  ],
+  [
+   "1858785d31cbbf42a783c07b77101e502244621aec742e4204e93578bcae36ca",
+   "5351d79d4f127c925928afe9d10a7b801f9e10809d9545c54184890ef0b87fd3"
+  ],
+  [
+   "c6deb1976ebaa85696d30643fb1bf1e1453d8f02c9c21b3c945c1e9278b787b2",
+   "d2d858a77cafadd885ca6515c9e660538e28d7aafa281f1ec06a042cb76dad8a"
+  ],
+  [
+   "0957ef59fc114bf0d9337a865d71bd9c908ea52a277cad4e615c170ffe37ff82",
+   "1687b95959ec1921fc412fdea803c59b7ca8dde69794cbd08e1ba05ebd3831b8"
+  ],
+  [
+   "0ae731a9c7484ce0a632642c674e5e7acfa54abe8540f2f6c66c880c688a37f8",
+   "6274beabc2eb0e9a4b8d960a8191892f7f897a724bf0dbf1bb8a19f58100e834"
+  ],
+  [
+   "b561438cb9009c3dd8734f896b4a686e3eeff69001436bc7be982ae8918df34b",
+   "c0afa390a2ecd01f2b703e2d1c5f4d08b7f1ef041102de7b5b7d50c4a6bea1f5"
+  ],
+  [
+   "2917ed2a7c5094e1e3d374cc038223dd27fff5e86f9331d24d5843389eb1bd93",
+   "9ea616f58d2831a81ca60ec961af5b79d115f13cae9ad00a9bd0666c0513426c"
+  ],
+  [
+   "8f45b179db370e4aeffd2fcf40ce220cbee6c29c59efa395ea555e6ce46f0823",
+   "a83add0f3727c9f5459a13a5ad9fd49f6303c4b8959aef7c7590b151fac679ff"
+  ],
+  [
+   "10c66fecf1aeb980a5b60fef38bf799f35cfc0975e0726485cc70d983f52736f",
+   "831c6e8e3442bd974c7517dad33bb6a98c0051be6d8152f07e5b5b53e4e95892"
+  ],
+  [
+   "0fe4e7791ee2c04fb4f24207da00f2eea35826b57f0abb33c89a6000d05ef12a",
+   "fb5f9ecf15b40bd8e38c20d867f6c059e297806a64d96384f06d9538ef8b8243"
+  ],
+  [
+   "4da3e984c2b48add802636611b95382be1081e6fd2b72258b9e545b2d70da5f5",
+   "bb8d7de325d21f8b97076f704858bac46a16964a3adfbc0e1901707bbb42ca4e"
+  ],
+  [
+   "b65d2dc960129843d8e104ac3075977b7761862e41c30eb9a148b8b6c6f25bfd",
+   "bc3ecc0b1385b32be2a17f0a411a4cc7945e8528affdb6393baa41cf9a666268"
+  ],
+  [
+   "4c605a21fd2be3aecb4ca03d44c60a62ab0f4cf79bc97b7b07f9540c6810d31d",
+   "8777f7ec4d3e3a7d06d3bbb2e6d3c487973101fa618f5378713eac920c28e255"
+  ],
+  [
+   "6748935397b24cb982dcd785a56388070cb71eb18ed1f23991b50fdadb29654d",
+   "a0d798aff7a18a6b7fbfe05e16506afd9eb6c873e1ffebf4067f2e21f38e76a9"
+  ],
+  [
+   "8777f7ec4d3e3a7d06d3bbb2e6d3c487973101fa618f5378713eac920c28e255",
+   "923d9d7420740435b76c66885a3f1599e387778d9d60b5727877a42b1becc3a7"
+  ],
+  [
+   "001cfb177bc0b1270a6930fce3e5dd1c5f848122a646f05c0f977baf110d9931",
+   "75d149ec0ef8ca6e8a2391e33dce56c6c7e600bf229341f8b28c1d2d47536318"
+  ],
+  [
+   "4855aadc50e5edf681ff94d53748e2c17516e4815d0d1d4b94598251819403b7",
+   "9fb3b3c771c9dd5f1aad332efd8e07d71ed4d57b821ae6d3bfa676b74a613930"
+  ],
+  [
+   "31c2745336ac4ec626807fa8400563663247ebc5459ba8c6e748f7cb6fd86c77",
+   "a56fa5574758476621fd1f3cd7b383761c19d2c95f303a7bdebc6694c8870b4e"
+  ],
+  [
+   "60a5404cfdac707ec487c6c560311c29f5a32851eaf672d8c830abed1615913c",
+   "f7bfc8fbc7bd2f2db1d09582428474adc8dbc7248b1489d8f458b0bc6d04b4c2"
+  ],
+  [
+   "505aedf84e6fda4274e029af33160b533c971ada10b15d8c9fa111989ce41493",
+   "7e5973d22f618c223480e476ec1befa709174b23649c87c7321c7e4a99345878"
+  ]
+ ],
+ "brands": [
+  "alaia",
+  "balenciaga",
+  "bottega_veneta",
+  "celine",
+  "chloe",
+  "dior",
+  "dolce_gabbana",
+  "dries_van_noten",
+  "fendi",
+  "givenchy",
+  "gucci",
+  "hermes",
+  "jil_sander",
+  "loewe",
+  "louis_vuitton",
+  "margiela",
+  "miu_miu",
+  "prada",
+  "saint_laurent",
+  "tom_ford",
+  "valentino",
+  "versace",
+  "zegna"
+ ]
+}
