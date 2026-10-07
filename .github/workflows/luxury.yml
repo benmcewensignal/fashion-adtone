@@ -101,6 +101,12 @@ jobs:
           python -m adtone.luxury bakeoff --reader qwen3 --what tone 2>&1 | tee -a /tmp/luxury.log
           python -m adtone.luxury bakeoff --reader qwen3 --what pairs 2>&1 | tee -a /tmp/luxury.log
           python -m adtone.luxury bakeoff --reader qwen25 --what human 2>&1 | tee -a /tmp/luxury.log
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            python -m adtone.luxury bakeoff --reader claude --what tone 2>&1 | tee -a /tmp/luxury.log
+            python -m adtone.luxury bakeoff --reader claude --what human 2>&1 | tee -a /tmp/luxury.log
+          else
+            echo "::notice::no Anthropic key; Claude is left out"
+          fi
       - name: Every picture, the registered questions
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true

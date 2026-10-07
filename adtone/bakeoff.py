@@ -464,21 +464,23 @@ def pairs(write: bool = True, redesign: bool = False) -> dict:
 # ---------- Bradley and Terry ----------
 
 def bradley_terry(n: int, first: np.ndarray, second: np.ndarray, y: np.ndarray, ridge: float = 0.1,
-                  iters: int = 500) -> tuple[np.ndarray, float]:
+                  iters: int = 3000) -> tuple[np.ndarray, float]:
     """Positions theta (mean zero) and a first-position bias beta from judgements where y is 1 when the
     picture shown first was chosen, 0 when the second was: P(first chosen) = logistic(theta_first -
     theta_second + beta). A small ridge keeps a picture that always wins finite. Newton steps."""
     theta, beta = np.zeros(n), 0.0
     for _ in range(iters):
-        z = theta[first] - theta[second] + beta
+        z = np.clip(theta[first] - theta[second] + beta, -30, 30)
         p = 1 / (1 + np.exp(-z))
         r = y - p
         w = p * (1 - p)
         g = np.bincount(first, r, n) - np.bincount(second, r, n) - ridge * theta
-        gb = r.sum()
+        gb = r.sum() - 0.01 * beta
         hd = np.bincount(first, w, n) + np.bincount(second, w, n) + ridge
-        theta_new = theta + g / hd
-        beta_new = beta + gb / max(w.sum(), 1e-9)
+        # damped: a reader that leans hard on one position couples the two updates, and full steps can
+        # run away (seen on the bake-off's "staged" axis); steps of at most one unit converge
+        theta_new = theta + np.clip(g / hd, -1.0, 1.0)
+        beta_new = beta + float(np.clip(gb / (w.sum() + 0.01), -1.0, 1.0))
         if np.max(np.abs(theta_new - theta)) < 1e-7 and abs(beta_new - beta) < 1e-7:
             theta, beta = theta_new, beta_new
             break

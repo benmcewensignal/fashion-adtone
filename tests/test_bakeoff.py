@@ -185,3 +185,19 @@ def test_fetch_keeps_a_picture_only_when_its_bytes_match_and_resumes(tmp_path, m
     n = len(calls)
     rows = B.fetch(s, pause=0, workers=2, session_factory=S)
     assert [r["found"] for r in rows] == [True, True, False] and len(calls) > n      # only the missing one is sought again
+
+
+def test_positions_survive_a_reader_that_leans_hard_on_one_position():
+    rng = np.random.default_rng(5)
+    n = 60
+    truth = rng.normal(size=n)
+    first, second, y = [], [], []
+    for _ in range(4000):
+        a, b = rng.choice(n, 2, replace=False)
+        p = 1 / (1 + np.exp(-(1.5 * (truth[a] - truth[b]) - 2.0)))
+        first.append(a)
+        second.append(b)
+        y.append(float(rng.random() < p))
+    th, beta = B.bradley_terry(n, np.array(first), np.array(second), np.array(y))
+    assert np.all(np.isfinite(th)) and np.isfinite(beta)
+    assert np.corrcoef(th, truth)[0, 1] > 0.9 and abs(beta + 2.0) < 0.3

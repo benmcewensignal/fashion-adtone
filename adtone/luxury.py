@@ -533,6 +533,22 @@ def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     found = sorted(r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found"))
     out = out_dir / f"{reader}-{what}.jsonl"
+    if reader == "claude":       # the closed reader, through the API, on the bake-off's copies of the pictures
+        jpegs = bakeoff.from_volume(found)
+        if what == "tone":
+            todo = [s for s in found if s not in _done(out, lambda r: r["sha"])]
+            rows = bakeoff.read_tone("claude", {s: jpegs[s] for s in todo if s in jpegs})
+        else:
+            d = json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))
+            base = [(h["axis"], h["left"], h["right"]) for h in d["human"]] if what == "human" else \
+                [(ax, a, b) for ax, es in d["reader"].items() for a, b in es]
+            have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("answer") else None)
+            todo = [j for j in base + [(ax, b, a) for ax, a, b in base] if j not in have]
+            rows = [{k: r[k] for k in ("axis", "first", "second", "answer", "error") if k in r}
+                    for r in bakeoff.read_pairs("claude", jpegs, todo)]
+        store.append_jsonl(out, rows)
+        _log("bakeoff_read", reader=reader, what=what, asked=len(todo), rows=len(rows), seconds=round(time.monotonic() - t0))
+        return {"asked": len(todo), "rows": len(rows)}
     if what == "tone":
         rub = load_rubric()
         schema = json_schema(rub)
@@ -572,7 +588,7 @@ def main(argv: list[str] | None = None) -> int:
     ps = sub.add_parser("positions")
     ps.add_argument("--reader", default="qwen3")
     bo = sub.add_parser("bakeoff")
-    bo.add_argument("--reader", choices=sorted(APPS), required=True)
+    bo.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     bo.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
     an = sub.add_parser("analyse")
     an.add_argument("--reader", default="qwen3")
