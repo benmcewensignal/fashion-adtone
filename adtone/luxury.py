@@ -374,6 +374,48 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
 READINGS = ("clip", "positions", "pixels", "csd", "dino", "fashion")
 
 
+def _tone_of(name: str) -> dict[str, dict]:
+    out = {}
+    for r in store.read_jsonl(DIR / "readings" / f"{name}-tone.jsonl"):
+        if r.get("out"):
+            out[r["sha"]] = r["out"]
+    return out
+
+
+def _winners(name: str) -> dict[tuple, str | None]:
+    """For each comparison asked both ways round: the picture chosen both times, or None when the two
+    orders disagree."""
+    by = defaultdict(dict)
+    for r in store.read_jsonl(DIR / "readings" / f"{name}-pairs.jsonl"):
+        if r.get("answer"):
+            by[(r["axis"], frozenset((r["first"], r["second"])))][(r["first"], r["second"])] = \
+                r["first"] if r["answer"] == "first" else r["second"]
+    return {k: (next(iter(v.values())) if len(set(v.values())) == 1 else None) for k, v in by.items() if len(v) == 2}
+
+
+def check_report(reader: str = "qwen3") -> dict:
+    """The standing check: on the same pictures, how far the open reader and Claude agree on each
+    question (Cohen's kappa), and on the same comparisons, how often they pick the same picture."""
+    from .character import QUESTIONS
+    if not (DIR / "readings" / "claude-tone.jsonl").exists():
+        return {"note": "Claude has not read the check set"}
+    cs = check_set()
+    q, c = _tone_of(reader), _tone_of("claude")
+    both = sorted(set(q) & set(c) & set(cs["pictures"]))
+    keys = ["creative_type", *QUESTIONS, "street_couture_axis"]
+    tone = {k: bakeoff._kappa2([q[s].get(k) for s in both], [c[s].get(k) for s in both]) for k in keys}
+    wq, wc = _winners(reader), _winners("claude")
+    pairs = {}
+    for ax, es in sorted(cs["pairs"].items()):
+        ks = [(ax, frozenset(e)) for e in es if (ax, frozenset(e)) in wq and (ax, frozenset(e)) in wc]
+        decided = [k for k in ks if wq[k] is not None and wc[k] is not None]
+        pairs[ax] = {"comparisons": len(ks), "both_decided": len(decided),
+                     "agree": round(sum(wq[k] == wc[k] for k in decided) / len(decided), 3) if decided else None,
+                     "open_reader_split": round(sum(wq[k] is None for k in ks) / len(ks), 3) if ks else None,
+                     "claude_split": round(sum(wc[k] is None for k in ks) / len(ks), 3) if ks else None}
+    return {"pictures": len(both), "tone_kappa": tone, "pairs": pairs}
+
+
 def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
     """adtone.readings run on the new instrument: the reader's answers each time, beside each vector in
     turn (directions compared by cosine, measures by distance)."""
@@ -381,7 +423,8 @@ def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
     from .score import load_rubric
     spec, reg = load_rubric().spec, registry.load()
     out = {"generated_at": store.utc_now(), "reader": reader,
-           "status": "exploratory: the luxury reading, not in the pre-registration", "readings": {}}
+           "status": "exploratory: the luxury reading, not in the pre-registration", "readings": {},
+           "check": check_report(reader)}
     for kind in which:
         ims = load_images(reader, kind)
         if len(ims) < 50:

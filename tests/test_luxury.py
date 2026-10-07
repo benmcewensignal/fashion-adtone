@@ -192,3 +192,30 @@ def test_the_new_instrument_is_loaded_as_readings_takes_it(tmp_path, monkeypatch
     assert abs(ims[0]["vec"][0] - 1.0) < 1e-9 and abs(ims[1]["vec"][0] + 1.0) < 1e-9       # standard units
     assert ims[0]["dup"] is None and ims[0]["period"] == "2024H1"
     assert len(L.load_images("qwen3", "positions", axes=["opulent"])) == 3
+
+
+def test_the_standing_check_compares_the_two_readers_on_the_same_work(tmp_path, monkeypatch):
+    _corpus(tmp_path, monkeypatch)
+    rd = tmp_path / "luxury" / "readings"
+    rd.mkdir()
+    cs = L.check_set()
+    shas = cs["pictures"]
+    store.write_jsonl(rd / "qwen3-tone.jsonl", [{"sha": s, "out": {"creative_type": "brand_image", "light": "high_key"}} for s in shas])
+    store.write_jsonl(rd / "claude-tone.jsonl", [{"sha": s, "out": {"creative_type": "brand_image", "light": "high_key" if i % 2 else "low_key"}}
+                                                 for i, s in enumerate(shas)])
+    rows_q, rows_c = [], []
+    for ax, es in cs["pairs"].items():
+        for i, (a, b) in enumerate(es):
+            rows_q += [{"axis": ax, "first": a, "second": b, "answer": "first"}, {"axis": ax, "first": b, "second": a, "answer": "second"}]
+            agree = i % 4 != 0
+            rows_c += [{"axis": ax, "first": a, "second": b, "answer": "first" if agree else "second"},
+                       {"axis": ax, "first": b, "second": a, "answer": "second" if agree else "first"}]
+    store.write_jsonl(rd / "qwen3-pairs.jsonl", rows_q)
+    store.write_jsonl(rd / "claude-pairs.jsonl", rows_c)
+    r = L.check_report()
+    assert r["pictures"] == len(shas)
+    assert r["tone_kappa"]["light"] is None or r["tone_kappa"]["light"] <= 0.01
+    for ax, v in r["pairs"].items():
+        n = v["comparisons"]
+        assert v["both_decided"] == n and abs(v["agree"] - sum(i % 4 != 0 for i in range(n)) / n) < 1e-3
+        assert v["open_reader_split"] == 0 and v["claude_split"] == 0
