@@ -74,7 +74,7 @@
   "production": "commonest answer covers 92% of pictures"
  },
  "image_model": "clip",
- "image_basis": "Today's fingerprint stays: FashionSigLIP finds more brands nearest their own earlier pictures (12 of 22 against 9) but no more pictures among their brand's nearest neighbours (131 of 296 each); DINOv3 fewer on both. CSD not yet measured.",
+ "image_basis": "Today's fingerprint stays: FashionSigLIP finds more brands nearest their own earlier pictures (12 of 22 against 9) but no more pictures among their brand's nearest neighbours (131 of 296 each); CSD (7, 119) and DINOv3 (6, 93) fewer on both. CSD was measured after the reading started, once its checkpoint loaded.",
  "brand_recognition": "Qwen3-VL-32B names the right house for 42% of the bake-off pictures (88% with text or a logo, 25% without). Brands are no further apart on any axis among the pictures it recognised than among those it did not (differences under 0.1 of the variance, p 0.32 or more).",
  "sources": [
   "data/luxury/bakeoff_extra.json",
