@@ -147,25 +147,40 @@ def test_reading_on_modal_resumes_and_keeps_what_came_back(tmp_path, monkeypatch
     hidden = {s: i for i, s in enumerate(sorted(L.found()))}
     calls = []
 
+    fail = {"first": {1}, "again": set()}     # batches lost on the first pass and on the pass that asks again
+    passes = []
+
     class Method:
         def __init__(self, fn):
             self.fn = fn
 
         def starmap(self, gen, return_exceptions=False):
+            key = "again" if passes else "first"
+            passes.append(key)
             for k, args in enumerate(gen):
                 calls.append(args)
-                yield RuntimeError("lost") if k == 1 else self.fn(*args)
+                yield RuntimeError("lost") if k in fail[key] else self.fn(*args)
 
     class Fake:
         compare_from = Method(lambda folder, pairs, system, prompts, choices:
                               ["first" if hidden[a] > hidden[b] else "second" for a, b in pairs])
     monkeypatch.setattr(modal.Cls, "from_name", lambda app, name: (lambda: Fake()))
-    r1 = L.read("qwen3", "pairs")
     total = len(L._both_orders(L.design()["reader"]))
-    assert r1["pairs"]["asked"] == total and r1["pairs"]["rows"] == total - 64     # one batch was lost
+    r1 = L.read("qwen3", "pairs")
+    assert passes == ["first", "again"]
+    assert r1["pairs"]["asked"] == total and r1["pairs"]["rows"] == total          # the lost batch, asked again
     assert all(a[0] == "/pictures-v1" for a in calls)
+    passes.clear()
+    assert L.read("qwen3", "pairs")["pairs"]["asked"] == 0 and passes == []      # nothing read twice
+    (L.DIR / "readings" / "qwen3-pairs.jsonl").write_text("")
+    fail.update(first={1}, again={0})          # lost twice: logged, and left for the next run
+    passes.clear()
     r2 = L.read("qwen3", "pairs")
-    assert r2["pairs"]["asked"] == 64 and r2["pairs"]["rows"] == 64              # only the lost batch again
+    assert r2["pairs"]["rows"] == total - 64
+    passes.clear()
+    fail.update(first=set(), again=set())
+    r3 = L.read("qwen3", "pairs")
+    assert r3["pairs"]["asked"] == 64 and r3["pairs"]["rows"] == 64
     info = L.positions("qwen3")
     assert info["opulent"]["pictures"] == len(hidden)
     pos = {r["sha"]: r["opulent"] for r in store.read_jsonl(L.DIR / "positions-qwen3.jsonl")}

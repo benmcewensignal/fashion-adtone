@@ -79,8 +79,34 @@ class Reader:
         from vllm import LLM
         if not REVISION:
             raise RuntimeError("BAKEOFF_REVISION is not set: deploy after pinning the weights")
-        self.llm = LLM(model=_path(MODEL, REVISION), max_model_len=8192, max_num_seqs=SEQS, seed=0,
-                       limit_mm_per_prompt={"image": 2})
+        kw = dict(model=_path(MODEL, REVISION), max_model_len=8192, max_num_seqs=SEQS, seed=0,
+                  limit_mm_per_prompt={"image": 2})
+        # No cache of processed pictures shared between the engine's two processes: a reading where one picture
+        # comes back in many comparisons, over more pictures than the cache holds, can leave the two out of step
+        # and stop the engine. The cache only saves preprocessing, so the answers are the same without it.
+        for extra in ({"mm_processor_cache_gb": 0}, {"disable_mm_preprocessor_cache": True}, {}):
+            try:
+                self.llm = LLM(**kw, **extra)
+                self.cache_setting = extra
+                break
+            except TypeError:
+                continue
+
+    def _safely(self, fn, *args):
+        """The call, with any failure passed back as a plain error the caller can read (vLLM's own exceptions
+        do not unpickle where vLLM is not installed). A stopped engine fails every later call, so the container
+        then takes no more work and is replaced."""
+        try:
+            return fn(*args)
+        except Exception as e:
+            msg = f"{type(e).__name__}: {str(e)[:400]}"
+            if "dead" in msg.lower() or "enginecore" in msg.lower():
+                try:
+                    import modal.experimental
+                    modal.experimental.stop_fetching_inputs()
+                except Exception:
+                    pass
+            raise RuntimeError(msg) from None
 
     def _chat(self, conversations, constraint: dict | None, max_tokens: int):
         """With the constraint if the engine takes it, else without; the mode in use is reported."""
@@ -153,30 +179,30 @@ class Reader:
     def ask_from(self, folder: str, shas: list[str], system: str, question: str, choices: list[str]) -> list[str]:
         """One question about each picture on the volume, answered with one of `choices`."""
         pictures.reload()
-        return self._ask([_picture(folder, s) for s in shas], system, question, choices)
+        return self._safely(lambda: self._ask([_picture(folder, s) for s in shas], system, question, choices))
 
     @modal.method()
     def compare_probs_from(self, folder: str, pairs: list[tuple[str, str]], system: str, prompts: list[str]) -> list[float]:
         """As compare_from, as probabilities."""
         pictures.reload()
         cache = {s: _picture(folder, s) for s in {x for p in pairs for x in p}}
-        return self._compare_probs([(cache[a], cache[b]) for a, b in pairs], system, prompts)
+        return self._safely(lambda: self._compare_probs([(cache[a], cache[b]) for a, b in pairs], system, prompts))
 
     @modal.method()
     def read(self, jpegs: list[bytes], system: str, schema: dict, grammar: str | None = None) -> list[str]:
         """tone-v1 for each picture, under the rubric's JSON schema."""
-        return self._read(jpegs, system, schema)
+        return self._safely(lambda: self._read(jpegs, system, schema))
 
     @modal.method()
     def compare(self, pairs: list[tuple[bytes, bytes]], system: str, prompts: list[str], choices: list[str]) -> list[str]:
         """For each pair, which picture lies further along the axis in its prompt: one of `choices`."""
-        return self._compare(pairs, system, prompts, choices)
+        return self._safely(lambda: self._compare(pairs, system, prompts, choices))
 
     @modal.method()
     def read_from(self, folder: str, shas: list[str], system: str, schema: dict) -> list[str]:
         """As read, for pictures on the private picture volume, named by their sha."""
         pictures.reload()
-        return self._read([_picture(folder, s) for s in shas], system, schema)
+        return self._safely(lambda: self._read([_picture(folder, s) for s in shas], system, schema))
 
     @modal.method()
     def compare_from(self, folder: str, pairs: list[tuple[str, str]], system: str, prompts: list[str],
@@ -184,13 +210,14 @@ class Reader:
         """As compare, for pairs of pictures on the private picture volume, named by their sha."""
         pictures.reload()
         cache = {s: _picture(folder, s) for s in {x for p in pairs for x in p}}
-        return self._compare([(cache[a], cache[b]) for a, b in pairs], system, prompts, choices)
+        return self._safely(lambda: self._compare([(cache[a], cache[b]) for a, b in pairs], system, prompts, choices))
 
     @modal.method()
     def identity(self) -> dict:
         import vllm
         return {"model": MODEL, "revision": REVISION, "gpu": GPU, "vllm": vllm.__version__,
-                "mode": getattr(self, "mode", None), "mode_errors": getattr(self, "errors", [])}
+                "mode": getattr(self, "mode", None), "mode_errors": getattr(self, "errors", []),
+                "processor_cache": getattr(self, "cache_setting", None)}
 
 
 @app.local_entrypoint()

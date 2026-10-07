@@ -740,6 +740,9 @@ def cross_brand(images: list[dict], ans: Answers, reg: registry.Registry, rng) -
         _, s, vt = np.linalg.svd(Cc, full_matrices=False)
         xy = Cc @ vt[:2].T
         share = (s[:2] ** 2 / (s ** 2).sum()).tolist() if s.sum() else [0, 0]
+        if xy.shape[1] < 2:          # a measure with one dimension (a single axis) maps onto a line
+            xy = np.hstack([xy, np.zeros((len(hs), 2 - xy.shape[1]))])
+            share = share + [0.0] * (2 - len(share))
         grouped = [h for h in hs if owners.get(h) and sum(1 for g in hs if owners.get(g) == owners.get(h)) >= 2]
         sib = None
         if len(grouped) >= 4 and len({owners[h] for h in grouped}) >= 2:

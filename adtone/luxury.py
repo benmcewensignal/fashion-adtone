@@ -226,14 +226,23 @@ def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, 
                 return
             sent.append(part)
             yield args(part)
-    n = 0
+    n, failed = 0, []
     for k, res in enumerate(getattr(rd, method).starmap(gen(), return_exceptions=True)):
         if isinstance(res, BaseException):
             _log("batch_failed", reader=reader, method=method, error=f"{res.__class__.__name__}: {str(res)[:200]}")
+            failed.append(sent[k])
             continue
         rows = rows_of(sent[k], res)
         store.append_jsonl(out, rows)
         n += len(rows)
+    if failed and time.monotonic() < deadline:     # once more: a container whose engine stopped has been replaced
+        for part, res in zip(failed, getattr(rd, method).starmap([args(p) for p in failed], return_exceptions=True)):
+            if isinstance(res, BaseException):
+                _log("batch_failed", reader=reader, method=method, again=True, error=f"{res.__class__.__name__}: {str(res)[:200]}")
+                continue
+            rows = rows_of(part, res)
+            store.append_jsonl(out, rows)
+            n += len(rows)
     return n
 
 
