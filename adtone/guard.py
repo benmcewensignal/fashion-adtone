@@ -32,10 +32,11 @@ ALLOW = {
     "tiktok": ["data/tiktok/ads/*.jsonl", "data/tiktok/obs/*.jsonl", "data/tiktok/vectors/*/*.npz",
                "data/state/tiktok.json", "data/provenance/tiktok.jsonl"],
     "reader": ["data/state/reader.json", "data/provenance/reader.jsonl"],
+    "statements": ["data/statements/*.jsonl", "data/state/statements.json", "data/provenance/statements.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
-                "data/results/character.json",
+                "data/results/character.json", "data/results/alignment.json",
                 "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }

@@ -69,6 +69,11 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         run: python -m adtone.character
+      - name: Alignment of words and images (exploratory)
+        if: env.MODE == 'analyse'
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.statements align
       - name: Draw the agreement sample
         if: env.MODE == 'agreement-sample'
         timeout-minutes: 5

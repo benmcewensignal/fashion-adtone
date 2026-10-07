@@ -1,0 +1,44 @@
+name: statements
+run-name: statements ${{ github.event_name }}
+# The houses' own words about their collections (reference/statements.csv), read into the image rubric's
+# questions by the words reader (rubric/words-v1.md, Claude at temperature 0). Each statement is read
+# once; a new or edited statement is read on the next run. Alignment against the images is computed in
+# the weekly analysis. Exploratory, outside the pre-registration.
+on:
+  schedule:
+    - cron: "25 6 1 * *"
+  workflow_dispatch:
+  push:   # editing .github/kick/statements, or the statements file itself, starts a run
+    branches: [main]
+    paths: [".github/kick/statements", "reference/statements.csv"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-statements
+  cancel-in-progress: false
+
+jobs:
+  statements:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: "1"
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Read the statements
+        id: read
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python -m adtone.statements read --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh statements "statements ${{ github.event_name }}"
