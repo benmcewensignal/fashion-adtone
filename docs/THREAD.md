@@ -10,11 +10,19 @@ dates in `reference/shows.csv`.
 |---|---|---|---|
 | Meta Ad Library: ads, reach, targeting | collect (Meta token) | `data/ads` | per ad |
 | The reader on Modal, the image fingerprint | process | `data/obs`, `data/vectors` | per image |
-| Wikipedia page views | attention | `data/attention` | per house, per day |
-| GDELT news tone and volume | attention | `data/press` | per house, per day |
-| Lyst Index ranks, house revenue | compiled by hand | `reference/` | per quarter |
+| Brand homepages, monthly since 2014, from the Wayback Machine, read by the reader | homepages | `data/homepages` | per house, per month |
+| Back catalogue: campaigns listed on models.com | backcat | `data/backcat` | per campaign |
+| YouTube: each house's films, counts and thumbnails (needs `YOUTUBE_API_KEY`) | youtube | `data/youtube` | per film, weekly counts |
+| TikTok's ad library for Europe (needs an approved Commercial Content API key) | tiktok | `data/tiktok` | per ad |
+| Wikipedia page views, English | attention | `data/attention` | per house, per day |
+| Wikipedia page views in ten languages, renamed articles joined | attention | `data/wikiviews` | per house, language, day |
+| Wikidata: owners and creative directors, checked against the registry | attention | `data/wikidata` | per house |
+| GDELT news tone and volume | press | `data/press` | per house, per day |
+| Revenue by house, with each figure's source | compiled by hand | `reference/revenue.csv` | per quarter, half or year |
+| Shows, credits, show statements, media value, Lyst Index | compiled by hand | `reference/` | per show, campaign, season, quarter |
 
-Images are never stored: the reader and the fingerprint keep answers and numbers.
+Images are never stored: the reader and the fingerprint keep answers and numbers. Any workflow can be
+started by editing its file in `.github/kick/`.
 
 ## Three ways the sources are cut
 
@@ -29,9 +37,14 @@ Images are never stored: the reader and the fingerprint keep answers and numbers
 - **By month.** Each house's four advertising readings (movement, distance from the market,
   consistency, drift towards the leader) set against next month's curiosity and, more thinly, desire
   and money: the forecast. Amendment 2, section 8.
+- **By half-year, from the homepages.** Each house's character (its share of each answer to the
+  eighteen questions and its fingerprint centroid), the shift between half-years against chance,
+  its distance from the other houses, and each shift beside the next half-year's organic growth where
+  revenue is reported. Exploratory and descriptive. `adtone.character`.
 
 ## Order of operations
 
-collect, then process (reader and fingerprint), then analyse; attention weekly on its own clock;
-status after any of them. Nothing in the analyses runs on real data until the amendment that
+collect, then process (reader and fingerprint), then analyse; homepages three times a day while their
+history fills, press every four hours, attention and the back catalogue weekly, YouTube and TikTok
+weekly once their keys exist; status after any of them. Nothing in the analyses runs on real data until the amendment that
 registers it is frozen.

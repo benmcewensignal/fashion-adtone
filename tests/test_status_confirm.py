@@ -64,6 +64,7 @@ def test_a_frozen_registry_is_never_edited(reg_file):
 def test_status_page_builds_on_empty_data_and_lists_what_needs_you(reg_file):
     page = status.render(status.gather())
     assert "No collection has succeeded yet" in page and "Gucci" in page
+    assert "Other sources" in page and "Homepages" in page and "TikTok ads" in page    # empty, but listed
     store.write_state(config.CANDIDATES_FILE, CANDS)
     store.write_state(config.STATE_DIR / "collect.json", {"last_success": "2026-10-06T04:00:00Z", "total_ads": 900,
                                                           "token": {"checked": True, "days_left": 9}})

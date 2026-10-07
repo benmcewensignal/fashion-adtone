@@ -30,7 +30,63 @@ def gather() -> dict:
         "process_state": store.read_state(config.STATE_DIR / "process.json"),
         "collect_last": _last(config.PROV_DIR / "collect.jsonl"), "process_last": _last(config.PROV_DIR / "process.jsonl"),
         "gate": analysis.gate(reg), "summary": _json(config.RESULTS_DIR / "summary.json"), "forward": forward,
+        "sources": sources(),
     }
+
+
+def _count_rows(pattern: str) -> int:
+    return sum(len(store.read_jsonl(p)) for p in sorted(config.DATA.glob(pattern)))
+
+
+def _csv_rows(name: str) -> int:
+    p = config.ROOT / "reference" / name
+    if not p.exists():
+        return 0
+    with p.open(encoding="utf-8") as f:
+        return max(0, sum(1 for _ in f) - 1)
+
+
+def sources() -> list[tuple[str, str, str]]:
+    """(source, last run, what is on file) for every collector beside Meta, from their own files."""
+    S, P = config.STATE_DIR, config.PROV_DIR
+    out = []
+    hp = _last(P / "homepages.jsonl")
+    caps = [r for p in sorted((config.DATA / "homepages" / "captures").glob("*.jsonl")) for r in store.read_jsonl(p)]
+    resolved = sum(1 for r in caps if r.get("status") == "resolved")
+    images = len(store.read_jsonl(config.DATA / "homepages" / "obs" / "tone-v1.jsonl"))
+    out.append(("Homepages", hp.get("finished_at", "never"),
+                f"{resolved} brand-months with images of {len(caps)} read, {images} images read by the reader, "
+                f"{hp.get('remaining', 'unknown')} months to go" + (f"; stopped: {hp['stopped']}" if hp.get("stopped") not in (None, "budget") else "")))
+    at = store.read_state(S / "attention.json")
+    out.append(("Wikipedia, English", at.get("updated_at", "never"), f"daily views for {len(at.get('titles') or {})} houses to {at.get('end', '?')}"))
+    wv = store.read_state(S / "wikiviews.json")
+    arts = wv.get("articles") or {}
+    have = sum(1 for r in arts.values() if r.get("refreshed_to"))
+    out.append(("Wikipedia, ten languages", wv.get("updated_at", "never"),
+                f"{have} articles with daily views, across {len({k.split(':')[1] for k in arts if arts[k].get('refreshed_to')})} languages"
+                + ("; the first pass is still filling" if wv.get("stopped_on_budget") else "")))
+    wd = store.read_state(S / "wikidata.json")
+    out.append(("Wikidata", wd.get("updated_at", "never"),
+                f"{wd.get('houses', 0)} houses; " + ("; ".join(wd.get("disagreements") or []) or "agrees with the registry")))
+    pr = store.read_state(S / "press.json")
+    out.append(("Press (GDELT)", pr.get("updated_at", "never"),
+                f"{len(pr.get('covered') or {})} houses started, {len(pr.get('complete') or [])} complete"
+                + ("; GDELT refusing, resumes next run" if pr.get("rate_limited") else "")))
+    bc = _count_rows("backcat/campaigns/*.jsonl")
+    out.append(("Back catalogue", _last(P / "backcat.jsonl").get("finished_at", "never"), f"{bc} campaigns listed"))
+    for name, key in (("YouTube", "youtube"), ("TikTok ads", "tiktok")):
+        last = _last(P / f"{key}.jsonl")
+        if last.get("waiting"):
+            what = f"waiting: {last['waiting']}"
+        else:
+            st = store.read_state(S / f"{key}.json")
+            n = _count_rows(f"{key}/videos/*.jsonl") if key == "youtube" else _count_rows("tiktok/ads/*.jsonl")
+            what = f"{n} {'films' if key == 'youtube' else 'ads'} on file" + (f"; {len(st.get('problems') or {})} problems" if st.get("problems") else "")
+        out.append((name, last.get("updated_at", "never"), what))
+    out.append(("Compiled by hand", "",
+                f"revenue {_csv_rows('revenue.csv')} figures, shows {_csv_rows('shows.csv')}, credits {_csv_rows('credits.csv')}, "
+                f"statements {_csv_rows('statements.csv')}, media value {_csv_rows('media_value.csv')}"))
+    return out
 
 
 def needs_you(d: dict) -> list[str]:
@@ -76,6 +132,8 @@ def render(d: dict) -> str:
     fwd = "".join(f"<li><b>{e(k)}</b>: {e(str(v.get('status', 'not evaluated')))}</li>" for k, v in d["forward"].items()) \
         or "<li>Not evaluated yet.</li>"
     gate = "Waiting: " + "; ".join(d["gate"]) if d["gate"] else "Open: analysis runs weekly."
+    src = "".join(f"<tr><td>{e(n)}<span class=g>{e(str(t)[:16].replace('T', ' '))}</span></td><td>{e(w)}</td></tr>"
+                  for n, t, w in d.get("sources") or [])
     rep = d["summary"].get("primary", {})
     h1 = (rep.get("event_study") or {}).get("h1", {}).get("supported", "n/a") if rep else "n/a"
     return f"""<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
@@ -98,6 +156,7 @@ td{{padding:.45rem .5rem .45rem 0;border-bottom:1px solid var(--rule);vertical-a
 <li>Collection: {e(str(d['collect_state'].get('last_success', 'never')))}, {d['collect_state'].get('total_ads', 0)} ads on file{', partial last run' if cl.get('partial') else ''}.</li>
 <li>Processing: {pl.get('processed', 0)} ads last run, {d['process_state'].get('pending_after', 'unknown')} pending, resolver {e(str(pl.get('resolver_used') or pl.get('resolver', 'n/a')))}.</li>
 <li>Analysis: {e(gate)} H1: {e(str(h1))}.</li></ul>
+<h2>Other sources</h2><div class=scroll><table>{src}</table></div>
 <h2>Forward tests</h2><ul>{fwd}</ul>
 <h2>Pages</h2><div class=scroll><table>{''.join(rows)}</table></div>
 <p class=m>Last column: ads seen for the house in the latest collection run.</p>

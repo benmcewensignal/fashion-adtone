@@ -12,9 +12,17 @@ whose leadership did not.
 It measures how houses present themselves in paid digital channels. It does not measure what
 their clothes look like.
 
-## Status, 5 October 2026
+## Status, 7 October 2026
 
-- Built and tested on synthetic data with known ground truth (189 tests).
+- While Meta's access is pending, the sources that need no one's permission are running: each house's
+  homepage month by month since 2014 from the Wayback Machine, read by the reader (`adtone.homepages`);
+  Wikipedia views in ten languages and Wikidata's record of owners and creative directors
+  (`adtone.wikiviews`, `adtone.wikidata`); GDELT news (`adtone.press`); and revenue by house, shows,
+  credits, show statements and media value compiled by hand into `reference/`, each row with its
+  source. YouTube (`adtone.youtube`) and TikTok's ad library (`adtone.tiktok`) are built and wait for
+  their keys. `adtone.character` reads character, shift and its relation to growth from the
+  homepages; it is exploratory. See `docs/THREAD.md` for every source and its workflow.
+- Built and tested on synthetic data with known ground truth (230 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -96,6 +104,18 @@ What is left for a person afterwards:
 A status page built for a phone (collection per house, backlog, page picks, token expiry, forward
 tests, and what needs you) publishes to GitHub Pages after every run. One-time setup: Settings > Pages
 > Source: GitHub Actions.
+
+Two optional keys widen the sources, and each workflow waits, recording that it waited, until its
+key exists:
+
+- `YOUTUBE_API_KEY`: free. In the Google Cloud console create a project, enable "YouTube Data API v3",
+  then Credentials > Create credentials > API key. The weekly youtube workflow then reads every film
+  on the houses' channels (`reference/youtube_channels.csv`; twelve channels there are marked
+  unverified and the first run checks each channel's title against the house).
+- `TIKTOK_CLIENT_KEY` and `TIKTOK_CLIENT_SECRET`: apply for the Commercial Content API at
+  developers.tiktok.com (TikTok says it answers within two working days); the keys then appear in the
+  research section of the developer site. The weekly tiktok workflow then reads the houses' ads in
+  Europe, kept by TikTok for a year after they last ran.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and

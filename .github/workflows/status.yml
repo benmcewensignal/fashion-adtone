@@ -3,7 +3,7 @@ name: status
 # Build and deployment > Source: GitHub Actions.
 on:
   workflow_run:
-    workflows: [collect, process, analyse, confirm-pages, backcat]
+    workflows: [collect, process, analyse, confirm-pages, backcat, homepages, press, attention, youtube, tiktok]
     types: [completed]
   schedule:
     - cron: "10 8 * * *"
