@@ -199,6 +199,8 @@ def _tone_rows(part: list[str], texts: list[str], rub) -> list[dict]:
 def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, deadline: float) -> int:
     """Batches to the open reader on Modal, spread over its GPUs; each batch's rows are written as they
     come back, so a run that stops keeps what was read."""
+    if not inputs:          # nothing to read: a map over no inputs can wait on Modal indefinitely
+        return 0
     import modal
     rd = modal.Cls.from_name(APPS[reader], "Reader")()
     sent = []

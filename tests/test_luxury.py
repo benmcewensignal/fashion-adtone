@@ -267,3 +267,9 @@ def test_comparisons_read_as_probabilities_are_judged_with_the_lean_taken_out(tm
     assert r["lean_to_first"] < -0.1 and ax["orders_agree_after_lean"] > 0.95
     assert ax["with_person"]["agreement"] > 0.95 and ax["with_person_by_position"] > 0.9
     assert ax["crop_icc"] > 0.8 and ax["between_brands"] > 0.3
+
+
+def test_nothing_to_read_never_reaches_modal(tmp_path, monkeypatch):
+    import modal
+    monkeypatch.setattr(modal.Cls, "from_name", lambda *a, **k: (_ for _ in ()).throw(AssertionError("called")))
+    assert L._on_modal("qwen3", "compare_from", [], None, None, tmp_path / "x.jsonl", 0) == 0
