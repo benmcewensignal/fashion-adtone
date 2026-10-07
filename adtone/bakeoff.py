@@ -397,7 +397,10 @@ def design(pictures: list[dict], crops: list[list[str]], axes: list[dict], seed:
     return {"seed": seed, "human": human, "reader": reader}
 
 
-def pairs(write: bool = True) -> dict:
+def pairs(write: bool = True, redesign: bool = False) -> dict:
+    """The pairs, designed once: a person may already be judging them, so a later fetch keeps them."""
+    if (DIR / "pairs.json").exists() and not redesign:
+        return json.loads((DIR / "pairs.json").read_text(encoding="utf-8"))
     s = json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
     found = {r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")}
     pics = [p for p in s["pictures"] if p["sha"] in found]
@@ -903,7 +906,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("sample")
     f = sub.add_parser("fetch")
     f.add_argument("--no-upload", action="store_true")
-    sub.add_parser("pairs")
+    pp = sub.add_parser("pairs")
+    pp.add_argument("--redesign", action="store_true")
     sub.add_parser("seal")
     r = sub.add_parser("read")
     r.add_argument("--reader", choices=sorted(READERS), required=True)
@@ -924,7 +928,7 @@ def main(argv: list[str] | None = None) -> int:
     elif a.cmd == "seal":
         print(f"bakeoff seal: {seal_from_volume()}")
     elif a.cmd == "pairs":
-        d = pairs()
+        d = pairs(redesign=a.redesign)
         print(f"bakeoff pairs: {len(d['human'])} for a person; " + ", ".join(f"{k} {len(v)}" for k, v in d["reader"].items()))
     elif a.cmd == "read":
         print(f"bakeoff read {a.reader} {a.what}: {read(a.reader, a.what)}")
