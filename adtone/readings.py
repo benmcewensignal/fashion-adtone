@@ -51,7 +51,12 @@ The analysis goes in this order, because each step limits what the next can say.
 6. Success. Each brand's shift and its distinctness beside the next half-year's organic revenue growth
    (adtone.revenue) and Wikipedia attention, each brand against its own usual and net of the market,
    with the current half-year's outcome held constant. Houses change their image when they are
-   struggling as well as when they are thriving: any association is a pattern to examine.
+   struggling as well as when they are thriving, so the other direction is read too: the outcome in the
+   half-year a shift starts from, beside the shift. An image that leads the outcome and not the other way
+   round is a pattern to examine; one that follows it is a reaction.
+
+7. The brand of the moment. Whether other brands' pictures move towards the brand whose attention rose
+   most, in the half-year after it led.
 """
 from __future__ import annotations
 
@@ -981,17 +986,31 @@ def crew_turnover(path=None) -> dict[str, dict[str, float]]:
 
 # ---------- 6. success ----------
 
-def attention_halves(houses: list[str]) -> dict[str, dict[str, float]]:
-    """Mean log daily English Wikipedia views by half-year."""
+def _daily_views(h: str, languages: str) -> dict[str, int]:
+    """Daily Wikipedia views for one brand: English, or English and the nine other languages summed."""
+    days: dict[str, int] = defaultdict(int)
+    files = [config.DATA / "attention" / f"{h}.jsonl"]
+    if languages == "all":
+        files += sorted((config.DATA / "wikiviews").glob(f"*/{h}.jsonl"))
+    for f in files:
+        for r in store.read_jsonl(f):
+            try:
+                days[r["date"][:10]] += int(r["views"])
+            except (KeyError, ValueError, TypeError):
+                continue
+    return dict(days)
+
+
+def attention_halves(houses: list[str], stat: str = "mean", languages: str = "en") -> dict[str, dict[str, float]]:
+    """Log daily Wikipedia views by half-year: the mean (the measure used so far), or the median, which a few
+    days of news cannot move; English only, or all ten languages together."""
     out: dict[str, dict[str, float]] = {}
     for h in houses:
         acc: dict[str, list] = defaultdict(list)
-        for r in store.read_jsonl(config.DATA / "attention" / f"{h}.jsonl"):
-            try:
-                acc[period_of(r["date"][:7])].append(math.log1p(int(r["views"])))
-            except (KeyError, ValueError, TypeError):
-                continue
-        out[h] = {p: float(np.mean(v)) for p, v in acc.items() if len(v) >= 150}
+        for d, v in _daily_views(h, languages).items():
+            acc[period_of(d[:7])].append(math.log1p(v))
+        f = np.median if stat == "median" else np.mean
+        out[h] = {p: float(f(v)) for p, v in acc.items() if len(v) >= 150}
     return out
 
 
@@ -1055,12 +1074,15 @@ def associate(pairs: list[tuple[str, float, float, float | None]], rng) -> dict:
 def success(half_rows: dict[str, list[dict]], cross: dict, reg: registry.Registry, rng) -> dict:
     houses = [h.id for h in reg.houses]
     att = _net_change(attention_halves(houses), "attention")
+    steady = _net_change(attention_halves(houses, "median", "all"), "attention")
     rev = _net_change({h: character.half_growth(h) for h in houses}, "revenue")
-    out = {"outcomes": {"attention": {h: len(s) for h, s in att.items() if s}, "revenue": {h: len(s) for h, s in rev.items() if s}}}
-    for name, outcome in (("attention", att), ("revenue", rev)):
+    out = {"outcomes": {"attention": {h: len(s) for h, s in att.items() if s}, "revenue": {h: len(s) for h, s in rev.items() if s},
+                        "steady_attention": {h: len(s) for h, s in steady.items() if s}}}
+    for name, outcome in (("attention", att), ("revenue", rev), ("steady_attention", steady)):
         for side in ("like_for_like", "against_market"):
             for k in ("answers", "print"):
                 pairs = []
+                back = []
                 for h, rows in half_rows.items():
                     for s in rows:
                         t = s.get(side)
@@ -1069,7 +1091,11 @@ def success(half_rows: dict[str, list[dict]], cross: dict, reg: registry.Registr
                         n = next_period(s["to"])
                         if n in outcome.get(h, {}) and f"{k}_score" in t:
                             pairs.append((h, t[f"{k}_score"], outcome[h][n], outcome.get(h, {}).get(s["to"])))
+                        # the other way round: the outcome in the half-year the shift starts from, beside the shift
+                        if s["from"] in outcome.get(h, {}) and f"{k}_score" in t:
+                            back.append((h, outcome[h][s["from"]], t[f"{k}_score"], None))
                 out[f"{side}_shift_{k}_vs_next_{name}"] = associate(pairs, rng)
+                out[f"{name}_vs_next_{side}_shift_{k}"] = associate(back, rng)
         pairs = []
         for y, rec in cross.get("years", {}).items():
             for h, d in rec["distinct"].items():
@@ -1082,10 +1108,10 @@ def success(half_rows: dict[str, list[dict]], cross: dict, reg: registry.Registr
 
 # ---------- 7. the brand of the moment ----------
 
-def attention_momentum(houses: list[str]) -> dict[str, dict[str, float]]:
-    """How fast each brand's attention is rising: mean log daily views in a half-year against the same
-    half-year a year before (so the season cancels), net of the market's median rise that half-year."""
-    att = attention_halves(houses)
+def attention_momentum(houses: list[str], stat: str = "mean", languages: str = "en") -> dict[str, dict[str, float]]:
+    """How fast each brand's attention is rising: log daily views in a half-year against the same half-year a
+    year before (so the season cancels), net of the market's median rise that half-year."""
+    att = attention_halves(houses, stat, languages)
     ch: dict[str, dict[str, float]] = defaultdict(dict)
     for h, s in att.items():
         for p, v in s.items():
@@ -1204,6 +1230,8 @@ def _run(images: list[dict], spec: dict, reg: registry.Registry, seed: int) -> d
         "cross_brand": cross, "spread": spread(images, rng), "market": market(images, ans, rng),
         "events": event_study(houses, events, ans, rng), "crew_turnover": crew_turnover(),
         "success": success(half, cross, reg, rng), "moment": moment(images, rng),
+        "moment_steady": moment(images, rng, momentum=attention_momentum(
+            sorted({i["house"] for i in images}), "median", "all")),
     }
 
 
