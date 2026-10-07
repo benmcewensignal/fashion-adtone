@@ -139,6 +139,20 @@
   .qs .a b { color: var(--ink); font-weight: 600; }
   @media (min-width: 56rem) { .anat { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; } .anat figure { position: sticky; top: 1.5rem; } }
 
+  /* Read as luxury: five axes, each picture placed by comparing it with others */
+  .axes { list-style: none; margin: 0 0 1.75rem; padding: 0; }
+  .axes li { padding: 0.95rem 0; }
+  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.375rem; line-height: 1.2; }
+  .axes .to { color: var(--graphite); font-size: 1rem; margin: 0 0.4rem; }
+  .axes .ends { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0.35rem; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; text-align: center; }
+  .axes .ends p { margin: 0; }
+  .axes .ends b { color: var(--ink); font-weight: 560; }
+  @media (min-width: 40rem) {
+    .axes .ends { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+    .axes .ends p:first-child { text-align: right; }
+    .axes .ends p:last-child { text-align: left; }
+  }
+
   /* Brands: the new creative directors, folded away */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
   .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
@@ -228,13 +242,13 @@
       </div>
       <div class="body wide">
         <div class="triad duo">
-          <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood, and the cast of people who make it.</p></div>
+          <div><h3>Character</h3><p class="q">What is the brand's image?</p><p>Eighteen measured qualities of its imagery, from light and setting to mood; where it sits on five axes of luxury; its colour and light; and the cast of people who make it.</p></div>
           <div><h3>Shift</h3><p class="q">How is it changing?</p><p>How far the image has moved from its own past and against its peers, how consistent it stays, and whether it is drifting towards the brand of the moment.</p></div>
           <div><h3>Contribution</h3><p class="q">What does it add to success?</p><p>The attention, desire and revenue that follow, beyond what the brand's own momentum and the reach it paid for would deliver, down to whether a show's attention lasts and the campaign carries it.</p></div>
           <div><h3>Alignment</h3><p class="q">Does the image say what the brand says?</p><p>Its advertising set against its show notes and campaign statements, question by question, beside the same check for its peers.</p></div>
         </div>
         <div class="narrow">
-          <p>Each image is read against eighteen fixed questions and kept as its answers and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
+          <p>Each image is read against eighteen fixed questions, placed on five axes by comparing it with other luxury pictures, measured for colour and light, and kept as its answers, its places and a numerical fingerprint. Every brand is measured against its peers month by month, so a move by the whole market doesn't read as a move by one brand.</p>
           <p class="note">The images come from each brand's own homepage month by month back to 2014, its advertising on Meta and TikTok in Europe and Britain, its films and past campaigns from public archives. Contribution firms up as the record grows: each month adds attention, each quarter adds desire and revenue.</p>
         </div>
         <div class="anatomy">
@@ -294,6 +308,44 @@
           </ol>
           </div>
           <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
+        </div>
+        <div class="narrow">
+          <p class="sub" style="margin-top:4rem">Read as luxury</p>
+          <p class="block" style="text-align:center">Most luxury pictures share a register: polished, posed and quiet. Questions asked of one picture at a time say little about what sets one apart from another, so each picture is also read against others like it, on five axes.</p>
+          <ol class="axes">
+            <li><p class="ax">Austere<span class="to">to</span>opulent</p><div class="ends"><p><b>Austere.</b> Spare and reduced; few elements, plain surfaces, a quiet palette, nothing decorative.</p><p><b>Opulent.</b> Rich and abundant; ornament, layered textures, luxurious materials and settings, a sense of display.</p></div></li>
+            <li><p class="ax">Remote<span class="to">to</span>intimate</p><div class="ends"><p><b>Remote.</b> Distant or withheld; the person is far off, closed, aloof or monumental, or there is no one to be close to.</p><p><b>Intimate.</b> Close and personal; the viewer feels near the person, in a private, unguarded moment.</p></div></li>
+            <li><p class="ax">Naturalistic<span class="to">to</span>staged</p><div class="ends"><p><b>Naturalistic.</b> Could be a real moment in a real place; natural light, an unforced posture, nothing visibly built.</p><p><b>Staged.</b> Visibly constructed; a built set, a posed tableau, theatrical or artificial light.</p></div></li>
+            <li><p class="ax">Classical<span class="to">to</span>contemporary</p><div class="ends"><p><b>Classical.</b> Timeless codes; heritage, elegance and craft that could belong to any decade.</p><p><b>Contemporary.</b> Of this moment; current youth culture, technology, street references, the look of now.</p></div></li>
+            <li><p class="ax">Restrained<span class="to">to</span>provocative</p><div class="ends"><p><b>Restrained.</b> Discreet and composed; nothing that confronts, unsettles or flirts.</p><p><b>Provocative.</b> Made to provoke a reaction; confronting, overtly sensual, strange or unsettling.</p></div></li>
+          </ol>
+          <p class="block" style="text-align:center">On each axis a picture is set beside six others and asked about both ways round, so the order they are shown in cannot decide. Its place on the axis comes from all its comparisons together, which places pictures within a brand as well as between brands.</p>
+          <p class="sub" style="margin-top:3rem">Colour and light</p>
+          <p class="block" style="text-align:center">Measured from the pixels, with no reader involved.</p>
+          <ul class="status">
+            <li><span class="t">Lightness</span>How bright the picture is overall.</li>
+            <li><span class="t">Contrast</span>How far its brightness spreads from dark to light.</li>
+            <li><span class="t">High key, low key</span>How much of it is near white, and how much near black.</li>
+            <li><span class="t">Chroma</span>How strong its colour is on average, and how much of it is in strong colour.</li>
+            <li><span class="t">Warmth</span>Reds, oranges and yellows against greens and blues.</li>
+            <li><span class="t">Spread of hues</span>One hue throughout, or many.</li>
+            <li><span class="t">Colourfulness</span>A standard measure of how colourful a picture looks (Hasler and S&uuml;sstrunk).</li>
+          </ul>
+          <p class="sub" style="margin-top:3rem">Who does the reading</p>
+          <p class="block" style="text-align:center">Each reader is held to one fixed version, so a reading can be repeated. A model from another maker reads one picture in ten again, as a standing check.</p>
+          <p class="block" style="text-align:center">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand. Four image models are tested the same way for the fingerprint.</p>
+          <details style="margin-top:3rem">
+            <summary>How a shift is judged</summary>
+            <dl class="pairs">
+              <div><dt>Once</dt><dd>A picture counts once, in the month it was first shown, however long it stays up.</dd></div>
+              <div><dt>Like for like</dt><dd>Campaign pictures against campaign pictures, product on a model against product on a model, so showing more product is not read as a change of style.</dd></div>
+              <div><dt>Net of the market</dt><dd>Each brand's move less the same kind of move among its peers over the same months.</dd></div>
+              <div><dt>Against chance</dt><dd>Whole months are moved between the two periods being compared, since one month's homepage is often one campaign in several crops; and every result allows for how many brands were looked at.</dd></div>
+              <div><dt>Turnover or drift</dt><dd>A brand's pictures against its own from one, two, three and more half-years earlier, beside another brand's.</dd></div>
+              <div><dt>New designers</dt><dd>The year before a creative director's first show against the year that starts three months after it, beside brands with no change over the same months.</dd></div>
+              <div><dt>Success</dt><dd>Each brand against its own usual and net of the market, with the momentum it already had held constant.</dd></div>
+            </dl>
+          </details>
         </div>
       </div>
     </section>
@@ -523,7 +575,9 @@
       <div class="body">
         <ul class="status">
           <li><span class="t">Advertising</span>Waiting on Meta's access.</li>
-          <li><span class="t">Homepages</span>640 months with pictures across all 28 brands, back to February 2024 so far, 1,601 images read. Filling back to 2014 three times a day.</li>
+          <li><span class="t">Homepages</span>866 months with pictures across all 28 brands, back to May 2023 so far, 2,075 images read. Filling back to 2014 three times a day.</li>
+          <li><span class="t">Luxury reading</span>Every homepage picture fetched again, 2,039 of 2,087, and its colour and light measured. The readers are being tested against 150 pairs judged by hand before they read the rest.</li>
+          <li><span class="t">First readings</span>Run on the homepage history to test the method. Held back until the luxury reading is in.</li>
           <li><span class="t">TikTok ads</span>Built, waiting on TikTok's approval.</li>
           <li><span class="t">Films</span>Built, waiting on a YouTube key.</li>
           <li><span class="t">Campaign archive</span>542 campaigns listed for ten brands.</li>
