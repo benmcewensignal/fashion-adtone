@@ -349,10 +349,14 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
     from . import homepages
     from .character import period_of
     answers = {}
-    for r in store.read_jsonl(DIR / "readings" / f"{reader}-tone.jsonl"):
-        if r.get("out"):
-            answers[r["sha"]] = r["out"]
-    vecs = vectors(vec, reader, axes)
+    if reader == "today":        # the registered reader's answers, as the homepage pipeline recorded them
+        for f in sorted(homepages.paths()["obs"].glob("*.jsonl")):
+            for r in store.read_jsonl(f):
+                if r.get("status") == "ok" and r.get("output"):
+                    answers[r["sha"]] = r["output"]
+    else:
+        answers = _tone_of(reader)
+    vecs = vectors(vec, "qwen3" if reader == "today" else reader, axes)
     dup = vectors("clip") if vec != "clip" else vecs
     out, seen = [], set()
     for f in sorted(homepages.paths()["captures"].glob("*.jsonl")):
