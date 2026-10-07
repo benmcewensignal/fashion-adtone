@@ -919,7 +919,8 @@ def main(argv: list[str] | None = None) -> int:
         rows = fetch()
         print(f"bakeoff fetch: {sum(r['found'] for r in rows)} of {len(rows)} pictures found again")
         if not a.no_upload:
-            print(f"to the Modal volume: {to_volume()}; sealed thumbnails: {seal_thumbnails()}")
+            # thumbnails are made from the volume, so a run that found nothing new still seals them all
+            print(f"to the Modal volume: {to_volume()}; sealed thumbnails: {seal_from_volume()}")
     elif a.cmd == "seal":
         print(f"bakeoff seal: {seal_from_volume()}")
     elif a.cmd == "pairs":
