@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T12:02:25Z",
+ "generated_at": "2026-10-07T12:06:45Z",
  "source": "homepages",
  "status": "exploratory: descriptive readings, not in the pre-registration",
  "images": 3153,
@@ -65534,7 +65534,7 @@
    "pairs": 64,
    "brands": 21,
    "spearman": 0.133,
-   "p_two_sided": 0.371
+   "p_two_sided": 0.369
   },
   "like_for_like_shift_print_vs_next_attention": {
    "pairs": 64,
@@ -65546,49 +65546,49 @@
    "pairs": 70,
    "brands": 22,
    "spearman": 0.212,
-   "p_two_sided": 0.137
+   "p_two_sided": 0.127
   },
   "against_market_shift_print_vs_next_attention": {
    "pairs": 70,
    "brands": 22,
    "spearman": 0.017,
-   "p_two_sided": 0.911
+   "p_two_sided": 0.91
   },
   "distinct_vs_next_attention": {
    "pairs": 112,
    "brands": 27,
    "spearman": -0.029,
-   "p_two_sided": 0.796
+   "p_two_sided": 0.782
   },
   "like_for_like_shift_answers_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": -0.191,
-   "p_two_sided": 0.57
+   "p_two_sided": 0.554
   },
   "like_for_like_shift_print_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": 0.108,
-   "p_two_sided": 0.746
+   "p_two_sided": 0.728
   },
   "against_market_shift_answers_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": -0.121,
-   "p_two_sided": 0.712
+   "p_two_sided": 0.727
   },
   "against_market_shift_print_vs_next_revenue": {
    "pairs": 18,
    "brands": 8,
    "spearman": 0.098,
-   "p_two_sided": 0.769
+   "p_two_sided": 0.778
   },
   "distinct_vs_next_revenue": {
    "pairs": 31,
    "brands": 11,
    "spearman": 0.233,
-   "p_two_sided": 0.336
+   "p_two_sided": 0.339
   }
  }
 }
