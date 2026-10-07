@@ -1,0 +1,84 @@
+{
+ "decided_at": "2026-10-07T18:50Z",
+ "reader": "qwen3",
+ "reader_basis": "Claude was not compared: the repository's Actions have no Anthropic key, so the rule's comparison with Claude cannot be made and Claude's standing check cannot run. Qwen3-VL-32B reads, provisionally; if Claude is later more than five points better on the person's pairs, Claude reads the axes and Qwen3-VL-32B is the check.",
+ "comparisons": "probs",
+ "comparisons_basis": "Written answers lean to the second picture (first chosen 30% of the time) and no axis reached three pairs in four with the two orders agreeing. Read as the weight on each answer, the yardstick fixed before those were read (commit e62b173): two orders agreeing once the lean is taken out, three in four; two crops closer than random pictures, gap under one half; agreement with the person at least 60%.",
+ "axes": [
+  "provocative"
+ ],
+ "axes_measured": {
+  "provocative": {
+   "orders_agree_after_lean": 0.798,
+   "crop_gap": 0.239,
+   "with_person": [
+    0.895,
+    19
+   ],
+   "kept": true
+  },
+  "opulent": {
+   "orders_agree_after_lean": 0.787,
+   "crop_gap": 0.201,
+   "with_person": [
+    0.565,
+    23
+   ],
+   "kept": false
+  },
+  "contemporary": {
+   "orders_agree_after_lean": 0.751,
+   "crop_gap": 0.239,
+   "with_person": [
+    0.593,
+    27
+   ],
+   "kept": false
+  },
+  "intimate": {
+   "orders_agree_after_lean": 0.716,
+   "crop_gap": 0.272,
+   "with_person": [
+    0.913,
+    23
+   ],
+   "kept": false
+  },
+  "staged": {
+   "orders_agree_after_lean": 0.602,
+   "crop_gap": 0.319,
+   "with_person": [
+    0.714,
+    28
+   ],
+   "kept": false
+  }
+ },
+ "questions": [
+  "light",
+  "colour_temperature",
+  "saturation",
+  "setting",
+  "people",
+  "gaze",
+  "expression",
+  "pose",
+  "framing",
+  "primary_subject",
+  "styling_register",
+  "text_in_image",
+  "mood",
+  "street_couture_axis"
+ ],
+ "questions_dropped": {
+  "production": "commonest answer covers 92% of pictures"
+ },
+ "image_model": "clip",
+ "image_basis": "Today's fingerprint stays: FashionSigLIP finds more brands nearest their own earlier pictures (12 of 22 against 9) but no more pictures among their brand's nearest neighbours (131 of 296 each); DINOv3 fewer on both. CSD not yet measured.",
+ "brand_recognition": "Qwen3-VL-32B names the right house for 42% of the bake-off pictures (88% with text or a logo, 25% without). Brands are no further apart on any axis among the pictures it recognised than among those it did not (differences under 0.1 of the variance, p 0.32 or more).",
+ "sources": [
+  "data/luxury/bakeoff_extra.json",
+  "data/results/bakeoff.json",
+  "adtone/bakeoff.py (the rule)"
+ ]
+}

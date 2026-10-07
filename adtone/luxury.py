@@ -7,9 +7,10 @@ decided by the bake-off (adtone/bakeoff.py).
     python -m adtone.luxury corpus      # every homepage picture and where it was seen -> data/luxury/corpus.json
     python -m adtone.luxury fetch       # fetched again from the archive: copies for the readers to the
                                         #   private Modal volume, pixel measures      -> data/luxury/pictures.jsonl
-    python -m adtone.luxury read --reader qwen3 --what tone|pairs
-                                        # every picture, and every comparison of the design in both orders
-                                        #                                           -> data/luxury/readings/
+    python -m adtone.luxury read --reader qwen3 --what tone|comparisons
+                                        # every picture, and every comparison of the design on the axes the
+                                        #   plan keeps, in both orders, as written answers or as the weight
+                                        #   on each answer (data/luxury/plan.json)  -> data/luxury/readings/
     python -m adtone.luxury read --reader claude --what check
                                         # the standing check: a tenth of the pictures and a twentieth of
                                         #   the comparisons read again by Claude
@@ -25,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import sys
 import time
@@ -51,6 +53,19 @@ CHECK_PAIRS = 20                                 # and one comparison in twenty,
 
 def _log(event: str, **kw) -> None:
     store.append_jsonl(PROV, [{"at": store.utc_now(), "event": event, **kw}])
+
+
+def plan() -> dict:
+    """What the bake-off decided for this reading, recorded before the reading starts: which axes are kept,
+    and whether the comparisons are taken as the reader's written answers ("answers") or as the weight it
+    puts on each answer ("probs"). With no plan, every axis, as written answers."""
+    path = DIR / "plan.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def _kept_axes(all_axes) -> list[str]:
+    p = plan()
+    return sorted(all_axes) if "axes" not in p else [a for a in sorted(all_axes) if a in set(p["axes"])]
 
 
 def corpus(write: bool = True) -> dict:
@@ -223,8 +238,10 @@ def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, 
 
 
 def read(reader: str, what: str, budget_min: float = 280) -> dict:
-    """tone: tone-v1 for every picture; pairs: every comparison of the design, both orders; check: Claude
-    reads the check set (tone and pairs). Picks up where an earlier run stopped."""
+    """tone: tone-v1 for every picture; pairs: every comparison of the design on the kept axes, both orders,
+    as written answers; probs: the same comparisons as the weight the reader puts on each answer;
+    comparisons: whichever of the two the plan names (nothing when it keeps no axis); check: Claude reads
+    the check set (tone, and the kept axes' comparisons). Picks up where an earlier run stopped."""
     from .score import json_schema, load_rubric
     t0 = time.monotonic()
     deadline = t0 + budget_min * 60
@@ -232,8 +249,25 @@ def read(reader: str, what: str, budget_min: float = 280) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     spec = bakeoff._pairs_rubric()
     axes = {a["id"]: a for a in spec["axes"]}
+    kept = _kept_axes(axes)
+    if what == "comparisons":
+        if not kept:
+            _log("read", reader=reader, what=what, note="the plan keeps no axis")
+            return {"comparisons": "the plan keeps no axis"}
+        what = "probs" if plan().get("comparisons") == "probs" else "pairs"
     pics = found()
     result = {}
+    if what == "probs":
+        pairs = {ax: es for ax, es in design()["reader"].items() if ax in kept}
+        out = out_dir / f"{reader}-probs.jsonl"
+        have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("p_first") is not None else None)
+        todo = [j for j in _both_orders(pairs) if j not in have]
+        n = _on_modal(reader, "compare_probs_from", [todo[i:i + 64] for i in range(0, len(todo), 64)],
+                      lambda part: (VOL_DIR, [(a, b) for _, a, b in part], spec["prompt"],
+                                    [bakeoff.question(axes[ax], spec) for ax, _, _ in part]),
+                      lambda part, probs: [{"axis": ax, "first": a, "second": b, "p_first": round(float(pf), 5)}
+                                           for (ax, a, b), pf in zip(part, probs)], out, deadline)
+        result["probs"] = {"asked": len(todo), "rows": n}
     if what in ("tone", "check"):
         rub = load_rubric()
         shas = sorted(pics) if what == "tone" else check_set()["pictures"]
@@ -254,6 +288,7 @@ def read(reader: str, what: str, budget_min: float = 280) -> dict:
         result["tone"] = {"asked": len(todo), "rows": n}
     if what in ("pairs", "check"):
         pairs = design()["reader"] if what == "pairs" else check_set()["pairs"]
+        pairs = {ax: es for ax, es in pairs.items() if ax in kept}
         out = out_dir / f"{reader}-pairs.jsonl"
         have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("answer") else None)
         todo = [j for j in _both_orders(pairs) if j not in have]
@@ -284,17 +319,21 @@ def embed(model: str) -> dict:
 
 
 def positions(reader: str = "qwen3") -> dict:
-    """Each picture's place on each axis (Bradley and Terry, with the first-position bias fitted
-    alongside), from every comparison the reader answered."""
-    rows = [r for r in store.read_jsonl(DIR / "readings" / f"{reader}-pairs.jsonl") if r.get("answer")]
+    """Each picture's place on each kept axis (Bradley and Terry, with the first-position bias fitted
+    alongside), from every comparison the reader answered: its written answers, or, when the plan says so,
+    the weight it put on "first" against "second"."""
+    as_probs = plan().get("comparisons") == "probs"
+    f = DIR / "readings" / f"{reader}-{'probs' if as_probs else 'pairs'}.jsonl"
+    rows = [r for r in store.read_jsonl(f) if (r.get("p_first") is not None if as_probs else r.get("answer"))] \
+        if f.exists() else []
     shas = sorted(found())
     idx = {s: i for i, s in enumerate(shas)}
     pos, info = {}, {}
-    for ax in sorted({r["axis"] for r in rows}):
+    for ax in _kept_axes({r["axis"] for r in rows}):
         rr = [r for r in rows if r["axis"] == ax and r["first"] in idx and r["second"] in idx]
+        y = [float(r["p_first"]) for r in rr] if as_probs else [1.0 if r["answer"] == "first" else 0.0 for r in rr]
         th, beta = bakeoff.bradley_terry(len(shas), np.array([idx[r["first"]] for r in rr]),
-                                         np.array([idx[r["second"]] for r in rr]),
-                                         np.array([1.0 if r["answer"] == "first" else 0.0 for r in rr]))
+                                         np.array([idx[r["second"]] for r in rr]), np.array(y))
         n = np.bincount(np.array([idx[r["first"]] for r in rr] + [idx[r["second"]] for r in rr], dtype=int),
                         minlength=len(shas))
         pos[ax] = {s: (round(float(th[i]), 4) if n[i] else None) for s, i in idx.items()}
@@ -459,9 +498,31 @@ def _tone_of(name: str) -> dict[str, dict]:
     return out
 
 
+def _logit(p: float) -> float:
+    p = min(max(float(p), 1e-4), 1 - 1e-4)
+    return math.log(p / (1 - p))
+
+
 def _winners(name: str) -> dict[tuple, str | None]:
     """For each comparison asked both ways round: the picture chosen both times, or None when the two
-    orders disagree."""
+    orders disagree. When the plan takes the open reader's comparisons as probabilities: the picture both
+    orders favour once the reader's lean towards one position on that axis is taken out, or None."""
+    pf = DIR / "readings" / f"{name}-probs.jsonl"
+    if name in APPS and plan().get("comparisons") == "probs" and pf.exists():
+        rows = [r for r in store.read_jsonl(pf) if r.get("p_first") is not None]
+        lean = {ax: float(np.mean([_logit(r["p_first"]) for r in rows if r["axis"] == ax])) for ax in {r["axis"] for r in rows}}
+        byp = defaultdict(dict)
+        for r in rows:
+            byp[(r["axis"], frozenset((r["first"], r["second"])))][(r["first"], r["second"])] = \
+                _logit(r["p_first"]) - lean[r["axis"]]
+        out = {}
+        for k, v in byp.items():
+            if len(v) != 2:
+                continue
+            a, b = next(iter(v))
+            za, zb = v[(a, b)], v[(b, a)]
+            out[k] = (a if za > 0 else b) if (za > 0) != (zb > 0) else None
+        return out
     by = defaultdict(dict)
     for r in store.read_jsonl(DIR / "readings" / f"{name}-pairs.jsonl"):
         if r.get("answer"):
@@ -765,8 +826,11 @@ def probs_report(reader: str = "qwen3") -> dict:
         icc = bakeoff._icc([(th[idx[a]], th[idx[b]]) for a, b in crops])
         eta = bakeoff._eta2(th, house, nrng)
         within = 1 - eta.get("between_brands", 0.0)
+        cp = [abs(th[idx[a]] - th[idx[b]]) for a, b in crops]
+        rp = [abs(th[i] - th[j]) for i, j in (nrng.choice(len(sh), 2, replace=False) for _ in range(2000))]
         out["axes"][ax] = {"pairs": len(both), "lean_logit": round(lean, 3), "first_bias": round(beta, 3),
                            "orders_agree_after_lean": round(same / max(1, len(both)), 3),
+                           "crop_gap_vs_random": round(float(np.mean(cp)) / (float(np.mean(rp)) or 1), 3) if cp else None,
                            "with_person": {"pairs": len(agree), "agreement": round(float(np.mean(agree)), 3) if agree else None},
                            "with_person_by_position": round(float(np.mean(agree_pos)), 3) if agree_pos else None,
                            "crop_icc": icc, **eta,
@@ -786,7 +850,7 @@ def main(argv: list[str] | None = None) -> int:
     f.add_argument("--budget", type=float, default=150, help="minutes before no new page is started")
     r = sub.add_parser("read")
     r.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
-    r.add_argument("--what", choices=["tone", "pairs", "check"], required=True)
+    r.add_argument("--what", choices=["tone", "pairs", "probs", "comparisons", "check"], required=True)
     r.add_argument("--budget", type=float, default=280, help="minutes before no new batch is sent")
     e = sub.add_parser("embed")
     e.add_argument("--model", choices=sorted(bakeoff.EMBEDDERS), required=True)

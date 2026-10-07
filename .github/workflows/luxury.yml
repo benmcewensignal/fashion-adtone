@@ -5,7 +5,8 @@ run-name: luxury ${{ inputs.mode || 'kick' }}
 #         Modal volume, pixel measures into the repository. Resumable: a second run picks up the rest.
 # deploy: the open readers, deployed to read from the picture volume (pinned weights, recorded)
 # bakeoff: deploy, then the bake-off's own readings taken through these readers (data/luxury/bakeoff/)
-# read:   tone-v1 for every picture and every comparison of the design, both orders, then positions
+# read:   tone-v1 for every picture and every comparison of the design on the kept axes, both orders,
+#         as data/luxury/plan.json says (written answers or probabilities), then positions
 # check:  Claude reads a tenth of the pictures and a twentieth of the comparisons again
 # embed:  the style models; analyse: adtone.readings on the new instrument (data/results/luxury.json)
 # all:    deploy, read, check, embed, analyse. Every reading resumes where it stopped.
@@ -122,11 +123,11 @@ jobs:
         continue-on-error: true
         timeout-minutes: 60
         run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what tone --budget 50 2>&1 | tee -a /tmp/luxury.log
-      - name: Every comparison, both orders
+      - name: Every comparison on the kept axes, both orders, as the plan says
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true
         timeout-minutes: 200
-        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what pairs --budget 180 2>&1 | tee -a /tmp/luxury.log
+        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what comparisons --budget 180 2>&1 | tee -a /tmp/luxury.log
       - name: Positions on each axis
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true

@@ -273,3 +273,45 @@ def test_nothing_to_read_never_reaches_modal(tmp_path, monkeypatch):
     import modal
     monkeypatch.setattr(modal.Cls, "from_name", lambda *a, **k: (_ for _ in ()).throw(AssertionError("called")))
     assert L._on_modal("qwen3", "compare_from", [], None, None, tmp_path / "x.jsonl", 0) == 0
+
+
+def test_the_plan_decides_which_axes_are_read_and_how(tmp_path, monkeypatch):
+    import modal
+    _corpus(tmp_path, monkeypatch)
+    hidden = {s: i for i, s in enumerate(sorted(L.found()))}
+    calls = []
+
+    class Method:
+        def __init__(self, fn):
+            self.fn = fn
+
+        def starmap(self, gen, return_exceptions=False):
+            for args in gen:
+                calls.append(args)
+                yield self.fn(*args)
+
+    def probs(folder, pairs, system, prompts):     # a reader that leans hard to the second picture
+        return [float(1 / (1 + np.exp(-(0.3 * (hidden[a] - hidden[b]) - 2.0)))) for a, b in pairs]
+
+    class Fake:
+        compare_probs_from = Method(probs)
+        compare_from = Method(lambda *a: (_ for _ in ()).throw(AssertionError("answers asked for")))
+    monkeypatch.setattr(modal.Cls, "from_name", lambda app, name: (lambda: Fake()))
+    (L.DIR / "plan.json").write_text(json.dumps({"comparisons": "probs", "axes": ["provocative"]}))
+    r = L.read("qwen3", "comparisons")
+    n = len(L.design()["reader"]["provocative"])
+    assert r["probs"] == {"asked": 2 * n, "rows": 2 * n}
+    rows = store.read_jsonl(L.DIR / "readings" / "qwen3-probs.jsonl")
+    assert {x["axis"] for x in rows} == {"provocative"} and all(0 <= x["p_first"] <= 1 for x in rows)
+    assert L.read("qwen3", "comparisons")["probs"] == {"asked": 0, "rows": 0}        # nothing read twice
+    info = L.positions("qwen3")
+    assert set(info) == {"provocative"} and info["provocative"]["first_bias"] < -1
+    pos = {x["sha"]: x["provocative"] for x in store.read_jsonl(L.DIR / "positions-qwen3.jsonl")}
+    xs = sorted(hidden, key=hidden.get)
+    assert np.corrcoef([hidden[s] for s in xs], [pos[s] for s in xs])[0, 1] > 0.9
+    w = L._winners("qwen3")
+    decided = [(k, v) for k, v in w.items() if v is not None]
+    assert len(decided) > 0.6 * len(w)
+    assert all(v == max(k[1], key=hidden.get) for k, v in decided)               # the lean taken out, the right picture
+    (L.DIR / "plan.json").write_text(json.dumps({"comparisons": "probs", "axes": []}))
+    assert L.read("qwen3", "comparisons") == {"comparisons": "the plan keeps no axis"}
