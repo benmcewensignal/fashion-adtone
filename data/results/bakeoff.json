@@ -1,0 +1,241 @@
+{
+ "generated_at": "2026-10-07T18:31:44Z",
+ "status": "exploratory bake-off, not in the pre-registration",
+ "sample": {
+  "chosen": 307,
+  "fetched": 296,
+  "brands": 23,
+  "crop_pairs": 29
+ },
+ "tone": {
+  "qwen25 (today)": {
+   "pictures": 296,
+   "questions": {
+    "light": {
+     "top_share": 0.851,
+     "values_used": 3,
+     "crop_kappa": 0.907,
+     "brand_v": 0.206,
+     "trackable": true
+    },
+    "colour_temperature": {
+     "top_share": 0.932,
+     "values_used": 3,
+     "crop_kappa": 0.735,
+     "brand_v": 0.12,
+     "trackable": false
+    },
+    "saturation": {
+     "top_share": 0.986,
+     "values_used": 1,
+     "crop_kappa": 1.0,
+     "brand_v": 0.071,
+     "trackable": false
+    },
+    "setting": {
+     "top_share": 0.446,
+     "values_used": 4,
+     "crop_kappa": 1.0,
+     "brand_v": 0.23,
+     "trackable": true
+    },
+    "people": {
+     "top_share": 0.544,
+     "values_used": 3,
+     "crop_kappa": 1.0,
+     "brand_v": 0.38,
+     "trackable": true
+    },
+    "gaze": {
+     "top_share": 0.514,
+     "values_used": 3,
+     "crop_kappa": 0.933,
+     "brand_v": 0.358,
+     "trackable": true
+    },
+    "expression": {
+     "top_share": 0.787,
+     "values_used": 2,
+     "crop_kappa": 1.0,
+     "brand_v": 0.447,
+     "trackable": true
+    },
+    "pose": {
+     "top_share": 0.926,
+     "values_used": 2,
+     "crop_kappa": 0.781,
+     "brand_v": 0.333,
+     "trackable": false
+    },
+    "framing": {
+     "top_share": 0.443,
+     "values_used": 4,
+     "crop_kappa": 0.695,
+     "brand_v": 0.404,
+     "trackable": true
+    },
+    "primary_subject": {
+     "top_share": 0.828,
+     "values_used": 2,
+     "crop_kappa": 0.874,
+     "brand_v": 0.332,
+     "trackable": true
+    },
+    "styling_register": {
+     "top_share": 0.439,
+     "values_used": 3,
+     "crop_kappa": 0.628,
+     "brand_v": 0.218,
+     "trackable": true
+    },
+    "production": {
+     "top_share": 0.993,
+     "values_used": 1,
+     "crop_kappa": null,
+     "brand_v": 0.05,
+     "trackable": false
+    },
+    "text_in_image": {
+     "top_share": 0.635,
+     "values_used": 2,
+     "crop_kappa": 0.922,
+     "brand_v": 0.353,
+     "trackable": true
+    },
+    "mood": {
+     "top_share": 0.321,
+     "values_used": 11,
+     "crop_kappa": 0.724,
+     "brand_v": 0.193,
+     "trackable": true
+    },
+    "street_couture_axis": {
+     "top_share": 0.953,
+     "values_used": 2,
+     "crop_kappa": 1.0,
+     "brand_v": 0.428,
+     "trackable": false
+    }
+   },
+   "trackable": 10,
+   "three_moods_share": 0.882,
+   "confidence_values": 5,
+   "identity": {
+    "brands": 22,
+    "hits": 4,
+    "mean_rank": 7.09
+   }
+  }
+ },
+ "tone_agreement": {},
+ "pixels": {
+  "lightness": {
+   "mean": 0.616,
+   "sd": 0.217,
+   "crop_r": 0.996,
+   "between_brands": 0.178,
+   "p": 0.001
+  },
+  "contrast": {
+   "mean": 0.229,
+   "sd": 0.076,
+   "crop_r": 0.99,
+   "between_brands": 0.166,
+   "p": 0.001
+  },
+  "high_key": {
+   "mean": 0.415,
+   "sd": 0.336,
+   "crop_r": 0.994,
+   "between_brands": 0.157,
+   "p": 0.001
+  },
+  "low_key": {
+   "mean": 0.205,
+   "sd": 0.213,
+   "crop_r": 0.997,
+   "between_brands": 0.114,
+   "p": 0.001
+  },
+  "chroma": {
+   "mean": 0.093,
+   "sd": 0.086,
+   "crop_r": 0.992,
+   "between_brands": 0.14,
+   "p": 0.001
+  },
+  "colourful": {
+   "mean": 0.158,
+   "sd": 0.207,
+   "crop_r": 0.986,
+   "between_brands": 0.132,
+   "p": 0.001
+  },
+  "warmth": {
+   "mean": 0.18,
+   "sd": 0.322,
+   "crop_r": 0.979,
+   "between_brands": 0.181,
+   "p": 0.001
+  },
+  "hue_spread": {
+   "mean": 0.141,
+   "sd": 0.197,
+   "crop_r": 0.987,
+   "between_brands": 0.025,
+   "p": 0.131
+  },
+  "colourfulness": {
+   "mean": 0.275,
+   "sd": 0.216,
+   "crop_r": 0.998,
+   "between_brands": 0.12,
+   "p": 0.001
+  }
+ },
+ "images": {
+  "clip": {
+   "pictures": 296,
+   "identity": {
+    "brands": 22,
+    "hits": 9,
+    "mean_rank": 3.77
+   },
+   "knn_brand": 0.443,
+   "crops": {
+    "crop_cos": 0.985,
+    "random_cos": 0.357,
+    "separation": 5.54
+   }
+  },
+  "dino": {
+   "pictures": 296,
+   "identity": {
+    "brands": 22,
+    "hits": 6,
+    "mean_rank": 6.45
+   },
+   "knn_brand": 0.314,
+   "crops": {
+    "crop_cos": 0.994,
+    "random_cos": 0.598,
+    "separation": 4.15
+   }
+  },
+  "fashion": {
+   "pictures": 296,
+   "identity": {
+    "brands": 22,
+    "hits": 12,
+    "mean_rank": 4.05
+   },
+   "knn_brand": 0.443,
+   "crops": {
+    "crop_cos": 0.991,
+    "random_cos": 0.549,
+    "separation": 5.49
+   }
+  }
+ },
+ "pairs": {}
+}

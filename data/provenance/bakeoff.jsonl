@@ -2,3 +2,6 @@
 {"at":"2026-10-07T12:57:39Z","brands":23,"crop_pairs":30,"event":"sample","pictures":307}
 {"at":"2026-10-07T13:58:00Z","event":"fetch","found":296,"out_of_time":false,"pages":241,"pictures":307,"this_run":296}
 {"at":"2026-10-07T13:59:58Z","event":"pairs","human":150,"reader":{"contemporary":918,"intimate":916,"opulent":917,"provocative":918,"staged":916}}
+{"at":"2026-10-07T18:28:55Z","dim":768,"event":"embed","model":"dino","pictures":296,"tried":[],"weights":"vit_base_patch16_dinov3.lvd1689m"}
+{"at":"2026-10-07T18:31:43Z","dim":768,"event":"embed","model":"fashion","pictures":296,"weights":"Marqo/marqo-fashionSigLIP"}
+{"at":"2026-10-07T18:31:46Z","event":"score","images":["clip","dino","fashion"],"pairs":[],"readers":["qwen25 (today)"]}
