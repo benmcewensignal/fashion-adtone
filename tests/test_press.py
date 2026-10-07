@@ -148,13 +148,33 @@ def _press_paths(monkeypatch, tmp_path):
                                                  "prov": tmp_path / "press.jsonl"})
 
 
-def test_a_year_comes_back_in_one_window_when_it_is_daily(tmp_path, monkeypatch):
+def test_all_of_history_comes_back_in_one_window_when_it_is_daily(tmp_path, monkeypatch):
     _press_paths(monkeypatch, tmp_path)
-    monkeypatch.setattr(press, "START", date(2024, 1, 1))
+    monkeypatch.setattr(press, "START", date(2017, 1, 1))
     fake = FakeGdelt()
     reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
     st = press.collect(fake, reg, "r1", end=date(2025, 12, 31), sleep=lambda s: None)
-    assert st["complete"] == ["prada"] and len(fake.calls) == 4          # two windows, two modes each
+    assert st["complete"] == ["prada"] and len(fake.calls) == 2          # one window, two modes
+
+
+class YearlyGdelt(FakeGdelt):
+    """Daily up to a year; anything longer comes back a point a week."""
+    def get(self, url, params=None, timeout=None):
+        r = super().get(url, params, timeout)
+        body = r._body
+        if body and len(body["timeline"][0]["data"]) > 400:
+            body["timeline"][0]["data"] = body["timeline"][0]["data"][::7]
+        return R(body=body)
+
+
+def test_a_span_too_long_for_daily_steps_down_to_a_year(tmp_path, monkeypatch):
+    _press_paths(monkeypatch, tmp_path)
+    monkeypatch.setattr(press, "START", date(2023, 1, 1))
+    fake = YearlyGdelt()
+    reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
+    st = press.collect(fake, reg, "r1", end=date(2025, 12, 31), sleep=lambda s: None)
+    assert st["span"] == {"prada": 366} and st["complete"] == ["prada"]
+    assert len(fake.calls) == 1 + 3 * 2       # the long try (volume only), then three yearly windows
 
 
 class WeeklyGdelt(FakeGdelt):
@@ -172,7 +192,7 @@ def test_a_coarse_timeline_drops_the_house_to_short_windows(tmp_path, monkeypatc
     monkeypatch.setattr(press, "START", date(2025, 1, 1))
     reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
     st = press.collect(WeeklyGdelt(), reg, "r1", end=date(2025, 12, 31), sleep=lambda s: None)
-    assert st["span"] == {"prada": press.SHORT_DAYS} and st["complete"] == ["prada"]
+    assert st["span"] == {"prada": press.SHORT_DAYS} and st["complete"] == ["prada"]   # long, then a year, then 90
     rows = [json.loads(l) for l in (tmp_path / "press" / "prada.jsonl").read_text().splitlines()]
     assert len(rows) == 365
 

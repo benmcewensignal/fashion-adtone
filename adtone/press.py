@@ -5,8 +5,9 @@
 
 The reception term for adtone.runway: how the news wrote about a house in the days after a show,
 against how it usually writes about it. GDELT's DOC 2.0 API needs no key and searches global news from
-1 January 2017. Each request returns a daily timeline when the span is short, so history is fetched in
-90-day windows, politely spaced, and the first backfill resumes across runs until it is complete.
+1 January 2017. A request returns a daily timeline when GDELT judges the span short enough, so each house
+asks for all its history at once first, then a year, then 90 days, keeping the longest span that comes
+back day by day; requests are politely spaced and the backfill resumes across runs until complete.
 
 Tone is GDELT's average tone of the matching articles: the tone of news coverage, not fashion
 criticism. Several house names are ambiguous (Celine, Hermes, Valentino, Chloe, Tom Ford), so those
@@ -27,8 +28,9 @@ from . import config, registry, store
 
 API = "https://api.gdeltproject.org/api/v2/doc/doc"
 START = date(2017, 1, 1)       # the DOC 2.0 API's fixed horizon
-WINDOW_DAYS = 366              # tried first; if a year does not come back day by day, a house drops to SHORT_DAYS
-SHORT_DAYS = 90                # always short enough for a daily timeline
+SPANS = (3700, 366, 90)        # window lengths tried in turn: all of history in one request where GDELT answers
+WINDOW_DAYS = SPANS[0]         # it day by day, else a year, else 90 days, which always comes back daily.
+SHORT_DAYS = SPANS[-1]         # Fewer requests matter: GDELT refuses GitHub's shared addresses much of the time.
 SLEEP_S = 8.0                  # GDELT asks for one request every five seconds; shared runner addresses need more
 RATE_TEXT = ("limit requests", "rate limit", "too many requests")
 RATE_PAUSE_S = 300.0           # a refusal is waited out twice per run before the run gives up
@@ -172,7 +174,8 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
             try:
                 rows = window(sess, q, nxt, stop, sleep=sleep)
             except NotDaily:
-                span[h.id] = SHORT_DAYS
+                cur = span.get(h.id, WINDOW_DAYS)
+                span[h.id] = next((d for d in SPANS if d < cur), SHORT_DAYS)
                 sleep(SLEEP_S)
                 continue
             except RateLimited as e:
