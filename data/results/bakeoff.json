@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T19:19:31Z",
+ "generated_at": "2026-10-07T19:21:27Z",
  "status": "exploratory bake-off, not in the pre-registration",
  "sample": {
   "chosen": 307,
@@ -385,14 +385,14 @@
       "agreement": 0.565
      },
      "pixels": {
-      "lightness": -0.327,
+      "lightness": -0.328,
       "contrast": -0.021,
       "high_key": -0.36,
-      "low_key": 0.239,
+      "low_key": 0.24,
       "chroma": 0.255,
-      "colourful": 0.282,
-      "warmth": 0.327,
-      "hue_spread": 0.128,
+      "colourful": 0.28,
+      "warmth": 0.326,
+      "hue_spread": 0.124,
       "colourfulness": 0.24
      }
     },
@@ -410,11 +410,11 @@
       "lightness": -0.224,
       "contrast": 0.077,
       "high_key": -0.216,
-      "low_key": 0.202,
+      "low_key": 0.203,
       "chroma": 0.018,
-      "colourful": 0.053,
-      "warmth": 0.125,
-      "hue_spread": -0.019,
+      "colourful": 0.057,
+      "warmth": 0.127,
+      "hue_spread": -0.024,
       "colourfulness": 0.041
      }
     },
@@ -432,12 +432,12 @@
       "lightness": 0.009,
       "contrast": 0.041,
       "high_key": 0.041,
-      "low_key": 0.07,
+      "low_key": 0.069,
       "chroma": 0.003,
-      "colourful": -0.003,
-      "warmth": 0.001,
+      "colourful": -0.008,
+      "warmth": 0.002,
       "hue_spread": 0.036,
-      "colourfulness": 0.056
+      "colourfulness": 0.057
      }
     },
     "contemporary": {
@@ -456,9 +456,9 @@
       "high_key": 0.152,
       "low_key": 0.027,
       "chroma": -0.097,
-      "colourful": -0.124,
-      "warmth": -0.12,
-      "hue_spread": -0.001,
+      "colourful": -0.131,
+      "warmth": -0.121,
+      "hue_spread": 0.0,
       "colourfulness": -0.069
      }
     },
@@ -475,12 +475,12 @@
      "pixels": {
       "lightness": -0.036,
       "contrast": 0.056,
-      "high_key": -0.036,
+      "high_key": -0.035,
       "low_key": 0.052,
       "chroma": -0.037,
-      "colourful": -0.042,
+      "colourful": -0.046,
       "warmth": -0.021,
-      "hue_spread": -0.034,
+      "hue_spread": -0.039,
       "colourfulness": 0.002
      }
     }
@@ -511,7 +511,7 @@
    "human_agreement": {
     "contemporary": {
      "pairs": 27,
-     "agreement": 0.537
+     "agreement": 0.556
     },
     "intimate": {
      "pairs": 23,
@@ -519,7 +519,7 @@
     },
     "opulent": {
      "pairs": 23,
-     "agreement": 0.522
+     "agreement": 0.5
     },
     "provocative": {
      "pairs": 19,
@@ -536,7 +536,7 @@
    }
   },
   "qwen3": {
-   "pairs_order_consistency": 0.608,
+   "pairs_order_consistency": 0.609,
    "pairs_first_share": 0.304,
    "pairs_judgements": 9170,
    "human_agreement": {
@@ -568,106 +568,106 @@
    "axes": {
     "opulent": {
      "judgements": 1834,
-     "first_bias": -1.798,
-     "crop_gap_vs_random": 0.216,
-     "crop_icc": 0.944,
-     "between_brands": 0.239,
+     "first_bias": -1.785,
+     "crop_gap_vs_random": 0.21,
+     "crop_icc": 0.941,
+     "between_brands": 0.242,
      "p": 0.001,
-     "within_brand_signal": 0.926,
+     "within_brand_signal": 0.922,
      "human_agreement_by_position": {
       "pairs": 23,
       "agreement": 0.609
      },
      "pixels": {
-      "lightness": -0.481,
-      "contrast": 0.034,
+      "lightness": -0.478,
+      "contrast": 0.032,
       "high_key": -0.491,
-      "low_key": 0.359,
-      "chroma": 0.42,
-      "colourful": 0.409,
-      "warmth": 0.393,
-      "hue_spread": 0.309,
-      "colourfulness": 0.437
+      "low_key": 0.349,
+      "chroma": 0.418,
+      "colourful": 0.413,
+      "warmth": 0.39,
+      "hue_spread": 0.296,
+      "colourfulness": 0.439
      }
     },
     "intimate": {
      "judgements": 1832,
-     "first_bias": -2.576,
-     "crop_gap_vs_random": 0.294,
-     "crop_icc": 0.916,
-     "between_brands": 0.099,
+     "first_bias": -2.595,
+     "crop_gap_vs_random": 0.307,
+     "crop_icc": 0.913,
+     "between_brands": 0.101,
      "p": 0.001,
-     "within_brand_signal": 0.907,
+     "within_brand_signal": 0.903,
      "human_agreement_by_position": {
       "pairs": 23,
       "agreement": 0.826
      },
      "pixels": {
-      "lightness": -0.376,
-      "contrast": 0.128,
-      "high_key": -0.363,
-      "low_key": 0.282,
-      "chroma": 0.29,
-      "colourful": 0.268,
-      "warmth": 0.241,
-      "hue_spread": 0.174,
-      "colourfulness": 0.249
+      "lightness": -0.383,
+      "contrast": 0.133,
+      "high_key": -0.368,
+      "low_key": 0.288,
+      "chroma": 0.288,
+      "colourful": 0.265,
+      "warmth": 0.239,
+      "hue_spread": 0.172,
+      "colourfulness": 0.247
      }
     },
     "staged": {
      "judgements": 1832,
-     "first_bias": -4.077,
-     "crop_gap_vs_random": 0.351,
-     "crop_icc": 0.89,
-     "between_brands": 0.246,
+     "first_bias": -4.048,
+     "crop_gap_vs_random": 0.309,
+     "crop_icc": 0.911,
+     "between_brands": 0.23,
      "p": 0.001,
-     "within_brand_signal": 0.854,
+     "within_brand_signal": 0.884,
      "human_agreement_by_position": {
       "pairs": 28,
       "agreement": 0.643
      },
      "pixels": {
-      "lightness": -0.144,
-      "contrast": -0.005,
-      "high_key": -0.142,
-      "low_key": 0.132,
-      "chroma": 0.005,
-      "colourful": 0.009,
+      "lightness": -0.142,
+      "contrast": -0.011,
+      "high_key": -0.141,
+      "low_key": 0.129,
+      "chroma": 0.0,
+      "colourful": -0.002,
       "warmth": 0.087,
-      "hue_spread": -0.015,
-      "colourfulness": 0.042
+      "hue_spread": -0.024,
+      "colourfulness": 0.035
      }
     },
     "contemporary": {
      "judgements": 1836,
-     "first_bias": -2.112,
-     "crop_gap_vs_random": 0.293,
-     "crop_icc": 0.88,
-     "between_brands": 0.089,
-     "p": 0.003,
-     "within_brand_signal": 0.868,
+     "first_bias": -2.115,
+     "crop_gap_vs_random": 0.28,
+     "crop_icc": 0.893,
+     "between_brands": 0.094,
+     "p": 0.001,
+     "within_brand_signal": 0.882,
      "human_agreement_by_position": {
       "pairs": 27,
       "agreement": 0.556
      },
      "pixels": {
-      "lightness": -0.076,
-      "contrast": 0.184,
-      "high_key": -0.05,
-      "low_key": 0.09,
-      "chroma": 0.041,
-      "colourful": -0.002,
-      "warmth": -0.038,
-      "hue_spread": 0.15,
-      "colourfulness": 0.079
+      "lightness": -0.089,
+      "contrast": 0.182,
+      "high_key": -0.065,
+      "low_key": 0.092,
+      "chroma": 0.057,
+      "colourful": 0.01,
+      "warmth": -0.036,
+      "hue_spread": 0.156,
+      "colourfulness": 0.093
      }
     },
     "provocative": {
      "judgements": 1836,
-     "first_bias": -1.593,
-     "crop_gap_vs_random": 0.279,
+     "first_bias": -1.569,
+     "crop_gap_vs_random": 0.273,
      "crop_icc": 0.951,
-     "between_brands": 0.305,
+     "between_brands": 0.306,
      "p": 0.001,
      "within_brand_signal": 0.929,
      "human_agreement_by_position": {
@@ -675,29 +675,29 @@
       "agreement": 0.895
      },
      "pixels": {
-      "lightness": -0.403,
-      "contrast": 0.164,
-      "high_key": -0.394,
-      "low_key": 0.356,
-      "chroma": 0.163,
-      "colourful": 0.151,
-      "warmth": 0.129,
-      "hue_spread": 0.251,
+      "lightness": -0.405,
+      "contrast": 0.16,
+      "high_key": -0.396,
+      "low_key": 0.359,
+      "chroma": 0.165,
+      "colourful": 0.15,
+      "warmth": 0.137,
+      "hue_spread": 0.243,
       "colourfulness": 0.228
      }
     }
    },
    "axis_correlations": {
-    "contemporary|intimate": 0.312,
+    "contemporary|intimate": 0.331,
     "contemporary|opulent": 0.103,
-    "contemporary|provocative": 0.461,
-    "contemporary|staged": 0.022,
-    "intimate|opulent": 0.421,
-    "intimate|provocative": 0.507,
-    "intimate|staged": 0.083,
-    "opulent|provocative": 0.608,
-    "opulent|staged": 0.498,
-    "provocative|staged": 0.4
+    "contemporary|provocative": 0.469,
+    "contemporary|staged": -0.001,
+    "intimate|opulent": 0.429,
+    "intimate|provocative": 0.515,
+    "intimate|staged": 0.07,
+    "opulent|provocative": 0.613,
+    "opulent|staged": 0.501,
+    "provocative|staged": 0.385
    }
   }
  },

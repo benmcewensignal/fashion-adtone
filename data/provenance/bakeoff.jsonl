@@ -10,3 +10,5 @@
 {"asked":300,"at":"2026-10-07T19:18:03Z","event":"read","failed":0,"reader":"qwen25","rows":300,"sample":307,"seconds":553,"what":"human"}
 {"at":"2026-10-07T19:19:20Z","event":"text","model":"clip","prompts":10}
 {"at":"2026-10-07T19:19:37Z","event":"score","images":["clip","dino","fashion"],"pairs":["qwen25","qwen3"],"readers":["qwen25 (today)","qwen3"]}
+{"at":"2026-10-07T19:21:16Z","event":"text","model":"clip","prompts":10}
+{"at":"2026-10-07T19:21:30Z","event":"score","images":["clip","dino","fashion"],"pairs":["qwen25","qwen3"],"readers":["qwen25 (today)","qwen3"]}
