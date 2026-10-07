@@ -1,5 +1,6 @@
 """The luxury reading: the corpus of every homepage picture, and fetching it again."""
 import hashlib
+import json
 import io
 import json
 
@@ -235,3 +236,34 @@ def test_inside_brands_the_kind_of_picture_and_noise_are_told_apart():
     r = L.within_brands(ims, ["x"])
     x = r["measures"]["x"]
     assert x["inside_by_kind"] > 0.8 and x["inside_by_half_year"] < 0.05 and x["inside_brands"] > 0.3
+
+
+def test_comparisons_read_as_probabilities_are_judged_with_the_lean_taken_out(tmp_path, monkeypatch):
+    rng = np.random.default_rng(9)
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    monkeypatch.setattr(B, "DIR", tmp_path / "bakeoff")
+    (tmp_path / "bakeoff").mkdir()
+    (tmp_path / "luxury" / "bakeoff").mkdir(parents=True)
+    pics = [{"sha": f"{h}x{i}", "house": f"h{h}", "kind": "campaign", "side": "early"} for h in range(6) for i in range(10)]
+    crops = [[pics[0]["sha"], pics[1]["sha"]], [pics[10]["sha"], pics[11]["sha"]], [pics[20]["sha"], pics[21]["sha"]],
+             [pics[30]["sha"], pics[31]["sha"]], [pics[40]["sha"], pics[41]["sha"]], [pics[50]["sha"], pics[51]["sha"]]]
+    (tmp_path / "bakeoff" / "sample.json").write_text(json.dumps({"pictures": pics, "crop_pairs": crops}))
+    store.write_jsonl(tmp_path / "bakeoff" / "pictures.jsonl", [{"sha": p["sha"], "found": True} for p in pics])
+    truth = {p["sha"]: int(p["house"][1:]) * 0.5 + rng.normal(scale=0.5) for p in pics}
+    for a, b in crops:
+        truth[b] = truth[a] + rng.normal(scale=0.05)
+    edges = [(pics[i]["sha"], pics[j]["sha"]) for i in range(60) for j in range(i + 1, 60) if (j - i) % 7 in (1, 3)]
+    human = [{"id": f"opulent-{k:02d}", "axis": "opulent", "left": a, "right": b} for k, (a, b) in enumerate(edges[:30])]
+    (tmp_path / "bakeoff" / "pairs.json").write_text(json.dumps({"human": human, "reader": {"opulent": [list(e) for e in edges]}}))
+    (tmp_path / "bakeoff" / "human.json").write_text(json.dumps({h["id"]: ("left" if truth[h["left"]] > truth[h["right"]] else "right") for h in human}))
+    rows = []
+    for a, b in edges:
+        for x, y in ((a, b), (b, a)):
+            z = 2.0 * (truth[x] - truth[y]) - 1.5         # a strong lean to the second picture
+            rows.append({"axis": "opulent", "first": x, "second": y, "p_first": float(1 / (1 + np.exp(-z)))})
+    store.write_jsonl(tmp_path / "luxury" / "bakeoff" / "qwen3-probs.jsonl", rows)
+    r = L.probs_report("qwen3")
+    ax = r["axes"]["opulent"]
+    assert r["lean_to_first"] < -0.1 and ax["orders_agree_after_lean"] > 0.95
+    assert ax["with_person"]["agreement"] > 0.95 and ax["with_person_by_position"] > 0.9
+    assert ax["crop_icc"] > 0.8 and ax["between_brands"] > 0.3

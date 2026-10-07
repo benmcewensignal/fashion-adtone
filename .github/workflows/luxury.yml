@@ -107,6 +107,16 @@ jobs:
           else
             echo "::notice::no Anthropic key; Claude is left out"
           fi
+      - name: Does the reader know the brand, and the comparisons as probabilities
+        if: steps.m.outputs.mode == 'bakeoff'
+        continue-on-error: true
+        timeout-minutes: 60
+        run: |
+          set -o pipefail
+          python -m adtone.luxury recognise --reader qwen3 2>&1 | tee -a /tmp/luxury.log
+          if [ -n "$ANTHROPIC_API_KEY" ]; then python -m adtone.luxury recognise --reader claude 2>&1 | tee -a /tmp/luxury.log; fi
+          python -m adtone.luxury probs --reader qwen3 2>&1 | tee -a /tmp/luxury.log
+          python -m adtone.luxury bakeoff-report 2>&1 | tee -a /tmp/luxury.log
       - name: Every picture, the registered questions
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true

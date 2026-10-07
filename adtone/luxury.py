@@ -573,6 +573,209 @@ def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
     return {"asked": len(todo), "rows": n}
 
 
+# ---------- does the reader know the brand? ----------
+
+BRAND_SYSTEM = ("You look at pictures from luxury fashion houses' own homepages and say which house a picture comes "
+                "from, using only what is in the picture: logos, wordmarks, signature products, monograms, styling. "
+                "Do not identify any person.")
+BRAND_QUESTION = ("Which fashion house's homepage is this picture from? Answer with the house's name exactly as listed, "
+                  "or 'cannot tell' if nothing in the picture tells you.\nHouses: {names}.")
+
+
+def _houses() -> dict[str, str]:
+    from . import registry
+    return {h.id: h.name for h in registry.load().houses}
+
+
+def _norm(s: str) -> str:
+    import unicodedata
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
+    return "".join(ch for ch in s if ch.isalnum())
+
+
+def _match_house(text: str, choices: list[str]) -> str:
+    """The house named in a free answer, longest name first, "Maison " optional; else cannot tell."""
+    t = _norm(text)
+    for c in sorted(choices, key=len, reverse=True):
+        keys = {_norm(c), _norm(c.replace("Maison ", ""))}
+        if c != "cannot tell" and any(k and k in t for k in keys):
+            return c
+    return "cannot tell"
+
+
+def recognise(reader: str, budget_min: float = 60) -> dict:
+    """Asks the reader which house each bake-off picture comes from: a reader that can tell may carry its view of
+    the brand into its reading of the picture."""
+    t0 = time.monotonic()
+    names = _houses()
+    choices = sorted(names.values()) + ["cannot tell"]
+    q = BRAND_QUESTION.format(names=", ".join(sorted(names.values())))
+    found = sorted(r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found"))
+    out = DIR / "bakeoff" / f"{reader}-brand.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    todo = [s for s in found if s not in _done(out, lambda r: r["sha"] if r.get("answer") else None)]
+    if reader in APPS:
+        n = _on_modal(reader, "ask_from", [todo[i:i + 32] for i in range(0, len(todo), 32)],
+                      lambda part: (VOL_DIR, part, BRAND_SYSTEM, q, choices),
+                      lambda part, texts: [{"sha": s, "answer": (t or "").strip()} for s, t in zip(part, texts)],
+                      out, time.monotonic() + budget_min * 60)
+    else:
+        import anthropic
+        client = anthropic.Anthropic()
+        jpegs = bakeoff.from_volume(todo)
+
+        def one(sha):
+            import base64
+            content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
+                                                    "data": base64.b64encode(jpegs[sha]).decode()}},
+                       {"type": "text", "text": q}]
+            for attempt in range(6):
+                try:
+                    r = client.messages.create(model=bakeoff.READERS["claude"]["model"], max_tokens=20, temperature=0,
+                                               system=BRAND_SYSTEM, messages=[{"role": "user", "content": content}])
+                    text = "".join(getattr(x, "text", "") for x in r.content).strip()
+                    return {"sha": sha, "answer": _match_house(text, choices), "text": text[:40]}
+                except Exception as e:
+                    if getattr(e, "status_code", None) not in (408, 409, 429, 500, 502, 503, 504, 529):
+                        return {"sha": sha, "error": f"{e.__class__.__name__}: {str(e)[:100]}"}
+                    time.sleep(min(60, 4 * 2 ** attempt) + random.random())
+            return {"sha": sha, "error": "no answer"}
+        with ThreadPoolExecutor(4) as ex:
+            rows = list(ex.map(one, [s for s in todo if s in jpegs]))
+        store.append_jsonl(out, rows)
+        n = len(rows)
+    _log("recognise", reader=reader, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
+    return {"asked": len(todo), "rows": n}
+
+
+def bakeoff_probs(reader: str = "qwen3", budget_min: float = 120) -> dict:
+    """The bake-off's comparisons read again as probabilities: how much weight the reader puts on "first"
+    against "second", so that the two orders can be averaged and its lean towards one position removed."""
+    t0 = time.monotonic()
+    spec = bakeoff._pairs_rubric()
+    axes = {a["id"]: a for a in spec["axes"]}
+    d = json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))
+    base = [(ax, a, b) for ax, es in d["reader"].items() for a, b in es]
+    out = DIR / "bakeoff" / f"{reader}-probs.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("p_first") is not None else None)
+    todo = [j for j in base + [(ax, b, a) for ax, a, b in base] if j not in have]
+    n = _on_modal(reader, "compare_probs_from", [todo[i:i + 64] for i in range(0, len(todo), 64)],
+                  lambda part: (VOL_DIR, [(a, b) for _, a, b in part], spec["prompt"],
+                                [bakeoff.question(axes[ax], spec) for ax, _, _ in part]),
+                  lambda part, probs: [{"axis": ax, "first": a, "second": b, "p_first": round(float(pf), 5)}
+                                       for (ax, a, b), pf in zip(part, probs)], out, time.monotonic() + budget_min * 60)
+    _log("bakeoff_probs", reader=reader, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
+    return {"asked": len(todo), "rows": n}
+
+
+def _bakeoff_frame():
+    s = json.loads((bakeoff.DIR / "sample.json").read_text(encoding="utf-8"))
+    found = {r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found")}
+    pics = {p["sha"]: p for p in s["pictures"] if p["sha"] in found}
+    crops = [c for c in s["crop_pairs"] if c[0] in pics and c[1] in pics]
+    human_file = bakeoff.DIR / "human.json"
+    human = json.loads(human_file.read_text(encoding="utf-8")) if human_file.exists() else {}
+    hp = {h["id"]: h for h in json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))["human"]}
+    judged = {k: v for k, v in human.items() if k in hp and v in ("left", "right")}
+    return pics, crops, judged, hp
+
+
+def recognition_report() -> dict:
+    """How often each reader names the right house, and whether a reader that knows the house reads its
+    pictures differently: brands further apart, and agreement with the person, on pictures it recognised
+    against pictures it did not."""
+    pics, crops, judged, hp = _bakeoff_frame()
+    names = _houses()
+    q3_tone = {r["sha"]: r["out"] for r in store.read_jsonl(DIR / "bakeoff" / "qwen3-tone.jsonl") if r.get("out")} \
+        if (DIR / "bakeoff" / "qwen3-tone.jsonl").exists() else {}
+    out = {}
+    for f in sorted((DIR / "bakeoff").glob("*-brand.jsonl")):
+        reader = f.stem.rsplit("-", 1)[0]
+        ans = {r["sha"]: r["answer"] for r in store.read_jsonl(f) if r.get("answer") and r["sha"] in pics}
+        right = {s for s, a in ans.items() if a == names.get(pics[s]["house"])}
+        told = {s for s, a in ans.items() if a != "cannot tell"}
+        by_text = defaultdict(list)
+        for s in ans:
+            text = (q3_tone.get(s) or {}).get("text_in_image")
+            if text:
+                by_text["no text" if text == "none" else "text or logo"].append(s in right)
+        by_kind = defaultdict(list)
+        for s in ans:
+            by_kind[pics[s]["kind"]].append(s in right)
+        by_house = defaultdict(list)
+        for s in ans:
+            by_house[pics[s]["house"]].append(s in right)
+        out[reader] = {"pictures": len(ans), "right": round(len(right) / max(1, len(ans)), 3),
+                       "wrong": round(len(told - right) / max(1, len(ans)), 3),
+                       "cannot_tell": round(1 - len(told) / max(1, len(ans)), 3),
+                       "right_by_text": {k: {"pictures": len(v), "right": round(sum(v) / len(v), 3)} for k, v in by_text.items()},
+                       "right_by_kind": {k: {"pictures": len(v), "right": round(sum(v) / len(v), 3)} for k, v in by_kind.items()},
+                       "right_by_house": {h: round(sum(v) / len(v), 2) for h, v in sorted(by_house.items())},
+                       "recognised": sorted(right)}
+    return out
+
+
+def probs_report(reader: str = "qwen3") -> dict:
+    """The comparisons read as probabilities, judged by the yardsticks fixed before they were read: agreement with
+    the person, two crops together, brands apart, and, in place of plain order consistency (which averaging the two
+    orders passes by construction), whether the two orders point the same way once the reader's general lean
+    towards one position is taken out."""
+    rows = [r for r in store.read_jsonl(DIR / "bakeoff" / f"{reader}-probs.jsonl") if r.get("p_first") is not None]
+    pics, crops, judged, hp = _bakeoff_frame()
+    sh = sorted(pics)
+    idx = {s: i for i, s in enumerate(sh)}
+    house = [pics[s]["house"] for s in sh]
+    nrng = np.random.default_rng(bakeoff.SEED)
+    logit = lambda p: float(np.log(np.clip(p, 1e-4, 1 - 1e-4) / (1 - np.clip(p, 1e-4, 1 - 1e-4))))
+    out = {"rows": len(rows), "lean_to_first": round(float(np.mean([r["p_first"] for r in rows])) - 0.5, 3) if rows else None,
+           "axes": {}}
+    for ax in sorted({r["axis"] for r in rows}):
+        rr = [r for r in rows if r["axis"] == ax and r["first"] in idx and r["second"] in idx]
+        lean = float(np.mean([logit(r["p_first"]) for r in rr]))
+        by = defaultdict(dict)
+        for r in rr:
+            by[frozenset((r["first"], r["second"]))][(r["first"], r["second"])] = r["p_first"]
+        both = {k: v for k, v in by.items() if len(v) == 2}
+        same = 0
+        pref = {}
+        for k, v in both.items():
+            (a, b), (c, d) = list(v)
+            pa, pb = v[(a, b)], v[(c, d)]          # (c, d) is (b, a)
+            za, zb = logit(pa) - lean, logit(pb) - lean
+            same += (za > 0) != (zb > 0)            # one order says a, the other says a too
+            pref[(a, b)] = (pa + (1 - pb)) / 2      # how strongly a is placed above b
+        th, beta = bakeoff.bradley_terry(len(sh), np.array([idx[r["first"]] for r in rr]),
+                                         np.array([idx[r["second"]] for r in rr]), np.array([r["p_first"] for r in rr]))
+        agree, agree_pos = [], []
+        for hid, ans in judged.items():
+            h = hp[hid]
+            if h["axis"] != ax:
+                continue
+            ben = h["left"] if ans == "left" else h["right"]
+            other = h["right"] if ans == "left" else h["left"]
+            if (ben, other) in pref:
+                agree.append(float(pref[(ben, other)] > 0.5))
+            elif (other, ben) in pref:
+                agree.append(float(pref[(other, ben)] < 0.5))
+            if ben in idx and other in idx:
+                agree_pos.append(float(th[idx[ben]] > th[idx[other]]))
+        icc = bakeoff._icc([(th[idx[a]], th[idx[b]]) for a, b in crops])
+        eta = bakeoff._eta2(th, house, nrng)
+        within = 1 - eta.get("between_brands", 0.0)
+        out["axes"][ax] = {"pairs": len(both), "lean_logit": round(lean, 3), "first_bias": round(beta, 3),
+                           "orders_agree_after_lean": round(same / max(1, len(both)), 3),
+                           "with_person": {"pairs": len(agree), "agreement": round(float(np.mean(agree)), 3) if agree else None},
+                           "with_person_by_position": round(float(np.mean(agree_pos)), 3) if agree_pos else None,
+                           "crop_icc": icc, **eta,
+                           "within_brand_signal": None if icc is None or within <= 0 else round(max(0.0, 1 - (1 - icc) / within), 3)}
+    allv = [v["with_person"] for v in out["axes"].values() if v["with_person"]["agreement"] is not None]
+    if allv:
+        n = sum(a["pairs"] for a in allv)
+        out["with_person_all"] = {"pairs": n, "agreement": round(sum(a["pairs"] * a["agreement"] for a in allv) / n, 3)}
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.luxury")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -590,6 +793,11 @@ def main(argv: list[str] | None = None) -> int:
     bo = sub.add_parser("bakeoff")
     bo.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     bo.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
+    rc = sub.add_parser("recognise")
+    rc.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
+    pb = sub.add_parser("probs")
+    pb.add_argument("--reader", choices=sorted(APPS), default="qwen3")
+    sub.add_parser("bakeoff-report")
     an = sub.add_parser("analyse")
     an.add_argument("--reader", default="qwen3")
     an.add_argument("--which", nargs="*", default=list(READINGS))
@@ -609,6 +817,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f"luxury positions {a.reader}: {positions(a.reader)}")
     elif a.cmd == "bakeoff":
         print(f"luxury bakeoff {a.reader} {a.what}: {bakeoff_read(a.reader, a.what)}")
+    elif a.cmd == "recognise":
+        print(f"luxury recognise {a.reader}: {recognise(a.reader)}")
+    elif a.cmd == "probs":
+        print(f"luxury probs {a.reader}: {bakeoff_probs(a.reader)}")
+    elif a.cmd == "bakeoff-report":
+        rep = {"generated_at": store.utc_now(), "recognition": recognition_report(), "probs": probs_report("qwen3")}
+        (DIR / "bakeoff_extra.json").write_text(json.dumps(rep, indent=1, default=float) + "\n", encoding="utf-8")
+        print("luxury bakeoff-report: " + json.dumps({k: (v.get("right") if isinstance(v, dict) else v)
+                                                       for k, v in rep["recognition"].items()}))
     elif a.cmd == "analyse":
         out = analyse(a.reader, tuple(a.which))
         print("luxury analyse: " + ", ".join(f"{k}: {v.get('images', v.get('note'))}" for k, v in out["readings"].items()))

@@ -12,6 +12,7 @@ only, never the house. BAKEOFF_CONTAINERS (default 1) lets a long reading spread
 BAKEOFF_SEQS (default 16) sets how many conversations one GPU takes at once.
 """
 import base64
+import math
 import os
 
 import modal
@@ -118,6 +119,48 @@ class Reader:
                                                        {"type": "text", "text": q}]}]
                          for (a, b), q in zip(pairs, prompts)]
         return self._chat(conversations, {"choice": list(choices)}, 4)
+
+    def _ask(self, jpegs: list[bytes], system: str, question: str, choices: list[str]) -> list[str]:
+        conversations = [[{"role": "system", "content": system},
+                          {"role": "user", "content": [_url(j), {"type": "text", "text": question}]}]
+                         for j in jpegs]
+        return self._chat(conversations, {"choice": list(choices)}, 16)
+
+    def _compare_probs(self, pairs: list[tuple[bytes, bytes]], system: str, prompts: list[str]) -> list[float]:
+        """For each pair, the probability the reader puts on "first" against "second" for its first word,
+        from the token probabilities rather than the answer it would write."""
+        from vllm import SamplingParams
+        conversations = [[{"role": "system", "content": system},
+                          {"role": "user", "content": [{"type": "text", "text": "First picture:"}, _url(a),
+                                                       {"type": "text", "text": "Second picture:"}, _url(b),
+                                                       {"type": "text", "text": q}]}]
+                         for (a, b), q in zip(pairs, prompts)]
+        outs = self.llm.chat(conversations, SamplingParams(temperature=0, max_tokens=1, logprobs=20), use_tqdm=False)
+        probs = []
+        for o in outs:
+            lp = (o.outputs[0].logprobs or [{}])[0]
+            first = second = 0.0
+            for cand in lp.values():
+                word = (cand.decoded_token or "").strip().lower()
+                if word == "first":
+                    first += math.exp(cand.logprob)
+                elif word == "second":
+                    second += math.exp(cand.logprob)
+            probs.append(first / (first + second) if first + second > 0 else 0.5)
+        return probs
+
+    @modal.method()
+    def ask_from(self, folder: str, shas: list[str], system: str, question: str, choices: list[str]) -> list[str]:
+        """One question about each picture on the volume, answered with one of `choices`."""
+        pictures.reload()
+        return self._ask([_picture(folder, s) for s in shas], system, question, choices)
+
+    @modal.method()
+    def compare_probs_from(self, folder: str, pairs: list[tuple[str, str]], system: str, prompts: list[str]) -> list[float]:
+        """As compare_from, as probabilities."""
+        pictures.reload()
+        cache = {s: _picture(folder, s) for s in {x for p in pairs for x in p}}
+        return self._compare_probs([(cache[a], cache[b]) for a, b in pairs], system, prompts)
 
     @modal.method()
     def read(self, jpegs: list[bytes], system: str, schema: dict, grammar: str | None = None) -> list[str]:
