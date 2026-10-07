@@ -22,6 +22,22 @@ answer; whether the reading tells brands apart; and how often it agrees with a p
 the same pairs. No picture is ever written to the repository: the repository is public. Small copies
 live on a private Modal volume, and the thumbnails for the judging page leave the runner only sealed
 to a key held outside the repository.
+
+How the winner is chosen, fixed on 7 October 2026 before any reading came back:
+  pairs     A reader's agreement with the person is the share of the person's pairs (those marked
+            unsure left out) where the reader, asked in both orders, picks the picture the person
+            picked; a reader that contradicts itself across the two orders scores a half. The open
+            reader (Qwen3-VL-32B) reads the axes for the luxury reading if its agreement is no more than
+            five points below Claude's; otherwise Claude reads them and the open reader is the check.
+            An axis is kept when, under that reader, the two orders agree on at least three pairs in
+            four, two crops of one picture sit closer on it than two random pictures (gap under one
+            half), and agreement with the person on it is at least 60%. If no reader reaches 60% over
+            all the pairs, the axes are rewritten before anything is read with them.
+  questions Under the chosen reader, a tone-v1 question is kept when its commonest answer covers less
+            than 90% of pictures and two crops of one picture get the same answer beyond chance (kappa
+            at least 0.4), as adtone/readings.py already requires.
+  images    Today's fingerprint stays unless another image model finds more brands nearest their own
+            earlier pictures and also puts more pictures among their own brand's nearest neighbours.
 """
 from __future__ import annotations
 
@@ -569,6 +585,7 @@ def read_pairs(name: str, jpegs: dict[str, bytes], jobs: list[tuple[str, str, st
 
 
 def read(name: str, what: str) -> dict:
+    t0 = time.monotonic()
     s = json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
     found = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
     jpegs = from_volume(found)
@@ -587,7 +604,8 @@ def read(name: str, what: str) -> dict:
         rows = read_pairs(name, jpegs, jobs)
         store.write_jsonl(out_dir / f"{name}-{what}.jsonl", rows)
     bad = sum(1 for r in rows if r.get("error") or ("answer" in r and r["answer"] is None))
-    _log("read", reader=name, what=what, rows=len(rows), failed=bad, pictures=len(jpegs), sample=len(s["pictures"]))
+    _log("read", reader=name, what=what, rows=len(rows), failed=bad, pictures=len(jpegs), sample=len(s["pictures"]),
+         seconds=round(time.monotonic() - t0))
     return {"rows": len(rows), "failed": bad}
 
 
@@ -666,6 +684,7 @@ def _fashion():
 
 def embed(name: str) -> dict:
     from PIL import Image
+    t0 = time.monotonic()
     found = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
     jpegs = from_volume(found)
     f, info = {"csd": _csd, "dino": _dino, "fashion": _fashion}[name]()
@@ -677,7 +696,8 @@ def embed(name: str) -> dict:
     out = DIR / "vectors"
     out.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(out / f"{name}.npz", shas=np.array(shas), vecs=np.array(vecs, dtype=np.float16))
-    _log("embed", model=name, pictures=len(shas), dim=len(vecs[0]) if vecs else 0, **info)
+    _log("embed", model=name, pictures=len(shas), dim=len(vecs[0]) if vecs else 0, seconds=round(time.monotonic() - t0),
+         **info)
     return {"pictures": len(shas), **info}
 
 
@@ -879,9 +899,10 @@ def score() -> dict:
         res[f"{what}_order_consistency"] = round(len(consistent) / max(1, len(both)), 3)
         res[f"{what}_first_share"] = round(sum(r["answer"] == "first" for r in rows) / max(1, len(rows)), 3)
         res[f"{what}_judgements"] = len(rows)
+        judged = {hid: ans for hid, ans in human.items() if hid in hp and ans in ("left", "right")}
         if human:
             per_axis = defaultdict(list)
-            for hid, ans in human.items():
+            for hid, ans in judged.items():
                 h = hp.get(hid)
                 if not h or ans not in ("left", "right"):
                     continue
@@ -909,10 +930,20 @@ def score() -> dict:
                 scores[ax] = th
                 cp = [abs(th[idx[a]] - th[idx[b2]]) for a, b2 in crops]
                 rp = [abs(th[i] - th[j]) for i, j in (nrng.choice(len(sh), 2, replace=False) for _ in range(2000))]
+                icc = _icc([(th[idx[a]], th[idx[b2]]) for a, b2 in crops])
+                eta = _eta2(th, [house[x] for x in sh], nrng)
+                within = 1 - eta.get("between_brands", 0.0)
+                # how much of the spread inside brands is more than the noise two crops of one picture show
+                within_signal = None if icc is None or within <= 0 else round(max(0.0, 1 - (1 - icc) / within), 3)
+                pos_agree = [1.0 if (th[idx[h["left"]]] > th[idx[h["right"]]]) == (ans == "left") else 0.0
+                             for hid, ans in judged.items() for h in [hp[hid]]
+                             if h["axis"] == ax and h["left"] in idx and h["right"] in idx]
                 res.setdefault("axes", {})[ax] = {
                     "judgements": len(rr), "first_bias": round(b, 3),
                     "crop_gap_vs_random": round(float(np.mean(cp)) / (float(np.mean(rp)) or 1), 3) if cp else None,
-                    **_eta2(th, [house[x] for x in sh], nrng),
+                    "crop_icc": icc, **eta, "within_brand_signal": within_signal,
+                    "human_agreement_by_position": {"pairs": len(pos_agree), "agreement": round(float(np.mean(pos_agree)), 3)}
+                    if pos_agree else None,
                     "pixels": {k: round(float(_spearman(th, np.array([px[x][k] for x in sh]))), 3) for k in PIXEL_KEYS}}
             if len(scores) >= 2:
                 res["axis_correlations"] = {f"{a}|{b2}": round(float(_spearman(scores[a], scores[b2])), 3)
@@ -920,10 +951,25 @@ def score() -> dict:
                 (DIR / "positions").mkdir(parents=True, exist_ok=True)
                 store.write_jsonl(DIR / "positions" / f"{name}.jsonl",
                                   [{"sha": x, **{ax: round(float(scores[ax][i]), 4) for ax in scores}} for i, x in enumerate(sh)])
+    out["person"] = {"answered": len(human), "left_or_right": sum(a in ("left", "right") for a in human.values()),
+                     "unsure": sum(a == "unsure" for a in human.values()), "pairs": len(hp)}
     RESULTS.parent.mkdir(parents=True, exist_ok=True)
     RESULTS.write_text(json.dumps(out, indent=1, default=float) + "\n", encoding="utf-8")
     _log("score", readers=sorted(out["tone"]), images=sorted(out["images"]), pairs=sorted(out["pairs"]))
     return out
+
+
+def _icc(pairs: list[tuple[float, float]]) -> float | None:
+    """Intraclass correlation of two measurements of one thing (one-way, single measure): here, two crops
+    of one picture. 1 when crops always land together, 0 when they are no closer than any two pictures."""
+    if len(pairs) < 5:
+        return None
+    x = np.array(pairs, dtype=float)
+    m = x.mean(axis=1)
+    n = len(x)
+    msb = 2 * ((m - x.mean()) ** 2).sum() / (n - 1)
+    msw = ((x[:, 0] - x[:, 1]) ** 2 / 2).sum() / n
+    return round(float((msb - msw) / (msb + msw)), 3) if msb + msw else None
 
 
 def _spearman(x: np.ndarray, y: np.ndarray) -> float:
