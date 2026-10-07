@@ -269,7 +269,7 @@ def read(images: list[dict], enc: Encoder, grain: str = "half", n_perm: int = N_
     return {h: houses[h] for h in sorted(houses)}
 
 
-def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_images: int = 10) -> dict:
+def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_images: int = 10, euclid: bool = False) -> dict:
     """Whether character is stable and particular to each brand: for brands with enough images before and
     after `split`, how many have later images closest to their own earlier ones, by the answers and by the
     fingerprint, against what chance gives (about one). A measure that cannot tell brands apart cannot
@@ -296,7 +296,8 @@ def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_image
     if all(i["vec"] is not None for d in (early, late) for h in hs for i in d[h].values()):
         CE = {h: np.vstack([i["vec"] for i in early[h].values()]).mean(axis=0) for h in hs}
         CL = {h: np.vstack([i["vec"] for i in late[h].values()]).mean(axis=0) for h in hs}
-        out["fingerprint_hits"], out["fingerprint_mean_rank"] = score(lambda a, b: _cos_dist(CE[a], CL[b]))
+        dist = (lambda x, y: float(np.linalg.norm(x - y))) if euclid else _cos_dist
+        out["fingerprint_hits"], out["fingerprint_mean_rank"] = score(lambda a, b: dist(CE[a], CL[b]))
     return out
 
 

@@ -170,3 +170,25 @@ def test_reading_on_modal_resumes_and_keeps_what_came_back(tmp_path, monkeypatch
     pos = {r["sha"]: r["opulent"] for r in store.read_jsonl(L.DIR / "positions-qwen3.jsonl")}
     xs = sorted(hidden, key=hidden.get)
     assert np.corrcoef([hidden[s] for s in xs], [pos[s] for s in xs])[0, 1] > 0.9
+
+
+def test_the_new_instrument_is_loaded_as_readings_takes_it(tmp_path, monkeypatch):
+    cap, obs = tmp_path / "captures", tmp_path / "obs"
+    cap.mkdir()
+    obs.mkdir()
+    store.write_jsonl(cap / "a.jsonl", [_capture("a", "2024-01", "1", ["x", "y"]), _capture("a", "2024-02", "2", ["x", "z"])])
+    monkeypatch.setattr(homepages, "paths", lambda: {"captures": cap, "obs": obs, "vectors": tmp_path / "none"})
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    (tmp_path / "luxury" / "readings").mkdir(parents=True)
+    store.write_jsonl(tmp_path / "luxury" / "readings" / "qwen3-tone.jsonl",
+                      [{"sha": "x", "error": "bad"}, {"sha": "x", "out": {"creative_type": "brand_image"}},
+                       {"sha": "y", "out": {"creative_type": "product_on_model"}}])
+    store.write_jsonl(tmp_path / "luxury" / "positions-qwen3.jsonl",
+                      [{"sha": "x", "opulent": 1.0, "staged": 0.0}, {"sha": "y", "opulent": -1.0, "staged": 2.0},
+                       {"sha": "z", "opulent": 0.0, "staged": None}])
+    ims = L.load_images("qwen3", "positions")
+    assert [(i["month"], i["sha"], i["type"]) for i in ims] == [("2024-01", "x", "campaign"), ("2024-01", "y", "on_model"),
+                                                               ("2024-02", "x", "campaign")]
+    assert abs(ims[0]["vec"][0] - 1.0) < 1e-9 and abs(ims[1]["vec"][0] + 1.0) < 1e-9       # standard units
+    assert ims[0]["dup"] is None and ims[0]["period"] == "2024H1"
+    assert len(L.load_images("qwen3", "positions", axes=["opulent"])) == 3

@@ -91,6 +91,31 @@ def _unit(v):
     return v / n if n else v
 
 
+# The fingerprint is a direction: brands are compared by the cosine between their centroids. A reading
+# made of measures on their own scales (positions on an axis, colour and light) is compared by plain
+# distance instead; run(euclid=True) switches every comparison between centroids to that.
+EUCLID = False
+
+
+def _norm(v):
+    return v if EUCLID else _unit(v)
+
+
+def _away(c, ref) -> float:
+    """How far one centroid stands from another: one minus the cosine, or the distance between measures."""
+    return float(np.linalg.norm(c - ref)) if EUCLID else float(1 - _unit(c) @ _unit(ref))
+
+
+def _similarity(C: np.ndarray) -> np.ndarray:
+    return -np.linalg.norm(C[:, None, :] - C[None, :, :], axis=2) if EUCLID else C @ C.T
+
+
+def _dupvec(im):
+    """The vector that says two pictures are crops of one picture: the fingerprint, kept apart under "dup"
+    when the picture's vector is something else."""
+    return im["dup"] if im.get("dup") is not None else im["vec"]
+
+
 def _bh(ps: list[float]) -> list[float]:
     """Benjamini-Hochberg q-values, in the order given."""
     n = len(ps)
@@ -172,12 +197,12 @@ def _cramers_v(rows: list[tuple[str, str]]) -> float | None:
 def duplicate_pairs(images: list[dict]) -> list[tuple[dict, dict]]:
     by: dict[tuple, list] = defaultdict(list)
     for im in images:
-        if im["vec"] is not None:
+        if _dupvec(im) is not None:
             by[(im["house"], im["month"])].append(im)
     out = []
     for ims in by.values():
         for a, b in itertools.combinations(ims, 2):
-            if a["sha"] != b["sha"] and float(a["vec"] @ b["vec"]) >= DUP_COS:
+            if a["sha"] != b["sha"] and float(_dupvec(a) @ _dupvec(b)) >= DUP_COS:
                 out.append((a, b))
     return out
 
@@ -668,7 +693,7 @@ def power(houses: dict[str, list[dict]], half_rows: dict[str, list[dict]], ans: 
 # ---------- 3. across brands ----------
 
 def _centroid(ims: list[dict]) -> np.ndarray:
-    return _unit(np.vstack([i["vec"] for i in ims]).mean(0))
+    return _norm(np.vstack([i["vec"] for i in ims]).mean(0))
 
 
 def _distinct(cells: dict[str, list[dict]], ans: Answers, rng, n_sub: int = MIN_IMAGES, draws: int = N_SUB) -> dict:
@@ -682,7 +707,7 @@ def _distinct(cells: dict[str, list[dict]], ans: Answers, rng, n_sub: int = MIN_
         A = np.vstack([ans.rows(picks[h]).mean(0) for h in hs])
         for i, h in enumerate(hs):
             rest = [j for j in range(len(hs)) if j != i]
-            acc_v[h].append(float(1 - C[i] @ _unit(C[rest].mean(0))))
+            acc_v[h].append(_away(C[i], C[rest].mean(0)))
             if ans.blocks:
                 acc_a[h].append(ans.distance(A[i], A[rest].mean(0)))
     return {h: {"print": round(float(np.mean(acc_v[h])), 4),
@@ -701,7 +726,7 @@ def cross_brand(images: list[dict], ans: Answers, reg: registry.Registry, rng) -
         if len(hs) < 4:
             continue
         C = np.vstack([_centroid(by[h]) for h in hs])
-        S = C @ C.T
+        S = _similarity(C)
         near = {}
         for i, h in enumerate(hs):
             order = [j for j in np.argsort(-S[i]) if j != i][:3]
@@ -745,6 +770,8 @@ def spread(images: list[dict], rng, n_perm: int = N_PERM) -> dict:
     periods = sorted(cell)
 
     def disp(C):
+        if EUCLID:
+            return float(np.linalg.norm(C - C.mean(0), axis=1).mean())
         return float(np.mean(1 - C @ _unit(C.mean(0))))
     changes = {}
     for p0, p1 in zip(periods, periods[1:]):
@@ -820,8 +847,8 @@ def market(images: list[dict], ans: Answers, rng, n_boot: int = N_BOOT, n_perm: 
         RA = np.vstack([ans.rows([i for i in by[p0][h] if i["type"] in LED]).mean(0) for h in common])
         RB = np.vstack([ans.rows([i for i in by[p1][h] if i["type"] in LED]).mean(0) for h in common])
         sw = rng.random((n_perm, len(common))) < 0.5
-        o_v = float(1 - _unit(A.mean(0)) @ _unit(B.mean(0)))
-        n_v = np.array([1 - _unit(np.where(s[:, None], B, A).mean(0)) @ _unit(np.where(s[:, None], A, B).mean(0)) for s in sw])
+        o_v = _away(A.mean(0), B.mean(0))
+        n_v = np.array([_away(np.where(s[:, None], B, A).mean(0), np.where(s[:, None], A, B).mean(0)) for s in sw])
         row = {"brands": len(common), "print": round(o_v, 4), "print_chance": round(float(np.median(n_v)), 4),
                "print_p": round((1 + int((n_v >= o_v - 1e-12).sum())) / (1 + n_perm), 4)}
         if ans.blocks:
@@ -1013,7 +1040,7 @@ def associate(pairs: list[tuple[str, float, float, float | None]], rng) -> dict:
         ra, rb = np.argsort(np.argsort(a)), np.argsort(np.argsort(b))
         return float(np.corrcoef(ra, rb)[0, 1]) if np.std(ra) and np.std(rb) else 0.0
     obs = rho(x, y)
-    idx = {h: np.where(hs == h)[0] for h in set(hs)}
+    idx = {h: np.where(hs == h)[0] for h in sorted(set(hs))}     # sorted: a set's order changes between runs
     null = []
     for _ in range(N_PERM):
         yp = y.copy()
@@ -1067,7 +1094,16 @@ def coverage(images: list[dict]) -> dict:
             "pictures_once_per_half_year": len(led)}
 
 
-def run(images: list[dict], spec: dict, reg: registry.Registry, seed: int = 20261007) -> dict:
+def run(images: list[dict], spec: dict, reg: registry.Registry, seed: int = 20261007, euclid: bool = False) -> dict:
+    global EUCLID
+    before, EUCLID = EUCLID, euclid
+    try:
+        return _run(images, spec, reg, seed)
+    finally:
+        EUCLID = before
+
+
+def _run(images: list[dict], spec: dict, reg: registry.Registry, seed: int) -> dict:
     rng = np.random.default_rng(seed)
     scr = screen(images, spec)
     ans = Answers(spec, scr["answers"])
@@ -1082,7 +1118,7 @@ def run(images: list[dict], spec: dict, reg: registry.Registry, seed: int = 2026
         "status": "exploratory: descriptive readings, not in the pre-registration",
         "images": len(images), "image_led": len(led), "coverage": coverage(images),
         "screen": scr, "tracked": {"questions": ans.qs, "moods": ans.moods, "labels": [f"{q}={v}" for q, v in ans.labels]},
-        "identity": character.identity(led, character.Encoder(spec)),
+        "identity": character.identity(led, character.Encoder(spec), euclid=EUCLID),
         "half_years": half, "half_year_summary": shift_summary(half),
         "years": year, "year_summary": shift_summary(year),
         "by_lag": by_lag(houses, ans, rng), "power": power(houses, half, ans, rng),

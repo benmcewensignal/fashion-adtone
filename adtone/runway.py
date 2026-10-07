@@ -235,7 +235,7 @@ def what_the_clothes_add(rows: list[dict], controls=("spike", "momentum"), term:
     inc = full - base
     rng = np.random.default_rng(seed)
     null = []
-    idx_by = {h: [i for i, g in enumerate(groups) if g == h] for h in set(groups)}
+    idx_by = {h: [i for i, g in enumerate(groups) if g == h] for h in sorted(set(groups))}   # a set's order changes between runs
     for _ in range(perms):
         Xp = X.copy()
         for idx in idx_by.values():

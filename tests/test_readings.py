@@ -201,3 +201,38 @@ def test_an_event_is_set_beside_brands_without_a_change():
     assert "b1" not in row["controls"] and len(row["controls"]) == 6
     assert row["own_print_score"] > row["controls_print_score"] and row["controls_print_above"] == 0.0
     assert got["summary"]["tested"] == 2
+
+
+def test_measures_on_their_own_scales_are_compared_by_distance():
+    """Positions on an axis or colour and light are not directions: with euclid on, brands far apart on
+    the measures stand far apart, though their centroids point the same way."""
+    rng = np.random.default_rng(7)
+    months = H1 + H2
+    ims = []
+    for k, scale in enumerate((1.0, 4.0, 1.2, 3.8, 0.9, 4.2)):
+        for m in months:
+            for i in range(3):
+                v = scale * np.ones(5) + rng.normal(scale=0.3, size=5)
+                ims.append({"house": f"b{k}", "month": m, "sha": f"b{k}-{m}-{i}", "type": "campaign",
+                            "period": period_of(m), "out": _out(), "vec": v, "dup": None})
+    R.EUCLID = True
+    try:
+        far = R._distinct(R.by_house(ims), _answers(), rng, n_sub=6, draws=20)
+    finally:
+        R.EUCLID = False
+    near = R._distinct(R.by_house(ims), _answers(), rng, n_sub=6, draws=20)
+    assert far["b1"]["print"] > 1.0 > near["b1"]["print"] * 100       # the cosine sees one direction only
+    assert R._away(np.ones(3), 2 * np.ones(3)) < 1e-9
+    R.EUCLID = True
+    try:
+        assert abs(R._away(np.ones(3), 2 * np.ones(3)) - 3 ** 0.5) < 1e-9
+    finally:
+        R.EUCLID = False
+
+
+def test_crops_are_found_by_the_fingerprint_kept_apart():
+    rng = np.random.default_rng(8)
+    c = R._unit(rng.normal(size=16))
+    a = {"house": "a", "month": "2024-01", "sha": "x", "vec": np.array([1.0, 2.0]), "dup": c}
+    b = {"house": "a", "month": "2024-01", "sha": "y", "vec": np.array([5.0, -3.0]), "dup": c}
+    assert len(R.duplicate_pairs([a, b])) == 1

@@ -301,6 +301,103 @@ def positions(reader: str = "qwen3") -> dict:
     return info
 
 
+# ---------- the readings on the new instrument ----------
+
+def _standard(table: dict[str, dict[str, float]], keys: list[str]) -> dict[str, np.ndarray]:
+    """Each measure in standard units over the pictures that have it; a picture missing one is left out."""
+    shas = sorted(s for s, row in table.items() if all(row.get(k) is not None for k in keys))
+    if not shas:
+        return {}
+    X = np.array([[float(table[s][k]) for k in keys] for s in shas])
+    sd = X.std(0)
+    X = (X - X.mean(0)) / np.where(sd > 0, sd, 1.0)
+    return {s: X[i] for i, s in enumerate(shas)}
+
+
+def vectors(kind: str, reader: str = "qwen3", axes: list[str] | None = None) -> dict[str, np.ndarray]:
+    """A picture's vector: clip (today's fingerprint) or a style model's (csd, dino, fashion), each a
+    direction; positions (the reader's place for the picture on each axis, or the axes given) or pixels
+    (colour and light), each in standard units."""
+    if kind == "clip":
+        from .embed import VectorStore
+        from . import homepages
+        root = homepages.paths()["vectors"]
+        out = {}
+        for d in sorted(root.glob("*")) if root.exists() else []:
+            out.update(VectorStore(d.name, root=root).vecs)
+        return {s: v / (np.linalg.norm(v) or 1.0) for s, v in out.items()}
+    if kind in bakeoff.EMBEDDERS:
+        f = DIR / "vectors" / f"{kind}.npz"
+        if not f.exists():
+            return {}
+        with np.load(f, allow_pickle=False) as z:
+            return {str(s): v.astype(np.float64) / (np.linalg.norm(v.astype(np.float64)) or 1.0) for s, v in zip(z["shas"], z["vecs"])}
+    if kind == "positions":
+        rows = {r["sha"]: r for r in store.read_jsonl(DIR / f"positions-{reader}.jsonl")}
+        keys = axes or sorted({k for r in rows.values() for k in r if k != "sha"})
+        return _standard(rows, keys)
+    if kind == "pixels":
+        rows = {r["sha"]: r.get("pixel") or {} for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")}
+        return _standard(rows, bakeoff.PIXEL_KEYS)
+    raise ValueError(kind)
+
+
+def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None = None) -> list[dict]:
+    """The homepage pictures as adtone.readings takes them: every showing of every picture fetched again,
+    with the answers `reader` gave (tone-v1), the kind of picture as that reader saw it, and the vector
+    chosen. Today's fingerprint stays under "dup", for telling two crops of one picture."""
+    from . import homepages
+    from .character import period_of
+    answers = {}
+    for r in store.read_jsonl(DIR / "readings" / f"{reader}-tone.jsonl"):
+        if r.get("out"):
+            answers[r["sha"]] = r["out"]
+    vecs = vectors(vec, reader, axes)
+    dup = vectors("clip") if vec != "clip" else vecs
+    out, seen = [], set()
+    for f in sorted(homepages.paths()["captures"].glob("*.jsonl")):
+        for row in store.read_jsonl(f):
+            if row.get("status") != "resolved":
+                continue
+            for im in row.get("images") or []:
+                s = im["sha"]
+                key = (row["house_id"], row["month"], s)
+                if key in seen or s not in answers or s not in vecs:
+                    continue
+                seen.add(key)
+                out.append({"house": row["house_id"], "month": row["month"], "sha": s, "out": answers[s],
+                            "type": TYPES.get(answers[s].get("creative_type"), "other"), "period": period_of(row["month"]),
+                            "vec": vecs[s], "dup": dup.get(s)})
+    return out
+
+
+READINGS = ("clip", "positions", "pixels", "csd", "dino", "fashion")
+
+
+def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
+    """adtone.readings run on the new instrument: the reader's answers each time, beside each vector in
+    turn (directions compared by cosine, measures by distance)."""
+    from . import readings, registry
+    from .score import load_rubric
+    spec, reg = load_rubric().spec, registry.load()
+    out = {"generated_at": store.utc_now(), "reader": reader,
+           "status": "exploratory: the luxury reading, not in the pre-registration", "readings": {}}
+    for kind in which:
+        ims = load_images(reader, kind)
+        if len(ims) < 50:
+            out["readings"][kind] = {"note": f"only {len(ims)} pictures with answers and this vector"}
+            continue
+        t0 = time.monotonic()
+        res = readings.run(ims, spec, reg, euclid=kind in ("positions", "pixels"))
+        res["seconds"] = round(time.monotonic() - t0)
+        out["readings"][kind] = res
+    path = config.RESULTS_DIR / "luxury.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, indent=1, ensure_ascii=False, default=float) + "\n", encoding="utf-8")
+    _log("analyse", reader=reader, readings={k: v.get("images") for k, v in out["readings"].items()})
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.luxury")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -315,6 +412,9 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--model", choices=sorted(bakeoff.EMBEDDERS), required=True)
     ps = sub.add_parser("positions")
     ps.add_argument("--reader", default="qwen3")
+    an = sub.add_parser("analyse")
+    an.add_argument("--reader", default="qwen3")
+    an.add_argument("--which", nargs="*", default=list(READINGS))
     a = ap.parse_args(argv)
     if a.cmd == "corpus":
         c = corpus()
@@ -329,6 +429,9 @@ def main(argv: list[str] | None = None) -> int:
         print(f"luxury embed {a.model}: {embed(a.model)}")
     elif a.cmd == "positions":
         print(f"luxury positions {a.reader}: {positions(a.reader)}")
+    elif a.cmd == "analyse":
+        out = analyse(a.reader, tuple(a.which))
+        print("luxury analyse: " + ", ".join(f"{k}: {v.get('images', v.get('note'))}" for k, v in out["readings"].items()))
     return 0
 
 
