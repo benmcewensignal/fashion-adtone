@@ -1,9 +1,11 @@
 {
-  "complete": [],
+  "complete": [
+    "chanel"
+  ],
   "covered": {
     "burberry": "2017-09-27",
     "celine": "2017-03-31",
-    "chanel": "2018-09-28",
+    "chanel": "2026-10-06",
     "dolce_gabbana": "2018-03-26",
     "dries_van_noten": "2017-03-31",
     "fendi": "2017-03-31",
@@ -45,7 +47,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh37583291584",
+  "run": "gh37646305368",
   "span": {},
-  "updated_at": "2026-10-07T07:10:52Z"
+  "updated_at": "2026-10-07T16:11:45Z"
 }
