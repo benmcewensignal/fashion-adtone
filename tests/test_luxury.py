@@ -3,6 +3,7 @@ import hashlib
 import io
 import json
 
+import numpy as np
 from PIL import Image
 
 from adtone import bakeoff as B
@@ -104,3 +105,68 @@ def test_fetching_the_corpus_copies_the_bakeoffs_pictures_and_keeps_what_it_find
     assert [r["found"] for r in rows] == [True, True, False]
     assert uploaded == [("/pictures-v1", ["a"]), ("/pictures-v1", ["b"])]
     assert seen["present"] == {"a", "c"} and seen["thumbs"] is False
+
+
+def _corpus(tmp_path, monkeypatch, n_brands=4, per=12):
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    monkeypatch.setattr(L, "PROV", tmp_path / "prov.jsonl")
+    (tmp_path / "luxury").mkdir()
+    pics = [{"sha": f"{h:02x}{i:02x}" * 8, "house": f"h{h}", "month": "2024-01", "capture": "1", "page": "p"}
+            for h in range(n_brands) for i in range(per)]
+    (tmp_path / "luxury" / "corpus.json").write_text(json.dumps({"pictures": pics}))
+    store.write_jsonl(tmp_path / "luxury" / "pictures.jsonl", [{"sha": p["sha"], "found": i % 7 != 3, "pixel": {}}
+                                                               for i, p in enumerate(pics)])
+    return pics
+
+
+def test_the_design_and_the_check_set(tmp_path, monkeypatch):
+    pics = _corpus(tmp_path, monkeypatch)
+    got = L.found()
+    assert len(got) == sum(1 for i in range(len(pics)) if i % 7 != 3)
+    d = L.design()
+    assert set(d["reader"]) == {"opulent", "intimate", "staged", "contemporary", "provocative"}
+    deg = {}
+    for a, b in d["reader"]["opulent"]:
+        deg[a] = deg.get(a, 0) + 1
+        deg[b] = deg.get(b, 0) + 1
+    assert set(deg) == set(got) and min(deg.values()) == max(deg.values()) == B.DEGREE
+    assert L.design() == d                      # made once and kept
+    c = L.check_set()
+    by = {}
+    for s in c["pictures"]:
+        by[got[s]["house"]] = by.get(got[s]["house"], 0) + 1
+    assert set(by) == {"h0", "h1", "h2", "h3"} and all(v >= 1 for v in by.values())
+    assert all(len(c["pairs"][ax]) == len(d["reader"][ax]) // L.CHECK_PAIRS for ax in d["reader"])
+    assert L.check_set() == c                   # the same set every time
+
+
+def test_reading_on_modal_resumes_and_keeps_what_came_back(tmp_path, monkeypatch):
+    import modal
+    _corpus(tmp_path, monkeypatch)
+    hidden = {s: i for i, s in enumerate(sorted(L.found()))}
+    calls = []
+
+    class Method:
+        def __init__(self, fn):
+            self.fn = fn
+
+        def starmap(self, gen, return_exceptions=False):
+            for k, args in enumerate(gen):
+                calls.append(args)
+                yield RuntimeError("lost") if k == 1 else self.fn(*args)
+
+    class Fake:
+        compare_from = Method(lambda folder, pairs, system, prompts, choices:
+                              ["first" if hidden[a] > hidden[b] else "second" for a, b in pairs])
+    monkeypatch.setattr(modal.Cls, "from_name", lambda app, name: (lambda: Fake()))
+    r1 = L.read("qwen3", "pairs")
+    total = len(L._both_orders(L.design()["reader"]))
+    assert r1["pairs"]["asked"] == total and r1["pairs"]["rows"] == total - 64     # one batch was lost
+    assert all(a[0] == "/pictures-v1" for a in calls)
+    r2 = L.read("qwen3", "pairs")
+    assert r2["pairs"]["asked"] == 64 and r2["pairs"]["rows"] == 64              # only the lost batch again
+    info = L.positions("qwen3")
+    assert info["opulent"]["pictures"] == len(hidden)
+    pos = {r["sha"]: r["opulent"] for r in store.read_jsonl(L.DIR / "positions-qwen3.jsonl")}
+    xs = sorted(hidden, key=hidden.get)
+    assert np.corrcoef([hidden[s] for s in xs], [pos[s] for s in xs])[0, 1] > 0.9

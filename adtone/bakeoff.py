@@ -682,23 +682,25 @@ def _fashion():
     return f, {"weights": "Marqo/marqo-fashionSigLIP"}
 
 
-def embed(name: str) -> dict:
+def embed(name: str, shas: list[str] | None = None, vol_dir: str = VOL_DIR, out: Path | None = None, log=None) -> dict:
     from PIL import Image
     t0 = time.monotonic()
-    found = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
-    jpegs = from_volume(found)
+    if shas is None:
+        shas = [r["sha"] for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")]
+    out = out or DIR / "vectors" / f"{name}.npz"
     f, info = {"csd": _csd, "dino": _dino, "fashion": _fashion}[name]()
-    shas, vecs = [], []
-    for sha in sorted(jpegs):
-        v = f(Image.open(io.BytesIO(jpegs[sha])))
-        shas.append(sha)
-        vecs.append(v / (np.linalg.norm(v) or 1.0))
-    out = DIR / "vectors"
-    out.mkdir(parents=True, exist_ok=True)
-    np.savez_compressed(out / f"{name}.npz", shas=np.array(shas), vecs=np.array(vecs, dtype=np.float16))
-    _log("embed", model=name, pictures=len(shas), dim=len(vecs[0]) if vecs else 0, seconds=round(time.monotonic() - t0),
-         **info)
-    return {"pictures": len(shas), **info}
+    done, vecs = [], []
+    for i in range(0, len(shas), 200):           # a few hundred pictures in memory at a time
+        jpegs = from_volume(sorted(shas)[i:i + 200], vol_dir)
+        for sha in sorted(jpegs):
+            v = f(Image.open(io.BytesIO(jpegs[sha])))
+            done.append(sha)
+            vecs.append(v / (np.linalg.norm(v) or 1.0))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(out, shas=np.array(done), vecs=np.array(vecs, dtype=np.float16))
+    (log or _log)("embed", model=name, pictures=len(done), dim=len(vecs[0]) if vecs else 0,
+                  seconds=round(time.monotonic() - t0), **info)
+    return {"pictures": len(done), **info}
 
 
 # ---------- scoring ----------

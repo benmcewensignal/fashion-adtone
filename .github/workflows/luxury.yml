@@ -1,8 +1,12 @@
 name: luxury
 run-name: luxury ${{ inputs.mode || 'kick' }}
 # Exploratory second reading of the homepage pictures as luxury pictures (adtone/luxury.py).
-# fetch: every homepage picture fetched again from the archive; copies for the readers to a private
-#        Modal volume, pixel measures into the repository. Resumable: a second run picks up the rest.
+# fetch:  every homepage picture fetched again from the archive; copies for the readers to a private
+#         Modal volume, pixel measures into the repository. Resumable: a second run picks up the rest.
+# deploy: the open reader chosen by the bake-off, deployed to read from the picture volume
+# read:   tone-v1 for every picture and every comparison of the design, both orders, then positions
+# check:  Claude reads a tenth of the pictures and a twentieth of the comparisons again
+# embed:  the style models; all: deploy, read, check, embed. Every reading resumes where it stopped.
 # Editing .github/kick/luxury starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -10,7 +14,7 @@ on:
       mode:
         type: choice
         default: fetch
-        options: [fetch]
+        options: [fetch, deploy, read, check, embed, all]
   push:
     branches: [main]
     paths: [".github/kick/luxury"]
@@ -30,6 +34,8 @@ jobs:
       PYTHONUNBUFFERED: "1"
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,7 +45,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/luxury | awk '{print $1}'); fi
-          case "$mode" in fetch) ;; *) mode=fetch ;; esac
+          case "$mode" in fetch|deploy|read|check|embed|all) ;; *) mode=fetch ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "luxury mode: $mode"
       - name: Install
@@ -50,6 +56,44 @@ jobs:
         if: steps.m.outputs.mode == 'fetch'
         timeout-minutes: 200
         run: set -o pipefail; python -m adtone.luxury fetch --budget 160 2>&1 | tee -a /tmp/luxury.log
+
+      - name: Deploy the open reader to read from the picture volume
+        if: steps.m.outputs.mode == 'deploy' || steps.m.outputs.mode == 'all'
+        timeout-minutes: 30
+        run: |
+          set -o pipefail
+          q3=$(python -c "import json; print(json.load(open('data/bakeoff/readers.json'))['qwen3']['revision'])")
+          BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_REVISION="$q3" BAKEOFF_APP=adtone-luxury-qwen3 BAKEOFF_GPU=H100 \
+            BAKEOFF_CONTAINERS=4 BAKEOFF_SEQS=32 modal deploy bakeoff/modal_reader.py 2>&1 | tee -a /tmp/luxury.log
+      - name: Every picture, the registered questions
+        if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
+        continue-on-error: true
+        timeout-minutes: 60
+        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what tone --budget 50 2>&1 | tee -a /tmp/luxury.log
+      - name: Every comparison, both orders
+        if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
+        continue-on-error: true
+        timeout-minutes: 200
+        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what pairs --budget 180 2>&1 | tee -a /tmp/luxury.log
+      - name: Positions on each axis
+        if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
+        continue-on-error: true
+        timeout-minutes: 10
+        run: set -o pipefail; python -m adtone.luxury positions --reader qwen3 2>&1 | tee -a /tmp/luxury.log
+      - name: The standing check, read again by Claude
+        if: steps.m.outputs.mode == 'check' || steps.m.outputs.mode == 'all'
+        continue-on-error: true
+        timeout-minutes: 90
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "::notice::no Anthropic key; no check"; exit 0; fi
+          set -o pipefail; python -m adtone.luxury read --reader claude --what check --budget 80 2>&1 | tee -a /tmp/luxury.log
+      - name: Style models
+        if: steps.m.outputs.mode == 'embed' || steps.m.outputs.mode == 'all'
+        continue-on-error: true
+        timeout-minutes: 90
+        run: |
+          pip install -q -r requirements-bakeoff.txt
+          for m in csd dino fashion; do python -m adtone.luxury embed --model "$m" 2>&1 | tee -a /tmp/luxury.log || echo "::warning::$m failed"; done
 
       - name: Keep the end of the log
         if: always()
