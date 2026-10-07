@@ -218,7 +218,7 @@ def test_a_checkpoint_loads_with_only_benign_objects_allowed_under_their_saved_n
 
         @contextlib.contextmanager
         def safe_globals(self, allow):
-            self.allowed = [a[1] if isinstance(a, tuple) else a for a in allow]
+            self.allowed = [a[1] if isinstance(a, tuple) else f"{a.__module__}.{a.__qualname__}" for a in allow]
             yield
 
     class Torch:
@@ -233,9 +233,10 @@ def test_a_checkpoint_loads_with_only_benign_objects_allowed_under_their_saved_n
             return {"model_state_dict": {"w": 1}}
 
     need = ["numpy.core.multiarray.scalar", "numpy.dtype"]
-    t = Torch(list(need), need)                         # the checkpoint names what it holds
+    t = Torch(list(need), need + ["numpy.dtypes.Float64DType"])   # the checkpoint names what it holds; a dtype class is built unnamed
     assert B._load_checkpoint(tmp_path / "c.pth", torch=t)["model_state_dict"] == {"w": 1}
-    assert t.serialization.allowed == need               # allowed under the names it was saved with
+    assert t.serialization.allowed[:2] == need           # allowed under the names it was saved with
+    assert "numpy.dtypes.Float64DType" in t.serialization.allowed
     t = Torch(None, need)                                # older torch: the names are learnt from the refusals
     assert B._load_checkpoint(tmp_path / "c.pth", torch=t)["model_state_dict"] == {"w": 1}
     import pytest

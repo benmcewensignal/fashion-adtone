@@ -649,7 +649,8 @@ def _benign(name: str) -> bool:
 def _load_checkpoint(path, torch=None):
     """torch.load with weights_only, allowing only the benign objects the checkpoint names, each under the
     name it was saved with (a checkpoint saved under numpy 1 names numpy.core.multiarray.scalar, which numpy 2
-    keeps as numpy._core.multiarray.scalar, so allowing the object alone does not match)."""
+    keeps as numpy._core.multiarray.scalar, so allowing the object alone does not match), and numpy's dtype
+    classes, which a numpy scalar is built from without being named."""
     import importlib
     import pickle
     if torch is None:
@@ -661,6 +662,7 @@ def _load_checkpoint(path, torch=None):
     bad = [g for g in names if not _benign(g)]
     if bad:
         raise RuntimeError(f"the checkpoint holds objects that are not plain data: {bad[:5]}")
+    dtype_classes = [getattr(np.dtypes, n) for n in dir(np.dtypes) if n.endswith("DType")] if hasattr(np, "dtypes") else []
     for _ in range(16):
         allow = []
         for g in names:
@@ -668,13 +670,13 @@ def _load_checkpoint(path, torch=None):
             allow.append((getattr(importlib.import_module(mod), attr), g))
         try:
             try:
-                ctx = torch.serialization.safe_globals(allow)
+                ctx = torch.serialization.safe_globals(allow + dtype_classes)
             except TypeError:               # torch before named entries: the objects alone
-                ctx = torch.serialization.safe_globals([a for a, _ in allow])
+                ctx = torch.serialization.safe_globals([a for a, _ in allow] + dtype_classes)
             with ctx:
                 return torch.load(path, map_location="cpu", weights_only=True)
         except pickle.UnpicklingError as e:
-            m = re.search(r"Unsupported global: GLOBAL ([\w.]+)", str(e))
+            m = re.search(r"Unsupported global: GLOBAL ([\w.]+)", str(e)) or re.search(r"but got <class '([\w.]+)'>", str(e))
             if not m or m.group(1) in names or not _benign(m.group(1)):
                 raise
             names.append(m.group(1))
