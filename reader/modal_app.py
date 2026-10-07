@@ -104,6 +104,22 @@ class Reader:
                 for o in outs]
 
     @modal.method()
+    def read_text(self, texts: list[str], system: str, schema: dict, grammar: str | None = None) -> list[str]:
+        """The words reader: the same model and the same constrained decoding, given a text and no image."""
+        conversations = [[
+            {"role": "system", "content": system},
+            {"role": "user", "content": "Read this text. Return only the JSON object.\n\n<text>\n" + t.strip() + "\n</text>"},
+        ] for t in texts]
+        errors = []
+        for mode in [m for m in ("grammar", "schema", "free") if m != "grammar" or grammar]:
+            try:
+                outs = self.llm.chat(conversations, self._params(mode, schema, grammar), use_tqdm=False)
+                return [o.outputs[0].text for o in outs]
+            except Exception as e:   # an engine that cannot take this constraint says so here
+                errors.append(f"{mode}: {e.__class__.__name__}: {str(e)[:200]}")
+        raise RuntimeError("no decoding mode worked: " + " | ".join(errors))
+
+    @modal.method()
     def identity(self) -> dict:
         import vllm
         return {"model": MODEL, "revision": REVISION, "gpu": GPU, "vllm": vllm.__version__}

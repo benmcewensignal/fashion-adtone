@@ -1,7 +1,8 @@
 name: statements
 run-name: statements ${{ github.event_name }}
 # The houses' own words about their collections (reference/statements.csv), read into the image rubric's
-# questions by the words reader (rubric/words-v1.md, Claude at temperature 0). Each statement is read
+# questions by the words reader (rubric/words-v1.md; the open model on Modal that reads the images, or
+# Claude when ADTONE_READER is claude). Each statement is read
 # once; a new or edited statement is read on the next run. Alignment against the images is computed in
 # the weekly analysis. Exploratory, outside the pre-registration.
 on:
@@ -27,6 +28,9 @@ jobs:
       PYTHONUNBUFFERED: "1"
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

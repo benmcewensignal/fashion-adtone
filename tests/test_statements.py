@@ -93,3 +93,25 @@ def test_images_that_lean_the_way_the_words_do_show_positive_agreement():
     assert row["agreement"] == 1.0 and row["p_two_sided"] < 0.01
     thin = statements.align([{**reading, "house": "loewe"}], ims, n_perm=9)[0]
     assert "needed" in thin["note"]
+
+
+def test_the_open_model_reads_words_under_the_same_grammar(tmp_data):
+    from adtone.score import gbnf
+    g = gbnf(load_rubric("words-v1"))
+    assert '"[" (' in g and "not_said" in g          # the mood list may be empty
+    good = json.dumps(_words(production="editorial_art", mood=[]))
+    seen = []
+
+    def remote(texts, system, schema, grammar):
+        seen.append((texts, grammar))
+        return [good, '{"setting": "nowhere"}'][:len(texts)]
+    r = statements.ModalWordsReader(remote=remote, revision="cc594898137f0000")
+    assert r.instrument == "words-v1@qwen2.5-vl-7b-instruct@cc594898137f"
+    out = r.read_many(["first text", "second text"])
+    assert out[0]["production"] == "editorial_art" and isinstance(out[1], ScoreError)
+    assert seen[0][1] == g
+
+    def down(*a):
+        raise ConnectionError("x")
+    with pytest.raises(ScoreError, match="API"):
+        statements.ModalWordsReader(remote=down, revision="cc594898137f").read("t")

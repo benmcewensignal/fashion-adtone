@@ -10,8 +10,9 @@ quoted in a review), copied with its source into reference/statements.csv. The w
 (rubric/words-v1.md) is given the text alone and answers the image rubric's questions with the
 same fixed answers, or not_said where the text does not speak to a question; most texts speak to a
 few. Its reply is checked against the rubric's schema, and nothing outside the fixed answers can be
-recorded. The reader is Claude (ADTONE_CLAUDE_MODEL) at temperature 0; each reading is kept with
-the rubric's hash and the model, which together are the instrument.
+recorded. The reader is the open model on Modal that reads the images (pinned weights, its replies
+constrained to the rubric's grammar), or Claude at temperature 0 when ADTONE_READER is claude; each
+reading is kept with the reader's identity, which with the rubric's version is the instrument.
 
 Alignment. For each statement and each question it speaks to, the share of the house's homepage
 images in the six months from the show that give the stated answer, against the same share among
@@ -138,7 +139,56 @@ class WordsReader:
             return self._parse(self._call(text, nudge=True))
 
 
-def read_all(reader: WordsReader, rows: list[dict], run: str) -> dict:
+class ModalWordsReader:
+    """The same words rubric read by the open model on Modal that reads the images (pinned weights,
+    constrained to the rubric's grammar), for when no Claude key is set: the default reader."""
+
+    def __init__(self, remote=None, revision: str | None = None, batch: int = 16):
+        from .score import gbnf, json_schema
+        revision = config.open_model_revision() if revision is None else revision
+        if not revision:
+            raise ScoreError("API: the open model's weights are not pinned; run the reader workflow first")
+        if remote is None:
+            import modal
+            remote = modal.Cls.from_name(config.MODAL_APP, "Reader")().read_text.remote
+        self.rubric = load_rubric(RUBRIC)
+        self.remote, self.batch = remote, batch
+        self.schema, self.grammar = json_schema(self.rubric), gbnf(self.rubric)
+        self.instrument = f"{RUBRIC}@{config.OPEN_MODEL.split('/')[-1].lower()}@{revision[:12]}"
+        self.calls = 0
+
+    def read_many(self, texts: list[str]) -> list:
+        self.calls += 1
+        try:
+            replies = self.remote(texts, self.rubric.prompt, self.schema, self.grammar)
+        except Exception as e:   # Modal client errors vary by version; any failure here is the service's
+            raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
+        out = []
+        for text in replies:
+            m = _OBJ.search(text or "")
+            try:
+                out.append(validate(json.loads(m.group(0)), self.rubric.spec) if m else ScoreError("no JSON object"))
+            except (json.JSONDecodeError, ScoreError) as e:
+                out.append(e if isinstance(e, ScoreError) else ScoreError(f"bad JSON: {e}"))
+        return out
+
+    def read(self, text: str) -> dict:
+        res = self.read_many([text])[0]
+        if isinstance(res, ScoreError):
+            raise res
+        return res
+
+
+def make_reader():
+    """The open model on Modal unless the reader is set to Claude; None when neither can run."""
+    if config.READER == "claude":
+        return WordsReader() if os.environ.get("ANTHROPIC_API_KEY", "").strip() else None
+    if os.environ.get("MODAL_TOKEN_ID") and os.environ.get("MODAL_TOKEN_SECRET"):
+        return ModalWordsReader()
+    return WordsReader() if os.environ.get("ANTHROPIC_API_KEY", "").strip() else None
+
+
+def read_all(reader, rows: list[dict], run: str) -> dict:
     P = paths()
     done = {(r["key"], r["instrument"]) for r in store.read_jsonl(P["readings"]) if r.get("status") == "ok"}
     new, counts, stopped = [], {"read": 0, "invalid": 0, "already": 0}, None
@@ -155,8 +205,15 @@ def read_all(reader: WordsReader, rows: list[dict], run: str) -> dict:
             if str(e).startswith("API:"):
                 stopped = str(e)
                 break
-            rec["status"], rec["error"] = "invalid", str(e)[:300]
-            counts["invalid"] += 1
+            try:   # one more try, as the image reader does
+                rec["output"], rec["status"] = reader.read(r["excerpt"]), "ok"
+                counts["read"] += 1
+            except ScoreError as e2:
+                if str(e2).startswith("API:"):
+                    stopped = str(e2)
+                    break
+                rec["status"], rec["error"] = "invalid", str(e2)[:300]
+                counts["invalid"] += 1
         new.append(rec)
     store.append_jsonl(P["readings"], new)
     out = {"run": run, "updated_at": store.utc_now(), **counts, "statements": len(rows), "stopped": stopped,
@@ -258,13 +315,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--run", default=config.run_id())
     a = ap.parse_args(argv)
     if a.stage == "read":
-        if not os.environ.get("ANTHROPIC_API_KEY", "").strip():
-            store.append_jsonl(paths()["prov"], [{"run": a.run, "updated_at": store.utc_now(),
-                                                 "waiting": "no ANTHROPIC_API_KEY for the words reader"}])
-            print("::notice::statements: no ANTHROPIC_API_KEY secret; nothing read")
-            return 0
         try:
-            out = read_all(WordsReader(), statements(), a.run)
+            reader = make_reader()
+            if reader is None:
+                store.append_jsonl(paths()["prov"], [{"run": a.run, "updated_at": store.utc_now(),
+                                                     "waiting": "no reader: neither Modal nor a Claude key is set"}])
+                print("::notice::statements: no reader available; nothing read")
+                return 0
+            out = read_all(reader, statements(), a.run)
         except Exception as e:
             out = {"run": a.run, "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
             store.append_jsonl(paths()["prov"], [out])

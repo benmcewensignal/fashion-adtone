@@ -188,11 +188,17 @@ def gbnf(rubric: Rubric) -> str:
             rule = s["lists"][k]
             item = name + "i"
             rules.append(f"{item} ::= " + " | ".join(lit(v) for v in rule["options"]))
-            tail = ""
-            for _ in range(rule["max"] - rule["min"]):
-                tail = f'( "," {item} {tail})?'
-            head = " ".join([item] + [f'"," {item}'] * (rule["min"] - 1))
-            rules.append(f'{name} ::= "[" {head} {tail} "]"')
+            if rule["min"] == 0:   # the words rubric: an empty list is an answer
+                tail = ""
+                for _ in range(rule["max"] - 1):
+                    tail = f'( "," {item} {tail})?'
+                rules.append(f'{name} ::= "[" ( {item} {tail})? "]"')
+            else:
+                tail = ""
+                for _ in range(rule["max"] - rule["min"]):
+                    tail = f'( "," {item} {tail})?'
+                head = " ".join([item] + [f'"," {item}'] * (rule["min"] - 1))
+                rules.append(f'{name} ::= "[" {head} {tail} "]"')
         elif k in s.get("integers", {}):
             rule = s["integers"][k]
             rules.append(f"{name} ::= " + " | ".join(f'"{n}"' for n in range(rule["min"], rule["max"] + 1)))
