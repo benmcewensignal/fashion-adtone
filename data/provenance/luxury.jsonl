@@ -5,3 +5,8 @@
 {"asked":296,"at":"2026-10-07T17:10:33Z","event":"bakeoff_read","reader":"qwen3","rows":296,"seconds":288,"what":"tone"}
 {"asked":9170,"at":"2026-10-07T17:16:23Z","event":"bakeoff_read","reader":"qwen3","rows":9170,"seconds":350,"what":"pairs"}
 {"asked":300,"at":"2026-10-07T17:24:05Z","event":"bakeoff_read","reader":"qwen25","rows":300,"seconds":462,"what":"human"}
+{"asked":0,"at":"2026-10-07T18:29:24Z","event":"bakeoff_read","reader":"qwen3","rows":0,"seconds":1,"what":"tone"}
+{"asked":0,"at":"2026-10-07T18:29:24Z","event":"bakeoff_read","reader":"qwen3","rows":0,"seconds":0,"what":"pairs"}
+{"asked":0,"at":"2026-10-07T18:29:24Z","event":"bakeoff_read","reader":"qwen25","rows":0,"seconds":0,"what":"human"}
+{"asked":296,"at":"2026-10-07T18:32:54Z","event":"recognise","reader":"qwen3","rows":296,"seconds":210}
+{"asked":9170,"at":"2026-10-07T18:37:51Z","event":"bakeoff_probs","reader":"qwen3","rows":9170,"seconds":297}
