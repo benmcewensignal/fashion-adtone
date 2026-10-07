@@ -23,9 +23,12 @@ their clothes look like.
   their keys. `adtone.character` reads character, shift and its relation to growth from the
   homepages; `adtone.readings` takes that further (which answers can be tracked, each brand's change
   like for like and net of the market, turnover against drift, across brands, the market, designer
-  changes beside brands without one, and success); both are exploratory. See `docs/THREAD.md` for every
-  source and its workflow.
-- Built and tested on synthetic data with known ground truth (252 tests).
+  changes beside brands without one, and success); both are exploratory. `adtone.bakeoff` tests larger
+  readers, pairwise questions written for luxury pictures and style models against today's reader on
+  about 300 pictures, and `adtone.luxury` fetches every homepage picture again for a second reading
+  by the winner (pictures stay on a private volume, never in this repository). See `docs/THREAD.md`
+  for every source and its workflow.
+- Built and tested on synthetic data with known ground truth (267 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.

@@ -212,28 +212,36 @@ def _jpeg(img, edge: int, quality: int) -> bytes:
     return buf.getvalue()
 
 
+def _places(p: dict) -> list[tuple]:
+    """Where a picture was seen: the capture of its first showing, then any later captures listed under
+    "also". Older capture rows kept only the address asked for, not the page it led to."""
+    first = (p.get("capture"), p.get("page") or p.get("url"))
+    return [c for c in [first] + [tuple(c) for c in p.get("also", [])] if c[0] and c[1]]
+
+
 def fetch(s: dict | None = None, pause: float = 0.4, workers: int = 4, budget_min: float = 110,
-          session_factory=None) -> list[dict]:
-    """Each sampled picture fetched again from the archived page where it was found: the page's picture
+          session_factory=None, out: Path | None = None, local: Path | None = None, thumbs: bool = True,
+          present: set | None = None, log=None, rounds: int = 3) -> list[dict]:
+    """Each picture fetched again from the archived page where it was found: the page's picture
     addresses are read again, and a picture is kept when its bytes hash to the recorded sha. Kept: a
-    copy for the readers (at most 896 pixels a side) and a thumbnail for the judging page, on the runner
-    only, and the pixel measures, which go into the repository. Pictures found by an earlier run are not
-    fetched again; a few workers share the archive politely; past the time budget no new page is
-    started, and what was found is written whatever happens."""
+    copy for the readers (at most 896 pixels a side) and, for the judging page, a thumbnail, on the
+    runner only, and the pixel measures, which go into the repository. A picture not found where it was
+    first shown is sought where it was shown later, up to `rounds` places. Pictures found by an earlier
+    run are not fetched again (when `present` is given, only those whose copy is known to be kept); a
+    few workers share the archive politely; past the time budget no new page is started, and what was
+    found is written whatever happens."""
     import threading
     import requests
     from . import homepages, media
     s = s or json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
-    prev_path = DIR / "pictures.jsonl"
+    prev_path = out or DIR / "pictures.jsonl"
+    local_dir = local or LOCAL
+    log = log or _log
     prev = {r["sha"]: r for r in store.read_jsonl(prev_path)} if prev_path.exists() else {}
-    have = {sha for sha, r in prev.items() if r.get("found")}
-    want: dict[tuple, set] = defaultdict(set)
-    for p in s["pictures"]:
-        page = p.get("page") or p.get("url")     # older capture rows kept only the address asked for
-        if p.get("capture") and page and p["sha"] not in have:
-            want[(p["capture"], page)].add(p["sha"])
-    (LOCAL / "read").mkdir(parents=True, exist_ok=True)
-    (LOCAL / "thumb").mkdir(parents=True, exist_ok=True)
+    have = {sha for sha, r in prev.items() if r.get("found") and (present is None or sha in present)}
+    (local_dir / "read").mkdir(parents=True, exist_ok=True)
+    if thumbs:
+        (local_dir / "thumb").mkdir(parents=True, exist_ok=True)
     found: dict[str, dict] = {}
     deadline = time.monotonic() + budget_min * 60
     local = threading.local()
@@ -280,43 +288,68 @@ def fetch(s: dict | None = None, pause: float = 0.4, workers: int = 4, budget_mi
                 img = media.open_image(ri.content)
             except media.MediaError:
                 continue
-            (LOCAL / "read" / f"{sha}.jpg").write_bytes(_jpeg(img, READ_EDGE, 90))
-            (LOCAL / "thumb" / f"{sha}.jpg").write_bytes(_jpeg(img, THUMB_EDGE, 80))
-            got[sha] = {"sha": sha, "found": True, "w": img.width, "h": img.height, "pixel": pixel_measures(img)}
+            (local_dir / "read" / f"{sha}.jpg").write_bytes(_jpeg(img, READ_EDGE, 90))
+            if thumbs:
+                (local_dir / "thumb" / f"{sha}.jpg").write_bytes(_jpeg(img, THUMB_EDGE, 80))
+            got[sha] = {"sha": sha, "found": True, "capture": ts, "w": img.width, "h": img.height,
+                        "pixel": pixel_measures(img)}
             left.discard(sha)
         return got
 
+    pages = 0
     try:
-        with ThreadPoolExecutor(max(1, workers)) as ex:
-            for got in ex.map(work, sorted(want.items())):
-                found.update(got)
+        for rnd in range(rounds):
+            want: dict[tuple, set] = defaultdict(set)
+            for p in s["pictures"]:
+                where = _places(p)
+                if p["sha"] not in have and p["sha"] not in found and rnd < len(where):
+                    want[where[rnd]].add(p["sha"])
+            if not want or time.monotonic() > deadline:
+                break
+            pages += len(want)
+            with ThreadPoolExecutor(max(1, workers)) as ex:
+                for got in ex.map(work, sorted(want.items(), key=lambda kv: kv[0])):
+                    found.update(got)
     finally:
         rows = [prev[p["sha"]] if p["sha"] in have else found.get(p["sha"], {"sha": p["sha"], "found": False})
                 for p in s["pictures"]]
         store.write_jsonl(prev_path, rows)
-        _log("fetch", pictures=len(rows), found=sum(r["found"] for r in rows), this_run=len(found),
-             pages=len(want), out_of_time=time.monotonic() > deadline)
+        log("fetch", pictures=len(rows), found=sum(r["found"] for r in rows), this_run=len(found),
+            pages=pages, out_of_time=time.monotonic() > deadline)
     return rows
 
 
-def to_volume() -> int:
+def to_volume(local: Path | None = None, vol_dir: str = VOL_DIR, files: list[Path] | None = None) -> int:
     """The readers' copies to the private Modal volume."""
     import modal
     vol = modal.Volume.from_name(VOLUME, create_if_missing=True)
-    files = sorted((LOCAL / "read").glob("*.jpg"))
+    files = sorted(((local or LOCAL) / "read").glob("*.jpg")) if files is None else files
+    if not files:
+        return 0
     with vol.batch_upload(force=True) as batch:
         for f in files:
-            batch.put_file(str(f), f"{VOL_DIR}/{f.name}")
+            batch.put_file(str(f), f"{vol_dir}/{f.name}")
     return len(files)
 
 
-def from_volume(shas: list[str]) -> dict[str, bytes]:
+def on_volume(vol_dir: str = VOL_DIR) -> set[str]:
+    """The pictures whose readers' copy is on the volume."""
+    import modal
+    vol = modal.Volume.from_name(VOLUME, create_if_missing=True)
+    try:
+        entries = vol.listdir(vol_dir)
+    except Exception:   # nothing there yet
+        return set()
+    return {Path(e.path).stem for e in entries if str(e.path).endswith(".jpg")}
+
+
+def from_volume(shas: list[str], vol_dir: str = VOL_DIR) -> dict[str, bytes]:
     import modal
     vol = modal.Volume.from_name(VOLUME)
     out = {}
     for sha in shas:
         try:
-            out[sha] = b"".join(vol.read_file(f"{VOL_DIR}/{sha}.jpg"))
+            out[sha] = b"".join(vol.read_file(f"{vol_dir}/{sha}.jpg"))
         except Exception:   # a picture the fetch did not find
             continue
     return out

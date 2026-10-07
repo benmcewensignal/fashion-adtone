@@ -1,0 +1,68 @@
+name: luxury
+run-name: luxury ${{ inputs.mode || 'kick' }}
+# Exploratory second reading of the homepage pictures as luxury pictures (adtone/luxury.py).
+# fetch: every homepage picture fetched again from the archive; copies for the readers to a private
+#        Modal volume, pixel measures into the repository. Resumable: a second run picks up the rest.
+# Editing .github/kick/luxury starts a run; its first word is the mode.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: fetch
+        options: [fetch]
+  push:
+    branches: [main]
+    paths: [".github/kick/luxury"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-luxury
+  cancel-in-progress: false
+
+jobs:
+  luxury:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    env:
+      PYTHONUNBUFFERED: "1"
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Mode
+        id: m
+        run: |
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ]; then mode=$(head -1 .github/kick/luxury | awk '{print $1}'); fi
+          case "$mode" in fetch) ;; *) mode=fetch ;; esac
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "luxury mode: $mode"
+      - name: Install
+        timeout-minutes: 10
+        run: pip install -q -r requirements.txt
+
+      - name: Fetch every homepage picture again
+        if: steps.m.outputs.mode == 'fetch'
+        timeout-minutes: 200
+        run: set -o pipefail; python -m adtone.luxury fetch --budget 160 2>&1 | tee -a /tmp/luxury.log
+
+      - name: Keep the end of the log
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib, datetime
+          p = pathlib.Path("/tmp/luxury.log")
+          lines = p.read_text(errors="replace").splitlines()[-300:] if p.exists() else []
+          out = pathlib.Path("data/luxury/runlog.json")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps({"at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "lines": lines}, indent=0) + "\n")
+          PY
+      - name: Persist
+        if: always()
+        timeout-minutes: 10
+        run: bash scripts/persist.sh luxury "luxury ${{ steps.m.outputs.mode }}"

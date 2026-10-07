@@ -36,6 +36,8 @@ ALLOW = {
     "bakeoff": ["data/bakeoff/*.json", "data/bakeoff/*.jsonl", "data/bakeoff/readings/*.jsonl",
                 "data/bakeoff/vectors/*.npz", "data/bakeoff/positions/*.jsonl", "data/results/bakeoff.json",
                 "data/provenance/bakeoff.jsonl"],
+    "luxury": ["data/luxury/*.json", "data/luxury/*.jsonl", "data/luxury/readings/*.jsonl",
+               "data/luxury/vectors/*.npz", "data/results/luxury.json", "data/provenance/luxury.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
