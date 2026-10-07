@@ -1,19 +1,12 @@
 {
-  "finished_at": "2026-10-07T09:41:01Z",
-  "index_diag": {
-    "brunello_cucinelli": {
-      "brunellocucinelli.com": {
-        "body": "<html><head><meta charset=\"UTF-8\"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style=\"padding:30px 0;\">\n<div style=\"float:",
-        "http": 503
-      }
-    }
-  },
-  "last_run": "gh37591071816",
+  "finished_at": "2026-10-07T11:20:12Z",
+  "index_diag": {},
+  "last_run": "gh37603106756",
   "months_in_archive": {
     "alaia": 81,
     "balenciaga": 153,
     "bottega_veneta": 150,
-    "brunello_cucinelli": 0,
+    "brunello_cucinelli": 141,
     "burberry": 154,
     "celine": 145,
     "chanel": 153,
@@ -39,5 +32,5 @@
     "versace": 153,
     "zegna": 144
   },
-  "remaining": 3091
+  "remaining": 2978
 }
