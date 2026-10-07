@@ -5,3 +5,8 @@
 {"at":"2026-10-07T18:28:55Z","dim":768,"event":"embed","model":"dino","pictures":296,"tried":[],"weights":"vit_base_patch16_dinov3.lvd1689m"}
 {"at":"2026-10-07T18:31:43Z","dim":768,"event":"embed","model":"fashion","pictures":296,"weights":"Marqo/marqo-fashionSigLIP"}
 {"at":"2026-10-07T18:31:46Z","event":"score","images":["clip","dino","fashion"],"pairs":[],"readers":["qwen25 (today)"]}
+{"asked":296,"at":"2026-10-07T18:40:13Z","event":"read","failed":16,"reader":"qwen3","rows":296,"sample":307,"seconds":422,"what":"tone"}
+{"asked":9170,"at":"2026-10-07T19:08:50Z","event":"read","failed":0,"reader":"qwen3","rows":9170,"sample":307,"seconds":1717,"what":"pairs"}
+{"asked":300,"at":"2026-10-07T19:18:03Z","event":"read","failed":0,"reader":"qwen25","rows":300,"sample":307,"seconds":553,"what":"human"}
+{"at":"2026-10-07T19:19:20Z","event":"text","model":"clip","prompts":10}
+{"at":"2026-10-07T19:19:37Z","event":"score","images":["clip","dino","fashion"],"pairs":["qwen25","qwen3"],"readers":["qwen25 (today)","qwen3"]}

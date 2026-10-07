@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T18:31:44Z",
+ "generated_at": "2026-10-07T19:19:31Z",
  "status": "exploratory bake-off, not in the pre-registration",
  "sample": {
   "chosen": 307,
@@ -125,9 +125,143 @@
     "hits": 4,
     "mean_rank": 7.09
    }
+  },
+  "qwen3": {
+   "pictures": 296,
+   "questions": {
+    "light": {
+     "top_share": 0.706,
+     "values_used": 3,
+     "crop_kappa": 1.0,
+     "brand_v": 0.306,
+     "trackable": true
+    },
+    "colour_temperature": {
+     "top_share": 0.693,
+     "values_used": 3,
+     "crop_kappa": 0.847,
+     "brand_v": 0.355,
+     "trackable": true
+    },
+    "saturation": {
+     "top_share": 0.564,
+     "values_used": 4,
+     "crop_kappa": 0.81,
+     "brand_v": 0.334,
+     "trackable": true
+    },
+    "setting": {
+     "top_share": 0.662,
+     "values_used": 5,
+     "crop_kappa": 0.87,
+     "brand_v": 0.296,
+     "trackable": true
+    },
+    "people": {
+     "top_share": 0.554,
+     "values_used": 4,
+     "crop_kappa": 0.949,
+     "brand_v": 0.316,
+     "trackable": true
+    },
+    "gaze": {
+     "top_share": 0.385,
+     "values_used": 3,
+     "crop_kappa": 0.896,
+     "brand_v": 0.386,
+     "trackable": true
+    },
+    "expression": {
+     "top_share": 0.473,
+     "values_used": 3,
+     "crop_kappa": 0.823,
+     "brand_v": 0.26,
+     "trackable": true
+    },
+    "pose": {
+     "top_share": 0.618,
+     "values_used": 2,
+     "crop_kappa": 0.932,
+     "brand_v": 0.429,
+     "trackable": true
+    },
+    "framing": {
+     "top_share": 0.338,
+     "values_used": 4,
+     "crop_kappa": 0.955,
+     "brand_v": 0.382,
+     "trackable": true
+    },
+    "primary_subject": {
+     "top_share": 0.443,
+     "values_used": 6,
+     "crop_kappa": 1.0,
+     "brand_v": 0.331,
+     "trackable": true
+    },
+    "styling_register": {
+     "top_share": 0.345,
+     "values_used": 6,
+     "crop_kappa": 0.902,
+     "brand_v": 0.31,
+     "trackable": true
+    },
+    "production": {
+     "top_share": 0.916,
+     "values_used": 2,
+     "crop_kappa": 1.0,
+     "brand_v": 0.274,
+     "trackable": false
+    },
+    "text_in_image": {
+     "top_share": 0.723,
+     "values_used": 2,
+     "crop_kappa": 0.917,
+     "brand_v": 0.385,
+     "trackable": true
+    },
+    "mood": {
+     "top_share": 0.27,
+     "values_used": 11,
+     "crop_kappa": 0.678,
+     "brand_v": 0.216,
+     "trackable": true
+    },
+    "street_couture_axis": {
+     "top_share": 0.679,
+     "values_used": 3,
+     "crop_kappa": 0.904,
+     "brand_v": 0.243,
+     "trackable": true
+    }
+   },
+   "trackable": 14,
+   "three_moods_share": 0.544,
+   "confidence_values": 5,
+   "identity": {
+    "brands": 22,
+    "hits": 5,
+    "mean_rank": 7.23
+   }
   }
  },
- "tone_agreement": {},
+ "tone_agreement": {
+  "qwen25 (today) | qwen3": {
+   "light": 0.508,
+   "colour_temperature": 0.262,
+   "saturation": -0.005,
+   "setting": 0.409,
+   "people": 0.933,
+   "gaze": 0.672,
+   "expression": 0.317,
+   "pose": 0.232,
+   "framing": 0.441,
+   "primary_subject": 0.33,
+   "styling_register": 0.318,
+   "production": 0.137,
+   "text_in_image": 0.672
+  }
+ },
  "pixels": {
   "lightness": {
    "mean": 0.616,
@@ -237,5 +371,372 @@
    }
   }
  },
- "pairs": {}
+ "zero_shot": {
+  "clip": {
+   "axes": {
+    "opulent": {
+     "crop_gap_vs_random": 0.106,
+     "crop_icc": 0.985,
+     "between_brands": 0.232,
+     "p": 0.001,
+     "within_brand_signal": 0.98,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.565
+     },
+     "pixels": {
+      "lightness": -0.327,
+      "contrast": -0.021,
+      "high_key": -0.36,
+      "low_key": 0.239,
+      "chroma": 0.255,
+      "colourful": 0.282,
+      "warmth": 0.327,
+      "hue_spread": 0.128,
+      "colourfulness": 0.24
+     }
+    },
+    "intimate": {
+     "crop_gap_vs_random": 0.106,
+     "crop_icc": 0.987,
+     "between_brands": 0.169,
+     "p": 0.001,
+     "within_brand_signal": 0.984,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.696
+     },
+     "pixels": {
+      "lightness": -0.224,
+      "contrast": 0.077,
+      "high_key": -0.216,
+      "low_key": 0.202,
+      "chroma": 0.018,
+      "colourful": 0.053,
+      "warmth": 0.125,
+      "hue_spread": -0.019,
+      "colourfulness": 0.041
+     }
+    },
+    "staged": {
+     "crop_gap_vs_random": 0.167,
+     "crop_icc": 0.948,
+     "between_brands": 0.145,
+     "p": 0.001,
+     "within_brand_signal": 0.939,
+     "human_agreement_by_position": {
+      "pairs": 28,
+      "agreement": 0.5
+     },
+     "pixels": {
+      "lightness": 0.009,
+      "contrast": 0.041,
+      "high_key": 0.041,
+      "low_key": 0.07,
+      "chroma": 0.003,
+      "colourful": -0.003,
+      "warmth": 0.001,
+      "hue_spread": 0.036,
+      "colourfulness": 0.056
+     }
+    },
+    "contemporary": {
+     "crop_gap_vs_random": 0.106,
+     "crop_icc": 0.979,
+     "between_brands": 0.103,
+     "p": 0.001,
+     "within_brand_signal": 0.977,
+     "human_agreement_by_position": {
+      "pairs": 27,
+      "agreement": 0.481
+     },
+     "pixels": {
+      "lightness": 0.09,
+      "contrast": 0.2,
+      "high_key": 0.152,
+      "low_key": 0.027,
+      "chroma": -0.097,
+      "colourful": -0.124,
+      "warmth": -0.12,
+      "hue_spread": -0.001,
+      "colourfulness": -0.069
+     }
+    },
+    "provocative": {
+     "crop_gap_vs_random": 0.096,
+     "crop_icc": 0.989,
+     "between_brands": 0.115,
+     "p": 0.001,
+     "within_brand_signal": 0.988,
+     "human_agreement_by_position": {
+      "pairs": 19,
+      "agreement": 0.737
+     },
+     "pixels": {
+      "lightness": -0.036,
+      "contrast": 0.056,
+      "high_key": -0.036,
+      "low_key": 0.052,
+      "chroma": -0.037,
+      "colourful": -0.042,
+      "warmth": -0.021,
+      "hue_spread": -0.034,
+      "colourfulness": 0.002
+     }
+    }
+   },
+   "axis_correlations": {
+    "contemporary|intimate": -0.138,
+    "contemporary|opulent": -0.281,
+    "contemporary|provocative": 0.394,
+    "contemporary|staged": 0.101,
+    "intimate|opulent": 0.194,
+    "intimate|provocative": 0.111,
+    "intimate|staged": -0.124,
+    "opulent|provocative": -0.098,
+    "opulent|staged": 0.05,
+    "provocative|staged": 0.053
+   },
+   "human_agreement_all": {
+    "pairs": 120,
+    "agreement": 0.583
+   }
+  }
+ },
+ "pairs": {
+  "qwen25": {
+   "human_order_consistency": 0.36,
+   "human_first_share": 0.18,
+   "human_judgements": 300,
+   "human_agreement": {
+    "contemporary": {
+     "pairs": 27,
+     "agreement": 0.537
+    },
+    "intimate": {
+     "pairs": 23,
+     "agreement": 0.652
+    },
+    "opulent": {
+     "pairs": 23,
+     "agreement": 0.522
+    },
+    "provocative": {
+     "pairs": 19,
+     "agreement": 0.816
+    },
+    "staged": {
+     "pairs": 28,
+     "agreement": 0.661
+    }
+   },
+   "human_agreement_all": {
+    "pairs": 120,
+    "agreement": 0.629
+   }
+  },
+  "qwen3": {
+   "pairs_order_consistency": 0.608,
+   "pairs_first_share": 0.304,
+   "pairs_judgements": 9170,
+   "human_agreement": {
+    "contemporary": {
+     "pairs": 27,
+     "agreement": 0.519
+    },
+    "intimate": {
+     "pairs": 23,
+     "agreement": 0.826
+    },
+    "opulent": {
+     "pairs": 23,
+     "agreement": 0.543
+    },
+    "provocative": {
+     "pairs": 19,
+     "agreement": 0.921
+    },
+    "staged": {
+     "pairs": 28,
+     "agreement": 0.643
+    }
+   },
+   "human_agreement_all": {
+    "pairs": 120,
+    "agreement": 0.675
+   },
+   "axes": {
+    "opulent": {
+     "judgements": 1834,
+     "first_bias": -1.798,
+     "crop_gap_vs_random": 0.216,
+     "crop_icc": 0.944,
+     "between_brands": 0.239,
+     "p": 0.001,
+     "within_brand_signal": 0.926,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.609
+     },
+     "pixels": {
+      "lightness": -0.481,
+      "contrast": 0.034,
+      "high_key": -0.491,
+      "low_key": 0.359,
+      "chroma": 0.42,
+      "colourful": 0.409,
+      "warmth": 0.393,
+      "hue_spread": 0.309,
+      "colourfulness": 0.437
+     }
+    },
+    "intimate": {
+     "judgements": 1832,
+     "first_bias": -2.576,
+     "crop_gap_vs_random": 0.294,
+     "crop_icc": 0.916,
+     "between_brands": 0.099,
+     "p": 0.001,
+     "within_brand_signal": 0.907,
+     "human_agreement_by_position": {
+      "pairs": 23,
+      "agreement": 0.826
+     },
+     "pixels": {
+      "lightness": -0.376,
+      "contrast": 0.128,
+      "high_key": -0.363,
+      "low_key": 0.282,
+      "chroma": 0.29,
+      "colourful": 0.268,
+      "warmth": 0.241,
+      "hue_spread": 0.174,
+      "colourfulness": 0.249
+     }
+    },
+    "staged": {
+     "judgements": 1832,
+     "first_bias": -4.077,
+     "crop_gap_vs_random": 0.351,
+     "crop_icc": 0.89,
+     "between_brands": 0.246,
+     "p": 0.001,
+     "within_brand_signal": 0.854,
+     "human_agreement_by_position": {
+      "pairs": 28,
+      "agreement": 0.643
+     },
+     "pixels": {
+      "lightness": -0.144,
+      "contrast": -0.005,
+      "high_key": -0.142,
+      "low_key": 0.132,
+      "chroma": 0.005,
+      "colourful": 0.009,
+      "warmth": 0.087,
+      "hue_spread": -0.015,
+      "colourfulness": 0.042
+     }
+    },
+    "contemporary": {
+     "judgements": 1836,
+     "first_bias": -2.112,
+     "crop_gap_vs_random": 0.293,
+     "crop_icc": 0.88,
+     "between_brands": 0.089,
+     "p": 0.003,
+     "within_brand_signal": 0.868,
+     "human_agreement_by_position": {
+      "pairs": 27,
+      "agreement": 0.556
+     },
+     "pixels": {
+      "lightness": -0.076,
+      "contrast": 0.184,
+      "high_key": -0.05,
+      "low_key": 0.09,
+      "chroma": 0.041,
+      "colourful": -0.002,
+      "warmth": -0.038,
+      "hue_spread": 0.15,
+      "colourfulness": 0.079
+     }
+    },
+    "provocative": {
+     "judgements": 1836,
+     "first_bias": -1.593,
+     "crop_gap_vs_random": 0.279,
+     "crop_icc": 0.951,
+     "between_brands": 0.305,
+     "p": 0.001,
+     "within_brand_signal": 0.929,
+     "human_agreement_by_position": {
+      "pairs": 19,
+      "agreement": 0.895
+     },
+     "pixels": {
+      "lightness": -0.403,
+      "contrast": 0.164,
+      "high_key": -0.394,
+      "low_key": 0.356,
+      "chroma": 0.163,
+      "colourful": 0.151,
+      "warmth": 0.129,
+      "hue_spread": 0.251,
+      "colourfulness": 0.228
+     }
+    }
+   },
+   "axis_correlations": {
+    "contemporary|intimate": 0.312,
+    "contemporary|opulent": 0.103,
+    "contemporary|provocative": 0.461,
+    "contemporary|staged": 0.022,
+    "intimate|opulent": 0.421,
+    "intimate|provocative": 0.507,
+    "intimate|staged": 0.083,
+    "opulent|provocative": 0.608,
+    "opulent|staged": 0.498,
+    "provocative|staged": 0.4
+   }
+  }
+ },
+ "person": {
+  "answered": 150,
+  "left_or_right": 120,
+  "unsure": 30,
+  "pairs": 150,
+  "pixel_baseline": {
+   "contemporary": {
+    "pairs": 27,
+    "agreement_left_out": 0.704,
+    "best_measure": "chroma",
+    "best_measure_share": 0.259
+   },
+   "intimate": {
+    "pairs": 23,
+    "agreement_left_out": 0.478,
+    "best_measure": "contrast",
+    "best_measure_share": 0.304
+   },
+   "opulent": {
+    "pairs": 23,
+    "agreement_left_out": 0.217,
+    "best_measure": "hue_spread",
+    "best_measure_share": 0.609
+   },
+   "provocative": {
+    "pairs": 19,
+    "agreement_left_out": 0.289,
+    "best_measure": "hue_spread",
+    "best_measure_share": 0.684
+   },
+   "staged": {
+    "pairs": 28,
+    "agreement_left_out": 0.446,
+    "best_measure": "chroma",
+    "best_measure_share": 0.643
+   }
+  }
+ }
 }
