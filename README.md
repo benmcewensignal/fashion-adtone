@@ -21,8 +21,11 @@ their clothes look like.
   credits, show statements and media value compiled by hand into `reference/`, each row with its
   source. YouTube (`adtone.youtube`) and TikTok's ad library (`adtone.tiktok`) are built and wait for
   their keys. `adtone.character` reads character, shift and its relation to growth from the
-  homepages; it is exploratory. See `docs/THREAD.md` for every source and its workflow.
-- Built and tested on synthetic data with known ground truth (230 tests).
+  homepages; `adtone.readings` takes that further (which answers can be tracked, each brand's change
+  like for like and net of the market, turnover against drift, across brands, the market, designer
+  changes beside brands without one, and success); both are exploratory. See `docs/THREAD.md` for every
+  source and its workflow.
+- Built and tested on synthetic data with known ground truth (252 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.

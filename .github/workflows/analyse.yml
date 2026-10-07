@@ -69,6 +69,11 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         run: python -m adtone.character
+      - name: Readings of character, shifts and success (exploratory)
+        if: env.MODE == 'analyse'
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python -m adtone.readings
       - name: Alignment of words and images (exploratory)
         if: env.MODE == 'analyse'
         continue-on-error: true
