@@ -1056,8 +1056,10 @@ def score() -> dict:
 
 
 def READING_DIRS() -> list[Path]:
-    """Where readings are kept: the bake-off's own, and those taken through the luxury reader."""
-    return [DIR / "readings", config.DATA / "luxury" / "bakeoff"]
+    """Where readings are kept: those taken through the luxury reader, on which the reader decision of
+    7 October rests (data/luxury/plan.json), then the bake-off's own. Two complete copies of one reading
+    tie, and the first listed is used, so a later copy never silently replaces the one decided on."""
+    return [config.DATA / "luxury" / "bakeoff", DIR / "readings"]
 
 
 def _best_reading(fname: str, good) -> list[dict]:
