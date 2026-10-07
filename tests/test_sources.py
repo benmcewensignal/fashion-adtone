@@ -81,6 +81,17 @@ def test_views_are_summed_across_the_article_and_its_former_title(tmp_data, monk
     assert not any("monthly" in u or "redirects" in u for u in calls[n:] if "per-article" in u)
 
 
+def test_articles_worked_in_parallel_give_the_same_series(tmp_data, monkeypatch):
+    monkeypatch.setattr(wikiviews, "LANGS", ("en", "fr", "ja"))
+    store.write_state(config.STATE_DIR / "attention.json", {"titles": {"gucci": "Gucci", "loewe": "Loewe"}})
+    calls = []
+    out = wikiviews.collect(FakeSession(_wiki_handler(calls)), _reg(GUCCI), "r1", end=date(2026, 10, 3),
+                            sleep=lambda s: None, workers=4, make_session=lambda: FakeSession(_wiki_handler(calls)))
+    assert out["series_written"] == 2 and out["workers"] == 4
+    en = store.read_jsonl(wikiviews.paths()["dir"] / "en" / "gucci.jsonl")
+    assert [r["views"] for r in en] == [120, 120, 120]
+
+
 # ---------- Wikidata ----------
 
 ENTITY = {"labels": {"en": {"value": "Gucci"}}, "claims": {
@@ -136,9 +147,12 @@ def test_final_url_follows_the_archive_redirect():
 
 
 def test_plan_goes_newest_month_first_across_every_brand_and_skips_done():
-    caps = {"a": {"2026-09": ("t1", "u"), "2026-08": ("t2", "u")}, "b": {"2026-09": ("t3", "u")}}
-    p = homepages.plan(caps, done={"b:2026-09"})
-    assert [(h, m) for h, m, _, _ in p] == [("a", "2026-09"), ("a", "2026-08")]
+    idx = {"a": {"2026-09": [["t1", "u", "200"]], "2026-08": [["t2", "u", "200"]]},
+           "b": {"2026-09": [["t3", "u", "200"]], "2026-08": [["t4", "u", "200"], ["t5", "u", "200"]]}}
+    rows = {"b:2026-09": {"status": "resolved"},
+            "b:2026-08": {"status": "error", "attempts": 1},     # a second capture is left to try
+            "a:2026-08": {"status": "no_images", "attempts": 1}}  # its only capture is spent
+    assert homepages.plan(idx, rows) == [("a", "2026-09"), ("b", "2026-08")]
 
 
 def _home_handler(imgs):
@@ -200,3 +214,109 @@ def _fake_download(c):
                 got.setdefault(f.sha, f)
         return list(got.values())[:keep]
     return dl
+
+
+def test_spread_keeps_the_first_capture_and_spaces_the_rest():
+    rows = [[f"201901{d:02d}000000", "u", "200"] for d in range(1, 31)]
+    got = homepages._spread(rows, 4)
+    assert len(got) == 4 and got[0] == rows[0] and got[-1] == rows[-1]
+    assert homepages._spread(rows[:3], 4) == rows[:3]
+
+
+def test_more_pictures_are_found_in_backgrounds_preloads_and_inline_data():
+    html = """<html><head><link rel="preload" as="image" href="/media/hero-preload.jpg">
+    <script>window.__DATA__={"slides":[{"src":"https:\\/\\/cdn.house.com\\/campaign\\/look-01.jpg?w=2000"}]}</script></head>
+    <body><div style="background-image: url('/media/hero-bg.webp')"></div><img src="/media/logo.png"></body></html>"""
+    urls = homepages.page_images(html, "https://www.house.com/gb/", "20240105000000")
+    names = [u.rsplit("/", 1)[-1] for u in urls]
+    assert "hero-bg.webp" in names and "hero-preload.jpg" in names and "look-01.jpg?w=2000" in names
+    assert not any("logo" in n for n in names)
+    assert all(u.startswith("https://web.archive.org/web/20240105000000im_/") for u in urls)
+
+
+def test_a_country_chooser_leads_to_the_british_page_and_a_refresh_is_followed():
+    chooser = """<html><body><a href="/fr-fr/">France</a><a href="/en-us/">United States</a>
+    <a href="/en-gb/">United Kingdom</a><a href="https://www.other.com/en-gb/">elsewhere</a>
+    <a href="/en-gb/stores">stores</a></body></html>"""
+    assert homepages.next_page(chooser, "https://www.house.com/") == ("https://www.house.com/en-gb/", "country page")
+    lv = '<a href="/eng-us/homepage">US</a><a href="/eng-e1/homepage">International</a>'
+    assert homepages.next_page(lv, "https://www.house.com/")[0] == "https://www.house.com/eng-us/homepage"
+    refresh = '<meta http-equiv="refresh" content="0; url=/gb/home">'
+    assert homepages.next_page(refresh, "https://www.house.com/") == ("https://www.house.com/gb/home", "refresh")
+    script = "<script>window.location.href = 'https://www.house.com/us/';</script>"
+    assert homepages.next_page(script, "https://www.house.com/") == ("https://www.house.com/us/", "script redirect")
+    assert homepages.next_page("<html><body>nothing</body></html>", "https://www.house.com/") is None
+
+
+def _hp_handler(imgs, pages, cdx_rows, cdx_calls):
+    def h(url, params):
+        if url == homepages.CDX:
+            cdx_calls.append(dict(params))
+            return FakeResponse(200, payload=[["timestamp", "original", "statuscode"]] + cdx_rows.get(params["url"], []))
+        if "im_/" in url:
+            if url not in imgs:
+                imgs[url] = jpeg_bytes(toned_image(0.2 + 0.1 * (len(imgs) % 7), seed=len(imgs)))
+            return FakeResponse(200, content=imgs[url])
+        for prefix, resp in pages.items():
+            if url.startswith(prefix):
+                return resp
+        return FakeResponse(404, text="")
+    return h
+
+
+def test_a_failed_capture_falls_back_to_the_next_and_a_chooser_is_stepped_through(tmp_data, monkeypatch, tmp_path):
+    sites = tmp_path / "sites.csv"
+    sites.write_text("house,domains,note\ngucci,gucci.com,\nloewe,loewe.com;oldloewe.com,\n", encoding="utf-8")
+    monkeypatch.setattr(homepages, "SITES_FILE", sites)
+    chooser = FakeResponse(200, text='<html><body><a href="/en-gb/">UK</a><a href="/fr-fr/">FR</a></body></html>')
+    pages = {
+        "https://web.archive.org/web/20240102000000/": FakeResponse(403, text="blocked"),   # the bot wall, captured
+        "https://web.archive.org/web/20240110000000/": FakeResponse(200, text=HOME),
+        "https://web.archive.org/web/20240203000000/https://www.loewe.com/en-gb/": FakeResponse(200, text=HOME),
+        "https://web.archive.org/web/20240203000000/": chooser,
+    }
+    cdx_rows = {"gucci.com": [["20240102000000", "https://www.gucci.com/", "302"],
+                              ["20240110000000", "https://www.gucci.com/", "200"]],
+                "loewe.com": [["20240203000000", "https://www.loewe.com/", "200"]],
+                "oldloewe.com": [["20140203000000", "https://www.oldloewe.com/", "200"]]}
+    imgs, cdx_calls = {}, []
+    sess = FakeSession(_hp_handler(imgs, pages, cdx_rows, cdx_calls))
+    c = homepages.Crawler(sess, pause=0)
+    monkeypatch.setattr(homepages, "download", _fake_download(c))
+    scorer = FakeScorer(load_rubric())
+    out = homepages.collect(c, _reg(GUCCI, LOEWE), FakeEmbedder(), scorer, "r1", workers=3,
+                            make_crawler=lambda: homepages.Crawler(sess, pause=0))
+    P = homepages.paths()
+    g = {r["key"]: r for r in store.read_jsonl(P["captures"] / "gucci.jsonl")}["gucci:2024-01"]
+    assert g["status"] == "resolved" and g["capture"] == "20240110000000" and g["attempts"] == 2
+    assert g["tried"] == ["20240102000000", "20240110000000"]
+    lo = {r["key"]: r for r in store.read_jsonl(P["captures"] / "loewe.jsonl")}
+    assert lo["loewe:2024-02"]["status"] == "resolved" and lo["loewe:2024-02"]["via"] == "country page"
+    assert lo["loewe:2024-02"]["page"] == "https://www.loewe.com/en-gb/"
+    assert "loewe:2014-02" in lo     # the older domain fills the months the current one lacks
+    assert out["later_capture"] == 1 and out["stepped"] == 1 and out["months_in_archive"] == {"gucci": 1, "loewe": 2}
+    assert scorer.calls == len(store.read_jsonl(P["obs"] / "tone-v1.jsonl")) == len(VectorStore("fake", root=P["vectors"]).vecs)
+    # the index is kept: the next run asks only from the newest month on file
+    cdx_calls.clear()
+    homepages.collect(c, _reg(GUCCI, LOEWE), FakeEmbedder(), scorer, "r2")
+    assert {p["url"]: p["from"] for p in cdx_calls} == {"gucci.com": "202401", "loewe.com": "202402", "oldloewe.com": "202402"}
+    assert json.loads((P["index"] / "loewe.json").read_text())["2014-02"][0][0] == "20140203000000"
+
+
+def test_a_reader_failure_files_nothing_from_the_chunk(tmp_data, monkeypatch, tmp_path):
+    from adtone.score import ScoreError
+    sites = tmp_path / "sites.csv"
+    sites.write_text("house,domains,note\ngucci,gucci.com,\n", encoding="utf-8")
+    monkeypatch.setattr(homepages, "SITES_FILE", sites)
+    pages = {"https://web.archive.org/web/2024": FakeResponse(200, text=HOME)}
+    cdx_rows = {"gucci.com": [["20240110000000", "https://www.gucci.com/", "200"]]}
+    imgs = {}
+    c = homepages.Crawler(FakeSession(_hp_handler(imgs, pages, cdx_rows, [])), pause=0)
+    monkeypatch.setattr(homepages, "download", _fake_download(c))
+
+    class Down(FakeScorer):
+        def score_many(self, jpegs):
+            raise ScoreError("API: Modal ConnectionError")
+    out = homepages.collect(c, _reg(GUCCI), FakeEmbedder(), Down(load_rubric()), "r1")
+    assert out["stopped"].startswith("reader: API") and out["captures"] == 0
+    assert not store.read_jsonl(homepages.paths()["captures"] / "gucci.jsonl")

@@ -253,6 +253,25 @@ def make_scorer(rubric: Rubric, reader: str | None = None):
         return ModalScorer(rubric)
     raise ValueError(f"unknown reader {reader!r}")
 
+
+def score_batch(scorer, jpegs: list[bytes]) -> list:
+    """Several images in one call where the reader takes batches (the open model on Modal), one by one
+    otherwise. Each answer is a dict, or the ScoreError of an invalid reply; a failure of the reader
+    itself (an "API:" error) is raised, since nothing from the batch can be trusted."""
+    if not jpegs:
+        return []
+    if hasattr(scorer, "score_many"):
+        return scorer.score_many(jpegs)
+    out = []
+    for j in jpegs:
+        try:
+            out.append(scorer.score(j))
+        except ScoreError as e:
+            if str(e).startswith("API:"):
+                raise
+            out.append(e)
+    return out
+
 class FakeScorer:
     """Deterministic valid output from image brightness, for tests."""
 

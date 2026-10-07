@@ -31,16 +31,25 @@ class FakeResponse:
 
 
 class FakeSession:
-    """Routes GETs to a handler(url, params) -> FakeResponse and records every call."""
+    """Routes GETs to a handler(url, params) -> FakeResponse and records every call. POSTs go to
+    post_handler(url, params, json, data) when one is given."""
 
-    def __init__(self, handler):
+    def __init__(self, handler, post_handler=None):
         self.handler = handler
+        self.post_handler = post_handler
         self.calls: list[tuple[str, dict | None]] = []
+        self.posts: list[tuple[str, dict | None, object]] = []
         self.headers: dict = {}
 
-    def get(self, url, params=None, timeout=None, stream=False):
+    def get(self, url, params=None, timeout=None, stream=False, **kw):
         self.calls.append((url, dict(params) if params else None))
         return self.handler(url, params)
+
+    def post(self, url, params=None, json=None, data=None, timeout=None, headers=None, **kw):
+        self.posts.append((url, dict(params) if params else None, json if json is not None else data))
+        if self.post_handler is None:
+            raise AssertionError(f"unexpected POST {url}")
+        return self.post_handler(url, params, json, data)
 
 
 def api_ad(ad_id: str, page_id: str, start: str, stop: str | None = None, body: str = "The new collection",

@@ -183,14 +183,33 @@ class Refusing(FakeGdelt):
         return R(status=429, text="")
 
 
-def test_a_rate_limit_stops_the_run_instead_of_hammering_on(tmp_path, monkeypatch):
+def test_a_rate_limit_is_waited_out_twice_then_stops_the_run(tmp_path, monkeypatch):
     _press_paths(monkeypatch, tmp_path)
     reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], []),
                             House("gucci", "Gucci", "treated", "G", [], [], [])])
     fake, waits = Refusing(), []
     st = press.collect(fake, reg, "r1", end=date(2026, 12, 31), sleep=waits.append)
-    assert st["rate_limited"] and st["failed"] == {} and len(fake.calls) == 4     # one window tried, then stop
-    assert {30.0, 60.0, 120.0} <= set(waits)
+    assert st["rate_limited"] and st["failed"] == {} and len(fake.calls) == 12    # one window, three rounds, then stop
+    assert {30.0, 60.0, 120.0} <= set(waits) and waits.count(press.RATE_PAUSE_S) == 2
+    assert "HTTP 429" in st["last_error"]
+
+
+class Pleading(FakeGdelt):
+    """GDELT's other way of saying no: HTTP 200 and a sentence instead of JSON."""
+    def get(self, url, params=None, timeout=None):
+        self.calls.append(params)
+        if len(self.calls) <= 2:
+            return R(text="Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries.")
+        return super().get(url, params, timeout)
+
+
+def test_a_plea_to_slow_down_is_a_refusal_not_a_failed_house(tmp_path, monkeypatch):
+    _press_paths(monkeypatch, tmp_path)
+    reg = Registry(1, "T", [House("prada", "Prada", "control", "G", [], [], [])])
+    fake, waits = Pleading(), []
+    st = press.collect(fake, reg, "r1", end=date(2017, 3, 31), sleep=waits.append)
+    assert st["failed"] == {} and not st["rate_limited"] and st["complete"] == ["prada"]
+    assert 30.0 in waits and 60.0 in waits
 
 
 def test_page_views_wait_and_retry_after_too_many_requests():

@@ -1,16 +1,16 @@
 name: homepages
 run-name: homepages ${{ github.event_name }}
 # Each brand's homepage, month by month, from the Wayback Machine: the share image and the page's
-# large images, read by the reader and fingerprinted. Daily while the history back to 2014 fills,
-# a few hundred months a run; once caught up a run reads the one new month and stops.
+# large images, read by the reader and fingerprinted. Three times a day while the history back to 2014
+# fills, several hundred brand-months a run; once caught up a run reads the one new month and stops.
 on:
   schedule:
-    - cron: "20 3 * * *"
+    - cron: "20 3,11,19 * * *"
   workflow_dispatch:
     inputs:
       max_captures:
         description: "brand-months to read in this run"
-        default: "600"
+        default: "1500"
   push:   # editing .github/kick/homepages starts a run
     branches: [main]
     paths: [".github/kick/homepages"]
@@ -33,7 +33,7 @@ jobs:
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-      MAX: ${{ inputs.max_captures || '600' }}
+      MAX: ${{ inputs.max_captures || '1500' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -50,7 +50,7 @@ jobs:
         id: collect
         continue-on-error: true
         timeout-minutes: 100   # the stage stops itself at 90 minutes and saves what it has
-        run: python -m adtone.homepages collect --run "gh${GITHUB_RUN_ID}" --max-captures "$MAX" --budget-min 90
+        run: python -m adtone.homepages collect --run "gh${GITHUB_RUN_ID}" --max-captures "$MAX" --budget-min 90 --workers 5
       - name: Completeness probe
         continue-on-error: true
         timeout-minutes: 3

@@ -1,10 +1,10 @@
 name: backcat
-run-name: backcat ${{ inputs.stage || 'monthly' }}
+run-name: backcat ${{ inputs.stage || github.event_name }}
 # The back catalogue: campaigns from before the Meta repository's one-year window. models.com gives
 # the crew, date and source page; the Wayback Machine gives the images from the houses' own sites.
 on:
   schedule:
-    - cron: "0 5 2 * *"   # monthly; the sources keep their history, so nothing is lost between runs
+    - cron: "0 5 * * 0"   # weekly while some 4,000 campaign pages wait to be read; the sources keep their history
   workflow_dispatch:
     inputs:
       stage:

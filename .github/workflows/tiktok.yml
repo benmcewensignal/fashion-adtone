@@ -1,0 +1,61 @@
+name: tiktok
+run-name: tiktok ${{ github.event_name }}
+# The houses' ads in TikTok's Commercial Content API (its ad library for Europe under the DSA): found by
+# name, kept when the advertiser is the house, pictures and three frames of each video read by the
+# reader. The library holds an ad for a year after it last ran, so this runs weekly and the history
+# grows forward. Waits, recording that it waited, until TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET exist.
+on:
+  schedule:
+    - cron: "10 6 * * 4"
+  workflow_dispatch:
+  push:   # editing .github/kick/tiktok starts a run
+    branches: [main]
+    paths: [".github/kick/tiktok"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-tiktok
+  cancel-in-progress: false
+
+jobs:
+  tiktok:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 90
+    env:
+      PYTHONUNBUFFERED: "1"
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: |
+          if [ -n "$TIKTOK_CLIENT_KEY" ]; then pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt; else pip install -r requirements.txt; fi
+      - name: Cache embedder weights
+        if: env.TIKTOK_CLIENT_KEY != ''
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Collect ads
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 70
+        run: python -m adtone.tiktok collect --run "gh${GITHUB_RUN_ID}" --budget-min 60
+      - name: Probe
+        if: env.TIKTOK_CLIENT_KEY != ''
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.tiktok probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh tiktok "tiktok ${{ github.event_name }}"

@@ -1,0 +1,65 @@
+name: youtube
+run-name: youtube ${{ github.event_name }}
+# Every film on each house's own YouTube channel: views, likes, comments and the description where the
+# house credits its crew, refreshed weekly; films under 120 days old get a dated row of their counts;
+# new thumbnails (the image the house chose for the film) go through the reader. Waits, recording that
+# it waited, until the YOUTUBE_API_KEY secret exists.
+on:
+  schedule:
+    - cron: "40 5 * * 3"
+  workflow_dispatch:
+    inputs:
+      read_thumbs:
+        description: "new thumbnails to read in this run"
+        default: "300"
+  push:   # editing .github/kick/youtube starts a run
+    branches: [main]
+    paths: [".github/kick/youtube"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-youtube
+  cancel-in-progress: false
+
+jobs:
+  youtube:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 90
+    env:
+      PYTHONUNBUFFERED: "1"
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      THUMBS: ${{ inputs.read_thumbs || '300' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: |
+          if [ -n "$YOUTUBE_API_KEY" ]; then pip install -r requirements.txt -r requirements-embed.txt; else pip install -r requirements.txt; fi
+      - name: Cache embedder weights
+        if: env.YOUTUBE_API_KEY != ''
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Collect films
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 70
+        run: python -m adtone.youtube collect --run "gh${GITHUB_RUN_ID}" --budget-min 60 --read-thumbs "$THUMBS"
+      - name: Probe
+        if: env.YOUTUBE_API_KEY != ''
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.youtube probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh youtube "youtube ${{ github.event_name }}"

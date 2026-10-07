@@ -1,11 +1,13 @@
 name: press
-run-name: press daily
+run-name: press ${{ github.event_name }}
 # News tone and volume for every house from GDELT, the reception term for adtone.runway. GDELT asks
-# for one request every five seconds and refuses bursts, so the backfill to January 2017 fills a
-# little each day, resuming where the last run stopped; once complete a run takes a minute or two.
+# for one request every five seconds and refuses bursts, often refusing GitHub's shared addresses
+# outright, so the backfill to January 2017 fills a little each run, every four hours, resuming where
+# the last run stopped. Each job lands on a different machine, which is what lets a refused run's
+# successor through. Once complete a run takes a minute or two.
 on:
   schedule:
-    - cron: "35 2 * * *"
+    - cron: "35 */4 * * *"
   workflow_dispatch:
   push:   # editing .github/kick/press starts a run
     branches: [main]
@@ -42,4 +44,4 @@ jobs:
         run: python -m adtone.press probe --run "gh${GITHUB_RUN_ID}"
       - name: Persist
         timeout-minutes: 5
-        run: bash scripts/persist.sh press "press daily"
+        run: bash scripts/persist.sh press "press ${{ github.event_name }}"

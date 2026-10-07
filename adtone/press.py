@@ -30,6 +30,9 @@ START = date(2017, 1, 1)       # the DOC 2.0 API's fixed horizon
 WINDOW_DAYS = 366              # tried first; if a year does not come back day by day, a house drops to SHORT_DAYS
 SHORT_DAYS = 90                # always short enough for a daily timeline
 SLEEP_S = 8.0                  # GDELT asks for one request every five seconds; shared runner addresses need more
+RATE_TEXT = ("limit requests", "rate limit", "too many requests")
+RATE_PAUSE_S = 300.0           # a refusal is waited out twice per run before the run gives up
+RATE_PAUSES = 2
 UA = "fashion-adtone research (press series; contact via the repository)"
 CONTEXT = "(fashion OR runway OR collection OR handbag OR couture)"
 QUERIES = {   # houses whose names mean something else too
@@ -86,12 +89,22 @@ def parse_timeline(obj: dict) -> dict[str, dict]:
     return out
 
 
+def _refused(r) -> bool:
+    """GDELT refuses with 429, with a 5xx, or with HTTP 200 and a plain-text plea to slow down."""
+    if r.status_code == 429 or r.status_code >= 500:
+        return True
+    head = (r.text or "")[:300].lower()
+    return r.status_code == 200 and not head.lstrip().startswith(("{", "[")) and any(t in head for t in RATE_TEXT)
+
+
 def fetch(sess, query: str, start: date, end: date, mode: str, sleep=time.sleep, retries: int = 3) -> dict[str, dict]:
     params = {"query": query, "mode": mode, "format": "json",
               "startdatetime": _stamp(start), "enddatetime": _stamp(end, True)}
+    last = ""
     for attempt in range(retries + 1):
         r = sess.get(API, params=params, timeout=60)
-        if r.status_code == 429 or r.status_code >= 500:
+        if _refused(r):
+            last = f"HTTP {r.status_code}: {(r.text or '').strip()[:120]}"
             if attempt < retries:
                 sleep(30.0 * 2 ** attempt)     # 30 s, 60 s, 120 s
             continue
@@ -105,7 +118,7 @@ def fetch(sess, query: str, start: date, end: date, mode: str, sleep=time.sleep,
         except ValueError:
             # GDELT answers a malformed or too-broad query with a plain-text message, not JSON
             raise RuntimeError(f"GDELT said: {text[:160]}") from None
-    raise RateLimited("GDELT kept refusing: rate limited or unavailable")
+    raise RateLimited(f"GDELT kept refusing ({last})")
 
 
 def window(sess, query: str, start: date, end: date, sleep=time.sleep) -> list[dict]:
@@ -143,7 +156,7 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
     covered = state.get("covered", {})
     queries = {h.id: query_for(h) for h in reg.houses}
     span = state.get("span", {})
-    failed, fetched, t0, limited = {}, 0, clock(), None
+    failed, fetched, t0, limited, pauses, last_error = {}, 0, clock(), None, 0, None
     for h in reg.houses:
         if limited:
             break
@@ -160,12 +173,19 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
                 rows = window(sess, q, nxt, stop, sleep=sleep)
             except NotDaily:
                 span[h.id] = SHORT_DAYS
+                sleep(SLEEP_S)
                 continue
             except RateLimited as e:
+                last_error = str(e)[:200]
+                if pauses < RATE_PAUSES and clock() - t0 + RATE_PAUSE_S < budget_s:
+                    pauses += 1
+                    sleep(RATE_PAUSE_S)   # wait the refusal out once more, then retry the same window
+                    continue
                 limited = str(e)
                 break
             except (RuntimeError, requests.RequestException) as e:
-                failed[h.id] = str(e)[:200]
+                failed[h.id] = last_error = str(e)[:200]
+                sleep(SLEEP_S)            # keep the pace even after a failure, or the next house is refused too
                 break
             existing = {r["date"]: r for r in store.read_jsonl(path)} if path.exists() else {}
             existing.update({r["date"]: {**r, "query": q} for r in rows})
@@ -176,11 +196,12 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
             sleep(SLEEP_S)
     complete = sorted(h for h in queries if covered.get(h) == end.isoformat())
     state = {"run": run, "updated_at": store.utc_now(), "covered": covered, "queries": queries, "span": span,
-             "end": end.isoformat(), "complete": complete, "failed": failed, "rate_limited": limited}
+             "end": end.isoformat(), "complete": complete, "failed": failed, "rate_limited": limited,
+             "last_error": last_error}
     store.write_state(P["state"], state)
     store.append_jsonl(P["prov"], [{"run": run, "updated_at": state["updated_at"], "windows": fetched,
                                     "complete": len(complete), "houses": len(queries), "failed": sorted(failed),
-                                    "rate_limited": bool(limited)}])
+                                    "rate_limited": bool(limited), "pauses": pauses, "last_error": last_error}])
     return state
 
 

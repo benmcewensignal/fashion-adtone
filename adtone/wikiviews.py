@@ -23,7 +23,9 @@ from __future__ import annotations
 
 import argparse
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -163,9 +165,36 @@ def _due(scanned_at: str | None, today: date) -> bool:
     return (today - date.fromisoformat(scanned_at[:10])).days >= RESCAN_DAYS
 
 
+def _pair(sess, lang: str, title: str, rec: dict, today: date, end: date, sleep=time.sleep) -> tuple[dict, list[dict], bool]:
+    """One article: its redirects scanned when due, then the daily series summed across counted titles."""
+    scanned = False
+    if rec.get("article") != title or _due(rec.get("scanned_at"), today):
+        month_end = today.replace(day=1) - timedelta(days=1)
+        own = _views(sess, lang, title, "monthly", START, month_end, sleep=sleep)
+        sleep(PAUSE_S)
+        reds = {}
+        for t in redirects(sess, lang, title, sleep=sleep):
+            reds[t] = _views(sess, lang, t, "monthly", START, month_end, sleep=sleep)
+            sleep(PAUSE_S)
+        rec = {"article": title, "counted": counted_titles(own, reds), "redirects_seen": len(reds),
+               "scanned_at": store.utc_now()}
+        scanned = True
+    total: dict[str, int] = {}
+    for t in [title] + rec["counted"]:
+        for d, v in _views(sess, lang, t, "daily", START, end, sleep=sleep).items():
+            total[d] = total.get(d, 0) + v
+        sleep(PAUSE_S)
+    n_titles = 1 + len(rec["counted"])
+    rows = [{"date": d, "views": v, "titles": n_titles} for d, v in sorted(total.items())]
+    rec = {**rec, "days": len(total), "first": min(total) if total else None, "refreshed_to": end.isoformat()}
+    return rec, rows, scanned
+
+
 def collect(sess, reg: registry.Registry, run: str, end: date | None = None, budget_s: float = 45 * 60,
-            sleep=time.sleep, clock=time.monotonic) -> dict:
-    """Resolve items and articles, scan redirects when due, refresh every daily series. Resumable."""
+            sleep=time.sleep, clock=time.monotonic, workers: int = 1, make_session=None) -> dict:
+    """Resolve items and articles, scan redirects when due, refresh every daily series. Resumable.
+    Articles are worked by `workers` threads, each with its own session when `make_session` is given;
+    Wikimedia's per-article endpoint is cached and allows far more than this asks of it."""
     end = end or (datetime.now(timezone.utc).date() - timedelta(days=1))
     today = end + timedelta(days=1)
     P = paths()
@@ -183,50 +212,53 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
     st["items"] = items
     st["unresolved"] = sorted(h.id for h in reg.houses if h.id not in items)
 
+    local = threading.local()
+
+    def own_session():
+        if make_session is None:
+            return sess
+        if not hasattr(local, "s"):
+            local.s = make_session()
+        return local.s
+
+    def task(lang, title, rec):
+        if clock() - t0 > budget_s:
+            return None
+        return _pair(own_session(), lang, title, rec, today, end, sleep=sleep)
+
     # (house, lang) pairs, round-robin by language so every market fills before any gets its tail
     pairs = [(h.id, lang) for lang in LANGS for h in reg.houses if h.id in items]
     done, scanned, stopped = 0, 0, False
-    for hid, lang in pairs:
-        if clock() - t0 > budget_s:
-            stopped = True
-            break
-        title = sitelinks(links.get(items[hid], {})).get(lang)
-        key = f"{hid}:{lang}"
-        rec = st["articles"].get(key) or {}
-        if not title:
-            st["articles"][key] = {"article": None}
-            continue
-        try:
-            if rec.get("article") != title or _due(rec.get("scanned_at"), today):
-                month_end = today.replace(day=1) - timedelta(days=1)
-                own = _views(sess, lang, title, "monthly", START, month_end, sleep=sleep)
-                sleep(PAUSE_S)
-                reds = {}
-                for t in redirects(sess, lang, title, sleep=sleep):
-                    reds[t] = _views(sess, lang, t, "monthly", START, month_end, sleep=sleep)
-                    sleep(PAUSE_S)
-                rec = {"article": title, "counted": counted_titles(own, reds), "redirects_seen": len(reds),
-                       "scanned_at": store.utc_now()}
-                scanned += 1
-            total: dict[str, int] = {}
-            for t in [title] + rec["counted"]:
-                for d, v in _views(sess, lang, t, "daily", START, end, sleep=sleep).items():
-                    total[d] = total.get(d, 0) + v
-                sleep(PAUSE_S)
-            n_titles = 1 + len(rec["counted"])
-            store.write_jsonl(P["dir"] / lang / f"{hid}.jsonl",
-                              [{"date": d, "views": v, "titles": n_titles} for d, v in sorted(total.items())])
-            rec.update({"days": len(total), "first": min(total) if total else None, "refreshed_to": end.isoformat()})
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as ex:
+        futs = {}
+        for hid, lang in pairs:
+            title = sitelinks(links.get(items[hid], {})).get(lang)
+            key = f"{hid}:{lang}"
+            if not title:
+                st["articles"][key] = {"article": None}
+                continue
+            futs[ex.submit(task, lang, title, st["articles"].get(key) or {})] = (hid, lang, key)
+        for fut in futs:   # in submission order, so files are written in a stable order
+            hid, lang, key = futs[fut]
+            try:
+                res = fut.result()
+            except (RuntimeError, requests.RequestException, ValueError, KeyError) as e:
+                failed[key] = f"{e.__class__.__name__}: {str(e)[:200]}"
+                continue
+            if res is None:
+                stopped = True
+                continue
+            rec, rows, was_scanned = res
+            store.write_jsonl(P["dir"] / lang / f"{hid}.jsonl", rows)
             st["articles"][key] = rec
             done += 1
-        except (RuntimeError, requests.RequestException, ValueError, KeyError) as e:
-            failed[key] = f"{e.__class__.__name__}: {str(e)[:200]}"
+            scanned += int(was_scanned)
     st.update({"run": run, "updated_at": store.utc_now(), "end": end.isoformat(), "langs": list(LANGS),
                "failed": failed, "stopped_on_budget": stopped})
     store.write_state(P["state"], st)
     out = {"run": run, "updated_at": st["updated_at"], "end": st["end"], "series_written": done,
            "articles_scanned": scanned, "failed": len(failed), "stopped_on_budget": stopped,
-           "unresolved": st["unresolved"]}
+           "unresolved": st["unresolved"], "workers": workers}
     store.append_jsonl(P["prov"], [out])
     return out
 
@@ -254,10 +286,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("stage", choices=["collect", "probe"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--budget-min", type=float, default=45)
+    ap.add_argument("--workers", type=int, default=6)
     a = ap.parse_args(argv)
     if a.stage == "collect":
         try:
-            out = collect(session(), registry.load(), a.run, budget_s=a.budget_min * 60)
+            out = collect(session(), registry.load(), a.run, budget_s=a.budget_min * 60, workers=a.workers,
+                          make_session=session)
         except Exception as e:   # leave a record whatever happens: the run's log is not always readable
             out = {"run": a.run, "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
             store.append_jsonl(paths()["prov"], [out])

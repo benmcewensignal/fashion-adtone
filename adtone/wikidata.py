@@ -29,6 +29,18 @@ PROPS = {"P127": "owned_by", "P749": "parent", "P571": "inception", "P112": "fou
          "P1037": "director", "P3342": "significant_person"}
 QUALIFIERS = {"P580": "start", "P582": "end", "P2868": "role", "P3831": "role", "P39": "role", "P1810": "named_as"}
 CREATIVE = ("creative director", "artistic director", "designer", "fashion designer", "creative")
+# Names under which Wikidata records the same control as the registry's owner. Wikidata often names the
+# holding above the group (Financière Agache above LVMH and Christian Dior SE; H51, the Hermès family's
+# holding) or the brand's owner rather than the operator (Estée Lauder owns the Tom Ford name and
+# licenses the fashion business to Zegna). These are the same facts, not disagreements.
+OWNER_EQUIVALENTS = {
+    "LVMH": ("lvmh", "financière agache", "agache", "christian dior se"),
+    "Hermès": ("hermès", "hermes", "h51"),
+    "Zegna Group": ("zegna", "estée lauder"),
+    "Prada Group": ("prada",),
+    "Dolce&Gabbana": ("dolce",),
+    "Max Mara Fashion Group": ("max mara",),
+}
 
 
 def paths() -> dict[str, Path]:
@@ -113,7 +125,8 @@ def disagreements(reg: registry.Registry, facts: dict) -> list[str]:
             out.append(f"{h.id}: no Wikidata facts")
             continue
         owners = [r["value"] for r in current(f.get("owned_by", []) + f.get("parent", []))]
-        if h.owner and owners and not any(h.owner.split()[0].lower() in str(o).lower() for o in owners):
+        keys = OWNER_EQUIVALENTS.get(h.owner, (h.owner.split()[0].lower(),) if h.owner else ())
+        if h.owner and owners and not any(k in str(o).lower() for o in owners for k in keys):
             out.append(f"{h.id}: registry owner {h.owner!r}, Wikidata says {', '.join(map(str, owners))}")
         if h.debut:
             people = [r for r in f.get("director", []) + f.get("significant_person", []) if is_creative(r)]
