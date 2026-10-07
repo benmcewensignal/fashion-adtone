@@ -73,7 +73,8 @@ def test_shipped_registry_is_coherent():
     assert all(h.debut and date(2025, 7, 1) <= h.debut.date <= date(2026, 3, 1) for h in treated)
     assert {"balenciaga", "gucci"} <= {h.id for h in treated}
     ext = full.tier("extension")
-    assert ext and all(not e.verified for h in ext for e in h.events), "extension dates stay unverified until checked"
+    checked = {h.id for h in ext for e in h.events if e.verified}
+    assert ext and checked <= {"givenchy", "tom_ford"}, "extension dates stay unverified until checked against a calendar"
 
 
 def test_registry_rejects_a_page_claimed_by_two_houses(tmp_path):

@@ -1,4 +1,5 @@
 """YouTube films by house: channels checked, films found and refreshed, thumbnails read. Network faked."""
+import zlib
 from datetime import date
 
 from PIL import Image
@@ -53,8 +54,8 @@ def _api(films_by_playlist, titles, quota_after=None):
                       "statistics": {"viewCount": "1234", "likeCount": "56"}} for v in params["id"].split(",")]
             return FakeResponse(200, payload={"items": items})
         if url.startswith("https://i.ytimg.com/vi/"):
-            vid = url.split("/")[4]
-            return FakeResponse(200, content=jpeg_bytes(toned_image(0.3 + 0.01 * (hash(vid) % 40), seed=hash(vid) % 1000)))
+            n = zlib.crc32(url.split("/")[4].encode())   # stable across runs, unlike hash()
+            return FakeResponse(200, content=jpeg_bytes(toned_image(0.3 + 0.01 * (n % 40), seed=n % 100000)))
         return FakeResponse(404, text="")
     return h, calls
 

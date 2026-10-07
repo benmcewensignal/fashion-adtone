@@ -63,6 +63,21 @@ Still to do before the registry is frozen: confirm each house's page ids. Page i
 pages only: a beauty or fragrance page, whether run by the house or a licensee, carries a different
 tone and a different budget.
 
+## Extension tier checks, 7 October 2026
+
+Amendment 2's extension dates were entered unverified. Checked so far against the official
+calendars and same-day reports:
+
+| house | as entered | checked | source |
+|---|---|---|---|
+| Givenchy | Sarah Burton, 7 March 2025 | correct | FHCM official calendar AW25-26: Friday 7 March, 11:00 |
+| Tom Ford | Haider Ackermann, 6 March 2025 | 5 March 2025 | FHCM official calendar AW25-26: Wednesday 5 March, 19:00; Hypebeast review the same evening |
+| Versace | Pieter Mulier, first show September 2026 | no show yet | Versace was absent from the Milan calendars for AW26 and SS27; Mulier, in post from 1 July 2026, shows first in February 2027 (Dazed; Fashion Week Daily; both 30 July 2026) |
+
+Versace's latest debut on file is therefore Dario Vitale's (26 September 2025, still unverified),
+followed by his exit in December 2025. Mulier's debut is added when it happens. Dries Van Noten
+(Julian Klausner) and Vitale's dates remain to be checked.
+
 ## Watch houses
 
 Chloé is collected but sits outside the v1 panel: never in the field, never in the tests. Speculation

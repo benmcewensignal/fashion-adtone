@@ -105,7 +105,7 @@ def test_the_frozen_tests_read_only_the_core_panel():
     core = r.core()
     assert len(core.houses) == 19 and {h.tier for h in core.houses} == {"core"}
     assert {h.id for h in r.tier("extension")} >= {"versace", "alaia", "givenchy"}
-    assert r.by_id("versace").debut.designer == "Pieter Mulier"
+    assert r.by_id("versace").debut.designer == "Dario Vitale"   # Mulier has not shown yet (February 2027)
 
 
 def test_an_unknown_tier_is_refused(tmp_path):

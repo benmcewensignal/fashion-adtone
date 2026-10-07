@@ -128,10 +128,11 @@ houses:
     page_ids: []
     events:
       # Vitale came from Miu Miu, a core control, showed one season and left in December 2025.
-      # Mulier joined from Alaia on 1 July 2026 and showed his first collection in Milan in September 2026.
+      # Mulier joined from Alaia on 1 July 2026 but has not shown: Versace was absent from the Milan
+      # calendars for AW26 and SS27, and his first collection is planned for February 2027 (Dazed and
+      # Fashion Week Daily, both 30 July 2026; checked 7 October 2026). His debut is added when it happens.
       - {kind: designer_debut, designer: Dario Vitale, date: 2025-09-26, verified: false}
       - {kind: designer_exit, designer: Dario Vitale, date: 2025-12-04, verified: false}
-      - {kind: designer_debut, designer: Pieter Mulier, date: 2026-09-25, verified: false}
   - id: givenchy
     name: Givenchy
     group: treated
@@ -140,7 +141,8 @@ houses:
     search_terms: ["Givenchy"]
     page_ids: []
     events:
-      - {kind: designer_debut, designer: Sarah Burton, date: 2025-03-07, verified: false}
+      # FHCM official calendar AW25-26: Givenchy, Friday 7 March 2025, 11:00 (checked 7 October 2026)
+      - {kind: designer_debut, designer: Sarah Burton, date: 2025-03-07, verified: true}
   - id: tom_ford
     name: Tom Ford
     group: treated
@@ -149,7 +151,9 @@ houses:
     search_terms: ["TOM FORD"]
     page_ids: []
     events:
-      - {kind: designer_debut, designer: Haider Ackermann, date: 2025-03-06, verified: false}
+      # FHCM official calendar AW25-26: Tom Ford, Wednesday 5 March 2025, 19:00, with reviews the same
+      # evening; the date first entered here (6 March) was a day late (checked 7 October 2026)
+      - {kind: designer_debut, designer: Haider Ackermann, date: 2025-03-05, verified: true}
   - id: dries_van_noten
     name: Dries Van Noten
     group: treated

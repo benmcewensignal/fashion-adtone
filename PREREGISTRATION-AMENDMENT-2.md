@@ -25,8 +25,8 @@ Three points raised in review are frozen already and are restated, not amended:
 
 | house | role | event, as registered (unverified until checked) |
 |---|---|---|
-| Versace | in the September cluster; destination of the Mulier move | Dario Vitale, first show 26 September 2025; left December 2025; Pieter Mulier, first show September 2026 |
-| Givenchy, Tom Ford, Dries Van Noten | debuts in March 2025, before most of the retained window: post-debut houses for the outcome test and the photographer graph | Sarah Burton, Haider Ackermann, Julian Klausner |
+| Versace | in the September cluster; destination of the Mulier move | Dario Vitale, first show 26 September 2025; left December 2025; Pieter Mulier, in post from 1 July 2026, first show planned for February 2027 (checked 7 October 2026: the September 2026 date first entered was wrong) |
+| Givenchy, Tom Ford, Dries Van Noten | debuts in March 2025, before most of the retained window: post-debut houses for the outcome test and the photographer graph | Sarah Burton (7 March 2025, checked), Haider Ackermann (5 March 2025, checked; first entered as 6 March), Julian Klausner |
 | Alaïa | origin of the Mulier move, outside every comparison | Mulier's Alaïa tenure ends after the March 2026 show |
 | Dolce&Gabbana, Max Mara, Brunello Cucinelli, Zegna | controls: leadership held through the window | none |
 
