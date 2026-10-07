@@ -2,3 +2,6 @@
 {"at":"2026-10-07T14:44:24Z","event":"seed","from_bakeoff":296}
 {"at":"2026-10-07T15:30:32Z","event":"fetch","found":2039,"out_of_time":false,"pages":661,"pictures":2087,"this_run":1743}
 {"at":"2026-10-07T15:31:55Z","event":"to_volume","files":1743}
+{"asked":296,"at":"2026-10-07T17:10:33Z","event":"bakeoff_read","reader":"qwen3","rows":296,"seconds":288,"what":"tone"}
+{"asked":9170,"at":"2026-10-07T17:16:23Z","event":"bakeoff_read","reader":"qwen3","rows":9170,"seconds":350,"what":"pairs"}
+{"asked":300,"at":"2026-10-07T17:24:05Z","event":"bakeoff_read","reader":"qwen25","rows":300,"seconds":462,"what":"human"}
