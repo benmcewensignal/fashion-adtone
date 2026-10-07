@@ -1,26 +1,14 @@
 {
-  "finished_at": "2026-10-07T07:53:10Z",
+  "finished_at": "2026-10-07T09:41:01Z",
   "index_diag": {
     "brunello_cucinelli": {
       "brunellocucinelli.com": {
         "body": "<html><head><meta charset=\"UTF-8\"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style=\"padding:30px 0;\">\n<div style=\"float:",
         "http": 503
       }
-    },
-    "givenchy": {
-      "givenchy.com": {
-        "body": "<html><head><meta charset=\"UTF-8\"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style=\"padding:30px 0;\">\n<div style=\"float:",
-        "http": 503
-      }
-    },
-    "loewe": {
-      "loewe.com": {
-        "body": "<html><head><meta charset=\"UTF-8\"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style=\"padding:30px 0;\">\n<div style=\"float:",
-        "http": 503
-      }
     }
   },
-  "last_run": "gh37580580515",
+  "last_run": "gh37591071816",
   "months_in_archive": {
     "alaia": 81,
     "balenciaga": 153,
@@ -34,11 +22,11 @@
     "dolce_gabbana": 153,
     "dries_van_noten": 130,
     "fendi": 150,
-    "givenchy": 0,
+    "givenchy": 151,
     "gucci": 154,
     "hermes": 154,
     "jil_sander": 148,
-    "loewe": 0,
+    "loewe": 145,
     "loro_piana": 141,
     "louis_vuitton": 152,
     "margiela": 115,
@@ -51,5 +39,5 @@
     "versace": 153,
     "zegna": 144
   },
-  "remaining": 3029
+  "remaining": 3091
 }
