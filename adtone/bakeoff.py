@@ -880,9 +880,9 @@ def score() -> dict:
                 current[r["sha"]] = r["output"]
     tone = {"qwen25 (today)": current}
     for name in ("qwen3", "claude"):
-        f = DIR / "readings" / f"{name}-tone.jsonl"
-        if f.exists():
-            tone[name] = _answers_of(store.read_jsonl(f))
+        rows = _best_reading(f"{name}-tone.jsonl", lambda r: bool(r.get("out")))
+        if rows:
+            tone[name] = _answers_of(rows)
     out["tone"] = {}
     for name, ans in tone.items():
         rows = {}
@@ -988,10 +988,11 @@ def score() -> dict:
             out["zero_shot"][name]["human_agreement_all"] = {"pairs": n, "agreement": round(sum(a["pairs"] * a["agreement"] for a in allv) / n, 3)}
     # pairs
     out["pairs"] = {}
-    for f in sorted((DIR / "readings").glob("*-human.jsonl")) + sorted((DIR / "readings").glob("*-pairs.jsonl")) \
-            if (DIR / "readings").exists() else []:
-        name, what = f.stem.rsplit("-", 1)
-        rows = [r for r in store.read_jsonl(f) if r.get("answer")]
+    names = sorted({f.name for d in READING_DIRS() if d.exists() for f in d.glob("*.jsonl")
+                    if f.name.endswith(("-human.jsonl", "-pairs.jsonl"))}, key=lambda n: (n.endswith("-pairs.jsonl"), n))
+    for fname in names:
+        name, what = fname[:-len(".jsonl")].rsplit("-", 1)
+        rows = [r for r in _best_reading(fname, lambda r: bool(r.get("answer")))]
         res = out["pairs"].setdefault(name, {})
         by_pair = defaultdict(list)
         for r in rows:
@@ -1041,6 +1042,23 @@ def score() -> dict:
     RESULTS.write_text(json.dumps(out, indent=1, default=float) + "\n", encoding="utf-8")
     _log("score", readers=sorted(out["tone"]), images=sorted(out["images"]), pairs=sorted(out["pairs"]))
     return out
+
+
+def READING_DIRS() -> list[Path]:
+    """Where readings are kept: the bake-off's own, and those taken through the luxury reader."""
+    return [DIR / "readings", config.DATA / "luxury" / "bakeoff"]
+
+
+def _best_reading(fname: str, good) -> list[dict]:
+    """Of the copies of one reading, the one with the most usable rows (only answered rows kept)."""
+    best = []
+    for d in READING_DIRS():
+        f = d / fname
+        if f.exists():
+            rows = [r for r in store.read_jsonl(f) if good(r)]
+            if len(rows) > len(best):
+                best = rows
+    return best
 
 
 def _pixel_baseline(human: dict, hp: dict, px: dict) -> dict:

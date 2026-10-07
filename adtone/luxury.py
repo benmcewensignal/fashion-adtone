@@ -43,7 +43,8 @@ VOL_DIR = "/pictures-v1"
 TYPES = {"brand_image": "campaign", "product_on_model": "on_model", "product_packshot": "packshot"}
 ALSO = 2                                         # later captures to try when the first showing fails
 SEED = 20261008
-APPS = {"qwen3": "adtone-luxury-qwen3"}          # bakeoff/modal_reader.py deployed with the picture volume
+APPS = {"qwen3": "adtone-luxury-qwen3",           # bakeoff/modal_reader.py deployed with the picture volume
+        "qwen25": "adtone-luxury-qwen25"}
 CHECK_PICTURES = 10                              # Claude reads one picture in ten again
 CHECK_PAIRS = 20                                 # and one comparison in twenty, in both orders
 
@@ -445,6 +446,42 @@ def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
     return out
 
 
+def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
+    """The bake-off's own readings (tone on its pictures, the reader design, the person's pairs, both
+    orders) taken through the deployed luxury reader, which reads the pictures from the volume by sha:
+    a second route to the same answers, kept apart in data/luxury/bakeoff/ and picked up by the bake-off's
+    scoring beside its own."""
+    from .score import json_schema, load_rubric
+    t0 = time.monotonic()
+    deadline = t0 + budget_min * 60
+    out_dir = DIR / "bakeoff"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    found = sorted(r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found"))
+    out = out_dir / f"{reader}-{what}.jsonl"
+    if what == "tone":
+        rub = load_rubric()
+        schema = json_schema(rub)
+        todo = [s for s in found if s not in _done(out, lambda r: r["sha"])]
+        n = _on_modal(reader, "read_from", [todo[i:i + 16] for i in range(0, len(todo), 16)],
+                      lambda part: (VOL_DIR, part, rub.prompt, schema),
+                      lambda part, texts: _tone_rows(part, texts, rub), out, deadline)
+    else:
+        spec = bakeoff._pairs_rubric()
+        axes = {a["id"]: a for a in spec["axes"]}
+        d = json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))
+        base = [(h["axis"], h["left"], h["right"]) for h in d["human"]] if what == "human" else \
+            [(ax, a, b) for ax, es in d["reader"].items() for a, b in es]
+        have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("answer") else None)
+        todo = [j for j in base + [(ax, b, a) for ax, a, b in base] if j not in have]
+        n = _on_modal(reader, "compare_from", [todo[i:i + 64] for i in range(0, len(todo), 64)],
+                      lambda part: (VOL_DIR, [(a, b) for _, a, b in part], spec["prompt"],
+                                    [bakeoff.question(axes[ax], spec) for ax, _, _ in part], spec["answers"]),
+                      lambda part, texts: [{"axis": ax, "first": a, "second": b, "answer": bakeoff.answer_of(t)}
+                                           for (ax, a, b), t in zip(part, texts)], out, deadline)
+    _log("bakeoff_read", reader=reader, what=what, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
+    return {"asked": len(todo), "rows": n}
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.luxury")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -459,6 +496,9 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--model", choices=sorted(bakeoff.EMBEDDERS), required=True)
     ps = sub.add_parser("positions")
     ps.add_argument("--reader", default="qwen3")
+    bo = sub.add_parser("bakeoff")
+    bo.add_argument("--reader", choices=sorted(APPS), required=True)
+    bo.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
     an = sub.add_parser("analyse")
     an.add_argument("--reader", default="qwen3")
     an.add_argument("--which", nargs="*", default=list(READINGS))
@@ -476,6 +516,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"luxury embed {a.model}: {embed(a.model)}")
     elif a.cmd == "positions":
         print(f"luxury positions {a.reader}: {positions(a.reader)}")
+    elif a.cmd == "bakeoff":
+        print(f"luxury bakeoff {a.reader} {a.what}: {bakeoff_read(a.reader, a.what)}")
     elif a.cmd == "analyse":
         out = analyse(a.reader, tuple(a.which))
         print("luxury analyse: " + ", ".join(f"{k}: {v.get('images', v.get('note'))}" for k, v in out["readings"].items()))
