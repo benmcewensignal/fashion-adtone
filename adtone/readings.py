@@ -344,8 +344,11 @@ def _p(null: np.ndarray, obs: float, exact: bool) -> float:
 
 
 def _score(obs: float, null: np.ndarray) -> float:
-    med = float(np.median(null))
-    return round(obs / med, 3) if med > 0 and np.isfinite(obs) else (99.0 if obs > 0 else 1.0)
+    """The change against the edge of chance: the observed statistic over the 95th percentile of the null,
+    so above 1 is beyond what moving months at random gives one time in twenty. (Against the median it
+    overstated changes whose null has a long tail: a brand whose campaigns differ a lot within each year.)"""
+    edge = float(np.quantile(null[np.isfinite(null)], 0.95)) if np.isfinite(null).any() else 0.0
+    return round(obs / edge, 3) if edge > 0 and np.isfinite(obs) else (99.0 if obs > 0 else 1.0)
 
 
 def _report(out: dict, ans: Answers, d_o, V_o, d_n, V_n, exact: bool) -> dict:
@@ -893,8 +896,10 @@ def event_study(houses: dict[str, list[dict]], events: list[dict], ans: Answers,
             rows.append(row)
             continue
         c = compare(houses, e["house"], s0, s1, ans, rng)
-        if c is None:
-            row["note"] = "too few pictures on one side"
+        if c is None or c.get("like_for_like") is None:
+            row["note"] = "too few pictures on one side" if c is None else "too few pictures of one kind on one side"
+            if c is not None:
+                row.update(c)
             rows.append(row)
             continue
         row.update(c)
