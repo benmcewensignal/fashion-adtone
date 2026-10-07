@@ -50,7 +50,7 @@ jobs:
         id: collect
         continue-on-error: true
         timeout-minutes: 100   # the stage stops itself at 90 minutes and saves what it has
-        run: python -m adtone.homepages collect --run "gh${GITHUB_RUN_ID}" --max-captures "$MAX" --budget-min 90 --workers 5
+        run: python -m adtone.homepages collect --run "gh${GITHUB_RUN_ID}" --max-captures "$MAX" --budget-min 90 --workers 4
       - name: Completeness probe
         continue-on-error: true
         timeout-minutes: 3

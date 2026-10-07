@@ -38,6 +38,7 @@ import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
+from datetime import date
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
@@ -55,20 +56,22 @@ KEEP_PER_CAPTURE = 4
 CANDIDATES_PER_MONTH = 4
 MAX_ATTEMPTS = 3        # captures tried for a month before it is left: the archive does not have it
 MAX_TRANSIENT = 6       # runs in which the archive could not be reached for a month before it is left
-COOLDOWN_S = 60.0       # every worker waits this long after the archive refuses a connection
+COOLDOWN_S = 30.0       # every worker waits this long after the archive refuses a connection
+PICTURE_PAUSE_S = 0.3   # between picture requests: most of the load on the archive is pictures
 NO_IMAGE_ATTEMPTS = 2   # captures holding no picture: the archive did not keep the page's pictures
 TRIES_PER_RUN = 2       # a month whose capture fails is tried on its next capture in the same run
 IMAGE_CANDIDATES = 10
 CHUNK = 12              # months fetched together
 BATCH = 16              # images per reader call
 READ_EVERY = 64         # images queued before the reader is called, in back-to-back batches
-WORKERS = 5
+WORKERS = 4
 REWRITE = re.compile(r"(?:https?:)?(?://web\.archive\.org)?/web/\d{1,14}(?:[a-z]{2}_)?/(?=https?://|//)")
 WRAPPED = re.compile(r"^https://web\.archive\.org/web/\d{1,14}(?:[a-z]{2}_)?/")
 BACKGROUND = re.compile(r"background(?:-image)?\s*:\s*url\(\s*['\"]?([^'\")\s]+)", re.I)
 PRELOAD = re.compile(r"<link\b[^>]*\bas=[\"']?image[\"']?[^>]*>", re.I)
 HREF = re.compile(r"\b(?:href|imagesrcset)=[\"']([^\"']+)[\"']", re.I)
 DATA_IMAGE = re.compile(r"[\"']((?:https?:)?//[^\"'\s<>]+?\.(?:jpe?g|png|webp)(?:\?[^\"'\s<>]*)?)[\"']", re.I)
+SCENE7 = re.compile(r"[\"'(]((?:https?:)?//[^\"'\s<>()]+/is/image/[^\"'\s<>()]+)", re.I)   # image servers that name no extension
 REFRESH = re.compile(r"<meta\b[^>]*http-equiv=[\"']?refresh[\"']?[^>]*content=[\"'][^\"']*?url=([^\"'>\s]+)", re.I)
 SCRIPT_GO = re.compile(r"(?:window\.|document\.|top\.)?location(?:\.href)?\s*=\s*[\"']([^\"']+)[\"']"
                        r"|location\.replace\(\s*[\"']([^\"']+)[\"']\s*\)", re.I)
@@ -116,7 +119,9 @@ def page_images(html: str, page_url: str, ts: str, cap: int = IMAGE_CANDIDATES +
     for tag in PRELOAD.findall(html):
         for v in HREF.findall(tag):
             found.append(v.split(",")[0].strip().split(" ")[0])
-    found += DATA_IMAGE.findall(html.replace("\\/", "/"))
+    flat = html.replace("\\/", "/")
+    found += DATA_IMAGE.findall(flat)
+    found += SCENE7.findall(flat)
     for u in found:
         if len(out) >= cap:
             break
@@ -164,13 +169,15 @@ def next_page(html: str, page_url: str) -> tuple[str, str] | None:
     m = REFRESH.search(html)
     if m and ok(m.group(1)):
         return ok(m.group(1)), "refresh"
+    best, best_rank, best_why = None, 0.0, None
     for m in SCRIPT_GO.finditer(html):
         u = ok(m.group(1) or m.group(2) or "")
         if u:
-            return u, "script redirect"
+            rank = _locale_rank(urlparse(u).path or "/") or 1.0   # a redirect with no country still beats nothing
+            if rank > best_rank:
+                best, best_rank, best_why = u, rank, "script redirect"
     p = _Page()
     p.feed(html)
-    best, best_rank = None, 0.0
     for link in p.links:
         u = ok(link.get("href") or "")
         if not u:
@@ -180,7 +187,9 @@ def next_page(html: str, page_url: str) -> tuple[str, str] | None:
             continue
         rank = _locale_rank(path)
         if rank > best_rank:
-            best, best_rank = u, rank
+            best, best_rank, best_why = u, rank, "country page"
+    if best_why == "script redirect":
+        return best, best_why
     return (best, "country page") if best and best_rank >= 2 else None
 
 
@@ -232,10 +241,17 @@ def refresh_index(c: Crawler, domains: list[str], idx: dict, first: str = FIRST_
     fresh: dict[str, list[list[str]]] = {}
     diag: dict[str, dict] = {}
     for d in domains:
-        r = c.get(CDX, {"url": d, "output": "json", "fl": "timestamp,original,statuscode",
-                        "from": since.replace("-", ""), "collapse": "timestamp:8",
-                        "filter": "statuscode:(200|301|302|307|308)"})
+        q = {"url": d, "output": "json", "fl": "timestamp,original,statuscode", "collapse": "timestamp:8",
+             "filter": "statuscode:(200|301|302|307|308)"}
+        r = c.get(CDX, {**q, "from": since.replace("-", "")})
         rows = _cdx(r)
+        if rows is None and since == first:   # a long history can time the index out: ask year by year
+            parts = []
+            for y in range(int(first[:4]), date.today().year + 1):
+                part = _cdx(c.get(CDX, {**q, "from": f"{y}0101", "to": f"{y}1231"}))
+                if part is not None:
+                    parts += part
+            rows = parts or None
         if rows is None:
             diag[d] = {"http": getattr(r, "status_code", None), "body": (getattr(r, "text", "") or "")[:200]}
             continue
@@ -319,11 +335,13 @@ class GatedCrawler(Crawler):
 class _Watch:
     """A session stand-in for the image downloads that counts requests that never got an answer."""
 
-    def __init__(self, s):
-        self.s, self.calls, self.failed = s, 0, 0
+    def __init__(self, s, pause: float = 0.0):
+        self.s, self.calls, self.failed, self.pause = s, 0, 0, pause
         self.headers = getattr(s, "headers", {})
 
     def get(self, *a, **kw):
+        if self.calls and self.pause:
+            time.sleep(self.pause)
         self.calls += 1
         try:
             r = self.s.get(*a, **kw)
@@ -351,7 +369,7 @@ def _pictures(c: Crawler, html: str, page: str, ts: str) -> tuple[list, list[str
     urls = page_images(html, page, ts)
     if not urls:
         return [], urls, False
-    w = _Watch(c.s)
+    w = _Watch(c.s, PICTURE_PAUSE_S if getattr(c, "pause", 0) else 0.0)
     got = download(urls, w, keep=KEEP_PER_CAPTURE, max_candidates=IMAGE_CANDIDATES)
     return got, urls, (not got and w.calls > 0 and w.failed >= w.calls)
 

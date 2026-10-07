@@ -386,3 +386,24 @@ def test_the_gate_holds_every_worker_after_a_refusal_and_choosers_prefer_the_uk_
     assert waits == [50] and g.trips == 1
     html = '<a href="/be/en_gb/">Belgium</a><a href="/uk/en_gb/">United Kingdom</a><a href="/us/en/">US</a>'
     assert homepages.next_page(html, "https://www.gucci.com/")[0] == "https://www.gucci.com/uk/en_gb/"
+
+
+def test_extensionless_image_servers_and_a_redirect_weighed_against_the_uk_page():
+    html = """<script>window.__STATE__={"hero":{"src":"https:\\/\\/assets.house.com\\/is\\/image\\/Houseltd\\/AW24_HERO?$BBY_V2$&wid=1920"}}</script>"""
+    urls = homepages.page_images(html, "https://www.house.com/", "20240105000000")
+    assert any("/is/image/Houseltd/AW24_HERO" in u for u in urls)
+    page = "<script>location.href='/de-de/home';</script><a href='/en-gb/home'>United Kingdom</a>"
+    assert homepages.next_page(page, "https://www.house.com/") == ("https://www.house.com/en-gb/home", "country page")
+    only = "<script>location.href='/de-de/home';</script>"
+    assert homepages.next_page(only, "https://www.house.com/") == ("https://www.house.com/de-de/home", "script redirect")
+
+
+def test_a_history_too_long_for_one_index_query_is_asked_for_year_by_year():
+    def h(url, params):
+        if "to" not in params:
+            return FakeResponse(503, text="<title>Internet Archive: Temporarily Offline</title>")
+        y = params["from"][:4]
+        return FakeResponse(200, payload=[["timestamp", "original", "statuscode"], [f"{y}0105000000", "https://x.com/", "200"]])
+    c = homepages.Crawler(FakeSession(h), pause=0)
+    out, diag = homepages.refresh_index(c, ["x.com"], {}, first="2024-01")
+    assert sorted(out) == [f"{y}-01" for y in range(2024, date.today().year + 1)] and diag == {}
