@@ -1,12 +1,20 @@
 {
- "generated_at": "2026-10-07T08:30:23Z",
+ "generated_at": "2026-10-07T10:07:15Z",
  "source": "homepages",
  "period": "half",
  "types": [
   "brand_image",
   "product_on_model"
  ],
- "images": 1275,
+ "images": 1855,
+ "identity": {
+  "brands": 21,
+  "split": "2025-07",
+  "answers_hits": 4,
+  "answers_mean_rank": 5.43,
+  "fingerprint_hits": 17,
+  "fingerprint_mean_rank": 1.86
+ },
  "houses": {
   "alaia": {
    "periods": {
@@ -197,29 +205,29 @@
      "street_couture": 4.0
     },
     "2025H2": {
-     "n": 5,
+     "n": 7,
      "light": {
-      "high_key": 0.8,
-      "natural_daylight": 0.2
+      "high_key": 0.714,
+      "natural_daylight": 0.286
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "muted": 0.2,
-      "vivid": 0.8
+      "muted": 0.143,
+      "vivid": 0.857
      },
      "setting": {
-      "studio_set": 0.4,
-      "landscape_nature": 0.6
+      "studio_set": 0.429,
+      "landscape_nature": 0.571
      },
      "people": {
-      "one": 0.6,
-      "two": 0.4
+      "one": 0.714,
+      "two": 0.286
      },
      "gaze": {
-      "to_camera": 0.8,
-      "away": 0.2
+      "to_camera": 0.857,
+      "away": 0.143
      },
      "expression": {
       "neutral": 1.0
@@ -228,35 +236,36 @@
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 0.8,
-      "full_length": 0.2
+      "medium": 0.571,
+      "full_length": 0.429
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.2,
-      "eveningwear": 0.6,
-      "casual": 0.2
+      "formal_tailored": 0.429,
+      "eveningwear": 0.429,
+      "casual": 0.143
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.4,
-      "logo_only": 0.6
+      "none": 0.429,
+      "logo_only": 0.571
      },
      "mood": {
-      "serene": 0.2,
+      "austere": 0.143,
+      "serene": 0.429,
       "intimate": 1.0,
-      "sensual": 0.8,
-      "opulent": 0.4,
-      "romantic": 0.6
+      "sensual": 0.571,
+      "opulent": 0.429,
+      "romantic": 0.429
      },
-     "street_couture": 3.4
+     "street_couture": 3.29
     },
     "2026H1": {
-     "n": 7,
+     "n": 14,
      "light": {
       "high_key": 1.0
      },
@@ -268,51 +277,55 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.286,
-      "studio_set": 0.714
+      "studio_plain": 0.429,
+      "studio_set": 0.571
      },
      "people": {
-      "none": 0.286,
-      "one": 0.714
+      "none": 0.357,
+      "one": 0.643
      },
      "gaze": {
-      "to_camera": 0.714,
-      "not_applicable": 0.286
+      "to_camera": 0.643,
+      "not_applicable": 0.357
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.857,
+      "not_applicable": 0.143
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.929,
+      "not_applicable": 0.071
      },
      "framing": {
       "close_up": 0.143,
-      "medium": 0.286,
-      "full_length": 0.571
+      "medium": 0.143,
+      "full_length": 0.571,
+      "product_only": 0.143
      },
      "primary_subject": {
-      "garment": 0.714,
-      "footwear": 0.143,
-      "accessory": 0.143
+      "garment": 0.857,
+      "footwear": 0.071,
+      "accessory": 0.071
      },
      "styling_register": {
-      "formal_tailored": 0.429,
-      "eveningwear": 0.143,
-      "casual": 0.429
+      "formal_tailored": 0.643,
+      "eveningwear": 0.071,
+      "casual": 0.286
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.571,
-      "logo_only": 0.429
+      "none": 0.786,
+      "logo_only": 0.214
      },
      "mood": {
-      "serene": 0.286,
+      "austere": 0.071,
+      "serene": 0.357,
       "intimate": 1.0,
-      "sensual": 0.714,
-      "opulent": 0.571,
-      "romantic": 0.429
+      "sensual": 0.643,
+      "opulent": 0.643,
+      "romantic": 0.214
      },
      "street_couture": 3.0
     },
@@ -376,12 +389,16 @@
      "to": "2025H1",
      "n0": 7,
      "n1": 8,
+     "months0": 6,
+     "months1": 5,
      "rubric": 0.1366,
-     "rubric_p": 0.668,
-     "rubric_chance": 0.1524,
+     "rubric_p": 0.6515,
+     "rubric_chance": 0.1487,
+     "null": "months",
+     "splits": 462,
      "fingerprint": 0.131,
-     "fingerprint_p": 0.603,
-     "fingerprint_chance": 0.1376,
+     "fingerprint_p": 0.632,
+     "fingerprint_chance": 0.1458,
      "moved": [
       {
        "question": "mood",
@@ -404,12 +421,89 @@
        "change": -0.321
       }
      ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 8,
+     "n1": 7,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.2227,
+     "rubric_p": 0.0556,
+     "rubric_chance": 0.17,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.1546,
+     "fingerprint_p": 0.2937,
+     "fingerprint_chance": 0.132,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": -0.5
+      },
+      {
+       "question": "setting",
+       "answer": "landscape_nature",
+       "change": 0.446
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": -0.429
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": 0.429
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 7,
+     "n1": 14,
+     "months0": 5,
+     "months1": 6,
+     "rubric": 0.2321,
+     "rubric_p": 0.013,
+     "rubric_chance": 0.1647,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.2919,
+     "fingerprint_p": 0.0043,
+     "fingerprint_chance": 0.1417,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "landscape_nature",
+       "change": -0.571
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.429
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.429
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": 0.357
+      }
+     ]
     }
    ],
    "distinct": {
-    "2024H2": 0.169,
-    "2025H1": 0.2074,
-    "2026H1": 0.2683
+    "2024H2": 0.1711,
+    "2025H1": 0.2084,
+    "2025H2": 0.2155,
+    "2026H1": 0.1165
    }
   },
   "balenciaga": {
@@ -563,7 +657,7 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 3,
+     "n": 6,
      "light": {
       "high_key": 1.0
      },
@@ -606,13 +700,13 @@
      },
      "mood": {
       "sensual": 1.0,
-      "opulent": 0.667,
+      "opulent": 0.833,
       "aggressive": 0.333
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 7,
+     "n": 9,
      "light": {
       "high_key": 1.0
      },
@@ -644,24 +738,24 @@
       "footwear": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.286,
-      "eveningwear": 0.286,
-      "casual": 0.429
+      "formal_tailored": 0.222,
+      "eveningwear": 0.222,
+      "casual": 0.556
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.571,
-      "logo_only": 0.429
+      "none": 0.667,
+      "logo_only": 0.333
      },
      "mood": {
       "sensual": 1.0,
-      "opulent": 0.857,
-      "aggressive": 0.286,
-      "romantic": 0.571
+      "opulent": 0.889,
+      "aggressive": 0.333,
+      "romantic": 0.444
      },
-     "street_couture": 3.29
+     "street_couture": 3.22
     },
     "2026H2": {
      "n": 4,
@@ -718,12 +812,16 @@
      "to": "2025H1",
      "n0": 13,
      "n1": 6,
+     "months0": 4,
+     "months1": 3,
      "rubric": 0.0147,
-     "rubric_p": 0.592,
-     "rubric_chance": 0.0147,
+     "rubric_p": 0.3429,
+     "rubric_chance": 0.0034,
+     "null": "months",
+     "splits": 35,
      "fingerprint": 0.0139,
-     "fingerprint_p": 0.861,
-     "fingerprint_chance": 0.032,
+     "fingerprint_p": 0.1429,
+     "fingerprint_chance": 0.0107,
      "moved": [
       {
        "question": "text_in_image",
@@ -736,74 +834,153 @@
        "change": 0.218
       }
      ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 6,
+     "n1": 6,
+     "months0": 3,
+     "months1": 2,
+     "rubric": 0.0139,
+     "rubric_p": 0.2,
+     "rubric_chance": 0.0075,
+     "null": "months",
+     "splits": 10,
+     "fingerprint": 0.1119,
+     "fingerprint_p": 0.1,
+     "fingerprint_chance": 0.0693,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "aggressive",
+       "change": -0.333
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": -0.167
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": 0.167
+      },
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": -0.167
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 6,
+     "n1": 9,
+     "months0": 2,
+     "months1": 4,
+     "rubric": 0.0361,
+     "rubric_p": 0.6667,
+     "rubric_chance": 0.0377,
+     "null": "months",
+     "splits": 15,
+     "fingerprint": 0.1243,
+     "fingerprint_p": 0.3333,
+     "fingerprint_chance": 0.0856,
+     "moved": [
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.444
+      },
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": 0.444
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": 0.222
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": 0.222
+      }
+     ]
     }
    ],
    "distinct": {
-    "2024H2": 0.3642,
-    "2025H1": 0.3327,
-    "2026H1": 0.3118
+    "2024H2": 0.3604,
+    "2025H1": 0.3267,
+    "2025H2": 0.3438,
+    "2026H1": 0.3032
    }
   },
   "bottega_veneta": {
    "periods": {
     "2024H1": {
-     "n": 8,
+     "n": 9,
      "light": {
-      "high_key": 0.875,
-      "natural_daylight": 0.125
+      "high_key": 0.889,
+      "natural_daylight": 0.111
      },
      "colour_temperature": {
-      "cool": 0.25,
-      "neutral": 0.75
+      "cool": 0.222,
+      "neutral": 0.778
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.625,
-      "studio_set": 0.25,
-      "urban_exterior": 0.125
+      "studio_plain": 0.556,
+      "studio_set": 0.333,
+      "urban_exterior": 0.111
      },
      "people": {
-      "none": 1.0
+      "none": 0.889,
+      "one": 0.111
      },
      "gaze": {
-      "not_applicable": 1.0
+      "to_camera": 0.111,
+      "not_applicable": 0.889
      },
      "expression": {
-      "neutral": 0.25,
-      "not_applicable": 0.75
+      "neutral": 0.333,
+      "not_applicable": 0.667
      },
      "pose": {
-      "posed_static": 0.75,
-      "not_applicable": 0.25
+      "posed_static": 0.778,
+      "not_applicable": 0.222
      },
      "framing": {
-      "close_up": 0.875,
-      "medium": 0.125
+      "close_up": 0.778,
+      "medium": 0.222
      },
      "primary_subject": {
-      "garment": 0.75,
-      "footwear": 0.125,
-      "accessory": 0.125
+      "garment": 0.778,
+      "footwear": 0.111,
+      "accessory": 0.111
      },
      "styling_register": {
-      "formal_tailored": 0.75,
-      "casual": 0.25
+      "formal_tailored": 0.667,
+      "casual": 0.333
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.875,
-      "logo_only": 0.125
+      "none": 0.889,
+      "logo_only": 0.111
      },
      "mood": {
-      "serene": 0.125,
-      "intimate": 0.875,
-      "sensual": 0.875,
-      "playful": 0.125,
-      "opulent": 0.75
+      "serene": 0.111,
+      "intimate": 0.889,
+      "sensual": 0.889,
+      "playful": 0.111,
+      "opulent": 0.667
      },
      "street_couture": 3.0
     },
@@ -935,9 +1112,10 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 8,
+     "n": 19,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.947,
+      "natural_daylight": 0.053
      },
      "colour_temperature": {
       "neutral": 1.0
@@ -946,106 +1124,117 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 1.0
+      "studio_plain": 0.737,
+      "studio_set": 0.211,
+      "landscape_nature": 0.053
      },
      "people": {
-      "none": 1.0
+      "none": 0.789,
+      "one": 0.211
      },
      "gaze": {
-      "not_applicable": 1.0
+      "to_camera": 0.053,
+      "away": 0.105,
+      "not_applicable": 0.842
      },
      "expression": {
-      "not_applicable": 1.0
+      "neutral": 0.211,
+      "not_applicable": 0.789
      },
      "pose": {
-      "posed_static": 0.625,
-      "not_applicable": 0.375
+      "posed_static": 0.474,
+      "not_applicable": 0.526
      },
      "framing": {
-      "close_up": 0.625,
-      "product_only": 0.375
+      "close_up": 0.526,
+      "medium": 0.158,
+      "product_only": 0.316
      },
      "primary_subject": {
-      "garment": 1.0
+      "garment": 0.947,
+      "footwear": 0.053
      },
      "styling_register": {
-      "formal_tailored": 1.0
+      "formal_tailored": 0.947,
+      "casual": 0.053
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.5,
-      "logo_only": 0.5
+      "none": 0.684,
+      "logo_only": 0.316
      },
      "mood": {
-      "intimate": 0.875,
-      "sensual": 0.875,
-      "opulent": 1.0
+      "serene": 0.105,
+      "intimate": 0.947,
+      "sensual": 0.842,
+      "opulent": 0.842,
+      "romantic": 0.158
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 9,
+     "n": 14,
      "light": {
-      "high_key": 0.778,
-      "natural_daylight": 0.222
+      "high_key": 0.857,
+      "natural_daylight": 0.143
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "moderate": 0.111,
-      "vivid": 0.889
+      "moderate": 0.071,
+      "vivid": 0.929
      },
      "setting": {
-      "studio_plain": 0.667,
-      "studio_set": 0.111,
-      "urban_exterior": 0.111,
-      "landscape_nature": 0.111
+      "studio_plain": 0.643,
+      "studio_set": 0.214,
+      "urban_exterior": 0.071,
+      "landscape_nature": 0.071
      },
      "people": {
-      "none": 0.778,
-      "one": 0.222
+      "none": 0.714,
+      "one": 0.286
      },
      "gaze": {
-      "to_camera": 0.222,
-      "not_applicable": 0.778
+      "to_camera": 0.286,
+      "not_applicable": 0.714
      },
      "expression": {
-      "neutral": 0.333,
-      "not_applicable": 0.667
+      "neutral": 0.357,
+      "not_applicable": 0.643
      },
      "pose": {
-      "posed_static": 0.778,
-      "not_applicable": 0.222
+      "posed_static": 0.786,
+      "not_applicable": 0.214
      },
      "framing": {
-      "close_up": 0.222,
-      "medium": 0.444,
-      "full_length": 0.111,
-      "product_only": 0.222
+      "close_up": 0.429,
+      "medium": 0.286,
+      "full_length": 0.143,
+      "product_only": 0.143
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.889,
-      "casual": 0.111
+      "formal_tailored": 0.929,
+      "casual": 0.071
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.889,
-      "logo_only": 0.111
+      "none": 0.929,
+      "logo_only": 0.071
      },
      "mood": {
-      "serene": 0.222,
+      "serene": 0.143,
       "intimate": 1.0,
-      "sensual": 0.889,
-      "opulent": 0.778,
-      "romantic": 0.111
+      "sensual": 0.929,
+      "opulent": 0.857,
+      "romantic": 0.071
      },
      "street_couture": 3.0
     },
@@ -1110,34 +1299,38 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 8,
+     "n0": 9,
      "n1": 14,
-     "rubric": 0.0893,
-     "rubric_p": 0.738,
-     "rubric_chance": 0.104,
-     "fingerprint": 0.0835,
-     "fingerprint_p": 0.613,
-     "fingerprint_chance": 0.0909,
+     "months0": 4,
+     "months1": 5,
+     "rubric": 0.1176,
+     "rubric_p": 0.3889,
+     "rubric_chance": 0.113,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.0873,
+     "fingerprint_p": 0.381,
+     "fingerprint_chance": 0.0797,
      "moved": [
       {
-       "question": "colour_temperature",
-       "answer": "cool",
-       "change": -0.25
-      },
-      {
-       "question": "setting",
-       "answer": "landscape_nature",
-       "change": 0.214
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.262
       },
       {
        "question": "styling_register",
-       "answer": "eveningwear",
-       "change": 0.214
+       "answer": "casual",
+       "change": -0.262
       },
       {
        "question": "colour_temperature",
-       "answer": "neutral",
-       "change": 0.179
+       "answer": "cool",
+       "change": -0.222
+      },
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": 0.222
       }
      ]
     },
@@ -1146,12 +1339,16 @@
      "to": "2025H1",
      "n0": 14,
      "n1": 13,
+     "months0": 5,
+     "months1": 5,
      "rubric": 0.1951,
-     "rubric_p": 0.009,
-     "rubric_chance": 0.1105,
+     "rubric_p": 0.0556,
+     "rubric_chance": 0.1291,
+     "null": "months",
+     "splits": 252,
      "fingerprint": 0.1112,
-     "fingerprint_p": 0.176,
-     "fingerprint_chance": 0.0877,
+     "fingerprint_p": 0.5397,
+     "fingerprint_chance": 0.1136,
      "moved": [
       {
        "question": "setting",
@@ -1179,112 +1376,124 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 13,
-     "n1": 8,
-     "rubric": 0.2119,
-     "rubric_p": 0.028,
-     "rubric_chance": 0.1135,
-     "fingerprint": 0.1801,
-     "fingerprint_p": 0.028,
-     "fingerprint_chance": 0.0848,
+     "n1": 19,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.147,
+     "rubric_p": 0.2937,
+     "rubric_chance": 0.1129,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.114,
+     "fingerprint_p": 0.2381,
+     "fingerprint_chance": 0.061,
      "moved": [
+      {
+       "question": "pose",
+       "answer": "posed_static",
+       "change": -0.372
+      },
+      {
+       "question": "pose",
+       "answer": "not_applicable",
+       "change": 0.372
+      },
       {
        "question": "setting",
        "answer": "studio_plain",
-       "change": 0.615
+       "change": 0.352
       },
       {
-       "question": "setting",
-       "answer": "studio_set",
-       "change": -0.538
-      },
-      {
-       "question": "expression",
-       "answer": "neutral",
-       "change": -0.538
-      },
-      {
-       "question": "expression",
-       "answer": "not_applicable",
-       "change": 0.538
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.332
       }
      ]
     },
     {
      "from": "2025H2",
      "to": "2026H1",
-     "n0": 8,
-     "n1": 9,
-     "rubric": 0.1807,
-     "rubric_p": 0.037,
-     "rubric_chance": 0.1131,
-     "fingerprint": 0.2575,
-     "fingerprint_p": 0.001,
-     "fingerprint_chance": 0.0752,
+     "n0": 19,
+     "n1": 14,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.1088,
+     "rubric_p": 0.4286,
+     "rubric_chance": 0.1002,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.0959,
+     "fingerprint_p": 0.1032,
+     "fingerprint_chance": 0.053,
      "moved": [
       {
-       "question": "framing",
-       "answer": "medium",
-       "change": 0.444
+       "question": "pose",
+       "answer": "posed_static",
+       "change": 0.312
       },
       {
-       "question": "framing",
-       "answer": "close_up",
-       "change": -0.403
-      },
-      {
-       "question": "text_in_image",
-       "answer": "logo_only",
-       "change": -0.389
+       "question": "pose",
+       "answer": "not_applicable",
+       "change": -0.312
       },
       {
        "question": "text_in_image",
        "answer": "none",
-       "change": 0.389
+       "change": 0.244
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": -0.244
       }
      ]
     },
     {
      "from": "2026H1",
      "to": "2026H2",
-     "n0": 9,
+     "n0": 14,
      "n1": 7,
-     "rubric": 0.1452,
-     "rubric_p": 0.307,
-     "rubric_chance": 0.1281,
-     "fingerprint": 0.052,
-     "fingerprint_p": 0.919,
-     "fingerprint_chance": 0.0862,
+     "months0": 5,
+     "months1": 3,
+     "rubric": 0.1357,
+     "rubric_p": 0.2857,
+     "rubric_chance": 0.1238,
+     "null": "months",
+     "splits": 56,
+     "fingerprint": 0.0561,
+     "fingerprint_p": 0.625,
+     "fingerprint_chance": 0.0622,
      "moved": [
-      {
-       "question": "setting",
-       "answer": "studio_set",
-       "change": 0.46
-      },
       {
        "question": "framing",
        "answer": "medium",
-       "change": 0.413
+       "change": 0.571
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": 0.357
+      },
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": -0.286
       },
       {
        "question": "setting",
        "answer": "studio_plain",
-       "change": -0.238
-      },
-      {
-       "question": "expression",
-       "answer": "neutral",
-       "change": 0.238
+       "change": -0.214
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.2951,
-    "2025H1": 0.1276,
-    "2026H1": 0.2641,
-    "2024H1": 0.2951,
-    "2025H2": 0.3321,
-    "2026H2": 0.1725
+    "2024H2": 0.2933,
+    "2025H1": 0.1242,
+    "2025H2": 0.2551,
+    "2026H1": 0.2045,
+    "2024H1": 0.2636,
+    "2026H2": 0.1739
    }
   },
   "brunello_cucinelli": {
@@ -1428,21 +1637,22 @@
   "burberry": {
    "periods": {
     "2024H1": {
-     "n": 3,
+     "n": 4,
      "light": {
-      "high_key": 0.333,
-      "low_key": 0.667
+      "high_key": 0.25,
+      "low_key": 0.75
      },
      "colour_temperature": {
-      "neutral": 1.0
+      "cool": 0.25,
+      "neutral": 0.75
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.333,
-      "studio_set": 0.333,
-      "urban_exterior": 0.333
+      "studio_plain": 0.25,
+      "studio_set": 0.25,
+      "urban_exterior": 0.5
      },
      "people": {
       "one": 1.0
@@ -1457,15 +1667,15 @@
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 0.333,
-      "full_length": 0.667
+      "medium": 0.25,
+      "full_length": 0.75
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.667,
-      "casual": 0.333
+      "formal_tailored": 0.5,
+      "casual": 0.5
      },
      "production": {
       "polished_commercial": 1.0
@@ -1474,11 +1684,11 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 0.667,
+      "serene": 0.75,
       "intimate": 1.0,
-      "sensual": 0.667,
-      "opulent": 0.333,
-      "romantic": 0.333
+      "sensual": 0.5,
+      "opulent": 0.25,
+      "romantic": 0.25
      },
      "street_couture": 3.0
     },
@@ -1607,12 +1817,16 @@
      "to": "2025H1",
      "n0": 8,
      "n1": 8,
+     "months0": 2,
+     "months1": 3,
      "rubric": 0.2715,
-     "rubric_p": 0.008,
-     "rubric_chance": 0.1451,
+     "rubric_p": 0.1,
+     "rubric_chance": 0.1733,
+     "null": "months",
+     "splits": 10,
      "fingerprint": 0.2768,
-     "fingerprint_p": 0.01,
-     "fingerprint_chance": 0.1427,
+     "fingerprint_p": 0.1,
+     "fingerprint_chance": 0.2259,
      "moved": [
       {
        "question": "setting",
@@ -1638,8 +1852,8 @@
     }
    ],
    "distinct": {
-    "2024H2": 0.2939,
-    "2025H1": 0.1098
+    "2024H2": 0.2938,
+    "2025H1": 0.1079
    }
   },
   "celine": {
@@ -1694,7 +1908,7 @@
      "street_couture": 3.0
     },
     "2024H2": {
-     "n": 2,
+     "n": 3,
      "light": {
       "high_key": 1.0
      },
@@ -1735,8 +1949,8 @@
       "none": 1.0
      },
      "mood": {
-      "intimate": 0.5,
-      "sensual": 0.5,
+      "intimate": 0.333,
+      "sensual": 0.333,
       "opulent": 1.0
      },
      "street_couture": 3.0
@@ -1801,7 +2015,7 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 1,
+     "n": 4,
      "light": {
       "high_key": 1.0
      },
@@ -1812,16 +2026,20 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 1.0
+      "studio_plain": 0.25,
+      "studio_set": 0.75
      },
      "people": {
-      "one": 1.0
+      "none": 0.75,
+      "one": 0.25
      },
      "gaze": {
-      "to_camera": 1.0
+      "to_camera": 0.25,
+      "not_applicable": 0.75
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.5,
+      "not_applicable": 0.5
      },
      "pose": {
       "posed_static": 1.0
@@ -1830,59 +2048,65 @@
       "close_up": 1.0
      },
      "primary_subject": {
-      "accessory": 1.0
+      "garment": 0.75,
+      "accessory": 0.25
      },
      "styling_register": {
-      "casual": 1.0
+      "formal_tailored": 0.75,
+      "casual": 0.25
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 1.0
+      "none": 0.5,
+      "logo_only": 0.5
      },
      "mood": {
-      "intimate": 1.0,
+      "intimate": 0.75,
       "sensual": 1.0,
-      "romantic": 1.0
+      "opulent": 0.75,
+      "romantic": 0.5
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 4,
+     "n": 8,
      "light": {
-      "high_key": 0.75,
-      "low_key": 0.25
+      "high_key": 0.875,
+      "low_key": 0.125
      },
      "colour_temperature": {
-      "warm": 0.25,
-      "neutral": 0.75
+      "warm": 0.125,
+      "neutral": 0.875
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_set": 1.0
+      "studio_plain": 0.125,
+      "studio_set": 0.875
      },
      "people": {
-      "none": 0.25,
-      "one": 0.75
+      "none": 0.375,
+      "one": 0.625
      },
      "gaze": {
-      "to_camera": 0.75,
-      "not_applicable": 0.25
+      "to_camera": 0.5,
+      "away": 0.125,
+      "not_applicable": 0.375
      },
      "expression": {
-      "neutral": 0.75,
-      "not_applicable": 0.25
+      "neutral": 0.625,
+      "not_applicable": 0.375
      },
      "pose": {
-      "posed_static": 0.75,
-      "not_applicable": 0.25
+      "posed_static": 0.875,
+      "not_applicable": 0.125
      },
      "framing": {
-      "close_up": 0.25,
-      "medium": 0.75
+      "close_up": 0.375,
+      "medium": 0.625
      },
      "primary_subject": {
       "garment": 1.0
@@ -1895,15 +2119,15 @@
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.625,
+      "logo_only": 0.375
      },
      "mood": {
-      "serene": 0.25,
+      "serene": 0.125,
       "intimate": 1.0,
       "sensual": 1.0,
       "opulent": 0.5,
-      "romantic": 0.25
+      "romantic": 0.375
      },
      "street_couture": 3.0
     },
@@ -1957,7 +2181,9 @@
     }
    },
    "shifts": [],
-   "distinct": {}
+   "distinct": {
+    "2026H1": 0.131
+   }
   },
   "chanel": {
    "periods": {
@@ -2250,65 +2476,67 @@
      "street_couture": 3.0
     },
     "2024H2": {
-     "n": 13,
+     "n": 17,
      "light": {
-      "high_key": 0.923,
-      "natural_daylight": 0.077
+      "high_key": 0.941,
+      "natural_daylight": 0.059
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "vivid": 1.0
+      "moderate": 0.235,
+      "vivid": 0.765
      },
      "setting": {
-      "studio_plain": 0.538,
-      "studio_set": 0.308,
-      "urban_exterior": 0.154
+      "studio_plain": 0.647,
+      "studio_set": 0.235,
+      "urban_exterior": 0.118
      },
      "people": {
-      "none": 0.538,
-      "one": 0.308,
-      "two": 0.154
+      "none": 0.647,
+      "one": 0.235,
+      "two": 0.118
      },
      "gaze": {
-      "to_camera": 0.462,
-      "not_applicable": 0.538
+      "to_camera": 0.353,
+      "not_applicable": 0.647
      },
      "expression": {
-      "neutral": 0.846,
-      "not_applicable": 0.154
+      "neutral": 0.882,
+      "not_applicable": 0.118
      },
      "pose": {
-      "posed_static": 0.923,
-      "not_applicable": 0.077
+      "posed_static": 0.941,
+      "not_applicable": 0.059
      },
      "framing": {
-      "close_up": 0.385,
-      "medium": 0.154,
-      "full_length": 0.462
+      "close_up": 0.412,
+      "medium": 0.118,
+      "full_length": 0.471
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.308,
-      "eveningwear": 0.462,
-      "casual": 0.231
+      "formal_tailored": 0.294,
+      "eveningwear": 0.353,
+      "casual": 0.353
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.769,
-      "logo_only": 0.231
+      "none": 0.824,
+      "logo_only": 0.176
      },
      "mood": {
-      "serene": 0.231,
+      "austere": 0.235,
+      "serene": 0.412,
       "intimate": 1.0,
-      "sensual": 1.0,
-      "opulent": 0.385,
-      "romantic": 0.385
+      "sensual": 0.765,
+      "opulent": 0.294,
+      "romantic": 0.294
      },
      "street_couture": 3.0
     },
@@ -2373,62 +2601,131 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 9,
+     "n": 14,
      "light": {
-      "high_key": 0.778,
-      "low_key": 0.222
+      "high_key": 0.714,
+      "low_key": 0.214,
+      "natural_daylight": 0.071
      },
      "colour_temperature": {
-      "warm": 0.111,
-      "neutral": 0.889
+      "warm": 0.143,
+      "neutral": 0.857
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.778,
-      "studio_set": 0.222
+      "studio_plain": 0.5,
+      "studio_set": 0.429,
+      "urban_exterior": 0.071
      },
      "people": {
-      "none": 0.889,
-      "one": 0.111
+      "none": 0.714,
+      "one": 0.143,
+      "two": 0.143
      },
      "gaze": {
-      "to_camera": 0.111,
-      "not_applicable": 0.889
+      "to_camera": 0.286,
+      "not_applicable": 0.714
      },
      "expression": {
-      "neutral": 0.889,
-      "not_applicable": 0.111
+      "neutral": 0.786,
+      "not_applicable": 0.214
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.333,
-      "medium": 0.111,
-      "full_length": 0.556
+      "close_up": 0.286,
+      "medium": 0.214,
+      "full_length": 0.5
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.889,
-      "eveningwear": 0.111
+      "formal_tailored": 0.643,
+      "eveningwear": 0.357
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.667,
-      "logo_only": 0.333
+      "none": 0.714,
+      "logo_only": 0.286
      },
      "mood": {
-      "serene": 0.444,
+      "serene": 0.357,
       "intimate": 1.0,
-      "sensual": 0.556,
-      "opulent": 0.444,
-      "romantic": 0.444
+      "sensual": 0.643,
+      "opulent": 0.357,
+      "romantic": 0.5
+     },
+     "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 11,
+     "light": {
+      "high_key": 0.818,
+      "natural_daylight": 0.182
+     },
+     "colour_temperature": {
+      "warm": 0.091,
+      "neutral": 0.909
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_set": 0.455,
+      "urban_exterior": 0.182,
+      "landscape_nature": 0.364
+     },
+     "people": {
+      "none": 0.182,
+      "one": 0.545,
+      "two": 0.091,
+      "group": 0.182
+     },
+     "gaze": {
+      "to_camera": 0.727,
+      "away": 0.091,
+      "not_applicable": 0.182
+     },
+     "expression": {
+      "neutral": 0.909,
+      "not_applicable": 0.091
+     },
+     "pose": {
+      "posed_static": 1.0
+     },
+     "framing": {
+      "close_up": 0.182,
+      "medium": 0.636,
+      "full_length": 0.182
+     },
+     "primary_subject": {
+      "garment": 0.636,
+      "footwear": 0.364
+     },
+     "styling_register": {
+      "eveningwear": 0.455,
+      "casual": 0.545
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.818,
+      "logo_only": 0.182
+     },
+     "mood": {
+      "serene": 0.273,
+      "intimate": 0.909,
+      "sensual": 0.818,
+      "playful": 0.273,
+      "opulent": 0.364,
+      "romantic": 0.364
      },
      "street_couture": 3.0
     },
@@ -2503,67 +2800,75 @@
      "from": "2024H1",
      "to": "2024H2",
      "n0": 8,
-     "n1": 13,
-     "rubric": 0.1523,
-     "rubric_p": 0.189,
-     "rubric_chance": 0.1189,
-     "fingerprint": 0.2025,
-     "fingerprint_p": 0.019,
-     "fingerprint_chance": 0.0995,
+     "n1": 17,
+     "months0": 3,
+     "months1": 6,
+     "rubric": 0.19,
+     "rubric_p": 0.4762,
+     "rubric_chance": 0.1865,
+     "null": "months",
+     "splits": 84,
+     "fingerprint": 0.2171,
+     "fingerprint_p": 0.5238,
+     "fingerprint_chance": 0.2177,
      "moved": [
       {
        "question": "framing",
        "answer": "medium",
-       "change": -0.721
-      },
-      {
-       "question": "framing",
-       "answer": "full_length",
-       "change": 0.462
+       "change": -0.757
       },
       {
        "question": "people",
        "answer": "none",
-       "change": 0.413
+       "change": 0.522
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": 0.522
       },
       {
        "question": "gaze",
        "answer": "to_camera",
-       "change": -0.413
+       "change": -0.522
       }
      ]
     },
     {
      "from": "2024H2",
      "to": "2025H1",
-     "n0": 13,
+     "n0": 17,
      "n1": 20,
-     "rubric": 0.1907,
-     "rubric_p": 0.002,
-     "rubric_chance": 0.0856,
-     "fingerprint": 0.2169,
-     "fingerprint_p": 0.001,
-     "fingerprint_chance": 0.0622,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1749,
+     "rubric_p": 0.2056,
+     "rubric_chance": 0.1379,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.2144,
+     "fingerprint_p": 0.145,
+     "fingerprint_chance": 0.1711,
      "moved": [
       {
        "question": "styling_register",
        "answer": "casual",
-       "change": 0.769
-      },
-      {
-       "question": "styling_register",
-       "answer": "eveningwear",
-       "change": -0.462
+       "change": 0.647
       },
       {
        "question": "text_in_image",
        "answer": "none",
-       "change": -0.419
+       "change": -0.474
       },
       {
        "question": "text_in_image",
        "answer": "logo_only",
-       "change": 0.419
+       "change": 0.474
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": -0.353
       }
      ]
     },
@@ -2571,13 +2876,17 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 20,
-     "n1": 9,
-     "rubric": 0.1531,
-     "rubric_p": 0.013,
-     "rubric_chance": 0.0848,
-     "fingerprint": 0.2439,
-     "fingerprint_p": 0.001,
-     "fingerprint_chance": 0.0658,
+     "n1": 14,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.1978,
+     "rubric_p": 0.0556,
+     "rubric_chance": 0.1333,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.2377,
+     "fingerprint_p": 0.0873,
+     "fingerprint_chance": 0.1645,
      "moved": [
       {
        "question": "styling_register",
@@ -2587,27 +2896,104 @@
       {
        "question": "styling_register",
        "answer": "formal_tailored",
-       "change": 0.889
+       "change": 0.643
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": 0.364
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": -0.364
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 14,
+     "n1": 11,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.2402,
+     "rubric_p": 0.119,
+     "rubric_chance": 0.1798,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1774,
+     "fingerprint_p": 0.4365,
+     "fingerprint_chance": 0.1672,
+     "moved": [
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.643
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": 0.545
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": -0.532
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": -0.532
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 11,
+     "n1": 11,
+     "months0": 4,
+     "months1": 4,
+     "rubric": 0.1061,
+     "rubric_p": 1.0,
+     "rubric_chance": 0.1531,
+     "null": "months",
+     "splits": 70,
+     "fingerprint": 0.1165,
+     "fingerprint_p": 0.8571,
+     "fingerprint_chance": 0.1338,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.455
+      },
+      {
+       "question": "primary_subject",
+       "answer": "garment",
+       "change": 0.364
+      },
+      {
+       "question": "primary_subject",
+       "answer": "footwear",
+       "change": -0.364
       },
       {
        "question": "mood",
-       "answer": "opulent",
-       "change": 0.444
-      },
-      {
-       "question": "framing",
-       "answer": "full_length",
-       "change": 0.356
+       "answer": "serene",
+       "change": -0.273
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.134,
-    "2025H1": 0.2222,
-    "2024H1": 0.177,
-    "2025H2": 0.2005,
-    "2026H2": 0.1118
+    "2024H2": 0.1654,
+    "2025H1": 0.2128,
+    "2025H2": 0.1479,
+    "2026H1": 0.1735,
+    "2024H1": 0.1509,
+    "2026H2": 0.1134
    }
   },
   "dior": {
@@ -2677,73 +3063,74 @@
      "street_couture": 3.0
     },
     "2024H2": {
-     "n": 15,
+     "n": 17,
      "light": {
-      "high_key": 0.8,
-      "low_key": 0.067,
-      "natural_daylight": 0.133
+      "high_key": 0.824,
+      "low_key": 0.059,
+      "natural_daylight": 0.118
      },
      "colour_temperature": {
-      "warm": 0.2,
-      "neutral": 0.8
+      "warm": 0.176,
+      "neutral": 0.824
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.067,
-      "studio_set": 0.8,
-      "landscape_nature": 0.133
+      "studio_plain": 0.059,
+      "studio_set": 0.824,
+      "landscape_nature": 0.118
      },
      "people": {
-      "none": 0.267,
-      "one": 0.6,
-      "two": 0.133
+      "none": 0.235,
+      "one": 0.647,
+      "two": 0.118
      },
      "gaze": {
-      "to_camera": 0.6,
-      "away": 0.133,
-      "not_applicable": 0.267
+      "to_camera": 0.647,
+      "away": 0.118,
+      "not_applicable": 0.235
      },
      "expression": {
-      "neutral": 0.867,
-      "not_applicable": 0.133
+      "neutral": 0.882,
+      "not_applicable": 0.118
      },
      "pose": {
-      "posed_static": 0.933,
-      "not_applicable": 0.067
+      "posed_static": 0.941,
+      "not_applicable": 0.059
      },
      "framing": {
-      "close_up": 0.133,
-      "medium": 0.6,
-      "full_length": 0.267
+      "close_up": 0.118,
+      "medium": 0.647,
+      "full_length": 0.235
      },
      "primary_subject": {
-      "garment": 0.8,
-      "footwear": 0.067,
-      "accessory": 0.067,
-      "product_object": 0.067
+      "garment": 0.824,
+      "footwear": 0.059,
+      "accessory": 0.059,
+      "product_object": 0.059
      },
      "styling_register": {
-      "formal_tailored": 0.533,
-      "eveningwear": 0.267,
-      "casual": 0.2
+      "formal_tailored": 0.588,
+      "eveningwear": 0.235,
+      "casual": 0.176
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.4,
-      "logo_only": 0.6
+      "none": 0.412,
+      "logo_only": 0.529,
+      "headline": 0.059
      },
      "mood": {
-      "serene": 0.067,
-      "intimate": 0.933,
-      "sensual": 0.933,
-      "opulent": 0.733,
-      "romantic": 0.333
+      "serene": 0.059,
+      "intimate": 0.941,
+      "sensual": 0.941,
+      "opulent": 0.706,
+      "romantic": 0.353
      },
-     "street_couture": 3.27
+     "street_couture": 3.24
     },
     "2025H1": {
      "n": 12,
@@ -2815,64 +3202,76 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 6,
+     "n": 15,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.8,
+      "low_key": 0.2
      },
      "colour_temperature": {
-      "neutral": 1.0
+      "cool": 0.067,
+      "neutral": 0.933
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_set": 1.0
+      "studio_plain": 0.067,
+      "studio_set": 0.8,
+      "urban_exterior": 0.067,
+      "landscape_nature": 0.067
      },
      "people": {
-      "one": 0.833,
-      "two": 0.167
+      "none": 0.2,
+      "one": 0.667,
+      "two": 0.133
      },
      "gaze": {
       "to_camera": 0.667,
-      "away": 0.333
+      "away": 0.133,
+      "not_applicable": 0.2
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.8,
+      "not_applicable": 0.2
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.8,
+      "not_applicable": 0.2
      },
      "framing": {
-      "close_up": 0.167,
-      "medium": 0.667,
-      "full_length": 0.167
+      "close_up": 0.267,
+      "medium": 0.467,
+      "full_length": 0.2,
+      "wide_scene": 0.067
      },
      "primary_subject": {
-      "garment": 0.833,
-      "accessory": 0.167
+      "garment": 0.8,
+      "accessory": 0.133,
+      "scene": 0.067
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "casual": 0.5
+      "formal_tailored": 0.267,
+      "eveningwear": 0.2,
+      "casual": 0.533
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.667,
-      "logo_only": 0.333
+      "none": 0.533,
+      "logo_only": 0.467
      },
      "mood": {
       "serene": 0.333,
       "intimate": 1.0,
-      "sensual": 0.833,
-      "opulent": 0.333,
-      "romantic": 0.5
+      "sensual": 0.8,
+      "opulent": 0.4,
+      "romantic": 0.467
      },
-     "street_couture": 3.0
+     "street_couture": 3.13
     },
     "2026H1": {
-     "n": 1,
+     "n": 2,
      "light": {
       "high_key": 1.0
      },
@@ -2889,7 +3288,8 @@
       "group": 1.0
      },
      "gaze": {
-      "away": 1.0
+      "to_camera": 0.5,
+      "away": 0.5
      },
      "expression": {
       "neutral": 1.0
@@ -2913,9 +3313,10 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 1.0,
+      "serene": 0.5,
       "intimate": 1.0,
-      "sensual": 1.0
+      "sensual": 1.0,
+      "romantic": 0.5
      },
      "street_couture": 3.0
     }
@@ -2925,67 +3326,75 @@
      "from": "2024H1",
      "to": "2024H2",
      "n0": 11,
-     "n1": 15,
-     "rubric": 0.1416,
-     "rubric_p": 0.334,
+     "n1": 17,
+     "months0": 4,
+     "months1": 6,
+     "rubric": 0.1335,
+     "rubric_p": 0.4286,
      "rubric_chance": 0.1295,
-     "fingerprint": 0.1201,
-     "fingerprint_p": 0.101,
-     "fingerprint_chance": 0.0908,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.1171,
+     "fingerprint_p": 0.219,
+     "fingerprint_chance": 0.1003,
      "moved": [
       {
        "question": "mood",
        "answer": "opulent",
-       "change": 0.733
+       "change": 0.706
       },
       {
        "question": "mood",
        "answer": "romantic",
-       "change": -0.576
+       "change": -0.556
       },
       {
        "question": "styling_register",
        "answer": "formal_tailored",
-       "change": 0.352
+       "change": 0.406
       },
       {
        "question": "setting",
        "answer": "studio_set",
-       "change": 0.345
+       "change": 0.369
       }
      ]
     },
     {
      "from": "2024H2",
      "to": "2025H1",
-     "n0": 15,
+     "n0": 17,
      "n1": 12,
-     "rubric": 0.108,
-     "rubric_p": 0.782,
-     "rubric_chance": 0.13,
-     "fingerprint": 0.0701,
-     "fingerprint_p": 0.867,
-     "fingerprint_chance": 0.0891,
+     "months0": 6,
+     "months1": 6,
+     "rubric": 0.1102,
+     "rubric_p": 0.7316,
+     "rubric_chance": 0.1248,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.0769,
+     "fingerprint_p": 0.6104,
+     "fingerprint_chance": 0.0844,
      "moved": [
       {
        "question": "text_in_image",
-       "answer": "logo_only",
-       "change": -0.267
+       "answer": "none",
+       "change": 0.255
       },
       {
-       "question": "text_in_image",
-       "answer": "none",
-       "change": 0.267
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.23
       },
       {
        "question": "mood",
        "answer": "romantic",
-       "change": 0.25
+       "change": 0.23
       },
       {
        "question": "mood",
        "answer": "opulent",
-       "change": -0.233
+       "change": -0.206
       }
      ]
     },
@@ -2993,42 +3402,46 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 12,
-     "n1": 6,
-     "rubric": 0.1315,
-     "rubric_p": 0.733,
-     "rubric_chance": 0.1481,
-     "fingerprint": 0.1349,
-     "fingerprint_p": 0.437,
-     "fingerprint_chance": 0.1296,
+     "n1": 15,
+     "months0": 6,
+     "months1": 6,
+     "rubric": 0.1067,
+     "rubric_p": 0.9026,
+     "rubric_chance": 0.1444,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.1067,
+     "fingerprint_p": 0.4004,
+     "fingerprint_chance": 0.0998,
      "moved": [
       {
-       "question": "people",
-       "answer": "none",
-       "change": -0.333
-      },
-      {
        "question": "gaze",
-       "answer": "not_applicable",
-       "change": -0.333
-      },
-      {
-       "question": "people",
-       "answer": "one",
+       "answer": "to_camera",
        "change": 0.25
       },
       {
-       "question": "expression",
-       "answer": "neutral",
-       "change": 0.25
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.233
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": 0.2
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.2
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1218,
-    "2025H1": 0.1201,
-    "2024H1": 0.1751,
-    "2025H2": 0.1768
+    "2024H2": 0.1339,
+    "2025H1": 0.1249,
+    "2025H2": 0.1211,
+    "2024H1": 0.1513
    }
   },
   "dolce_gabbana": {
@@ -3159,9 +3572,10 @@
      "street_couture": 3.5
     },
     "2025H2": {
-     "n": 4,
+     "n": 9,
      "light": {
-      "low_key": 1.0
+      "high_key": 0.556,
+      "low_key": 0.444
      },
      "colour_temperature": {
       "neutral": 1.0
@@ -3170,11 +3584,13 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_set": 0.25,
-      "urban_exterior": 0.75
+      "studio_plain": 0.333,
+      "studio_set": 0.333,
+      "urban_exterior": 0.333
      },
      "people": {
-      "two": 1.0
+      "one": 0.556,
+      "two": 0.444
      },
      "gaze": {
       "to_camera": 1.0
@@ -3186,30 +3602,33 @@
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 1.0
+      "medium": 0.778,
+      "full_length": 0.222
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "eveningwear": 1.0
+      "formal_tailored": 0.222,
+      "eveningwear": 0.778
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.778,
+      "logo_only": 0.222
      },
      "mood": {
       "intimate": 1.0,
       "sensual": 1.0,
-      "romantic": 1.0
+      "opulent": 0.222,
+      "romantic": 0.778
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 3,
+     "n": 7,
      "light": {
       "high_key": 1.0
      },
@@ -3220,8 +3639,8 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.333,
-      "studio_set": 0.667
+      "studio_plain": 0.286,
+      "studio_set": 0.714
      },
      "people": {
       "one": 1.0
@@ -3236,27 +3655,31 @@
       "posed_static": 1.0
      },
      "framing": {
-      "full_length": 1.0
+      "medium": 0.143,
+      "full_length": 0.857
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.333,
-      "eveningwear": 0.667
+      "formal_tailored": 0.286,
+      "eveningwear": 0.286,
+      "casual": 0.429
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 1.0
+      "none": 0.714,
+      "logo_only": 0.286
      },
      "mood": {
-      "serene": 0.333,
-      "intimate": 0.667,
+      "serene": 0.143,
+      "intimate": 0.714,
       "sensual": 1.0,
-      "opulent": 0.333,
-      "romantic": 0.667
+      "playful": 0.143,
+      "opulent": 0.429,
+      "romantic": 0.571
      },
      "street_couture": 3.0
     },
@@ -3321,12 +3744,16 @@
      "to": "2024H2",
      "n0": 16,
      "n1": 20,
+     "months0": 4,
+     "months1": 5,
      "rubric": 0.1856,
-     "rubric_p": 0.003,
-     "rubric_chance": 0.0956,
+     "rubric_p": 0.3492,
+     "rubric_chance": 0.1696,
+     "null": "months",
+     "splits": 126,
      "fingerprint": 0.1802,
-     "fingerprint_p": 0.001,
-     "fingerprint_chance": 0.0542,
+     "fingerprint_p": 0.3413,
+     "fingerprint_chance": 0.1594,
      "moved": [
       {
        "question": "colour_temperature",
@@ -3349,12 +3776,90 @@
        "change": -0.338
       }
      ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 9,
+     "n1": 7,
+     "months0": 3,
+     "months1": 2,
+     "rubric": 0.1695,
+     "rubric_p": 0.4,
+     "rubric_chance": 0.1607,
+     "null": "months",
+     "splits": 10,
+     "fingerprint": 0.3063,
+     "fingerprint_p": 0.4,
+     "fingerprint_chance": 0.2934,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.635
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": 0.635
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": -0.492
+      },
+      {
+       "question": "light",
+       "answer": "high_key",
+       "change": 0.444
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 7,
+     "n1": 8,
+     "months0": 2,
+     "months1": 2,
+     "rubric": 0.0464,
+     "rubric_p": 1.0,
+     "rubric_chance": 0.0611,
+     "null": "months",
+     "splits": 6,
+     "fingerprint": 0.1326,
+     "fingerprint_p": 0.6667,
+     "fingerprint_chance": 0.1326,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": -0.446
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": -0.375
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": 0.357
+      },
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.321
+      }
+     ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1474,
-    "2024H1": 0.1874,
-    "2026H2": 0.2125
+    "2024H2": 0.1488,
+    "2025H2": 0.2316,
+    "2026H1": 0.206,
+    "2024H1": 0.1614,
+    "2026H2": 0.2162
    }
   },
   "dries_van_noten": {
@@ -3480,63 +3985,131 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 6,
+     "n": 12,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.833,
+      "low_key": 0.167
      },
      "colour_temperature": {
-      "cool": 0.167,
-      "neutral": 0.833
+      "cool": 0.083,
+      "neutral": 0.917
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.333,
-      "studio_set": 0.667
+      "studio_plain": 0.25,
+      "studio_set": 0.75
      },
      "people": {
-      "none": 0.333,
-      "one": 0.667
+      "none": 0.167,
+      "one": 0.833
      },
      "gaze": {
-      "to_camera": 0.667,
-      "not_applicable": 0.333
+      "to_camera": 0.75,
+      "away": 0.083,
+      "not_applicable": 0.167
      },
      "expression": {
-      "neutral": 0.667,
-      "not_applicable": 0.333
+      "neutral": 0.833,
+      "not_applicable": 0.167
      },
      "pose": {
-      "posed_static": 0.667,
-      "not_applicable": 0.333
+      "posed_static": 0.833,
+      "not_applicable": 0.167
      },
      "framing": {
-      "close_up": 0.667,
-      "medium": 0.333
+      "close_up": 0.417,
+      "medium": 0.25,
+      "full_length": 0.333
      },
      "primary_subject": {
-      "garment": 0.667,
-      "product_object": 0.333
+      "garment": 0.833,
+      "product_object": 0.167
      },
      "styling_register": {
       "formal_tailored": 0.833,
-      "not_applicable": 0.167
+      "eveningwear": 0.083,
+      "not_applicable": 0.083
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.667,
-      "logo_only": 0.333
+      "none": 0.833,
+      "logo_only": 0.167
      },
      "mood": {
-      "austere": 0.167,
-      "serene": 0.333,
+      "austere": 0.083,
+      "serene": 0.25,
       "intimate": 1.0,
       "sensual": 0.833,
-      "opulent": 0.167,
+      "opulent": 0.417,
       "romantic": 0.333
+     },
+     "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 13,
+     "light": {
+      "high_key": 0.923,
+      "low_key": 0.077
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.231,
+      "studio_set": 0.769
+     },
+     "people": {
+      "none": 0.077,
+      "one": 0.846,
+      "two": 0.077
+     },
+     "gaze": {
+      "to_camera": 0.923,
+      "not_applicable": 0.077
+     },
+     "expression": {
+      "neutral": 0.923,
+      "not_applicable": 0.077
+     },
+     "pose": {
+      "posed_static": 0.923,
+      "not_applicable": 0.077
+     },
+     "framing": {
+      "medium": 0.385,
+      "full_length": 0.615
+     },
+     "primary_subject": {
+      "garment": 0.923,
+      "scene": 0.077
+     },
+     "styling_register": {
+      "formal_tailored": 0.385,
+      "eveningwear": 0.154,
+      "casual": 0.385,
+      "not_applicable": 0.077
+     },
+     "production": {
+      "polished_commercial": 0.923,
+      "editorial_art": 0.077
+     },
+     "text_in_image": {
+      "none": 1.0
+     },
+     "mood": {
+      "austere": 0.077,
+      "serene": 0.308,
+      "intimate": 1.0,
+      "sensual": 0.692,
+      "opulent": 0.385,
+      "romantic": 0.538
      },
      "street_couture": 3.0
     },
@@ -3608,23 +4181,22 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 9,
-     "n1": 6,
-     "rubric": 0.2015,
-     "rubric_p": 0.239,
-     "rubric_chance": 0.1438,
-     "fingerprint": 0.1834,
-     "fingerprint_p": 0.147,
-     "fingerprint_chance": 0.1373,
+     "n1": 12,
+     "months0": 6,
+     "months1": 6,
+     "rubric": 0.1588,
+     "rubric_p": 0.2251,
+     "rubric_chance": 0.1278,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.121,
+     "fingerprint_p": 0.2879,
+     "fingerprint_chance": 0.1074,
      "moved": [
       {
        "question": "styling_register",
        "answer": "formal_tailored",
        "change": 0.611
-      },
-      {
-       "question": "framing",
-       "answer": "close_up",
-       "change": 0.556
       },
       {
        "question": "styling_register",
@@ -3634,24 +4206,106 @@
       {
        "question": "setting",
        "answer": "studio_plain",
-       "change": -0.444
+       "change": -0.528
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": 0.528
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 12,
+     "n1": 13,
+     "months0": 6,
+     "months1": 6,
+     "rubric": 0.1302,
+     "rubric_p": 0.2792,
+     "rubric_chance": 0.1147,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.1597,
+     "fingerprint_p": 0.0606,
+     "fingerprint_chance": 0.0997,
+     "moved": [
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.449
+      },
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": -0.417
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": 0.385
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": 0.282
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 13,
+     "n1": 7,
+     "months0": 6,
+     "months1": 3,
+     "rubric": 0.1287,
+     "rubric_p": 0.7738,
+     "rubric_chance": 0.1427,
+     "null": "months",
+     "splits": 84,
+     "fingerprint": 0.2656,
+     "fingerprint_p": 0.0952,
+     "fingerprint_chance": 0.1352,
+     "moved": [
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.352
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": -0.33
+      },
+      {
+       "question": "colour_temperature",
+       "answer": "neutral",
+       "change": -0.286
+      },
+      {
+       "question": "gaze",
+       "answer": "away",
+       "change": 0.286
       }
      ]
     }
    ],
    "distinct": {
-    "2025H1": 0.1528,
-    "2025H2": 0.1638,
-    "2026H2": 0.1284
+    "2025H1": 0.1532,
+    "2025H2": 0.1552,
+    "2026H1": 0.184,
+    "2026H2": 0.1334
    }
   },
   "fendi": {
    "periods": {
     "2024H1": {
-     "n": 6,
+     "n": 9,
      "light": {
-      "high_key": 0.833,
-      "natural_daylight": 0.167
+      "high_key": 0.889,
+      "natural_daylight": 0.111
      },
      "colour_temperature": {
       "neutral": 1.0
@@ -3661,36 +4315,38 @@
      },
      "setting": {
       "studio_plain": 0.333,
-      "studio_set": 0.5,
-      "urban_exterior": 0.167
+      "studio_set": 0.556,
+      "urban_exterior": 0.111
      },
      "people": {
-      "none": 0.333,
-      "one": 0.667
+      "none": 0.222,
+      "one": 0.667,
+      "two": 0.111
      },
      "gaze": {
-      "to_camera": 0.667,
-      "not_applicable": 0.333
+      "to_camera": 0.778,
+      "not_applicable": 0.222
      },
      "expression": {
-      "neutral": 0.667,
-      "not_applicable": 0.333
+      "neutral": 0.778,
+      "not_applicable": 0.222
      },
      "pose": {
-      "posed_static": 0.833,
-      "not_applicable": 0.167
+      "posed_static": 0.889,
+      "not_applicable": 0.111
      },
      "framing": {
-      "close_up": 0.333,
-      "medium": 0.167,
-      "full_length": 0.5
+      "close_up": 0.222,
+      "medium": 0.222,
+      "full_length": 0.556
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.833,
-      "eveningwear": 0.167
+      "formal_tailored": 0.778,
+      "eveningwear": 0.111,
+      "casual": 0.111
      },
      "production": {
       "polished_commercial": 1.0
@@ -3700,18 +4356,19 @@
       "logo_only": 0.667
      },
      "mood": {
-      "serene": 0.167,
+      "serene": 0.111,
       "intimate": 1.0,
-      "sensual": 0.833,
-      "opulent": 1.0
+      "sensual": 0.889,
+      "opulent": 0.889,
+      "romantic": 0.111
      },
-     "street_couture": 3.33
+     "street_couture": 3.22
     },
     "2024H2": {
-     "n": 11,
+     "n": 13,
      "light": {
-      "high_key": 0.909,
-      "natural_daylight": 0.091
+      "high_key": 0.923,
+      "natural_daylight": 0.077
      },
      "colour_temperature": {
       "neutral": 1.0
@@ -3720,54 +4377,54 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.182,
-      "studio_set": 0.636,
-      "urban_exterior": 0.091,
-      "landscape_nature": 0.091
+      "studio_plain": 0.154,
+      "studio_set": 0.692,
+      "urban_exterior": 0.077,
+      "landscape_nature": 0.077
      },
      "people": {
-      "none": 0.182,
-      "one": 0.818
+      "none": 0.154,
+      "one": 0.846
      },
      "gaze": {
-      "to_camera": 0.818,
-      "not_applicable": 0.182
+      "to_camera": 0.846,
+      "not_applicable": 0.154
      },
      "expression": {
-      "neutral": 0.818,
-      "not_applicable": 0.182
+      "neutral": 0.846,
+      "not_applicable": 0.154
      },
      "pose": {
-      "posed_static": 0.818,
-      "not_applicable": 0.182
+      "posed_static": 0.846,
+      "not_applicable": 0.154
      },
      "framing": {
-      "close_up": 0.091,
-      "medium": 0.636,
-      "full_length": 0.273
+      "close_up": 0.077,
+      "medium": 0.538,
+      "full_length": 0.385
      },
      "primary_subject": {
-      "garment": 0.818,
-      "product_object": 0.182
+      "garment": 0.846,
+      "product_object": 0.154
      },
      "styling_register": {
-      "formal_tailored": 0.636,
-      "eveningwear": 0.182,
-      "casual": 0.182
+      "formal_tailored": 0.692,
+      "eveningwear": 0.154,
+      "casual": 0.154
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.545,
-      "logo_only": 0.455
+      "none": 0.462,
+      "logo_only": 0.538
      },
      "mood": {
-      "serene": 0.455,
-      "intimate": 0.818,
-      "sensual": 0.727,
-      "opulent": 0.727,
-      "romantic": 0.273
+      "serene": 0.385,
+      "intimate": 0.846,
+      "sensual": 0.769,
+      "opulent": 0.769,
+      "romantic": 0.231
      },
      "street_couture": 3.0
     },
@@ -3841,6 +4498,333 @@
      "street_couture": 3.0
     },
     "2025H2": {
+     "n": 18,
+     "light": {
+      "high_key": 1.0
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.444,
+      "studio_set": 0.5,
+      "urban_exterior": 0.056
+     },
+     "people": {
+      "none": 0.222,
+      "one": 0.611,
+      "two": 0.167
+     },
+     "gaze": {
+      "to_camera": 0.556,
+      "away": 0.222,
+      "not_applicable": 0.222
+     },
+     "expression": {
+      "neutral": 0.778,
+      "not_applicable": 0.222
+     },
+     "pose": {
+      "posed_static": 0.944,
+      "not_applicable": 0.056
+     },
+     "framing": {
+      "close_up": 0.111,
+      "medium": 0.667,
+      "full_length": 0.111,
+      "product_only": 0.111
+     },
+     "primary_subject": {
+      "garment": 0.833,
+      "footwear": 0.167
+     },
+     "styling_register": {
+      "formal_tailored": 0.222,
+      "eveningwear": 0.333,
+      "casual": 0.444
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.667,
+      "logo_only": 0.333
+     },
+     "mood": {
+      "serene": 0.278,
+      "intimate": 0.889,
+      "sensual": 0.944,
+      "opulent": 0.444,
+      "romantic": 0.389
+     },
+     "street_couture": 3.0
+    }
+   },
+   "shifts": [
+    {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 9,
+     "n1": 13,
+     "months0": 3,
+     "months1": 5,
+     "rubric": 0.0941,
+     "rubric_p": 0.9464,
+     "rubric_chance": 0.1251,
+     "null": "months",
+     "splits": 56,
+     "fingerprint": 0.1186,
+     "fingerprint_p": 0.25,
+     "fingerprint_chance": 0.1024,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": 0.316
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": 0.274
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": 0.179
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.179
+      }
+     ]
+    },
+    {
+     "from": "2024H2",
+     "to": "2025H1",
+     "n0": 13,
+     "n1": 20,
+     "months0": 5,
+     "months1": 6,
+     "rubric": 0.128,
+     "rubric_p": 0.4437,
+     "rubric_chance": 0.1233,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.1193,
+     "fingerprint_p": 0.132,
+     "fingerprint_chance": 0.0896,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": -0.469
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.392
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": -0.346
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": 0.346
+      }
+     ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 20,
+     "n1": 18,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.0742,
+     "rubric_p": 0.9199,
+     "rubric_chance": 0.1047,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.0857,
+     "fingerprint_p": 0.5,
+     "fingerprint_chance": 0.0856,
+     "moved": [
+      {
+       "question": "gaze",
+       "answer": "away",
+       "change": 0.222
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": -0.172
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.144
+      },
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.144
+      }
+     ]
+    }
+   ],
+   "distinct": {
+    "2024H2": 0.1511,
+    "2025H1": 0.0833,
+    "2025H2": 0.0924,
+    "2024H1": 0.1308
+   }
+  },
+  "givenchy": {
+   "periods": {
+    "2024H1": {
+     "n": 11,
+     "light": {
+      "high_key": 0.909,
+      "natural_daylight": 0.091
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_set": 0.727,
+      "interior": 0.091,
+      "landscape_nature": 0.182
+     },
+     "people": {
+      "none": 0.364,
+      "one": 0.455,
+      "two": 0.182
+     },
+     "gaze": {
+      "to_camera": 0.636,
+      "not_applicable": 0.364
+     },
+     "expression": {
+      "neutral": 0.818,
+      "not_applicable": 0.182
+     },
+     "pose": {
+      "posed_static": 0.909,
+      "not_applicable": 0.091
+     },
+     "framing": {
+      "close_up": 0.273,
+      "medium": 0.364,
+      "full_length": 0.364
+     },
+     "primary_subject": {
+      "garment": 0.727,
+      "footwear": 0.273
+     },
+     "styling_register": {
+      "formal_tailored": 0.545,
+      "eveningwear": 0.182,
+      "casual": 0.273
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.727,
+      "logo_only": 0.273
+     },
+     "mood": {
+      "serene": 0.273,
+      "intimate": 0.818,
+      "sensual": 0.818,
+      "playful": 0.091,
+      "opulent": 0.636,
+      "romantic": 0.364
+     },
+     "street_couture": 3.18
+    },
+    "2024H2": {
+     "n": 18,
+     "light": {
+      "high_key": 0.778,
+      "low_key": 0.111,
+      "natural_daylight": 0.111
+     },
+     "colour_temperature": {
+      "warm": 0.111,
+      "neutral": 0.889
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.333,
+      "studio_set": 0.333,
+      "interior": 0.056,
+      "urban_exterior": 0.056,
+      "landscape_nature": 0.222
+     },
+     "people": {
+      "none": 0.444,
+      "one": 0.5,
+      "two": 0.056
+     },
+     "gaze": {
+      "to_camera": 0.444,
+      "away": 0.056,
+      "not_applicable": 0.5
+     },
+     "expression": {
+      "neutral": 0.833,
+      "not_applicable": 0.167
+     },
+     "pose": {
+      "posed_static": 0.944,
+      "not_applicable": 0.056
+     },
+     "framing": {
+      "close_up": 0.5,
+      "medium": 0.111,
+      "full_length": 0.389
+     },
+     "primary_subject": {
+      "garment": 0.722,
+      "footwear": 0.278
+     },
+     "styling_register": {
+      "formal_tailored": 0.444,
+      "eveningwear": 0.167,
+      "casual": 0.389
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.5,
+      "logo_only": 0.5
+     },
+     "mood": {
+      "serene": 0.278,
+      "intimate": 0.778,
+      "sensual": 0.833,
+      "playful": 0.056,
+      "opulent": 0.667,
+      "aggressive": 0.111,
+      "romantic": 0.167
+     },
+     "street_couture": 3.0
+    },
+    "2025H1": {
      "n": 8,
      "light": {
       "high_key": 1.0
@@ -3852,176 +4836,60 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.375,
-      "studio_set": 0.5,
-      "urban_exterior": 0.125
+      "studio_plain": 0.75,
+      "studio_set": 0.25
      },
      "people": {
-      "none": 0.375,
-      "one": 0.25,
-      "two": 0.375
+      "none": 0.625,
+      "one": 0.375
      },
      "gaze": {
-      "to_camera": 0.5,
+      "to_camera": 0.25,
       "away": 0.125,
-      "not_applicable": 0.375
+      "not_applicable": 0.625
      },
      "expression": {
-      "neutral": 0.625,
-      "not_applicable": 0.375
+      "neutral": 0.5,
+      "not_applicable": 0.5
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.25,
-      "medium": 0.5,
-      "full_length": 0.125,
+      "close_up": 0.5,
+      "medium": 0.125,
+      "full_length": 0.25,
       "product_only": 0.125
      },
      "primary_subject": {
-      "garment": 0.875,
-      "footwear": 0.125
+      "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.125,
-      "eveningwear": 0.125,
-      "casual": 0.75
+      "formal_tailored": 0.5,
+      "eveningwear": 0.25,
+      "casual": 0.25
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.875,
-      "logo_only": 0.125
+      "none": 0.375,
+      "logo_only": 0.625
      },
      "mood": {
-      "serene": 0.625,
-      "intimate": 1.0,
-      "sensual": 0.875,
-      "opulent": 0.25,
-      "romantic": 0.25
+      "serene": 0.25,
+      "intimate": 0.875,
+      "sensual": 0.75,
+      "opulent": 0.75,
+      "romantic": 0.125
      },
      "street_couture": 3.0
-    }
-   },
-   "shifts": [
-    {
-     "from": "2024H1",
-     "to": "2024H2",
-     "n0": 6,
-     "n1": 11,
-     "rubric": 0.134,
-     "rubric_p": 0.527,
-     "rubric_chance": 0.1365,
-     "fingerprint": 0.1471,
-     "fingerprint_p": 0.166,
-     "fingerprint_chance": 0.1171,
-     "moved": [
-      {
-       "question": "framing",
-       "answer": "medium",
-       "change": 0.47
-      },
-      {
-       "question": "mood",
-       "answer": "serene",
-       "change": 0.288
-      },
-      {
-       "question": "mood",
-       "answer": "opulent",
-       "change": -0.273
-      },
-      {
-       "question": "mood",
-       "answer": "romantic",
-       "change": 0.273
-      }
-     ]
     },
-    {
-     "from": "2024H2",
-     "to": "2025H1",
-     "n0": 11,
-     "n1": 20,
-     "rubric": 0.1076,
-     "rubric_p": 0.527,
-     "rubric_chance": 0.1095,
-     "fingerprint": 0.1267,
-     "fingerprint_p": 0.03,
-     "fingerprint_chance": 0.0791,
-     "moved": [
-      {
-       "question": "mood",
-       "answer": "opulent",
-       "change": -0.427
-      },
-      {
-       "question": "styling_register",
-       "answer": "formal_tailored",
-       "change": -0.336
-      },
-      {
-       "question": "people",
-       "answer": "one",
-       "change": -0.318
-      },
-      {
-       "question": "styling_register",
-       "answer": "casual",
-       "change": 0.318
-      }
-     ]
-    },
-    {
-     "from": "2025H1",
-     "to": "2025H2",
-     "n0": 20,
-     "n1": 8,
-     "rubric": 0.1103,
-     "rubric_p": 0.705,
-     "rubric_chance": 0.125,
-     "fingerprint": 0.1043,
-     "fingerprint_p": 0.42,
-     "fingerprint_chance": 0.0994,
-     "moved": [
-      {
-       "question": "people",
-       "answer": "one",
-       "change": -0.25
-      },
-      {
-       "question": "styling_register",
-       "answer": "casual",
-       "change": 0.25
-      },
-      {
-       "question": "people",
-       "answer": "two",
-       "change": 0.225
-      },
-      {
-       "question": "text_in_image",
-       "answer": "none",
-       "change": 0.225
-      }
-     ]
-    }
-   ],
-   "distinct": {
-    "2024H2": 0.1321,
-    "2025H1": 0.0808,
-    "2024H1": 0.1361,
-    "2025H2": 0.1259
-   }
-  },
-  "givenchy": {
-   "periods": {
-    "2026H1": {
-     "n": 2,
+    "2025H2": {
+     "n": 10,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.9,
+      "low_key": 0.1
      },
      "colour_temperature": {
       "neutral": 1.0
@@ -4030,49 +4898,116 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.5,
-      "studio_set": 0.5
+      "studio_plain": 0.8,
+      "studio_set": 0.2
      },
      "people": {
-      "none": 0.5,
-      "one": 0.5
+      "none": 0.6,
+      "one": 0.3,
+      "two": 0.1
      },
      "gaze": {
-      "to_camera": 0.5,
-      "not_applicable": 0.5
+      "to_camera": 0.3,
+      "away": 0.1,
+      "not_applicable": 0.6
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.4,
+      "not_applicable": 0.6
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.9,
+      "not_applicable": 0.1
      },
      "framing": {
-      "medium": 0.5,
-      "full_length": 0.5
+      "close_up": 0.1,
+      "medium": 0.2,
+      "full_length": 0.4,
+      "product_only": 0.3
      },
      "primary_subject": {
-      "garment": 0.5,
-      "footwear": 0.5
+      "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "casual": 0.5
+      "formal_tailored": 0.7,
+      "eveningwear": 0.3
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.5,
-      "logo_only": 0.5
+      "none": 0.2,
+      "logo_only": 0.8
      },
      "mood": {
-      "intimate": 0.5,
-      "sensual": 1.0,
-      "opulent": 1.0,
-      "romantic": 0.5
+      "serene": 0.2,
+      "intimate": 1.0,
+      "sensual": 0.8,
+      "opulent": 0.9,
+      "romantic": 0.1
      },
      "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 9,
+     "light": {
+      "high_key": 1.0
+     },
+     "colour_temperature": {
+      "warm": 0.111,
+      "neutral": 0.889
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.889,
+      "studio_set": 0.111
+     },
+     "people": {
+      "none": 0.889,
+      "one": 0.111
+     },
+     "gaze": {
+      "to_camera": 0.111,
+      "not_applicable": 0.889
+     },
+     "expression": {
+      "neutral": 0.222,
+      "not_applicable": 0.778
+     },
+     "pose": {
+      "posed_static": 1.0
+     },
+     "framing": {
+      "close_up": 0.222,
+      "medium": 0.333,
+      "full_length": 0.222,
+      "product_only": 0.222
+     },
+     "primary_subject": {
+      "garment": 0.778,
+      "footwear": 0.222
+     },
+     "styling_register": {
+      "formal_tailored": 0.444,
+      "eveningwear": 0.444,
+      "casual": 0.111
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.222,
+      "logo_only": 0.778
+     },
+     "mood": {
+      "intimate": 0.778,
+      "sensual": 1.0,
+      "opulent": 1.0,
+      "romantic": 0.222
+     },
+     "street_couture": 3.22
     },
     "2026H2": {
      "n": 11,
@@ -4142,9 +5077,205 @@
      "street_couture": 3.18
     }
    },
-   "shifts": [],
+   "shifts": [
+    {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 11,
+     "n1": 18,
+     "months0": 4,
+     "months1": 6,
+     "rubric": 0.1149,
+     "rubric_p": 0.8095,
+     "rubric_chance": 0.1413,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.0833,
+     "fingerprint_p": 0.8286,
+     "fingerprint_chance": 0.1068,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": -0.394
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.333
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.253
+      },
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": 0.227
+      }
+     ]
+    },
+    {
+     "from": "2024H2",
+     "to": "2025H1",
+     "n0": 18,
+     "n1": 8,
+     "months0": 6,
+     "months1": 4,
+     "rubric": 0.1491,
+     "rubric_p": 0.519,
+     "rubric_chance": 0.1502,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.1646,
+     "fingerprint_p": 0.3238,
+     "fingerprint_chance": 0.1295,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.417
+      },
+      {
+       "question": "expression",
+       "answer": "neutral",
+       "change": -0.333
+      },
+      {
+       "question": "expression",
+       "answer": "not_applicable",
+       "change": 0.333
+      },
+      {
+       "question": "primary_subject",
+       "answer": "garment",
+       "change": 0.278
+      }
+     ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 8,
+     "n1": 10,
+     "months0": 4,
+     "months1": 5,
+     "rubric": 0.0906,
+     "rubric_p": 0.8413,
+     "rubric_chance": 0.1157,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1082,
+     "fingerprint_p": 0.4127,
+     "fingerprint_chance": 0.1014,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "close_up",
+       "change": -0.4
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.25
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": 0.2
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": 0.175
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 10,
+     "n1": 9,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.1358,
+     "rubric_p": 0.4603,
+     "rubric_chance": 0.1335,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.0538,
+     "fingerprint_p": 0.8651,
+     "fingerprint_chance": 0.0781,
+     "moved": [
+      {
+       "question": "people",
+       "answer": "none",
+       "change": 0.289
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": 0.289
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.256
+      },
+      {
+       "question": "primary_subject",
+       "answer": "garment",
+       "change": -0.222
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 9,
+     "n1": 11,
+     "months0": 4,
+     "months1": 3,
+     "rubric": 0.3067,
+     "rubric_p": 0.0571,
+     "rubric_chance": 0.2026,
+     "null": "months",
+     "splits": 35,
+     "fingerprint": 0.3345,
+     "fingerprint_p": 0.0857,
+     "fingerprint_chance": 0.1608,
+     "moved": [
+      {
+       "question": "people",
+       "answer": "one",
+       "change": 0.798
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": -0.798
+      },
+      {
+       "question": "expression",
+       "answer": "not_applicable",
+       "change": -0.778
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": -0.707
+      }
+     ]
+    }
+   ],
    "distinct": {
-    "2026H2": 0.1574
+    "2024H2": 0.0918,
+    "2025H1": 0.1586,
+    "2025H2": 0.194,
+    "2026H1": 0.2299,
+    "2024H1": 0.1048,
+    "2026H2": 0.1581
    }
   },
   "gucci": {
@@ -4324,68 +5455,72 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 7,
+     "n": 10,
      "light": {
-      "high_key": 0.714,
-      "low_key": 0.286
+      "high_key": 0.8,
+      "low_key": 0.2
      },
      "colour_temperature": {
-      "warm": 0.286,
-      "neutral": 0.714
+      "warm": 0.2,
+      "neutral": 0.8
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.143,
-      "studio_set": 0.571,
-      "urban_exterior": 0.143,
-      "water_beach": 0.143
+      "studio_plain": 0.4,
+      "studio_set": 0.4,
+      "urban_exterior": 0.1,
+      "water_beach": 0.1
      },
      "people": {
-      "none": 0.429,
-      "one": 0.571
+      "none": 0.6,
+      "one": 0.4
      },
      "gaze": {
-      "to_camera": 0.429,
-      "away": 0.143,
-      "not_applicable": 0.429
+      "to_camera": 0.3,
+      "away": 0.1,
+      "not_applicable": 0.6
      },
      "expression": {
-      "neutral": 0.714,
-      "not_applicable": 0.286
+      "neutral": 0.7,
+      "not_applicable": 0.3
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 1.0
+      "close_up": 0.2,
+      "medium": 0.7,
+      "full_length": 0.1
      },
      "primary_subject": {
-      "garment": 1.0
+      "garment": 0.8,
+      "footwear": 0.2
      },
      "styling_register": {
-      "formal_tailored": 0.571,
-      "casual": 0.429
+      "formal_tailored": 0.6,
+      "eveningwear": 0.1,
+      "casual": 0.3
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.714,
-      "logo_only": 0.286
+      "none": 0.5,
+      "logo_only": 0.5
      },
      "mood": {
-      "serene": 0.286,
-      "intimate": 0.571,
-      "sensual": 0.857,
-      "opulent": 0.571,
-      "romantic": 0.429
+      "serene": 0.2,
+      "intimate": 0.5,
+      "sensual": 0.8,
+      "opulent": 0.7,
+      "romantic": 0.4
      },
-     "street_couture": 3.0
+     "street_couture": 3.2
     },
     "2026H1": {
-     "n": 4,
+     "n": 5,
      "light": {
       "high_key": 1.0
      },
@@ -4405,15 +5540,17 @@
       "not_applicable": 1.0
      },
      "expression": {
-      "neutral": 0.25,
-      "not_applicable": 0.75
+      "neutral": 0.2,
+      "not_applicable": 0.8
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.8,
+      "not_applicable": 0.2
      },
      "framing": {
-      "medium": 0.75,
-      "full_length": 0.25
+      "medium": 0.6,
+      "full_length": 0.2,
+      "product_only": 0.2
      },
      "primary_subject": {
       "garment": 1.0
@@ -4425,11 +5562,12 @@
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "logo_only": 1.0
+      "none": 0.2,
+      "logo_only": 0.8
      },
      "mood": {
-      "intimate": 0.75,
-      "sensual": 0.75,
+      "intimate": 0.6,
+      "sensual": 0.6,
       "opulent": 1.0
      },
      "street_couture": 3.0
@@ -4491,12 +5629,16 @@
      "to": "2025H1",
      "n0": 11,
      "n1": 14,
+     "months0": 6,
+     "months1": 6,
      "rubric": 0.1464,
-     "rubric_p": 0.181,
-     "rubric_chance": 0.1185,
+     "rubric_p": 0.2597,
+     "rubric_chance": 0.1255,
+     "null": "months",
+     "splits": 924,
      "fingerprint": 0.1012,
-     "fingerprint_p": 0.307,
-     "fingerprint_chance": 0.0893,
+     "fingerprint_p": 0.3983,
+     "fingerprint_chance": 0.0953,
      "moved": [
       {
        "question": "people",
@@ -4524,107 +5666,112 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 14,
-     "n1": 7,
-     "rubric": 0.1798,
-     "rubric_p": 0.131,
-     "rubric_chance": 0.1369,
-     "fingerprint": 0.1511,
-     "fingerprint_p": 0.162,
-     "fingerprint_chance": 0.1183,
+     "n1": 10,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1156,
+     "rubric_p": 0.8918,
+     "rubric_chance": 0.1465,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.1122,
+     "fingerprint_p": 0.3247,
+     "fingerprint_chance": 0.1021,
      "moved": [
       {
-       "question": "people",
-       "answer": "none",
-       "change": -0.357
+       "question": "mood",
+       "answer": "intimate",
+       "change": -0.214
       },
       {
-       "question": "gaze",
-       "answer": "not_applicable",
-       "change": -0.357
+       "question": "setting",
+       "answer": "landscape_nature",
+       "change": -0.214
       },
       {
-       "question": "people",
-       "answer": "one",
-       "change": 0.357
+       "question": "colour_temperature",
+       "answer": "warm",
+       "change": 0.2
       },
       {
-       "question": "text_in_image",
-       "answer": "none",
-       "change": 0.286
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.186
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1043,
-    "2025H1": 0.1489,
-    "2025H2": 0.1419
+    "2024H2": 0.1045,
+    "2025H1": 0.1469,
+    "2025H2": 0.1227
    }
   },
   "hermes": {
    "periods": {
     "2024H1": {
-     "n": 7,
+     "n": 8,
      "light": {
-      "high_key": 0.714,
-      "natural_daylight": 0.286
+      "high_key": 0.75,
+      "natural_daylight": 0.25
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "muted": 0.286,
-      "vivid": 0.714
+      "muted": 0.25,
+      "vivid": 0.75
      },
      "setting": {
-      "studio_plain": 0.286,
-      "studio_set": 0.429,
-      "landscape_nature": 0.286
+      "studio_plain": 0.375,
+      "studio_set": 0.375,
+      "landscape_nature": 0.25
      },
      "people": {
-      "none": 0.143,
-      "one": 0.714,
-      "two": 0.143
+      "none": 0.25,
+      "one": 0.625,
+      "two": 0.125
      },
      "gaze": {
-      "to_camera": 0.571,
-      "away": 0.286,
-      "not_applicable": 0.143
+      "to_camera": 0.5,
+      "away": 0.25,
+      "not_applicable": 0.25
      },
      "expression": {
-      "neutral": 0.857,
-      "not_applicable": 0.143
+      "neutral": 0.875,
+      "not_applicable": 0.125
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.143,
-      "medium": 0.714,
-      "full_length": 0.143
+      "close_up": 0.25,
+      "medium": 0.625,
+      "full_length": 0.125
      },
      "primary_subject": {
-      "garment": 1.0
+      "garment": 0.875,
+      "footwear": 0.125
      },
      "styling_register": {
-      "formal_tailored": 0.571,
-      "eveningwear": 0.286,
-      "casual": 0.143
+      "formal_tailored": 0.5,
+      "eveningwear": 0.25,
+      "casual": 0.25
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.857,
-      "logo_only": 0.143
+      "none": 0.875,
+      "logo_only": 0.125
      },
      "mood": {
-      "austere": 0.143,
-      "serene": 0.857,
-      "intimate": 1.0,
-      "sensual": 0.286,
-      "opulent": 0.429,
-      "romantic": 0.286
+      "austere": 0.125,
+      "serene": 0.75,
+      "intimate": 0.875,
+      "sensual": 0.375,
+      "opulent": 0.5,
+      "romantic": 0.25
      },
      "street_couture": 3.0
     },
@@ -4688,54 +5835,54 @@
      "street_couture": 3.0
     },
     "2025H1": {
-     "n": 10,
+     "n": 12,
      "light": {
-      "high_key": 0.7,
-      "low_key": 0.1,
-      "natural_daylight": 0.2
+      "high_key": 0.75,
+      "low_key": 0.083,
+      "natural_daylight": 0.167
      },
      "colour_temperature": {
-      "cool": 0.1,
-      "neutral": 0.9
+      "cool": 0.083,
+      "neutral": 0.917
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.3,
-      "studio_set": 0.5,
-      "landscape_nature": 0.2
+      "studio_plain": 0.417,
+      "studio_set": 0.417,
+      "landscape_nature": 0.167
      },
      "people": {
-      "none": 0.4,
-      "one": 0.6
+      "none": 0.417,
+      "one": 0.583
      },
      "gaze": {
-      "to_camera": 0.2,
-      "away": 0.4,
-      "not_applicable": 0.4
+      "to_camera": 0.25,
+      "away": 0.333,
+      "not_applicable": 0.417
      },
      "expression": {
-      "neutral": 0.9,
-      "not_applicable": 0.1
+      "neutral": 0.917,
+      "not_applicable": 0.083
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.3,
-      "medium": 0.6,
-      "full_length": 0.1
+      "close_up": 0.417,
+      "medium": 0.5,
+      "full_length": 0.083
      },
      "primary_subject": {
-      "garment": 0.6,
-      "footwear": 0.3,
-      "accessory": 0.1
+      "garment": 0.667,
+      "footwear": 0.25,
+      "accessory": 0.083
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "eveningwear": 0.1,
-      "casual": 0.4
+      "formal_tailored": 0.417,
+      "eveningwear": 0.083,
+      "casual": 0.5
      },
      "production": {
       "polished_commercial": 1.0
@@ -4744,12 +5891,12 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 0.3,
-      "intimate": 0.8,
-      "sensual": 0.8,
-      "playful": 0.2,
-      "opulent": 0.5,
-      "romantic": 0.3
+      "serene": 0.417,
+      "intimate": 0.833,
+      "sensual": 0.667,
+      "playful": 0.167,
+      "opulent": 0.417,
+      "romantic": 0.25
      },
      "street_couture": 3.0
     },
@@ -4863,29 +6010,29 @@
    },
    "shifts": [],
    "distinct": {
-    "2025H1": 0.1367,
-    "2024H1": 0.1526
+    "2025H1": 0.1203,
+    "2024H1": 0.114
    }
   },
   "jil_sander": {
    "periods": {
     "2024H1": {
-     "n": 4,
+     "n": 8,
      "light": {
       "high_key": 0.5,
       "natural_daylight": 0.5
      },
      "colour_temperature": {
-      "cool": 0.25,
-      "neutral": 0.75
+      "cool": 0.125,
+      "neutral": 0.875
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_set": 0.25,
+      "studio_set": 0.375,
       "urban_exterior": 0.5,
-      "landscape_nature": 0.25
+      "landscape_nature": 0.125
      },
      "people": {
       "one": 1.0
@@ -4908,8 +6055,8 @@
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "casual": 0.5
+      "formal_tailored": 0.75,
+      "casual": 0.25
      },
      "production": {
       "polished_commercial": 1.0
@@ -4918,10 +6065,10 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 1.0,
+      "serene": 0.625,
       "intimate": 1.0,
-      "sensual": 0.25,
-      "opulent": 0.25,
+      "sensual": 0.5,
+      "opulent": 0.5,
       "romantic": 0.25
      },
      "street_couture": 3.0
@@ -5060,127 +6207,132 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 12,
+     "n": 18,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.944,
+      "low_key": 0.056
      },
      "colour_temperature": {
-      "warm": 0.167,
-      "neutral": 0.833
+      "warm": 0.111,
+      "neutral": 0.889
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.667,
-      "studio_set": 0.333
+      "studio_plain": 0.722,
+      "studio_set": 0.278
      },
      "people": {
-      "none": 0.083,
-      "one": 0.917
+      "none": 0.111,
+      "one": 0.889
      },
      "gaze": {
-      "to_camera": 0.5,
-      "away": 0.333,
+      "to_camera": 0.556,
+      "away": 0.278,
       "not_applicable": 0.167
      },
      "expression": {
-      "neutral": 0.917,
-      "not_applicable": 0.083
+      "neutral": 0.889,
+      "not_applicable": 0.111
      },
      "pose": {
-      "posed_static": 0.917,
-      "not_applicable": 0.083
+      "posed_static": 0.889,
+      "not_applicable": 0.111
      },
      "framing": {
-      "close_up": 0.417,
-      "medium": 0.25,
+      "close_up": 0.333,
+      "medium": 0.333,
       "full_length": 0.333
      },
      "primary_subject": {
-      "garment": 1.0
+      "garment": 0.944,
+      "product_object": 0.056
      },
      "styling_register": {
-      "formal_tailored": 0.417,
-      "eveningwear": 0.083,
-      "casual": 0.5
+      "formal_tailored": 0.389,
+      "eveningwear": 0.056,
+      "casual": 0.556
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.667,
-      "logo_only": 0.25,
-      "headline": 0.083
+      "none": 0.722,
+      "logo_only": 0.222,
+      "headline": 0.056
      },
      "mood": {
-      "serene": 0.5,
+      "austere": 0.111,
+      "serene": 0.667,
       "intimate": 1.0,
-      "sensual": 0.75,
-      "opulent": 0.333,
-      "romantic": 0.417
+      "sensual": 0.667,
+      "opulent": 0.278,
+      "romantic": 0.278
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 5,
+     "n": 11,
      "light": {
-      "high_key": 0.8,
-      "natural_daylight": 0.2
+      "high_key": 0.909,
+      "natural_daylight": 0.091
      },
      "colour_temperature": {
-      "cool": 0.4,
-      "neutral": 0.6
+      "cool": 0.182,
+      "neutral": 0.818
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.8,
-      "studio_set": 0.2
+      "studio_plain": 0.727,
+      "studio_set": 0.273
      },
      "people": {
-      "none": 0.6,
-      "one": 0.4
+      "none": 0.273,
+      "one": 0.727
      },
      "gaze": {
-      "to_camera": 0.4,
-      "not_applicable": 0.6
+      "to_camera": 0.545,
+      "away": 0.091,
+      "not_applicable": 0.364
      },
      "expression": {
-      "neutral": 0.8,
-      "not_applicable": 0.2
+      "neutral": 0.909,
+      "not_applicable": 0.091
      },
      "pose": {
-      "posed_static": 0.8,
-      "not_applicable": 0.2
+      "posed_static": 0.909,
+      "not_applicable": 0.091
      },
      "framing": {
-      "close_up": 0.6,
-      "medium": 0.2,
-      "full_length": 0.2
+      "close_up": 0.455,
+      "medium": 0.364,
+      "full_length": 0.182
      },
      "primary_subject": {
-      "garment": 0.4,
-      "footwear": 0.6
+      "garment": 0.636,
+      "footwear": 0.364
      },
      "styling_register": {
-      "formal_tailored": 0.6,
-      "casual": 0.4
+      "formal_tailored": 0.636,
+      "casual": 0.364
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.6,
-      "logo_only": 0.4
+      "none": 0.636,
+      "logo_only": 0.364
      },
      "mood": {
-      "serene": 0.6,
-      "intimate": 0.6,
-      "sensual": 0.6,
-      "opulent": 0.6,
-      "romantic": 0.2
+      "austere": 0.091,
+      "serene": 0.818,
+      "intimate": 0.818,
+      "sensual": 0.455,
+      "opulent": 0.545,
+      "romantic": 0.091
      },
      "street_couture": 3.0
     },
@@ -5249,16 +6401,58 @@
    },
    "shifts": [
     {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 8,
+     "n1": 22,
+     "months0": 3,
+     "months1": 6,
+     "rubric": 0.1033,
+     "rubric_p": 0.5238,
+     "rubric_chance": 0.1059,
+     "null": "months",
+     "splits": 84,
+     "fingerprint": 0.1012,
+     "fingerprint_p": 0.1905,
+     "fingerprint_chance": 0.0865,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "urban_exterior",
+       "change": -0.364
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.273
+      },
+      {
+       "question": "light",
+       "answer": "natural_daylight",
+       "change": -0.227
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.205
+      }
+     ]
+    },
+    {
      "from": "2024H2",
      "to": "2025H1",
      "n0": 22,
      "n1": 11,
+     "months0": 6,
+     "months1": 4,
      "rubric": 0.1242,
-     "rubric_p": 0.183,
-     "rubric_chance": 0.104,
+     "rubric_p": 0.3238,
+     "rubric_chance": 0.1136,
+     "null": "months",
+     "splits": 210,
      "fingerprint": 0.077,
-     "fingerprint_p": 0.079,
-     "fingerprint_chance": 0.0579,
+     "fingerprint_p": 0.5238,
+     "fingerprint_chance": 0.078,
      "moved": [
       {
        "question": "setting",
@@ -5286,93 +6480,778 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 11,
-     "n1": 12,
-     "rubric": 0.1301,
-     "rubric_p": 0.377,
-     "rubric_chance": 0.1181,
-     "fingerprint": 0.1134,
-     "fingerprint_p": 0.107,
-     "fingerprint_chance": 0.0889,
+     "n1": 18,
+     "months0": 4,
+     "months1": 6,
+     "rubric": 0.125,
+     "rubric_p": 0.3476,
+     "rubric_chance": 0.1139,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.1091,
+     "fingerprint_p": 0.0857,
+     "fingerprint_chance": 0.0828,
      "moved": [
       {
        "question": "setting",
-       "answer": "studio_set",
-       "change": -0.485
+       "answer": "studio_plain",
+       "change": 0.54
       },
       {
        "question": "setting",
-       "answer": "studio_plain",
-       "change": 0.485
+       "answer": "studio_set",
+       "change": -0.54
       },
       {
-       "question": "framing",
-       "answer": "close_up",
-       "change": 0.326
+       "question": "styling_register",
+       "answer": "casual",
+       "change": 0.283
       },
       {
-       "question": "light",
-       "answer": "high_key",
-       "change": 0.273
+       "question": "mood",
+       "answer": "opulent",
+       "change": -0.268
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 18,
+     "n1": 11,
+     "months0": 6,
+     "months1": 4,
+     "rubric": 0.1111,
+     "rubric_p": 0.7952,
+     "rubric_chance": 0.1299,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.1535,
+     "fingerprint_p": 0.019,
+     "fingerprint_chance": 0.0865,
+     "moved": [
+      {
+       "question": "primary_subject",
+       "answer": "footwear",
+       "change": 0.364
+      },
+      {
+       "question": "primary_subject",
+       "answer": "garment",
+       "change": -0.308
+      },
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.268
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": 0.247
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 11,
+     "n1": 7,
+     "months0": 4,
+     "months1": 3,
+     "rubric": 0.2095,
+     "rubric_p": 0.2857,
+     "rubric_chance": 0.167,
+     "null": "months",
+     "splits": 35,
+     "fingerprint": 0.1319,
+     "fingerprint_p": 0.6286,
+     "fingerprint_chance": 0.1349,
+     "moved": [
+      {
+       "question": "people",
+       "answer": "none",
+       "change": 0.442
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": -0.442
+      },
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.403
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": 0.403
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1675,
-    "2025H1": 0.1612,
-    "2025H2": 0.1369,
-    "2026H2": 0.2268
+    "2024H2": 0.1668,
+    "2025H1": 0.1662,
+    "2025H2": 0.1377,
+    "2026H1": 0.1146,
+    "2024H1": 0.1944,
+    "2026H2": 0.2193
+   }
+  },
+  "loewe": {
+   "periods": {
+    "2024H1": {
+     "n": 10,
+     "light": {
+      "high_key": 0.4,
+      "low_key": 0.1,
+      "natural_daylight": 0.5
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_set": 0.9,
+      "landscape_nature": 0.1
+     },
+     "people": {
+      "none": 0.2,
+      "one": 0.8
+     },
+     "gaze": {
+      "to_camera": 0.7,
+      "away": 0.1,
+      "not_applicable": 0.2
+     },
+     "expression": {
+      "neutral": 0.8,
+      "not_applicable": 0.2
+     },
+     "pose": {
+      "posed_static": 0.9,
+      "not_applicable": 0.1
+     },
+     "framing": {
+      "close_up": 0.1,
+      "medium": 0.5,
+      "full_length": 0.4
+     },
+     "primary_subject": {
+      "garment": 0.9,
+      "footwear": 0.1
+     },
+     "styling_register": {
+      "eveningwear": 0.1,
+      "casual": 0.9
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.7,
+      "logo_only": 0.3
+     },
+     "mood": {
+      "serene": 0.4,
+      "intimate": 1.0,
+      "sensual": 0.6,
+      "playful": 0.4,
+      "romantic": 0.6
+     },
+     "street_couture": 3.0
+    },
+    "2024H2": {
+     "n": 14,
+     "light": {
+      "high_key": 0.786,
+      "natural_daylight": 0.214
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.143,
+      "studio_set": 0.714,
+      "urban_exterior": 0.071,
+      "landscape_nature": 0.071
+     },
+     "people": {
+      "none": 0.357,
+      "one": 0.571,
+      "two": 0.071
+     },
+     "gaze": {
+      "to_camera": 0.643,
+      "not_applicable": 0.357
+     },
+     "expression": {
+      "neutral": 0.714,
+      "not_applicable": 0.286
+     },
+     "pose": {
+      "posed_static": 0.857,
+      "not_applicable": 0.143
+     },
+     "framing": {
+      "close_up": 0.214,
+      "medium": 0.571,
+      "full_length": 0.214
+     },
+     "primary_subject": {
+      "garment": 0.929,
+      "footwear": 0.071
+     },
+     "styling_register": {
+      "formal_tailored": 0.214,
+      "casual": 0.786
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.714,
+      "logo_only": 0.286
+     },
+     "mood": {
+      "serene": 0.214,
+      "intimate": 0.929,
+      "sensual": 0.857,
+      "playful": 0.286,
+      "opulent": 0.143,
+      "aggressive": 0.071,
+      "romantic": 0.5
+     },
+     "street_couture": 3.0
+    },
+    "2025H1": {
+     "n": 22,
+     "light": {
+      "high_key": 0.864,
+      "low_key": 0.045,
+      "natural_daylight": 0.091
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "muted": 0.045,
+      "vivid": 0.955
+     },
+     "setting": {
+      "studio_plain": 0.409,
+      "studio_set": 0.5,
+      "landscape_nature": 0.091
+     },
+     "people": {
+      "none": 0.5,
+      "one": 0.455,
+      "two": 0.045
+     },
+     "gaze": {
+      "to_camera": 0.409,
+      "away": 0.091,
+      "not_applicable": 0.5
+     },
+     "expression": {
+      "neutral": 0.727,
+      "not_applicable": 0.273
+     },
+     "pose": {
+      "posed_static": 0.955,
+      "not_applicable": 0.045
+     },
+     "framing": {
+      "close_up": 0.364,
+      "medium": 0.318,
+      "full_length": 0.318
+     },
+     "primary_subject": {
+      "garment": 0.818,
+      "footwear": 0.182
+     },
+     "styling_register": {
+      "formal_tailored": 0.227,
+      "casual": 0.773
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.636,
+      "logo_only": 0.364
+     },
+     "mood": {
+      "austere": 0.045,
+      "serene": 0.273,
+      "intimate": 0.864,
+      "sensual": 0.864,
+      "playful": 0.182,
+      "opulent": 0.318,
+      "romantic": 0.409
+     },
+     "street_couture": 3.0
+    },
+    "2025H2": {
+     "n": 23,
+     "light": {
+      "high_key": 0.913,
+      "natural_daylight": 0.087
+     },
+     "colour_temperature": {
+      "cool": 0.043,
+      "neutral": 0.957
+     },
+     "saturation": {
+      "moderate": 0.043,
+      "vivid": 0.957
+     },
+     "setting": {
+      "studio_plain": 0.348,
+      "studio_set": 0.609,
+      "urban_exterior": 0.043
+     },
+     "people": {
+      "none": 0.522,
+      "one": 0.478
+     },
+     "gaze": {
+      "to_camera": 0.304,
+      "away": 0.13,
+      "not_applicable": 0.565
+     },
+     "expression": {
+      "neutral": 0.696,
+      "not_applicable": 0.304
+     },
+     "pose": {
+      "posed_static": 0.957,
+      "not_applicable": 0.043
+     },
+     "framing": {
+      "close_up": 0.348,
+      "medium": 0.261,
+      "full_length": 0.391
+     },
+     "primary_subject": {
+      "garment": 0.826,
+      "footwear": 0.174
+     },
+     "styling_register": {
+      "formal_tailored": 0.348,
+      "eveningwear": 0.13,
+      "casual": 0.522
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.478,
+      "logo_only": 0.522
+     },
+     "mood": {
+      "austere": 0.043,
+      "serene": 0.391,
+      "intimate": 0.957,
+      "sensual": 0.739,
+      "playful": 0.087,
+      "opulent": 0.391,
+      "romantic": 0.304
+     },
+     "street_couture": 3.09
+    },
+    "2026H1": {
+     "n": 18,
+     "light": {
+      "high_key": 0.944,
+      "low_key": 0.056
+     },
+     "colour_temperature": {
+      "cool": 0.056,
+      "neutral": 0.944
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.556,
+      "studio_set": 0.444
+     },
+     "people": {
+      "none": 0.722,
+      "one": 0.278
+     },
+     "gaze": {
+      "to_camera": 0.222,
+      "not_applicable": 0.778
+     },
+     "expression": {
+      "neutral": 0.611,
+      "not_applicable": 0.389
+     },
+     "pose": {
+      "posed_static": 0.778,
+      "not_applicable": 0.222
+     },
+     "framing": {
+      "close_up": 0.5,
+      "medium": 0.333,
+      "full_length": 0.111,
+      "product_only": 0.056
+     },
+     "primary_subject": {
+      "garment": 0.833,
+      "footwear": 0.111,
+      "accessory": 0.056
+     },
+     "styling_register": {
+      "formal_tailored": 0.444,
+      "eveningwear": 0.056,
+      "casual": 0.5
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.333,
+      "logo_only": 0.667
+     },
+     "mood": {
+      "serene": 0.111,
+      "intimate": 0.889,
+      "sensual": 0.944,
+      "playful": 0.111,
+      "opulent": 0.722,
+      "surreal": 0.056,
+      "romantic": 0.056
+     },
+     "street_couture": 3.0
+    },
+    "2026H2": {
+     "n": 10,
+     "light": {
+      "high_key": 0.8,
+      "natural_daylight": 0.2
+     },
+     "colour_temperature": {
+      "cool": 0.1,
+      "neutral": 0.9
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_set": 0.5,
+      "urban_exterior": 0.1,
+      "landscape_nature": 0.3,
+      "unclear": 0.1
+     },
+     "people": {
+      "none": 0.5,
+      "one": 0.5
+     },
+     "gaze": {
+      "to_camera": 0.5,
+      "not_applicable": 0.5
+     },
+     "expression": {
+      "neutral": 0.6,
+      "not_applicable": 0.4
+     },
+     "pose": {
+      "posed_static": 0.9,
+      "not_applicable": 0.1
+     },
+     "framing": {
+      "close_up": 0.6,
+      "medium": 0.3,
+      "full_length": 0.1
+     },
+     "primary_subject": {
+      "garment": 0.7,
+      "footwear": 0.3
+     },
+     "styling_register": {
+      "formal_tailored": 0.3,
+      "casual": 0.7
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.6,
+      "logo_only": 0.4
+     },
+     "mood": {
+      "serene": 0.3,
+      "intimate": 0.7,
+      "sensual": 0.6,
+      "playful": 0.3,
+      "opulent": 0.5,
+      "romantic": 0.3
+     },
+     "street_couture": 3.0
+    }
+   },
+   "shifts": [
+    {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 10,
+     "n1": 14,
+     "months0": 4,
+     "months1": 5,
+     "rubric": 0.109,
+     "rubric_p": 0.6111,
+     "rubric_chance": 0.1182,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.0954,
+     "fingerprint_p": 0.5317,
+     "fingerprint_chance": 0.0966,
+     "moved": [
+      {
+       "question": "light",
+       "answer": "high_key",
+       "change": 0.386
+      },
+      {
+       "question": "light",
+       "answer": "natural_daylight",
+       "change": -0.286
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": 0.257
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": -0.229
+      }
+     ]
+    },
+    {
+     "from": "2024H2",
+     "to": "2025H1",
+     "n0": 14,
+     "n1": 22,
+     "months0": 5,
+     "months1": 6,
+     "rubric": 0.0965,
+     "rubric_p": 0.7338,
+     "rubric_chance": 0.1106,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.112,
+     "fingerprint_p": 0.5823,
+     "fingerprint_chance": 0.1151,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.266
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.253
+      },
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.234
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": -0.214
+      }
+     ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 22,
+     "n1": 23,
+     "months0": 6,
+     "months1": 6,
+     "rubric": 0.0691,
+     "rubric_p": 0.974,
+     "rubric_chance": 0.1109,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.0766,
+     "fingerprint_p": 0.8831,
+     "fingerprint_chance": 0.0961,
+     "moved": [
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.251
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": -0.158
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": 0.158
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": 0.13
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 23,
+     "n1": 18,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1158,
+     "rubric_p": 0.4199,
+     "rubric_chance": 0.1101,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.0915,
+     "fingerprint_p": 0.3095,
+     "fingerprint_chance": 0.0834,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.331
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": -0.28
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": -0.28
+      },
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": -0.249
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 18,
+     "n1": 10,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.1539,
+     "rubric_p": 0.1746,
+     "rubric_chance": 0.1229,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1047,
+     "fingerprint_p": 0.381,
+     "fingerprint_chance": 0.1012,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.556
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": -0.344
+      },
+      {
+       "question": "setting",
+       "answer": "landscape_nature",
+       "change": 0.3
+      },
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": 0.278
+      }
+     ]
+    }
+   ],
+   "distinct": {
+    "2024H2": 0.1159,
+    "2025H1": 0.0684,
+    "2025H2": 0.1051,
+    "2026H1": 0.1458,
+    "2024H1": 0.1503,
+    "2026H2": 0.1473
    }
   },
   "loro_piana": {
    "periods": {
     "2024H1": {
-     "n": 7,
+     "n": 11,
      "light": {
-      "high_key": 0.286,
-      "natural_daylight": 0.714
+      "high_key": 0.545,
+      "natural_daylight": 0.455
      },
      "colour_temperature": {
-      "cool": 0.143,
-      "neutral": 0.857
+      "cool": 0.091,
+      "neutral": 0.909
      },
      "saturation": {
-      "moderate": 0.143,
-      "vivid": 0.857
+      "moderate": 0.091,
+      "vivid": 0.909
      },
      "setting": {
-      "studio_set": 0.143,
-      "urban_exterior": 0.714,
-      "landscape_nature": 0.143
+      "studio_set": 0.273,
+      "urban_exterior": 0.545,
+      "landscape_nature": 0.182
      },
      "people": {
-      "none": 0.143,
-      "one": 0.857
+      "none": 0.091,
+      "one": 0.909
      },
      "gaze": {
-      "to_camera": 0.714,
-      "away": 0.143,
-      "not_applicable": 0.143
+      "to_camera": 0.818,
+      "away": 0.091,
+      "not_applicable": 0.091
      },
      "expression": {
-      "neutral": 0.857,
-      "not_applicable": 0.143
+      "neutral": 0.909,
+      "not_applicable": 0.091
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 0.429,
-      "full_length": 0.571
+      "close_up": 0.091,
+      "medium": 0.455,
+      "full_length": 0.455
      },
      "primary_subject": {
-      "garment": 0.857,
-      "footwear": 0.143
+      "garment": 0.818,
+      "footwear": 0.091,
+      "face": 0.091
      },
      "styling_register": {
-      "formal_tailored": 0.429,
-      "eveningwear": 0.143,
-      "casual": 0.429
+      "formal_tailored": 0.455,
+      "eveningwear": 0.091,
+      "casual": 0.455
      },
      "production": {
       "polished_commercial": 1.0
@@ -5381,11 +7260,12 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 0.857,
+      "serene": 0.909,
       "intimate": 1.0,
-      "sensual": 0.429,
-      "opulent": 0.143,
-      "romantic": 0.429
+      "sensual": 0.364,
+      "playful": 0.091,
+      "opulent": 0.182,
+      "romantic": 0.273
      },
      "street_couture": 3.0
     },
@@ -5503,108 +7383,113 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 7,
+     "n0": 11,
      "n1": 8,
-     "rubric": 0.137,
-     "rubric_p": 0.467,
-     "rubric_chance": 0.135,
-     "fingerprint": 0.1144,
-     "fingerprint_p": 0.383,
-     "fingerprint_chance": 0.1072,
+     "months0": 3,
+     "months1": 3,
+     "rubric": 0.1402,
+     "rubric_p": 0.5,
+     "rubric_chance": 0.13,
+     "null": "months",
+     "splits": 20,
+     "fingerprint": 0.1121,
+     "fingerprint_p": 0.6,
+     "fingerprint_chance": 0.1141,
      "moved": [
+      {
+       "question": "light",
+       "answer": "high_key",
+       "change": -0.545
+      },
+      {
+       "question": "light",
+       "answer": "natural_daylight",
+       "change": 0.545
+      },
       {
        "question": "setting",
        "answer": "urban_exterior",
-       "change": -0.589
-      },
-      {
-       "question": "mood",
-       "answer": "sensual",
-       "change": -0.429
+       "change": -0.42
       },
       {
        "question": "setting",
        "answer": "interior",
        "change": 0.375
-      },
-      {
-       "question": "light",
-       "answer": "high_key",
-       "change": -0.286
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.2724,
-    "2024H1": 0.2234
+    "2024H2": 0.2719,
+    "2024H1": 0.169
    }
   },
   "louis_vuitton": {
    "periods": {
     "2024H1": {
-     "n": 7,
+     "n": 10,
      "light": {
-      "high_key": 0.714,
-      "natural_daylight": 0.286
+      "high_key": 0.7,
+      "natural_daylight": 0.3
      },
      "colour_temperature": {
-      "warm": 0.143,
-      "neutral": 0.857
+      "warm": 0.1,
+      "neutral": 0.9
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.143,
-      "studio_set": 0.571,
-      "urban_exterior": 0.143,
-      "landscape_nature": 0.143
+      "studio_plain": 0.1,
+      "studio_set": 0.6,
+      "urban_exterior": 0.2,
+      "landscape_nature": 0.1
      },
      "people": {
-      "none": 0.571,
-      "one": 0.429
+      "none": 0.4,
+      "one": 0.5,
+      "two": 0.1
      },
      "gaze": {
-      "to_camera": 0.429,
-      "not_applicable": 0.571
+      "to_camera": 0.6,
+      "not_applicable": 0.4
      },
      "expression": {
-      "neutral": 0.571,
-      "not_applicable": 0.429
+      "neutral": 0.7,
+      "not_applicable": 0.3
      },
      "pose": {
-      "posed_static": 0.857,
-      "not_applicable": 0.143
+      "posed_static": 0.9,
+      "not_applicable": 0.1
      },
      "framing": {
-      "close_up": 0.143,
-      "medium": 0.429,
-      "full_length": 0.429
+      "close_up": 0.1,
+      "medium": 0.5,
+      "full_length": 0.4
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.571,
-      "eveningwear": 0.286,
-      "casual": 0.143
+      "formal_tailored": 0.4,
+      "eveningwear": 0.2,
+      "casual": 0.4
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.286,
-      "logo_only": 0.714
+      "none": 0.4,
+      "logo_only": 0.6
      },
      "mood": {
-      "serene": 0.286,
+      "serene": 0.3,
       "intimate": 1.0,
-      "sensual": 0.714,
-      "opulent": 0.857,
-      "romantic": 0.143
+      "sensual": 0.7,
+      "opulent": 0.8,
+      "romantic": 0.2
      },
-     "street_couture": 3.29
+     "street_couture": 3.2
     },
     "2024H2": {
      "n": 4,
@@ -5664,33 +7549,35 @@
    },
    "shifts": [],
    "distinct": {
-    "2024H1": 0.134
+    "2024H1": 0.1
    }
   },
   "margiela": {
    "periods": {
     "2024H1": {
-     "n": 4,
+     "n": 8,
      "light": {
-      "high_key": 0.75,
-      "low_key": 0.25
+      "high_key": 0.875,
+      "low_key": 0.125
      },
      "colour_temperature": {
-      "cool": 0.25,
-      "neutral": 0.75
+      "cool": 0.125,
+      "neutral": 0.875
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
       "studio_set": 0.75,
-      "urban_exterior": 0.25
+      "urban_exterior": 0.125,
+      "landscape_nature": 0.125
      },
      "people": {
       "one": 1.0
      },
      "gaze": {
-      "to_camera": 1.0
+      "to_camera": 0.875,
+      "away": 0.125
      },
      "expression": {
       "neutral": 1.0
@@ -5705,8 +7592,8 @@
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "casual": 0.5
+      "formal_tailored": 0.625,
+      "casual": 0.375
      },
      "production": {
       "polished_commercial": 1.0
@@ -5716,9 +7603,10 @@
       "logo_only": 0.5
      },
      "mood": {
-      "serene": 1.0,
+      "serene": 0.5,
       "intimate": 1.0,
-      "sensual": 0.75
+      "sensual": 0.875,
+      "opulent": 0.5
      },
      "street_couture": 3.0
     },
@@ -5847,7 +7735,7 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 7,
+     "n": 10,
      "light": {
       "high_key": 1.0
      },
@@ -5858,17 +7746,17 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.571,
-      "studio_set": 0.429
+      "studio_plain": 0.5,
+      "studio_set": 0.5
      },
      "people": {
-      "none": 0.286,
-      "one": 0.714
+      "none": 0.2,
+      "one": 0.8
      },
      "gaze": {
-      "to_camera": 0.571,
-      "away": 0.143,
-      "not_applicable": 0.286
+      "to_camera": 0.6,
+      "away": 0.1,
+      "not_applicable": 0.3
      },
      "expression": {
       "neutral": 1.0
@@ -5877,89 +7765,96 @@
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.286,
-      "medium": 0.571,
-      "full_length": 0.143
+      "close_up": 0.3,
+      "medium": 0.4,
+      "full_length": 0.3
      },
      "primary_subject": {
-      "garment": 0.714,
-      "footwear": 0.286
+      "garment": 0.7,
+      "footwear": 0.2,
+      "jewellery": 0.1
      },
      "styling_register": {
-      "formal_tailored": 0.429,
-      "casual": 0.571
+      "formal_tailored": 0.6,
+      "casual": 0.4
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.714,
-      "logo_only": 0.286
+      "none": 0.8,
+      "logo_only": 0.2
      },
      "mood": {
-      "austere": 0.143,
-      "serene": 0.286,
-      "intimate": 0.857,
-      "sensual": 0.714,
-      "opulent": 0.286,
-      "romantic": 0.286
+      "austere": 0.1,
+      "serene": 0.3,
+      "intimate": 0.9,
+      "sensual": 0.8,
+      "opulent": 0.3,
+      "romantic": 0.3
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 4,
+     "n": 12,
      "light": {
       "high_key": 1.0
      },
      "colour_temperature": {
-      "cool": 0.25,
-      "neutral": 0.75
+      "cool": 0.083,
+      "neutral": 0.917
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.25,
-      "studio_set": 0.75
+      "studio_plain": 0.333,
+      "studio_set": 0.667
      },
      "people": {
-      "none": 0.25,
-      "one": 0.75
+      "none": 0.5,
+      "one": 0.5
      },
      "gaze": {
-      "to_camera": 0.75,
-      "not_applicable": 0.25
+      "to_camera": 0.417,
+      "away": 0.083,
+      "not_applicable": 0.5
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.75,
+      "not_applicable": 0.25
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.25,
-      "medium": 0.25,
+      "close_up": 0.417,
+      "medium": 0.083,
       "full_length": 0.5
      },
      "primary_subject": {
-      "garment": 0.75,
-      "accessory": 0.25
+      "garment": 0.583,
+      "footwear": 0.333,
+      "accessory": 0.083
      },
      "styling_register": {
-      "formal_tailored": 0.5,
+      "formal_tailored": 0.417,
+      "eveningwear": 0.083,
       "casual": 0.5
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 1.0
+      "none": 0.833,
+      "logo_only": 0.167
      },
      "mood": {
+      "serene": 0.167,
       "intimate": 1.0,
       "sensual": 1.0,
-      "opulent": 0.25,
-      "romantic": 0.5
+      "opulent": 0.333,
+      "romantic": 0.333
      },
      "street_couture": 3.0
     },
@@ -6034,16 +7929,58 @@
    },
    "shifts": [
     {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 8,
+     "n1": 8,
+     "months0": 2,
+     "months1": 2,
+     "rubric": 0.1139,
+     "rubric_p": 0.3333,
+     "rubric_chance": 0.1,
+     "null": "months",
+     "splits": 6,
+     "fingerprint": 0.1586,
+     "fingerprint_p": 0.3333,
+     "fingerprint_chance": 0.1464,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.375
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": -0.375
+      },
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": 0.375
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": 0.25
+      }
+     ]
+    },
+    {
      "from": "2024H2",
      "to": "2025H1",
      "n0": 8,
      "n1": 16,
+     "months0": 2,
+     "months1": 5,
      "rubric": 0.0795,
-     "rubric_p": 0.856,
-     "rubric_chance": 0.1049,
+     "rubric_p": 0.9524,
+     "rubric_chance": 0.1474,
+     "null": "months",
+     "splits": 21,
      "fingerprint": 0.0854,
-     "fingerprint_p": 0.263,
-     "fingerprint_chance": 0.0725,
+     "fingerprint_p": 0.9048,
+     "fingerprint_chance": 0.1055,
      "moved": [
       {
        "question": "styling_register",
@@ -6071,42 +8008,124 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 16,
-     "n1": 7,
-     "rubric": 0.0712,
-     "rubric_p": 0.928,
-     "rubric_chance": 0.1061,
-     "fingerprint": 0.0763,
-     "fingerprint_p": 0.711,
-     "fingerprint_chance": 0.0889,
+     "n1": 10,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.099,
+     "rubric_p": 0.8492,
+     "rubric_chance": 0.1226,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.0809,
+     "fingerprint_p": 0.7222,
+     "fingerprint_chance": 0.0892,
      "moved": [
       {
        "question": "setting",
-       "answer": "studio_set",
-       "change": -0.384
+       "answer": "studio_plain",
+       "change": 0.312
       },
       {
        "question": "setting",
-       "answer": "studio_plain",
-       "change": 0.384
+       "answer": "studio_set",
+       "change": -0.312
       },
       {
-       "question": "mood",
-       "answer": "opulent",
-       "change": -0.214
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": 0.287
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.287
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 10,
+     "n1": 12,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.12,
+     "rubric_p": 0.3968,
+     "rubric_chance": 0.1142,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.0933,
+     "fingerprint_p": 0.881,
+     "fingerprint_chance": 0.1156,
+     "moved": [
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.317
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": -0.3
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": 0.3
       },
       {
        "question": "expression",
        "answer": "neutral",
-       "change": 0.125
+       "change": -0.25
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 12,
+     "n1": 13,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.0867,
+     "rubric_p": 0.9127,
+     "rubric_chance": 0.122,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.0976,
+     "fingerprint_p": 0.8095,
+     "fingerprint_chance": 0.1111,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.436
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": -0.308
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.256
+      },
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": 0.218
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1351,
-    "2025H1": 0.1171,
-    "2025H2": 0.1144,
-    "2026H2": 0.1484
+    "2024H2": 0.1347,
+    "2025H1": 0.119,
+    "2025H2": 0.1159,
+    "2026H1": 0.1083,
+    "2024H1": 0.1736,
+    "2026H2": 0.1411
    }
   },
   "max_mara": {
@@ -6172,17 +8191,73 @@
       "romantic": 0.143
      },
      "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 4,
+     "light": {
+      "high_key": 0.75,
+      "natural_daylight": 0.25
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_set": 0.5,
+      "urban_exterior": 0.25,
+      "landscape_nature": 0.25
+     },
+     "people": {
+      "one": 1.0
+     },
+     "gaze": {
+      "to_camera": 1.0
+     },
+     "expression": {
+      "neutral": 1.0
+     },
+     "pose": {
+      "posed_static": 1.0
+     },
+     "framing": {
+      "medium": 0.5,
+      "full_length": 0.5
+     },
+     "primary_subject": {
+      "garment": 1.0
+     },
+     "styling_register": {
+      "formal_tailored": 0.5,
+      "eveningwear": 0.25,
+      "casual": 0.25
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.75,
+      "logo_only": 0.25
+     },
+     "mood": {
+      "serene": 0.75,
+      "intimate": 1.0,
+      "sensual": 0.5,
+      "romantic": 0.75
+     },
+     "street_couture": 3.0
     }
    },
    "shifts": [],
    "distinct": {
-    "2024H2": 0.1504
+    "2024H2": 0.1533
    }
   },
   "miu_miu": {
    "periods": {
     "2024H1": {
-     "n": 10,
+     "n": 11,
      "light": {
       "high_key": 1.0
      },
@@ -6193,8 +8268,8 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.4,
-      "studio_set": 0.6
+      "studio_plain": 0.455,
+      "studio_set": 0.545
      },
      "people": {
       "none": 1.0
@@ -6203,25 +8278,25 @@
       "not_applicable": 1.0
      },
      "expression": {
-      "neutral": 0.3,
-      "not_applicable": 0.7
+      "neutral": 0.364,
+      "not_applicable": 0.636
      },
      "pose": {
-      "posed_static": 0.8,
-      "not_applicable": 0.2
+      "posed_static": 0.818,
+      "not_applicable": 0.182
      },
      "framing": {
-      "close_up": 0.4,
-      "medium": 0.6
+      "close_up": 0.364,
+      "medium": 0.636
      },
      "primary_subject": {
-      "garment": 0.6,
-      "footwear": 0.4
+      "garment": 0.636,
+      "footwear": 0.364
      },
      "styling_register": {
-      "formal_tailored": 0.5,
-      "eveningwear": 0.1,
-      "casual": 0.4
+      "formal_tailored": 0.455,
+      "eveningwear": 0.091,
+      "casual": 0.455
      },
      "production": {
       "polished_commercial": 1.0
@@ -6230,11 +8305,11 @@
       "logo_only": 1.0
      },
      "mood": {
-      "serene": 0.2,
-      "intimate": 0.8,
-      "sensual": 0.9,
-      "opulent": 0.4,
-      "romantic": 0.4
+      "serene": 0.182,
+      "intimate": 0.818,
+      "sensual": 0.909,
+      "opulent": 0.364,
+      "romantic": 0.455
      },
      "street_couture": 3.0
     },
@@ -6351,116 +8426,139 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 2,
+     "n": 8,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.625,
+      "low_key": 0.25,
+      "natural_daylight": 0.125
      },
      "colour_temperature": {
-      "neutral": 1.0
+      "warm": 0.25,
+      "neutral": 0.75
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 1.0
+      "studio_plain": 0.5,
+      "studio_set": 0.5
      },
      "people": {
-      "none": 1.0
+      "none": 0.5,
+      "one": 0.375,
+      "two": 0.125
      },
      "gaze": {
-      "not_applicable": 1.0
+      "to_camera": 0.375,
+      "away": 0.125,
+      "not_applicable": 0.5
      },
      "expression": {
-      "not_applicable": 1.0
+      "neutral": 0.5,
+      "not_applicable": 0.5
      },
      "pose": {
-      "not_applicable": 1.0
+      "posed_static": 0.75,
+      "not_applicable": 0.25
      },
      "framing": {
-      "product_only": 1.0
+      "close_up": 0.25,
+      "medium": 0.5,
+      "product_only": 0.25
      },
      "primary_subject": {
-      "garment": 0.5,
-      "footwear": 0.5
+      "garment": 0.875,
+      "footwear": 0.125
      },
      "styling_register": {
-      "formal_tailored": 0.5,
+      "formal_tailored": 0.375,
+      "eveningwear": 0.125,
       "casual": 0.5
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.5,
-      "logo_only": 0.5
+      "none": 0.375,
+      "logo_only": 0.625
      },
      "mood": {
-      "austere": 0.5,
-      "serene": 0.5,
-      "intimate": 0.5,
-      "opulent": 0.5
+      "austere": 0.125,
+      "serene": 0.25,
+      "intimate": 0.75,
+      "sensual": 0.5,
+      "opulent": 0.375,
+      "romantic": 0.5
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 5,
+     "n": 13,
      "light": {
-      "high_key": 0.6,
-      "natural_daylight": 0.4
+      "high_key": 0.846,
+      "natural_daylight": 0.154
      },
      "colour_temperature": {
-      "warm": 0.2,
-      "neutral": 0.8
+      "warm": 0.231,
+      "cool": 0.077,
+      "neutral": 0.692
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.2,
-      "landscape_nature": 0.6,
-      "water_beach": 0.2
+      "studio_plain": 0.385,
+      "studio_set": 0.308,
+      "landscape_nature": 0.231,
+      "water_beach": 0.077
      },
      "people": {
-      "none": 0.2,
-      "one": 0.6,
-      "two": 0.2
+      "none": 0.462,
+      "one": 0.462,
+      "two": 0.077
      },
      "gaze": {
-      "to_camera": 0.8,
-      "not_applicable": 0.2
+      "to_camera": 0.462,
+      "away": 0.077,
+      "not_applicable": 0.462
      },
      "expression": {
-      "neutral": 0.8,
-      "not_applicable": 0.2
+      "neutral": 0.615,
+      "not_applicable": 0.385
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.923,
+      "not_applicable": 0.077
      },
      "framing": {
-      "close_up": 0.2,
-      "medium": 0.2,
-      "full_length": 0.6
+      "close_up": 0.308,
+      "medium": 0.231,
+      "full_length": 0.385,
+      "product_only": 0.077
      },
      "primary_subject": {
-      "garment": 0.8,
-      "footwear": 0.2
+      "garment": 0.846,
+      "footwear": 0.154
      },
      "styling_register": {
-      "formal_tailored": 0.2,
-      "casual": 0.8
+      "formal_tailored": 0.308,
+      "eveningwear": 0.077,
+      "casual": 0.615
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 1.0
+      "none": 0.462,
+      "logo_only": 0.538
      },
      "mood": {
-      "serene": 1.0,
-      "intimate": 1.0,
-      "sensual": 0.2,
-      "playful": 0.6,
-      "opulent": 0.2
+      "serene": 0.692,
+      "intimate": 0.846,
+      "sensual": 0.385,
+      "playful": 0.231,
+      "opulent": 0.308,
+      "romantic": 0.154
      },
      "street_couture": 3.0
     },
@@ -6534,34 +8632,38 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 10,
+     "n0": 11,
      "n1": 9,
-     "rubric": 0.1092,
-     "rubric_p": 0.144,
-     "rubric_chance": 0.077,
-     "fingerprint": 0.0923,
-     "fingerprint_p": 0.089,
-     "fingerprint_chance": 0.054,
+     "months0": 4,
+     "months1": 3,
+     "rubric": 0.1152,
+     "rubric_p": 0.2286,
+     "rubric_chance": 0.0832,
+     "null": "months",
+     "splits": 35,
+     "fingerprint": 0.1007,
+     "fingerprint_p": 0.2286,
+     "fingerprint_chance": 0.0823,
      "moved": [
       {
        "question": "mood",
        "answer": "opulent",
-       "change": 0.378
-      },
-      {
-       "question": "expression",
-       "answer": "not_applicable",
-       "change": 0.3
+       "change": 0.414
       },
       {
        "question": "expression",
        "answer": "neutral",
-       "change": -0.3
+       "change": -0.364
       },
       {
-       "question": "primary_subject",
-       "answer": "footwear",
-       "change": -0.289
+       "question": "expression",
+       "answer": "not_applicable",
+       "change": 0.364
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.343
       }
      ]
     },
@@ -6570,12 +8672,16 @@
      "to": "2025H1",
      "n0": 9,
      "n1": 7,
+     "months0": 3,
+     "months1": 4,
      "rubric": 0.0898,
-     "rubric_p": 0.324,
-     "rubric_chance": 0.0781,
+     "rubric_p": 0.6,
+     "rubric_chance": 0.0958,
+     "null": "months",
+     "splits": 35,
      "fingerprint": 0.2295,
-     "fingerprint_p": 0.002,
-     "fingerprint_chance": 0.0645,
+     "fingerprint_p": 0.0571,
+     "fingerprint_chance": 0.0918,
      "moved": [
       {
        "question": "mood",
@@ -6598,13 +8704,129 @@
        "change": 0.317
       }
      ]
+    },
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 7,
+     "n1": 8,
+     "months0": 4,
+     "months1": 5,
+     "rubric": 0.2768,
+     "rubric_p": 0.1032,
+     "rubric_chance": 0.17,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.2306,
+     "fingerprint_p": 0.0397,
+     "fingerprint_chance": 0.1376,
+     "moved": [
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.5
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": 0.5
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": -0.5
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": -0.5
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 8,
+     "n1": 13,
+     "months0": 5,
+     "months1": 5,
+     "rubric": 0.1259,
+     "rubric_p": 0.8492,
+     "rubric_chance": 0.1556,
+     "null": "months",
+     "splits": 252,
+     "fingerprint": 0.0959,
+     "fingerprint_p": 0.7778,
+     "fingerprint_chance": 0.1227,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": 0.442
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": 0.385
+      },
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": -0.346
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": -0.269
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 13,
+     "n1": 7,
+     "months0": 5,
+     "months1": 2,
+     "rubric": 0.1491,
+     "rubric_p": 0.9048,
+     "rubric_chance": 0.1758,
+     "null": "months",
+     "splits": 21,
+     "fingerprint": 0.1545,
+     "fingerprint_p": 0.6667,
+     "fingerprint_chance": 0.1678,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "serene",
+       "change": -0.407
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": -0.385
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": 0.341
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": 0.33
+      }
+     ]
     }
    ],
    "distinct": {
-    "2024H2": 0.3279,
-    "2025H1": 0.3394,
-    "2024H1": 0.2863,
-    "2026H2": 0.2022
+    "2024H2": 0.3265,
+    "2025H1": 0.3295,
+    "2025H2": 0.1511,
+    "2026H1": 0.1151,
+    "2024H1": 0.2837,
+    "2026H2": 0.1978
    }
   },
   "prada": {
@@ -6767,7 +8989,7 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 1,
+     "n": 12,
      "light": {
       "high_key": 1.0
      },
@@ -6778,13 +9000,17 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 1.0
+      "studio_plain": 0.417,
+      "studio_set": 0.583
      },
      "people": {
-      "none": 1.0
+      "none": 0.167,
+      "one": 0.833
      },
      "gaze": {
-      "not_applicable": 1.0
+      "to_camera": 0.667,
+      "away": 0.167,
+      "not_applicable": 0.167
      },
      "expression": {
       "neutral": 1.0
@@ -6793,80 +9019,95 @@
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 1.0
+      "close_up": 0.167,
+      "medium": 0.75,
+      "full_length": 0.083
      },
      "primary_subject": {
-      "footwear": 1.0
+      "garment": 0.5,
+      "footwear": 0.5
      },
      "styling_register": {
-      "formal_tailored": 1.0
+      "formal_tailored": 0.417,
+      "casual": 0.583
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "logo_only": 1.0
+      "none": 0.833,
+      "logo_only": 0.167
      },
      "mood": {
+      "serene": 0.417,
       "intimate": 1.0,
-      "sensual": 1.0,
-      "opulent": 1.0
+      "sensual": 0.833,
+      "opulent": 0.167,
+      "romantic": 0.583
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 4,
+     "n": 13,
      "light": {
       "high_key": 1.0
      },
      "colour_temperature": {
-      "neutral": 1.0
+      "cool": 0.077,
+      "neutral": 0.923
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.25,
-      "studio_set": 0.25,
-      "urban_exterior": 0.5
+      "studio_plain": 0.385,
+      "studio_set": 0.385,
+      "urban_exterior": 0.154,
+      "landscape_nature": 0.077
      },
      "people": {
-      "none": 0.75,
-      "one": 0.25
+      "none": 0.538,
+      "one": 0.462
      },
      "gaze": {
-      "to_camera": 0.25,
-      "not_applicable": 0.75
+      "to_camera": 0.308,
+      "away": 0.154,
+      "not_applicable": 0.538
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.846,
+      "not_applicable": 0.154
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.923,
+      "not_applicable": 0.077
      },
      "framing": {
-      "medium": 1.0
+      "medium": 0.923,
+      "product_only": 0.077
      },
      "primary_subject": {
-      "garment": 0.75,
-      "footwear": 0.25
+      "garment": 0.769,
+      "footwear": 0.231
      },
      "styling_register": {
-      "formal_tailored": 0.25,
-      "casual": 0.75
+      "formal_tailored": 0.385,
+      "casual": 0.615
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.538,
+      "logo_only": 0.462
      },
      "mood": {
-      "serene": 0.5,
-      "intimate": 0.75,
+      "serene": 0.308,
+      "intimate": 0.846,
       "sensual": 1.0,
-      "opulent": 0.75
+      "playful": 0.154,
+      "opulent": 0.538,
+      "romantic": 0.077
      },
      "street_couture": 3.0
     },
@@ -6934,80 +9175,198 @@
      "street_couture": 3.0
     }
    },
-   "shifts": [],
+   "shifts": [
+    {
+     "from": "2025H1",
+     "to": "2025H2",
+     "n0": 9,
+     "n1": 12,
+     "months0": 4,
+     "months1": 4,
+     "rubric": 0.1472,
+     "rubric_p": 0.2857,
+     "rubric_chance": 0.1248,
+     "null": "months",
+     "splits": 70,
+     "fingerprint": 0.2897,
+     "fingerprint_p": 0.0286,
+     "fingerprint_chance": 0.1967,
+     "moved": [
+      {
+       "question": "primary_subject",
+       "answer": "garment",
+       "change": -0.5
+      },
+      {
+       "question": "primary_subject",
+       "answer": "footwear",
+       "change": 0.5
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": 0.361
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.361
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 12,
+     "n1": 13,
+     "months0": 4,
+     "months1": 5,
+     "rubric": 0.15,
+     "rubric_p": 0.2698,
+     "rubric_chance": 0.1211,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1505,
+     "fingerprint_p": 0.254,
+     "fingerprint_chance": 0.1383,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": -0.506
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": 0.372
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": -0.372
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": 0.372
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 13,
+     "n1": 10,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.1032,
+     "rubric_p": 0.8254,
+     "rubric_chance": 0.1316,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.0769,
+     "fingerprint_p": 0.9286,
+     "fingerprint_chance": 0.1155,
+     "moved": [
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.315
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": 0.315
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": -0.238
+      },
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": 0.238
+      }
+     ]
+    }
+   ],
    "distinct": {
-    "2025H1": 0.1506,
+    "2025H1": 0.1466,
+    "2025H2": 0.17,
+    "2026H1": 0.1211,
     "2026H2": 0.1488
    }
   },
   "saint_laurent": {
    "periods": {
     "2024H1": {
-     "n": 9,
+     "n": 11,
      "light": {
-      "high_key": 0.778,
-      "low_key": 0.111,
-      "natural_daylight": 0.111
+      "high_key": 0.818,
+      "low_key": 0.091,
+      "natural_daylight": 0.091
      },
      "colour_temperature": {
-      "cool": 0.111,
-      "neutral": 0.889
+      "cool": 0.091,
+      "neutral": 0.909
      },
      "saturation": {
-      "moderate": 0.111,
-      "vivid": 0.889
+      "moderate": 0.091,
+      "vivid": 0.909
      },
      "setting": {
-      "studio_plain": 0.333,
-      "studio_set": 0.222,
-      "urban_exterior": 0.222,
-      "landscape_nature": 0.222
+      "studio_plain": 0.273,
+      "studio_set": 0.364,
+      "urban_exterior": 0.182,
+      "landscape_nature": 0.182
      },
      "people": {
-      "none": 0.222,
-      "one": 0.778
+      "none": 0.182,
+      "one": 0.636,
+      "two": 0.182
      },
      "gaze": {
-      "to_camera": 0.667,
-      "not_applicable": 0.333
+      "to_camera": 0.727,
+      "not_applicable": 0.273
      },
      "expression": {
-      "neutral": 0.889,
-      "not_applicable": 0.111
+      "neutral": 0.909,
+      "not_applicable": 0.091
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.222,
-      "medium": 0.333,
-      "full_length": 0.444
+      "close_up": 0.182,
+      "medium": 0.455,
+      "full_length": 0.364
      },
      "primary_subject": {
-      "garment": 0.889,
-      "footwear": 0.111
+      "garment": 0.909,
+      "footwear": 0.091
      },
      "styling_register": {
-      "formal_tailored": 0.333,
-      "eveningwear": 0.444,
-      "casual": 0.222
+      "formal_tailored": 0.273,
+      "eveningwear": 0.545,
+      "casual": 0.182
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.667,
-      "logo_only": 0.333
+      "none": 0.727,
+      "logo_only": 0.273
      },
      "mood": {
-      "austere": 0.111,
-      "serene": 0.333,
-      "intimate": 0.889,
-      "sensual": 0.667,
-      "opulent": 0.667,
-      "romantic": 0.222
+      "austere": 0.091,
+      "serene": 0.273,
+      "intimate": 0.909,
+      "sensual": 0.727,
+      "opulent": 0.545,
+      "romantic": 0.364
      },
-     "street_couture": 3.22
+     "street_couture": 3.18
     },
     "2024H2": {
      "n": 19,
@@ -7153,69 +9512,135 @@
      "street_couture": 3.2
     },
     "2025H2": {
-     "n": 14,
+     "n": 15,
      "light": {
-      "high_key": 0.929,
-      "low_key": 0.071
+      "high_key": 0.933,
+      "low_key": 0.067
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "muted": 0.143,
-      "vivid": 0.857
+      "muted": 0.133,
+      "vivid": 0.867
      },
      "setting": {
-      "studio_plain": 0.429,
-      "studio_set": 0.5,
-      "landscape_nature": 0.071
+      "studio_plain": 0.4,
+      "studio_set": 0.533,
+      "landscape_nature": 0.067
      },
      "people": {
-      "none": 0.143,
-      "one": 0.857
+      "none": 0.2,
+      "one": 0.8
      },
      "gaze": {
-      "to_camera": 0.786,
-      "away": 0.071,
-      "not_applicable": 0.143
+      "to_camera": 0.733,
+      "away": 0.067,
+      "not_applicable": 0.2
      },
      "expression": {
-      "neutral": 0.857,
-      "not_applicable": 0.143
+      "neutral": 0.8,
+      "not_applicable": 0.2
      },
      "pose": {
-      "posed_static": 0.929,
-      "not_applicable": 0.071
+      "posed_static": 0.933,
+      "not_applicable": 0.067
      },
      "framing": {
-      "close_up": 0.071,
-      "medium": 0.357,
-      "full_length": 0.571
+      "close_up": 0.067,
+      "medium": 0.4,
+      "full_length": 0.533
      },
      "primary_subject": {
-      "garment": 0.929,
-      "footwear": 0.071
+      "garment": 0.933,
+      "footwear": 0.067
      },
      "styling_register": {
-      "formal_tailored": 0.643,
-      "eveningwear": 0.143,
-      "casual": 0.214
+      "formal_tailored": 0.6,
+      "eveningwear": 0.2,
+      "casual": 0.2
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.786,
-      "logo_only": 0.214
+      "none": 0.733,
+      "logo_only": 0.267
      },
      "mood": {
-      "austere": 0.143,
-      "serene": 0.214,
+      "austere": 0.133,
+      "serene": 0.2,
       "intimate": 1.0,
-      "sensual": 0.786,
-      "playful": 0.071,
-      "opulent": 0.643,
-      "romantic": 0.143
+      "sensual": 0.8,
+      "playful": 0.067,
+      "opulent": 0.667,
+      "romantic": 0.133
+     },
+     "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 20,
+     "light": {
+      "high_key": 0.8,
+      "low_key": 0.2
+     },
+     "colour_temperature": {
+      "warm": 0.1,
+      "cool": 0.15,
+      "neutral": 0.75
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.15,
+      "studio_set": 0.65,
+      "urban_exterior": 0.2
+     },
+     "people": {
+      "none": 0.2,
+      "one": 0.8
+     },
+     "gaze": {
+      "to_camera": 0.7,
+      "away": 0.1,
+      "not_applicable": 0.2
+     },
+     "expression": {
+      "neutral": 0.8,
+      "not_applicable": 0.2
+     },
+     "pose": {
+      "posed_static": 0.85,
+      "not_applicable": 0.15
+     },
+     "framing": {
+      "close_up": 0.15,
+      "medium": 0.7,
+      "full_length": 0.15
+     },
+     "primary_subject": {
+      "garment": 0.9,
+      "footwear": 0.1
+     },
+     "styling_register": {
+      "formal_tailored": 0.3,
+      "eveningwear": 0.45,
+      "casual": 0.25
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.5,
+      "logo_only": 0.5
+     },
+     "mood": {
+      "serene": 0.1,
+      "intimate": 0.95,
+      "sensual": 0.95,
+      "opulent": 0.4,
+      "romantic": 0.55
      },
      "street_couture": 3.0
     },
@@ -7285,34 +9710,38 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 9,
+     "n0": 11,
      "n1": 19,
-     "rubric": 0.1252,
-     "rubric_p": 0.782,
-     "rubric_chance": 0.1455,
-     "fingerprint": 0.1484,
-     "fingerprint_p": 0.016,
-     "fingerprint_chance": 0.0966,
+     "months0": 4,
+     "months1": 6,
+     "rubric": 0.1178,
+     "rubric_p": 0.9524,
+     "rubric_chance": 0.1482,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.1212,
+     "fingerprint_p": 0.3333,
+     "fingerprint_chance": 0.1101,
      "moved": [
-      {
-       "question": "setting",
-       "answer": "studio_set",
-       "change": 0.251
-      },
-      {
-       "question": "mood",
-       "answer": "romantic",
-       "change": 0.251
-      },
-      {
-       "question": "mood",
-       "answer": "opulent",
-       "change": -0.246
-      },
       {
        "question": "gaze",
        "answer": "away",
        "change": 0.211
+      },
+      {
+       "question": "light",
+       "answer": "high_key",
+       "change": -0.187
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": -0.177
+      },
+      {
+       "question": "expression",
+       "answer": "neutral",
+       "change": -0.172
       }
      ]
     },
@@ -7321,12 +9750,16 @@
      "to": "2025H1",
      "n0": 19,
      "n1": 20,
+     "months0": 6,
+     "months1": 6,
      "rubric": 0.1196,
-     "rubric_p": 0.31,
-     "rubric_chance": 0.1079,
+     "rubric_p": 0.5563,
+     "rubric_chance": 0.122,
+     "null": "months",
+     "splits": 924,
      "fingerprint": 0.1013,
-     "fingerprint_p": 0.011,
-     "fingerprint_chance": 0.0572,
+     "fingerprint_p": 0.0238,
+     "fingerprint_chance": 0.0705,
      "moved": [
       {
        "question": "styling_register",
@@ -7354,55 +9787,137 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 20,
-     "n1": 14,
-     "rubric": 0.1268,
-     "rubric_p": 0.195,
-     "rubric_chance": 0.1068,
-     "fingerprint": 0.091,
-     "fingerprint_p": 0.041,
-     "fingerprint_chance": 0.0562,
+     "n1": 15,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1169,
+     "rubric_p": 0.5476,
+     "rubric_chance": 0.1189,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.0819,
+     "fingerprint_p": 0.3074,
+     "fingerprint_chance": 0.0727,
      "moved": [
-      {
-       "question": "gaze",
-       "answer": "to_camera",
-       "change": 0.336
-      },
       {
        "question": "styling_register",
        "answer": "formal_tailored",
-       "change": -0.257
+       "change": -0.3
+      },
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": 0.283
       },
       {
        "question": "gaze",
        "answer": "away",
-       "change": -0.229
+       "change": -0.233
       },
       {
-       "question": "setting",
-       "answer": "studio_plain",
-       "change": 0.229
+       "question": "text_in_image",
+       "answer": "none",
+       "change": -0.217
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 15,
+     "n1": 20,
+     "months0": 5,
+     "months1": 6,
+     "rubric": 0.1332,
+     "rubric_p": 0.4784,
+     "rubric_chance": 0.132,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.1344,
+     "fingerprint_p": 0.0476,
+     "fingerprint_chance": 0.0871,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": 0.417
+      },
+      {
+       "question": "framing",
+       "answer": "full_length",
+       "change": -0.383
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.3
+      },
+      {
+       "question": "framing",
+       "answer": "medium",
+       "change": 0.3
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 20,
+     "n1": 8,
+     "months0": 6,
+     "months1": 2,
+     "rubric": 0.1231,
+     "rubric_p": 0.8929,
+     "rubric_chance": 0.1579,
+     "null": "months",
+     "splits": 28,
+     "fingerprint": 0.092,
+     "fingerprint_p": 0.7857,
+     "fingerprint_chance": 0.1063,
+     "moved": [
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.35
+      },
+      {
+       "question": "mood",
+       "answer": "romantic",
+       "change": -0.3
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.25
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": 0.25
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1121,
-    "2025H1": 0.1578,
-    "2024H1": 0.1083,
-    "2025H2": 0.1242,
-    "2026H2": 0.1345
+    "2024H2": 0.1129,
+    "2025H1": 0.1628,
+    "2025H2": 0.11,
+    "2026H1": 0.1597,
+    "2024H1": 0.0931,
+    "2026H2": 0.139
    }
   },
   "tom_ford": {
    "periods": {
     "2024H1": {
-     "n": 8,
+     "n": 11,
      "light": {
-      "high_key": 0.625,
-      "low_key": 0.375
+      "high_key": 0.545,
+      "low_key": 0.455
      },
      "colour_temperature": {
-      "neutral": 1.0
+      "cool": 0.091,
+      "neutral": 0.909
      },
      "saturation": {
       "vivid": 1.0
@@ -7411,47 +9926,50 @@
       "studio_set": 1.0
      },
      "people": {
-      "none": 0.25,
-      "one": 0.75
+      "none": 0.182,
+      "one": 0.818
      },
      "gaze": {
-      "to_camera": 0.75,
-      "not_applicable": 0.25
+      "to_camera": 0.727,
+      "away": 0.091,
+      "not_applicable": 0.182
      },
      "expression": {
-      "neutral": 0.75,
-      "not_applicable": 0.25
+      "neutral": 0.818,
+      "not_applicable": 0.182
      },
      "pose": {
-      "posed_static": 0.75,
-      "not_applicable": 0.25
+      "posed_static": 0.818,
+      "not_applicable": 0.182
      },
      "framing": {
-      "close_up": 0.25,
-      "medium": 0.25,
-      "full_length": 0.5
+      "close_up": 0.182,
+      "medium": 0.273,
+      "full_length": 0.545
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 1.0
+      "formal_tailored": 0.909,
+      "eveningwear": 0.091
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.818,
+      "logo_only": 0.182
      },
      "mood": {
-      "serene": 0.125,
+      "serene": 0.182,
       "intimate": 1.0,
       "sensual": 1.0,
-      "opulent": 0.625,
-      "aggressive": 0.25
+      "opulent": 0.545,
+      "aggressive": 0.182,
+      "romantic": 0.091
      },
-     "street_couture": 3.25
+     "street_couture": 3.18
     },
     "2024H2": {
      "n": 11,
@@ -7586,7 +10104,7 @@
      "street_couture": 3.12
     },
     "2025H2": {
-     "n": 8,
+     "n": 16,
      "light": {
       "high_key": 1.0
      },
@@ -7601,7 +10119,8 @@
       "studio_set": 0.75
      },
      "people": {
-      "one": 1.0
+      "one": 0.875,
+      "two": 0.125
      },
      "gaze": {
       "to_camera": 1.0
@@ -7614,13 +10133,13 @@
      },
      "framing": {
       "close_up": 0.25,
-      "medium": 0.375,
-      "full_length": 0.375
+      "medium": 0.188,
+      "full_length": 0.562
      },
      "primary_subject": {
-      "garment": 0.625,
-      "face": 0.25,
-      "body": 0.125
+      "garment": 0.812,
+      "face": 0.125,
+      "body": 0.062
      },
      "styling_register": {
       "formal_tailored": 0.625,
@@ -7630,20 +10149,20 @@
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.875,
-      "logo_only": 0.125
+      "none": 0.812,
+      "logo_only": 0.188
      },
      "mood": {
-      "serene": 0.25,
+      "serene": 0.125,
       "intimate": 1.0,
       "sensual": 1.0,
-      "opulent": 0.625,
-      "romantic": 0.125
+      "opulent": 0.812,
+      "romantic": 0.062
      },
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 2,
+     "n": 4,
      "light": {
       "high_key": 1.0
      },
@@ -7669,13 +10188,16 @@
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 1.0
+      "medium": 0.5,
+      "full_length": 0.5
      },
      "primary_subject": {
-      "footwear": 1.0
+      "garment": 0.5,
+      "footwear": 0.5
      },
      "styling_register": {
-      "formal_tailored": 1.0
+      "formal_tailored": 0.75,
+      "eveningwear": 0.25
      },
      "production": {
       "polished_commercial": 1.0
@@ -7743,23 +10265,22 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 8,
+     "n0": 11,
      "n1": 11,
-     "rubric": 0.2405,
-     "rubric_p": 0.046,
-     "rubric_chance": 0.1494,
-     "fingerprint": 0.1711,
-     "fingerprint_p": 0.015,
-     "fingerprint_chance": 0.0865,
+     "months0": 4,
+     "months1": 4,
+     "rubric": 0.2263,
+     "rubric_p": 0.0857,
+     "rubric_chance": 0.1669,
+     "null": "months",
+     "splits": 70,
+     "fingerprint": 0.1538,
+     "fingerprint_p": 0.2,
+     "fingerprint_chance": 0.1165,
      "moved": [
       {
        "question": "setting",
        "answer": "studio_set",
-       "change": -0.727
-      },
-      {
-       "question": "styling_register",
-       "answer": "formal_tailored",
        "change": -0.727
       },
       {
@@ -7768,9 +10289,14 @@
        "change": 0.636
       },
       {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.636
+      },
+      {
        "question": "colour_temperature",
-       "answer": "cool",
-       "change": 0.545
+       "answer": "neutral",
+       "change": -0.455
       }
      ]
     },
@@ -7779,12 +10305,16 @@
      "to": "2025H1",
      "n0": 11,
      "n1": 16,
+     "months0": 4,
+     "months1": 5,
      "rubric": 0.1822,
-     "rubric_p": 0.031,
-     "rubric_chance": 0.1193,
+     "rubric_p": 0.127,
+     "rubric_chance": 0.1311,
+     "null": "months",
+     "splits": 126,
      "fingerprint": 0.1086,
-     "fingerprint_p": 0.09,
-     "fingerprint_chance": 0.0651,
+     "fingerprint_p": 0.3413,
+     "fingerprint_chance": 0.0969,
      "moved": [
       {
        "question": "setting",
@@ -7812,14 +10342,23 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 16,
-     "n1": 8,
-     "rubric": 0.0924,
-     "rubric_p": 0.634,
-     "rubric_chance": 0.1,
-     "fingerprint": 0.1141,
-     "fingerprint_p": 0.158,
-     "fingerprint_chance": 0.0815,
+     "n1": 16,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.0819,
+     "rubric_p": 0.9365,
+     "rubric_chance": 0.1056,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1261,
+     "fingerprint_p": 0.2619,
+     "fingerprint_chance": 0.101,
      "moved": [
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": 0.312
+      },
       {
        "question": "styling_register",
        "answer": "formal_tailored",
@@ -7834,20 +10373,15 @@
        "question": "light",
        "answer": "high_key",
        "change": 0.188
-      },
-      {
-       "question": "setting",
-       "answer": "studio_set",
-       "change": 0.188
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.215,
-    "2025H1": 0.1994,
-    "2024H1": 0.1974,
-    "2025H2": 0.2044
+    "2024H2": 0.2185,
+    "2025H1": 0.202,
+    "2025H2": 0.1954,
+    "2024H1": 0.177
    }
   },
   "valentino": {
@@ -8052,94 +10586,31 @@
      "street_couture": 3.0
     },
     "2025H2": {
-     "n": 10,
+     "n": 16,
      "light": {
-      "high_key": 0.8,
-      "natural_daylight": 0.2
+      "high_key": 0.875,
+      "natural_daylight": 0.125
      },
      "colour_temperature": {
-      "warm": 0.1,
-      "neutral": 0.9
+      "warm": 0.188,
+      "neutral": 0.812
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.3,
-      "studio_set": 0.5,
-      "urban_exterior": 0.2
+      "studio_plain": 0.25,
+      "studio_set": 0.625,
+      "urban_exterior": 0.125
      },
      "people": {
-      "none": 0.5,
-      "one": 0.2,
-      "two": 0.3
+      "none": 0.438,
+      "one": 0.312,
+      "two": 0.25
      },
      "gaze": {
-      "to_camera": 0.3,
-      "away": 0.2,
-      "not_applicable": 0.5
-     },
-     "expression": {
-      "neutral": 0.7,
-      "not_applicable": 0.3
-     },
-     "pose": {
-      "posed_static": 0.9,
-      "not_applicable": 0.1
-     },
-     "framing": {
-      "close_up": 0.3,
-      "medium": 0.5,
-      "full_length": 0.1,
-      "product_only": 0.1
-     },
-     "primary_subject": {
-      "garment": 0.8,
-      "footwear": 0.2
-     },
-     "styling_register": {
-      "formal_tailored": 0.3,
-      "eveningwear": 0.3,
-      "casual": 0.4
-     },
-     "production": {
-      "polished_commercial": 1.0
-     },
-     "text_in_image": {
-      "none": 0.3,
-      "logo_only": 0.7
-     },
-     "mood": {
-      "serene": 0.1,
-      "intimate": 0.7,
-      "sensual": 0.8,
-      "playful": 0.2,
-      "opulent": 0.6,
-      "romantic": 0.3
-     },
-     "street_couture": 3.0
-    },
-    "2026H1": {
-     "n": 4,
-     "light": {
-      "high_key": 1.0
-     },
-     "colour_temperature": {
-      "neutral": 1.0
-     },
-     "saturation": {
-      "vivid": 1.0
-     },
-     "setting": {
-      "studio_plain": 0.5,
-      "studio_set": 0.5
-     },
-     "people": {
-      "none": 0.5,
-      "one": 0.5
-     },
-     "gaze": {
-      "to_camera": 0.5,
+      "to_camera": 0.312,
+      "away": 0.188,
       "not_applicable": 0.5
      },
      "expression": {
@@ -8147,35 +10618,105 @@
       "not_applicable": 0.25
      },
      "pose": {
-      "posed_static": 0.75,
-      "not_applicable": 0.25
+      "posed_static": 0.875,
+      "not_applicable": 0.125
      },
      "framing": {
-      "close_up": 0.5,
-      "medium": 0.25,
-      "full_length": 0.25
+      "close_up": 0.188,
+      "medium": 0.5,
+      "full_length": 0.188,
+      "product_only": 0.125
      },
      "primary_subject": {
       "garment": 0.75,
       "footwear": 0.25
      },
      "styling_register": {
-      "formal_tailored": 0.25,
-      "eveningwear": 0.25,
-      "casual": 0.5
+      "formal_tailored": 0.312,
+      "eveningwear": 0.375,
+      "casual": 0.312
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.25,
+      "logo_only": 0.75
      },
      "mood": {
-      "intimate": 0.75,
-      "sensual": 1.0,
-      "opulent": 0.5,
-      "romantic": 0.5
+      "serene": 0.188,
+      "intimate": 0.625,
+      "sensual": 0.812,
+      "playful": 0.188,
+      "opulent": 0.562,
+      "romantic": 0.25
+     },
+     "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 11,
+     "light": {
+      "high_key": 0.909,
+      "natural_daylight": 0.091
+     },
+     "colour_temperature": {
+      "warm": 0.091,
+      "neutral": 0.909
+     },
+     "saturation": {
+      "vivid": 1.0
+     },
+     "setting": {
+      "studio_plain": 0.273,
+      "studio_set": 0.727
+     },
+     "people": {
+      "none": 0.455,
+      "one": 0.455,
+      "two": 0.091
+     },
+     "gaze": {
+      "to_camera": 0.364,
+      "away": 0.091,
+      "not_applicable": 0.545
+     },
+     "expression": {
+      "neutral": 0.818,
+      "not_applicable": 0.182
+     },
+     "pose": {
+      "posed_static": 0.818,
+      "not_applicable": 0.182
+     },
+     "framing": {
+      "close_up": 0.273,
+      "medium": 0.364,
+      "full_length": 0.273,
+      "product_only": 0.091
+     },
+     "primary_subject": {
+      "garment": 0.636,
+      "footwear": 0.364
+     },
+     "styling_register": {
+      "formal_tailored": 0.364,
+      "eveningwear": 0.273,
+      "casual": 0.364
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.545,
+      "logo_only": 0.455
+     },
+     "mood": {
+      "serene": 0.091,
+      "intimate": 0.636,
+      "sensual": 0.818,
+      "playful": 0.182,
+      "opulent": 0.545,
+      "romantic": 0.364
      },
      "street_couture": 3.0
     },
@@ -8244,12 +10785,16 @@
      "to": "2024H2",
      "n0": 11,
      "n1": 21,
+     "months0": 3,
+     "months1": 6,
      "rubric": 0.1128,
-     "rubric_p": 0.409,
-     "rubric_chance": 0.1066,
+     "rubric_p": 0.75,
+     "rubric_chance": 0.132,
+     "null": "months",
+     "splits": 84,
      "fingerprint": 0.1192,
-     "fingerprint_p": 0.102,
-     "fingerprint_chance": 0.0887,
+     "fingerprint_p": 0.7024,
+     "fingerprint_chance": 0.133,
      "moved": [
       {
        "question": "people",
@@ -8278,12 +10823,16 @@
      "to": "2025H1",
      "n0": 21,
      "n1": 22,
+     "months0": 6,
+     "months1": 6,
      "rubric": 0.0917,
-     "rubric_p": 0.481,
-     "rubric_chance": 0.0906,
+     "rubric_p": 0.6797,
+     "rubric_chance": 0.1075,
+     "null": "months",
+     "splits": 924,
      "fingerprint": 0.1049,
-     "fingerprint_p": 0.027,
-     "fingerprint_chance": 0.0599,
+     "fingerprint_p": 0.2338,
+     "fingerprint_chance": 0.0867,
      "moved": [
       {
        "question": "styling_register",
@@ -8311,48 +10860,91 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 22,
-     "n1": 10,
-     "rubric": 0.1517,
-     "rubric_p": 0.14,
-     "rubric_chance": 0.1177,
-     "fingerprint": 0.109,
-     "fingerprint_p": 0.186,
-     "fingerprint_chance": 0.0853,
+     "n1": 16,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1544,
+     "rubric_p": 0.1169,
+     "rubric_chance": 0.1106,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.1016,
+     "fingerprint_p": 0.1234,
+     "fingerprint_chance": 0.0791,
      "moved": [
       {
-       "question": "gaze",
-       "answer": "to_camera",
-       "change": -0.427
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": 0.432
       },
       {
        "question": "text_in_image",
        "answer": "none",
-       "change": -0.382
+       "change": -0.432
       },
       {
-       "question": "text_in_image",
-       "answer": "logo_only",
-       "change": 0.382
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": -0.415
       },
       {
        "question": "mood",
        "answer": "opulent",
-       "change": 0.373
+       "change": 0.335
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 16,
+     "n1": 11,
+     "months0": 5,
+     "months1": 3,
+     "rubric": 0.0893,
+     "rubric_p": 0.8571,
+     "rubric_chance": 0.115,
+     "null": "months",
+     "splits": 56,
+     "fingerprint": 0.1019,
+     "fingerprint_p": 0.4643,
+     "fingerprint_chance": 0.0963,
+     "moved": [
+      {
+       "question": "text_in_image",
+       "answer": "logo_only",
+       "change": -0.295
+      },
+      {
+       "question": "text_in_image",
+       "answer": "none",
+       "change": 0.295
+      },
+      {
+       "question": "people",
+       "answer": "two",
+       "change": -0.159
+      },
+      {
+       "question": "people",
+       "answer": "one",
+       "change": 0.142
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.0778,
-    "2025H1": 0.1379,
-    "2024H1": 0.1456,
-    "2025H2": 0.1472
+    "2024H2": 0.0802,
+    "2025H1": 0.1412,
+    "2025H2": 0.13,
+    "2026H1": 0.0845,
+    "2024H1": 0.1175
    }
   },
   "versace": {
    "periods": {
     "2024H1": {
-     "n": 5,
+     "n": 9,
      "light": {
       "high_key": 1.0
      },
@@ -8363,53 +10955,58 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 1.0
+      "studio_plain": 0.667,
+      "studio_set": 0.333
      },
      "people": {
-      "none": 1.0
+      "none": 0.556,
+      "one": 0.444
      },
      "gaze": {
-      "not_applicable": 1.0
+      "to_camera": 0.111,
+      "away": 0.333,
+      "not_applicable": 0.556
      },
      "expression": {
-      "neutral": 0.6,
-      "not_applicable": 0.4
+      "neutral": 0.778,
+      "not_applicable": 0.222
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.2,
-      "full_length": 0.4,
-      "product_only": 0.4
+      "close_up": 0.222,
+      "medium": 0.333,
+      "full_length": 0.222,
+      "product_only": 0.222
      },
      "primary_subject": {
-      "garment": 0.8,
-      "footwear": 0.2
+      "garment": 0.889,
+      "footwear": 0.111
      },
      "styling_register": {
-      "formal_tailored": 0.6,
-      "eveningwear": 0.2,
-      "casual": 0.2
+      "formal_tailored": 0.778,
+      "eveningwear": 0.111,
+      "casual": 0.111
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.2,
-      "logo_only": 0.8
+      "none": 0.556,
+      "logo_only": 0.444
      },
      "mood": {
-      "serene": 0.4,
-      "intimate": 0.8,
-      "sensual": 0.6,
-      "opulent": 1.0,
-      "romantic": 0.2
+      "serene": 0.333,
+      "intimate": 0.889,
+      "sensual": 0.778,
+      "opulent": 0.667,
+      "romantic": 0.333
      },
      "street_couture": 3.0
     },
     "2024H2": {
-     "n": 8,
+     "n": 12,
      "light": {
       "high_key": 1.0
      },
@@ -8420,52 +11017,54 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.75,
-      "studio_set": 0.25
+      "studio_plain": 0.667,
+      "studio_set": 0.333
      },
      "people": {
-      "none": 0.375,
-      "one": 0.625
+      "none": 0.417,
+      "one": 0.417,
+      "two": 0.167
      },
      "gaze": {
-      "to_camera": 0.625,
-      "not_applicable": 0.375
+      "to_camera": 0.583,
+      "not_applicable": 0.417
      },
      "expression": {
-      "neutral": 1.0
+      "neutral": 0.917,
+      "not_applicable": 0.083
      },
      "pose": {
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.375,
-      "medium": 0.375,
-      "full_length": 0.25
+      "close_up": 0.333,
+      "medium": 0.333,
+      "full_length": 0.333
      },
      "primary_subject": {
-      "garment": 0.875,
-      "footwear": 0.125
+      "garment": 0.833,
+      "footwear": 0.167
      },
      "styling_register": {
-      "formal_tailored": 0.375,
-      "eveningwear": 0.25,
-      "casual": 0.375
+      "formal_tailored": 0.333,
+      "eveningwear": 0.417,
+      "casual": 0.25
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.5,
-      "logo_only": 0.5
+      "none": 0.583,
+      "logo_only": 0.417
      },
      "mood": {
-      "serene": 0.25,
-      "intimate": 0.875,
-      "sensual": 0.875,
-      "opulent": 0.375,
-      "romantic": 0.5
+      "serene": 0.167,
+      "intimate": 0.833,
+      "sensual": 0.917,
+      "opulent": 0.583,
+      "romantic": 0.417
      },
-     "street_couture": 3.0
+     "street_couture": 3.17
     },
     "2025H1": {
      "n": 4,
@@ -8525,59 +11124,69 @@
      "street_couture": 3.0
     },
     "2026H1": {
-     "n": 5,
+     "n": 12,
      "light": {
-      "high_key": 1.0
+      "high_key": 0.917,
+      "low_key": 0.083
      },
      "colour_temperature": {
-      "warm": 0.2,
-      "neutral": 0.8
+      "warm": 0.167,
+      "neutral": 0.833
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.8,
-      "studio_set": 0.2
+      "studio_plain": 0.417,
+      "studio_set": 0.583
      },
      "people": {
-      "none": 0.6,
-      "one": 0.4
+      "none": 0.333,
+      "one": 0.583,
+      "group": 0.083
      },
      "gaze": {
-      "to_camera": 0.4,
-      "not_applicable": 0.6
+      "to_camera": 0.583,
+      "away": 0.083,
+      "not_applicable": 0.333
      },
      "expression": {
-      "neutral": 0.6,
-      "not_applicable": 0.4
+      "neutral": 0.75,
+      "not_applicable": 0.25
      },
      "pose": {
-      "posed_static": 1.0
+      "posed_static": 0.917,
+      "not_applicable": 0.083
      },
      "framing": {
-      "close_up": 0.2,
-      "medium": 0.8
+      "close_up": 0.083,
+      "medium": 0.667,
+      "full_length": 0.167,
+      "product_only": 0.083
      },
      "primary_subject": {
-      "garment": 1.0
+      "garment": 0.917,
+      "footwear": 0.083
      },
      "styling_register": {
-      "formal_tailored": 0.8,
-      "casual": 0.2
+      "formal_tailored": 0.583,
+      "eveningwear": 0.083,
+      "casual": 0.333
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.6,
-      "logo_only": 0.4
+      "none": 0.75,
+      "logo_only": 0.25
      },
      "mood": {
-      "intimate": 0.6,
-      "sensual": 0.6,
-      "opulent": 0.8,
-      "romantic": 0.2
+      "serene": 0.083,
+      "intimate": 0.833,
+      "sensual": 0.75,
+      "playful": 0.083,
+      "opulent": 0.583,
+      "romantic": 0.333
      },
      "street_couture": 3.0
     },
@@ -8639,145 +11248,227 @@
      "street_couture": 3.0
     }
    },
-   "shifts": [],
+   "shifts": [
+    {
+     "from": "2024H1",
+     "to": "2024H2",
+     "n0": 9,
+     "n1": 12,
+     "months0": 3,
+     "months1": 4,
+     "rubric": 0.1076,
+     "rubric_p": 0.8286,
+     "rubric_chance": 0.142,
+     "null": "months",
+     "splits": 35,
+     "fingerprint": 0.2178,
+     "fingerprint_p": 0.2286,
+     "fingerprint_chance": 0.1908,
+     "moved": [
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": 0.472
+      },
+      {
+       "question": "styling_register",
+       "answer": "formal_tailored",
+       "change": -0.444
+      },
+      {
+       "question": "gaze",
+       "answer": "away",
+       "change": -0.333
+      },
+      {
+       "question": "styling_register",
+       "answer": "eveningwear",
+       "change": 0.306
+      }
+     ]
+    },
+    {
+     "from": "2026H1",
+     "to": "2026H2",
+     "n0": 12,
+     "n1": 7,
+     "months0": 4,
+     "months1": 2,
+     "rubric": 0.1434,
+     "rubric_p": 0.4,
+     "rubric_chance": 0.1359,
+     "null": "months",
+     "splits": 15,
+     "fingerprint": 0.1954,
+     "fingerprint_p": 0.2667,
+     "fingerprint_chance": 0.1677,
+     "moved": [
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": 0.417
+      },
+      {
+       "question": "people",
+       "answer": "none",
+       "change": -0.333
+      },
+      {
+       "question": "gaze",
+       "answer": "not_applicable",
+       "change": -0.333
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.274
+      }
+     ]
+    }
+   ],
    "distinct": {
-    "2024H2": 0.1129,
-    "2026H2": 0.1779
+    "2024H2": 0.1115,
+    "2026H1": 0.0891,
+    "2024H1": 0.1665,
+    "2026H2": 0.1805
    }
   },
   "zegna": {
    "periods": {
     "2024H1": {
-     "n": 12,
+     "n": 16,
      "light": {
-      "high_key": 0.917,
-      "natural_daylight": 0.083
+      "high_key": 0.938,
+      "natural_daylight": 0.062
      },
      "colour_temperature": {
       "neutral": 1.0
      },
      "saturation": {
-      "moderate": 0.167,
-      "vivid": 0.833
+      "moderate": 0.125,
+      "vivid": 0.875
      },
      "setting": {
-      "studio_plain": 0.75,
-      "urban_exterior": 0.083,
-      "landscape_nature": 0.167
+      "studio_plain": 0.562,
+      "studio_set": 0.25,
+      "urban_exterior": 0.062,
+      "landscape_nature": 0.125
      },
      "people": {
-      "none": 0.833,
-      "one": 0.167
+      "none": 0.625,
+      "one": 0.312,
+      "two": 0.062
      },
      "gaze": {
-      "to_camera": 0.167,
-      "not_applicable": 0.833
+      "to_camera": 0.312,
+      "not_applicable": 0.688
      },
      "expression": {
-      "neutral": 0.917,
-      "not_applicable": 0.083
+      "neutral": 0.938,
+      "not_applicable": 0.062
      },
      "pose": {
-      "posed_static": 0.833,
-      "not_applicable": 0.167
+      "posed_static": 0.875,
+      "not_applicable": 0.125
      },
      "framing": {
-      "close_up": 0.25,
-      "medium": 0.167,
-      "full_length": 0.583
+      "close_up": 0.312,
+      "medium": 0.25,
+      "full_length": 0.438
      },
      "primary_subject": {
-      "garment": 0.917,
-      "footwear": 0.083
+      "garment": 0.812,
+      "footwear": 0.188
      },
      "styling_register": {
-      "formal_tailored": 0.583,
-      "eveningwear": 0.083,
+      "formal_tailored": 0.562,
+      "eveningwear": 0.062,
+      "casual": 0.375
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.5,
+      "logo_only": 0.5
+     },
+     "mood": {
+      "austere": 0.188,
+      "serene": 0.812,
+      "intimate": 0.875,
+      "sensual": 0.375,
+      "playful": 0.062,
+      "opulent": 0.5,
+      "romantic": 0.125
+     },
+     "street_couture": 3.0
+    },
+    "2024H2": {
+     "n": 15,
+     "light": {
+      "high_key": 0.867,
+      "natural_daylight": 0.133
+     },
+     "colour_temperature": {
+      "warm": 0.067,
+      "neutral": 0.933
+     },
+     "saturation": {
+      "moderate": 0.4,
+      "vivid": 0.6
+     },
+     "setting": {
+      "studio_plain": 0.667,
+      "studio_set": 0.067,
+      "landscape_nature": 0.267
+     },
+     "people": {
+      "none": 0.667,
+      "one": 0.267,
+      "two": 0.067
+     },
+     "gaze": {
+      "to_camera": 0.2,
+      "away": 0.067,
+      "not_applicable": 0.733
+     },
+     "expression": {
+      "neutral": 0.733,
+      "not_applicable": 0.267
+     },
+     "pose": {
+      "posed_static": 0.933,
+      "not_applicable": 0.067
+     },
+     "framing": {
+      "close_up": 0.067,
+      "medium": 0.267,
+      "full_length": 0.533,
+      "product_only": 0.133
+     },
+     "primary_subject": {
+      "garment": 0.867,
+      "footwear": 0.133
+     },
+     "styling_register": {
+      "formal_tailored": 0.6,
+      "eveningwear": 0.067,
       "casual": 0.333
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.417,
-      "logo_only": 0.583
+      "none": 0.8,
+      "logo_only": 0.2
      },
      "mood": {
-      "austere": 0.25,
-      "serene": 0.833,
-      "intimate": 0.833,
-      "sensual": 0.333,
-      "playful": 0.083,
-      "opulent": 0.5,
-      "romantic": 0.083
-     },
-     "street_couture": 3.0
-    },
-    "2024H2": {
-     "n": 13,
-     "light": {
-      "high_key": 0.923,
-      "natural_daylight": 0.077
-     },
-     "colour_temperature": {
-      "warm": 0.077,
-      "neutral": 0.923
-     },
-     "saturation": {
-      "moderate": 0.385,
-      "vivid": 0.615
-     },
-     "setting": {
-      "studio_plain": 0.692,
-      "studio_set": 0.077,
-      "landscape_nature": 0.231
-     },
-     "people": {
-      "none": 0.692,
-      "one": 0.231,
-      "two": 0.077
-     },
-     "gaze": {
-      "to_camera": 0.231,
-      "not_applicable": 0.769
-     },
-     "expression": {
-      "neutral": 0.769,
-      "not_applicable": 0.231
-     },
-     "pose": {
-      "posed_static": 0.923,
-      "not_applicable": 0.077
-     },
-     "framing": {
-      "close_up": 0.077,
-      "medium": 0.231,
-      "full_length": 0.538,
-      "product_only": 0.154
-     },
-     "primary_subject": {
-      "garment": 0.846,
-      "footwear": 0.154
-     },
-     "styling_register": {
-      "formal_tailored": 0.538,
-      "eveningwear": 0.077,
-      "casual": 0.385
-     },
-     "production": {
-      "polished_commercial": 1.0
-     },
-     "text_in_image": {
-      "none": 0.769,
-      "logo_only": 0.231
-     },
-     "mood": {
-      "austere": 0.308,
-      "serene": 0.923,
-      "intimate": 0.846,
-      "sensual": 0.231,
-      "opulent": 0.308,
-      "romantic": 0.308
+      "austere": 0.333,
+      "serene": 0.933,
+      "intimate": 0.867,
+      "sensual": 0.2,
+      "opulent": 0.267,
+      "romantic": 0.333
      },
      "street_couture": 3.0
     },
@@ -8856,69 +11547,139 @@
      "street_couture": 3.1
     },
     "2025H2": {
-     "n": 13,
+     "n": 14,
      "light": {
-      "high_key": 0.769,
-      "natural_daylight": 0.231
+      "high_key": 0.714,
+      "natural_daylight": 0.286
      },
      "colour_temperature": {
-      "warm": 0.077,
-      "neutral": 0.923
+      "warm": 0.071,
+      "neutral": 0.929
      },
      "saturation": {
-      "moderate": 0.077,
-      "vivid": 0.923
+      "moderate": 0.071,
+      "vivid": 0.929
      },
      "setting": {
-      "studio_plain": 0.308,
-      "studio_set": 0.308,
-      "urban_exterior": 0.077,
-      "landscape_nature": 0.308
+      "studio_plain": 0.286,
+      "studio_set": 0.357,
+      "urban_exterior": 0.071,
+      "landscape_nature": 0.286
      },
      "people": {
-      "none": 0.462,
-      "one": 0.538
+      "none": 0.5,
+      "one": 0.5
      },
      "gaze": {
-      "to_camera": 0.308,
-      "away": 0.154,
-      "not_applicable": 0.538
+      "to_camera": 0.286,
+      "away": 0.143,
+      "not_applicable": 0.571
      },
      "expression": {
-      "neutral": 0.769,
-      "not_applicable": 0.231
+      "neutral": 0.714,
+      "not_applicable": 0.286
      },
      "pose": {
-      "posed_static": 0.923,
-      "not_applicable": 0.077
+      "posed_static": 0.857,
+      "not_applicable": 0.143
      },
      "framing": {
-      "close_up": 0.154,
-      "medium": 0.692,
-      "full_length": 0.154
+      "close_up": 0.143,
+      "medium": 0.714,
+      "full_length": 0.143
      },
      "primary_subject": {
-      "garment": 0.923,
-      "footwear": 0.077
+      "garment": 0.929,
+      "footwear": 0.071
      },
      "styling_register": {
-      "formal_tailored": 0.615,
-      "casual": 0.385
+      "formal_tailored": 0.643,
+      "casual": 0.357
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.923,
-      "logo_only": 0.077
+      "none": 0.929,
+      "logo_only": 0.071
      },
      "mood": {
-      "austere": 0.077,
-      "serene": 0.923,
-      "intimate": 0.923,
-      "sensual": 0.385,
-      "opulent": 0.462,
-      "romantic": 0.231
+      "austere": 0.071,
+      "serene": 0.929,
+      "intimate": 0.929,
+      "sensual": 0.357,
+      "opulent": 0.5,
+      "romantic": 0.214
+     },
+     "street_couture": 3.0
+    },
+    "2026H1": {
+     "n": 10,
+     "light": {
+      "high_key": 0.3,
+      "low_key": 0.1,
+      "natural_daylight": 0.6
+     },
+     "colour_temperature": {
+      "neutral": 1.0
+     },
+     "saturation": {
+      "moderate": 0.1,
+      "vivid": 0.9
+     },
+     "setting": {
+      "studio_set": 0.6,
+      "urban_exterior": 0.1,
+      "landscape_nature": 0.3
+     },
+     "people": {
+      "none": 0.3,
+      "one": 0.6,
+      "group": 0.1
+     },
+     "gaze": {
+      "to_camera": 0.6,
+      "away": 0.1,
+      "not_applicable": 0.3
+     },
+     "expression": {
+      "neutral": 0.7,
+      "not_applicable": 0.3
+     },
+     "pose": {
+      "posed_static": 0.8,
+      "not_applicable": 0.2
+     },
+     "framing": {
+      "close_up": 0.1,
+      "medium": 0.5,
+      "full_length": 0.3,
+      "wide_scene": 0.1
+     },
+     "primary_subject": {
+      "garment": 0.7,
+      "footwear": 0.2,
+      "scene": 0.1
+     },
+     "styling_register": {
+      "formal_tailored": 0.7,
+      "eveningwear": 0.1,
+      "casual": 0.2
+     },
+     "production": {
+      "polished_commercial": 1.0
+     },
+     "text_in_image": {
+      "none": 0.9,
+      "logo_only": 0.1
+     },
+     "mood": {
+      "serene": 1.0,
+      "intimate": 1.0,
+      "sensual": 0.2,
+      "playful": 0.1,
+      "opulent": 0.3,
+      "romantic": 0.4
      },
      "street_couture": 3.0
     },
@@ -8980,68 +11741,76 @@
     {
      "from": "2024H1",
      "to": "2024H2",
-     "n0": 12,
-     "n1": 13,
-     "rubric": 0.1094,
-     "rubric_p": 0.663,
-     "rubric_chance": 0.1217,
-     "fingerprint": 0.0771,
-     "fingerprint_p": 0.521,
-     "fingerprint_chance": 0.0781,
+     "n0": 16,
+     "n1": 15,
+     "months0": 4,
+     "months1": 6,
+     "rubric": 0.12,
+     "rubric_p": 0.581,
+     "rubric_chance": 0.1224,
+     "null": "months",
+     "splits": 210,
+     "fingerprint": 0.0984,
+     "fingerprint_p": 0.3333,
+     "fingerprint_chance": 0.091,
      "moved": [
       {
        "question": "text_in_image",
        "answer": "none",
-       "change": 0.353
+       "change": 0.3
       },
       {
        "question": "text_in_image",
        "answer": "logo_only",
-       "change": -0.353
-      },
-      {
-       "question": "mood",
-       "answer": "romantic",
-       "change": 0.224
+       "change": -0.3
       },
       {
        "question": "saturation",
        "answer": "moderate",
-       "change": 0.218
+       "change": 0.275
+      },
+      {
+       "question": "saturation",
+       "answer": "vivid",
+       "change": -0.275
       }
      ]
     },
     {
      "from": "2024H2",
      "to": "2025H1",
-     "n0": 13,
+     "n0": 15,
      "n1": 21,
+     "months0": 6,
+     "months1": 6,
      "rubric": 0.1287,
-     "rubric_p": 0.475,
+     "rubric_p": 0.4827,
      "rubric_chance": 0.1272,
-     "fingerprint": 0.1218,
-     "fingerprint_p": 0.177,
-     "fingerprint_chance": 0.0874,
+     "null": "months",
+     "splits": 924,
+     "fingerprint": 0.1129,
+     "fingerprint_p": 0.2771,
+     "fingerprint_chance": 0.0891,
      "moved": [
       {
        "question": "framing",
        "answer": "close_up",
-       "change": 0.304
+       "change": 0.314
       },
       {
        "question": "framing",
        "answer": "full_length",
-       "change": -0.253
-      },
-      {
-       "question": "setting",
-       "answer": "studio_plain",
-       "change": -0.216
+       "change": -0.248
       },
       {
        "question": "mood",
        "answer": "austere",
-       "change": -0.212
+       "change": -0.238
+      },
+      {
+       "question": "setting",
+       "answer": "studio_set",
+       "change": 0.219
       }
      ]
     },
@@ -9049,86 +11818,142 @@
      "from": "2025H1",
      "to": "2025H2",
      "n0": 21,
-     "n1": 13,
-     "rubric": 0.1413,
-     "rubric_p": 0.272,
-     "rubric_chance": 0.1224,
-     "fingerprint": 0.1181,
-     "fingerprint_p": 0.227,
-     "fingerprint_chance": 0.0918,
+     "n1": 14,
+     "months0": 6,
+     "months1": 5,
+     "rubric": 0.1415,
+     "rubric_p": 0.4394,
+     "rubric_chance": 0.1354,
+     "null": "months",
+     "splits": 462,
+     "fingerprint": 0.1282,
+     "fingerprint_p": 0.3463,
+     "fingerprint_chance": 0.1024,
      "moved": [
       {
        "question": "framing",
        "answer": "medium",
-       "change": 0.454
+       "change": 0.476
+      },
+      {
+       "question": "light",
+       "answer": "natural_daylight",
+       "change": 0.238
       },
       {
        "question": "framing",
        "answer": "close_up",
-       "change": -0.227
-      },
-      {
-       "question": "setting",
-       "answer": "landscape_nature",
-       "change": 0.212
+       "change": -0.238
       },
       {
        "question": "primary_subject",
        "answer": "garment",
-       "change": 0.209
+       "change": 0.214
+      }
+     ]
+    },
+    {
+     "from": "2025H2",
+     "to": "2026H1",
+     "n0": 14,
+     "n1": 10,
+     "months0": 5,
+     "months1": 4,
+     "rubric": 0.1419,
+     "rubric_p": 0.6746,
+     "rubric_chance": 0.1496,
+     "null": "months",
+     "splits": 126,
+     "fingerprint": 0.1235,
+     "fingerprint_p": 0.619,
+     "fingerprint_chance": 0.1302,
+     "moved": [
+      {
+       "question": "light",
+       "answer": "high_key",
+       "change": -0.414
+      },
+      {
+       "question": "light",
+       "answer": "natural_daylight",
+       "change": 0.314
+      },
+      {
+       "question": "gaze",
+       "answer": "to_camera",
+       "change": 0.314
+      },
+      {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.286
       }
      ]
     }
    ],
    "distinct": {
-    "2024H2": 0.1909,
-    "2025H1": 0.1244,
-    "2024H1": 0.2063,
-    "2025H2": 0.1176
+    "2024H2": 0.1837,
+    "2025H1": 0.1231,
+    "2025H2": 0.1459,
+    "2026H1": 0.1843,
+    "2024H1": 0.1671
    }
   }
  },
  "success": {
-  "pairs": 10,
+  "pairs": 12,
   "houses": [
    "bottega_veneta",
    "gucci",
    "miu_miu",
+   "prada",
    "saint_laurent",
    "tom_ford",
    "zegna"
   ],
-  "spearman": 0.176,
-  "p_two_sided": 0.543,
+  "spearman": -0.112,
+  "p_two_sided": 0.838,
   "pairs_detail": [
    {
     "house": "bottega_veneta",
     "half": "2024H2",
-    "shift": 0.0893,
+    "shift": 0.1176,
     "next_growth_vs_usual": -5.18
    },
    {
     "house": "gucci",
     "half": "2025H2",
-    "shift": 0.1798,
+    "shift": 0.1156,
     "next_growth_vs_usual": -4.92
    },
    {
     "house": "miu_miu",
     "half": "2024H2",
-    "shift": 0.1092,
+    "shift": 0.1152,
     "next_growth_vs_usual": 0.58
+   },
+   {
+    "house": "miu_miu",
+    "half": "2025H2",
+    "shift": 0.2768,
+    "next_growth_vs_usual": -46.12
+   },
+   {
+    "house": "prada",
+    "half": "2025H2",
+    "shift": 0.1472,
+    "next_growth_vs_usual": -2.85
    },
    {
     "house": "saint_laurent",
     "half": "2024H2",
-    "shift": 0.1252,
+    "shift": 0.1178,
     "next_growth_vs_usual": -20.84
    },
    {
     "house": "tom_ford",
     "half": "2024H2",
-    "shift": 0.2405,
+    "shift": 0.2263,
     "next_growth_vs_usual": 0.71
    },
    {
@@ -9140,13 +11965,13 @@
    {
     "house": "tom_ford",
     "half": "2025H2",
-    "shift": 0.0924,
+    "shift": 0.0819,
     "next_growth_vs_usual": 3.31
    },
    {
     "house": "zegna",
     "half": "2024H2",
-    "shift": 0.1094,
+    "shift": 0.12,
     "next_growth_vs_usual": -4.28
    },
    {
@@ -9158,7 +11983,7 @@
    {
     "house": "zegna",
     "half": "2025H2",
-    "shift": 0.1413,
+    "shift": 0.1415,
     "next_growth_vs_usual": 7.02
    }
   ]

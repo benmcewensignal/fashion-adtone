@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T08:30:24Z",
+ "generated_at": "2026-10-07T10:07:16Z",
  "status": "exploratory: descriptive, not in the pre-registration",
  "images": "homepages, every creative type",
  "window_months": 6,
@@ -11,7 +11,7 @@
    "key": "celine:2025-07-06:f19496a18022",
    "spoken": 0,
    "months": "2025-07 to 2025-12",
-   "note": "2 homepage images in the window; at least 6 needed"
+   "note": "5 homepage images in the window; at least 6 needed"
   },
   {
    "house": "margiela",
@@ -29,7 +29,7 @@
    "key": "gucci:2025-09-23:31dea6a2cb5b",
    "spoken": 0,
    "months": "2025-09 to 2026-02",
-   "note": "4 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "jil_sander",
@@ -38,7 +38,7 @@
    "key": "jil_sander:2025-09-24:a0b2f5e5d862",
    "spoken": 0,
    "months": "2025-09 to 2026-02",
-   "note": "4 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "bottega_veneta",
@@ -47,7 +47,7 @@
    "key": "bottega_veneta:2025-09-28:34af58764dfb",
    "spoken": 0,
    "months": "2025-09 to 2026-02",
-   "note": "4 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "louis_vuitton",
@@ -65,7 +65,7 @@
    "key": "dior:2025-10-01:e884eb84c941",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "loewe",
@@ -74,7 +74,7 @@
    "key": "loewe:2025-10-03:c93330642d20",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "balenciaga",
@@ -83,7 +83,7 @@
    "key": "balenciaga:2025-10-04:6946927e9149",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "celine",
@@ -92,7 +92,7 @@
    "key": "celine:2025-10-05:2bf8f316301c",
    "spoken": 1,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "5 homepage images in the window; at least 6 needed"
   },
   {
    "house": "chloe",
@@ -101,7 +101,17 @@
    "key": "chloe:2025-10-05:4163ab77528b",
    "spoken": 1,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "questions": [
+    {
+     "question": "street_couture_axis",
+     "stated": 3,
+     "house": 3.0,
+     "peers": 3.022,
+     "lift": -0.022
+    }
+   ],
+   "n_house": 18,
+   "n_peers": 276
   },
   {
    "house": "valentino",
@@ -110,7 +120,7 @@
    "key": "valentino:2025-10-05:9401fce5a438",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "4 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "chanel",
@@ -119,7 +129,7 @@
    "key": "chanel:2025-10-06:c538a18dddfa",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "1 homepage images in the window; at least 6 needed"
   },
   {
    "house": "miu_miu",
@@ -128,7 +138,7 @@
    "key": "miu_miu:2025-10-07:c60d5bc5f763",
    "spoken": 0,
    "months": "2025-10 to 2026-03",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "fendi",
@@ -155,7 +165,7 @@
    "key": "prada:2026-02-26:abfd8b0c1bbe",
    "spoken": 0,
    "months": "2026-02 to 2026-07",
-   "note": "4 homepage images in the window; at least 6 needed"
+   "note": "the text speaks to none of the questions"
   },
   {
    "house": "gucci",
@@ -195,57 +205,57 @@
     {
      "question": "colour_temperature",
      "stated": "warm",
-     "house": 0.125,
-     "peers": 0.037,
-     "lift": 0.088
+     "house": 0.053,
+     "peers": 0.043,
+     "lift": 0.009
     },
     {
      "question": "expression",
      "stated": "neutral",
-     "house": 0.75,
-     "peers": 0.627,
-     "lift": 0.123
+     "house": 0.842,
+     "peers": 0.606,
+     "lift": 0.236
     },
     {
      "question": "people",
      "stated": "group",
      "house": 0.0,
-     "peers": 0.025,
-     "lift": -0.025
+     "peers": 0.024,
+     "lift": -0.024
     },
     {
      "question": "primary_subject",
      "stated": "garment",
-     "house": 0.875,
-     "peers": 0.696,
-     "lift": 0.179
+     "house": 0.895,
+     "peers": 0.681,
+     "lift": 0.214
     },
     {
      "question": "saturation",
      "stated": "vivid",
      "house": 1.0,
-     "peers": 0.963,
-     "lift": 0.037
+     "peers": 0.972,
+     "lift": 0.028
     },
     {
      "question": "styling_register",
      "stated": "eveningwear",
-     "house": 0.625,
-     "peers": 0.093,
-     "lift": 0.532
+     "house": 0.474,
+     "peers": 0.091,
+     "lift": 0.383
     },
     {
      "question": "street_couture_axis",
      "stated": 3,
      "house": 3.0,
-     "peers": 3.05,
-     "lift": -0.05
+     "peers": 3.039,
+     "lift": -0.039
     }
    ],
-   "n_house": 8,
-   "n_peers": 161,
-   "agreement": 0.156,
-   "p_two_sided": 0.013
+   "n_house": 19,
+   "n_peers": 254,
+   "agreement": 0.141,
+   "p_two_sided": 0.002
   },
   {
    "house": "alaia",
@@ -258,106 +268,106 @@
     {
      "question": "colour_temperature",
      "stated": "neutral",
-     "house": 0.909,
-     "peers": 0.924,
-     "lift": -0.015
+     "house": 0.929,
+     "peers": 0.907,
+     "lift": 0.021
     },
     {
      "question": "expression",
      "stated": "neutral",
-     "house": 0.727,
-     "peers": 0.627,
-     "lift": 0.101
+     "house": 0.571,
+     "peers": 0.625,
+     "lift": -0.054
     },
     {
      "question": "framing",
      "stated": "full_length",
-     "house": 0.455,
-     "peers": 0.234,
-     "lift": 0.22
+     "house": 0.357,
+     "peers": 0.232,
+     "lift": 0.125
     },
     {
      "question": "gaze",
      "stated": "to_camera",
-     "house": 0.636,
-     "peers": 0.424,
-     "lift": 0.212
+     "house": 0.5,
+     "peers": 0.429,
+     "lift": 0.071
     },
     {
      "question": "people",
      "stated": "none",
-     "house": 0.364,
-     "peers": 0.513,
-     "lift": -0.149
+     "house": 0.5,
+     "peers": 0.506,
+     "lift": -0.006
     },
     {
      "question": "pose",
      "stated": "posed_static",
-     "house": 0.818,
-     "peers": 0.772,
-     "lift": 0.046
+     "house": 0.714,
+     "peers": 0.761,
+     "lift": -0.046
     },
     {
      "question": "primary_subject",
      "stated": "garment",
-     "house": 0.727,
-     "peers": 0.703,
-     "lift": 0.025
+     "house": 0.786,
+     "peers": 0.691,
+     "lift": 0.095
     },
     {
      "question": "production",
      "stated": "polished_commercial",
-     "house": 0.818,
-     "peers": 0.968,
-     "lift": -0.15
+     "house": 0.857,
+     "peers": 0.973,
+     "lift": -0.116
     },
     {
      "question": "saturation",
      "stated": "muted",
      "house": 0.0,
-     "peers": 0.019,
-     "lift": -0.019
+     "peers": 0.012,
+     "lift": -0.012
     },
     {
      "question": "styling_register",
      "stated": "formal_tailored",
-     "house": 0.364,
-     "peers": 0.481,
-     "lift": -0.117
+     "house": 0.5,
+     "peers": 0.467,
+     "lift": 0.033
     },
     {
      "question": "mood",
      "stated": "austere",
      "house": 0.0,
-     "peers": 0.025,
-     "lift": -0.025
+     "peers": 0.031,
+     "lift": -0.031
     },
     {
      "question": "mood",
      "stated": "intimate",
-     "house": 0.818,
-     "peers": 0.759,
-     "lift": 0.059
+     "house": 0.857,
+     "peers": 0.811,
+     "lift": 0.046
     },
     {
      "question": "mood",
      "stated": "sensual",
-     "house": 0.818,
-     "peers": 0.759,
-     "lift": 0.059
+     "house": 0.857,
+     "peers": 0.772,
+     "lift": 0.085
     },
     {
      "question": "street_couture_axis",
      "stated": 5,
      "house": 3.0,
-     "peers": 3.051,
-     "lift": -0.051
+     "peers": 3.039,
+     "lift": -0.039
     }
    ],
-   "n_house": 11,
-   "n_peers": 158,
-   "agreement": 0.019,
-   "p_two_sided": 0.629
+   "n_house": 14,
+   "n_peers": 259,
+   "agreement": 0.016,
+   "p_two_sided": 0.702
   },
   {
    "house": "chanel",
@@ -388,85 +398,85 @@
     {
      "question": "colour_temperature",
      "stated": "neutral",
-     "house": 0.818,
-     "peers": 0.93,
-     "lift": -0.112
+     "house": 0.8,
+     "peers": 0.915,
+     "lift": -0.115
     },
     {
      "question": "expression",
      "stated": "neutral",
-     "house": 0.455,
-     "peers": 0.646,
-     "lift": -0.191
+     "house": 0.467,
+     "peers": 0.632,
+     "lift": -0.165
     },
     {
      "question": "framing",
      "stated": "full_length",
-     "house": 0.273,
-     "peers": 0.247,
-     "lift": 0.026
+     "house": 0.267,
+     "peers": 0.236,
+     "lift": 0.03
     },
     {
      "question": "gaze",
      "stated": "to_camera",
-     "house": 0.455,
-     "peers": 0.437,
-     "lift": 0.018
+     "house": 0.4,
+     "peers": 0.434,
+     "lift": -0.034
     },
     {
      "question": "people",
      "stated": "one",
-     "house": 0.364,
-     "peers": 0.449,
-     "lift": -0.086
+     "house": 0.333,
+     "peers": 0.45,
+     "lift": -0.116
     },
     {
      "question": "pose",
      "stated": "posed_static",
-     "house": 0.727,
-     "peers": 0.778,
-     "lift": -0.051
+     "house": 0.733,
+     "peers": 0.76,
+     "lift": -0.026
     },
     {
      "question": "primary_subject",
      "stated": "garment",
-     "house": 0.818,
-     "peers": 0.696,
-     "lift": 0.122
+     "house": 0.8,
+     "peers": 0.69,
+     "lift": 0.11
     },
     {
      "question": "production",
      "stated": "polished_commercial",
      "house": 1.0,
-     "peers": 0.956,
-     "lift": 0.044
+     "peers": 0.965,
+     "lift": 0.035
     },
     {
      "question": "saturation",
      "stated": "moderate",
      "house": 0.0,
-     "peers": 0.019,
-     "lift": -0.019
+     "peers": 0.016,
+     "lift": -0.016
     },
     {
      "question": "styling_register",
      "stated": "formal_tailored",
-     "house": 0.273,
-     "peers": 0.487,
-     "lift": -0.215
+     "house": 0.333,
+     "peers": 0.477,
+     "lift": -0.143
     },
     {
      "question": "street_couture_axis",
      "stated": 3,
      "house": 3.0,
-     "peers": 3.051,
-     "lift": -0.051
+     "peers": 3.039,
+     "lift": -0.039
     }
    ],
-   "n_house": 11,
-   "n_peers": 158,
-   "agreement": -0.046,
-   "p_two_sided": 0.544
+   "n_house": 15,
+   "n_peers": 258,
+   "agreement": -0.044,
+   "p_two_sided": 0.472
   },
   {
    "house": "dior",
