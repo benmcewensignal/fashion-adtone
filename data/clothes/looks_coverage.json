@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-08T15:36:32Z",
+ "generated_at": "2026-10-08T21:23:12Z",
  "window_days": [
   -1,
   14
@@ -37,13 +37,10 @@
    "date": "2015-03-06",
    "season": "2015 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "balenciaga:2015-10-02:rtw": {
    "house": "balenciaga",
@@ -92,13 +89,10 @@
    "date": "2016-06-22",
    "season": "2017 SS men",
    "category": "men",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "HTTP 504"
-   }
+   "pages": 3,
+   "candidates": []
   },
   "balenciaga:2016-10-02:rtw": {
    "house": "balenciaga",
@@ -284,13 +278,10 @@
    "date": "2021-07-07",
    "season": "2021 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "ConnectionError"
-   }
+   "pages": 2,
+   "candidates": []
   },
   "balenciaga:2021-10-02:rtw": {
    "house": "balenciaga",
@@ -337,13 +328,26 @@
    "date": "2022-07-06",
    "season": "2022 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "ConnectionError"
-   }
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/zh-us/%E6%96%B0%E5%93%81%E4%B8%8A%E5%B8%82/fall-22/men",
+     "ts": "20220715112512",
+     "score": 0.75
+    },
+    {
+     "url": "https://www.balenciaga.com/zh-us/%E6%96%B0%E5%93%81%E4%B8%8A%E5%B8%82/fall-22/women",
+     "ts": "20220715110938",
+     "score": 0.75
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/fall-22-campaign",
+     "ts": "20220714105810",
+     "score": 0.12
+    }
+   ]
   },
   "balenciaga:2022-10-02:rtw": {
    "house": "balenciaga",
@@ -385,13 +389,10 @@
    "date": "2023-07-05",
    "season": "2023 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "partial",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "ReadTimeout"
-   }
+   "pages": 1,
+   "candidates": []
   },
   "balenciaga:2023-10-01:rtw": {
    "house": "balenciaga",
@@ -1189,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2279,7 +2280,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "HTTP 504"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2292,7 +2293,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -2300,26 +2301,31 @@
    "date": "2015-03-08",
    "season": "2015 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "chloe.com": "ConnectionError"
-   }
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "http://www.chloe.com:80/en/ready-to-wear-collection/winter-2015",
+     "ts": "20150311215855",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.chloe.com:80/ja/see-chloe-collection/fall-2015",
+     "ts": "20150313151534",
+     "score": 2.0
+    }
+   ]
   },
   "chloe:2015-10-01:rtw": {
    "house": "chloe",
    "date": "2015-10-01",
    "season": "2016 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "chloe.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "chloe:2016-03-03:rtw": {
    "house": "chloe",
@@ -2331,7 +2337,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chloe.com": "ConnectionError"
+    "chloe.com": "ReadTimeout"
    }
   },
   "chloe:2016-09-29:rtw": {
@@ -2381,13 +2387,10 @@
    "date": "2017-09-28",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "chloe.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "chloe:2018-03-01:rtw": {
    "house": "chloe",
@@ -2404,13 +2407,10 @@
    "date": "2018-09-27",
    "season": "2019 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "chloe.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "chloe:2019-02-28:rtw": {
    "house": "chloe",
@@ -3085,7 +3085,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 504"
    }
   },
   "dolce_gabbana:2026-06-20:men": {
@@ -3111,7 +3111,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "HTTP 504"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -3845,31 +3845,76 @@
     }
    ]
   },
-  "fendi:2024-01-13:men": {
+  "fendi:2023-07-06:couture": {
    "house": "fendi",
-   "date": "2024-01-13",
-   "season": "2024 AW men",
-   "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "ConnectionError"
-   }
-  },
-  "fendi:2024-01-25:couture": {
-   "house": "fendi",
-   "date": "2024-01-25",
-   "season": "2024 SS couture",
+   "date": "2023-07-06",
+   "season": "2023 AW couture",
    "category": "couture",
    "status": "index failed",
    "via": "window",
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "HTTP 504"
    }
+  },
+  "fendi:2023-09-20:rtw": {
+   "house": "fendi",
+   "date": "2023-09-20",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-womens-spring-summer-2024-fashion-show",
+     "ts": "20231210204358",
+     "score": 16.62
+    }
+   ]
+  },
+  "fendi:2024-01-13:men": {
+   "house": "fendi",
+   "date": "2024-01-13",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-mens-fall-winter-2024-25-fashion-show/fendi-men-s-fall-winter-2024-25-collection",
+     "ts": "20240301062438",
+     "score": 19.62
+    },
+    {
+     "url": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-mens-fall-winter-2024-25-fashion-show",
+     "ts": "20240118080714",
+     "score": 16.62
+    },
+    {
+     "url": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-womens-fallwinter-2024-25-fashion-show",
+     "ts": "20240229022212",
+     "score": 12.62
+    }
+   ]
+  },
+  "fendi:2024-01-25:couture": {
+   "house": "fendi",
+   "date": "2024-01-25",
+   "season": "2024 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-couture-spring-summer-2024-show",
+     "ts": "20240420204904",
+     "score": 16.62
+    }
+   ]
   },
   "fendi:2024-02-21:rtw": {
    "house": "fendi",
@@ -4894,7 +4939,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "HTTP 504"
+    "gucci.com": "ConnectionError"
    }
   },
   "hermes:2019-01-19:men": {
@@ -6645,27 +6690,26 @@
   "chloe": {
    "prefixes": [
     "www.chloe.com/us/chloe/women/fashionshow/",
+    "www.chloe.com/gb/women/fashionshow/",
     "www.chloe.com/en-us/news/",
     "www.chloe.com/wx/chloe/women/subhome/",
-    "www.chloe.com/us/chloe/women/subhome/",
-    "www.chloe.com/gb/women/fashionshow/",
-    "www.chloe.com/fi/see-by-chloe/women/fashionshow/",
-    "www.chloe.com/fi/chloe/women/fashionshow/"
+    "www.chloe.com/fi/chloe/women/fashionshow/",
+    "www.chloe.com/fi/see-by-chloe/women/fashionshow/"
    ],
-   "pages": 236
+   "pages": 182
   },
   "balenciaga": {
    "prefixes": [
+    "www.balenciaga.com/gb/women/fashionshow/",
     "www.balenciaga.com/at/f%C3%BCr-ihn/collections/",
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
-    "www.balenciaga.com/gb/men/fashionshow/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/gb/women/fashionshow/"
+    "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 579
+   "pages": 578
   },
   "burberry": {
    "prefixes": [
@@ -6682,16 +6726,21 @@
   },
   "dior": {
    "prefixes": [
-    "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/mens-fashion/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/mens-fashion/collections-shows/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 885
+   "pages": 322
   },
   "dolce_gabbana": {
-   "prefixes": [],
-   "pages": 0
+   "prefixes": [
+    "www.dolcegabbana.com/man/fashion-show/",
+    "www.dolcegabbana.com/woman/fashion-show/",
+    "www.dolcegabbana.com/man/collection/",
+    "www.dolcegabbana.com/woman/collection/"
+   ],
+   "pages": 5364
   },
   "dries_van_noten": {
    "prefixes": [
@@ -6709,9 +6758,10 @@
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/qa/man/collections/",
+    "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/fi-en/cm/eu1-default/man/highlights-man/"
    ],
-   "pages": 26
+   "pages": 36
   },
   "givenchy": {
    "prefixes": [
@@ -6737,22 +6787,20 @@
   },
   "hermes": {
    "prefixes": [
+    "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/",
-    "www.hermes.com/us/en/story/"
+    "www.hermes.com/fi/en/category/men/ready-wear/",
+    "www.hermes.com/fi/en/category/women/ready-wear/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/"
    ],
-   "pages": 704
+   "pages": 726
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/",
-    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/",
     "www.gucci.com/us/en/st/stories/runway/article/"
    ],
-   "pages": 202
+   "pages": 0
   },
   "loewe": {
    "prefixes": [],
@@ -6815,9 +6863,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 234,
-   "index failed": 66,
-   "none": 100
+   "found": 239,
+   "index failed": 56,
+   "none": 106,
+   "partial": 1
   },
   "by_house": {
    "alaia": {
@@ -6826,7 +6875,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 21
+    "found": 22
    },
    "bottega_veneta": {
     "shows": 21,
@@ -6850,7 +6899,7 @@
    },
    "chloe": {
     "shows": 24,
-    "found": 16
+    "found": 17
    },
    "dior": {
     "shows": 19,
@@ -6865,8 +6914,8 @@
     "found": 18
    },
    "fendi": {
-    "shows": 18,
-    "found": 14
+    "shows": 20,
+    "found": 17
    },
    "givenchy": {
     "shows": 40,
@@ -6920,7 +6969,7 @@
   "by_year": {
    "2015": {
     "shows": 15,
-    "found": 7
+    "found": 8
    },
    "2016": {
     "shows": 31,
@@ -6948,15 +6997,15 @@
    },
    "2022": {
     "shows": 32,
-    "found": 25
+    "found": 26
    },
    "2023": {
-    "shows": 30,
+    "shows": 31,
     "found": 24
    },
    "2024": {
-    "shows": 33,
-    "found": 20
+    "shows": 34,
+    "found": 23
    },
    "2025": {
     "shows": 26,
