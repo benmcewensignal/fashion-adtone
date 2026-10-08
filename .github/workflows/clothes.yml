@@ -10,16 +10,19 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 # testset: the test set drawn again from the looks on file, its crops, and the pictures to label sealed
 # coverage: for every show since 2015, the house's own pages the archive holds from the fortnight after it
 #        (adtone/looks.py; addresses only), resumed run by run
+# auto (every three hours): coverage, then collect, each on half the budget, until both are complete
 # collect: about twenty looks of every show the coverage map found pages for, copies to the private volume,
 #        hashes and places to data/clothes/runway.jsonl; resumed run by run; nothing read until the rubric is frozen
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
+  schedule:
+    - cron: "20 1-22/3 * * *"   # every three hours until the coverage map and the collection are complete
   workflow_dispatch:
     inputs:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal, testset, coverage, collect]
+        options: [looks, sample, crops, seal, testset, coverage, collect, auto]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -51,23 +54,24 @@ jobs:
         id: m
         run: |
           mode="${{ inputs.mode }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then mode=auto; fi
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal|testset|coverage|collect) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset|coverage|collect|auto) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
         timeout-minutes: 10
         run: pip install -q -r requirements.txt pynacl
       - name: Which shows the archive holds pages for
-        if: steps.m.outputs.mode == 'coverage'
+        if: steps.m.outputs.mode == 'coverage' || steps.m.outputs.mode == 'auto'
         continue-on-error: true
         timeout-minutes: 55
-        run: python -m adtone.looks coverage --budget-min 45 --workers 4
+        run: python -m adtone.looks coverage --budget-min $([ "${{ steps.m.outputs.mode }}" = auto ] && echo 25 || echo 45) --workers 4
       - name: About twenty looks of every show the archive holds, to the private volume
-        if: steps.m.outputs.mode == 'collect'
+        if: steps.m.outputs.mode == 'collect' || steps.m.outputs.mode == 'auto'
         continue-on-error: true
         timeout-minutes: 60
-        run: python -m adtone.clothes collect --budget-min 45 --workers 4
+        run: python -m adtone.clothes collect --budget-min $([ "${{ steps.m.outputs.mode }}" = auto ] && echo 25 || echo 45) --workers 4
       - name: Runway looks from the archive
         if: steps.m.outputs.mode == 'looks'
         timeout-minutes: 55
