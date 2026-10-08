@@ -16,7 +16,7 @@ for 79; 5 of those shows are not listed. A listed date outside the weeks its kin
 The strands, all from sources the project already holds:
   heat       the jump in English Wikipedia views around the show: the peak from the day before to three days
              after, over the mean from 60 to 10 days before (log views), as in Amendment 2, section 13;
-  surprise   that jump less the mean jump of the house's earlier shows in the Thread, once it has two;
+  surprise   that jump less the mean jump of the house's earlier shows of the same kind, once it has two;
   press      the jump in the number of news articles (GDELT), same windows;
   tone       the news tone on the show day and the three days after, less its mean from 60 to 10 days before
              (GDELT), the registered "reception" of section 13b.
@@ -326,20 +326,18 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
                      "heat": heat,
                      "press": None if p.get("press_spike") is None else round(p["press_spike"], 4),
                      "tone": None if p.get("reception") is None else round(p["reception"], 4)})
-    # surprise: the jump less the mean jump of the house's earlier main shows, once it has two
+    # surprise: the jump less the mean jump of the house's earlier shows of the same kind, once it has two
     prior = defaultdict(list)
     for r in rows:
-        if not r["main"]:
-            r["surprise"] = None
-            continue
-        past = prior[r["house"]]
+        past = prior[(r["house"], r["category"])]
         r["surprise"] = round(r["heat"] - float(np.mean(past)), 4) if r["heat"] is not None and len(past) >= 2 else None
         if r["heat"] is not None:
             past.append(r["heat"])
-    # z-scores within each season, among the main shows
+    # z-scores within each season: among every show of that kind, season and year, whichever house's main kind
+    # it is, so a house that mainly shows menswear is set against the other menswear shows of its season
     by_season = defaultdict(list)
     for k, r in enumerate(rows):
-        if r["main"] and r["season"]:
+        if r["season"]:
             by_season[r["season"]].append(k)
     for strand in ("heat", "surprise", "press", "tone"):
         for ks in by_season.values():
