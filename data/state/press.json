@@ -1,13 +1,11 @@
 {
   "complete": [
-    "chanel",
-    "dior",
-    "gucci"
+    "chanel"
   ],
   "covered": {
     "burberry": "2017-09-27",
     "celine": "2017-03-31",
-    "chanel": "2026-10-06",
+    "chanel": "2026-10-07",
     "dior": "2026-10-06",
     "dolce_gabbana": "2018-03-26",
     "dries_van_noten": "2017-03-31",
@@ -17,7 +15,7 @@
     "jil_sander": "2017-03-31",
     "miu_miu": "2017-03-31"
   },
-  "end": "2026-10-06",
+  "end": "2026-10-07",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -51,7 +49,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh37689877254",
+  "run": "gh37738255026",
   "span": {},
-  "updated_at": "2026-10-07T22:01:04Z"
+  "updated_at": "2026-10-08T07:06:26Z"
 }
