@@ -1,0 +1,77 @@
+name: clothes
+run-name: clothes ${{ inputs.mode || 'kick' }}
+# The clothes rubric's test set (adtone/clothes.py; the rubric is rubric/clothes-v1.md).
+# looks: runway looks from the collection pages the Wayback Machine keeps on the houses' own sites
+#        (data/thread/looks_probe.json); copies for the reader to the private Modal volume, thumbnails for
+#        the labelling page sealed to a key outside the repository and pushed to a branch of their own;
+#        then the test set and the crops
+# sample / crops: those steps alone
+# No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: looks
+        options: [looks, sample, crops]
+  push:
+    branches: [main]
+    paths: [".github/kick/clothes"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-clothes
+  cancel-in-progress: false
+
+jobs:
+  clothes:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 90
+    env:
+      PYTHONUNBUFFERED: "1"
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Mode
+        id: m
+        run: |
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
+          case "$mode" in looks|sample|crops) ;; *) mode=looks ;; esac
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "clothes mode: $mode"
+      - name: Install
+        timeout-minutes: 10
+        run: pip install -q -r requirements.txt pynacl
+      - name: Runway looks from the archive
+        if: steps.m.outputs.mode == 'looks'
+        timeout-minutes: 55
+        run: python -m adtone.clothes looks --budget-min 40 --workers 4
+      - name: Sealed thumbnails for the labelling page, on a branch of their own
+        # One file sealed to a key that is not in this repository: it holds no readable picture.
+        if: steps.m.outputs.mode == 'looks'
+        timeout-minutes: 5
+        run: |
+          tmp=$(mktemp -d)
+          cp clothes_pictures/thumbs.tar.sealed "$tmp/"
+          cd "$tmp" && git init -q && git checkout -q -b clothes-sealed && git add thumbs.tar.sealed
+          git -c user.name=adtone-clothes-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed thumbnails for the clothes labelling page"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" clothes-sealed
+      - name: The test set
+        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'sample'
+        timeout-minutes: 5
+        run: python -m adtone.clothes sample
+      - name: The crops
+        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'crops'
+        timeout-minutes: 15
+        run: python -m adtone.clothes crops
+      - name: Persist
+        if: always()
+        timeout-minutes: 5
+        run: bash scripts/persist.sh clothes "clothes ${{ steps.m.outputs.mode }}"

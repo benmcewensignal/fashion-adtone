@@ -109,3 +109,22 @@ def test_pairs_v2_is_frozen_with_v1s_prompt_and_provocative_unchanged():
     prov = lambda s: [a for a in s["axes"] if a["id"] == "provocative"]
     assert prov(v1) == prov(v2)
     assert sum(a != b for a, b in zip(v1["axes"], v2["axes"])) == 4
+
+
+def test_the_clothes_rubric_draft_is_complete_and_cannot_be_read_with_until_frozen():
+    from adtone.score import load_rubric as load
+    r = load("clothes-v1", verify=False)
+    assert "Do not identify any person" in r.prompt
+    for key, values in r.spec["enums"].items():
+        assert key in r.prompt
+        for v in values:
+            assert v in r.prompt, f"{key}={v} is validated but never offered to the scorer"
+    for key, rule in r.spec["lists"].items():
+        assert key in r.prompt
+        for v in rule["options"]:
+            assert v in r.prompt, f"{key}={v} is validated but never offered to the scorer"
+    eye = r.spec["eye"]
+    assert sorted(eye["anyone"] + eye["trained"]) == sorted(k for k in r.keys if k != "confidence")
+    if not (config.RUBRIC_DIR / "clothes-v1.sha256").exists():      # a draft: nothing can be scored with it
+        with pytest.raises(FileNotFoundError):
+            load("clothes-v1")

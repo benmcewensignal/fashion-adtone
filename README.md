@@ -31,7 +31,7 @@ their clothes look like.
   `adtone.composition` after `rubric/composition-v1.md`) is frozen before it reads anything and tested
   on the bake-off's pictures by its own fixed rules. See `docs/JOINS.md` for every source and its
   workflow.
-- Built and tested on synthetic data with known ground truth (341 tests).
+- Built and tested on synthetic data with known ground truth (348 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -249,6 +249,18 @@ windows. Each record says which stages are filled. The show and the advertising 
 channels with their own measures; the shared description of the clothes that would let them be compared
 is the next piece, and `adtone.looks` probes whether the houses' own sites, as the Wayback Machine holds
 them, carry the runway looks it would read. The thread workflow runs the probe as mode `looks`.
+
+## The clothes rubric
+
+`rubric/clothes-v1.md` is the description the show and the advertising share: what is worn or shown,
+its shape, colour, surface, material and register, in the terms of Fashionpedia's expert-built
+ontology. It is a draft until Ben and a labeller trained in fashion have read it; then it is frozen
+before any picture is read with it. Its questions are marked anyone (Ben's labels are the reference) or
+trained (a trained labeller's are), and a question goes forward only if it varies, is stable across
+crops, and agrees with its reference on runway looks and on advertising pictures separately.
+`adtone.clothes` assembles the test set: about 150 runway looks from the collection pages the archive
+keeps and 150 homepage pictures from the earlier bake-off, the reader's copies on the private Modal
+volume and the labelling page's thumbnails sealed. Workflow `clothes`.
 
 ## The reader
 
