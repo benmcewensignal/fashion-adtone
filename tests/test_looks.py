@@ -211,3 +211,17 @@ def test_a_house_whose_index_does_not_answer_is_found_through_its_front_page_lin
     assert s["chanel:2025-10-07:rtw"]["status"] == "found" and s["chanel:2025-03-11:rtw"]["via"] == "section"
     assert "www.chanel.com/gb/fashion/collection/" in out["sections"]["chanel"]["prefixes"]
     assert "chanel:2024-10-01:rtw" not in s or s["chanel:2024-10-01:rtw"]["status"] == "index failed"
+
+
+def test_a_front_page_link_to_one_show_page_points_to_its_folder(monkeypatch):
+    from adtone import homepages
+    monkeypatch.setattr(homepages, "load_index", lambda h: {"2025-10": [["20251015000000", "https://www.prada.com/us/en.html", "200"]]})
+    html = '<a href="/us/en/pradasphere/fashion-shows/fashion-shows-men.html">Shows</a>' + '<a href="/x/y">z</a>' * 40
+
+    class Front:
+        calls = 0
+
+        def get(self, url, params=None):
+            return _R(200, html, url=url)
+
+    assert L.homepage_sections(Front(), "prada") == ["www.prada.com/us/en/pradasphere/fashion-shows/"]

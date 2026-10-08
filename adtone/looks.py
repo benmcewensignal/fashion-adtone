@@ -438,6 +438,8 @@ def homepage_sections(c: Crawler, house: str, years: tuple = HOMEPAGE_YEARS) -> 
             pre = section_prefix(u)
             if pre is None:
                 segs = [x for x in pu.path.split("/") if x]
+                if segs and "." in segs[-1]:
+                    segs = segs[:-1]                  # a page, such as fashion-shows-men.html: its folder is the section
                 if len(segs) >= 2:
                     pre = f"{pu.netloc.split(':')[0].lower()}/{'/'.join(segs)}/"
             if pre:
