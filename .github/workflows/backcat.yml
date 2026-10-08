@@ -4,7 +4,7 @@ run-name: backcat ${{ inputs.stage || github.event_name }}
 # the crew, date and source page; the Wayback Machine gives the images from the houses' own sites.
 on:
   schedule:
-    - cron: "0 5 * * 0"   # weekly while some 4,000 campaign pages wait to be read; the sources keep their history
+    - cron: "0 5 * * *"   # daily while some 4,000 campaign pages wait to be read, so every brand's campaigns are listed within a fortnight; weekly again once they are
   workflow_dispatch:
     inputs:
       stage:
