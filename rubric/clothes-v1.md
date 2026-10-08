@@ -201,7 +201,9 @@ About 300 pictures, two kinds in equal numbers:
   on the houses' own sites (`data/thread/looks_probe.json`: Balenciaga, Bottega Veneta, Celine, Chloé,
   Dries Van Noten, Hermès, Jil Sander, Maison Margiela, Miu Miu, Saint Laurent, Valentino), the same
   number from each house as far as each allows, taking the pictures in portrait format, which on these
-  pages are the looks. A picture that turns out to show something else is labelled as what it is.
+  pages are the looks. A picture that turns out to show something else is labelled as what it is. As
+  drawn on 8 October 2026 (`data/clothes/sample.json`): 127 looks, 14 from each of nine houses and one
+  from Hermès; Balenciaga's archived pages gave none in portrait format at a usable size.
 - **Advertising pictures**: about 150 of the 296 homepage pictures in the earlier bake-off, two in three
   showing a person and one in three a product alone by their tone-v2 reading, drawn at random within
   house, so that the questions about a worn outfit have enough pictures on this side too.
