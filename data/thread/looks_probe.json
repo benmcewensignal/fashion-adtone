@@ -1,0 +1,244 @@
+{
+ "generated_at": "2026-10-08T10:31:53Z",
+ "season": "2026 SS",
+ "window": [
+  "2025-09-01",
+  "2026-03-31"
+ ],
+ "pattern": "(?i).*(?:spring[-_]?summer|summer|spring|printemps[-_]?ete|primavera[-_]?estate|ss|pe)[-_]?(?:20)?26(?![0-9]).*",
+ "houses": {
+  "alaia": {
+   "domains": [
+    "maison-alaia.com",
+    "alaia.fr"
+   ],
+   "candidates": [],
+   "pages": [],
+   "season_pages": 0,
+   "verdict": "no page naming the season"
+  },
+  "balenciaga": {
+   "domains": [
+    "balenciaga.com"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=spring-26-look-47",
+     "ts": "20260216194415",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-spring-26",
+     "ts": "20250916142120",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-summer-26",
+     "ts": "20251015153438",
+     "score": 3.12
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=spring-26-look-47",
+     "ts": "20260216194415",
+     "status": "ok",
+     "title": "Sites-BAL-R-WEUR-Site",
+     "pictures": 63,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-spring-26",
+     "ts": "20250916142120",
+     "status": "ok",
+     "title": "Spring 26 | Balenciaga GB",
+     "pictures": 44,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-summer-26",
+     "ts": "20251015153438",
+     "status": "ok",
+     "title": "Summer 26 | Balenciaga GB",
+     "pictures": 38,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 63,
+   "verdict": "looks found"
+  },
+  "bottega_veneta": {
+   "domains": [
+    "bottegaveneta.com"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.bottegaveneta.com/en-us/inside-bottega/collections/collection-and-campaigns-summer-2026",
+     "ts": "20260307144252",
+     "score": 4.88
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-gb/women-collection-gb/women-bags/veneta-bag-en?utm_campaign=BAN_EN&utm_medium=email&utm_source=ADHOC_GLOBAL_OTM_EMAIL_20251215_Veneta_U_PreSpring26EOY&utm_content=Link_Text1",
+     "ts": "20251219060857",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-us/summer-2026-show/summer-2026-subscribe.html",
+     "ts": "20250927211947",
+     "score": 3.88
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.bottegaveneta.com/en-us/inside-bottega/collections/collection-and-campaigns-summer-2026",
+     "ts": "20260307144252",
+     "status": "ok",
+     "title": "Collection and campaigns Summer 2026 | Bottega Veneta \u00ae US",
+     "pictures": 90,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-gb/women-collection-gb/women-bags/veneta-bag-en?utm_campaign=BAN_EN&utm_medium=email&utm_source=ADHOC_GLOBAL_OTM_EMAIL_20251215_Veneta_U_PreSpring26EOY&utm_content=Link_Text1",
+     "ts": "20251219060857",
+     "status": "ok",
+     "title": "Women&#x27;s Veneta Bag en | Bottega Veneta \u00ae GB",
+     "pictures": 148,
+     "checked": 3,
+     "kept": 0
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-us/summer-2026-show/summer-2026-subscribe.html",
+     "ts": "20250927211947",
+     "status": "HTTP 404"
+    }
+   ],
+   "season_pages": 69,
+   "verdict": "looks found"
+  },
+  "brunello_cucinelli": {
+   "domains": [
+    "brunellocucinelli.com"
+   ],
+   "candidates": [],
+   "pages": [],
+   "season_pages": 2,
+   "verdict": "no page naming the season"
+  },
+  "burberry": {
+   "domains": [
+    "burberry.com"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "burberry.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
+  },
+  "celine": {
+   "domains": [
+    "celine.com"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-gb/cm/fashion-show-summer-2026",
+     "ts": "20260309135219",
+     "score": 8.12
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-spring-2026",
+     "ts": "20251103020702",
+     "score": 7.88
+    },
+    {
+     "url": "https://www.celine.com/fr-fr/cm/runway-looks-summer2026",
+     "ts": "20260309140746",
+     "score": 7.0
+    }
+   ],
+   "pages": [],
+   "season_pages": 13,
+   "verdict": "pages found, none opened"
+  },
+  "chanel": {
+   "verdict": "not reached in the time budget"
+  },
+  "chloe": {
+   "verdict": "not reached in the time budget"
+  },
+  "dior": {
+   "verdict": "not reached in the time budget"
+  },
+  "dolce_gabbana": {
+   "verdict": "not reached in the time budget"
+  },
+  "dries_van_noten": {
+   "verdict": "not reached in the time budget"
+  },
+  "fendi": {
+   "verdict": "not reached in the time budget"
+  },
+  "givenchy": {
+   "verdict": "not reached in the time budget"
+  },
+  "gucci": {
+   "verdict": "not reached in the time budget"
+  },
+  "hermes": {
+   "verdict": "not reached in the time budget"
+  },
+  "jil_sander": {
+   "verdict": "not reached in the time budget"
+  },
+  "loewe": {
+   "verdict": "not reached in the time budget"
+  },
+  "loro_piana": {
+   "verdict": "not reached in the time budget"
+  },
+  "louis_vuitton": {
+   "verdict": "not reached in the time budget"
+  },
+  "margiela": {
+   "verdict": "not reached in the time budget"
+  },
+  "max_mara": {
+   "verdict": "not reached in the time budget"
+  },
+  "miu_miu": {
+   "verdict": "not reached in the time budget"
+  },
+  "prada": {
+   "verdict": "not reached in the time budget"
+  },
+  "saint_laurent": {
+   "verdict": "not reached in the time budget"
+  },
+  "tom_ford": {
+   "verdict": "not reached in the time budget"
+  },
+  "valentino": {
+   "verdict": "not reached in the time budget"
+  },
+  "versace": {
+   "verdict": "not reached in the time budget"
+  },
+  "zegna": {
+   "verdict": "not reached in the time budget"
+  }
+ },
+ "note": "addresses and counts only; no picture is kept or read",
+ "summary": {
+  "looks found": 2,
+  "no page naming the season": 2,
+  "not reached in the time budget": 22,
+  "pages found, none opened": 1,
+  "the index did not answer": 1
+ }
+}
