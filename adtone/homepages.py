@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import http.client
 import json
 import re
 import sys
@@ -43,6 +44,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
 import requests
+import urllib3
 
 from . import config, registry, store
 from .backcat import CDX, IMG_SKIP, WAYBACK_IMG, Crawler, _cdx_rows, _Page, archived_image_urls
@@ -324,8 +326,9 @@ class GatedCrawler(Crawler):
         self.gate.wait()
         try:
             r = super().get(url, params, retries)
-        except (requests.ConnectionError, requests.Timeout):
-            self.gate.trip()
+        except (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError,
+                urllib3.exceptions.HTTPError, http.client.HTTPException):
+            self.gate.trip()          # a dropped answer is the archive under strain too: everyone waits
             raise
         if r.status_code in (429, 500, 502, 503, 504):
             self.gate.trip()
@@ -422,7 +425,9 @@ def read_month(c: Crawler, house: str, month: str, cands: list, prev: dict | Non
         tries += 1
         try:
             res = read_capture(c, ts, url)
-        except (requests.ConnectionError, requests.Timeout) as e:
+        except (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError,
+                urllib3.exceptions.HTTPError, http.client.HTTPException) as e:
+            # the archive dropped the connection mid-answer: tried again on a later run, never a crash
             res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:160]}", "transient": True, "images": []}
         except (requests.RequestException, MediaError, ValueError) as e:
             res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:200]}", "images": []}

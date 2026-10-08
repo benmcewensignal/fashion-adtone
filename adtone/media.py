@@ -14,12 +14,14 @@ Images live in memory only. Nothing here writes pixels to disk.
 from __future__ import annotations
 
 import hashlib
+import http.client
 import io
 import re
 from dataclasses import dataclass
 
 import numpy as np
 import requests
+import urllib3
 from PIL import Image, UnidentifiedImageError
 
 from . import config
@@ -234,8 +236,8 @@ def download(urls: list[str], session: requests.Session | None = None, min_side:
             if len(data) > config.MAX_IMAGE_BYTES:
                 continue
             fi = to_fetched(data)
-        except (requests.RequestException, MediaError):
-            continue
+        except (requests.RequestException, MediaError, urllib3.exceptions.HTTPError, http.client.HTTPException):
+            continue          # a picture cut off mid-transfer is skipped, not allowed to stop the run
         if min(fi.w, fi.h) >= min_side:
             got.setdefault(fi.sha, fi)
     return sorted(got.values(), key=lambda f: f.w * f.h, reverse=True)[:keep]

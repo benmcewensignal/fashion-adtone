@@ -1,11 +1,12 @@
 name: homepages
 run-name: homepages ${{ github.event_name }}
 # Each brand's homepage, month by month, from the Wayback Machine: the share image and the page's
-# large images, read by the reader and fingerprinted. Three times a day while the history back to 2014
-# fills, several hundred brand-months a run; once caught up a run reads the one new month and stops.
+# large images, read by the reader and fingerprinted. Every two hours while the history back to 2014
+# fills, one client at the archive's own pace (every worker waits when it refuses), several hundred
+# brand-months a run; once caught up a run reads the one new month and stops.
 on:
   schedule:
-    - cron: "20 3,11,19 * * *"
+    - cron: "20 */2 * * *"   # a run takes under two hours, and one waits for the last to finish
   workflow_dispatch:
     inputs:
       max_captures:

@@ -81,3 +81,19 @@ def test_named_snapshot_fields_win_and_the_avatar_is_dropped():
 def test_resized_copies_are_used_only_when_no_full_size_image_is_named():
     blob = '{"resized_image_url":"https://scontent-a.xx.fbcdn.net/v/t39.35426-6/r_n.jpg?stp=s600x600"}'
     assert media.candidate_urls(blob) == ["https://scontent-a.xx.fbcdn.net/v/t39.35426-6/r_n.jpg?stp=s600x600"]
+
+
+def test_a_picture_cut_off_mid_transfer_is_skipped_not_fatal():
+    import urllib3
+    big = jpeg_bytes(toned_image(0.7, size=(900, 1100), seed=1))
+
+    class Raw:
+        def read(self, n, decode_content=True):
+            raise urllib3.exceptions.ProtocolError("Connection broken: IncompleteRead(1171 bytes read, 165467 more expected)")
+
+    class Cut:
+        status_code, raw = 200, Raw()
+
+    s = FakeSession(lambda url, params: Cut() if url == "u/cut" else FakeResponse(200, content=big))
+    got = media.download(["u/cut", "u/big"], session=s)
+    assert [(g.w, g.h) for g in got] == [(900, 1100)]

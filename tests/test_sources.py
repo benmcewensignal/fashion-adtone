@@ -407,3 +407,14 @@ def test_a_history_too_long_for_one_index_query_is_asked_for_year_by_year():
     c = homepages.Crawler(FakeSession(h), pause=0)
     out, diag = homepages.refresh_index(c, ["x.com"], {}, first="2024-01")
     assert sorted(out) == [f"{y}-01" for y in range(2024, date.today().year + 1)] and diag == {}
+
+
+def test_a_connection_dropped_mid_answer_leaves_the_month_for_later_rather_than_ending_the_run():
+    import urllib3
+
+    def h(url, params):
+        raise urllib3.exceptions.ProtocolError("Connection broken: IncompleteRead(1171 bytes read, 165467 more expected)")
+    c = homepages.Crawler(FakeSession(h), pause=0)
+    row, images = homepages.read_month(c, "gucci", "2024-01", [["20240110000000", "https://www.gucci.com/", "200"]], None, "r1")
+    assert row["status"] == "error" and row["transient"] == 1 and row["attempts"] == 0 and images == []
+    assert "ProtocolError" in row["error"]
