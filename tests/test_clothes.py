@@ -214,3 +214,39 @@ def test_a_runway_look_a_homepage_also_showed_is_not_drawn_as_advertising(tmp_pa
     monkeypatch.setattr(C, "DIR", tmp_path)
     (tmp_path / "looks.jsonl").write_text(json.dumps({"sha": first, "house": "x"}) + "\n")
     assert first not in {a["sha"] for a in C.adverts()}
+
+
+def test_the_runway_collector_keeps_a_spread_of_looks_per_show_and_resumes(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    looks = {f"https://www.chanel.com/i/look-{i}.jpg": _jpeg(600, 900, 200 + i) for i in range(50)}
+    wide = {f"https://www.dior.com/i/set-{i}.jpg": _jpeg(1200, 600, 400 + i) for i in range(10)}
+    pics = {**looks, **wide}
+
+    class S:
+        headers = {}
+        calls = 0
+
+        def get(self, url, timeout=None):
+            S.calls += 1
+            if "im_/" in url:
+                return _R(content=pics[url.split("im_/", 1)[1]])
+            src = looks if "chanel" in url else wide
+            return _R(text="".join(f'<img src="{u}">' for u in src), url=url)
+
+    cov = {"shows": {
+        "chanel:2025-10-07:rtw": {"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw",
+                                  "status": "found", "candidates": [{"ts": "20251010", "url": "https://www.chanel.com/show"}]},
+        "dior:2025-10-01:rtw": {"house": "dior", "date": "2025-10-01", "season": "2026 SS rtw", "category": "rtw",
+                                "status": "found", "candidates": [{"ts": "20251003", "url": "https://www.dior.com/show"}]},
+        "celine:2025-10-03:rtw": {"house": "celine", "date": "2025-10-03", "season": "2026 SS rtw", "category": "rtw",
+                                  "status": "none", "candidates": []}}}
+    out = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert out["shows_collected"] == 1 and out["shows_without_looks"] == 1 and out["looks"] == C.PER_SHOW
+    rows = [json.loads(x) for x in (tmp_path / "runway.jsonl").read_text().splitlines()]
+    assert {r["season"] for r in rows} == {"2026 SS rtw"} and len({r["sha"] for r in rows}) == C.PER_SHOW
+    assert max(r["order"] for r in rows) > 30                       # spread through the show, not its first looks
+    assert len(list((tmp_path / "pics" / "read").glob("*.jpg"))) == C.PER_SHOW
+    before = S.calls
+    again = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert S.calls == before and again["looks"] == C.PER_SHOW          # nothing asked again

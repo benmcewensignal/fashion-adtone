@@ -10,6 +10,8 @@ questions of rubric/clothes-v1.md go forward.
     python -m adtone.clothes crops     # on the runner: a crop of each chosen picture to its central 85%,
                                        #   to the private volume -> data/clothes/crops.jsonl
     python -m adtone.clothes seal      # on the runner: the 100 pictures to label, from the volume, sealed
+    python -m adtone.clothes collect   # on the runner: about 20 looks of every show the coverage map found
+                                       #   pages for -> data/clothes/runway.jsonl; copies to the private volume
 
 The test set is described in the rubric. No picture is written to the repository, which is public: the
 reader's copies go to the private Modal volume, and the thumbnails for the labelling page leave the
@@ -85,11 +87,12 @@ def spread(items: list, k: int) -> list:
 
 
 def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per_house: int = PER_HOUSE,
-                candidates: int = CANDIDATES, deadline: float | None = None) -> list[dict]:
+                candidates: int = CANDIDATES, deadline: float | None = None, tries: int | None = None) -> list[dict]:
     """One house: its pages opened in turn, the pictures on each fetched in page order, the portrait ones
     of a usable size kept once each (the same look at two sizes counts once), until enough are gathered;
     then an even spread of them. `get` fetches a URL; `shrink` makes a picture's small copies at once, so
-    no full-size picture is held; `keep` stores the copies of the chosen ones."""
+    no full-size picture is held; `keep` stores the copies of the chosen ones. With `tries`, only that many
+    of a page's pictures are fetched, spread through the page, so a long show is sampled from end to end."""
     from . import homepages, media
     found, seen = [], []
     for ts, url in pages:
@@ -99,7 +102,8 @@ def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per
         if r is None or r.status_code != 200:
             continue
         page = homepages.final_url(getattr(r, "url", "") or "", url)
-        for u in homepages.page_images(r.text, page, ts, cap=300):
+        urls = homepages.page_images(r.text, page, ts, cap=300)
+        for u in (spread(urls, tries) if tries else urls):
             if len(found) >= candidates or (deadline and time.monotonic() > deadline):
                 break
             ri = get(u)
@@ -297,6 +301,96 @@ def seal_thumbnails(local: Path | None = None, folder: str = "thumb") -> Path:
     out = local / "thumbs.tar.sealed"
     out.write_bytes(SealedBox(key).encrypt(buf.getvalue()))
     return out
+
+
+# ---------- the runway: every show the archive holds pages for ----------
+
+RUNWAY_VOL_DIR = "/runway-v1"
+RUNWAY_LOCAL = config.ROOT / "clothes_pictures" / "runway"
+PER_SHOW = 20            # looks kept per show, spread from its start to its finish
+TRIES_PER_PAGE = 40      # pictures fetched from a show page, spread through it
+RUNWAY_FINAL = ("collected", "no looks")
+
+
+def show_key(show: dict) -> str:
+    return f"{show['house']}:{show['date']}:{show['category']}"
+
+
+def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, workers: int = 4, pause: float = 0.4,
+                   budget_min: float = 40, session_factory=None, local: Path | None = None, clock=time.monotonic) -> dict:
+    """For every show the coverage map found pages for, newest first within each house: its likeliest pages
+    opened in turn, a spread of their pictures fetched, the portrait looks kept once each, and an even spread
+    of `per_show` of them kept: copies for the reader on the runner (then the private volume), hashes and
+    places in data/clothes/runway.jsonl. Resumable: a show collected, or found to hold no looks, is left."""
+    import requests
+    from . import media
+    from .bakeoff import READ_EDGE, _jpeg
+    coverage = coverage if coverage is not None else json.loads((DIR / "looks_coverage.json").read_text(encoding="utf-8"))
+    local = local or RUNWAY_LOCAL
+    (local / "read").mkdir(parents=True, exist_ok=True)
+    status_path = DIR / "runway_shows.json"
+    status = json.loads(status_path.read_text()) if status_path.exists() else {}
+    rows_path = DIR / "runway.jsonl"
+    n_rows = [len(store.read_jsonl(rows_path))]
+    deadline = clock() + budget_min * 60
+    todo: dict[str, list[dict]] = defaultdict(list)
+    for key, sh in coverage.get("shows", {}).items():
+        if sh.get("status") == "found" and status.get(key, {}).get("status") not in RUNWAY_FINAL:
+            todo[sh["house"]].append(sh)
+    tl = threading.local()
+    lock = threading.Lock()
+
+    def get(url):
+        if not hasattr(tl, "s"):
+            tl.s = session_factory() if session_factory else requests.Session()
+            tl.s.headers.setdefault("User-Agent", media.UA)
+        for attempt in range(3):
+            try:
+                r = tl.s.get(url, timeout=45)
+            except requests.RequestException:
+                r = None
+            if pause:
+                time.sleep(pause)
+            if r is not None and r.status_code not in (429, 500, 502, 503, 504):
+                return r
+            time.sleep(min(30, 5 * 2 ** attempt) if pause else 0)
+        return None
+
+    def shrink(img):
+        return (_jpeg(img, READ_EDGE, 90),)
+
+    def keep(sha, read_copy):
+        (local / "read" / f"{sha}.jpg").write_bytes(read_copy)
+
+    def one(house):
+        for sh in sorted(todo[house], key=lambda s: s["date"], reverse=True):
+            if clock() > deadline:
+                return
+            pages = [(c["ts"], c["url"]) for c in sh.get("candidates", [])]
+            got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
+                              deadline=deadline, tries=TRIES_PER_PAGE)
+            for g in got:
+                g.update(date=sh["date"], season=sh["season"], category=sh["category"])
+            with lock:
+                if got:
+                    store.append_jsonl(rows_path, got)
+                n_rows[0] += len(got)
+                status[show_key(sh)] = {"status": "collected" if got else "no looks", "looks": len(got)}
+                status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
+    with ThreadPoolExecutor(max(1, workers)) as ex:
+        list(ex.map(one, sorted(todo)))
+    summary = {"shows_collected": sum(1 for v in status.values() if v["status"] == "collected"),
+               "shows_without_looks": sum(1 for v in status.values() if v["status"] == "no looks"),
+               "looks": n_rows[0], "left": sum(1 for h in todo for sh in todo[h] if show_key(sh) not in status),
+               "out_of_time": clock() > deadline}
+    _log("runway", **summary)
+    return summary
+
+
+def runway_to_volume(local: Path | None = None) -> int:
+    from .bakeoff import to_volume as upload
+    return upload(local=local or RUNWAY_LOCAL, vol_dir=RUNWAY_VOL_DIR)
 
 
 # ---------- which questions go forward (rubric/clothes-v1.md, "Which questions go forward") ----------
@@ -505,6 +599,9 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("sample")
     sub.add_parser("crops")
     sub.add_parser("seal")
+    co = sub.add_parser("collect")
+    co.add_argument("--budget-min", type=float, default=40)
+    co.add_argument("--workers", type=int, default=4)
     a = ap.parse_args(argv)
     if a.cmd == "looks":
         rows = fetch_looks(budget_min=a.budget_min, workers=a.workers)
@@ -513,6 +610,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"clothes looks: {len(rows)} looks, {n} copies on the volume, thumbnails sealed to {sealed.name}")
     elif a.cmd == "sample":
         print(f"clothes sample: {sample()['counts']}")
+    elif a.cmd == "collect":
+        summary = collect_runway(budget_min=a.budget_min, workers=a.workers)
+        n = runway_to_volume()
+        print(f"clothes collect: {summary}; {n} copies on the volume")
     elif a.cmd == "seal":
         print(f"clothes seal: the pictures to label sealed to {seal_labelled().name}")
     elif a.cmd == "crops":

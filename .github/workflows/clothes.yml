@@ -10,6 +10,8 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 # testset: the test set drawn again from the looks on file, its crops, and the pictures to label sealed
 # coverage: for every show since 2015, the house's own pages the archive holds from the fortnight after it
 #        (adtone/looks.py; addresses only), resumed run by run
+# collect: about twenty looks of every show the coverage map found pages for, copies to the private volume,
+#        hashes and places to data/clothes/runway.jsonl; resumed run by run; nothing read until the rubric is frozen
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -17,7 +19,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal, testset, coverage]
+        options: [looks, sample, crops, seal, testset, coverage, collect]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -40,6 +42,9 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+      - name: Start from the latest main
+        # a queued run starts after the run before it has persisted, so it reads that run's results
+        run: git fetch -q --depth=1 origin main && git reset -q --hard FETCH_HEAD && git log --oneline -1
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - name: Mode
@@ -47,7 +52,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal|testset|coverage) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset|coverage|collect) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
@@ -58,6 +63,11 @@ jobs:
         continue-on-error: true
         timeout-minutes: 55
         run: python -m adtone.looks coverage --budget-min 45 --workers 4
+      - name: About twenty looks of every show the archive holds, to the private volume
+        if: steps.m.outputs.mode == 'collect'
+        continue-on-error: true
+        timeout-minutes: 60
+        run: python -m adtone.clothes collect --budget-min 45 --workers 4
       - name: Runway looks from the archive
         if: steps.m.outputs.mode == 'looks'
         timeout-minutes: 55
