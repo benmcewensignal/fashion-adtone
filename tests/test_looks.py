@@ -105,3 +105,40 @@ def test_a_probe_cut_short_is_continued_and_finished_houses_are_kept(tmp_path, m
     out = L.probe("2026 SS", c=c)
     assert out["houses"]["chanel"] == {"verdict": "looks found", "marker": 1}       # kept, not asked again
     assert out["houses"]["dior"]["verdict"] == "looks found" and out["summary"] == {"looks found": 2}
+
+
+class _Index:
+    """The archive's index: one house has a show page in the fortnight after its show, one has nothing,
+    one does not answer at all."""
+    calls = 0
+
+    def get(self, url, params=None):
+        self.calls += 1
+        dom = params["url"]
+        if dom == "dior.com":
+            return _R(503, "busy")
+        rows = [["timestamp", "original"]]
+        if dom == "chanel.com" and params["from"] <= "20251010" <= params["to"]:
+            rows.append(["20251010120000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026/"])
+        return _R(200, json.dumps(rows), "application/json")
+
+
+def test_coverage_searches_the_fortnight_after_each_show_and_resumes(tmp_path, monkeypatch):
+    monkeypatch.setattr(L, "COVERAGE_OUT", tmp_path / "coverage.json")
+    monkeypatch.setattr(L, "COVERAGE_PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(L, "sites", lambda: {"chanel": ["chanel.com"], "dior": ["dior.com"], "celine": ["celine.com"]})
+    shows = [{"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw"},
+             {"house": "chanel", "date": "2025-03-11", "season": "2025 AW rtw", "category": "rtw"},
+             {"house": "dior", "date": "2025-10-01", "season": "2026 SS rtw", "category": "rtw"},
+             {"house": "celine", "date": "2025-10-03", "season": "2026 SS rtw", "category": "rtw"}]
+    monkeypatch.setattr(L, "shows_on_file", lambda: shows)
+    out = L.coverage(c=_Index())
+    s = out["shows"]
+    assert s["chanel:2025-10-07:rtw"]["status"] == "found"
+    assert s["chanel:2025-10-07:rtw"]["candidates"][0]["url"].endswith("spring-summer-2026/")
+    assert s["chanel:2025-03-11:rtw"]["status"] == "none" and s["celine:2025-10-03:rtw"]["status"] == "none"
+    assert s["dior:2025-10-01:rtw"]["status"] == "index failed"
+    assert out["summary"]["by_house"]["chanel"] == {"shows": 2, "found": 1}
+    again = _Index()
+    L.coverage(c=again)
+    assert again.calls == 4               # only dior is asked again: the whole window, then its three slices

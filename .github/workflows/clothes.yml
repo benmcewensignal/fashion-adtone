@@ -8,6 +8,8 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 # sample / crops: those steps alone
 # seal: the 100 pictures to label, from the volume at a size a person can judge, sealed to the same branch
 # testset: the test set drawn again from the looks on file, its crops, and the pictures to label sealed
+# coverage: for every show since 2015, the house's own pages the archive holds from the fortnight after it
+#        (adtone/looks.py; addresses only), resumed run by run
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -15,7 +17,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal, testset]
+        options: [looks, sample, crops, seal, testset, coverage]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -45,12 +47,17 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal|testset) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset|coverage) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
         timeout-minutes: 10
         run: pip install -q -r requirements.txt pynacl
+      - name: Which shows the archive holds pages for
+        if: steps.m.outputs.mode == 'coverage'
+        continue-on-error: true
+        timeout-minutes: 55
+        run: python -m adtone.looks coverage --budget-min 45 --workers 4
       - name: Runway looks from the archive
         if: steps.m.outputs.mode == 'looks'
         timeout-minutes: 55

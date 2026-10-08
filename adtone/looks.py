@@ -2,6 +2,7 @@
 of a show. A probe, before any collector is built.
 
     python -m adtone.looks probe [--season "2026 SS"] [--budget-min 22]
+    python -m adtone.looks coverage [--budget-min 40]    # every show since 2015 -> data/clothes/looks_coverage.json
 
 The Thread's shared description of the clothes needs the looks of each show, read the way the homepages are
 read: pictures held in memory, answers and numbers kept, no picture stored. NOWFASHION's galleries sit
@@ -248,6 +249,138 @@ def _write(out: dict) -> None:
     OUT.write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
 
 
+# ---------- coverage: which shows the archive holds pages for, house by house and season by season ----------
+
+COVERAGE_OUT = config.DATA / "clothes" / "looks_coverage.json"
+COVERAGE_PROV = config.PROV_DIR / "clothes.jsonl"
+AFTER_SHOW = (-1, 14)           # days around a show in which its pages are made and first captured
+COVERAGE_KINDS = ("rtw", "men", "couture")
+COVERAGE_FINAL = ("found", "none")
+
+
+def shows_on_file() -> list[dict]:
+    """Every show of the Thread's calendar since 2015 of the kinds that carry looks."""
+    t = json.loads((config.RESULTS_DIR / "thread.json").read_text(encoding="utf-8"))
+    return [{"house": r["house"], "date": r["date"], "season": r["season"], "category": r["category"]}
+            for r in t["rows"] if r.get("season") and r["category"] in COVERAGE_KINDS]
+
+
+def index_window(c: Crawler, domain: str, pattern: str, start: date, end: date, slices: int = 3):
+    """The index for a short window; a window the index cannot answer whole is asked again in a few slices.
+    Returns (rows or None, what went wrong, whether some slice failed)."""
+    import math
+    from datetime import timedelta
+    q = {"url": domain, "matchType": "domain", "output": "json", "fl": "timestamp,original",
+         "filter": ["statuscode:200", "mimetype:text/html", f"original:{pattern}"], "collapse": "urlkey",
+         "limit": str(CDX_LIMIT)}
+
+    def ask(a, b):
+        try:
+            r = c.get(CDX, {**q, "from": a.strftime("%Y%m%d"), "to": b.strftime("%Y%m%d")})
+        except requests.RequestException as e:
+            return None, type(e).__name__
+        if r.status_code == 200:
+            return _cdx_rows(r)[1:], None
+        return None, f"HTTP {r.status_code}"
+
+    rows, why = ask(start, end)
+    if rows is not None:
+        return rows, None, False
+    out, fails, step, a = [], 0, max(1, math.ceil(((end - start).days + 1) / slices)), start
+    while a <= end:
+        b = min(end, a + timedelta(days=step - 1))
+        got, _ = ask(a, b)
+        if got is None:
+            fails += 1
+        else:
+            out += got
+        a = b + timedelta(days=1)
+    if fails == slices or (fails and not out):
+        return None, why, True
+    return out, None, bool(fails)
+
+
+def coverage_show(c: Crawler, show: dict, domains: list[str]) -> dict:
+    from datetime import timedelta
+    year, season, _ = show["season"].split()
+    d = date.fromisoformat(show["date"])
+    start, end = d + timedelta(days=AFTER_SHOW[0]), d + timedelta(days=AFTER_SHOW[1])
+    pattern = season_pattern(season, int(year))
+    rows, errors, partial = [], {}, False
+    for dom in domains:
+        got, why, part = index_window(c, dom, pattern, start, end)
+        partial = partial or part
+        if got is None:
+            errors[dom] = why
+        else:
+            rows += got
+    cands = candidates(rows)
+    status = ("index failed" if errors and len(errors) == len(domains) else "found" if cands
+              else "partial" if partial or errors else "none")
+    return {**show, "status": status, "pages": len({_key(r[1]) for r in rows}), "candidates": cands,
+            **({"errors": errors} if errors else {})}
+
+
+def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: int = 4, c: Crawler | None = None,
+             clock=time.monotonic) -> dict:
+    """Every show since 2015, newest first within each house, several houses at a time. Resumable: a show with
+    a final answer (found, or no page naming its season) is not asked again."""
+    from concurrent.futures import ThreadPoolExecutor
+    import threading
+    doms = sites()
+    prev = json.loads(COVERAGE_OUT.read_text()) if COVERAGE_OUT.exists() else {}
+    done = {k: v for k, v in prev.get("shows", {}).items() if v.get("status") in COVERAGE_FINAL}
+    out = {"generated_at": store.utc_now(), "window_days": list(AFTER_SHOW), "shows": dict(prev.get("shows", {})),
+           "note": "addresses only; no page or picture is kept"}
+    deadline = clock() + budget_min * 60
+    by_house: dict[str, list[dict]] = {}
+    for s in shows_on_file():
+        if (houses is None or s["house"] in houses) and f"{s['house']}:{s['date']}:{s['category']}" not in done:
+            by_house.setdefault(s["house"], []).append(s)
+    lock, calls = threading.Lock(), []
+
+    def one(house):
+        cc = c or Crawler(pause=2.0)
+        for s in sorted(by_house[house], key=lambda s: s["date"], reverse=True):
+            if clock() > deadline:
+                break
+            row = coverage_show(cc, s, doms.get(house, []))
+            with lock:
+                out["shows"][f"{house}:{s['date']}:{s['category']}"] = row
+                _write_to(COVERAGE_OUT, out)
+        calls.append(cc.calls)
+
+    with ThreadPoolExecutor(max_workers=1 if c is not None else workers) as ex:
+        list(ex.map(one, sorted(by_house)))
+    out["shows"] = dict(sorted(out["shows"].items()))
+    out["summary"] = _coverage_summary(out["shows"])
+    _write_to(COVERAGE_OUT, out)
+    store.append_jsonl(COVERAGE_PROV, [{"at": store.utc_now(), "event": "looks coverage", "summary": out["summary"]["by_status"],
+                                        "requests": c.calls if c is not None else sum(calls)}])
+    return out
+
+
+def _coverage_summary(shows: dict) -> dict:
+    by_status = _count(v.get("status") for v in shows.values())
+    by_house: dict = {}
+    for v in shows.values():
+        h = by_house.setdefault(v["house"], {"shows": 0, "found": 0})
+        h["shows"] += 1
+        h["found"] += v.get("status") == "found"
+    by_year: dict = {}
+    for v in shows.values():
+        y = by_year.setdefault(v["season"].split()[0], {"shows": 0, "found": 0})
+        y["shows"] += 1
+        y["found"] += v.get("status") == "found"
+    return {"by_status": dict(sorted(by_status.items())), "by_house": dict(sorted(by_house.items())),
+            "by_year": dict(sorted(by_year.items()))}
+
+
+def _write_to(path, out: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.looks")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -256,7 +389,15 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--budget-min", type=float, default=22)
     p.add_argument("--houses", nargs="*")
     p.add_argument("--workers", type=int, default=4)
+    cv = sub.add_parser("coverage")
+    cv.add_argument("--budget-min", type=float, default=40)
+    cv.add_argument("--workers", type=int, default=4)
+    cv.add_argument("--houses", nargs="*")
     a = ap.parse_args(argv)
+    if a.cmd == "coverage":
+        out = coverage(a.houses, a.budget_min, a.workers)
+        print(f"looks coverage: {out['summary']['by_status']}")
+        return 0
     out = probe(a.season, a.houses, a.budget_min, workers=a.workers)
     print(f"looks probe {a.season}: {out.get('summary')}")
     return 0
