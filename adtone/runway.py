@@ -13,7 +13,8 @@ any jump is followed by some lasting change. So the same relation is measured at
 any show, and a show's attention counts as sticky only if it lasts better than a jump of the same size
 on an ordinary day.
 
-Section 13 of Amendment 2. Nothing is computed on real data until that amendment is frozen. Saint
+The attention half runs on every main show since 2015 in the Thread's calendar (data/results/thread.json),
+or on the verified dates in reference/shows.csv where the calendar is not on file. Descriptive. Saint
 Laurent is left out of the advertising half until its forward prediction has been judged.
 """
 from __future__ import annotations
@@ -291,13 +292,21 @@ def within_slope(records: list[dict], x: str = "surprise", y: str = "lasting") -
     return float(xs @ ys / (xs @ xs))
 
 
-def placebo_dates(panel: Panel, house: str, shows: list[date], n: int, rng: np.random.Generator) -> list[date]:
+def placebo_pool(panel: Panel, house: str, shows: list[date]) -> list[date]:
+    """Every day with a spike and a lasting value that is more than PLACEBO_GAP days from any show of the house."""
     i = panel.row.get(house)
     if i is None:
         return []
     ok = ~np.isnan(panel.spike[i]) & ~np.isnan(panel.lasting[i])
-    pool = [panel.days[t] for t in np.nonzero(ok)[0]
-            if all(abs((panel.days[t] - s).days) > PLACEBO_GAP for s in shows)]
+    for s in shows:
+        t = (s - panel.start).days
+        ok[max(0, t - PLACEBO_GAP):max(0, t + PLACEBO_GAP + 1)] = False
+    return [panel.days[t] for t in np.nonzero(ok)[0]]
+
+
+def placebo_dates(panel: Panel, house: str, shows: list[date], n: int, rng: np.random.Generator,
+                  pool: list[date] | None = None) -> list[date]:
+    pool = placebo_pool(panel, house, shows) if pool is None else pool
     if len(pool) < n:
         return []
     return sorted(pool[j] for j in rng.choice(len(pool), size=n, replace=False))
@@ -313,8 +322,9 @@ def sticky_test(panel: Panel, shows_by_house: dict[str, list[date]], reps: int =
     if slope is None:
         return {**out, "status": "insufficient"}
     null = []
+    pools = {h: placebo_pool(panel, h, d) for h, d in shows_by_house.items()}   # the same every replicate
     for _ in range(reps):
-        fake = {h: placebo_dates(panel, h, d, len(d), rng) for h, d in shows_by_house.items()}
+        fake = {h: placebo_dates(panel, h, d, len(d), rng, pools[h]) for h, d in shows_by_house.items()}
         sl = within_slope(events(panel, {h: d for h, d in fake.items() if d}))
         if sl is not None:
             null.append(sl)
@@ -406,25 +416,36 @@ def write_table(rows: list[dict], path) -> None:
             w.writerow({k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()})
 
 
+def calendar_shows() -> tuple[dict[str, list[date]], str]:
+    """Each house's main shows: the Thread's calendar where it is on file (every main show since 2015 with
+    a jump in attention measured), else the verified dates."""
+    path = config.RESULTS_DIR / "thread.json"
+    by_house: dict[str, list[date]] = {}
+    if path.exists():
+        for r in json.loads(path.read_text()).get("rows", []):
+            if r.get("main") and r.get("heat") is not None:
+                by_house.setdefault(r["house"], []).append(date.fromisoformat(r["date"]))
+        if by_house:
+            return by_house, "the Thread's calendar, main shows with a measured jump"
+    for r in load_shows():
+        by_house.setdefault(r["house"], []).append(r["date"])
+    return by_house, "verified dates in reference/shows.csv"
+
+
 def main(argv: list[str] | None = None) -> int:
-    from .analysis import amendment_frozen, load_concepts
+    from .analysis import load_concepts
     from .wikiviews import load_series
-    if not amendment_frozen():
-        print("runway analysis waits until Amendment 2 is frozen: its hypotheses are registered there")
-        return 0
     reg = registry.load()
     houses = [h.id for h in reg.houses]
     # English views with a renamed article's earlier titles joined: six houses' articles moved, and the
     # current title alone would start their series years after July 2015
     all_series = {h: logged(load_series(h, "en")) for h in houses}
     panel = Panel({h: s for h, s in all_series.items() if s})
-    shows = load_shows()
-    by_house: dict[str, list[date]] = {}
-    for r in shows:
-        by_house.setdefault(r["house"], []).append(r["date"])
+    by_house, source = calendar_shows()
     from .press import load_series as press_series
     press = PressPanel(panel, {h: press_series(h) for h in panel.houses})
-    out = {"generated_at": store.utc_now(), "n_show_dates": len(shows),
+    out = {"generated_at": store.utc_now(), "shows_from": source,
+           "n_show_dates": sum(len(v) for v in by_house.values()),
            "attention_half": sticky_test(panel, by_house)}
     try:
         concepts, _ = load_concepts(config.instrument(), config.EMBED_TAG, reg)

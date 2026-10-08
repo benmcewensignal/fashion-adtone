@@ -24,14 +24,14 @@ The strands, all from sources the project already holds:
   surprise   that jump less the mean jump of the house's earlier shows of the same kind, once it has two;
   press      the jump in the number of news articles (GDELT), same windows;
   tone       the news tone on the show day and the three days after, less its mean from 60 to 10 days before
-             (GDELT), the registered "reception" of section 13b.
+             (GDELT);
+  lasting    the attention that lasts: mean log views from 30 to 120 days after the show, over the same
+             baseline, less the median house's change over the same days; none until the 120 days are on file;
+  momentum   the trend the house brought into the show: mean log views from 60 to 10 days before, less the
+             mean from 150 to 90 days before.
 Each is also given as a z-score among the shows of the same season (category, season and year). Each
 show's collection is then followed through the stages that come after it, on fixed windows, in
-data/thread/collections.jsonl (see `collections` below).
-
-Exploratory. Sections 13 and 13b of Amendment 2 register tests that relate these measures to the attention
-that lasts after a show. The Thread computes no lasting attention and no relation between its strands and
-anything that comes after, so it reads none of those results before the amendment is frozen.
+data/thread/collections.jsonl (see `collections` below). Descriptive throughout.
 
 NOWFASHION's terms (nowfashion.com/llms.txt and robots.txt) allow reading and citing its pages and forbid
 using them for training; the Thread reads only titles and dates from its brand listings and keeps the link
@@ -317,8 +317,8 @@ def _z(values: dict[int, float]) -> dict[int, float]:
 
 
 def build(shows: list[dict] | None = None, attention=None, press=None, sources: dict | None = None) -> dict:
-    """Heat, surprise, press and tone for every show from 2015, each also as a z-score within its season.
-    No lasting attention is computed (see the module docstring)."""
+    """Heat, surprise, press, tone, lasting attention and momentum for every show from 2015, each also as a
+    z-score within its season."""
     from datetime import timedelta
     from . import press as press_mod, wikiviews
     from .runway import Panel, PressPanel, logged
@@ -342,6 +342,11 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     if not series:
         return {"note": "no page views on file"}
     panel = Panel(series)
+    from .runway import BASELINE, MOMENTUM_EARLY
+    import warnings
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)   # empty windows at the edges of the record
+        momentum = panel._mean(BASELINE) - panel._mean(MOMENTUM_EARLY)
     press = press if press is not None else {h: press_mod.load_series(h) for h in houses}
     pp = PressPanel(panel, {h: v for h, v in press.items() if v})
     main = main_category(shows)
@@ -358,13 +363,17 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     for s in sorted(shows, key=lambda s: (s["house"], s["date"])):
         d = date.fromisoformat(s["date"])
         i, t = panel.row.get(s["house"]), (d - panel.start).days
-        heat, missing = None, None
+        heat, missing, lasting, mom = None, None, None, None
         views = attention.get(s["house"]) or {}
         if i is not None and 0 <= t < len(panel.days) and whole_peak(views, d):
             v = panel.spike[i, t]
             heat = None if np.isnan(v) else round(float(v), 4)
             if heat is not None and base_views(views, d) < MIN_BASE_VIEWS:
                 heat, thin, missing = None, thin + 1, "thin views"
+        if i is not None and 0 <= t < len(panel.days) and missing != "thin views" and base_views(views, d) >= MIN_BASE_VIEWS:
+            la, mo = panel.lasting[i, t], momentum[i, t]
+            lasting = None if np.isnan(la) else round(float(la), 4)
+            mom = None if np.isnan(mo) else round(float(mo), 4)
         if heat is None and missing is None:
             # why there is no heat: no views, the days after the show not yet on file, views that start too
             # late for the baseline, or days missing in between
@@ -373,7 +382,7 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
         p = pp.at(s["house"], d) if i is not None and whole_peak(press.get(s["house"]) or {}, d) else {}
         rows.append({"house": s["house"], "date": s["date"], "season": season_key(s), "category": s["category"],
                      "city": s.get("city"), "main": s["category"] == main.get(s["house"]), "url": s.get("url"),
-                     "heat": heat, "heat_missing": missing,
+                     "heat": heat, "heat_missing": missing, "lasting": lasting, "momentum": mom,
                      "press": None if p.get("press_spike") is None else round(p["press_spike"], 4),
                      "tone": None if p.get("reception") is None else round(p["reception"], 4)})
     # surprise: the jump less the mean jump of the house's earlier shows of the same kind, once it has two
@@ -389,21 +398,23 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     for k, r in enumerate(rows):
         if r["season"]:
             by_season[r["season"]].append(k)
-    for strand in ("heat", "surprise", "press", "tone"):
+    for strand in ("heat", "surprise", "press", "tone", "lasting"):
         for ks in by_season.values():
             z = _z({k: rows[k][strand] for k in ks if rows[k][strand] is not None})
             for k in ks:
                 rows[k][f"{strand}_z"] = z.get(k)
     for r in rows:
-        for strand in ("heat", "surprise", "press", "tone"):
+        for strand in ("heat", "surprise", "press", "tone", "lasting"):
             r.setdefault(f"{strand}_z", None)
     lines = defaultdict(list)
     for r in rows:
         if r["main"]:
-            lines[r["house"]].append({k: r[k] for k in ("date", "season", "heat_z", "surprise_z", "press_z", "tone_z")})
-    cover = {strand: sum(1 for r in rows if r["main"] and r[strand] is not None) for strand in ("heat", "surprise", "press", "tone")}
+            lines[r["house"]].append({k: r[k] for k in ("date", "season", "heat_z", "surprise_z", "press_z", "tone_z",
+                                                        "lasting_z")})
+    cover = {strand: sum(1 for r in rows if r["main"] and r[strand] is not None)
+             for strand in ("heat", "surprise", "press", "tone", "lasting", "momentum")}
     out = {"generated_at": store.utc_now(),
-           "status": "exploratory: descriptive, not in the pre-registration; no lasting attention is computed",
+           "status": "descriptive",
            "shows": len(rows), "left_out_doubtful_dates": n_doubtful, "left_out_thin_views": thin,
            "main_shows": sum(r["main"] for r in rows), "houses": len(lines),
            "seasons": len(by_season), "with_value": cover, "main_category": main,
@@ -415,7 +426,7 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     DIR.mkdir(parents=True, exist_ok=True)
     with open(DIR / "thread.csv", "w", newline="", encoding="utf-8") as f:
         fields = ["house", "date", "season", "category", "city", "main", "heat", "surprise", "press", "tone",
-                  "heat_z", "surprise_z", "press_z", "tone_z", "heat_missing", "url"]
+                  "lasting", "momentum", "heat_z", "surprise_z", "press_z", "tone_z", "lasting_z", "heat_missing", "url"]
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
@@ -557,8 +568,8 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
             continue
         col[k] = {"id": f"{r['house']}:{r['season'].replace(' ', ':')}", "house": r["house"], "season": r["season"],
                   "category": r["category"], "main": r["main"], "date": r["date"],
-                  "show": {**{s: r.get(s) for s in ("heat", "surprise", "press", "tone", "heat_z", "surprise_z",
-                                                     "press_z", "tone_z")}, "other_dates": []}}
+                  "show": {**{s: r.get(s) for s in ("heat", "surprise", "press", "tone", "lasting", "momentum", "heat_z",
+                                                     "surprise_z", "press_z", "tone_z", "lasting_z")}, "other_dates": []}}
     by_house = defaultdict(list)
     for c in col.values():
         by_house[c["house"]].append(c)
@@ -654,7 +665,6 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
     for c in sorted(col.values(), key=lambda c: (c["house"], c["date"])):
         c["campaign"] = {k: (dict(v) if isinstance(v, Counter) else v) for k, v in c["campaign"].items()}
         c["fill"] = fill(c)
-        c["outcomes"] = "the attention that lasts is registered in Amendment 2, section 13, and read after it is frozen"
         records.append(c)
     DIR.mkdir(parents=True, exist_ok=True)
     store.write_jsonl(DIR / "collections.jsonl", records)

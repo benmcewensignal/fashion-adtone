@@ -113,7 +113,9 @@ def test_heat_and_tone_are_measured_at_each_show_and_set_against_its_season(tmp_
     low = [r for r in rows if r["house"] == "h0" and r["main"]]
     assert all(r["heat_z"] < 0 for r in low)
     assert [r["surprise"] is None for r in top] == [True, True, False, False]
-    assert all("lasting" not in r for r in rows)            # the registered outcome is never computed here
+    # the attention that lasts: every show here has its 120 days on file, so each has a value, and so does momentum
+    assert all(r["lasting"] is not None and r["momentum"] is not None for r in rows if r["main"])
+    assert all(r["lasting_z"] is not None for r in rows if r["main"])
     couture = [r for r in rows if not r["main"]]
     assert couture[0]["heat_z"] is None and couture[0]["season"] == "2017 SS couture"
     assert len(out["lines"]["h3"]) == 4 and (tmp_path / "thread" / "thread.csv").exists()
@@ -283,7 +285,7 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     assert h0["campaign"]["by_line"] == {"collection": 1, "accessories": 1} and h0["campaign"]["pictures_read"] == 1
     assert h0["advertising"] == {"show_period": 1, "campaign_period": 1}
     assert h0["fill"] == {"scene": "full", "show": "part", "shop_window": "full", "campaign": "full", "advertising": "full"}
-    assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" not in json.dumps(recs["h1"]).replace("lasts", "")
+    assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" in recs["h1"]["show"]
     s = out["collections"]
     assert s["complete_chains"] == 0                                  # no press on file, so no show is full
     assert s["campaigns_unjoined"] == {"collection": 1}

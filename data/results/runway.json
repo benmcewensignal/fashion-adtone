@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-10-08T20:42:20Z",
+  "shows_from": "the Thread's calendar, main shows with a measured jump",
+  "n_show_dates": 502,
+  "attention_half": {
+    "n_events": 484,
+    "n_with_surprise": 428,
+    "slope": 0.178,
+    "status": "ok",
+    "placebo_mean": 0.1531,
+    "placebo_q95": 0.2968,
+    "p": 0.2797
+  },
+  "what_the_clothes_add": {
+    "n_shows": 56,
+    "n_houses": 4,
+    "term": "reception",
+    "controls": [
+      "spike",
+      "momentum"
+    ],
+    "target": "lasting",
+    "status": "insufficient: fewer than 60 shows with every term"
+  }
+}
