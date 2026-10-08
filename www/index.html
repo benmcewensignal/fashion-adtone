@@ -87,7 +87,9 @@
     font-size: min(calc((100svh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
   }
   .landing nav { grid-column: 2; grid-row: 1; }
-  .statement { grid-column: 2; grid-row: 2; align-self: end; max-width: 17em; margin: 2rem 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 1rem + 2.4vw, 3.5rem); line-height: 1.15; }
+  .lead { grid-column: 2; grid-row: 2; align-self: end; }
+  .statement { max-width: 17em; margin: 2rem 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 1rem + 2.4vw, 3.5rem); line-height: 1.15; }
+  .follow { max-width: 26rem; margin: 1.25rem 0 0; font-size: clamp(0.9375rem, 0.85rem + 0.35vw, 1.125rem); line-height: 1.5; }
   @media (min-width: 48rem) { .landing nav { justify-self: end; text-align: right; } }
 
   /* Pages: a small Focal and the menu across the top, the heading centred beneath */
@@ -194,6 +196,13 @@
   .src .s { display: block; margin-top: 0.35rem; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.04em; }
   @media (min-width: 48rem) { .src { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); row-gap: 2.5rem; } }
 
+  /* End to end: the stages of one collection, in order, joined by a rule */
+  .stages { list-style: none; margin: 0 auto; padding: 0; max-width: 30rem; text-align: center; }
+  .stages li + li::before { content: ""; display: block; width: 1px; height: 2.25rem; margin: 1rem auto; background: var(--graphite); }
+  .stages .when { display: block; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .stages .t { display: block; margin: 0.25rem 0 0.4rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
+  .stages .d { display: block; margin: 0 auto; max-width: 24rem; font-size: 0.9375rem; }
+
   /* Status */
   .status { list-style: none; margin: 0; padding: 0; }
   .status li { text-align: center; margin: 0 0 1.4rem; }
@@ -211,6 +220,7 @@
       <h1 class="spine" aria-label="Focal">F<span class="o">O</span>CAL</h1>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -218,7 +228,43 @@
           <li><a href="#/status">Status</a></li>
         </ul>
       </nav>
-      <p class="statement">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
+      <div class="lead">
+        <p class="statement">Focal measures the character of fashion brands, how it shifts, and what it contributes to their success.</p>
+        <p class="follow">Each collection is followed <a href="#/end-to-end">end to end</a>, from the months before its show to the advertising after it.</p>
+      </div>
+      </div>
+    </section>
+    <section id="end-to-end" data-panel aria-labelledby="e2e-h">
+      <header class="top">
+      <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
+      <nav aria-label="Sections">
+        <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
+          <li><a href="#/readings">Readings</a></li>
+          <li><a href="#/method">Method</a></li>
+          <li><a href="#/brands">Brands</a></li>
+          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/status">Status</a></li>
+        </ul>
+      </nav>
+      </header>
+      <div class="intro">
+        <h2 id="e2e-h">End to end</h2>
+        <p>Each collection is followed from the months before its show to the advertising that comes after it, on windows counted in days from the show date.</p>
+      </div>
+      <div class="body">
+        <ol class="stages">
+          <li><span class="when">The six months before</span><span class="t">The scene</span><span class="d">The ambassadors the house appointed.</span></li>
+          <li><span class="when">The days around it</span><span class="t">The show</span><span class="d">How far attention jumped, against the other shows of its season, and how the press wrote about it.</span></li>
+          <li><span class="when">The six months after</span><span class="t">The shop window</span><span class="d">What the house put on its homepage.</span></li>
+          <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season: the collection's campaign, accessories, beauty, jewellery and watches, capsules.</span></li>
+          <li><span class="when">Around the show, and the months after</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, and the campaign's in the months after.</span></li>
+        </ol>
+        <p class="sub" style="margin-top:4rem">What runs through</p>
+        <p class="block" style="text-align:center">The show and the advertising do different jobs, so each stage keeps its own measures. What runs through all of them is the clothes, described in the same terms at every stage, so that a change on the runway can be followed into what the house shows and sells.</p>
+        <p class="sub" style="margin-top:3rem">What it adds up to</p>
+        <p class="block" style="text-align:center">The measure is what follows: the attention that lasts after the show, and the desire and revenue in the quarters after. That is where the <a href="#/readings">four readings</a> come in, brand by brand and month by month.</p>
+        <p class="note" style="text-align:center">548 collections followed so far: the scene covered for 330, the show scored for 501, the shop window read for 175, the campaigns joined for 81, and the advertising for none until Meta's archive opens.</p>
       </div>
     </section>
     <section id="readings" data-panel aria-labelledby="readings-h">
@@ -226,6 +272,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -236,7 +283,7 @@
       </header>
       <div class="intro">
         <h2 id="readings-h">What it shows</h2>
-        <p>Four readings for every brand, every month, and each collection followed from the show to the advertising.</p>
+        <p>Four readings for every brand, every month.</p>
       </div>
       <div class="body wide">
         <div class="triad duo">
@@ -329,16 +376,6 @@
             <li><span class="t">Spread of hues</span>One hue throughout, or many.</li>
             <li><span class="t">Colourfulness</span>A standard measure of how colourful a picture looks (Hasler and S&uuml;sstrunk).</li>
           </ul>
-          <p class="sub" style="margin-top:4rem">End to end</p>
-          <p class="block" style="text-align:center">Each collection is followed from the months before its show to the advertising that comes after it, on windows counted in days from the show date.</p>
-          <ul class="status">
-            <li><span class="t">The scene</span>The ambassadors the house appointed in the six months before.</li>
-            <li><span class="t">The show</span>How far attention jumped around it, against the other shows of its season, and how the press wrote about it.</li>
-            <li><span class="t">The shop window</span>What the house put on its homepage in the six months after.</li>
-            <li><span class="t">The campaigns</span>What it published for the season: the collection's campaign, accessories, beauty, jewellery and watches, capsules.</li>
-            <li><span class="t">The advertising</span>Its paid ads in the weeks around the show, and the campaign's in the months after.</li>
-          </ul>
-          <p class="block" style="text-align:center">The show and the advertising do different jobs, so each stage keeps its own measures. What runs through all of them is the clothes, described in the same terms at every stage, so that a change on the runway can be followed into what the house shows and sells.</p>
         </div>
       </div>
     </section>
@@ -348,6 +385,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -395,6 +433,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -502,6 +541,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -541,6 +581,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
+          <li><a href="#/end-to-end">End to end</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
