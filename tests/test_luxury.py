@@ -522,3 +522,13 @@ def test_a_later_version_reads_only_what_its_plan_kept_into_its_own_files(tmp_pa
     r = enc.row({"modality": "reduced", "open_space": "much"})
     assert enc.distance(r, r) == 0.0
     assert L.read("qwen3", "check", v="v2") == {"note": "the standing check is v1's"}
+
+
+def test_the_readings_take_only_the_questions_the_plan_kept(tmp_path, monkeypatch):
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    (tmp_path / "luxury").mkdir()
+    assert "production" in L._spec("v1")["enums"]                            # no plan: the whole rubric
+    (tmp_path / "luxury" / "plan.json").write_text(json.dumps({"questions": ["light", "pose", "mood", "street_couture_axis"]}))
+    s1 = L._spec("v1")
+    assert set(s1["enums"]) == {"creative_type", "category", "light", "pose"}
+    assert s1["lists"]["mood"]["options"]                                     # mood went forward

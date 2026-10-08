@@ -432,8 +432,8 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
                     answers[r["sha"]] = r["output"]
     else:
         answers = _tone_of(reader, v)
-    if v != "v1":
-        keep = set(plan(v).get("questions", [])) | {"creative_type", "category"}
+    if reader != "today" and "questions" in plan(v):       # only the answers the version's plan keeps
+        keep = set(plan(v)["questions"]) | {"creative_type", "category"}
         answers = {s: {k: x for k, x in o.items() if k in keep} for s, o in answers.items()}
     vecs = vectors(vec, "qwen3" if reader == "today" else reader, axes, v)
     dup = vectors("clip") if vec != "clip" else vecs
@@ -466,13 +466,14 @@ def _measures(v: str) -> list[str]:
 
 
 def _spec(v: str) -> dict:
-    """The tone rubric's specification as the readings take it: for a later version, only the questions its
-    plan keeps (and its moods only if mood went forward)."""
+    """The tone rubric's specification as the readings take it: only the questions the version's plan keeps (and
+    its moods only if mood went forward). The readings' own screen then applies on top. Until 8 October the v1
+    readings skipped this step and so tracked production, which the bake-off had dropped."""
     from .score import load_rubric
     spec = load_rubric(f"tone-{v}").spec
-    if v == "v1":
+    if "questions" not in plan(v):
         return spec
-    keep = set(plan(v).get("questions", []))
+    keep = set(plan(v)["questions"])
     return {**spec, "enums": {k: x for k, x in spec["enums"].items() if k in keep or k in ("creative_type", "category")},
             "lists": {"mood": {**spec["lists"]["mood"], "options": spec["lists"]["mood"]["options"] if "mood" in keep else []}}}
 
