@@ -6,6 +6,7 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 #        the labelling page sealed to a key outside the repository and pushed to a branch of their own;
 #        then the test set and the crops
 # sample / crops: those steps alone
+# seal: the 100 pictures to label, from the volume at a size a person can judge, sealed to the same branch
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -13,7 +14,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops]
+        options: [looks, sample, crops, seal]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -43,7 +44,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
@@ -71,6 +72,20 @@ jobs:
         if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'crops'
         timeout-minutes: 15
         run: python -m adtone.clothes crops
+      - name: The pictures to label, sealed
+        if: steps.m.outputs.mode == 'seal'
+        timeout-minutes: 15
+        run: python -m adtone.clothes seal
+      - name: Sealed pictures to label, on a branch of their own
+        # One file sealed to a key that is not in this repository: it holds no readable picture.
+        if: steps.m.outputs.mode == 'seal'
+        timeout-minutes: 5
+        run: |
+          tmp=$(mktemp -d)
+          cp clothes_pictures/thumbs.tar.sealed "$tmp/"
+          cd "$tmp" && git init -q && git checkout -q -b clothes-sealed && git add thumbs.tar.sealed
+          git -c user.name=adtone-clothes-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed pictures for the clothes labelling page"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" clothes-sealed
       - name: Persist
         if: always()
         timeout-minutes: 5

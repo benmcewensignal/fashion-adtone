@@ -206,8 +206,8 @@ About 300 pictures, two kinds in equal numbers:
   showing a person and one in three a product alone by their tone-v2 reading, drawn at random within
   house, so that the questions about a worn outfit have enough pictures on this side too.
 
-Two crops of each picture are read as well, as in the earlier bake-off, to measure how stable each
-answer is. No picture is written to the repository: copies for the reader stay on the private Modal
+For 60 pictures, 30 of each kind, a copy cut to its central 85% is read as well: each picture and its
+crop make a crop pair, to measure how stable each answer is. No picture is written to the repository: copies for the reader stay on the private Modal
 volume, and the thumbnails for the labelling page leave the runner only sealed.
 
 **Labels.** 100 pictures, 50 of each kind drawn at random (the advertising 50 in the same two to one
@@ -217,11 +217,15 @@ willing). With two trained labellers, both label the same 100.
 
 ## Which questions go forward
 
-Fixed with this file, before any picture is read with it. The reader is the one the earlier bake-off
-chose (Qwen3-VL-32B at its pinned weights). Questions about a worn outfit (skin_shown, hemline,
-layers, silhouette) are judged on the pictures whose reference label is worn_full or worn_part; the
-others on every picture whose reference label is not no_clothing. A list question is judged option by
-option, and goes forward with the options that pass, if at least two do.
+Fixed with this file, before any picture is read with it, and implemented in `adtone/clothes.py`
+(`judge`), tested on synthetic answers, before any reading. The reader is the one the earlier bake-off
+chose (Qwen3-VL-32B at its pinned weights). Questions about a worn outfit (skin_shown, hemline, layers,
+silhouette) apply to pictures that show one (subject worn_full or worn_part); the others to every
+picture that shows clothing (subject other than no_clothing). Rules 1 and 2 are judged over the whole
+test set, using the reader's own subject answer to decide where a question applies; rules 3 and 4 over
+the labelled pictures, using Ben's subject label. A list question is judged option by option, and goes
+forward with the options that pass, if at least two do. For street_couture_axis every kappa is
+quadratic weighted.
 
 A question goes forward when all of these hold:
 
@@ -233,8 +237,8 @@ A question goes forward when all of these hold:
    the reference labels on the runway looks, and at least 0.4 on the advertising pictures, each over
    at least 20 labelled pictures the question applies to. A question that works on one kind only is
    not part of the shared layer. The reference is Ben's labels for the questions marked anyone, the
-   trained labeller's for those marked trained. For street_couture_axis, the kappa is quadratic
-   weighted.
+   trained labeller's for those marked trained; with two trained labellers the reader must reach it
+   with each. Without a trained labeller, no trained question goes forward.
 4. **The trained labellers agree with each other**, where there are two: kappa at least 0.4 on each
    kind of picture. A question two trained eyes split on does not go forward whatever the reader does.
 

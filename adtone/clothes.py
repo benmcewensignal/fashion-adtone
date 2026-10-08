@@ -9,6 +9,7 @@ questions of rubric/clothes-v1.md go forward.
                                        #   -> data/clothes/sample.json
     python -m adtone.clothes crops     # on the runner: a crop of each chosen picture to its central 85%,
                                        #   to the private volume -> data/clothes/crops.jsonl
+    python -m adtone.clothes seal      # on the runner: the 100 pictures to label, from the volume, sealed
 
 The test set is described in the rubric. No picture is written to the repository, which is public: the
 reader's copies go to the private Modal volume, and the thumbnails for the labelling page leave the
@@ -281,20 +282,217 @@ def to_volume() -> int:
     return upload(local=LOCAL, vol_dir=VOL_DIR)
 
 
-def seal_thumbnails(local: Path | None = None) -> Path:
-    """The labelling page's thumbnails of the looks as one tar, sealed to the public key in
-    bakeoff/sealing_key.pub: only the holder of the private key, outside the repository, can open it."""
+def seal_thumbnails(local: Path | None = None, folder: str = "thumb") -> Path:
+    """A folder of thumbnails as one tar, sealed to the public key in bakeoff/sealing_key.pub: only the
+    holder of the private key, outside the repository, can open it."""
     from nacl.public import PublicKey, SealedBox
     from .bakeoff import SEAL_KEY
     local = local or LOCAL
     buf = io.BytesIO()
     with tarfile.open(fileobj=buf, mode="w") as tar:
-        for f in sorted((local / "thumb").glob("*.jpg")):
+        for f in sorted((local / folder).glob("*.jpg")):
             tar.add(str(f), arcname=f.name)
     key = PublicKey(base64.b64decode(SEAL_KEY.read_text().strip()))
     out = local / "thumbs.tar.sealed"
     out.write_bytes(SealedBox(key).encrypt(buf.getvalue()))
     return out
+
+
+# ---------- which questions go forward (rubric/clothes-v1.md, "Which questions go forward") ----------
+#
+# Fixed with the rubric, before any picture is read with it. Pure functions over answers already read:
+# the reader's on every picture and on the crops, and each labeller's on the labelled pictures.
+
+WORN = ("skin_shown", "hemline", "layers", "silhouette")   # questions about a worn outfit
+VARY_MAX = 0.90          # the commonest answer's share must stay below this
+OPTION_SHARE = (0.05, 0.95)
+KAPPA_MIN = 0.4
+CROP_PAIRS_MIN = 10
+LABELLED_MIN = 20        # labelled pictures of one kind the question applies to
+
+
+def applies(key: str, subject) -> bool:
+    """Whether a question applies to a picture, given what it shows: the questions about a worn outfit where a
+    person wears one, the rest wherever any clothing shows."""
+    if subject is None:
+        return False
+    if key == "subject":
+        return True
+    if key in WORN:
+        return subject in ("worn_full", "worn_part")
+    return subject != "no_clothing"
+
+
+def _weights(values: list, ordinal: bool):
+    cats = sorted(set(values))
+    if not ordinal:
+        return cats, None
+    lo, hi = min(cats), max(cats)
+    span = (hi - lo) or 1
+    return cats, lambda a, b: 1 - ((a - b) / span) ** 2
+
+
+def cohen(x: list, y: list, ordinal: bool = False) -> float | None:
+    """Cohen's kappa between two raters on the same pictures; quadratic weighted for an ordinal scale."""
+    if not x or len(x) != len(y):
+        return None
+    cats, w = _weights(list(x) + list(y), ordinal)
+    n = len(x)
+    agree = (lambda a, b: w(a, b)) if w else (lambda a, b: 1.0 if a == b else 0.0)
+    po = sum(agree(a, b) for a, b in zip(x, y)) / n
+    px = {c: sum(v == c for v in x) / n for c in cats}
+    py = {c: sum(v == c for v in y) / n for c in cats}
+    pe = sum(px[a] * py[b] * agree(a, b) for a in cats for b in cats)
+    return None if pe >= 1 - 1e-12 else round((po - pe) / (1 - pe), 3)
+
+
+def pooled(pairs: list[tuple], ordinal: bool = False) -> float | None:
+    """Kappa for two readings of one picture (a picture and its crop), with one pooled set of marginals,
+    as the earlier bake-off computed it."""
+    if not pairs:
+        return None
+    vals = [a for a, _ in pairs] + [b for _, b in pairs]
+    cats, w = _weights(vals, ordinal)
+    agree = (lambda a, b: w(a, b)) if w else (lambda a, b: 1.0 if a == b else 0.0)
+    po = sum(agree(a, b) for a, b in pairs) / len(pairs)
+    p = {c: vals.count(c) / len(vals) for c in cats}
+    pe = sum(p[a] * p[b] * agree(a, b) for a in cats for b in cats)
+    return None if pe >= 1 - 1e-12 else round((po - pe) / (1 - pe), 3)
+
+
+def _units(key: str, spec: dict) -> list:
+    if key in spec.get("lists", {}):
+        return [o for o in spec["lists"][key]["options"]]
+    return [None]
+
+
+def _value(ans: dict | None, key: str, option):
+    if not ans or key not in ans:
+        return None
+    v = ans[key]
+    if option is not None:
+        return isinstance(v, list) and option in v
+    return v
+
+
+def judge(spec: dict, reader: dict[str, dict], crops: list[tuple[str, str]], kinds: dict[str, str],
+          labels: dict[str, dict[str, dict]]) -> dict:
+    """Each question, and each option of a list, against the four rules. `reader` maps a picture (or a
+    crop) to the reader's answers; `labels` maps a labeller ('ben', 'trained-...') to their answers by
+    picture; `kinds` says whether a picture is a 'look' or an 'advert'. Applicability for rules 1 and 2
+    follows the reader's own subject answer; for rules 3 and 4 it follows Ben's subject label."""
+    eye = {k: g for g, ks in spec["eye"].items() for k in ks}
+    ben = labels.get("ben", {})
+    trained = sorted(k for k in labels if k.startswith("trained-"))
+    out, forward, options = {}, [], {}
+    for key in sorted(eye):
+        ordinal = key in spec.get("integers", {})
+        results = {}
+        for opt in _units(key, spec):
+            name = key if opt is None else f"{key}.{opt}"
+            r: dict = {}
+            vals = [_value(a, key, opt) for sha, a in reader.items() if sha in kinds and applies(key, a.get("subject"))]
+            vals = [v for v in vals if v is not None]
+            if opt is None:
+                top = max((vals.count(v) for v in set(vals)), default=0)
+                r["commonest_share"] = round(top / len(vals), 3) if vals else None
+                r["varies"] = bool(vals) and top / len(vals) < VARY_MAX
+            else:
+                share = sum(vals) / len(vals) if vals else None
+                r["share"] = None if share is None else round(share, 3)
+                r["varies"] = share is not None and OPTION_SHARE[0] <= share <= OPTION_SHARE[1]
+            cp = [(_value(reader.get(o), key, opt), _value(reader.get(c), key, opt)) for o, c in crops
+                  if reader.get(o) and reader.get(c) and applies(key, reader[o].get("subject"))]
+            cp = [(a, b) for a, b in cp if a is not None and b is not None]
+            r["crop_pairs"] = len(cp)
+            r["crop_kappa"] = pooled(cp, ordinal) if len(cp) >= CROP_PAIRS_MIN else None
+            r["stable"] = r["crop_kappa"] is not None and r["crop_kappa"] >= KAPPA_MIN
+            refs = ["ben"] if eye[key] == "anyone" else trained
+            r["agree"] = {}
+            ok = bool(refs)
+            for ref in refs:
+                for kind in ("look", "advert"):
+                    xs, ys = [], []
+                    for sha, lab in labels.get(ref, {}).items():
+                        if kinds.get(sha) != kind or not applies(key, (ben.get(sha) or lab).get("subject")):
+                            continue
+                        a, b = _value(reader.get(sha), key, opt), _value(lab, key, opt)
+                        if a is not None and b is not None:
+                            xs.append(a)
+                            ys.append(b)
+                    k = cohen(xs, ys, ordinal) if len(xs) >= LABELLED_MIN else None
+                    r["agree"][f"{ref}:{kind}"] = {"n": len(xs), "kappa": k}
+                    ok = ok and k is not None and k >= KAPPA_MIN
+            r["agrees"] = ok
+            r["experts_agree"] = None
+            if eye[key] == "trained" and len(trained) >= 2:
+                r["experts"] = {}
+                both = True
+                for i, t1 in enumerate(trained):
+                    for t2 in trained[i + 1:]:
+                        for kind in ("look", "advert"):
+                            xs, ys = [], []
+                            for sha, l1 in labels[t1].items():
+                                l2 = labels[t2].get(sha)
+                                if l2 is None or kinds.get(sha) != kind or not applies(key, (ben.get(sha) or l1).get("subject")):
+                                    continue
+                                a, b = _value(l1, key, opt), _value(l2, key, opt)
+                                if a is not None and b is not None:
+                                    xs.append(a)
+                                    ys.append(b)
+                            k = cohen(xs, ys, ordinal) if len(xs) >= LABELLED_MIN else None
+                            r["experts"][f"{t1}~{t2}:{kind}"] = {"n": len(xs), "kappa": k}
+                            both = both and k is not None and k >= KAPPA_MIN
+                r["experts_agree"] = both
+            if eye[key] == "trained" and "ben" in labels:
+                r["untrained"] = {}
+                for kind in ("look", "advert"):
+                    xs, ys = [], []
+                    for sha, lab in ben.items():
+                        if kinds.get(sha) != kind or not applies(key, lab.get("subject")):
+                            continue
+                        a, b = _value(reader.get(sha), key, opt), _value(lab, key, opt)
+                        if a is not None and b is not None:
+                            xs.append(a)
+                            ys.append(b)
+                    r["untrained"][f"reader~ben:{kind}"] = {"n": len(xs), "kappa": cohen(xs, ys, ordinal) if len(xs) >= LABELLED_MIN else None}
+            r["passes"] = bool(r["varies"] and r["stable"] and r["agrees"] and r["experts_agree"] is not False)
+            results[name] = r
+        out.update(results)
+        if key in spec.get("lists", {}):
+            passing = [o for o in spec["lists"][key]["options"] if results[f"{key}.{o}"]["passes"]]
+            if len(passing) >= 2:
+                forward.append(key)
+                options[key] = passing
+        elif results[key]["passes"]:
+            forward.append(key)
+    return {"rules": {"vary_max": VARY_MAX, "option_share": list(OPTION_SHARE), "kappa_min": KAPPA_MIN,
+                      "crop_pairs_min": CROP_PAIRS_MIN, "labelled_min": LABELLED_MIN},
+            "trained_labellers": len(trained), "questions": out, "forward": forward, "options": options}
+
+
+LABEL_EDGE = 720          # thumbnails for the labelling page: enough to see cloth and finish on a phone
+
+
+def seal_labelled(s: dict | None = None, edge: int = LABEL_EDGE, local: Path | None = None) -> Path:
+    """The labelling page's pictures: the 100 to label, from the reader's copies on the volume, at a size a
+    person can judge cloth and finish from, sealed as one tar to the key outside the repository."""
+    from . import media
+    from .bakeoff import _jpeg, from_volume
+    s = s if s is not None else json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
+    local = local or LOCAL
+    looks = {x["sha"] for x in s["looks"]}
+    want = s["label"]
+    got = from_volume([x for x in want if x in looks], VOL_DIR)
+    got.update(from_volume([x for x in want if x not in looks], ADS_VOL_DIR))
+    out = local / "label"
+    out.mkdir(parents=True, exist_ok=True)
+    for f in out.glob("*.jpg"):
+        f.unlink()
+    for sha, data in got.items():
+        (out / f"{sha}.jpg").write_bytes(_jpeg(media.open_image(data), edge, 75))
+    _log("seal", wanted=len(want), sealed=len(got), edge=edge)
+    return seal_thumbnails(local, folder="label")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -305,6 +503,7 @@ def main(argv: list[str] | None = None) -> int:
     lk.add_argument("--workers", type=int, default=4)
     sub.add_parser("sample")
     sub.add_parser("crops")
+    sub.add_parser("seal")
     a = ap.parse_args(argv)
     if a.cmd == "looks":
         rows = fetch_looks(budget_min=a.budget_min, workers=a.workers)
@@ -313,6 +512,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"clothes looks: {len(rows)} looks, {n} copies on the volume, thumbnails sealed to {sealed.name}")
     elif a.cmd == "sample":
         print(f"clothes sample: {sample()['counts']}")
+    elif a.cmd == "seal":
+        print(f"clothes seal: the pictures to label sealed to {seal_labelled().name}")
     elif a.cmd == "crops":
         rows = make_crops()
         n = to_volume()

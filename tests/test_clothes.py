@@ -109,3 +109,101 @@ def test_a_crop_keeps_the_centre_and_is_stored_under_its_own_hash(tmp_path, monk
     s = {"looks": [{"sha": "x", "house": "celine"}], "crop": ["x", "y"]}
     rows = C.make_crops(s, read=lambda sha, vol: data if sha == "x" else None, put=lambda n, b: stored.update({n: b}))
     assert rows[0]["kind"] == "look" and f"{rows[0]['crop']}.jpg" in stored and rows[1]["crop"] is None
+
+
+def test_the_pictures_to_label_come_from_the_volume_at_a_size_a_person_can_judge(tmp_path, monkeypatch):
+    pytest.importorskip("nacl")
+    from adtone import bakeoff
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    asked = []
+
+    def from_volume(shas, vol_dir):
+        asked.append((vol_dir, sorted(shas)))
+        return {s: _jpeg(900, 1350, i) for i, s in enumerate(shas)}
+    monkeypatch.setattr(bakeoff, "from_volume", from_volume)
+    s = {"looks": [{"sha": "l1", "house": "celine"}], "label": ["l1", "a1", "a2"]}
+    sealed = C.seal_labelled(s, local=tmp_path)
+    assert sorted(asked) == [(C.ADS_VOL_DIR, ["a1", "a2"]), (C.VOL_DIR, ["l1"])]
+    files = sorted((tmp_path / "label").glob("*.jpg"))
+    assert [f.stem for f in files] == ["a1", "a2", "l1"]
+    assert max(Image.open(files[0]).size) == C.LABEL_EDGE
+    assert sealed.exists() and sealed.stat().st_size > 1000 and b"JFIF" not in sealed.read_bytes()
+
+
+def test_kappa_rewards_agreement_beyond_chance_and_near_misses_on_a_scale():
+    assert C.cohen(["a", "b", "a", "b"], ["a", "b", "a", "b"]) == 1.0
+    assert C.cohen(["a", "a", "b", "b"], ["a", "b", "a", "b"]) == 0.0
+    near = C.cohen([1, 2, 3, 4, 5] * 4, [2, 3, 4, 5, 5] * 4, ordinal=True)
+    far = C.cohen([1, 2, 3, 4, 5] * 4, [5, 1, 1, 2, 3] * 4, ordinal=True)
+    assert near > 0.6 and far < 0
+    assert C.pooled([("x", "x")] * 6 + [("y", "y")] * 6) == 1.0
+    assert C.cohen(["a"] * 5, ["a"] * 5) is None          # no variation: agreement says nothing
+
+
+SPEC = {"enums": {"subject": ["worn_full", "worn_part", "product_alone", "no_clothing"],
+                  "pattern": ["plain", "stripe", "check", "not_applicable"],
+                  "hemline": ["above_knee", "knee", "ankle_floor", "not_applicable"]},
+        "lists": {"garments": {"options": ["dress", "coat", "trousers", "cape", "none"], "min": 1, "max": 3}},
+        "integers": {"street_couture_axis": {"min": 1, "max": 5}},
+        "eye": {"anyone": ["subject", "pattern", "hemline", "garments"], "trained": ["street_couture_axis"]}}
+
+
+def _world(seed=3, n=60):
+    """Pictures with true answers; the reader sees them except where told otherwise."""
+    rng = random.Random(seed)
+    truth, kinds = {}, {}
+    for kind in ("look", "advert"):
+        for i in range(n):
+            sha = f"{kind[0]}{i}"
+            kinds[sha] = kind
+            subj = "worn_full" if kind == "look" or i % 3 else "product_alone"
+            g = rng.sample(["dress", "coat", "trousers"], rng.randint(1, 2))
+            truth[sha] = {"subject": subj, "pattern": rng.choice(["plain", "stripe", "check"]),
+                          "hemline": rng.choice(["above_knee", "knee", "ankle_floor"]) if subj == "worn_full" else "not_applicable",
+                          "garments": g, "street_couture_axis": rng.randint(1, 5)}
+    return truth, kinds
+
+
+def _labels(truth, kinds, k=30):
+    pick = [s for s in truth if s.startswith("l")][:k] + [s for s in truth if s.startswith("a")][:k]
+    return {s: dict(truth[s]) for s in pick}
+
+
+def test_a_question_goes_forward_only_if_it_varies_holds_on_a_crop_and_agrees_on_both_kinds():
+    truth, kinds = _world()
+    reader = {s: dict(a) for s, a in truth.items()}
+    rng = random.Random(9)
+    for s, a in reader.items():
+        if kinds[s] == "advert":                       # the reader reads hemlines on runway looks only
+            a["hemline"] = rng.choice(["above_knee", "knee", "ankle_floor"]) if a["subject"] == "worn_full" else "not_applicable"
+    crops = []
+    for s in list(truth)[::3]:
+        reader[s + "c"] = dict(reader[s])
+        crops.append((s, s + "c"))
+    labels = {"ben": _labels(truth, kinds), "trained-ann": _labels(truth, kinds), "trained-bo": _labels(truth, kinds)}
+    out = C.judge(SPEC, reader, crops, kinds, labels)
+    q = out["questions"]
+    assert q["pattern"]["passes"] and q["subject"]["varies"]
+    assert not q["hemline"]["passes"] and q["hemline"]["agree"]["ben:look"]["kappa"] == 1.0
+    assert q["hemline"]["agree"]["ben:advert"]["kappa"] < C.KAPPA_MIN       # works on one kind only
+    assert not q["garments.cape"]["varies"] and not q["garments.none"]["varies"]
+    assert out["options"]["garments"] == ["dress", "coat", "trousers"]
+    assert q["street_couture_axis"]["passes"] and q["street_couture_axis"]["experts_agree"]
+    assert "garments" in out["forward"] and "hemline" not in out["forward"]
+
+
+def test_a_trained_question_two_trained_eyes_split_on_does_not_go_forward():
+    truth, kinds = _world()
+    reader = {s: dict(a) for s, a in truth.items()}
+    crops = [(s, s) for s in list(truth)[:20]]
+    rng = random.Random(4)
+    split = _labels(truth, kinds)
+    for a in split.values():
+        a["street_couture_axis"] = rng.randint(1, 5)
+    out = C.judge(SPEC, reader, crops, kinds, {"ben": _labels(truth, kinds), "trained-ann": _labels(truth, kinds),
+                                                "trained-bo": split})
+    assert out["questions"]["street_couture_axis"]["experts_agree"] is False
+    assert "street_couture_axis" not in out["forward"]
+    alone = C.judge(SPEC, reader, crops, kinds, {"ben": _labels(truth, kinds)})
+    assert "street_couture_axis" not in alone["forward"]               # no trained labels, no trained question
+    assert alone["questions"]["street_couture_axis"]["untrained"]["reader~ben:look"]["kappa"] == 1.0
