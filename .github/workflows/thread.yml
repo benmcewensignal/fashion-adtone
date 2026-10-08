@@ -1,10 +1,11 @@
 name: thread
 run-name: thread ${{ inputs.mode || github.event_name }}
 # The Thread (adtone/thread.py): every show of the panel's houses from 2015, with how much attention it drew
-# and how the news wrote about it, each set against its season. calendar: the shows from NOWFASHION's brand
-# listings (about thirty requests, two seconds apart), then build. build: heat and tone from the page views
-# and press already on file. Weekly, after the attention and press runs; editing .github/kick/thread starts
-# one, its first word the mode.
+# and how the news wrote about it, each set against its season. build: heat and tone from the page views and
+# press on file, for the shows in data/thread/shows.jsonl. calendar: try NOWFASHION's listings from here first;
+# the site's bot check turns GitHub's machines away, so the calendar on file was read through Claude's
+# fetcher and a failed fetch keeps it. Weekly, after the attention and press runs; editing .github/kick/thread
+# starts one, its first word the mode.
 on:
   schedule:
     - cron: "50 6 * * 2"
@@ -12,8 +13,8 @@ on:
     inputs:
       mode:
         type: choice
-        default: calendar
-        options: [calendar, build]
+        default: build
+        options: [build, calendar]
   push:
     branches: [main]
     paths: [".github/kick/thread"]
@@ -40,7 +41,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/thread 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in calendar|build) ;; *) mode=calendar ;; esac
+          case "$mode" in calendar|build) ;; *) mode=build ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "thread mode: $mode"
       - name: Install

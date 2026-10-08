@@ -117,3 +117,66 @@ def test_heat_and_tone_are_measured_at_each_show_and_set_against_its_season(tmp_
     couture = [r for r in rows if not r["main"]]
     assert couture[0]["heat_z"] is None and couture[0]["season"] == "2017 SS couture"
     assert len(out["lines"]["h3"]) == 4 and (tmp_path / "thread" / "thread.csv").exists()
+
+
+def test_a_listing_read_elsewhere_is_merged_and_dates_outside_the_season_are_flagged(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    ref = tmp_path / "shows.csv"
+    ref.write_text("house,date,season,city,kind,note,verified,source\ndior,2017-09-26,SS18,Paris,show,,true,x\n")
+    monkeypatch.setattr(T, "SHOWS_REF", ref)
+    text = ("2019-11-28 | Dior Ready To Wear Spring Summer 2020 Paris | https://nowfashion.com/dior-ready-to-wear-spring-summer-2020-paris.md\n"
+            "2017-09-26 | Dior Ready To Wear Spring Summer 2018 Paris | https://nowfashion.com/dior-ready-to-wear-spring-summer-2018-paris.md\n"
+            "2017-06-24 | Dior Homme Menswear Spring Summer 2018 Paris | https://nowfashion.com/dior-homme-menswear-spring-summer-2018-paris.md\n"
+            "2018-05-25 | Dior Resort 2019 Chantilly | https://nowfashion.com/dior-resort-2019-chantilly.md\n"
+            "TOTAL: 4\n")
+    assert T.ingest("dior", text, "2026-10-08", "read through Claude's fetcher") == {"house": "dior", "rows": 4, "doubtful": 1}
+    T.ingest("chanel", "2017-10-03 | Chanel Ready To Wear Spring Summer 2018 Paris | https://nowfashion.com/chanel-rtw.md", "2026-10-08", "x")
+    rows = [json.loads(x) for x in (tmp_path / "thread" / "shows.jsonl").read_text().splitlines()]
+    assert {r["house"] for r in rows} == {"dior", "chanel"} and len(rows) == 5       # one house's ingest keeps the other's
+    bad = [r for r in rows if r["date_doubtful"]]
+    assert [r["date"] for r in bad] == ["2019-11-28"] and all(r["how"] for r in rows)
+    check = json.loads((tmp_path / "thread" / "calendar_check.json").read_text())
+    assert check["same_day"] == 1
+
+
+@pytest.mark.parametrize("row,ok", [
+    ({"category": "rtw", "season": "SS", "year": 2018, "date": "2017-09-26"}, True),
+    ({"category": "rtw", "season": "SS", "year": 2020, "date": "2019-11-28"}, False),
+    ({"category": "rtw", "season": "AW", "year": 2021, "date": "2021-03-08"}, True),
+    ({"category": "couture", "season": "AW", "year": 2019, "date": "2019-07-01"}, True),
+    ({"category": "men", "season": "SS", "year": 2018, "date": "2017-06-24"}, True),
+    ({"category": "men", "season": "AW", "year": 2018, "date": "2018-06-24"}, False),
+    ({"category": "resort", "season": "RE", "year": 2019, "date": "2018-05-25"}, True),
+])
+def test_dates_are_judged_against_the_weeks_their_kind_of_show_takes_place(row, ok):
+    assert T.in_window(row) is ok
+
+
+def test_a_compact_listing_names_everything_through_the_page_address(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    ref = tmp_path / "shows.csv"
+    ref.write_text("house,date,season,city,kind,note,verified,source\n")
+    monkeypatch.setattr(T, "SHOWS_REF", ref)
+    text = ("2026-09-25 | gucci-men-women-spring-summer-2027-milan\n2017-02-22 | gucci-ready-to-wear-fall-winter-2017-milan-2\n"
+            "2020-01-22 | maison-margiela-artisanal-couture-spring-summer-2020-paris\nTOTAL: 3\n")
+    assert T.ingest("gucci", text, "2026-10-08", "x")["rows"] == 3
+    rows = {r["date"]: r for r in (json.loads(x) for x in (tmp_path / "thread" / "shows.jsonl").read_text().splitlines())}
+    assert (rows["2026-09-25"]["category"], rows["2026-09-25"]["season"], rows["2026-09-25"]["year"]) == ("rtw", "SS", 2027)
+    assert rows["2017-02-22"]["city"] == "Milan" and rows["2017-02-22"]["url"] == f"{T.SITE}/gucci-ready-to-wear-fall-winter-2017-milan-2"
+    assert rows["2020-01-22"]["category"] == "couture" and not rows["2020-01-22"]["date_doubtful"]
+
+
+def test_a_show_the_data_has_not_caught_up_with_gets_no_heat(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    start = date(2017, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 for k in range(300)} for h in range(5)}
+    shows = [{"house": f"h{h}", "date": (start + timedelta(days=d)).isoformat(), "category": "rtw", "season": "SS",
+              "year": 2018, "city": "Paris"} for h in range(5) for d in (120, 298)]
+    out = T.build(shows, att, {})
+    by = {(r["house"], r["date"]): r for r in out["rows"]}
+    assert by[("h0", (start + timedelta(days=120)).isoformat())]["heat"] == 0.0
+    assert by[("h0", (start + timedelta(days=298)).isoformat())]["heat"] is None       # only two days after on file

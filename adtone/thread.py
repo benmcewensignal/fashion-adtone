@@ -3,7 +3,15 @@ how the news wrote about it, each set against the other shows of the same season
 shows where it stood season by season.
 
     python -m adtone.thread calendar     # the shows, from NOWFASHION's brand listings   -> data/thread/shows.jsonl
+    python -m adtone.thread ingest --house dior --file dior.txt --read 2026-10-08
+                                         # a listing read another way, merged in
     python -m adtone.thread build        # heat and tone for every show                   -> data/results/thread.json
+
+The calendar on file was read on 8 October 2026 through Claude's own fetcher, which the site's terms admit;
+its bot check turns GitHub's machines away, so `calendar` from a workflow mostly finds nothing and keeps what
+is on file. Its dates match the 85 shows verified from official calendars on the day for 77 and within a day
+for 79; 5 of those shows are not listed. A listed date outside the weeks its kind of show takes place (5 of
+900, mostly the day a collection was added to the site) is flagged and left out.
 
 The strands, all from sources the project already holds:
   heat       the jump in English Wikipedia views around the show: the peak from the day before to three days
@@ -62,8 +70,8 @@ SLUGS = {
     "alaia": ["alaia", "azzedine-alaia"], "dolce_gabbana": ["dolce-gabbana", "dolce-and-gabbana"],
     "max_mara": ["max-mara"], "brunello_cucinelli": ["brunello-cucinelli"], "zegna": ["zegna", "ermenegildo-zegna"],
 }
-CATEGORIES = [("ready to wear", "rtw"), ("couture", "couture"), ("menswear", "men"), ("pre fall", "prefall"),
-              ("resort", "resort"), ("cruise", "resort")]
+CATEGORIES = [("ready to wear", "rtw"), ("men women", "rtw"), ("couture", "couture"), ("menswear", "men"),
+              ("pre fall", "prefall"), ("resort", "resort"), ("cruise", "resort")]   # a co-ed show counts as ready-to-wear
 SEASONS = [("spring summer", "SS"), ("fall winter", "AW"), ("autumn winter", "AW"), ("pre fall", "PF"),
            ("resort", "RE"), ("cruise", "RE")]
 LINK = re.compile(r"\[(?P<title>[^\]]+)\]\((?P<url>[^)\s]+)\)")
@@ -104,7 +112,7 @@ def parse_title(title: str) -> dict:
         season = {"prefall": "PF", "resort": "RE"}[cat]
     m = re.search(r"\b(19|20)\d{2}\b", t)
     year = int(m.group(0)) if m else None
-    city = t[m.end():].strip().title() if m else ""
+    city = re.sub(r"\s+\d+$", "", t[m.end():].strip()).title() if m else ""     # 'milan 2': the site's second page
     return {"category": cat, "season": season, "year": year, "city": city or None}
 
 
@@ -124,12 +132,42 @@ def _get(sess, url: str, sleep=time.sleep):
     return None, "no answer"
 
 
+def _rows(house: str, entries: list[dict], read: str) -> list[dict]:
+    rows, seen = [], set()
+    for e in entries:
+        url = e["url"].removesuffix(".md")
+        if url in seen:
+            continue
+        seen.add(url)
+        row = {"house": house, "date": e["date"], **parse_title(e["title"]), "title": e["title"], "url": url,
+               "source": "nowfashion", "read": read}
+        row["date_doubtful"] = not in_window(row)
+        rows.append(row)
+    return rows
+
+
+def _merge(new: dict[str, list[dict]]) -> list[dict]:
+    """New listings replace a house's rows; a house with nothing new keeps what is on file."""
+    path = DIR / "shows.jsonl"
+    old = store.read_jsonl(path) if path.exists() else []
+    keep = [r for r in old if r["house"] not in new]
+    rows = keep + [r for rs in new.values() for r in rs]
+    rows.sort(key=lambda r: (r["house"], r["date"], r["category"], r["url"]))
+    DIR.mkdir(parents=True, exist_ok=True)
+    store.write_jsonl(path, rows)
+    check = check_calendar(rows)
+    (DIR / "calendar_check.json").write_text(json.dumps(check, indent=1) + "\n", encoding="utf-8")
+    return rows
+
+
 def calendar(sess=None, sleep=time.sleep, houses: list[str] | None = None) -> dict:
-    """Every show NOWFASHION lists for each house, from its brand page, kept once per page."""
+    """Every show NOWFASHION lists for each house, from its brand page, kept once per page. Fetched from here
+    (GitHub's machines meet the site's bot check, so this mostly finds nothing); a house the fetch misses
+    keeps the rows on file, which may have been read through Claude's own fetcher (ingest)."""
     import requests
     sess = sess or requests.Session()
     reg = registry.load()
-    rows, per, notes = [], {}, []
+    new, per, notes = {}, {}, []
     for h in reg.houses:
         if houses and h.id not in houses:
             continue
@@ -153,22 +191,53 @@ def calendar(sess=None, sleep=time.sleep, houses: list[str] | None = None) -> di
             continue
         slug, entries = found
         per[h.id] = {"slug": slug, "listed": len(entries), "possibly_cut": len(entries) == LISTING_CAP}
-        seen = set()
-        for e in entries:
-            if e["url"] in seen:
-                continue
-            seen.add(e["url"])
-            rows.append({"house": h.id, "date": e["date"], **parse_title(e["title"]), "title": e["title"],
-                         "url": e["url"].removesuffix(".md"), "source": "nowfashion"})
-    rows.sort(key=lambda r: (r["house"], r["date"], r["category"]))
-    DIR.mkdir(parents=True, exist_ok=True)
-    store.write_jsonl(DIR / "shows.jsonl", rows)
+        new[h.id] = _rows(h.id, entries, store.utc_now()[:10])
+    rows = _merge(new)
     check = check_calendar(rows)
-    (DIR / "calendar_check.json").write_text(json.dumps(check, indent=1) + "\n", encoding="utf-8")
-    out = {"shows": len(rows), "houses": sum(1 for v in per.values() if v["listed"]), "per_house": per,
+    out = {"shows": len(rows), "fetched_houses": len(new), "houses": len({r["house"] for r in rows}), "per_house": per,
            "notes": notes, "check": {k: v for k, v in check.items() if k != "rows"}}
     _log("calendar", **out)
     return out
+
+
+def ingest(house: str, text: str, read: str, how: str) -> dict:
+    """A house's listing read some other way (lines of 'YYYY-MM-DD | Title | URL'), merged in like a fetch."""
+    entries = []
+    for line in (text or "").splitlines():
+        parts = [x.strip() for x in line.split("|")]
+        if len(parts) >= 3 and DATE.fullmatch(parts[0]):
+            entries.append({"date": parts[0], "title": parts[1], "url": parts[2]})
+        elif len(parts) == 2 and DATE.fullmatch(parts[0]) and re.fullmatch(r"[a-z0-9-]+", parts[1]):
+            # 'YYYY-MM-DD | slug': the page's address names the house, kind, season, year and city
+            entries.append({"date": parts[0], "title": parts[1].replace("-", " "), "url": f"{SITE}/{parts[1]}"})
+    rows = _rows(house, entries, read)
+    for r in rows:
+        r["how"] = how
+    _merge({house: rows})
+    _log("ingest", house=house, rows=len(rows), doubtful=sum(r["date_doubtful"] for r in rows), how=how)
+    return {"house": house, "rows": len(rows), "doubtful": sum(r["date_doubtful"] for r in rows)}
+
+
+# The weeks in which each kind of show takes place, as (first, last) month-day, and the year relative to the
+# season's year. A listed date outside them is most likely the day a collection was added to the site.
+WINDOWS = {("rtw", "SS"): ((8, 15), (10, 31), -1), ("rtw", "AW"): ((1, 15), (4, 15), 0),
+           ("couture", "SS"): ((1, 1), (2, 28), 0), ("couture", "AW"): ((6, 15), (7, 31), 0),
+           ("men", "SS"): ((5, 15), (7, 20), -1), ("men", "AW"): ((1, 1), (2, 28), 0)}
+
+
+def in_window(r: dict) -> bool:
+    """Is the listed date inside the weeks this kind of show takes place? Kinds without fixed weeks (pre-fall,
+    resort, other) are not judged."""
+    w = WINDOWS.get((r.get("category"), r.get("season")))
+    if not w or not r.get("year"):
+        return True
+    (m0, d0), (m1, d1), off = w
+    y = r["year"] + off
+    try:
+        d = date.fromisoformat(r["date"])
+    except ValueError:
+        return False
+    return date(y, m0, d0) <= d <= date(y, m1, d1)
 
 
 def _reference(path=None) -> list[dict]:
@@ -228,7 +297,8 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     from . import attention as att_mod, press as press_mod
     from .runway import Panel, PressPanel, logged
     shows = shows if shows is not None else store.read_jsonl(DIR / "shows.jsonl")
-    shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR]
+    doubtful = sum(1 for s in shows if s.get("date_doubtful"))
+    shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR and not s.get("date_doubtful")]
     houses = sorted({s["house"] for s in shows})
     attention = attention if attention is not None else {h: att_mod.load_series(h) for h in houses}
     series = {h: logged(v) for h, v in attention.items() if v}
@@ -239,14 +309,18 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     pp = PressPanel(panel, {h: v for h, v in press.items() if v})
     main = main_category(shows)
     rows = []
+    def whole_peak(series: dict, d: date) -> bool:
+        """Every day from the day before to three days after is on file: a show the data has not yet caught
+        up with gets no value rather than a peak taken over part of its window."""
+        return all(d + timedelta(days=k) in series for k in range(-1, 4))
     for s in sorted(shows, key=lambda s: (s["house"], s["date"])):
         d = date.fromisoformat(s["date"])
         i, t = panel.row.get(s["house"]), (d - panel.start).days
         heat = None
-        if i is not None and 0 <= t < len(panel.days):
+        if i is not None and 0 <= t < len(panel.days) and whole_peak(attention.get(s["house"]) or {}, d):
             v = panel.spike[i, t]
             heat = None if np.isnan(v) else round(float(v), 4)
-        p = pp.at(s["house"], d) if i is not None else {}
+        p = pp.at(s["house"], d) if i is not None and whole_peak(press.get(s["house"]) or {}, d) else {}
         rows.append({"house": s["house"], "date": s["date"], "season": season_key(s), "category": s["category"],
                      "city": s.get("city"), "main": s["category"] == main.get(s["house"]), "url": s.get("url"),
                      "heat": heat,
@@ -282,7 +356,7 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     cover = {strand: sum(1 for r in rows if r["main"] and r[strand] is not None) for strand in ("heat", "surprise", "press", "tone")}
     out = {"generated_at": store.utc_now(),
            "status": "exploratory: descriptive, not in the pre-registration; no lasting attention is computed",
-           "shows": len(rows), "main_shows": sum(r["main"] for r in rows), "houses": len(lines),
+           "shows": len(rows), "left_out_doubtful_dates": doubtful, "main_shows": sum(r["main"] for r in rows), "houses": len(lines),
            "seasons": len(by_season), "with_value": cover, "main_category": main,
            "first": min((r["date"] for r in rows), default=None), "last": max((r["date"] for r in rows), default=None),
            "lines": dict(lines), "rows": rows}
@@ -304,7 +378,16 @@ def main(argv: list[str] | None = None) -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("calendar")
     sub.add_parser("build")
+    ig = sub.add_parser("ingest")
+    ig.add_argument("--house", required=True)
+    ig.add_argument("--file", required=True)
+    ig.add_argument("--read", required=True, help="the date the listing was read")
+    ig.add_argument("--how", default="read through Claude's fetcher")
     a = ap.parse_args(argv)
+    if a.cmd == "ingest":
+        from pathlib import Path
+        print(f"thread ingest: {ingest(a.house, Path(a.file).read_text(encoding='utf-8'), a.read, a.how)}")
+        return 0
     if a.cmd == "calendar":
         out = calendar()
         c = out["check"]
