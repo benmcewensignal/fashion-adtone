@@ -64,6 +64,10 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         run: python -m adtone.thread build
+      - name: The season benchmark, every collection against its season
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.benchmark
       - name: Persist
         if: always()
         timeout-minutes: 5

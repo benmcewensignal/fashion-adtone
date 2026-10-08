@@ -60,7 +60,7 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 15
         run: python -m adtone.family
-      - name: Runway to attention (Amendment 2, section 13)
+      - name: Runway to attention, and whether it lasts against ordinary days
         if: env.MODE == 'analyse'
         timeout-minutes: 20
         run: python -m adtone.runway

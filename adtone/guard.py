@@ -40,7 +40,7 @@ ALLOW = {
                "data/luxury/vectors/*.npz", "data/results/luxury.json", "data/results/luxury-v2.json",
                "data/provenance/luxury.jsonl"],
     "thread": ["data/thread/*.jsonl", "data/thread/*.json", "data/thread/*.csv", "data/results/thread.json",
-               "data/provenance/thread.jsonl"],
+               "data/results/benchmark.json", "data/results/benchmark.csv", "data/provenance/thread.jsonl"],
     "clothes": ["data/clothes/*.json", "data/clothes/*.jsonl", "data/provenance/clothes.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
