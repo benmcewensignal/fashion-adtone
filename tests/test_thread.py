@@ -221,3 +221,4 @@ def test_a_show_held_off_the_calendar_is_kept_once_its_date_is_verified(tmp_path
     posted_late = {"house": "dior", "date": "2019-11-28", "category": "rtw", "season": "SS", "year": 2020}
     assert T.doubtful(love_parade, ref) is False and T.doubtful(posted_late, ref) is True
     assert T.doubtful({**love_parade, "house": "prada"}, ref) is True        # another house's show does not vouch
+    assert T.vouched(love_parade, ref) is ref[0] and T.vouched(posted_late, ref) is None

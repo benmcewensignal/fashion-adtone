@@ -138,17 +138,21 @@ def _get(sess, url: str, sleep=time.sleep):
     return None, "no answer"
 
 
+def vouched(row: dict, ref: list[dict]) -> dict | None:
+    """The verified show of the same house within a day of a listed date, if there is one."""
+    try:
+        d = date.fromisoformat(row["date"])
+    except ValueError:
+        return None
+    near = [v for v in ref if v["house"] == row["house"] and abs((date.fromisoformat(v["date"]) - d).days) <= 1]
+    return near[0] if near else None
+
+
 def doubtful(row: dict, ref: list[dict]) -> bool:
     """A listed date outside the weeks its kind of show takes place, unless a verified show of the house falls
     within a day of it: a show held off the calendar (Gucci's Love Parade in Los Angeles in November 2021) is
     kept once its date is verified."""
-    if in_window(row):
-        return False
-    try:
-        d = date.fromisoformat(row["date"])
-    except ValueError:
-        return True
-    return not any(v["house"] == row["house"] and abs((date.fromisoformat(v["date"]) - d).days) <= 1 for v in ref)
+    return not in_window(row) and vouched(row, ref) is None
 
 
 def _rows(house: str, entries: list[dict], read: str) -> list[dict]:
@@ -321,6 +325,12 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
         ref = _reference()
         shows = [{**s, "date_doubtful": doubtful(s, ref)} if s.get("year") else s
                  for s in store.read_jsonl(DIR / "shows.jsonl")]
+        # a show kept off the calendar takes its place from the verified record: the listing's title can
+        # carry the usual city (NOWFASHION files the Love Parade under Milan)
+        for s in shows:
+            v = None if not s.get("year") or in_window(s) else vouched(s, ref)
+            if v and v.get("city"):
+                s["city"] = v["city"]
     n_doubtful = sum(1 for s in shows if s.get("date_doubtful"))
     shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR and not s.get("date_doubtful")]
     houses = sorted({s["house"] for s in shows})
