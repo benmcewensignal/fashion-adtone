@@ -12,6 +12,8 @@ run-name: luxury ${{ inputs.mode || 'kick' }}
 # all:    deploy, read, check, embed, analyse. Every reading resumes where it stopped.
 # v2:     deploy, then the new instrument (tone-v2, pairs-v2, composition-v1) on the bake-off's pictures,
 #         judged by the rules frozen with it (data/luxury/bakeoff_v2.json); composition for every picture
+# read-v2: deploy, then every picture on what went forward in v2 (data/luxury/plan-v2.json): tone-v2,
+#         the kept axes' comparisons, positions, composition, and the readings (data/results/luxury-v2.json)
 # Editing .github/kick/luxury starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -19,7 +21,7 @@ on:
       mode:
         type: choice
         default: fetch
-        options: [fetch, deploy, bakeoff, read, check, embed, analyse, all, v2]
+        options: [fetch, deploy, bakeoff, read, check, embed, analyse, all, v2, read-v2]
   push:
     branches: [main]
     paths: [".github/kick/luxury"]
@@ -53,7 +55,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/luxury | awk '{print $1}'); fi
-          case "$mode" in fetch|deploy|bakeoff|read|check|embed|analyse|all|v2) ;; *) mode=fetch ;; esac
+          case "$mode" in fetch|deploy|bakeoff|read|check|embed|analyse|all|v2|read-v2) ;; *) mode=fetch ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "luxury mode: $mode"
       - name: Install
@@ -66,7 +68,7 @@ jobs:
         run: set -o pipefail; python -m adtone.luxury fetch --budget 160 2>&1 | tee -a /tmp/luxury.log
 
       - name: Deploy the open readers to read from the picture volume
-        if: steps.m.outputs.mode == 'deploy' || steps.m.outputs.mode == 'bakeoff' || steps.m.outputs.mode == 'all' || steps.m.outputs.mode == 'v2'
+        if: steps.m.outputs.mode == 'deploy' || steps.m.outputs.mode == 'bakeoff' || steps.m.outputs.mode == 'all' || steps.m.outputs.mode == 'v2' || steps.m.outputs.mode == 'read-v2'
         timeout-minutes: 45
         run: |
           set -o pipefail
@@ -138,6 +140,29 @@ jobs:
         continue-on-error: true
         timeout-minutes: 20
         run: set -o pipefail; python -m adtone.luxury v2-report 2>&1 | tee -a /tmp/luxury.log
+      - name: "v2: every picture, read on tone-v2"
+        if: steps.m.outputs.mode == 'read-v2'
+        continue-on-error: true
+        timeout-minutes: 80
+        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what tone --instrument v2 --budget 70 2>&1 | tee -a /tmp/luxury.log
+      - name: "v2: every comparison on the axes that went forward, both orders"
+        if: steps.m.outputs.mode == 'read-v2'
+        continue-on-error: true
+        timeout-minutes: 140
+        run: set -o pipefail; python -m adtone.luxury read --reader qwen3 --what comparisons --instrument v2 --budget 130 2>&1 | tee -a /tmp/luxury.log
+      - name: "v2: positions, and composition for any picture not yet measured"
+        if: steps.m.outputs.mode == 'read-v2'
+        continue-on-error: true
+        timeout-minutes: 45
+        run: |
+          set -o pipefail
+          python -m adtone.luxury positions --reader qwen3 --instrument v2 2>&1 | tee -a /tmp/luxury.log || echo "::warning::positions stopped"
+          python -m adtone.luxury composition --budget 30 2>&1 | tee -a /tmp/luxury.log || echo "::warning::composition stopped"
+      - name: "v2: the readings"
+        if: steps.m.outputs.mode == 'read-v2'
+        continue-on-error: true
+        timeout-minutes: 45
+        run: set -o pipefail; python -m adtone.luxury analyse --instrument v2 2>&1 | tee -a /tmp/luxury.log
       - name: Every picture, the registered questions
         if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'all'
         continue-on-error: true

@@ -56,16 +56,18 @@ def _log(event: str, **kw) -> None:
     store.append_jsonl(PROV, [{"at": store.utc_now(), "event": event, **kw}])
 
 
-def plan() -> dict:
-    """What the bake-off decided for this reading, recorded before the reading starts: which axes are kept,
+def plan(v: str = "v1") -> dict:
+    """What the bake-off decided for a reading, recorded before the reading starts: which axes are kept,
     and whether the comparisons are taken as the reader's written answers ("answers") or as the weight it
-    puts on each answer ("probs"). With no plan, every axis, as written answers."""
-    path = DIR / "plan.json"
+    puts on each answer ("probs"); for a later instrument version, also which questions and measures went
+    forward. v1's plan is plan.json, a later version's plan-<v>.json. With no plan for v1, every axis, as
+    written answers; a later version is not read at all without one."""
+    path = DIR / ("plan.json" if v == "v1" else f"plan-{v}.json")
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
-def _kept_axes(all_axes) -> list[str]:
-    p = plan()
+def _kept_axes(all_axes, v: str = "v1") -> list[str]:
+    p = plan(v)
     return sorted(all_axes) if "axes" not in p else [a for a in sorted(all_axes) if a in set(p["axes"])]
 
 
@@ -252,29 +254,40 @@ def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, 
     return n
 
 
-def read(reader: str, what: str, budget_min: float = 280) -> dict:
-    """tone: tone-v1 for every picture; pairs: every comparison of the design on the kept axes, both orders,
-    as written answers; probs: the same comparisons as the weight the reader puts on each answer;
-    comparisons: whichever of the two the plan names (nothing when it keeps no axis); check: Claude reads
-    the check set (tone, and the kept axes' comparisons). Picks up where an earlier run stopped."""
+def read(reader: str, what: str, budget_min: float = 280, v: str = "v1") -> dict:
+    """tone: the instrument's tone rubric for every picture; pairs: every comparison of the design on the kept
+    axes, both orders, as written answers; probs: the same comparisons as the weight the reader puts on each
+    answer; comparisons: whichever of the two the plan names (nothing when it keeps no axis); check: Claude
+    reads the check set (tone, and the kept axes' comparisons; v1 only). v is the instrument version: v1
+    (tone-v1, pairs-v1) or v2 (tone-v2, pairs-v2), each with its own plan and its own files. Picks up where
+    an earlier run stopped."""
     from .score import json_schema, load_rubric
     t0 = time.monotonic()
     deadline = t0 + budget_min * 60
     out_dir = DIR / "readings"
     out_dir.mkdir(parents=True, exist_ok=True)
-    spec = bakeoff._pairs_rubric()
+    tone_v, pairs_v = f"tone-{v}", f"pairs-{v}"
+    if v != "v1" and not plan(v):
+        _log("read", reader=reader, what=what, instrument=v, note="no plan for this version")
+        return {"note": f"no plan for {v}: the bake-off test decides first"}
+    if v != "v1" and what == "check":
+        return {"note": "the standing check is v1's"}
+    spec = bakeoff._pairs_rubric(pairs_v)
     axes = {a["id"]: a for a in spec["axes"]}
-    kept = _kept_axes(axes)
+    kept = _kept_axes(axes, v)
     if what == "comparisons":
         if not kept:
-            _log("read", reader=reader, what=what, note="the plan keeps no axis")
+            _log("read", reader=reader, what=what, instrument=v, note="the plan keeps no axis")
             return {"comparisons": "the plan keeps no axis"}
-        what = "probs" if plan().get("comparisons") == "probs" else "pairs"
+        what = "probs" if plan(v).get("comparisons") == "probs" else "pairs"
+    if v != "v1" and what == "tone" and not plan(v).get("questions"):
+        _log("read", reader=reader, what=what, instrument=v, note="the plan keeps no question")
+        return {"tone": "the plan keeps no question"}
     pics = found()
     result = {}
     if what == "probs":
         pairs = {ax: es for ax, es in design()["reader"].items() if ax in kept}
-        out = out_dir / f"{reader}-probs.jsonl"
+        out = out_dir / f"{reader}-probs{_suffix(pairs_v)}.jsonl"
         have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("p_first") is not None else None)
         todo = [j for j in _both_orders(pairs) if j not in have]
         n = _on_modal(reader, "compare_probs_from", [todo[i:i + 64] for i in range(0, len(todo), 64)],
@@ -284,9 +297,9 @@ def read(reader: str, what: str, budget_min: float = 280) -> dict:
                                            for (ax, a, b), pf in zip(part, probs)], out, deadline)
         result["probs"] = {"asked": len(todo), "rows": n}
     if what in ("tone", "check"):
-        rub = load_rubric()
+        rub = load_rubric(tone_v)
         shas = sorted(pics) if what == "tone" else check_set()["pictures"]
-        out = out_dir / f"{reader}-tone.jsonl"
+        out = out_dir / f"{reader}-tone{_suffix(tone_v)}.jsonl"
         todo = [s for s in shas if s not in _done(out, lambda r: r["sha"])]
         if reader in APPS:
             schema = json_schema(rub)
@@ -304,7 +317,7 @@ def read(reader: str, what: str, budget_min: float = 280) -> dict:
     if what in ("pairs", "check"):
         pairs = design()["reader"] if what == "pairs" else check_set()["pairs"]
         pairs = {ax: es for ax, es in pairs.items() if ax in kept}
-        out = out_dir / f"{reader}-pairs.jsonl"
+        out = out_dir / f"{reader}-pairs{_suffix(pairs_v)}.jsonl"
         have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("answer") else None)
         todo = [j for j in _both_orders(pairs) if j not in have]
         if reader in APPS:
@@ -325,7 +338,7 @@ def read(reader: str, what: str, budget_min: float = 280) -> dict:
                 store.append_jsonl(out, rows)
                 n += len(rows)
         result["pairs"] = {"asked": len(todo), "rows": n}
-    _log("read", reader=reader, what=what, seconds=round(time.monotonic() - t0), **result)
+    _log("read", reader=reader, what=what, instrument=v, seconds=round(time.monotonic() - t0), **result)
     return result
 
 
@@ -333,18 +346,19 @@ def embed(model: str) -> dict:
     return bakeoff.embed(model, shas=sorted(found()), vol_dir=VOL_DIR, out=DIR / "vectors" / f"{model}.npz", log=_log)
 
 
-def positions(reader: str = "qwen3") -> dict:
+def positions(reader: str = "qwen3", v: str = "v1") -> dict:
     """Each picture's place on each kept axis (Bradley and Terry, with the first-position bias fitted
     alongside), from every comparison the reader answered: its written answers, or, when the plan says so,
     the weight it put on "first" against "second"."""
-    as_probs = plan().get("comparisons") == "probs"
-    f = DIR / "readings" / f"{reader}-{'probs' if as_probs else 'pairs'}.jsonl"
+    as_probs = plan(v).get("comparisons") == "probs"
+    sfx = _suffix(f"pairs-{v}")
+    f = DIR / "readings" / f"{reader}-{'probs' if as_probs else 'pairs'}{sfx}.jsonl"
     rows = [r for r in store.read_jsonl(f) if (r.get("p_first") is not None if as_probs else r.get("answer"))] \
         if f.exists() else []
     shas = sorted(found())
     idx = {s: i for i, s in enumerate(shas)}
     pos, info = {}, {}
-    for ax in _kept_axes({r["axis"] for r in rows}):
+    for ax in _kept_axes({r["axis"] for r in rows}, v):
         rr = [r for r in rows if r["axis"] == ax and r["first"] in idx and r["second"] in idx]
         y = [float(r["p_first"]) for r in rr] if as_probs else [1.0 if r["answer"] == "first" else 0.0 for r in rr]
         th, beta = bakeoff.bradley_terry(len(shas), np.array([idx[r["first"]] for r in rr]),
@@ -353,8 +367,8 @@ def positions(reader: str = "qwen3") -> dict:
                         minlength=len(shas))
         pos[ax] = {s: (round(float(th[i]), 4) if n[i] else None) for s, i in idx.items()}
         info[ax] = {"judgements": len(rr), "first_bias": round(beta, 3), "pictures": int((n > 0).sum())}
-    store.write_jsonl(DIR / f"positions-{reader}.jsonl", [{"sha": s, **{ax: pos[ax][s] for ax in pos}} for s in shas])
-    _log("positions", reader=reader, axes=info)
+    store.write_jsonl(DIR / f"positions-{reader}{sfx}.jsonl", [{"sha": s, **{ax: pos[ax][s] for ax in pos}} for s in shas])
+    _log("positions", reader=reader, instrument=v, axes=info)
     return info
 
 
@@ -371,10 +385,10 @@ def _standard(table: dict[str, dict[str, float]], keys: list[str]) -> dict[str, 
     return {s: X[i] for i, s in enumerate(shas)}
 
 
-def vectors(kind: str, reader: str = "qwen3", axes: list[str] | None = None) -> dict[str, np.ndarray]:
+def vectors(kind: str, reader: str = "qwen3", axes: list[str] | None = None, v: str = "v1") -> dict[str, np.ndarray]:
     """A picture's vector: clip (today's fingerprint) or a style model's (csd, dino, fashion), each a
-    direction; positions (the reader's place for the picture on each axis, or the axes given) or pixels
-    (colour and light), each in standard units."""
+    direction; positions (the reader's place for the picture on each axis, or the axes given), pixels
+    (colour and light) or composition (the measures the plan keeps), each in standard units."""
     if kind == "clip":
         from .embed import VectorStore
         from . import homepages
@@ -390,19 +404,24 @@ def vectors(kind: str, reader: str = "qwen3", axes: list[str] | None = None) -> 
         with np.load(f, allow_pickle=False) as z:
             return {str(s): v.astype(np.float64) / (np.linalg.norm(v.astype(np.float64)) or 1.0) for s, v in zip(z["shas"], z["vecs"])}
     if kind == "positions":
-        rows = {r["sha"]: r for r in store.read_jsonl(DIR / f"positions-{reader}.jsonl")}
+        rows = {r["sha"]: r for r in store.read_jsonl(DIR / f"positions-{reader}{_suffix(f'pairs-{v}')}.jsonl")}
         keys = axes or sorted({k for r in rows.values() for k in r if k != "sha"})
         return _standard(rows, keys)
+    if kind == "composition":
+        from . import composition
+        keys = _measures(v)
+        return _standard(_composition(), keys) if keys else {}
     if kind == "pixels":
         rows = {r["sha"]: r.get("pixel") or {} for r in store.read_jsonl(DIR / "pictures.jsonl") if r.get("found")}
         return _standard(rows, bakeoff.PIXEL_KEYS)
     raise ValueError(kind)
 
 
-def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None = None) -> list[dict]:
+def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None = None, v: str = "v1") -> list[dict]:
     """The homepage pictures as adtone.readings takes them: every showing of every picture fetched again,
-    with the answers `reader` gave (tone-v1), the kind of picture as that reader saw it, and the vector
-    chosen. Today's fingerprint stays under "dup", for telling two crops of one picture."""
+    with the answers `reader` gave (tone-v1, or the instrument version's tone rubric, keeping only the answers
+    its plan keeps), the kind of picture as that reader saw it, and the vector chosen. Today's fingerprint
+    stays under "dup", for telling two crops of one picture."""
     from . import homepages
     from .character import period_of
     answers = {}
@@ -412,8 +431,11 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
                 if r.get("status") == "ok" and r.get("output"):
                     answers[r["sha"]] = r["output"]
     else:
-        answers = _tone_of(reader)
-    vecs = vectors(vec, "qwen3" if reader == "today" else reader, axes)
+        answers = _tone_of(reader, v)
+    if v != "v1":
+        keep = set(plan(v).get("questions", [])) | {"creative_type", "category"}
+        answers = {s: {k: x for k, x in o.items() if k in keep} for s, o in answers.items()}
+    vecs = vectors(vec, "qwen3" if reader == "today" else reader, axes, v)
     dup = vectors("clip") if vec != "clip" else vecs
     out, seen = [], set()
     for f in sorted(homepages.paths()["captures"].glob("*.jsonl")):
@@ -433,6 +455,26 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
 
 
 READINGS = ("clip", "positions", "pixels", "csd", "dino", "fashion")
+READINGS_V2 = ("clip", "positions", "pixels", "composition")
+
+
+def _measures(v: str) -> list[str]:
+    """The composition measures a version's plan keeps (every measure when it names none)."""
+    from . import composition
+    p = plan(v)
+    return list(p["measures"]) if "measures" in p else list(composition.KEYS)
+
+
+def _spec(v: str) -> dict:
+    """The tone rubric's specification as the readings take it: for a later version, only the questions its
+    plan keeps (and its moods only if mood went forward)."""
+    from .score import load_rubric
+    spec = load_rubric(f"tone-{v}").spec
+    if v == "v1":
+        return spec
+    keep = set(plan(v).get("questions", []))
+    return {**spec, "enums": {k: x for k, x in spec["enums"].items() if k in keep or k in ("creative_type", "category")},
+            "lists": {"mood": {**spec["lists"]["mood"], "options": spec["lists"]["mood"]["options"] if "mood" in keep else []}}}
 
 
 def within_brands(images: list[dict], keys: list[str], min_per_brand: int = 12) -> dict:
@@ -505,9 +547,9 @@ def within_brands(images: list[dict], keys: list[str], min_per_brand: int = 12) 
                     "against the variation inside brands"}
 
 
-def _tone_of(name: str) -> dict[str, dict]:
+def _tone_of(name: str, v: str = "v1") -> dict[str, dict]:
     out = {}
-    for r in store.read_jsonl(DIR / "readings" / f"{name}-tone.jsonl"):
+    for r in store.read_jsonl(DIR / "readings" / f"{name}-tone{_suffix(f'tone-{v}')}.jsonl"):
         if r.get("out"):
             out[r["sha"]] = r["out"]
     return out
@@ -569,33 +611,34 @@ def check_report(reader: str = "qwen3") -> dict:
     return {"pictures": len(both), "tone_kappa": tone, "pairs": pairs}
 
 
-def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
+def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS, v: str = "v1") -> dict:
     """adtone.readings run on the new instrument: the reader's answers each time, beside each vector in
-    turn (directions compared by cosine, measures by distance)."""
+    turn (directions compared by cosine, measures by distance). v2 writes luxury-v2.json beside v1's."""
     from . import readings, registry
-    from .score import load_rubric
-    spec, reg = load_rubric().spec, registry.load()
-    out = {"generated_at": store.utc_now(), "reader": reader,
+    spec, reg = _spec(v), registry.load()
+    out = {"generated_at": store.utc_now(), "reader": reader, "instrument": v if v == "v1" else {**V2, "plan": plan(v)},
            "status": "exploratory: the luxury reading, not in the pre-registration", "readings": {},
-           "check": check_report(reader)}
+           "check": check_report(reader) if v == "v1" else {"note": "the standing check is v1's"}}
     for kind in which:
-        ims = load_images(reader, kind)
+        ims = load_images(reader, kind, v=v)
         if len(ims) < 50:
             out["readings"][kind] = {"note": f"only {len(ims)} pictures with answers and this vector"}
             continue
         t0 = time.monotonic()
-        res = readings.run(ims, spec, reg, euclid=kind in ("positions", "pixels"))
+        res = readings.run(ims, spec, reg, euclid=kind in ("positions", "pixels", "composition"))
         if kind == "pixels":
             res["within_brands"] = within_brands(ims, bakeoff.PIXEL_KEYS)
         elif kind == "positions":
-            rows = store.read_jsonl(DIR / f"positions-{reader}.jsonl")
+            rows = store.read_jsonl(DIR / f"positions-{reader}{_suffix(f'pairs-{v}')}.jsonl")
             res["within_brands"] = within_brands(ims, sorted({k for r in rows for k in r if k != "sha"}))
+        elif kind == "composition":
+            res["within_brands"] = within_brands(ims, _measures(v))
         res["seconds"] = round(time.monotonic() - t0)
         out["readings"][kind] = res
-    path = config.RESULTS_DIR / "luxury.json"
+    path = config.RESULTS_DIR / ("luxury.json" if v == "v1" else f"luxury-{v}.json")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, indent=1, ensure_ascii=False, default=float) + "\n", encoding="utf-8")
-    _log("analyse", reader=reader, readings={k: v.get("images") for k, v in out["readings"].items()})
+    _log("analyse", reader=reader, instrument=v, readings={k: x.get("images") for k, x in out["readings"].items()})
     return out
 
 
@@ -1053,10 +1096,12 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     r.add_argument("--what", choices=["tone", "pairs", "probs", "comparisons", "check"], required=True)
     r.add_argument("--budget", type=float, default=280, help="minutes before no new batch is sent")
+    r.add_argument("--instrument", choices=["v1", "v2"], default="v1")
     e = sub.add_parser("embed")
     e.add_argument("--model", choices=sorted(bakeoff.EMBEDDERS), required=True)
     ps = sub.add_parser("positions")
     ps.add_argument("--reader", default="qwen3")
+    ps.add_argument("--instrument", choices=["v1", "v2"], default="v1")
     bo = sub.add_parser("bakeoff")
     bo.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     bo.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
@@ -1072,7 +1117,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("bakeoff-report")
     an = sub.add_parser("analyse")
     an.add_argument("--reader", default="qwen3")
-    an.add_argument("--which", nargs="*", default=list(READINGS))
+    an.add_argument("--which", nargs="*", default=None)
+    an.add_argument("--instrument", choices=["v1", "v2"], default="v1")
     a = ap.parse_args(argv)
     if a.cmd == "corpus":
         c = corpus()
@@ -1082,11 +1128,11 @@ def main(argv: list[str] | None = None) -> int:
         rows = fetch(budget_min=a.budget)
         print(f"{sum(r['found'] for r in rows)} of {len(rows)} pictures found")
     elif a.cmd == "read":
-        print(f"luxury read {a.reader} {a.what}: {read(a.reader, a.what, a.budget)}")
+        print(f"luxury read {a.reader} {a.what} {a.instrument}: {read(a.reader, a.what, a.budget, a.instrument)}")
     elif a.cmd == "embed":
         print(f"luxury embed {a.model}: {embed(a.model)}")
     elif a.cmd == "positions":
-        print(f"luxury positions {a.reader}: {positions(a.reader)}")
+        print(f"luxury positions {a.reader} {a.instrument}: {positions(a.reader, a.instrument)}")
     elif a.cmd == "bakeoff":
         print(f"luxury bakeoff {a.reader} {a.what} {a.version or 'v1'}: {bakeoff_read(a.reader, a.what, version=a.version)}")
     elif a.cmd == "recognise":
@@ -1104,7 +1150,8 @@ def main(argv: list[str] | None = None) -> int:
         print("luxury bakeoff-report: " + json.dumps({k: (v.get("right") if isinstance(v, dict) else v)
                                                        for k, v in rep["recognition"].items()}))
     elif a.cmd == "analyse":
-        out = analyse(a.reader, tuple(a.which))
+        which = tuple(a.which) if a.which else (READINGS if a.instrument == "v1" else READINGS_V2)
+        out = analyse(a.reader, which, a.instrument)
         print("luxury analyse: " + ", ".join(f"{k}: {v.get('images', v.get('note'))}" for k, v in out["readings"].items()))
     return 0
 

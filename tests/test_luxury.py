@@ -468,3 +468,57 @@ def test_the_answers_follow_the_rubric_they_were_read_with():
     ans = readings.Answers(v2, {"modality": {"keep": True}, "production": {"keep": True}, "mood:serene": {"keep": True}})
     assert ans.qs == ["modality"] and ans.moods == ["serene"]
     assert ans.row({"modality": "reduced", "mood": ["serene"]}).tolist() == [0, 0, 1, 0, 1, 0]
+
+
+def test_a_later_version_reads_only_what_its_plan_kept_into_its_own_files(tmp_path, monkeypatch):
+    import modal
+    _corpus(tmp_path, monkeypatch)
+    hidden = {s: i for i, s in enumerate(sorted(L.found()))}
+    asked = {"tone": [], "probs": []}
+
+    class Method:
+        def __init__(self, key, fn):
+            self.key, self.fn = key, fn
+
+        def starmap(self, gen, return_exceptions=False):
+            for args in gen:
+                asked[self.key].append(args)
+                yield self.fn(*args)
+
+    v2 = '{"creative_type": "brand_image", "category": "ready_to_wear", "light": "mixed", "colour_temperature": "warm", ' \
+         '"saturation": "muted", "setting": "interior", "people": "one", "gaze": "away", "expression": "neutral", ' \
+         '"pose": "posed_static", "framing": "medium", "vertical_angle": "eye_level", "horizontal_angle": "oblique", ' \
+         '"placement": "centre", "modality": "reduced", "open_space": "much", "objects": "one", "arrangement": "single", ' \
+         '"head_cant": "no", "self_touch": "no", "body_level": "upright", "withdrawal": "no", "skin_shown": "covered", ' \
+         '"primary_subject": "garment", "styling_register": "casual", "rhetoric": "none", "text_in_image": "none", ' \
+         '"mood": ["serene"], "street_couture_axis": 3, "confidence": 0.8}'
+
+    class Fake:
+        read_from = Method("tone", lambda folder, shas, system, schema: [v2 for _ in shas])
+        compare_probs_from = Method("probs", lambda folder, pairs, system, prompts:
+                                    [float(1 / (1 + np.exp(-(0.3 * (hidden[a] - hidden[b]))))) for a, b in pairs])
+    monkeypatch.setattr(modal.Cls, "from_name", lambda app, name: (lambda: Fake()))
+    assert "no plan" in L.read("qwen3", "tone", v="v2")["note"]               # nothing is read before the test decides
+    assert asked["tone"] == []
+    (L.DIR / "plan-v2.json").write_text(json.dumps({"comparisons": "probs", "axes": ["intimate"],
+                                                    "questions": ["modality", "open_space"], "measures": ["open_space"]}))
+    t = L.read("qwen3", "tone", v="v2")
+    assert t["tone"]["rows"] == len(hidden)
+    assert "open_space: how much of the frame" in asked["tone"][0][2]          # the v2 prompt was sent
+    rows = store.read_jsonl(L.DIR / "readings" / "qwen3-tone-v2.jsonl")
+    assert all(r["version"] == "tone-v2" and r["out"]["modality"] == "reduced" for r in rows)
+    assert not (L.DIR / "readings" / "qwen3-tone.jsonl").exists()
+    c = L.read("qwen3", "comparisons", v="v2")
+    assert c["probs"]["rows"] == 2 * len(L.design()["reader"]["intimate"])
+    assert "naturalistic" not in asked["probs"][0][3][0] and "brought close" in asked["probs"][0][3][0]   # pairs-v2's words
+    assert {r["axis"] for r in store.read_jsonl(L.DIR / "readings" / "qwen3-probs-v2.jsonl")} == {"intimate"}
+    assert set(L.positions("qwen3", "v2")) == {"intimate"}
+    assert (L.DIR / "positions-qwen3-v2.jsonl").exists() and not (L.DIR / "positions-qwen3.jsonl").exists()
+    spec = L._spec("v2")
+    assert set(spec["enums"]) == {"creative_type", "category", "modality", "open_space"}
+    assert spec["lists"]["mood"]["options"] == []                             # mood did not go forward
+    from adtone import character
+    enc = character.Encoder(spec)
+    r = enc.row({"modality": "reduced", "open_space": "much"})
+    assert enc.distance(r, r) == 0.0
+    assert L.read("qwen3", "check", v="v2") == {"note": "the standing check is v1's"}

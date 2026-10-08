@@ -119,7 +119,8 @@ class Encoder:
         """Mean over questions of total variation distance; the moods' mean absolute difference in shares
         and the scale's absolute difference count as two more questions."""
         parts = [0.5 * float(np.abs(a[s:e] - b[s:e]).sum()) for _, s, e in self.blocks]
-        parts.append(float(np.abs(a[self.mood_at:self.scale_at] - b[self.mood_at:self.scale_at]).mean()))
+        if self.moods:          # a rubric version whose moods did not go forward has none
+            parts.append(float(np.abs(a[self.mood_at:self.scale_at] - b[self.mood_at:self.scale_at]).mean()))
         if not (np.isnan(a[self.scale_at]) or np.isnan(b[self.scale_at])):
             parts.append(abs(float(a[self.scale_at] - b[self.scale_at])))
         return float(np.mean(parts))
