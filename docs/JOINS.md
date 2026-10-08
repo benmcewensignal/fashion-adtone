@@ -33,7 +33,11 @@ started by editing its file in `.github/kick/`.
   surprise against the house's earlier shows, the lasting lift, press reception and its spike,
   momentum, and inside the archive the reach after the show and the campaign's alignment with the
   house's show-period ads. That table is written to `data/results/runway_events.csv`; the sticky
-  test, the bridge and what the clothes add all read it. `adtone.runway`.
+  test, the bridge and what the clothes add all read it. `adtone.runway`. The Thread is the part of
+  that row that needs no registered test, for every show from 2015 on a calendar read from
+  NOWFASHION: the spike, its surprise, press and its tone, each also placed within its season, and no
+  lasting lift. `adtone.thread`, `data/results/thread.json`. Both read the English page views with
+  renamed articles joined.
 - **By month.** Each house's four advertising readings (movement, distance from the market,
   consistency, drift towards the leader) set against next month's curiosity and, more thinly, desire
   and money: the forecast. Amendment 2, section 8.

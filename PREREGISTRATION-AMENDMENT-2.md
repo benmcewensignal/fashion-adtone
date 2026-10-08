@@ -265,7 +265,8 @@ year per house, so this rests on many events rather than ten debuts.
 - **Events.** Show dates from `reference/shows.csv`, verified rows only, each with its source. Older
   seasons are added from the published fashion-week calendars before any result is read.
 - **Spike.** The peak of log daily Wikipedia page views from the day before a show to three days after,
-  over the mean from 60 to 10 days before. **Surprise** is the spike less the mean spike of the house's
+  over the mean from 60 to 10 days before. Views are English, with a renamed article's earlier titles
+  joined (`adtone/wikiviews.py`), so a house whose article moved keeps its years before the move. **Surprise** is the spike less the mean spike of the house's
   earlier events, once it has two.
 - **Lasting attention.** The mean from 30 to 120 days after, over the same baseline, less the median
   house's change over the same days. A window needs 80 per cent of its days.

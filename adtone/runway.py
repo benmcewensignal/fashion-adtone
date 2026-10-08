@@ -388,13 +388,15 @@ def write_table(rows: list[dict], path) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     from .analysis import amendment_frozen, load_concepts
-    from .attention import load_series
+    from .wikiviews import load_series
     if not amendment_frozen():
         print("runway analysis waits until Amendment 2 is frozen: its hypotheses are registered there")
         return 0
     reg = registry.load()
     houses = [h.id for h in reg.houses]
-    all_series = {h: logged(load_series(h)) for h in houses}
+    # English views with a renamed article's earlier titles joined: six houses' articles moved, and the
+    # current title alone would start their series years after July 2015
+    all_series = {h: logged(load_series(h, "en")) for h in houses}
     panel = Panel({h: s for h, s in all_series.items() if s})
     shows = load_shows()
     by_house: dict[str, list[date]] = {}

@@ -15,7 +15,8 @@ for 79; 5 of those shows are not listed. A listed date outside the weeks its kin
 
 The strands, all from sources the project already holds:
   heat       the jump in English Wikipedia views around the show: the peak from the day before to three days
-             after, over the mean from 60 to 10 days before (log views), as in Amendment 2, section 13;
+             after, over the mean from 60 to 10 days before (log views), the windows of Amendment 2, section 13,
+             on the views with a renamed article's earlier titles joined (adtone/wikiviews);
   surprise   that jump less the mean jump of the house's earlier shows of the same kind, once it has two;
   press      the jump in the number of news articles (GDELT), same windows;
   tone       the news tone on the show day and the three days after, less its mean from 60 to 10 days before
@@ -294,13 +295,14 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     """Heat, surprise, press and tone for every show from 2015, each also as a z-score within its season.
     No lasting attention is computed (see the module docstring)."""
     from datetime import timedelta
-    from . import attention as att_mod, press as press_mod
+    from . import press as press_mod, wikiviews
     from .runway import Panel, PressPanel, logged
     shows = shows if shows is not None else store.read_jsonl(DIR / "shows.jsonl")
     doubtful = sum(1 for s in shows if s.get("date_doubtful"))
     shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR and not s.get("date_doubtful")]
     houses = sorted({s["house"] for s in shows})
-    attention = attention if attention is not None else {h: att_mod.load_series(h) for h in houses}
+    # English views with a renamed article's earlier titles joined, so a house whose article moved keeps its past
+    attention = attention if attention is not None else {h: wikiviews.load_series(h, "en") for h in houses}
     series = {h: logged(v) for h, v in attention.items() if v}
     if not series:
         return {"note": "no page views on file"}

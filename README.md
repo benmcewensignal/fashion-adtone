@@ -232,8 +232,9 @@ Amendment 2, section 13b. How the pieces join is in `docs/JOINS.md`.
 
 `adtone.thread` follows every show of the panel's houses from 2015, one row each: the shows and their dates
 from NOWFASHION's brand listings (read through Claude's fetcher, since the site turns GitHub's machines
-away; 77 of the 85 shows verified from official calendars on the same day), how far
-Wikipedia views jumped around each one (heat, and surprise against the house's earlier shows), how far
+away; 77 of the 85 shows verified from official calendars on the same day), how far English
+Wikipedia views jumped around each one, with a renamed article's earlier titles joined (heat, and
+surprise against the house's earlier shows), how far
 news volume jumped (press) and how the news wrote about it against its usual tone (tone), each also as a
 z-score among the shows of the same season. Its output (`data/results/thread.json`, `data/thread/thread.csv`)
 is descriptive: it computes no lasting attention and no relation to anything after a show, which are
