@@ -31,7 +31,7 @@ their clothes look like.
   `adtone.composition` after `rubric/composition-v1.md`) is frozen before it reads anything and tested
   on the bake-off's pictures by its own fixed rules. See `docs/JOINS.md` for every source and its
   workflow.
-- Built and tested on synthetic data with known ground truth (326 tests).
+- Built and tested on synthetic data with known ground truth (341 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -239,6 +239,16 @@ news volume jumped (press) and how the news wrote about it against its usual ton
 z-score among the shows of the same season. Its output (`data/results/thread.json`, `data/thread/thread.csv`)
 is descriptive: it computes no lasting attention and no relation to anything after a show, which are
 Amendment 2's registered tests. NOWFASHION's write-ups are not used. Workflow `thread`, weekly.
+
+Each show's collection is then followed through the stages on windows fixed in `adtone/thread.py`
+(`data/thread/collections.jsonl`): the scene before it (ambassador appointments in the 180 days before),
+the show, the shop window (the homepages in the six months after), the campaigns and other things the
+house published (joined by the season their title names, or else by date, and sorted into collection,
+accessories, beauty, jewellery and watches, capsules and other), and the advertising in Amendment 2's two
+windows. Each record says which stages are filled. The show and the advertising are kept as separate
+channels with their own measures; the shared description of the clothes that would let them be compared
+is the next piece, and `adtone.looks` probes whether the houses' own sites, as the Wayback Machine holds
+them, carry the runway looks it would read. The thread workflow runs the probe as mode `looks`.
 
 ## The reader
 

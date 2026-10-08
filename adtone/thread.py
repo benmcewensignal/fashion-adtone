@@ -25,7 +25,9 @@ The strands, all from sources the project already holds:
   press      the jump in the number of news articles (GDELT), same windows;
   tone       the news tone on the show day and the three days after, less its mean from 60 to 10 days before
              (GDELT), the registered "reception" of section 13b.
-Each is also given as a z-score among the shows of the same season (category, season and year).
+Each is also given as a z-score among the shows of the same season (category, season and year). Each
+show's collection is then followed through the stages that come after it, on fixed windows, in
+data/thread/collections.jsonl (see `collections` below).
 
 Exploratory. Sections 13 and 13b of Amendment 2 register tests that relate these measures to the attention
 that lasts after a show. The Thread computes no lasting attention and no relation between its strands and
@@ -314,7 +316,7 @@ def _z(values: dict[int, float]) -> dict[int, float]:
     return {k: (round(float((x - v.mean()) / sd), 3) if sd > 0 else 0.0) for k, x in values.items()}
 
 
-def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
+def build(shows: list[dict] | None = None, attention=None, press=None, sources: dict | None = None) -> dict:
     """Heat, surprise, press and tone for every show from 2015, each also as a z-score within its season.
     No lasting attention is computed (see the module docstring)."""
     from datetime import timedelta
@@ -407,6 +409,7 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
            "seasons": len(by_season), "with_value": cover, "main_category": main,
            "first": min((r["date"] for r in rows), default=None), "last": max((r["date"] for r in rows), default=None),
            "lines": dict(lines), "rows": rows}
+    out["collections"] = collections(rows, main, sources)
     RESULTS.parent.mkdir(parents=True, exist_ok=True)
     RESULTS.write_text(json.dumps(out, indent=1, default=float) + "\n", encoding="utf-8")
     DIR.mkdir(parents=True, exist_ok=True)
@@ -416,8 +419,241 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
-    _log("build", shows=out["shows"], main=out["main_shows"], houses=out["houses"], with_value=cover)
+    _log("build", shows=out["shows"], main=out["main_shows"], houses=out["houses"], with_value=cover,
+         complete_chains=out["collections"]["complete_chains"])
     return out
+
+
+# ---------- collections: each show's collection followed through every stage ----------
+#
+# The Thread's unit is the collection: a house's show of one kind in one season. Each is followed through
+# the stages on windows fixed here, counted in days from the show, and every source joins it on house and
+# date or on the season a title names. Each stage keeps its own measures; the shared description of the
+# clothes, which would let the stages be compared, is not built yet. Nothing registered is computed: the
+# attention that lasts after a show is Amendment 2's outcome and waits for the amendment to be frozen.
+
+STAGES = {"scene": (-180, -1),          # ambassador appointments
+          "show": (-1, 3),              # heat, surprise, press, tone
+          "shop_window": (1, 182),      # the homepages
+          "show_period_ads": (-7, 21),  # Amendment 2, section 13: ads first seen around the show
+          "campaign_ads": (45, 150)}    # Amendment 2, section 13: ads first seen after it
+AMBASSADORS_FROM = date(2019, 1, 1)     # where reference/ambassadors.csv starts
+SHOP_FULL = 4                           # months with homepage readings, of the six or seven after a show
+OFFERING_DAYS = 183                     # a campaign naming no season joins the house's last main show this close
+TITLE_SEASON = re.compile(
+    r"(?P<w>pre[-\s]?fall|pre[-\s]?collection|resort|cruise|s/s|ss|spring(?:[-/\s]summer)?|summer|f/w|fw|a/w|aw|"
+    r"fall(?:[-/\s]winter)?|autumn(?:[-/\s]winter)?|winter)\W{0,3}(?:pre[-\s]?collection\W{0,3})?'?"
+    r"(?P<y>(?:19|20)\d{2}|\d{2})(?!\d)", re.I)
+TITLE_CATEGORY = [("couture", re.compile(r"couture", re.I)),
+                  ("men", re.compile(r"\bmen\b|\bmen's\b|menswear|\bhomme\b", re.I)),
+                  ("prefall", re.compile(r"pre[-\s]?fall|pre[-\s]?collection", re.I)),
+                  ("prespring", re.compile(r"pre[-\s]?spring", re.I)),
+                  ("resort", re.compile(r"cruise|resort", re.I))]
+LINES = [("beauty", re.compile(r"fragrance|parfum|perfume|beauty|make[-\s]?up|skincare|lipstick|cosmetic", re.I)),
+         ("jewellery_watches", re.compile(r"jewel|joaill|watch", re.I)),
+         ("accessories", re.compile(r"handbag|\bbags?\b|\bshoes?\b|footwear|eyewear|sunglass|leather goods|accessor|"
+                                    r"sneaker|charms", re.I)),
+         ("capsule", re.compile(r"capsule|collab", re.I))]
+CAMPAIGN_TITLE = re.compile(r"campaign|advertising", re.I)     # the season's own advertising, for its timing
+
+
+def title_season(title: str) -> str | None:
+    """The collection a campaign's title names, as a season key: 'Dior F/W 2023 Campaign' is '2023 AW rtw',
+    'Chanel Cruise 2014 Press Kit' '2014 RE resort', 'Dior Couture Spring 2007 Show' '2007 SS couture'."""
+    m = TITLE_SEASON.search(title or "")
+    if not m:
+        return None
+    w = re.sub(r"[^a-z]", "", m.group("w").lower())
+    y = int(m.group("y"))
+    if y < 100:
+        y += 2000 if y <= 40 else 1900
+    cat = next((c for c, rx in TITLE_CATEGORY if rx.search(title)), "rtw")
+    if cat == "prespring":
+        return f"{y} PS prespring"           # a pre-collection the calendar does not list: joined by date
+    if cat == "prefall" or w.startswith("pre"):
+        return f"{y} PF prefall"
+    if cat == "resort" or w in ("resort", "cruise"):
+        return f"{y} RE resort"
+    return f"{y} {'AW' if w[0] in 'fwa' else 'SS'} {cat}"
+
+
+def title_line(title: str, named: bool) -> str:
+    """What a campaign sells: beauty, jewellery and watches, or accessories, by its title; a collection when
+    it names a season and none of those; otherwise other (a film, an event, a face)."""
+    for line, rx in LINES:
+        if rx.search(title or ""):
+            return line
+    return "collection" if named else "other"
+
+
+def _entry_kind(r: dict) -> str:
+    t = (r.get("title") or "").lower()
+    if "lookbook" in t:
+        return "lookbook"
+    if "press kit" in t:
+        return "press kit"
+    return r.get("kind") or "other"
+
+
+def _months(d0: date, d1: date) -> list[str]:
+    out, y, m = [], d0.year, d0.month
+    while (y, m) <= (d1.year, d1.month):
+        out.append(f"{y}-{m:02d}")
+        y, m = y + (m == 12), m % 12 + 1
+    return out
+
+
+def _load_sources() -> dict:
+    """What the other modules have on file, read without changing it."""
+    from . import backcat, homepages, readings
+    amb = []
+    if readings.AMBASSADORS_FILE.exists():
+        with readings.AMBASSADORS_FILE.open(encoding="utf-8", newline="") as f:
+            amb = [r for r in csv.DictReader(f) if r.get("category") in readings.FASHION and len(r.get("announced_date") or "") >= 7]
+    hp = []
+    for p in sorted(homepages.paths()["obs"].glob("*.jsonl")):
+        hp += [{"house_id": r.get("house_id"), "month": r.get("month")} for r in store.read_jsonl(p) if r.get("status", "ok") == "ok"]
+    camps = []
+    for p in sorted(backcat.paths()["campaigns"].glob("*.jsonl")):
+        camps += store.read_jsonl(p)
+    read = set()
+    for p in sorted(backcat.paths()["obs"].glob("*.jsonl")):
+        read |= {r.get("campaign_id") for r in store.read_jsonl(p)}
+    ads = []
+    for p in sorted(config.ADS_DIR.glob("*.jsonl")) if config.ADS_DIR.exists() else []:
+        ads += [{"house_id": r.get("house_id"), "start": (r.get("start") or "")[:10]} for r in store.read_jsonl(p)]
+    return {"ambassadors": amb, "homepages": hp, "campaigns": camps, "campaigns_read": read, "ads": ads}
+
+
+def collections(rows: list[dict], main: dict[str, str], sources: dict | None = None) -> dict:
+    """One record per collection, each stage on its window, and how far each stage is filled. Written to
+    data/thread/collections.jsonl; the summary returned goes into thread.json."""
+    from datetime import timedelta
+    src = sources if sources is not None else _load_sources()
+    # the collections: one per house and season key; a second show of the same kind in a season is listed
+    col: dict[tuple, dict] = {}
+    for r in sorted((r for r in rows if r["season"]), key=lambda r: r["date"]):
+        k = (r["house"], r["season"])
+        if k in col:
+            col[k]["show"]["other_dates"].append(r["date"])
+            continue
+        col[k] = {"id": f"{r['house']}:{r['season'].replace(' ', ':')}", "house": r["house"], "season": r["season"],
+                  "category": r["category"], "main": r["main"], "date": r["date"],
+                  "show": {**{s: r.get(s) for s in ("heat", "surprise", "press", "tone", "heat_z", "surprise_z",
+                                                     "press_z", "tone_z")}, "other_dates": []}}
+    by_house = defaultdict(list)
+    for c in col.values():
+        by_house[c["house"]].append(c)
+
+    def window(c, stage):
+        d = date.fromisoformat(c["date"])
+        a, b = STAGES[stage]
+        return d + timedelta(days=a), d + timedelta(days=b)
+
+    amb = defaultdict(list)
+    for r in src.get("ambassadors", []):
+        d = r["announced_date"]
+        amb[r["house_id"]].append((date.fromisoformat(d if len(d) == 10 else f"{d[:7]}-01"), r.get("verified") == "true"))
+    hp = defaultdict(Counter)
+    for r in src.get("homepages", []):
+        if r.get("house_id") and r.get("month"):
+            hp[r["house_id"]][r["month"]] += 1
+    ads = defaultdict(list)
+    for r in src.get("ads", []):
+        if r.get("house_id") and len(r.get("start") or "") == 10:
+            ads[r["house_id"]].append(date.fromisoformat(r["start"]))
+    have_ads = any(ads.values())
+
+    for c in col.values():
+        h = c["house"]
+        a0, a1 = window(c, "scene")
+        hits = [v for d, v in amb.get(h, []) if a0 <= d <= a1]
+        c["scene"] = {"appointments": len(hits), "verified": sum(hits), "covered": a0 >= AMBASSADORS_FROM}
+        s0, s1 = window(c, "shop_window")
+        months = _months(s0, s1)
+        c["shop_window"] = {"months": len(months), "months_read": sum(1 for m in months if hp[h].get(m)),
+                            "pictures_read": sum(hp[h].get(m, 0) for m in months)}
+        p0, p1 = window(c, "show_period_ads")
+        q0, q1 = window(c, "campaign_ads")
+        c["advertising"] = {"show_period": sum(1 for d in ads.get(h, []) if p0 <= d <= p1),
+                            "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1)}
+        c["campaign"] = {"entries": 0, "pictures_read": 0, "by_kind": Counter(), "by_line": Counter(),
+                         "joined_by": Counter(), "ids": []}
+
+    # campaigns and the other things a house publishes: by the season the title names, else by date
+    read = src.get("campaigns_read", set())
+    lags, unjoined = defaultdict(list), Counter()
+    for r in src.get("campaigns", []):
+        h, title = r.get("house_id"), r.get("title") or ""
+        key = title_season(title)
+        line = title_line(title, key is not None)
+        target, how = None, None
+        if key and (h, key) in col:
+            target, how = col[(h, key)], "season"
+        elif key and line != "collection" and (h, f"{key.split()[0]} {key.split()[1]} {main.get(h, 'rtw')}") in col:
+            target, how = col[(h, f"{key.split()[0]} {key.split()[1]} {main.get(h, 'rtw')}")], "season"
+        elif r.get("published"):
+            pub = date.fromisoformat(r["published"][:10])
+            prior = [c for c in by_house.get(h, []) if c["main"] and 0 <= (pub - date.fromisoformat(c["date"])).days <= OFFERING_DAYS]
+            if prior:
+                target, how = max(prior, key=lambda c: c["date"]), "date"
+        if target is None:
+            unjoined[line] += 1
+            continue
+        b = target["campaign"]
+        b["entries"] += 1
+        b["by_kind"][_entry_kind(r)] += 1
+        b["by_line"][line] += 1
+        b["joined_by"][how] += 1
+        b["ids"].append(r.get("campaign_id"))
+        b["pictures_read"] += int(r.get("campaign_id") in read)
+        if how == "season" and line == "collection" and CAMPAIGN_TITLE.search(title) and r.get("published"):
+            lag = (date.fromisoformat(r["published"][:10]) - date.fromisoformat(target["date"])).days
+            lags[target["season"].split()[1]].append(lag)
+
+    def fill(c) -> dict:
+        sh = c["show"]
+        shop = c["shop_window"]
+        camp = c["campaign"]
+        adv = c["advertising"]
+        return {"scene": "full" if c["scene"]["covered"] else "none",
+                "show": ("full" if sh["heat"] is not None and sh["press"] is not None
+                         else "part" if sh["heat"] is not None or sh["press"] is not None else "none"),
+                "shop_window": ("full" if shop["months_read"] >= SHOP_FULL else "part" if shop["months_read"] else "none"),
+                "campaign": ("full" if camp["pictures_read"] else "part" if camp["entries"] else "none"),
+                "advertising": ("full" if adv["show_period"] and adv["campaign_period"]
+                                else "part" if adv["show_period"] or adv["campaign_period"] else "none")}
+
+    records = []
+    for c in sorted(col.values(), key=lambda c: (c["house"], c["date"])):
+        c["campaign"] = {k: (dict(v) if isinstance(v, Counter) else v) for k, v in c["campaign"].items()}
+        c["fill"] = fill(c)
+        c["outcomes"] = "the attention that lasts is registered in Amendment 2, section 13, and read after it is frozen"
+        records.append(c)
+    DIR.mkdir(parents=True, exist_ok=True)
+    store.write_jsonl(DIR / "collections.jsonl", records)
+
+    mains = [c for c in records if c["main"]]
+    stages = ("scene", "show", "shop_window", "campaign", "advertising")
+    by_stage = {s: dict(Counter(c["fill"][s] for c in mains)) for s in stages}
+    by_year = defaultdict(lambda: {s: 0 for s in stages})
+    for c in mains:
+        y = c["season"].split()[0]
+        for s in stages:
+            by_year[y][s] += c["fill"][s] == "full"
+    lag_summary = {s: {"campaigns": len(v), "median_days": float(np.median(v)) if v else None,
+                       "quartiles": [float(x) for x in np.percentile(v, [25, 75])] if v else None,
+                       "in_campaign_window": sum(STAGES["campaign_ads"][0] <= x <= STAGES["campaign_ads"][1] for x in v),
+                       "after_it": sum(x > STAGES["campaign_ads"][1] for x in v)}
+                   for s, v in sorted(lags.items())}
+    return {"collections": len(records), "main": len(mains), "windows": STAGES,
+            "filled_main": by_stage, "full_by_year": dict(sorted(by_year.items())),
+            "complete_chains": sum(all(c["fill"][s] == "full" for s in stages) for c in mains),
+            "advertising": "waiting on Meta" if not have_ads else "on file",
+            "campaigns_unjoined": dict(unjoined),
+            "campaign_lag_after_show": lag_summary,
+            "note": ("each stage is filled with its own measures; the shared description of the clothes that "
+                     "would compare them across stages is not built yet")}
 
 
 def main(argv: list[str] | None = None) -> int:

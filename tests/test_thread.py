@@ -222,3 +222,69 @@ def test_a_show_held_off_the_calendar_is_kept_once_its_date_is_verified(tmp_path
     assert T.doubtful(love_parade, ref) is False and T.doubtful(posted_late, ref) is True
     assert T.doubtful({**love_parade, "house": "prada"}, ref) is True        # another house's show does not vouch
     assert T.vouched(love_parade, ref) is ref[0] and T.vouched(posted_late, ref) is None
+
+
+@pytest.mark.parametrize("title,key", [
+    ("Dior F/W 2023 Campaign (Dior)", "2023 AW rtw"),
+    ("Chanel S/S 17 Show (Chanel)", "2017 SS rtw"),
+    ("Chanel Cruise 2014 Press Kit (Chanel)", "2014 RE resort"),
+    ("Dior Couture Spring 2007 Show (Dior)", "2007 SS couture"),
+    ("Chanel Haute Couture Winter 2013 (Chanel)", "2013 AW couture"),
+    ("Jil Sander Pre-Fall 2026 Campaign (Jil Sander)", "2026 PF prefall"),
+    ("F/W Pre-Collection 26 Lookbook (Loewe)", "2026 PF prefall"),
+    ("LOEWE SS26 Charms Collection (Loewe)", "2026 SS rtw"),
+    ("Chanel S/S 1995 Show (Chanel)", "1995 SS rtw"),
+    ("Chanel Pre-Spring 2023 Campaign (Chanel)", "2023 PS prespring"),
+    ("Chanel J12 Watches 2026 Campaign (Chanel)", None),
+    ("Jennifer Lawrence for Dior (Dior)", None),
+])
+def test_a_campaign_title_names_its_collection(title, key):
+    assert T.title_season(title) == key
+
+
+def test_what_a_campaign_sells_is_read_from_its_title():
+    assert T.title_line("Chanel Handbags S/S 2020 Campaign", True) == "accessories"
+    assert T.title_line("Chanel Bleu de Chanel Fragrance", False) == "beauty"
+    assert T.title_line("Chanel J12 Watches 2026 Campaign", False) == "jewellery_watches"
+    assert T.title_line("Dior F/W 2023 Campaign", True) == "collection"
+    assert T.title_line("Loewe 2024 Met Gala", False) == "other"
+    assert T.title_line("Dior Forever Make Up Spring 2021", True) == "beauty"
+    assert T.title_line("The New 'DiorAlps' Ski Wear Capsule F/W 21", True) == "capsule"
+
+
+def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    start = date(2022, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 + (500 if k == 400 else 0) for k in range(700)} for h in range(5)}
+    shows = [{"house": f"h{h}", "date": (start + timedelta(days=400)).isoformat(), "category": "rtw", "season": "AW",
+              "year": 2023, "city": "Paris"} for h in range(5)]
+    show_day = start + timedelta(days=400)                                   # 2023-02-05
+    sources = {
+        "ambassadors": [{"house_id": "h0", "announced_date": (show_day - timedelta(days=30)).isoformat(), "verified": "true"},
+                        {"house_id": "h0", "announced_date": (show_day - timedelta(days=300)).isoformat(), "verified": "true"}],
+        "homepages": [{"house_id": "h0", "month": m} for m in ("2023-02", "2023-03", "2023-04", "2023-05", "2023-05")],
+        "campaigns": [{"house_id": "h0", "campaign_id": "a", "title": "H0 F/W 2023 Campaign", "kind": "campaign",
+                       "published": "2023-07-20"},
+                      {"house_id": "h0", "campaign_id": "b", "title": "H0 Handbags Campaign", "kind": "campaign",
+                       "published": "2023-03-01"},
+                      {"house_id": "h1", "campaign_id": "c", "title": "H1 S/S 2031 Campaign", "kind": "campaign"}],
+        "campaigns_read": {"a"},
+        "ads": [{"house_id": "h0", "start": (show_day + timedelta(days=3)).isoformat()},
+                {"house_id": "h0", "start": (show_day + timedelta(days=90)).isoformat()}],
+    }
+    out = T.build(shows, att, {}, sources=sources)
+    recs = {json.loads(x)["house"]: json.loads(x) for x in (tmp_path / "thread" / "collections.jsonl").read_text().splitlines()}
+    h0 = recs["h0"]
+    assert h0["id"] == "h0:2023:AW:rtw" and h0["scene"] == {"appointments": 1, "verified": 1, "covered": True}
+    assert h0["shop_window"]["months_read"] == 4 and h0["shop_window"]["pictures_read"] == 5
+    assert h0["campaign"]["entries"] == 2 and h0["campaign"]["joined_by"] == {"season": 1, "date": 1}
+    assert h0["campaign"]["by_line"] == {"collection": 1, "accessories": 1} and h0["campaign"]["pictures_read"] == 1
+    assert h0["advertising"] == {"show_period": 1, "campaign_period": 1}
+    assert h0["fill"] == {"scene": "full", "show": "part", "shop_window": "full", "campaign": "full", "advertising": "full"}
+    assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" not in json.dumps(recs["h1"]).replace("lasts", "")
+    s = out["collections"]
+    assert s["complete_chains"] == 0                                  # no press on file, so no show is full
+    assert s["campaigns_unjoined"] == {"collection": 1}
+    assert s["campaign_lag_after_show"]["AW"]["median_days"] == (date(2023, 7, 20) - show_day).days

@@ -38,6 +38,14 @@ started by editing its file in `.github/kick/`.
   NOWFASHION: the spike, its surprise, press and its tone, each also placed within its season, and no
   lasting lift. `adtone.thread`, `data/results/thread.json`. Both read the English page views with
   renamed articles joined.
+- **By collection.** The Thread's unit: a house's show of one kind in one season, followed through the
+  stages on fixed windows counted from the show date: the scene (ambassador appointments, 180 days
+  before), the show (the day before to three after), the shop window (homepages, 1 to 182 days after),
+  the campaigns and other things the house published (by the season the title names, else the house's
+  last main show within 183 days), and the advertising in Amendment 2's windows (7 days before to 21
+  after, and 45 to 150 after). One record per collection in `data/thread/collections.jsonl`, each saying
+  which stages are filled. The stages keep their own measures; comparing them needs the shared
+  description of the clothes, not yet built.
 - **By month.** Each house's four advertising readings (movement, distance from the market,
   consistency, drift towards the leader) set against next month's curiosity and, more thinly, desire
   and money: the forecast. Amendment 2, section 8.

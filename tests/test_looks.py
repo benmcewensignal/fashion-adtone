@@ -87,7 +87,21 @@ def test_a_gallery_the_archive_did_not_keep_and_a_silent_index_are_told_apart(tm
     monkeypatch.setattr(L, "PROV", tmp_path / "prov.jsonl")
     lost = L.probe("2026 SS", ["chanel"], c=_C(kept=False))["houses"]["chanel"]
     assert lost["verdict"] == "pages found, few pictures kept"
+    (tmp_path / "probe.json").unlink()                       # a finished house is not asked again otherwise
     thin = L.probe("2026 SS", ["chanel"], c=_C(gallery=4))["houses"]["chanel"]
     assert thin["verdict"] == "pages found, few pictures kept"
+    (tmp_path / "probe.json").unlink()
     down = L.probe("2026 SS", ["chanel"], c=_C(index_status=503))["houses"]["chanel"]
     assert down["verdict"] == "the index did not answer"
+
+
+def test_a_probe_cut_short_is_continued_and_finished_houses_are_kept(tmp_path, monkeypatch):
+    monkeypatch.setattr(L, "OUT", tmp_path / "probe.json")
+    monkeypatch.setattr(L, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(L, "sites", lambda: {"chanel": ["chanel.com"], "dior": ["dior.com"]})
+    (tmp_path / "probe.json").write_text(json.dumps({"season": "2026 SS", "houses": {
+        "chanel": {"verdict": "looks found", "marker": 1}, "dior": {"verdict": "not reached in the time budget"}}}))
+    c = _C()
+    out = L.probe("2026 SS", c=c)
+    assert out["houses"]["chanel"] == {"verdict": "looks found", "marker": 1}       # kept, not asked again
+    assert out["houses"]["dior"]["verdict"] == "looks found" and out["summary"] == {"looks found": 2}

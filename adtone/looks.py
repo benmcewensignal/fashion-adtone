@@ -9,7 +9,7 @@ behind a bot check that turns the project's machines away, so the source would b
 the archive captured them. Whether that works is not known, so this asks first.
 
 For one season, on each house's domains (reference/brand_sites.csv), the archive's index is searched for
-pages captured from the month of the shows to six months after whose address names the season. The
+pages captured from the month of the shows to three months after whose address names the season. The
 likeliest show or collection pages are opened (three per house), the pictures on each are counted, and
 three are fetched to see that the archive kept them; their bytes are dropped at once. What is kept is the
 addresses, the counts and a verdict per house, in data/thread/looks_probe.json.
@@ -58,11 +58,12 @@ def season_pattern(season: str, year: int) -> str:
 
 
 def capture_window(season: str, year: int) -> tuple[date, date]:
-    """From the month of the shows to six months after: spring-summer is shown the September and October
-    before its year, autumn-winter in February and March of its year."""
+    """From the month of the shows to three months after, when a show's pages are made and first captured:
+    spring-summer is shown the September and October before its year, autumn-winter in February and March
+    of its year. A short window keeps the archive's index quick to search."""
     if season == "SS":
-        return date(year - 1, 9, 1), date(year, 3, 31)
-    return date(year, 2, 1), date(year, 8, 31)
+        return date(year - 1, 9, 1), date(year - 1, 12, 31)
+    return date(year, 2, 1), date(year, 5, 31)
 
 
 def score(url: str) -> float:
@@ -172,43 +173,66 @@ def verdict(h: dict) -> str:
     return "pages found, none opened"
 
 
+FINAL = ("looks found", "no page naming the season", "pages found, few pictures kept")
+
+
+def probe_house(c: Crawler, house: str, domains: list[str], pattern: str, start: date, end: date, deadline: float,
+                clock=time.monotonic) -> dict:
+    h: dict = {"domains": domains, "window": [start.isoformat(), end.isoformat()], "candidates": [], "pages": []}
+    rows: list = []
+    for d in domains:
+        if clock() > deadline:
+            return {"verdict": "not reached in the time budget"}
+        got, why = index(c, d, pattern, start, end)
+        if got is None:
+            h.setdefault("index_errors", {})[d] = why
+            continue
+        rows += got
+    if not rows and h.get("index_errors") and len(h["index_errors"]) == len(domains):
+        h["index_error"] = True
+    h["season_pages"] = len({_key(r[1]) for r in rows})
+    h["candidates"] = candidates(rows)
+    for cand in h["candidates"]:
+        if clock() > deadline:
+            break
+        h["pages"].append(check_page(c, cand["ts"], cand["url"]))
+    h["verdict"] = verdict(h)
+    return h
+
+
 def probe(season: str = "2026 SS", houses: list[str] | None = None, budget_min: float = 22, c: Crawler | None = None,
-          clock=time.monotonic) -> dict:
+          clock=time.monotonic, workers: int = 4) -> dict:
+    """Each house on its own, several at a time, each with its own polite crawler. A run that stops at its
+    time budget is continued by the next: houses with a final verdict for the same season are kept."""
+    from concurrent.futures import ThreadPoolExecutor
+    import threading
     year, s = int(season.split()[0]), season.split()[1]
     start, end = capture_window(s, year)
     pattern = season_pattern(s, year)
-    c = c or Crawler(pause=2.0)
     deadline = clock() + budget_min * 60
     doms = sites()
+    prev = json.loads(OUT.read_text()) if OUT.exists() else {}
+    kept = {h: v for h, v in prev.get("houses", {}).items() if v.get("verdict") in FINAL} if prev.get("season") == season else {}
     out = {"generated_at": store.utc_now(), "season": season, "window": [start.isoformat(), end.isoformat()],
-           "pattern": pattern, "houses": {}, "note": "addresses and counts only; no picture is kept or read"}
-    for house in (houses or sorted(doms)):
-        if clock() > deadline:
-            out["houses"][house] = {"verdict": "not reached in the time budget"}
-            continue
-        h: dict = {"domains": doms.get(house, []), "candidates": [], "pages": []}
-        rows: list = []
-        for d in h["domains"]:
-            got, why = index(c, d, pattern, start, end)
-            if got is None:
-                h.setdefault("index_errors", {})[d] = why
-                continue
-            rows += got
-        if not rows and h.get("index_errors") and len(h["index_errors"]) == len(h["domains"]):
-            h["index_error"] = True
-        h["season_pages"] = len({_key(r[1]) for r in rows})
-        h["candidates"] = candidates(rows)
-        for cand in h["candidates"]:
-            if clock() > deadline:
-                break
-            h["pages"].append(check_page(c, cand["ts"], cand["url"]))
-        h["verdict"] = verdict(h)
-        out["houses"][house] = h
-        _write(out)
+           "pattern": pattern, "houses": dict(kept), "note": "addresses and counts only; no picture is kept or read"}
+    todo = [h for h in (houses or sorted(doms)) if h not in kept]
+    lock, calls = threading.Lock(), []
+
+    def one(house):
+        cc = c or Crawler(pause=2.0)
+        h = probe_house(cc, house, doms.get(house, []), pattern, start, end, deadline, clock)
+        with lock:
+            out["houses"][house] = h
+            calls.append(cc.calls)
+            _write(out)
+
+    with ThreadPoolExecutor(max_workers=1 if c is not None else workers) as ex:
+        list(ex.map(one, todo))
+    out["houses"] = dict(sorted(out["houses"].items()))
     out["summary"] = dict(sorted(_count(v.get("verdict") for v in out["houses"].values()).items()))
     _write(out)
     store.append_jsonl(PROV, [{"at": store.utc_now(), "event": "looks probe", "season": season,
-                               "summary": out["summary"], "requests": c.calls}])
+                               "summary": out["summary"], "requests": c.calls if c is not None else sum(calls)}])
     return out
 
 
@@ -231,8 +255,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--season", default="2026 SS")
     p.add_argument("--budget-min", type=float, default=22)
     p.add_argument("--houses", nargs="*")
+    p.add_argument("--workers", type=int, default=4)
     a = ap.parse_args(argv)
-    out = probe(a.season, a.houses, a.budget_min)
+    out = probe(a.season, a.houses, a.budget_min, workers=a.workers)
     print(f"looks probe {a.season}: {out.get('summary')}")
     return 0
 

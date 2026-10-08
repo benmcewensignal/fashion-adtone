@@ -2,7 +2,8 @@ name: thread
 run-name: thread ${{ inputs.mode || github.event_name }}
 # The Thread (adtone/thread.py): every show of the panel's houses from 2015, with how much attention it drew
 # and how the news wrote about it, each set against its season. build: heat and tone from the page views and
-# press on file, for the shows in data/thread/shows.jsonl. calendar: try NOWFASHION's listings from here first;
+# press on file, for the shows in data/thread/shows.jsonl, and each show's collection followed through the
+# stages after it (data/thread/collections.jsonl). calendar: try NOWFASHION's listings from here first;
 # the site's bot check turns GitHub's machines away, so the calendar on file was read through Claude's
 # fetcher and a failed fetch keeps it. looks: the probe of whether the houses' own sites, as the Wayback
 # Machine holds them, carry a season's runway looks (adtone/looks.py; addresses and counts only, no picture
@@ -31,7 +32,7 @@ concurrency:
 jobs:
   thread:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       PYTHONUNBUFFERED: "1"
     steps:
@@ -57,8 +58,8 @@ jobs:
       - name: Runway looks in the archive, one season
         if: steps.m.outputs.mode == 'looks'
         continue-on-error: true
-        timeout-minutes: 26
-        run: python -m adtone.looks probe --season "2026 SS" --budget-min 22
+        timeout-minutes: 42
+        run: python -m adtone.looks probe --season "2026 SS" --budget-min 36 --workers 4
       - name: Heat and tone for every show
         continue-on-error: true
         timeout-minutes: 10
