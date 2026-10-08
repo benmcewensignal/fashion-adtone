@@ -1,0 +1,1580 @@
+{
+ "generated_at": "2026-10-08T13:37:32Z",
+ "window_days": [
+  -1,
+  14
+ ],
+ "shows": {
+  "alaia:2025-03-04:rtw": {
+   "house": "alaia",
+   "date": "2025-03-04",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "alaia:2025-10-04:rtw": {
+   "house": "alaia",
+   "date": "2025-10-04",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "alaia:2026-03-04:rtw": {
+   "house": "alaia",
+   "date": "2026-03-04",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "balenciaga:2017-01-18:men": {
+   "house": "balenciaga",
+   "date": "2017-01-18",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "pages": 14,
+   "candidates": [
+    {
+     "url": "http://www.balenciaga.com/gb/men/fashionshow/fallwinter-17-18_section",
+     "ts": "20170126205931",
+     "score": 2.06
+    },
+    {
+     "url": "http://www.balenciaga.com/gb/men/fashionshow/fallwinter-17-18_section/main",
+     "ts": "20170126024221",
+     "score": 2.06
+    }
+   ]
+  },
+  "balenciaga:2017-03-05:rtw": {
+   "house": "balenciaga",
+   "date": "2017-03-05",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/us/women/collections/fw17-w-preorder_section",
+     "ts": "20170318194807",
+     "score": 3.81
+    }
+   ]
+  },
+  "balenciaga:2017-06-21:men": {
+   "house": "balenciaga",
+   "date": "2017-06-21",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "balenciaga:2017-10-01:rtw": {
+   "house": "balenciaga",
+   "date": "2017-10-01",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/gb/men/collections/springsummer-18_section",
+     "ts": "20171015133230",
+     "score": 4.06
+    },
+    {
+     "url": "https://www.balenciaga.com/at/f%C3%BCr-ihn/collections/springsummer-18_section",
+     "ts": "20171015062452",
+     "score": 2.0
+    },
+    {
+     "url": "https://www.balenciaga.com/es/hombre/collections/springsummer-18_section",
+     "ts": "20171015085518",
+     "score": 2.0
+    }
+   ]
+  },
+  "balenciaga:2018-03-04:rtw": {
+   "house": "balenciaga",
+   "date": "2018-03-04",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/ph/men/collections/fallwinter-18-m_section",
+     "ts": "20180314231528",
+     "score": 3.0
+    }
+   ]
+  },
+  "balenciaga:2018-09-30:rtw": {
+   "house": "balenciaga",
+   "date": "2018-09-30",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "balenciaga:2019-03-03:rtw": {
+   "house": "balenciaga",
+   "date": "2019-03-03",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "balenciaga:2019-09-29:rtw": {
+   "house": "balenciaga",
+   "date": "2019-09-29",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "balenciaga:2020-03-01:rtw": {
+   "house": "balenciaga",
+   "date": "2020-03-01",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/gb/men/collections/fall-20-m_section",
+     "ts": "20200312140041",
+     "score": 4.06
+    },
+    {
+     "url": "https://www.balenciaga.com/gb/women/collections/fall-20-w_section",
+     "ts": "20200302101330",
+     "score": 4.06
+    },
+    {
+     "url": "https://www.balenciaga.com/it/uomo/collections/fall-20-m_section",
+     "ts": "20200309013508",
+     "score": 2.0
+    }
+   ]
+  },
+  "balenciaga:2020-10-04:rtw": {
+   "house": "balenciaga",
+   "date": "2020-10-04",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/spring-21-m_section",
+     "ts": "20201005203851",
+     "score": 3.81
+    },
+    {
+     "url": "https://www.balenciaga.com/us/women/collections/spring-21-w_section",
+     "ts": "20201007080654",
+     "score": 3.81
+    }
+   ]
+  },
+  "balenciaga:2021-07-07:couture": {
+   "house": "balenciaga",
+   "date": "2021-07-07",
+   "season": "2021 AW couture",
+   "category": "couture",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-us/fall-21",
+     "ts": "20210711075615",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2021-10-02:rtw": {
+   "house": "balenciaga",
+   "date": "2021-10-02",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-au/explore/collections/summer-22",
+     "ts": "20211016060107",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/summer-22",
+     "ts": "20211003230711",
+     "score": 1.12
+    }
+   ]
+  },
+  "balenciaga:2022-03-06:rtw": {
+   "house": "balenciaga",
+   "date": "2022-03-06",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/winter-22",
+     "ts": "20220320075101",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-au?utm_source=20220306_Winter22ShowLiveNowROW_All_Global_Type3&utm_medium=email&utm_campaign=row&utm_content=look",
+     "ts": "20220307030246",
+     "score": 0.62
+    }
+   ]
+  },
+  "balenciaga:2022-07-06:couture": {
+   "house": "balenciaga",
+   "date": "2022-07-06",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/new-arrivals/fall-22/women?prefn1=akeneo_employeesSalesVisible&prefn2=akeneo_markDownInto&prefv3=TR&sz=12&start=12&prefv1=false&prefv2=no_season&prefn3=countryInclusion",
+     "ts": "20220715114020",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/new-arrivals/fall-22/men?prefn1=akeneo_employeesSalesVisible&prefn2=akeneo_markDownInto&prefv3=TR&sz=12&start=12&prefv1=false&prefv2=no_season&prefn3=countryInclusion",
+     "ts": "20220715114432",
+     "score": 1.88
+    },
+    {
+     "url": "https://www.balenciaga.com/zh-us/%E6%96%B0%E5%93%81%E4%B8%8A%E5%B8%82/fall-22/men?prefn1=akeneo_employeesSalesVisible&prefv1=false&prefn2=akeneo_markDownInto&prefv2=no_season&prefn3=countryInclusion&prefv3=US&start=12&sz=12",
+     "ts": "20220715132723",
+     "score": 1.75
+    }
+   ]
+  },
+  "balenciaga:2022-10-02:rtw": {
+   "house": "balenciaga",
+   "date": "2022-10-02",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 11,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/summer-23",
+     "ts": "20221002120129",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-en/spring-23",
+     "ts": "20221002202011",
+     "score": 0.62
+    }
+   ]
+  },
+  "balenciaga:2023-03-05:rtw": {
+   "house": "balenciaga",
+   "date": "2023-03-05",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-us/winter-23",
+     "ts": "20230308144429",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2023-07-05:couture": {
+   "house": "balenciaga",
+   "date": "2023-07-05",
+   "season": "2023 AW couture",
+   "category": "couture",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-fi/new-arrivals/discover/fall-23",
+     "ts": "20230711184004",
+     "score": 0.62
+    }
+   ]
+  },
+  "balenciaga:2023-10-01:rtw": {
+   "house": "balenciaga",
+   "date": "2023-10-01",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-us/lookbook?cid=summer24-look-61",
+     "ts": "20231015071756",
+     "score": 3.88
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/spring-24",
+     "ts": "20231001111007",
+     "score": 0.88
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/summer-24",
+     "ts": "20231001110927",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2024-03-03:rtw": {
+   "house": "balenciaga",
+   "date": "2024-03-03",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/collections/explore-collections-fall24",
+     "ts": "20240302130444",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.balenciaga.com/ja-jp/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84/%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/explore-collections-fall24",
+     "ts": "20240304204358",
+     "score": 2.0
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/winter-24",
+     "ts": "20240308013401",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2024-06-26:couture": {
+   "house": "balenciaga",
+   "date": "2024-06-26",
+   "season": "2024 AW couture",
+   "category": "couture",
+   "status": "found",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/ja-jp/%E3%83%A1%E3%83%B3%E3%82%BA/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AB%E3%83%90%E3%83%BC/fall-24-men",
+     "ts": "20240625160811",
+     "score": 1.0
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/winter-24",
+     "ts": "20240706050512",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2024-09-30:rtw": {
+   "house": "balenciaga",
+   "date": "2024-09-30",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 14,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/summer-25-collection-looks/summer-25-look-03/summer-25-look-03.html",
+     "ts": "20241007175350",
+     "score": 9.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=summer-25-look-03",
+     "ts": "20241007101608",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-summer-25",
+     "ts": "20241005123942",
+     "score": 3.12
+    }
+   ]
+  },
+  "balenciaga:2025-03-09:rtw": {
+   "house": "balenciaga",
+   "date": "2025-03-09",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/ja-jp/lookbook?cid=winter-25-look-031",
+     "ts": "20250315092021",
+     "score": 3.0
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/winter-25?srsltid=AfmBOoo_yS72X9jhdjfm4GpcyXly69Mcz7JtnxAmTFd7ZWmAqetMnGLA",
+     "ts": "20250316033325",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2025-10-04:rtw": {
+   "house": "balenciaga",
+   "date": "2025-10-04",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 10,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-tw/lookbook?cid=spring-26-look-02",
+     "ts": "20251018224525",
+     "score": 3.62
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/explore/explore-collections/explore-collections-summer-26",
+     "ts": "20251015153438",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.balenciaga.com/es-us/explore/explore-collections/explore-collections-spring-26",
+     "ts": "20251014135953",
+     "score": 2.75
+    }
+   ]
+  },
+  "balenciaga:2026-03-07:rtw": {
+   "house": "balenciaga",
+   "date": "2026-03-07",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=fall-26-look-12",
+     "ts": "20260316143159",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb/winter-26",
+     "ts": "20260309180645",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-us/fall-26?",
+     "ts": "20260308205017",
+     "score": 0.88
+    }
+   ]
+  },
+  "balenciaga:2026-07-08:couture": {
+   "house": "balenciaga",
+   "date": "2026-07-08",
+   "season": "2026 AW couture",
+   "category": "couture",
+   "status": "found",
+   "pages": 12,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81",
+     "ts": "20260710114026",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-ca/women/bags-for-women/rodeo-bags-for-women?utm_term=%EB%B0%9C%EB%A0%8C%EC%8B%9C%EC%95%84%EA%B0%80%EB%A1%9C%EB%8D%B0%EC%98%A4%EB%B0%B1&utm_campaign=D%7CBAL%7CKR%7C2026%7CQ2%7CLocal%7CAO%7CFSH%7CAlwaysOn~MO_Fall26-Q226%7CLOW%7CNA&utm_medium=brandsearch&utm_source=naver&utm_content=mo_thumbnail1",
+     "ts": "20260711203331",
+     "score": 1.62
+    },
+    {
+     "url": "https://www.balenciaga.com/en-gb?utm_term=%EB%B0%9C%EB%A0%8C%EC%8B%9C%EC%95%84%EA%B0%80%EC%8B%A0%EB%B0%9C&utm_campaign=D%7CBAL%7CKR%7C2026%7CQ2%7CLocal%7CAO%7CFSH%7CAlwaysOn~MO_Fall26-Q226%7CLOW%7CNA&utm_medium=brandsearch&utm_source=naver&utm_content=mo_home",
+     "ts": "20260712083320",
+     "score": 1.12
+    }
+   ]
+  },
+  "balenciaga:2026-10-01:rtw": {
+   "house": "balenciaga",
+   "date": "2026-10-01",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/summer-27",
+     "ts": "20261004131202",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.balenciaga.com/en-en/spring-27",
+     "ts": "20261004132057",
+     "score": 0.62
+    }
+   ]
+  },
+  "bottega_veneta:2015-01-18:men": {
+   "house": "bottega_veneta",
+   "date": "2015-01-18",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2015-02-28:rtw": {
+   "house": "bottega_veneta",
+   "date": "2015-02-28",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 1,
+   "candidates": []
+  },
+  "bottega_veneta:2015-06-21:men": {
+   "house": "bottega_veneta",
+   "date": "2015-06-21",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.bottegaveneta.com:80/wy/%E5%A5%B3%E5%A3%AB/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24561",
+     "ts": "20150627084107",
+     "score": 8.0
+    }
+   ]
+  },
+  "bottega_veneta:2015-09-26:rtw": {
+   "house": "bottega_veneta",
+   "date": "2015-09-26",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "http://www.bottegaveneta.com/gb/women/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24521",
+     "ts": "20150927065607",
+     "score": 10.06
+    },
+    {
+     "url": "http://www.bottegaveneta.com/dk/collection/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24521",
+     "ts": "20151005065218",
+     "score": 10.0
+    },
+    {
+     "url": "http://www.bottegaveneta.com/de/f%C3%BCr-sie/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24521",
+     "ts": "20150926123339",
+     "score": 8.0
+    }
+   ]
+  },
+  "bottega_veneta:2016-01-17:men": {
+   "house": "bottega_veneta",
+   "date": "2016-01-17",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.bottegaveneta.com/gb/women/bottega-veneta-men-fall-winter-16-17_grd29752",
+     "ts": "20160128155529",
+     "score": 3.06
+    },
+    {
+     "url": "http://www.bottegaveneta.com/it/donna/bottega-veneta-men-fall-winter-16-17_grd29752",
+     "ts": "20160130010106",
+     "score": 1.0
+    },
+    {
+     "url": "http://www.bottegaveneta.com/jp/%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9/bottega-veneta-men-fall-winter-16-17_grd29752",
+     "ts": "20160130020756",
+     "score": 1.0
+    }
+   ]
+  },
+  "bottega_veneta:2016-02-27:rtw": {
+   "house": "bottega_veneta",
+   "date": "2016-02-27",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "bottegaveneta.com": "ReadTimeout"
+   }
+  },
+  "bottega_veneta:2016-09-24:rtw": {
+   "house": "bottega_veneta",
+   "date": "2016-09-24",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.bottegaveneta.com:80/fr/femme/spring-summer-2017-fashion-show-the-looks_grd31491",
+     "ts": "20161007205131",
+     "score": 10.0
+    },
+    {
+     "url": "http://www.bottegaveneta.com:80/us/women/spring-summer-2017-fashion-show_grd31491",
+     "ts": "20161002205517",
+     "score": 8.81
+    }
+   ]
+  },
+  "bottega_veneta:2017-02-25:rtw": {
+   "house": "bottega_veneta",
+   "date": "2017-02-25",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.bottegaveneta.com:80/gb/fall_winter_2017_fashionshow_section",
+     "ts": "20170228015957",
+     "score": 1.06
+    }
+   ]
+  },
+  "bottega_veneta:2017-09-23:rtw": {
+   "house": "bottega_veneta",
+   "date": "2017-09-23",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2018-02-10:rtw": {
+   "house": "bottega_veneta",
+   "date": "2018-02-10",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.bottegaveneta.com/gb/fall_winter_2018_fashionshow_section",
+     "ts": "20180211083721",
+     "score": 1.06
+    }
+   ]
+  },
+  "bottega_veneta:2019-02-23:rtw": {
+   "house": "bottega_veneta",
+   "date": "2019-02-23",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2019-09-19:rtw": {
+   "house": "bottega_veneta",
+   "date": "2019-09-19",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2020-02-22:rtw": {
+   "house": "bottega_veneta",
+   "date": "2020-02-22",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2022-02-26:rtw": {
+   "house": "bottega_veneta",
+   "date": "2022-02-26",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2023-02-25:rtw": {
+   "house": "bottega_veneta",
+   "date": "2023-02-25",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2023-09-23:rtw": {
+   "house": "bottega_veneta",
+   "date": "2023-09-23",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2024-02-24:rtw": {
+   "house": "bottega_veneta",
+   "date": "2024-02-24",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "bottega_veneta:2024-09-21:rtw": {
+   "house": "bottega_veneta",
+   "date": "2024-09-21",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.bottegaveneta.com/en-us/inside-bottega/special-projects/the-ark---summer-25-lounge-chair?tp=149026&ranMID=42813&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-A3OrTiLN2RWYYdOBOJ22QQ&LSNSUBSITE=Omitted_TnL5HPStwNw",
+     "ts": "20240924225834",
+     "score": 0.88
+    }
+   ]
+  },
+  "bottega_veneta:2025-09-27:rtw": {
+   "house": "bottega_veneta",
+   "date": "2025-09-27",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.bottegaveneta.com/en-us/summer-2026-show/summer-2026-subscribe.html",
+     "ts": "20250927211947",
+     "score": 3.88
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-ae/inside-bottega/collections/summer-2026",
+     "ts": "20251009115600",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-gb/summer-2026.html",
+     "ts": "20251011220531",
+     "score": 1.12
+    }
+   ]
+  },
+  "bottega_veneta:2026-02-28:rtw": {
+   "house": "bottega_veneta",
+   "date": "2026-02-28",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.bottegaveneta.com/en-us/inside-bottega/collections/winter-2026",
+     "ts": "20260310090726",
+     "score": 2.88
+    },
+    {
+     "url": "https://www.bottegaveneta.com/en-gb/winter-2026.html",
+     "ts": "20260307082952",
+     "score": 1.12
+    }
+   ]
+  },
+  "bottega_veneta:2026-09-26:rtw": {
+   "house": "bottega_veneta",
+   "date": "2026-09-26",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "brunello_cucinelli:2021-02-24:rtw": {
+   "house": "brunello_cucinelli",
+   "date": "2021-02-24",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "brunello_cucinelli:2025-06-20:men": {
+   "house": "brunello_cucinelli",
+   "date": "2025-06-20",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "brunello_cucinelli:2026-01-16:men": {
+   "house": "brunello_cucinelli",
+   "date": "2026-01-16",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "brunello_cucinelli:2026-02-25:rtw": {
+   "house": "brunello_cucinelli",
+   "date": "2026-02-25",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "brunello_cucinelli:2026-06-19:men": {
+   "house": "brunello_cucinelli",
+   "date": "2026-06-19",
+   "season": "2027 SS men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "burberry:2016-01-11:men": {
+   "house": "burberry",
+   "date": "2016-01-11",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "HTTP 504"
+   }
+  },
+  "burberry:2016-02-22:rtw": {
+   "house": "burberry",
+   "date": "2016-02-22",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2016-09-19:rtw": {
+   "house": "burberry",
+   "date": "2016-09-19",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2017-02-20:rtw": {
+   "house": "burberry",
+   "date": "2017-02-20",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2017-09-16:rtw": {
+   "house": "burberry",
+   "date": "2017-09-16",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2018-02-17:rtw": {
+   "house": "burberry",
+   "date": "2018-02-17",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2018-09-17:rtw": {
+   "house": "burberry",
+   "date": "2018-09-17",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2019-02-17:rtw": {
+   "house": "burberry",
+   "date": "2019-02-17",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2019-09-16:rtw": {
+   "house": "burberry",
+   "date": "2019-09-16",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2020-02-17:rtw": {
+   "house": "burberry",
+   "date": "2020-02-17",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2020-09-17:rtw": {
+   "house": "burberry",
+   "date": "2020-09-17",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2021-06-23:men": {
+   "house": "burberry",
+   "date": "2021-06-23",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2022-03-11:rtw": {
+   "house": "burberry",
+   "date": "2022-03-11",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2023-02-20:rtw": {
+   "house": "burberry",
+   "date": "2023-02-20",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2023-09-18:rtw": {
+   "house": "burberry",
+   "date": "2023-09-18",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2024-02-19:rtw": {
+   "house": "burberry",
+   "date": "2024-02-19",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2024-09-16:rtw": {
+   "house": "burberry",
+   "date": "2024-09-16",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ReadTimeout"
+   }
+  },
+  "burberry:2025-02-24:rtw": {
+   "house": "burberry",
+   "date": "2025-02-24",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2025-09-22:rtw": {
+   "house": "burberry",
+   "date": "2025-09-22",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2026-02-23:rtw": {
+   "house": "burberry",
+   "date": "2026-02-23",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "burberry:2026-09-21:rtw": {
+   "house": "burberry",
+   "date": "2026-09-21",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectionError"
+   }
+  },
+  "celine:2015-03-08:rtw": {
+   "house": "celine",
+   "date": "2015-03-08",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2015-10-04:rtw": {
+   "house": "celine",
+   "date": "2015-10-04",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2016-03-06:rtw": {
+   "house": "celine",
+   "date": "2016-03-06",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2016-10-02:rtw": {
+   "house": "celine",
+   "date": "2016-10-02",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2017-03-05:rtw": {
+   "house": "celine",
+   "date": "2017-03-05",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2017-10-01:rtw": {
+   "house": "celine",
+   "date": "2017-10-01",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2018-09-28:rtw": {
+   "house": "celine",
+   "date": "2018-09-28",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2019-01-20:men": {
+   "house": "celine",
+   "date": "2019-01-20",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2019-03-01:rtw": {
+   "house": "celine",
+   "date": "2019-03-01",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "celine.com": "ReadTimeout"
+   }
+  },
+  "celine:2019-06-23:men": {
+   "house": "celine",
+   "date": "2019-06-23",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-de/celine-collections/mens-summer-2020/runway-looks/",
+     "ts": "20190630092155",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.celine.com/en-it/celine-collections/mens-summer-2020/show/",
+     "ts": "20190707132537",
+     "score": 5.62
+    }
+   ]
+  },
+  "celine:2019-09-27:rtw": {
+   "house": "celine",
+   "date": "2019-09-27",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-gb/celine-collections/mens-summer-2020/runway-looks/",
+     "ts": "20190929080918",
+     "score": 10.12
+    },
+    {
+     "url": "https://www.celine.com/en-gb/celine-collections/mens-summer-2020/show/",
+     "ts": "20190929080506",
+     "score": 6.12
+    }
+   ]
+  },
+  "celine:2020-02-28:rtw": {
+   "house": "celine",
+   "date": "2020-02-28",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 0,
+   "candidates": []
+  },
+  "celine:2022-03-19:rtw": {
+   "house": "celine",
+   "date": "2022-03-19",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/fr-fr/cm/celine-collections/men-s-winter-2022/show-winter2022-men",
+     "ts": "20220326235427",
+     "score": 6.0
+    }
+   ]
+  },
+  "celine:2022-06-26:men": {
+   "house": "celine",
+   "date": "2022-06-26",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "found",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-gb/cm/celine-collections/men-s-summer-2023/teaser-1",
+     "ts": "20220701211806",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/celine-collections/men-s-summer-2023/dysfunctional-bauhaus",
+     "ts": "20220629202523",
+     "score": 3.88
+    }
+   ]
+  },
+  "celine:2025-09-30:rtw": {
+   "house": "celine",
+   "date": "2025-09-30",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-spring-2026",
+     "ts": "20251003130154",
+     "score": 7.88
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
+     "ts": "20251006201856",
+     "score": 7.88
+    },
+    {
+     "url": "https://www.celine.com/en-gb/home?utm_campaign=%20WOMENSPRING26&utm_source=sothebys_uk&utm_medium=display",
+     "ts": "20251002203943",
+     "score": 1.12
+    }
+   ]
+  },
+  "celine:2026-03-07:rtw": {
+   "house": "celine",
+   "date": "2026-03-07",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
+     "ts": "20260309034802",
+     "score": 8.12
+    }
+   ]
+  },
+  "chanel:2025-10-06:rtw": {
+   "house": "chanel",
+   "date": "2025-10-06",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "ReadTimeout"
+   }
+  },
+  "chanel:2026-01-27:couture": {
+   "house": "chanel",
+   "date": "2026-01-27",
+   "season": "2026 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "ConnectionError"
+   }
+  },
+  "chanel:2026-03-09:rtw": {
+   "house": "chanel",
+   "date": "2026-03-09",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "ConnectionError"
+   }
+  },
+  "chanel:2026-07-07:couture": {
+   "house": "chanel",
+   "date": "2026-07-07",
+   "season": "2026 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "HTTP 504"
+   }
+  },
+  "chanel:2026-10-05:rtw": {
+   "house": "chanel",
+   "date": "2026-10-05",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "ReadTimeout"
+   }
+  },
+  "chloe:2024-02-29:rtw": {
+   "house": "chloe",
+   "date": "2024-02-29",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.chloe.com/us/chloe/women/fashionshow/chloe_winter2024_section",
+     "ts": "20240307170239",
+     "score": 1.81
+    }
+   ]
+  },
+  "chloe:2024-09-26:rtw": {
+   "house": "chloe",
+   "date": "2024-09-26",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "pages": 1,
+   "candidates": []
+  },
+  "chloe:2025-03-06:rtw": {
+   "house": "chloe",
+   "date": "2025-03-06",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.chloe.com/wx/chloe/women/subhome/show_winter25_section",
+     "ts": "20250319053136",
+     "score": 4.0
+    }
+   ]
+  },
+  "chloe:2025-10-05:rtw": {
+   "house": "chloe",
+   "date": "2025-10-05",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.chloe.com/us/chloe/women/fashionshow/show_summer26_section",
+     "ts": "20251007100344",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.chloe.com/us/chloe/women/subhome/show_summer26_section",
+     "ts": "20251010050357",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.chloe.com/us/chloe/women/fashionshow/summer_2026_section",
+     "ts": "20251007095255",
+     "score": 1.81
+    }
+   ]
+  },
+  "chloe:2026-03-05:rtw": {
+   "house": "chloe",
+   "date": "2026-03-05",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.chloe.com/en-us/news/chloe-unveils-the-winter-2026-collection.html",
+     "ts": "20260306214517",
+     "score": 2.88
+    },
+    {
+     "url": "https://www.chloe.com/en-gb/c/fashionshow/fall-26",
+     "ts": "20260312131654",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.chloe.com/en-us/c/fashionshow/winter-26",
+     "ts": "20260306214302",
+     "score": 0.88
+    }
+   ]
+  },
+  "chloe:2026-10-01:rtw": {
+   "house": "chloe",
+   "date": "2026-10-01",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chloe.com": "ConnectionError"
+   }
+  }
+ },
+ "note": "addresses only; no page or picture is kept",
+ "summary": {
+  "by_status": {
+   "found": 41,
+   "index failed": 29,
+   "none": 33
+  },
+  "by_house": {
+   "alaia": {
+    "shows": 3,
+    "found": 0
+   },
+   "balenciaga": {
+    "shows": 26,
+    "found": 22
+   },
+   "bottega_veneta": {
+    "shows": 21,
+    "found": 9
+   },
+   "brunello_cucinelli": {
+    "shows": 5,
+    "found": 0
+   },
+   "burberry": {
+    "shows": 21,
+    "found": 0
+   },
+   "celine": {
+    "shows": 16,
+    "found": 6
+   },
+   "chanel": {
+    "shows": 5,
+    "found": 0
+   },
+   "chloe": {
+    "shows": 6,
+    "found": 4
+   }
+  },
+  "by_year": {
+   "2015": {
+    "shows": 3,
+    "found": 0
+   },
+   "2016": {
+    "shows": 8,
+    "found": 3
+   },
+   "2017": {
+    "shows": 8,
+    "found": 4
+   },
+   "2018": {
+    "shows": 8,
+    "found": 3
+   },
+   "2019": {
+    "shows": 8,
+    "found": 0
+   },
+   "2020": {
+    "shows": 9,
+    "found": 3
+   },
+   "2021": {
+    "shows": 4,
+    "found": 2
+   },
+   "2022": {
+    "shows": 7,
+    "found": 4
+   },
+   "2023": {
+    "shows": 6,
+    "found": 4
+   },
+   "2024": {
+    "shows": 8,
+    "found": 4
+   },
+   "2025": {
+    "shows": 8,
+    "found": 4
+   },
+   "2026": {
+    "shows": 20,
+    "found": 9
+   },
+   "2027": {
+    "shows": 6,
+    "found": 1
+   }
+  }
+ }
+}
