@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: "50 7 * * *"
   workflow_dispatch:
+  push:            # editing .github/kick/watchdog asks the question now instead of at the next morning run
+    branches: [main]
+    paths: [".github/kick/watchdog"]
 
 permissions:
   contents: read
