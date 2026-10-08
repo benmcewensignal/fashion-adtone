@@ -52,6 +52,11 @@ def classify(status: int, body: dict | None) -> GraphError:
     code = err.get("code")
     sub = err.get("error_subcode")
     msg = err.get("message") or f"HTTP {status}"
+    if code is not None:          # Meta's codes and its own advice for the person, so a refusal says what to do
+        msg += f" (code {code}" + (f", subcode {sub}" if sub else "") + ")"
+    advice = " ".join(x for x in (err.get("error_user_title"), err.get("error_user_msg")) if x)
+    if advice:
+        msg += f": {advice}"
     if status == 401 or code in TOKEN_CODES:
         return TokenError(msg, code, sub, status)
     if status == 429 or code in RATE_LIMIT_CODES:

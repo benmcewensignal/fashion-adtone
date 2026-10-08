@@ -103,3 +103,17 @@ def test_scrub_removes_tokens():
 def test_missing_token_is_refused():
     with pytest.raises(TokenError):
         AdLibraryClient("")
+
+
+def test_a_refusal_carries_metas_code_and_its_advice_but_never_the_token():
+    from adtone.adlib import GraphError, TokenError, classify
+    body = {"error": {"message": "Application does not have permission for this action", "type": "OAuthException",
+                      "code": 10, "error_subcode": 2332002, "error_user_title": "Permission needed",
+                      "error_user_msg": "To access the API, you'll need to follow the steps at facebook.com/ads/library/api. "
+                                        "See https://x/?access_token=SECRET1234"}}
+    e = classify(400, body)
+    assert isinstance(e, GraphError) and not isinstance(e, TokenError)
+    text = str(e)
+    assert "code 10, subcode 2332002" in text and "facebook.com/ads/library/api" in text and "Permission needed" in text
+    assert "SECRET1234" not in text
+    assert str(classify(500, None)) == "HTTP 500"
