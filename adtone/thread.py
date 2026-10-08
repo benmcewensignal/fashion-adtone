@@ -435,11 +435,29 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
 STAGES = {"scene": (-180, -1),          # ambassador appointments
           "show": (-1, 3),              # heat, surprise, press, tone
           "shop_window": (1, 182),      # the homepages
-          "show_period_ads": (-7, 21),  # Amendment 2, section 13: ads first seen around the show
-          "campaign_ads": (45, 150)}    # Amendment 2, section 13: ads first seen after it
+          "show_period_ads": (-7, 21)}  # ads first seen around the show
+# The campaign that follows a show is advertised from about six weeks after it until the house's next main
+# show, so its window ends a week before that show rather than on a fixed day. Fixed at 45 to 150 days it
+# caught 13 of the 22 dated autumn-winter campaigns; ended at the next main show it catches all 22, and never
+# reaches into the next collection. Ended at the next show of any kind (menswear, pre-collections) it would
+# catch 7. Where the next main show is not on file, its usual gap stands in: a median 210 days after an
+# autumn-winter show and 154 after a spring-summer one, less the week.
+CAMPAIGN_FROM = 45
+CAMPAIGN_STOP = 7
+CAMPAIGN_USUAL_END = {"AW": 203, "SS": 147}
 AMBASSADORS_FROM = date(2019, 1, 1)     # where reference/ambassadors.csv starts
 SHOP_FULL = 4                           # months with homepage readings, of the six or seven after a show
 OFFERING_DAYS = 183                     # a campaign naming no season joins the house's last main show this close
+
+
+def campaign_window(show: date, next_main: date | None = None, half: str | None = None) -> tuple[int, int]:
+    """Days after a show in which its campaign is advertised: from six weeks after it to a week before the
+    house's next main show, or, with that show not on file, to the season's usual end."""
+    if next_main is not None and next_main > show:
+        end = (next_main - show).days - CAMPAIGN_STOP
+    else:
+        end = CAMPAIGN_USUAL_END.get((half or "").upper(), 150)
+    return CAMPAIGN_FROM, max(CAMPAIGN_FROM, end)
 TITLE_SEASON = re.compile(
     r"(?P<w>pre[-\s]?fall|pre[-\s]?collection|resort|cruise|s/s|ss|spring(?:[-/\s]summer)?|summer|f/w|fw|a/w|aw|"
     r"fall(?:[-/\s]winter)?|autumn(?:[-/\s]winter)?|winter)\W{0,3}(?:pre[-\s]?collection\W{0,3})?'?"
@@ -547,8 +565,16 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
 
     def window(c, stage):
         d = date.fromisoformat(c["date"])
-        a, b = STAGES[stage]
+        a, b = STAGES[stage] if stage in STAGES else c["campaign_window"]
         return d + timedelta(days=a), d + timedelta(days=b)
+
+    for cs in by_house.values():
+        cs.sort(key=lambda c: c["date"])
+        for i, c in enumerate(cs):
+            nxt = next((x for x in cs[i + 1:] if x["main"] and x["date"] > c["date"]), None)
+            c["campaign_window"] = list(campaign_window(date.fromisoformat(c["date"]),
+                                                        date.fromisoformat(nxt["date"]) if nxt else None,
+                                                        c["season"].split()[1] if len(c["season"].split()) > 1 else None))
 
     amb = defaultdict(list)
     for r in src.get("ambassadors", []):
@@ -609,7 +635,7 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         b["pictures_read"] += int(r.get("campaign_id") in read)
         if how == "season" and line == "collection" and CAMPAIGN_TITLE.search(title) and r.get("published"):
             lag = (date.fromisoformat(r["published"][:10]) - date.fromisoformat(target["date"])).days
-            lags[target["season"].split()[1]].append(lag)
+            lags[target["season"].split()[1]].append((lag, *target["campaign_window"]))
 
     def fill(c) -> dict:
         sh = c["show"]
@@ -641,12 +667,18 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         y = c["season"].split()[0]
         for s in stages:
             by_year[y][s] += c["fill"][s] == "full"
-    lag_summary = {s: {"campaigns": len(v), "median_days": float(np.median(v)) if v else None,
-                       "quartiles": [float(x) for x in np.percentile(v, [25, 75])] if v else None,
-                       "in_campaign_window": sum(STAGES["campaign_ads"][0] <= x <= STAGES["campaign_ads"][1] for x in v),
-                       "after_it": sum(x > STAGES["campaign_ads"][1] for x in v)}
-                   for s, v in sorted(lags.items())}
-    return {"collections": len(records), "main": len(mains), "windows": STAGES,
+    lag_summary = {}
+    for s, v in sorted(lags.items()):
+        days = [x for x, _, _ in v]
+        lag_summary[s] = {"campaigns": len(v), "median_days": float(np.median(days)),
+                          "quartiles": [float(x) for x in np.percentile(days, [25, 75])],
+                          "in_campaign_window": sum(a <= x <= b for x, a, b in v),
+                          "after_it": sum(x > b for x, _, b in v)}
+    windows = {**{k: list(v) for k, v in STAGES.items()},
+               "campaign_ads": f"{CAMPAIGN_FROM} days after the show to {CAMPAIGN_STOP} before the house's next main show "
+                               f"(where that is not on file: {CAMPAIGN_USUAL_END['AW']} after autumn-winter, "
+                               f"{CAMPAIGN_USUAL_END['SS']} after spring-summer)"}
+    return {"collections": len(records), "main": len(mains), "windows": windows,
             "filled_main": by_stage, "full_by_year": dict(sorted(by_year.items())),
             "complete_chains": sum(all(c["fill"][s] == "full" for s in stages) for c in mains),
             "advertising": "waiting on Meta" if not have_ads else "on file",

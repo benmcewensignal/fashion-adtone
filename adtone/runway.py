@@ -27,13 +27,15 @@ from datetime import date, timedelta
 import numpy as np
 
 from . import config, registry, store
+from .thread import campaign_window
 
 SHOWS_FILE = config.ROOT / "reference" / "shows.csv"
 BASELINE = (-60, -10)      # days around the show, inclusive
 PEAK = (-1, 3)
 LASTING = (30, 120)
 SHOW_ADS = (-7, 21)        # the house's own show-period advertising: the stand-in for the runway
-CAMPAIGN_ADS = (45, 150)   # the campaign that follows
+# the campaign that follows: from six weeks after the show to a week before the house's next show on file
+# (thread.campaign_window, shared with the collections)
 REACH_AFTER = (0, 90)
 COVERAGE = 0.8             # share of days a window needs
 MIN_PRIOR_SHOWS = 2        # before a show's surprise can be measured
@@ -186,11 +188,13 @@ def event_table(panel: Panel, dates_by_house: dict[str, list[date]], press: Pres
     the surprise and the lasting lift; the press gives reception and its own spike; page views before
     the show give momentum; the archive gives reach after the show and the campaign's alignment."""
     rows = events(panel, dates_by_house)
+    nxt = next_shows(dates_by_house)
     for r in rows:
         if press is not None:
             r.update(press.at(r["house"], r["date"]))
         if concepts_by_house is not None and r["house"] not in EXCLUDE_ADS:
-            f = bridge_features(concepts_by_house.get(r["house"], []), r["date"])
+            w = campaign_window(r["date"], nxt.get((r["house"], r["date"])), _half(r["date"]))
+            f = bridge_features(concepts_by_house.get(r["house"], []), r["date"], w)
             if f:
                 r.update({"log_reach_after": f["log_reach_after"], "alignment": f["alignment"]})
     return rows
@@ -329,11 +333,25 @@ def _cos(a, b) -> float:
     return float(a @ b / (na * nb)) if na and nb else 0.0
 
 
-def bridge_features(concepts, d: date) -> dict | None:
+def _half(d: date) -> str | None:
+    """The season a main show presents: autumn-winter in February and March, spring-summer in September and October."""
+    return "AW" if d.month in (1, 2, 3, 4) else "SS" if d.month in (8, 9, 10, 11) else None
+
+
+def next_shows(dates_by_house: dict[str, list[date]]) -> dict[tuple[str, date], date]:
+    out = {}
+    for h, ds in dates_by_house.items():
+        ds = sorted(set(ds))
+        for a, b in zip(ds, ds[1:]):
+            out[(h, a)] = b
+    return out
+
+
+def bridge_features(concepts, d: date, window: tuple[int, int] | None = None) -> dict | None:
     """Reach pushed after the show, and how closely the campaign resembles the show-period advertising."""
     def within(span):
         return [c for c in concepts if span[0] <= (c.first_seen - d).days <= span[1]]
-    show, campaign, after = within(SHOW_ADS), within(CAMPAIGN_ADS), within(REACH_AFTER)
+    show, campaign, after = within(SHOW_ADS), within(window or campaign_window(d, None, _half(d))), within(REACH_AFTER)
     if len(show) < 3 or len(campaign) < 3:
         return None
     return {"log_reach_after": float(np.log1p(sum(c.reach or 0 for c in after))),
@@ -345,10 +363,12 @@ def bridge(records: list[dict], concepts_by_house, boot: int = 2000, seed: int =
     """Lasting attention on surprise, reach pushed afterwards and campaign alignment, all standardised.
     Predictive, not causal: houses push more after a show that went well."""
     rows = []
+    nxt = next_shows({h: [r["date"] for r in records if r["house"] == h] for h in {r["house"] for r in records}})
     for r in records:
         if r["house"] in EXCLUDE_ADS or r["surprise"] is None:
             continue
-        f = bridge_features(concepts_by_house.get(r["house"], []), r["date"])
+        w = campaign_window(r["date"], nxt.get((r["house"], r["date"])), _half(r["date"]))
+        f = bridge_features(concepts_by_house.get(r["house"], []), r["date"], w)
         if f:
             rows.append({**r, **f})
     out = {"n_shows": len(rows), "excluded": list(EXCLUDE_ADS)}

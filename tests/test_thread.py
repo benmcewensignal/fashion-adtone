@@ -288,3 +288,12 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     assert s["complete_chains"] == 0                                  # no press on file, so no show is full
     assert s["campaigns_unjoined"] == {"collection": 1}
     assert s["campaign_lag_after_show"]["AW"]["median_days"] == (date(2023, 7, 20) - show_day).days
+
+
+def test_the_campaign_window_runs_to_a_week_before_the_next_main_show():
+    show = date(2025, 3, 4)
+    assert T.campaign_window(show, date(2025, 9, 30), "AW") == (45, 203)       # 210 days on, less the week
+    assert T.campaign_window(show, None, "AW") == (45, 203)                    # not on file: the usual gap
+    assert T.campaign_window(date(2025, 9, 30), None, "SS") == (45, 147)
+    assert T.campaign_window(show, None, None) == (45, 150)
+    assert T.campaign_window(show, show, "AW") == (45, 203)                    # a same-day show is not the next one
