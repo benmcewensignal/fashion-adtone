@@ -394,19 +394,76 @@ def coverage_show(c: Crawler, show: dict, domains: list[str], section_rows: list
             **({"errors": errors} if errors else {})}
 
 
+SECTION_WORDS = re.compile(r"runway|fashion-?shows?|fashionshow|(?<![a-z])shows?(?![a-z])|defile|sfilat|catwalk|"
+                           r"collections?|lookbook|(?<![a-z])looks(?![a-z])", re.I)
+HOMEPAGE_YEARS = (2016, 2019, 2022, 2025)
+
+
+def homepage_sections(c: Crawler, house: str, years: tuple = HOMEPAGE_YEARS) -> list[str]:
+    """Where a house keeps its shows, read from the links on its own front page as the archive kept it, a
+    few years apart (sites are rebuilt): the sections whose address speaks of shows, runways, collections
+    or looks. One front page a year, in the month after the autumn shows; a country chooser is stepped
+    through to the British page, as on the homepages."""
+    from collections import Counter
+    from urllib.parse import urljoin, urlparse
+    from .homepages import REPLAY, _site, final_url, load_index, next_page, unrewrite
+    idx = load_index(house)
+    found: Counter = Counter()
+    for y in years:
+        months = [m for m in (f"{y}-10", f"{y}-11", f"{y}-03", f"{y}-04") if idx.get(m)]
+        if not months:
+            continue
+        ts, url = idx[months[0]][0][0], idx[months[0]][0][1]
+        try:
+            r = c.get(REPLAY.format(ts=ts, url=url))
+            if r.status_code != 200:
+                continue
+            page = final_url(getattr(r, "url", "") or "", url)
+            html = unrewrite(r.text)
+            step = next_page(html, page)
+            if step and len(re.findall(r"href=", html)) < 40:
+                r2 = c.get(REPLAY.format(ts=ts, url=step[0]))
+                if r2.status_code == 200:
+                    page, html = final_url(getattr(r2, "url", "") or "", step[0]), unrewrite(r2.text)
+        except requests.RequestException:
+            continue
+        here = _site(urlparse(page).netloc)
+        for href in set(re.findall(r'href=["\']([^"\'#]+)', html)):
+            u = urljoin(page, href.strip())
+            pu = urlparse(u)
+            if pu.scheme not in ("http", "https") or _site(pu.netloc) != here:
+                continue
+            if not SECTION_WORDS.search(pu.path) or any(w in pu.path.lower() for w in NOT_SHOW):
+                continue
+            pre = section_prefix(u)
+            if pre is None:
+                segs = [x for x in pu.path.split("/") if x]
+                if len(segs) >= 2:
+                    pre = f"{pu.netloc.split(':')[0].lower()}/{'/'.join(segs)}/"
+            if pre:
+                found[pre] += 1
+    return [pre for pre, _ in found.most_common(SECTIONS_PER_HOUSE)]
+
+
 def house_sections(c: Crawler, house: str, shows: list[dict], domains: list[str], seeds: list[str]) -> tuple[list, list]:
-    """A house's show sections: from show pages already found, or else from a week's search after its two
-    latest shows; then every page the archive holds under each section."""
+    """A house's show sections: from show pages already found and from the links on its own front page; if
+    neither gives one, from a week's search after its two latest shows. Then every page the archive holds
+    under each section."""
     from collections import Counter
     from datetime import timedelta
-    if not seeds:
+    prefixes = [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in seeds))).most_common(SECTIONS_PER_HOUSE)]
+    for pre in homepage_sections(c, house):            # the house's own front page says where its shows live
+        if pre not in prefixes and len(prefixes) < 2 * SECTIONS_PER_HOUSE:
+            prefixes.append(pre)
+    if not prefixes:
+        found = []
         for sh in sorted(shows, key=lambda s: s["date"], reverse=True)[:2]:
             year, season, _ = sh["season"].split()
             d = date.fromisoformat(sh["date"])
             for dom in domains:
                 got, _, _ = index_window(c, dom, season_pattern(season, int(year)), d - timedelta(days=1), d + timedelta(days=6))
-                seeds += [x["url"] for x in candidates(got or [], category=sh.get("category"))]
-    prefixes = [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in seeds))).most_common(SECTIONS_PER_HOUSE)]
+                found += [x["url"] for x in candidates(got or [], category=sh.get("category"))]
+        prefixes = [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in found))).most_common(SECTIONS_PER_HOUSE)]
     rows = []
     for pre in prefixes:
         rows += section_index(c, pre)
@@ -454,10 +511,16 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
         seeds = [x["url"] for k, v in shows_prev.items() if v.get("house") == house and v.get("status") == "found"
                  for x in v.get("candidates", [])[:1]] + probe_pages.get(house, [])
         prefixes, rows = house_sections(cc, house, by_house[house], doms.get(house, []), seeds)
+        failed = 0
         for sh in sorted(pending, key=lambda s: s["date"], reverse=True):
             if clock() > deadline:
                 break
-            row = coverage_show(cc, sh, doms.get(house, []), rows)
+            domains = doms.get(house, []) if failed < 2 else []    # after two failures only the sections are read
+            row = coverage_show(cc, sh, domains, rows)
+            if row["status"] == "index failed":
+                failed += 1
+            if not domains and row["status"] != "found":
+                continue                                  # not asked this run: left for a later one
             if row["status"] == "found" and row.get("via") == "window" and len(prefixes) < SECTIONS_PER_HOUSE:
                 pre = section_prefix(row["candidates"][0]["url"])
                 if pre and pre not in prefixes:          # a section found on the way answers the older shows

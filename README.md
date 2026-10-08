@@ -31,7 +31,7 @@ their clothes look like.
   `adtone.composition` after `rubric/composition-v1.md`) is frozen before it reads anything and tested
   on the bake-off's pictures by its own fixed rules. See `docs/JOINS.md` for every source and its
   workflow.
-- Built and tested on synthetic data with known ground truth (356 tests).
+- Built and tested on synthetic data with known ground truth (357 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.

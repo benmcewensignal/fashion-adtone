@@ -134,6 +134,8 @@ class _Index:
 
 
 def test_coverage_searches_the_fortnight_after_each_show_and_resumes(tmp_path, monkeypatch):
+    from adtone import homepages
+    monkeypatch.setattr(homepages, "load_index", lambda h: {})           # no front pages on file here
     monkeypatch.setattr(L, "COVERAGE_OUT", tmp_path / "coverage.json")
     monkeypatch.setattr(L, "COVERAGE_PROV", tmp_path / "prov.jsonl")
     monkeypatch.setattr(L, "OUT", tmp_path / "no-probe.json")
@@ -171,3 +173,41 @@ def test_a_page_must_fit_the_kind_of_show_and_a_section_is_where_the_season_star
             ["20260402000000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026-replay/"]]
     got = L.from_sections({"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw"}, rows)
     assert [g["url"] for g in got] == [rows[0][1]]                 # first captured six months on: not this show
+
+
+def test_a_house_whose_index_does_not_answer_is_found_through_its_front_page_links(tmp_path, monkeypatch):
+    from adtone import homepages
+    monkeypatch.setattr(L, "COVERAGE_OUT", tmp_path / "coverage.json")
+    monkeypatch.setattr(L, "COVERAGE_PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(L, "OUT", tmp_path / "no-probe.json")
+    monkeypatch.setattr(L, "sites", lambda: {"chanel": ["chanel.com"]})
+    monkeypatch.setattr(homepages, "load_index", lambda h: {"2025-10": [["20251015000000", "https://www.chanel.com/gb/", "200"]]})
+    shows = [{"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw"},
+             {"house": "chanel", "date": "2025-03-11", "season": "2025 AW rtw", "category": "rtw"},
+             {"house": "chanel", "date": "2024-10-01", "season": "2025 SS rtw", "category": "rtw"}]
+    monkeypatch.setattr(L, "shows_on_file", lambda: shows)
+    front = ('<a href="/gb/fashion/collection/spring-summer-2026/">Spring-Summer 2026</a>'
+             '<a href="/gb/fashion/collection/">All collections</a><a href="/gb/fashion/p/123456789/bag/">bag</a>'
+             '<a href="https://www.elsewhere.com/shows/">x</a>' + '<a href="/gb/x/">y</a>' * 40)
+
+    class Big:
+        calls = 0
+
+        def get(self, url, params=None):
+            self.calls += 1
+            if url == L.CDX and params.get("matchType") == "domain":
+                return _R(504, "the index timed out")
+            if url == L.CDX:
+                rows = [["timestamp", "original"]]
+                if params["url"].startswith("www.chanel.com/gb/fashion/collection/"):
+                    rows += [["20251009000000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026/"],
+                             ["20250313000000", "https://www.chanel.com/gb/fashion/collection/fall-winter-2025/"]]
+                return _R(200, json.dumps(rows), "application/json")
+            return _R(200, front, url=url)
+
+    big = Big()
+    out = L.coverage(c=big)
+    s = out["shows"]
+    assert s["chanel:2025-10-07:rtw"]["status"] == "found" and s["chanel:2025-03-11:rtw"]["via"] == "section"
+    assert "www.chanel.com/gb/fashion/collection/" in out["sections"]["chanel"]["prefixes"]
+    assert "chanel:2024-10-01:rtw" not in s or s["chanel:2024-10-01:rtw"]["status"] == "index failed"
