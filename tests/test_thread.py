@@ -200,6 +200,21 @@ def test_a_jump_read_off_a_handful_of_views_a_day_is_left_out(tmp_path, monkeypa
     assert out["left_out_thin_views"] == 1
 
 
+def test_momentum_shares_no_days_with_the_weeks_lasting_attention_is_measured_from(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    start = date(2017, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 for k in range(400)} for h in range(5)}
+    for k in range(140, 191):                      # h0 runs high through the baseline weeks alone
+        att["h0"][start + timedelta(days=k)] = 3000
+    shows = [{"house": f"h{h}", "date": (start + timedelta(days=200)).isoformat(), "category": "rtw", "season": "SS",
+              "year": 2018, "city": "Paris"} for h in range(5)]
+    by = {r["house"]: r for r in T.build(shows, att, {})["rows"]}
+    assert by["h0"]["lasting"] < -1 and by["h1"]["lasting"] == 0.0
+    assert by["h0"]["momentum"] == 0.0                # the high baseline lowers lasting attention and nothing else
+
+
 def test_each_show_without_heat_says_why(tmp_path, monkeypatch):
     monkeypatch.setattr(T, "DIR", tmp_path / "thread")
     monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")

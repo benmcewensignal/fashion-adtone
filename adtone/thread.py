@@ -27,8 +27,9 @@ The strands, all from sources the project already holds:
              (GDELT);
   lasting    the attention that lasts: mean log views from 30 to 120 days after the show, over the same
              baseline, less the median house's change over the same days; none until the 120 days are on file;
-  momentum   the trend the house brought into the show: mean log views from 60 to 10 days before, less the
-             mean from 150 to 90 days before.
+  momentum   the trend the house brought into the show: mean log views from 90 to 61 days before, less the
+             mean from 150 to 121 days before. It stops short of the baseline weeks that lasting attention is
+             measured from, so a baseline that happens to run high cannot raise one and lower the other.
 Each is also given as a z-score among the shows of the same season (category, season and year). Each
 show's collection is then followed through the stages that come after it, on fixed windows, in
 data/thread/collections.jsonl (see `collections` below). Descriptive throughout.
@@ -65,6 +66,8 @@ SHOWS_REF = config.ROOT / "reference" / "shows.csv"
 FIRST_YEAR = 2015                   # English Wikipedia daily views start in July 2015
 MIN_SEASON = 5                      # shows with a value before a season's z-scores are given
 MIN_BASE_VIEWS = 20                 # mean daily views from 60 to 10 days before a show, below which no heat
+MOMENTUM_FROM = (-150, -121)        # momentum: these days to the next, both before the baseline weeks (-60 to -10)
+MOMENTUM_LATE = (-90, -61)
 
 # NOWFASHION's brand page names for each house, tried in order
 SLUGS = {
@@ -342,11 +345,10 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     if not series:
         return {"note": "no page views on file"}
     panel = Panel(series)
-    from .runway import BASELINE, MOMENTUM_EARLY
     import warnings
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)   # empty windows at the edges of the record
-        momentum = panel._mean(BASELINE) - panel._mean(MOMENTUM_EARLY)
+        momentum = panel._mean(MOMENTUM_LATE) - panel._mean(MOMENTUM_FROM)
     press = press if press is not None else {h: press_mod.load_series(h) for h in houses}
     pp = PressPanel(panel, {h: v for h, v in press.items() if v})
     main = main_category(shows)
