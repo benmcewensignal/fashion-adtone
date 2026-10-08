@@ -66,7 +66,8 @@ CATEGORIES = [("ready to wear", "rtw"), ("couture", "couture"), ("menswear", "me
               ("resort", "resort"), ("cruise", "resort")]
 SEASONS = [("spring summer", "SS"), ("fall winter", "AW"), ("autumn winter", "AW"), ("pre fall", "PF"),
            ("resort", "RE"), ("cruise", "RE")]
-ENTRY = re.compile(r"^\s*[-*]\s*\[(?P<title>[^\]]+)\]\((?P<url>[^)\s]+)\)\s*[—–-]+\s*(?P<date>\d{4}-\d{2}-\d{2})")
+LINK = re.compile(r"\[(?P<title>[^\]]+)\]\((?P<url>[^)\s]+)\)")
+DATE = re.compile(r"\b(?P<date>(?:19|20)\d{2}-\d{2}-\d{2})\b")
 
 
 def _log(event: str, **kw) -> None:
@@ -82,12 +83,15 @@ def parse_listing(text: str) -> list[dict]:
     """A brand listing's show entries: '- [Title](url) — YYYY-MM-DD'."""
     out = []
     for line in (text or "").splitlines():
-        m = ENTRY.match(line)
-        if m:
-            url = m["url"]
-            if url.startswith("/"):
-                url = SITE + url
-            out.append({"title": m["title"].strip(), "url": url, "date": m["date"]})
+        m, d = LINK.search(line), DATE.search(line)
+        if not (m and d) or not re.search(r"\b(19|20)\d{2}\b", m["title"]):
+            continue
+        url = m["url"]
+        if url.startswith("/"):
+            url = SITE + url
+        if "/brand/" in url or "/media/" in url:
+            continue
+        out.append({"title": m["title"].strip(), "url": url, "date": d["date"]})
     return out
 
 
@@ -138,8 +142,12 @@ def calendar(sess=None, sleep=time.sleep, houses: list[str] | None = None) -> di
                 if entries:
                     found = (slug, entries)
                     break
-            elif err:
+            if err:
                 notes.append(f"{h.id}: {slug}: {err}")
+            elif r is not None:     # what came back instead of a listing, so a failure says why
+                kind = (getattr(r, "headers", None) or {}).get("content-type", "?")
+                head = re.sub(r"\s+", " ", (r.text or "")[:160])
+                notes.append(f"{h.id}: {slug}: HTTP {r.status_code}, {kind}, {len(r.text or '')} chars: {head}")
         if not found:
             per[h.id] = {"slug": None, "listed": 0}
             continue
@@ -309,6 +317,8 @@ def main(argv: list[str] | None = None) -> int:
         missing = [h for h, v in out["per_house"].items() if not v["listed"]]
         if missing:
             print(f"::notice::no NOWFASHION listing for: {', '.join(missing)}")
+        for note in out["notes"][:6]:
+            print(f"::notice::{note}")
     else:
         out = build()
         print(f"thread build: {out.get('shows')} shows, {out.get('main_shows')} main, {out.get('houses')} houses; "
