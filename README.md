@@ -262,6 +262,15 @@ crops, and agrees with its reference on runway looks and on advertising pictures
 keeps and 150 homepage pictures from the earlier bake-off, the reader's copies on the private Modal
 volume and the labelling page's thumbnails sealed. Workflow `clothes`.
 
+The runway layer itself comes from the same archive: `adtone.looks coverage` maps, for every show since
+2015, the pages the Wayback Machine holds on the house's own site (each house's show sections first,
+read whole, then the fortnight after any show they miss), and `adtone.clothes collect` keeps about
+twenty looks of each show found, spread from first look to last, as copies on the private volume
+(`data/clothes/looks_coverage.json`, `data/clothes/runway.jsonl`). Nothing is read until the rubric
+is frozen. The clothes workflow runs both every three hours until they are complete.
+`PREREGISTRATION-AMENDMENT-3.md` is a draft, not decided, of how the links between the show and the
+advertising would be tested if they are tested at all.
+
 ## The reader
 
 Each image's eighteen answers come from an open vision model, Qwen2.5-VL-7B-Instruct, on a Modal GPU
