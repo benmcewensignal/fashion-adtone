@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-10-08T10:31:53Z",
+ "generated_at": "2026-10-08T11:01:02Z",
  "season": "2026 SS",
  "window": [
   "2025-09-01",
-  "2026-03-31"
+  "2025-12-31"
  ],
  "pattern": "(?i).*(?:spring[-_]?summer|summer|spring|printemps[-_]?ete|primavera[-_]?estate|ss|pe)[-_]?(?:20)?26(?![0-9]).*",
  "houses": {
@@ -132,6 +132,10 @@
    "domains": [
     "burberry.com"
    ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
    "candidates": [],
    "pages": [],
    "index_errors": {
@@ -145,100 +149,754 @@
    "domains": [
     "celine.com"
    ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
    "candidates": [
     {
-     "url": "https://www.celine.com/en-gb/cm/fashion-show-summer-2026",
-     "ts": "20260309135219",
-     "score": 8.12
-    },
-    {
      "url": "https://www.celine.com/en-us/cm/fashion-show-spring-2026",
-     "ts": "20251103020702",
+     "ts": "20251225053012",
      "score": 7.88
     },
     {
-     "url": "https://www.celine.com/fr-fr/cm/runway-looks-summer2026",
-     "ts": "20260309140746",
-     "score": 7.0
+     "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
+     "ts": "20251229153751",
+     "score": 7.88
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/spring-26-highlights",
+     "ts": "20251212004204",
+     "score": 0.88
     }
    ],
-   "pages": [],
-   "season_pages": 13,
-   "verdict": "pages found, none opened"
+   "pages": [
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-spring-2026",
+     "ts": "20251225053012",
+     "status": "ok",
+     "title": "CELINE FASHION SHOW - 2026 RUNWAY BY MICHAEL RIDER",
+     "pictures": 29,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
+     "ts": "20251229153751",
+     "status": "ok",
+     "title": "SUMMER 2026 SHOW \u2013 MEN\u2019S AND WOMEN\u2019S RUNWAY | CELINE",
+     "pictures": 21,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/spring-26-highlights",
+     "ts": "20251212004204",
+     "status": "ok",
+     "title": "CELINE SPRING 2026 COLLECTION - DESIGNER SPRING COLLECTION FOR MEN AND WOMEN | CELINE",
+     "pictures": 15,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 5,
+   "verdict": "looks found"
   },
   "chanel": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "chanel.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "chanel.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "chloe": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "chloe.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.chloe.com/us/chloe/women/fashionshow/show_summer26_section",
+     "ts": "20251007100344",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.chloe.com/us/chloe/women/subhome/show_summer26_section",
+     "ts": "20251010050357",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.chloe.com/en-us/news/chloe-unveils-the-summer-2026-collection.html",
+     "ts": "20251218124119",
+     "score": 2.88
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.chloe.com/us/chloe/women/fashionshow/show_summer26_section",
+     "ts": "20251007100344",
+     "status": "ok",
+     "title": "Spring Summer 21 Runway | Chlo\u00e9 US official site",
+     "pictures": 10,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.chloe.com/us/chloe/women/subhome/show_summer26_section",
+     "ts": "20251010050357",
+     "status": "ok",
+     "title": "Chlo\u00e9 Summer 2026 show",
+     "pictures": 22,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.chloe.com/en-us/news/chloe-unveils-the-summer-2026-collection.html",
+     "ts": "20251218124119",
+     "status": "ok",
+     "title": "The \u201centre deux\u201d Collection Summer 2026",
+     "pictures": 107,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 67,
+   "verdict": "looks found"
   },
   "dior": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "dior.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "dior.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "dolce_gabbana": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "dolcegabbana.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "dolcegabbana.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "dries_van_noten": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "driesvannoten.com",
+    "driesvannoten.be"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.driesvannoten.com/en-us/pages/show-ss-26-men",
+     "ts": "20251228131520",
+     "score": 4.88
+    },
+    {
+     "url": "https://www.driesvannoten.com/en-kr/pages/show-ss-26-women",
+     "ts": "20251219015806",
+     "score": 4.62
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.driesvannoten.com/en-us/pages/show-ss-26-men",
+     "ts": "20251228131520",
+     "status": "ok",
+     "title": "Show SS 26 Men | Dries Van Noten",
+     "pictures": 26,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.driesvannoten.com/en-kr/pages/show-ss-26-women",
+     "ts": "20251219015806",
+     "status": "ok",
+     "title": "Show SS 26 Women | Dries Van Noten",
+     "pictures": 24,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 4,
+   "verdict": "looks found"
   },
   "fendi": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "fendi.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "fendi.com": "ConnectTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "givenchy": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "givenchy.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.givenchy.com/gb/en/cm/explore/collections/spring-summer-26-womenswear-show",
+     "ts": "20251107185013",
+     "score": 6.19
+    },
+    {
+     "url": "https://www.givenchy.com/gb/en/cm/explore/collections/spring-summer-26-womenswear-showhttps:%2F%2Fwww.givenchy.com%2Fgb%2Fen%2Fcm%2Fexplore%2Fcollections%2Fspring-summer-26-womenswear-show",
+     "ts": "20251111134630",
+     "score": 6.19
+    },
+    {
+     "url": "https://www.givenchy.com/apac/en/cm/explore/collections/spring-summer-26-womenswear-show",
+     "ts": "20251107065628",
+     "score": 5.62
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.givenchy.com/gb/en/cm/explore/collections/spring-summer-26-womenswear-show",
+     "ts": "20251107185013",
+     "status": "ok",
+     "title": "Spring Summer 26 Womenswear Show | Givenchy",
+     "pictures": 70,
+     "checked": 3,
+     "kept": 0
+    },
+    {
+     "url": "https://www.givenchy.com/gb/en/cm/explore/collections/spring-summer-26-womenswear-showhttps:%2F%2Fwww.givenchy.com%2Fgb%2Fen%2Fcm%2Fexplore%2Fcollections%2Fspring-summer-26-womenswear-show",
+     "ts": "20251111134630",
+     "status": "ok",
+     "title": "Spring Summer 26 Womenswear Show | Givenchy",
+     "pictures": 70,
+     "checked": 3,
+     "kept": 0
+    },
+    {
+     "url": "https://www.givenchy.com/apac/en/cm/explore/collections/spring-summer-26-womenswear-show",
+     "ts": "20251107065628",
+     "status": "ok",
+     "title": "Spring Summer 26 Womenswear Show | Givenchy",
+     "pictures": 74,
+     "checked": 3,
+     "kept": 0
+    }
+   ],
+   "season_pages": 15,
+   "verdict": "pages found, few pictures kept"
   },
   "gucci": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "gucci.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "gucci.com": "ConnectTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "hermes": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "hermes.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/uk/en/content/342012-women-spring-summer-2026-runway-show/",
+     "ts": "20251010010141",
+     "score": 7.19
+    },
+    {
+     "url": "https://www.hermes.com/us/en/content/340122-men-spring-summer-2026-runway-show/",
+     "ts": "20251125125919",
+     "score": 6.94
+    },
+    {
+     "url": "https://www.hermes.com/jp/ja/content/342010-women-spring-summer-2026-runway-show/",
+     "ts": "20251008103608",
+     "score": 6.0
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.hermes.com/uk/en/content/342012-women-spring-summer-2026-runway-show/",
+     "ts": "20251010010141",
+     "status": "ConnectTimeout"
+    },
+    {
+     "url": "https://www.hermes.com/us/en/content/340122-men-spring-summer-2026-runway-show/",
+     "ts": "20251125125919",
+     "status": "ConnectTimeout"
+    },
+    {
+     "url": "https://www.hermes.com/jp/ja/content/342010-women-spring-summer-2026-runway-show/",
+     "ts": "20251008103608",
+     "status": "ok",
+     "title": "2026\u5e74\u6625\u590f\u30ec\u30c7\u30a3\u30b9\u30b3\u30ec\u30af\u30b7\u30e7\u30f3 \u30b7\u30e7\u30fc | Herm\u00e8s - \u30a8\u30eb\u30e1\u30b9-\u516c\u5f0f\u30b5\u30a4\u30c8",
+     "pictures": 84,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 4,
+   "verdict": "looks found"
   },
   "jil_sander": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "jilsander.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.jilsander.com/en-gb/men-s-and-women-s%3Cbr%3Espring-summer/spring_summer_2026_men_women.html",
+     "ts": "20251206003751",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/spring_summer_2026_men_women.html",
+     "ts": "20251205022001",
+     "score": 2.0
+    },
+    {
+     "url": "https://www.jilsander.com/it-it/primavera-estate%3Cbr%3Euomo-e-donna/spring_summer_2026_men_women.html",
+     "ts": "20251205214053",
+     "score": 2.0
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.jilsander.com/en-gb/men-s-and-women-s%3Cbr%3Espring-summer/spring_summer_2026_men_women.html",
+     "ts": "20251206003751",
+     "status": "ok",
+     "title": "Women&#x27;s and Men&#x27;s Spring/Summer 2026collection",
+     "pictures": 70,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/spring_summer_2026_men_women.html",
+     "ts": "20251205022001",
+     "status": "ok",
+     "title": "Fr\u00fchjahr/Sommer 2026 Damen Und Herren Modenschau Kollektion",
+     "pictures": 72,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.jilsander.com/it-it/primavera-estate%3Cbr%3Euomo-e-donna/spring_summer_2026_men_women.html",
+     "ts": "20251205214053",
+     "status": "ok",
+     "title": "Collezione Primavera/Estate 2026 Donna e Uomo",
+     "pictures": 72,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 8,
+   "verdict": "looks found"
   },
   "loewe": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "loewe.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "loewe.com": "ConnectTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "loro_piana": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "loropiana.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "season_pages": 0,
+   "verdict": "no page naming the season"
   },
   "louis_vuitton": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "louisvuitton.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "louisvuitton.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "margiela": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "maisonmargiela.com",
+    "maisonmartinmargiela.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/maison-margiela/mm-avp-ss26/",
+     "ts": "20251107122025",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/mm-coed-ss26.html",
+     "ts": "20251208223315",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/mm6-spring-summer-2026.html",
+     "ts": "20251112230201",
+     "score": 1.12
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/maison-margiela/mm-avp-ss26/",
+     "ts": "20251107122025",
+     "status": "ok",
+     "title": "MM AVP SS26 | Maison Margiela",
+     "pictures": 8,
+     "checked": 3,
+     "kept": 2
+    },
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/mm-coed-ss26.html",
+     "ts": "20251208223315",
+     "status": "ok",
+     "title": "2026 CO-ED Spring-Summer Collection | Maison Margiela",
+     "pictures": 110,
+     "checked": 3,
+     "kept": 2
+    },
+    {
+     "url": "https://www.maisonmargiela.com/en-gb/mm6-spring-summer-2026.html",
+     "ts": "20251112230201",
+     "status": "ok",
+     "title": "MM6 Spring Summer 2023 Collection | MM6 - Maison Margiela",
+     "pictures": 58,
+     "checked": 3,
+     "kept": 2
+    }
+   ],
+   "season_pages": 4,
+   "verdict": "looks found"
   },
   "max_mara": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "maxmara.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "maxmara.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "miu_miu": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "miumiu.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss26-fashion-show.html",
+     "ts": "20251228022042",
+     "score": 14.94
+    },
+    {
+     "url": "https://www.miumiu.com/us/en/ss26-collection-pre-order/c/10825US",
+     "ts": "20251213013105",
+     "score": 2.94
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss26-fashion-show.html",
+     "ts": "20251228022042",
+     "status": "ok",
+     "title": "Spring Summer 2026 Fashion Show | Miu Miu",
+     "pictures": 211,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.miumiu.com/us/en/ss26-collection-pre-order/c/10825US",
+     "ts": "20251213013105",
+     "status": "ok",
+     "title": "Ss26 Collection Pre-order For Women | Miu Miu",
+     "pictures": 108,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 2,
+   "verdict": "looks found"
   },
   "prada": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "prada.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "prada.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "saint_laurent": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "ysl.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-men-summer-26-show?srsltid=AfmBOoo5hanWM9dzajedeMot1iQSlHjiPEhvuOAwHOdjzGNKvqnXgWOw",
+     "ts": "20251106125300",
+     "score": 6.88
+    },
+    {
+     "url": "https://www.ysl.com/en-ie/collections/page-women-spring-26/looks",
+     "ts": "20251210030410",
+     "score": 6.62
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-26",
+     "ts": "20251016062042",
+     "score": 4.12
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-men-summer-26-show?srsltid=AfmBOoo5hanWM9dzajedeMot1iQSlHjiPEhvuOAwHOdjzGNKvqnXgWOw",
+     "ts": "20251106125300",
+     "status": "ok",
+     "title": "MEN\u2019S SUMMER 26 | Saint Laurent | YSL EN-US",
+     "pictures": 263,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.ysl.com/en-ie/collections/page-women-spring-26/looks",
+     "ts": "20251210030410",
+     "status": "ok",
+     "title": "Women Spring 26 Looks | Saint Laurent | YSL",
+     "pictures": 82,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-26",
+     "ts": "20251016062042",
+     "status": "ok",
+     "title": "SHOWS | Saint Laurent | YSL GB",
+     "pictures": 156,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 17,
+   "verdict": "looks found"
   },
   "tom_ford": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "tomford.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "season_pages": 0,
+   "verdict": "no page naming the season"
   },
   "valentino": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "valentino.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection?utm_campaign=f_press_26&utm_source=twitter&utm_medium=social_organic&utm_content=valentino_cruise_2026",
+     "ts": "20251108050948",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-26-holiday-collection?dclid=CI2Y9aqe7pADFR2HfAYdqKYW4A&gad_source=7&gad_campaignid=23205315523",
+     "ts": "20251126071344",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-us/experience/valentino-spring-2026-collection-man",
+     "ts": "20251220183439",
+     "score": 2.88
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection?utm_campaign=f_press_26&utm_source=twitter&utm_medium=social_organic&utm_content=valentino_cruise_2026",
+     "ts": "20251108050948",
+     "status": "ok",
+     "title": "Valentino Cruise 2026 Women\u2019s Collection",
+     "pictures": 136,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-26-holiday-collection?dclid=CI2Y9aqe7pADFR2HfAYdqKYW4A&gad_source=7&gad_campaignid=23205315523",
+     "ts": "20251126071344",
+     "status": "ok",
+     "title": "Valentino Cruise 2026: Maison curated selection",
+     "pictures": 242,
+     "checked": 3,
+     "kept": 3
+    },
+    {
+     "url": "https://www.valentino.com/en-us/experience/valentino-spring-2026-collection-man",
+     "ts": "20251220183439",
+     "status": "ok",
+     "title": "Valentino Cruise 2026: Men\u2019s Collection",
+     "pictures": 135,
+     "checked": 3,
+     "kept": 3
+    }
+   ],
+   "season_pages": 8,
+   "verdict": "looks found"
   },
   "versace": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "versace.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "index_errors": {
+    "versace.com": "ReadTimeout"
+   },
+   "index_error": true,
+   "season_pages": 0,
+   "verdict": "the index did not answer"
   },
   "zegna": {
-   "verdict": "not reached in the time budget"
+   "domains": [
+    "zegna.com",
+    "ermenegildozegna.com"
+   ],
+   "window": [
+    "2025-09-01",
+    "2025-12-31"
+   ],
+   "candidates": [],
+   "pages": [],
+   "season_pages": 0,
+   "verdict": "no page naming the season"
   }
  },
  "note": "addresses and counts only; no picture is kept or read",
  "summary": {
-  "looks found": 2,
-  "no page naming the season": 2,
-  "not reached in the time budget": 22,
-  "pages found, none opened": 1,
-  "the index did not answer": 1
+  "looks found": 11,
+  "no page naming the season": 5,
+  "pages found, few pictures kept": 1,
+  "the index did not answer": 11
  }
 }
