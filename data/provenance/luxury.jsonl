@@ -235,3 +235,7 @@
 {"at":"2026-10-07T21:06:55Z","event":"read","probs":{"asked":4810,"rows":4746},"reader":"qwen3","seconds":405,"what":"probs"}
 {"at":"2026-10-07T21:06:55Z","axes":{"provocative":{"first_bias":-1.592,"judgements":12170,"pictures":2039}},"event":"positions","reader":"qwen3"}
 {"at":"2026-10-07T21:10:42Z","event":"analyse","reader":"qwen3","readings":{"clip":3158,"csd":3158,"dino":3158,"fashion":3158,"pixels":3158,"positions":3158}}
+{"asked":296,"at":"2026-10-08T07:12:23Z","event":"bakeoff_read","reader":"qwen3","rows":296,"seconds":250,"version":"tone-v2","what":"tone"}
+{"asked":9170,"at":"2026-10-08T07:16:28Z","event":"bakeoff_probs","reader":"qwen3","rows":9170,"seconds":244,"version":"pairs-v2"}
+{"asked":2039,"at":"2026-10-08T07:25:15Z","errors":0,"event":"composition","measured":2039,"seconds":527}
+{"at":"2026-10-08T07:25:23Z","event":"v2_report","kept":{"axes":2,"measures":13,"questions":21},"reader":"qwen3"}

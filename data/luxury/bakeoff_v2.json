@@ -1,0 +1,724 @@
+{
+ "generated_at": "2026-10-08T07:25:23Z",
+ "status": "exploratory: not in the pre-registration",
+ "instrument": {
+  "tone": "tone-v2",
+  "pairs": "pairs-v2",
+  "composition": "composition-v1"
+ },
+ "reader": "qwen3",
+ "kept": {
+  "questions": [
+   "light",
+   "colour_temperature",
+   "saturation",
+   "setting",
+   "people",
+   "expression",
+   "framing",
+   "horizontal_angle",
+   "placement",
+   "open_space",
+   "objects",
+   "arrangement",
+   "head_cant",
+   "self_touch",
+   "withdrawal",
+   "skin_shown",
+   "primary_subject",
+   "styling_register",
+   "text_in_image",
+   "mood",
+   "street_couture_axis"
+  ],
+  "axes": [
+   "intimate",
+   "provocative"
+  ],
+  "measures": [
+   "complexity",
+   "edge_density",
+   "open_space",
+   "symmetry",
+   "mass_y",
+   "centre_offset",
+   "thirds",
+   "figure_size",
+   "depth_of_field",
+   "diagonals",
+   "pleasure",
+   "arousal",
+   "dominance"
+  ]
+ },
+ "tone": {
+  "version": "tone-v2",
+  "reader": "qwen3",
+  "pictures": 296,
+  "showing_a_person": 186,
+  "unreadable": 0,
+  "questions": {
+   "light": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "high_key",
+    "top_share": 0.709,
+    "values_used": 3,
+    "crop_pairs": 29,
+    "crop_kappa": 0.923,
+    "brand_v": 0.311,
+    "keep": true
+   },
+   "colour_temperature": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "neutral",
+    "top_share": 0.703,
+    "values_used": 3,
+    "crop_pairs": 29,
+    "crop_kappa": 0.758,
+    "brand_v": 0.334,
+    "keep": true
+   },
+   "saturation": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "moderate",
+    "top_share": 0.615,
+    "values_used": 4,
+    "crop_pairs": 29,
+    "crop_kappa": 0.81,
+    "brand_v": 0.333,
+    "keep": true
+   },
+   "setting": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "studio_plain",
+    "top_share": 0.632,
+    "values_used": 5,
+    "crop_pairs": 29,
+    "crop_kappa": 1.0,
+    "brand_v": 0.228,
+    "keep": true
+   },
+   "people": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "one",
+    "top_share": 0.551,
+    "values_used": 4,
+    "crop_pairs": 29,
+    "crop_kappa": 1.0,
+    "brand_v": 0.319,
+    "keep": true
+   },
+   "gaze": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "to_camera",
+    "top_share": 0.5,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 0.354,
+    "brand_v": 0.0,
+    "keep": false
+   },
+   "expression": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "neutral",
+    "top_share": 0.651,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 1.0,
+    "brand_v": 0.086,
+    "keep": true
+   },
+   "pose": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "posed_static",
+    "top_share": 0.968,
+    "values_used": 2,
+    "crop_pairs": 18,
+    "crop_kappa": 1.0,
+    "brand_v": 0.492,
+    "keep": false
+   },
+   "framing": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "medium",
+    "top_share": 0.392,
+    "values_used": 5,
+    "crop_pairs": 29,
+    "crop_kappa": 0.854,
+    "brand_v": 0.374,
+    "keep": true
+   },
+   "vertical_angle": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "eye_level",
+    "top_share": 0.963,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": 0.653,
+    "brand_v": 0.202,
+    "keep": false
+   },
+   "horizontal_angle": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "frontal",
+    "top_share": 0.543,
+    "values_used": 2,
+    "crop_pairs": 18,
+    "crop_kappa": 0.443,
+    "brand_v": 0.137,
+    "keep": true
+   },
+   "placement": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "centre",
+    "top_share": 0.875,
+    "values_used": 3,
+    "crop_pairs": 29,
+    "crop_kappa": 1.0,
+    "brand_v": 0.126,
+    "keep": true
+   },
+   "modality": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "naturalistic",
+    "top_share": 0.889,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": 0.371,
+    "brand_v": 0.328,
+    "keep": false
+   },
+   "open_space": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "some",
+    "top_share": 0.625,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": 0.925,
+    "brand_v": 0.302,
+    "keep": true
+   },
+   "objects": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "two_to_three",
+    "top_share": 0.514,
+    "values_used": 3,
+    "crop_pairs": 29,
+    "crop_kappa": 0.848,
+    "brand_v": 0.454,
+    "keep": true
+   },
+   "arrangement": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "balanced",
+    "top_share": 0.652,
+    "values_used": 3,
+    "crop_pairs": 29,
+    "crop_kappa": 1.0,
+    "brand_v": 0.38,
+    "keep": true
+   },
+   "head_cant": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "no",
+    "top_share": 0.64,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 0.908,
+    "brand_v": 0.014,
+    "keep": true
+   },
+   "self_touch": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "no",
+    "top_share": 0.742,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 1.0,
+    "brand_v": 0.0,
+    "keep": true
+   },
+   "body_level": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "upright",
+    "top_share": 0.909,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 1.0,
+    "brand_v": 0.204,
+    "keep": false
+   },
+   "withdrawal": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "no",
+    "top_share": 0.774,
+    "values_used": 3,
+    "crop_pairs": 18,
+    "crop_kappa": 0.739,
+    "brand_v": 0.221,
+    "keep": true
+   },
+   "skin_shown": {
+    "on": "pictures showing a person",
+    "pictures": 186,
+    "top_value": "some",
+    "top_share": 0.575,
+    "values_used": 2,
+    "crop_pairs": 18,
+    "crop_kappa": 1.0,
+    "brand_v": 0.216,
+    "keep": true
+   },
+   "primary_subject": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "garment",
+    "top_share": 0.449,
+    "values_used": 4,
+    "crop_pairs": 29,
+    "crop_kappa": 0.945,
+    "brand_v": 0.303,
+    "keep": true
+   },
+   "styling_register": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "not_applicable",
+    "top_share": 0.324,
+    "values_used": 6,
+    "crop_pairs": 29,
+    "crop_kappa": 0.758,
+    "brand_v": 0.277,
+    "keep": true
+   },
+   "rhetoric": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "none",
+    "top_share": 0.976,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": null,
+    "brand_v": 0.045,
+    "keep": false
+   },
+   "text_in_image": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "none",
+    "top_share": 0.78,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": 0.79,
+    "brand_v": 0.478,
+    "keep": true
+   },
+   "mood": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": "austere|serene",
+    "top_share": 0.382,
+    "values_used": 8,
+    "crop_pairs": 29,
+    "crop_kappa": 0.746,
+    "brand_v": 0.237,
+    "keep": true
+   },
+   "street_couture_axis": {
+    "on": "all pictures",
+    "pictures": 296,
+    "top_value": 5,
+    "top_share": 0.618,
+    "values_used": 2,
+    "crop_pairs": 29,
+    "crop_kappa": 0.723,
+    "brand_v": 0.222,
+    "keep": true
+   }
+  },
+  "kinds": {
+   "product_on_model": 112,
+   "brand_image": 98,
+   "product_packshot": 86
+  },
+  "on_model_without_a_person": 0,
+  "against_v1": {
+   "pictures": 296,
+   "kinds_v1": {
+    "brand_image": 135,
+    "product_packshot": 99,
+    "product_on_model": 60,
+    "event_or_announcement": 2
+   },
+   "on_model_without_a_person_v1": 4,
+   "kappa": {
+    "creative_type": 0.6,
+    "light": 0.883,
+    "colour_temperature": 0.934,
+    "saturation": 0.914,
+    "setting": 0.801,
+    "people": 0.994,
+    "gaze": 0.893,
+    "expression": 0.944,
+    "pose": 0.979,
+    "framing": 0.772,
+    "primary_subject": 0.729,
+    "styling_register": 0.783,
+    "text_in_image": 0.832
+   }
+  }
+ },
+ "pairs": {
+  "rows": 9170,
+  "lean_to_first": -0.188,
+  "axes": {
+   "contemporary": {
+    "pairs": 918,
+    "lean_logit": -4.056,
+    "first_bias": -2.592,
+    "orders_agree_after_lean": 0.676,
+    "crop_gap_vs_random": 0.212,
+    "with_person": {
+     "pairs": 27,
+     "agreement": 0.556
+    },
+    "with_person_by_position": 0.593,
+    "crop_icc": 0.937,
+    "between_brands": 0.08,
+    "p": 0.002,
+    "within_brand_signal": 0.932,
+    "keep": false
+   },
+   "intimate": {
+    "pairs": 916,
+    "lean_logit": -2.293,
+    "first_bias": -1.427,
+    "orders_agree_after_lean": 0.807,
+    "crop_gap_vs_random": 0.254,
+    "with_person": {
+     "pairs": 23,
+     "agreement": 0.87
+    },
+    "with_person_by_position": 0.826,
+    "crop_icc": 0.937,
+    "between_brands": 0.167,
+    "p": 0.001,
+    "within_brand_signal": 0.924,
+    "keep": true
+   },
+   "opulent": {
+    "pairs": 917,
+    "lean_logit": -2.874,
+    "first_bias": -1.866,
+    "orders_agree_after_lean": 0.788,
+    "crop_gap_vs_random": 0.244,
+    "with_person": {
+     "pairs": 23,
+     "agreement": 0.522
+    },
+    "with_person_by_position": 0.565,
+    "crop_icc": 0.932,
+    "between_brands": 0.233,
+    "p": 0.001,
+    "within_brand_signal": 0.911,
+    "keep": false
+   },
+   "provocative": {
+    "pairs": 918,
+    "lean_logit": -2.339,
+    "first_bias": -1.564,
+    "orders_agree_after_lean": 0.792,
+    "crop_gap_vs_random": 0.246,
+    "with_person": {
+     "pairs": 19,
+     "agreement": 0.895
+    },
+    "with_person_by_position": 0.895,
+    "crop_icc": 0.96,
+    "between_brands": 0.309,
+    "p": 0.001,
+    "within_brand_signal": 0.942,
+    "keep": true
+   },
+   "staged": {
+    "pairs": 916,
+    "lean_logit": -5.203,
+    "first_bias": -3.681,
+    "orders_agree_after_lean": 0.617,
+    "crop_gap_vs_random": 0.294,
+    "with_person": {
+     "pairs": 28,
+     "agreement": 0.679
+    },
+    "with_person_by_position": 0.643,
+    "crop_icc": 0.907,
+    "between_brands": 0.258,
+    "p": 0.001,
+    "within_brand_signal": 0.875,
+    "keep": false
+   }
+  },
+  "with_person_all": {
+   "pairs": 120,
+   "agreement": 0.692
+  }
+ },
+ "composition": {
+  "version": "composition-v1",
+  "pictures": 296,
+  "crop_pairs": 29,
+  "measures": {
+   "complexity": {
+    "pictures": 296,
+    "median": 0.8481,
+    "iqr": 0.5689,
+    "between_brands": 0.16,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.99,
+    "with_reader": {
+     "question": "objects",
+     "pictures": 296,
+     "spearman": 0.545
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "edge_density": {
+    "pictures": 296,
+    "median": 0.1313,
+    "iqr": 0.1252,
+    "between_brands": 0.128,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.992,
+    "with_reader": {
+     "question": "objects",
+     "pictures": 296,
+     "spearman": 0.516
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "open_space": {
+    "pictures": 296,
+    "median": 0.5334,
+    "iqr": 0.3765,
+    "between_brands": 0.164,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.989,
+    "with_reader": {
+     "question": "open_space",
+     "pictures": 296,
+     "spearman": 0.566
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "symmetry": {
+    "pictures": 296,
+    "median": 0.5376,
+    "iqr": 0.5342,
+    "between_brands": 0.101,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.882,
+    "with_reader": {
+     "question": "arrangement",
+     "pictures": 221,
+     "spearman": 0.046
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "mass_x": {
+    "pictures": 296,
+    "median": 0.5002,
+    "iqr": 0.1084,
+    "between_brands": -0.017,
+    "p": 0.757,
+    "crop_pairs": 29,
+    "crop_r": 0.925,
+    "with_reader": {
+     "question": "placement",
+     "pictures": 295,
+     "spearman": -0.053
+    },
+    "p_adjusted": 0.757,
+    "keep": false
+   },
+   "mass_y": {
+    "pictures": 296,
+    "median": 0.4869,
+    "iqr": 0.2195,
+    "between_brands": 0.084,
+    "p": 0.005,
+    "crop_pairs": 29,
+    "crop_r": 0.941,
+    "p_adjusted": 0.0054,
+    "keep": true
+   },
+   "centre_offset": {
+    "pictures": 296,
+    "median": 0.2173,
+    "iqr": 0.196,
+    "between_brands": 0.078,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.898,
+    "with_reader": {
+     "question": "placement",
+     "pictures": 295,
+     "spearman": 0.097
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "thirds": {
+    "pictures": 296,
+    "median": 0.3236,
+    "iqr": 0.1396,
+    "between_brands": 0.082,
+    "p": 0.002,
+    "crop_pairs": 29,
+    "crop_r": 0.779,
+    "p_adjusted": 0.0023,
+    "keep": true
+   },
+   "figure_size": {
+    "pictures": 296,
+    "median": 0.0763,
+    "iqr": 0.0577,
+    "between_brands": 0.121,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.994,
+    "with_reader": {
+     "question": "framing",
+     "pictures": 217,
+     "spearman": -0.104
+    },
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "depth_of_field": {
+    "pictures": 296,
+    "median": 1.0646,
+    "iqr": 1.2806,
+    "between_brands": 0.159,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.998,
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "diagonals": {
+    "pictures": 296,
+    "median": 0.3647,
+    "iqr": 0.1496,
+    "between_brands": 0.157,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.997,
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "pleasure": {
+    "pictures": 296,
+    "median": 51.0442,
+    "iqr": 18.8193,
+    "between_brands": 0.223,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.997,
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "arousal": {
+    "pictures": 296,
+    "median": -10.1407,
+    "iqr": 22.5704,
+    "between_brands": 0.146,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.994,
+    "p_adjusted": 0.0013,
+    "keep": true
+   },
+   "dominance": {
+    "pictures": 296,
+    "median": -43.16,
+    "iqr": 30.1255,
+    "between_brands": 0.167,
+    "p": 0.001,
+    "crop_pairs": 29,
+    "crop_r": 0.995,
+    "p_adjusted": 0.0013,
+    "keep": true
+   }
+  }
+ },
+ "pairs_v1": {
+  "contemporary": {
+   "orders_agree_after_lean": 0.751,
+   "crop_gap_vs_random": 0.239,
+   "with_person": {
+    "pairs": 27,
+    "agreement": 0.593
+   }
+  },
+  "intimate": {
+   "orders_agree_after_lean": 0.716,
+   "crop_gap_vs_random": 0.272,
+   "with_person": {
+    "pairs": 23,
+    "agreement": 0.913
+   }
+  },
+  "opulent": {
+   "orders_agree_after_lean": 0.787,
+   "crop_gap_vs_random": 0.201,
+   "with_person": {
+    "pairs": 23,
+    "agreement": 0.565
+   }
+  },
+  "provocative": {
+   "orders_agree_after_lean": 0.798,
+   "crop_gap_vs_random": 0.239,
+   "with_person": {
+    "pairs": 19,
+    "agreement": 0.895
+   }
+  },
+  "staged": {
+   "orders_agree_after_lean": 0.602,
+   "crop_gap_vs_random": 0.319,
+   "with_person": {
+    "pairs": 28,
+    "agreement": 0.714
+   }
+  }
+ }
+}
