@@ -198,8 +198,9 @@ def adverts(seed: int = SEED, n: int = N_ADS, n_person: int = ADS_PERSON) -> lis
     s = json.loads((config.DATA / "bakeoff" / "sample.json").read_text(encoding="utf-8"))
     found = {r["sha"] for r in store.read_jsonl(config.DATA / "bakeoff" / "pictures.jsonl") if r.get("found")}
     tone = {r["sha"]: (r.get("out") or {}) for r in store.read_jsonl(config.DATA / "luxury" / "bakeoff" / "qwen3-tone-v2.jsonl")}
+    looks = {r["sha"] for r in store.read_jsonl(DIR / "looks.jsonl")}     # a runway look a homepage also showed stays a look
     pics = [{"sha": p["sha"], "house": p["house"], "person": tone[p["sha"]].get("people") not in (None, "none")}
-            for p in s["pictures"] if p["sha"] in found and tone.get(p["sha"], {}).get("people")]
+            for p in s["pictures"] if p["sha"] in found and p["sha"] not in looks and tone.get(p["sha"], {}).get("people")]
     rng = random.Random(seed)
     return (_within_house([p for p in pics if p["person"]], n_person, rng)
             + _within_house([p for p in pics if not p["person"]], n - n_person, rng))

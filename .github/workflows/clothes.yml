@@ -7,6 +7,7 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 #        then the test set and the crops
 # sample / crops: those steps alone
 # seal: the 100 pictures to label, from the volume at a size a person can judge, sealed to the same branch
+# testset: the test set drawn again from the looks on file, its crops, and the pictures to label sealed
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -14,7 +15,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal]
+        options: [looks, sample, crops, seal, testset]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -44,7 +45,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
@@ -65,20 +66,20 @@ jobs:
           git -c user.name=adtone-clothes-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed thumbnails for the clothes labelling page"
           git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" clothes-sealed
       - name: The test set
-        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'sample'
+        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'sample' || steps.m.outputs.mode == 'testset'
         timeout-minutes: 5
         run: python -m adtone.clothes sample
       - name: The crops
-        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'crops'
+        if: steps.m.outputs.mode == 'looks' || steps.m.outputs.mode == 'crops' || steps.m.outputs.mode == 'testset'
         timeout-minutes: 15
         run: python -m adtone.clothes crops
       - name: The pictures to label, sealed
-        if: steps.m.outputs.mode == 'seal'
+        if: steps.m.outputs.mode == 'seal' || steps.m.outputs.mode == 'testset'
         timeout-minutes: 15
         run: python -m adtone.clothes seal
       - name: Sealed pictures to label, on a branch of their own
         # One file sealed to a key that is not in this repository: it holds no readable picture.
-        if: steps.m.outputs.mode == 'seal'
+        if: steps.m.outputs.mode == 'seal' || steps.m.outputs.mode == 'testset'
         timeout-minutes: 5
         run: |
           tmp=$(mktemp -d)

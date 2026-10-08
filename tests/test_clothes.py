@@ -207,3 +207,10 @@ def test_a_trained_question_two_trained_eyes_split_on_does_not_go_forward():
     alone = C.judge(SPEC, reader, crops, kinds, {"ben": _labels(truth, kinds)})
     assert "street_couture_axis" not in alone["forward"]               # no trained labels, no trained question
     assert alone["questions"]["street_couture_axis"]["untrained"]["reader~ben:look"]["kappa"] == 1.0
+
+
+def test_a_runway_look_a_homepage_also_showed_is_not_drawn_as_advertising(tmp_path, monkeypatch):
+    first = C.adverts()[0]["sha"]
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    (tmp_path / "looks.jsonl").write_text(json.dumps({"sha": first, "house": "x"}) + "\n")
+    assert first not in {a["sha"] for a in C.adverts()}
