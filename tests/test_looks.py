@@ -112,9 +112,19 @@ class _Index:
     one does not answer at all."""
     calls = 0
 
+    def __init__(self):
+        self.asked = []
+
     def get(self, url, params=None):
         self.calls += 1
         dom = params["url"]
+        self.asked.append(dom)
+        if params.get("matchType") == "prefix":
+            rows = [["timestamp", "original"]]
+            if dom.startswith("www.chanel.com/gb/fashion/collection/"):
+                rows += [["20251011000000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026/"],
+                         ["20250312000000", "https://www.chanel.com/gb/fashion/collection/fall-winter-2025/"]]
+            return _R(200, json.dumps(rows), "application/json")
         if dom == "dior.com":
             return _R(503, "busy")
         rows = [["timestamp", "original"]]
@@ -126,6 +136,7 @@ class _Index:
 def test_coverage_searches_the_fortnight_after_each_show_and_resumes(tmp_path, monkeypatch):
     monkeypatch.setattr(L, "COVERAGE_OUT", tmp_path / "coverage.json")
     monkeypatch.setattr(L, "COVERAGE_PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(L, "OUT", tmp_path / "no-probe.json")
     monkeypatch.setattr(L, "sites", lambda: {"chanel": ["chanel.com"], "dior": ["dior.com"], "celine": ["celine.com"]})
     shows = [{"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw"},
              {"house": "chanel", "date": "2025-03-11", "season": "2025 AW rtw", "category": "rtw"},
@@ -136,9 +147,27 @@ def test_coverage_searches_the_fortnight_after_each_show_and_resumes(tmp_path, m
     s = out["shows"]
     assert s["chanel:2025-10-07:rtw"]["status"] == "found"
     assert s["chanel:2025-10-07:rtw"]["candidates"][0]["url"].endswith("spring-summer-2026/")
-    assert s["chanel:2025-03-11:rtw"]["status"] == "none" and s["celine:2025-10-03:rtw"]["status"] == "none"
+    # the chanel section, found from its latest show, answers its earlier show too, with no search of its own
+    assert s["chanel:2025-03-11:rtw"]["status"] == "found" and s["chanel:2025-03-11:rtw"]["via"] == "section"
+    assert out["sections"]["chanel"]["prefixes"] == ["www.chanel.com/gb/fashion/collection/"]
+    assert s["celine:2025-10-03:rtw"]["status"] == "none"
     assert s["dior:2025-10-01:rtw"]["status"] == "index failed"
-    assert out["summary"]["by_house"]["chanel"] == {"shows": 2, "found": 1}
+    assert out["summary"]["by_house"]["chanel"] == {"shows": 2, "found": 2}
     again = _Index()
     L.coverage(c=again)
-    assert again.calls == 4               # only dior is asked again: the whole window, then its three slices
+    assert set(again.asked) == {"dior.com"}       # only the house whose index failed is asked again
+
+
+def test_a_page_must_fit_the_kind_of_show_and_a_section_is_where_the_season_starts():
+    women = "https://www.celine.com/en-gb/cm/celine-collections/women-s-winter-2022/show"
+    men = "https://www.celine.com/en-gb/cm/celine-collections/men-s-winter-2022/show-winter2022-men"
+    assert L.score(women, "rtw") > L.score(men, "rtw") and L.score(men, "men") > L.score(women, "men")
+    assert L.score("https://www.balenciaga.com/en-gb/new-arrivals/fall-22/women?prefn1=x", "rtw") < 0
+    assert L.score("https://www.chanel.com/gb/fashion/haute-couture/fall-winter-2025/", "rtw") < 0
+    assert L.section_prefix("https://www.chanel.com/gb/fashion/collection/spring-summer-2026/") == "www.chanel.com/gb/fashion/collection/"
+    assert L.section_prefix("https://www.balenciaga.com/en-gb/lookbook?cid=fall-26-look-12") == "www.balenciaga.com/en-gb/lookbook"
+    assert L.section_prefix("https://www.balenciaga.com/en-gb/summer-23") is None          # a whole country's site
+    rows = [["20251011000000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026/"],
+            ["20260402000000", "https://www.chanel.com/gb/fashion/collection/spring-summer-2026-replay/"]]
+    got = L.from_sections({"house": "chanel", "date": "2025-10-07", "season": "2026 SS rtw", "category": "rtw"}, rows)
+    assert [g["url"] for g in got] == [rows[0][1]]                 # first captured six months on: not this show

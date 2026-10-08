@@ -43,7 +43,11 @@ SHOW_WORDS = {"runway": 4, "fashion-show": 4, "fashion-shows": 4, "show": 3, "sh
               "sfilata": 4, "catwalk": 4, "look": 3, "looks": 3, "lookbook": 3, "collection": 2, "collections": 2,
               "ready-to-wear": 2, "pret-a-porter": 2, "rtw": 2, "women": 1, "womens": 1, "woman": 1, "men": 1}
 NOT_SHOW = ("product", "/p/", "/pd/", "shop", "cart", "checkout", "account", "search", "store", "careers", "press",
-            "beauty", "fragrance", "parfum", "perfume", "makeup", "make-up", "skincare", "gift", "sitemap", "login")
+            "beauty", "fragrance", "parfum", "perfume", "makeup", "make-up", "skincare", "gift", "sitemap", "login",
+            "preorder", "pre-order", "new-arrivals", "prefn", "special-projects", "subscribe", "lounge", "chair")
+MEN = re.compile(r"(?<![a-z])(?:men|mens|men-s|homme|uomo|man)(?![a-z])")
+WOMEN = re.compile(r"(?<![a-z])(?:women|womens|women-s|woman|femme|donna|ladies)(?![a-z])")
+COUTURE = re.compile(r"couture|haute")
 LOCALE_HEAD = re.compile(r"^/(?:[a-z]{2,3}(?:[-_][a-z]{2,4})?/){1,2}", re.I)
 
 
@@ -67,20 +71,40 @@ def capture_window(season: str, year: int) -> tuple[date, date]:
     return date(year, 2, 1), date(year, 5, 31)
 
 
-def score(url: str) -> float:
+def category_fit(url: str, category: str | None) -> float:
+    """Whether an address fits the kind of show: a men's page for a men's show, a couture page for couture,
+    neither for ready-to-wear (which is women's or shown together)."""
+    if not category:
+        return 0.0
+    from urllib.parse import urlparse
+    p = urlparse(url)
+    text = (p.path + "?" + p.query).lower()
+    men, women, couture = bool(MEN.search(text)), bool(WOMEN.search(text)), bool(COUTURE.search(text))
+    if category == "men":
+        return 2.0 if men and not women else -3.0 if women and not men else 0.0
+    if category == "couture":
+        return 2.0 if couture else -1.0
+    if couture or (men and not women):
+        return -3.0
+    return 1.0 if women else 0.0
+
+
+def score(url: str, category: str | None = None) -> float:
     """How likely an address is a show or collection page: show words count for, shop and beauty words
-    against, and a British, American or English page is preferred, as on the homepages."""
+    against, a British, American or English page is preferred, as on the homepages, and with a kind of
+    show given, a page of that kind."""
     from urllib.parse import urlparse
     from .homepages import _locale_rank
-    path = urlparse(url).path.lower()
-    if any(w in path for w in NOT_SHOW):
+    pu = urlparse(url)
+    path = pu.path.lower()
+    if any(w in path or w in pu.query.lower() for w in NOT_SHOW):
         return -1.0
     words = {t for t in re.split(r"[^a-z0-9]+", path) if t}
     s = float(sum(v for w, v in SHOW_WORDS.items() if "-" not in w and w in words))
     s += sum(v for w, v in SHOW_WORDS.items() if "-" in w and w in path)
     if re.search(r"\d{6,}", path):          # a long run of digits is usually a product code
         s -= 2
-    return s + _locale_rank(path) / 4
+    return s + _locale_rank(path) / 4 + category_fit(url, category)
 
 
 def _key(url: str) -> str:
@@ -89,13 +113,13 @@ def _key(url: str) -> str:
     return LOCALE_HEAD.sub("/", p.path.lower()).rstrip("/")
 
 
-def candidates(rows: list[list[str]], k: int = PAGES_PER_HOUSE) -> list[dict]:
+def candidates(rows: list[list[str]], k: int = PAGES_PER_HOUSE, category: str | None = None) -> list[dict]:
     """The k likeliest pages, one per address once the country and language are set aside, each with its
     latest capture in the window (the most complete gallery)."""
     best: dict[str, dict] = {}
     for row in rows:
         ts, url = row[0], row[1]
-        s = round(score(url), 2)
+        s = round(score(url, category), 2)
         if s <= 0:
             continue
         key = _key(url)
@@ -300,8 +324,57 @@ def index_window(c: Crawler, domain: str, pattern: str, start: date, end: date, 
     return out, None, bool(fails)
 
 
-def coverage_show(c: Crawler, show: dict, domains: list[str]) -> dict:
+SEASON_TOKEN = re.compile(r"(?:spring|summer|fall|autumn|winter|printemps|automne|primavera|autunno|ss|aw|fw|pe|ah)"
+                          r"[-_]?\d{2,4}|\d{2,4}[-_]?(?:ss|aw|fw)|spring|summer|fall|winter", re.I)
+SECTIONS_PER_HOUSE = 4
+SECTION_LIMIT = 20000
+SECTION_AFTER = (-3, 120)        # a page found through its section must be first captured this close to the show
+
+
+def section_prefix(url: str) -> str | None:
+    """The part of a show page's address before the segment that names the season: the section of the site
+    where the house keeps its shows. None when that is a whole country's site or the root."""
+    from urllib.parse import urlparse
+    p = urlparse(url)
+    host = p.netloc.split(":")[0].lower()
+    segs = [x for x in p.path.split("/") if x]
+    for i, seg in enumerate(segs):
+        if SEASON_TOKEN.search(seg):
+            head = segs[:i]
+            return f"{host}/{'/'.join(head)}/" if len(head) >= 2 else None
+    return f"{host}/{'/'.join(segs)}" if len(segs) >= 2 and p.query else None
+
+
+def section_index(c: Crawler, prefix: str) -> list:
+    """Every page the archive holds under a section, each once, with its first capture."""
+    q = {"url": prefix, "matchType": "prefix", "output": "json", "fl": "timestamp,original",
+         "filter": ["statuscode:200", "mimetype:text/html"], "collapse": "urlkey", "limit": str(SECTION_LIMIT)}
+    try:
+        r = c.get(CDX, q)
+    except requests.RequestException:
+        return []
+    return _cdx_rows(r)[1:] if r.status_code == 200 else []
+
+
+def from_sections(show: dict, rows: list) -> list[dict]:
+    """The show's likeliest pages among a house's section pages: the address names its season and the page
+    was first captured from just before the show to four months after."""
     from datetime import timedelta
+    year, season, _ = show["season"].split()
+    rx = re.compile(season_pattern(season, int(year)))
+    d = date.fromisoformat(show["date"])
+    lo = (d + timedelta(days=SECTION_AFTER[0])).strftime("%Y%m%d")
+    hi = (d + timedelta(days=SECTION_AFTER[1])).strftime("%Y%m%d")
+    hits = [r for r in rows if lo <= r[0][:8] <= hi and rx.fullmatch(r[1])]
+    return candidates(hits, category=show.get("category"))
+
+
+def coverage_show(c: Crawler, show: dict, domains: list[str], section_rows: list | None = None) -> dict:
+    from datetime import timedelta
+    if section_rows:
+        cands = from_sections(show, section_rows)
+        if cands:
+            return {**show, "status": "found", "via": "section", "pages": len(cands), "candidates": cands}
     year, season, _ = show["season"].split()
     d = date.fromisoformat(show["date"])
     start, end = d + timedelta(days=AFTER_SHOW[0]), d + timedelta(days=AFTER_SHOW[1])
@@ -314,39 +387,85 @@ def coverage_show(c: Crawler, show: dict, domains: list[str]) -> dict:
             errors[dom] = why
         else:
             rows += got
-    cands = candidates(rows)
+    cands = candidates(rows, category=show.get("category"))
     status = ("index failed" if errors and len(errors) == len(domains) else "found" if cands
               else "partial" if partial or errors else "none")
-    return {**show, "status": status, "pages": len({_key(r[1]) for r in rows}), "candidates": cands,
+    return {**show, "status": status, "via": "window", "pages": len({_key(r[1]) for r in rows}), "candidates": cands,
             **({"errors": errors} if errors else {})}
+
+
+def house_sections(c: Crawler, house: str, shows: list[dict], domains: list[str], seeds: list[str]) -> tuple[list, list]:
+    """A house's show sections: from show pages already found, or else from a week's search after its two
+    latest shows; then every page the archive holds under each section."""
+    from collections import Counter
+    from datetime import timedelta
+    if not seeds:
+        for sh in sorted(shows, key=lambda s: s["date"], reverse=True)[:2]:
+            year, season, _ = sh["season"].split()
+            d = date.fromisoformat(sh["date"])
+            for dom in domains:
+                got, _, _ = index_window(c, dom, season_pattern(season, int(year)), d - timedelta(days=1), d + timedelta(days=6))
+                seeds += [x["url"] for x in candidates(got or [], category=sh.get("category"))]
+    prefixes = [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in seeds))).most_common(SECTIONS_PER_HOUSE)]
+    rows = []
+    for pre in prefixes:
+        rows += section_index(c, pre)
+    return prefixes, rows
 
 
 def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: int = 4, c: Crawler | None = None,
              clock=time.monotonic) -> dict:
-    """Every show since 2015, newest first within each house, several houses at a time. Resumable: a show with
-    a final answer (found, or no page naming its season) is not asked again."""
+    """Every show since 2015, newest first within each house, several houses at a time. Each house's show
+    sections are found first and read whole, which answers most of its shows at once; a show they do not
+    answer is searched in the fortnight after it. Resumable: a show with a final answer (found, or no page
+    naming its season) is not asked again, and a show found before is asked again when none of its pages
+    fits its kind of show."""
     from concurrent.futures import ThreadPoolExecutor
     import threading
     doms = sites()
     prev = json.loads(COVERAGE_OUT.read_text()) if COVERAGE_OUT.exists() else {}
-    done = {k: v for k, v in prev.get("shows", {}).items() if v.get("status") in COVERAGE_FINAL}
-    out = {"generated_at": store.utc_now(), "window_days": list(AFTER_SHOW), "shows": dict(prev.get("shows", {})),
-           "note": "addresses only; no page or picture is kept"}
+    shows_prev = dict(prev.get("shows", {}))
+    for k, v in shows_prev.items():
+        if v.get("status") == "found":
+            fit = [x for x in v.get("candidates", []) if score(x["url"], v.get("category")) > 0]
+            if not fit:
+                shows_prev[k] = {**v, "status": "partial", "candidates": []}
+            else:
+                shows_prev[k] = {**v, "candidates": sorted(fit, key=lambda x: -score(x["url"], v.get("category")))}
+    done = {k for k, v in shows_prev.items() if v.get("status") in COVERAGE_FINAL}
+    out = {"generated_at": store.utc_now(), "window_days": list(AFTER_SHOW), "shows": shows_prev,
+           "sections": dict(prev.get("sections", {})), "note": "addresses only; no page or picture is kept"}
+    probe_pages = {}
+    if OUT.exists():
+        for h, v in json.loads(OUT.read_text()).get("houses", {}).items():
+            probe_pages[h] = [x["url"] for x in v.get("pages", []) if x.get("status") == "ok"]
     deadline = clock() + budget_min * 60
     by_house: dict[str, list[dict]] = {}
-    for s in shows_on_file():
-        if (houses is None or s["house"] in houses) and f"{s['house']}:{s['date']}:{s['category']}" not in done:
-            by_house.setdefault(s["house"], []).append(s)
+    for sh in shows_on_file():
+        if houses is None or sh["house"] in houses:
+            by_house.setdefault(sh["house"], []).append(sh)
     lock, calls = threading.Lock(), []
 
     def one(house):
         cc = c or Crawler(pause=2.0)
-        for s in sorted(by_house[house], key=lambda s: s["date"], reverse=True):
+        pending = [sh for sh in by_house[house] if f"{house}:{sh['date']}:{sh['category']}" not in done]
+        if not pending:
+            return
+        seeds = [x["url"] for k, v in shows_prev.items() if v.get("house") == house and v.get("status") == "found"
+                 for x in v.get("candidates", [])[:1]] + probe_pages.get(house, [])
+        prefixes, rows = house_sections(cc, house, by_house[house], doms.get(house, []), seeds)
+        for sh in sorted(pending, key=lambda s: s["date"], reverse=True):
             if clock() > deadline:
                 break
-            row = coverage_show(cc, s, doms.get(house, []))
+            row = coverage_show(cc, sh, doms.get(house, []), rows)
+            if row["status"] == "found" and row.get("via") == "window" and len(prefixes) < SECTIONS_PER_HOUSE:
+                pre = section_prefix(row["candidates"][0]["url"])
+                if pre and pre not in prefixes:          # a section found on the way answers the older shows
+                    prefixes.append(pre)
+                    rows = rows + section_index(cc, pre)
             with lock:
-                out["shows"][f"{house}:{s['date']}:{s['category']}"] = row
+                out["shows"][f"{house}:{sh['date']}:{sh['category']}"] = row
+                out["sections"][house] = {"prefixes": prefixes, "pages": len(rows)}
                 _write_to(COVERAGE_OUT, out)
         calls.append(cc.calls)
 
