@@ -39,6 +39,8 @@ ALLOW = {
     "luxury": ["data/luxury/*.json", "data/luxury/*.jsonl", "data/luxury/readings/*.jsonl", "data/luxury/bakeoff/*.jsonl",
                "data/luxury/vectors/*.npz", "data/results/luxury.json", "data/results/luxury-v2.json",
                "data/provenance/luxury.jsonl"],
+    "thread": ["data/thread/*.jsonl", "data/thread/*.json", "data/thread/*.csv", "data/results/thread.json",
+               "data/provenance/thread.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",

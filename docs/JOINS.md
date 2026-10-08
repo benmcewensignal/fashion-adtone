@@ -1,4 +1,4 @@
-# How the data and the analysis thread together
+# How the data and the analysis join
 
 Everything joins on two keys: the house (`registry/houses.yml` is the only source of house identity)
 and the date. Two calendars supply the dates that matter: designer events in the registry, and show

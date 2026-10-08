@@ -29,9 +29,9 @@ their clothes look like.
   by the winner (pictures stay on a private volume, never in this repository). A second instrument
   version (`rubric/tone-v2.md`, `rubric/pairs-v2.md`, and composition measured from the pixels by
   `adtone.composition` after `rubric/composition-v1.md`) is frozen before it reads anything and tested
-  on the bake-off's pictures by its own fixed rules. See `docs/THREAD.md` for every source and its
+  on the bake-off's pictures by its own fixed rules. See `docs/JOINS.md` for every source and its
   workflow.
-- Built and tested on synthetic data with known ground truth (299 tests).
+- Built and tested on synthetic data with known ground truth (309 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -226,7 +226,17 @@ now runs in deadline order.
 in the weekly attention workflow. `adtone.runway` then joins every source into one row per show
 (`data/results/runway_events.csv`) and asks whether reception predicts lasting attention beyond the
 show's spectacle and the house's momentum, within houses, against shuffled reception. Registered in
-Amendment 2, section 13b. How the pieces join is in `docs/THREAD.md`.
+Amendment 2, section 13b. How the pieces join is in `docs/JOINS.md`.
+
+## The Thread
+
+`adtone.thread` follows every show of the panel's houses from 2015, one row each: the shows and their dates
+from NOWFASHION's brand listings (checked against the shows verified from official calendars), how far
+Wikipedia views jumped around each one (heat, and surprise against the house's earlier shows), how far
+news volume jumped (press) and how the news wrote about it against its usual tone (tone), each also as a
+z-score among the shows of the same season. Its output (`data/results/thread.json`, `data/thread/thread.csv`)
+is descriptive: it computes no lasting attention and no relation to anything after a show, which are
+Amendment 2's registered tests. NOWFASHION's write-ups are not used. Workflow `thread`, weekly.
 
 ## The reader
 

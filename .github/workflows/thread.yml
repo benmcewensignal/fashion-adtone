@@ -1,0 +1,61 @@
+name: thread
+run-name: thread ${{ inputs.mode || github.event_name }}
+# The Thread (adtone/thread.py): every show of the panel's houses from 2015, with how much attention it drew
+# and how the news wrote about it, each set against its season. calendar: the shows from NOWFASHION's brand
+# listings (about thirty requests, two seconds apart), then build. build: heat and tone from the page views
+# and press already on file. Weekly, after the attention and press runs; editing .github/kick/thread starts
+# one, its first word the mode.
+on:
+  schedule:
+    - cron: "50 6 * * 2"
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: calendar
+        options: [calendar, build]
+  push:
+    branches: [main]
+    paths: [".github/kick/thread"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-thread
+  cancel-in-progress: false
+
+jobs:
+  thread:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Mode
+        id: m
+        run: |
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ]; then mode=$(head -1 .github/kick/thread 2>/dev/null | awk '{print $1}'); fi
+          case "$mode" in calendar|build) ;; *) mode=calendar ;; esac
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "thread mode: $mode"
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -q -r requirements.txt
+      - name: The shows, from NOWFASHION's listings
+        if: steps.m.outputs.mode == 'calendar'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python -m adtone.thread calendar
+      - name: Heat and tone for every show
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.thread build
+      - name: Persist
+        if: always()
+        timeout-minutes: 5
+        run: bash scripts/persist.sh thread "thread ${{ steps.m.outputs.mode }}"
