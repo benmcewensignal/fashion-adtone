@@ -1,7 +1,7 @@
 {
- "verified_shows": 85,
+ "verified_shows": 86,
  "same_day": 77,
- "one_day_apart": 2,
+ "one_day_apart": 3,
  "further": 1,
  "not_listed": 5,
  "rows": [
@@ -514,6 +514,12 @@
    "date": "2026-10-06",
    "season": "SS27",
    "gap_days": 0
+  },
+  {
+   "house": "gucci",
+   "date": "2021-11-02",
+   "season": "SS22",
+   "gap_days": 1
   }
  ]
 }

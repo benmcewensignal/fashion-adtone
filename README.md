@@ -31,7 +31,7 @@ their clothes look like.
   `adtone.composition` after `rubric/composition-v1.md`) is frozen before it reads anything and tested
   on the bake-off's pictures by its own fixed rules. See `docs/JOINS.md` for every source and its
   workflow.
-- Built and tested on synthetic data with known ground truth (319 tests).
+- Built and tested on synthetic data with known ground truth (322 tests).
 - Not yet run against the live API. Meta was unreachable from the build environment, so the API
   client, the render-page parsing and the embedder download are untested in production. The
   first live runs are the real test, and the probes fail a run loudly when a step returns nothing.
@@ -232,7 +232,7 @@ Amendment 2, section 13b. How the pieces join is in `docs/JOINS.md`.
 
 `adtone.thread` follows every show of the panel's houses from 2015, one row each: the shows and their dates
 from NOWFASHION's brand listings (read through Claude's fetcher, since the site turns GitHub's machines
-away; 77 of the 85 shows verified from official calendars on the same day), how far English
+away; 77 of the 86 verified shows on the same day), how far English
 Wikipedia views jumped around each one, with a renamed article's earlier titles joined (heat, and
 surprise against the house's earlier shows), how far
 news volume jumped (press) and how the news wrote about it against its usual tone (tone), each also as a

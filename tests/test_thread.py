@@ -180,3 +180,44 @@ def test_a_show_the_data_has_not_caught_up_with_gets_no_heat(tmp_path, monkeypat
     by = {(r["house"], r["date"]): r for r in out["rows"]}
     assert by[("h0", (start + timedelta(days=120)).isoformat())]["heat"] == 0.0
     assert by[("h0", (start + timedelta(days=298)).isoformat())]["heat"] is None       # only two days after on file
+
+
+def test_a_jump_read_off_a_handful_of_views_a_day_is_left_out(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    start = date(2017, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 for k in range(300)} for h in range(5)}
+    att["h0"] = {start + timedelta(days=k): 5 for k in range(300)}          # an article that is not yet the brand's
+    att["h0"][start + timedelta(days=120)] = 15
+    shows = [{"house": f"h{h}", "date": (start + timedelta(days=120)).isoformat(), "category": "rtw", "season": "SS",
+              "year": 2018, "city": "Paris"} for h in range(5)]
+    out = T.build(shows, att, {})
+    by = {r["house"]: r for r in out["rows"]}
+    assert by["h0"]["heat"] is None and by["h1"]["heat"] == 0.0
+    assert out["left_out_thin_views"] == 1
+
+
+def test_each_show_without_heat_says_why(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    start = date(2017, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 for k in range(300)} for h in range(5)}
+    att["h1"] = {start + timedelta(days=k): 1000 for k in range(100, 300)}         # an article that starts late
+    att["h2"] = {start + timedelta(days=k): 5 for k in range(300)}
+    shows = [{"house": f"h{h}", "date": (start + timedelta(days=d)).isoformat(), "category": "rtw", "season": "SS",
+              "year": 2018, "city": "Paris"} for h in range(5) for d in (120, 298)]
+    out = T.build(shows, att, {})
+    by = {(r["house"], r["date"][5:]): r["heat_missing"] for r in out["rows"]}
+    early, late = (start + timedelta(days=120)).isoformat()[5:], (start + timedelta(days=298)).isoformat()[5:]
+    assert by[("h0", early)] is None and by[("h0", late)] == "not yet on file"
+    assert by[("h1", early)] == "before the views" and by[("h2", early)] == "thin views"
+
+
+def test_a_show_held_off_the_calendar_is_kept_once_its_date_is_verified(tmp_path, monkeypatch):
+    ref = [{"house": "gucci", "date": "2021-11-02", "verified": "true"}]
+    love_parade = {"house": "gucci", "date": "2021-11-03", "category": "rtw", "season": "SS", "year": 2022}
+    posted_late = {"house": "dior", "date": "2019-11-28", "category": "rtw", "season": "SS", "year": 2020}
+    assert T.doubtful(love_parade, ref) is False and T.doubtful(posted_late, ref) is True
+    assert T.doubtful({**love_parade, "house": "prada"}, ref) is True        # another house's show does not vouch

@@ -9,14 +9,18 @@ shows where it stood season by season.
 
 The calendar on file was read on 8 October 2026 through Claude's own fetcher, which the site's terms admit;
 its bot check turns GitHub's machines away, so `calendar` from a workflow mostly finds nothing and keeps what
-is on file. Its dates match the 85 shows verified from official calendars on the day for 77 and within a day
-for 79; 5 of those shows are not listed. A listed date outside the weeks its kind of show takes place (5 of
-900, mostly the day a collection was added to the site) is flagged and left out.
+is on file. Its dates match the 86 verified shows in reference/shows.csv on the day for 77 and within a day
+for 80; 5 of those shows are not listed. A listed date outside the weeks its kind of show takes place (4 of
+900, mostly the day a collection was added to the site) is flagged and left out, unless a verified show of
+the house falls within a day of it, as Gucci's Love Parade in Los Angeles in November 2021 does.
 
 The strands, all from sources the project already holds:
   heat       the jump in English Wikipedia views around the show: the peak from the day before to three days
              after, over the mean from 60 to 10 days before (log views), the windows of Amendment 2, section 13,
-             on the views with a renamed article's earlier titles joined (adtone/wikiviews);
+             on the views with a renamed article's earlier titles joined (adtone/wikiviews); no heat where
+             that mean is under 20 views a day, too few to read a jump from (Zegna before 2021: its
+             English article draws the brand's traffic only from 2021, and "Ermenegildo Zegna" is now a
+             disambiguation page, so no earlier title can be joined);
   surprise   that jump less the mean jump of the house's earlier shows of the same kind, once it has two;
   press      the jump in the number of news articles (GDELT), same windows;
   tone       the news tone on the show day and the three days after, less its mean from 60 to 10 days before
@@ -58,6 +62,7 @@ PROV = config.PROV_DIR / "thread.jsonl"
 SHOWS_REF = config.ROOT / "reference" / "shows.csv"
 FIRST_YEAR = 2015                   # English Wikipedia daily views start in July 2015
 MIN_SEASON = 5                      # shows with a value before a season's z-scores are given
+MIN_BASE_VIEWS = 20                 # mean daily views from 60 to 10 days before a show, below which no heat
 
 # NOWFASHION's brand page names for each house, tried in order
 SLUGS = {
@@ -133,8 +138,21 @@ def _get(sess, url: str, sleep=time.sleep):
     return None, "no answer"
 
 
+def doubtful(row: dict, ref: list[dict]) -> bool:
+    """A listed date outside the weeks its kind of show takes place, unless a verified show of the house falls
+    within a day of it: a show held off the calendar (Gucci's Love Parade in Los Angeles in November 2021) is
+    kept once its date is verified."""
+    if in_window(row):
+        return False
+    try:
+        d = date.fromisoformat(row["date"])
+    except ValueError:
+        return True
+    return not any(v["house"] == row["house"] and abs((date.fromisoformat(v["date"]) - d).days) <= 1 for v in ref)
+
+
 def _rows(house: str, entries: list[dict], read: str) -> list[dict]:
-    rows, seen = [], set()
+    rows, seen, ref = [], set(), _reference()
     for e in entries:
         url = e["url"].removesuffix(".md")
         if url in seen:
@@ -142,7 +160,7 @@ def _rows(house: str, entries: list[dict], read: str) -> list[dict]:
         seen.add(url)
         row = {"house": house, "date": e["date"], **parse_title(e["title"]), "title": e["title"], "url": url,
                "source": "nowfashion", "read": read}
-        row["date_doubtful"] = not in_window(row)
+        row["date_doubtful"] = doubtful(row, ref)
         rows.append(row)
     return rows
 
@@ -152,7 +170,8 @@ def _merge(new: dict[str, list[dict]]) -> list[dict]:
     path = DIR / "shows.jsonl"
     old = store.read_jsonl(path) if path.exists() else []
     keep = [r for r in old if r["house"] not in new]
-    rows = keep + [r for rs in new.values() for r in rs]
+    ref = _reference()
+    rows = [{**r, "date_doubtful": doubtful(r, ref)} for r in keep + [r for rs in new.values() for r in rs]]
     rows.sort(key=lambda r: (r["house"], r["date"], r["category"], r["url"]))
     DIR.mkdir(parents=True, exist_ok=True)
     store.write_jsonl(path, rows)
@@ -297,8 +316,12 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     from datetime import timedelta
     from . import press as press_mod, wikiviews
     from .runway import Panel, PressPanel, logged
-    shows = shows if shows is not None else store.read_jsonl(DIR / "shows.jsonl")
-    doubtful = sum(1 for s in shows if s.get("date_doubtful"))
+    if shows is None:
+        # the flags are judged again against the verified shows on file now, which may have grown since the read
+        ref = _reference()
+        shows = [{**s, "date_doubtful": doubtful(s, ref)} if s.get("year") else s
+                 for s in store.read_jsonl(DIR / "shows.jsonl")]
+    n_doubtful = sum(1 for s in shows if s.get("date_doubtful"))
     shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR and not s.get("date_doubtful")]
     houses = sorted({s["house"] for s in shows})
     # English views with a renamed article's earlier titles joined, so a house whose article moved keeps its past
@@ -315,17 +338,30 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
         """Every day from the day before to three days after is on file: a show the data has not yet caught
         up with gets no value rather than a peak taken over part of its window."""
         return all(d + timedelta(days=k) in series for k in range(-1, 4))
+    def base_views(series: dict, d: date) -> float:
+        """Mean daily views from 60 to 10 days before, the baseline's own days, in views rather than logs."""
+        b = [series[d + timedelta(days=k)] for k in range(-60, -9) if d + timedelta(days=k) in series]
+        return sum(b) / len(b) if b else 0.0
+    thin = 0
     for s in sorted(shows, key=lambda s: (s["house"], s["date"])):
         d = date.fromisoformat(s["date"])
         i, t = panel.row.get(s["house"]), (d - panel.start).days
-        heat = None
-        if i is not None and 0 <= t < len(panel.days) and whole_peak(attention.get(s["house"]) or {}, d):
+        heat, missing = None, None
+        views = attention.get(s["house"]) or {}
+        if i is not None and 0 <= t < len(panel.days) and whole_peak(views, d):
             v = panel.spike[i, t]
             heat = None if np.isnan(v) else round(float(v), 4)
+            if heat is not None and base_views(views, d) < MIN_BASE_VIEWS:
+                heat, thin, missing = None, thin + 1, "thin views"
+        if heat is None and missing is None:
+            # why there is no heat: no views, the days after the show not yet on file, views that start too
+            # late for the baseline, or days missing in between
+            missing = ("no views" if not views else "not yet on file" if d + timedelta(days=3) > max(views)
+                       else "before the views" if d - timedelta(days=60) < min(views) else "days missing")
         p = pp.at(s["house"], d) if i is not None and whole_peak(press.get(s["house"]) or {}, d) else {}
         rows.append({"house": s["house"], "date": s["date"], "season": season_key(s), "category": s["category"],
                      "city": s.get("city"), "main": s["category"] == main.get(s["house"]), "url": s.get("url"),
-                     "heat": heat,
+                     "heat": heat, "heat_missing": missing,
                      "press": None if p.get("press_spike") is None else round(p["press_spike"], 4),
                      "tone": None if p.get("reception") is None else round(p["reception"], 4)})
     # surprise: the jump less the mean jump of the house's earlier shows of the same kind, once it has two
@@ -356,7 +392,8 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     cover = {strand: sum(1 for r in rows if r["main"] and r[strand] is not None) for strand in ("heat", "surprise", "press", "tone")}
     out = {"generated_at": store.utc_now(),
            "status": "exploratory: descriptive, not in the pre-registration; no lasting attention is computed",
-           "shows": len(rows), "left_out_doubtful_dates": doubtful, "main_shows": sum(r["main"] for r in rows), "houses": len(lines),
+           "shows": len(rows), "left_out_doubtful_dates": n_doubtful, "left_out_thin_views": thin,
+           "main_shows": sum(r["main"] for r in rows), "houses": len(lines),
            "seasons": len(by_season), "with_value": cover, "main_category": main,
            "first": min((r["date"] for r in rows), default=None), "last": max((r["date"] for r in rows), default=None),
            "lines": dict(lines), "rows": rows}
@@ -365,7 +402,7 @@ def build(shows: list[dict] | None = None, attention=None, press=None) -> dict:
     DIR.mkdir(parents=True, exist_ok=True)
     with open(DIR / "thread.csv", "w", newline="", encoding="utf-8") as f:
         fields = ["house", "date", "season", "category", "city", "main", "heat", "surprise", "press", "tone",
-                  "heat_z", "surprise_z", "press_z", "tone_z", "url"]
+                  "heat_z", "surprise_z", "press_z", "tone_z", "heat_missing", "url"]
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
