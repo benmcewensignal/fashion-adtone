@@ -81,11 +81,11 @@ THUMB_EDGE = 420
 SEED = 20261007
 
 
-def _pairs_rubric() -> dict:
-    """pairs-v1: the prompt and the five axes, checked against its frozen hash."""
+def _pairs_rubric(version: str = "pairs-v1") -> dict:
+    """A pairs rubric (v1 unless named): the prompt and the five axes, checked against its frozen hash."""
     from .score import _PROMPT, _SPEC, check_frozen
-    path = config.RUBRIC_DIR / "pairs-v1.md"
-    check_frozen(path, config.RUBRIC_DIR / "pairs-v1.sha256")
+    path = config.RUBRIC_DIR / f"{version}.md"
+    check_frozen(path, config.RUBRIC_DIR / f"{version}.sha256")
     text = path.read_text(encoding="utf-8")
     spec = json.loads(_SPEC.search(text).group(1))
     spec["prompt"] = _PROMPT.search(text).group(1)

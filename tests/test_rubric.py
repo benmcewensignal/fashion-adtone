@@ -84,3 +84,28 @@ def test_parse_takes_the_object_out_of_surrounding_text():
     assert parse("Here you go:\n" + json.dumps(VALID) + "\n", r)["light"] == "low_key"
     with pytest.raises(ScoreError):
         parse("I cannot score this image.", r)
+
+
+def test_tone_v2_is_frozen_loads_and_offers_every_value_it_validates():
+    r = load_rubric("tone-v2")
+    assert r.version == "tone-v2" and len(r.keys) == 30
+    assert "Do not identify any person" in r.prompt and "production" not in r.spec["enums"]
+    for key, values in r.spec["enums"].items():
+        assert key in r.prompt
+        for v in values:
+            assert v in r.prompt, f"{key}={v} is validated but never offered to the scorer"
+    for v in r.spec["lists"]["mood"]["options"]:
+        assert v in r.prompt
+    v1 = load_rubric("tone-v1")
+    for key in set(v1.spec["enums"]) & set(r.spec["enums"]):
+        assert v1.spec["enums"][key] == r.spec["enums"][key], f"{key} keeps v1's values"
+
+
+def test_pairs_v2_is_frozen_with_v1s_prompt_and_provocative_unchanged():
+    from adtone import bakeoff
+    v1, v2 = bakeoff._pairs_rubric("pairs-v1"), bakeoff._pairs_rubric("pairs-v2")
+    assert v2["version"] == "pairs-v2" and v1["prompt"] == v2["prompt"]
+    assert [a["id"] for a in v1["axes"]] == [a["id"] for a in v2["axes"]]
+    prov = lambda s: [a for a in s["axes"] if a["id"] == "provocative"]
+    assert prov(v1) == prov(v2)
+    assert sum(a != b for a, b in zip(v1["axes"], v2["axes"])) == 4
