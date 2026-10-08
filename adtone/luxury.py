@@ -25,12 +25,13 @@ come back.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import math
 import random
 import sys
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -66,6 +67,11 @@ def plan() -> dict:
 def _kept_axes(all_axes) -> list[str]:
     p = plan()
     return sorted(all_axes) if "axes" not in p else [a for a in sorted(all_axes) if a in set(p["axes"])]
+
+
+def _suffix(version: str | None) -> str:
+    """Files read with a later instrument version carry it in their name; v1's keep the names they had."""
+    return "" if not version or version.endswith("-v1") else "-" + version.rsplit("-", 1)[1]
 
 
 def corpus(write: bool = True) -> dict:
@@ -205,9 +211,9 @@ def _tone_rows(part: list[str], texts: list[str], rub) -> list[dict]:
     rows = []
     for sha, text in zip(part, texts):
         try:
-            rows.append({"sha": sha, "out": parse(text, rub)})
+            rows.append({"sha": sha, "version": rub.version, "out": parse(text, rub)})
         except ScoreError as e:
-            rows.append({"sha": sha, "error": str(e)[:200], "text": (text or "")[:300]})
+            rows.append({"sha": sha, "version": rub.version, "error": str(e)[:200], "text": (text or "")[:300]})
     return rows
 
 
@@ -593,7 +599,7 @@ def analyse(reader: str = "qwen3", which: tuple[str, ...] = READINGS) -> dict:
     return out
 
 
-def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
+def bakeoff_read(reader: str, what: str, budget_min: float = 150, version: str | None = None) -> dict:
     """The bake-off's own readings (tone on its pictures, the reader design, the person's pairs, both
     orders) taken through the deployed luxury reader, which reads the pictures from the volume by sha:
     a second route to the same answers, kept apart in data/luxury/bakeoff/ and picked up by the bake-off's
@@ -604,7 +610,10 @@ def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
     out_dir = DIR / "bakeoff"
     out_dir.mkdir(parents=True, exist_ok=True)
     found = sorted(r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found"))
-    out = out_dir / f"{reader}-{what}.jsonl"
+    version = version or ("tone-v1" if what == "tone" else "pairs-v1")
+    out = out_dir / f"{reader}-{what}{_suffix(version)}.jsonl"
+    if reader == "claude" and _suffix(version):
+        return {"note": "Claude reads only v1 here"}
     if reader == "claude":       # the closed reader, through the API, on the bake-off's copies of the pictures
         jpegs = bakeoff.from_volume(found)
         if what == "tone":
@@ -622,14 +631,14 @@ def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
         _log("bakeoff_read", reader=reader, what=what, asked=len(todo), rows=len(rows), seconds=round(time.monotonic() - t0))
         return {"asked": len(todo), "rows": len(rows)}
     if what == "tone":
-        rub = load_rubric()
+        rub = load_rubric(version)
         schema = json_schema(rub)
         todo = [s for s in found if s not in _done(out, lambda r: r["sha"])]
         n = _on_modal(reader, "read_from", [todo[i:i + 16] for i in range(0, len(todo), 16)],
                       lambda part: (VOL_DIR, part, rub.prompt, schema),
                       lambda part, texts: _tone_rows(part, texts, rub), out, deadline)
     else:
-        spec = bakeoff._pairs_rubric()
+        spec = bakeoff._pairs_rubric(version)
         axes = {a["id"]: a for a in spec["axes"]}
         d = json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))
         base = [(h["axis"], h["left"], h["right"]) for h in d["human"]] if what == "human" else \
@@ -641,7 +650,8 @@ def bakeoff_read(reader: str, what: str, budget_min: float = 150) -> dict:
                                     [bakeoff.question(axes[ax], spec) for ax, _, _ in part], spec["answers"]),
                       lambda part, texts: [{"axis": ax, "first": a, "second": b, "answer": bakeoff.answer_of(t)}
                                            for (ax, a, b), t in zip(part, texts)], out, deadline)
-    _log("bakeoff_read", reader=reader, what=what, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
+    _log("bakeoff_read", reader=reader, what=what, version=version, asked=len(todo), rows=n,
+         seconds=round(time.monotonic() - t0))
     return {"asked": len(todo), "rows": n}
 
 
@@ -720,15 +730,15 @@ def recognise(reader: str, budget_min: float = 60) -> dict:
     return {"asked": len(todo), "rows": n}
 
 
-def bakeoff_probs(reader: str = "qwen3", budget_min: float = 120) -> dict:
+def bakeoff_probs(reader: str = "qwen3", budget_min: float = 120, version: str = "pairs-v1") -> dict:
     """The bake-off's comparisons read again as probabilities: how much weight the reader puts on "first"
     against "second", so that the two orders can be averaged and its lean towards one position removed."""
     t0 = time.monotonic()
-    spec = bakeoff._pairs_rubric()
+    spec = bakeoff._pairs_rubric(version)
     axes = {a["id"]: a for a in spec["axes"]}
     d = json.loads((bakeoff.DIR / "pairs.json").read_text(encoding="utf-8"))
     base = [(ax, a, b) for ax, es in d["reader"].items() for a, b in es]
-    out = DIR / "bakeoff" / f"{reader}-probs.jsonl"
+    out = DIR / "bakeoff" / f"{reader}-probs{_suffix(version)}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("p_first") is not None else None)
     todo = [j for j in base + [(ax, b, a) for ax, a, b in base] if j not in have]
@@ -737,7 +747,7 @@ def bakeoff_probs(reader: str = "qwen3", budget_min: float = 120) -> dict:
                                 [bakeoff.question(axes[ax], spec) for ax, _, _ in part]),
                   lambda part, probs: [{"axis": ax, "first": a, "second": b, "p_first": round(float(pf), 5)}
                                        for (ax, a, b), pf in zip(part, probs)], out, time.monotonic() + budget_min * 60)
-    _log("bakeoff_probs", reader=reader, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
+    _log("bakeoff_probs", reader=reader, version=version, asked=len(todo), rows=n, seconds=round(time.monotonic() - t0))
     return {"asked": len(todo), "rows": n}
 
 
@@ -788,12 +798,13 @@ def recognition_report() -> dict:
     return out
 
 
-def probs_report(reader: str = "qwen3") -> dict:
+def probs_report(reader: str = "qwen3", version: str = "pairs-v1") -> dict:
     """The comparisons read as probabilities, judged by the yardsticks fixed before they were read: agreement with
     the person, two crops together, brands apart, and, in place of plain order consistency (which averaging the two
     orders passes by construction), whether the two orders point the same way once the reader's general lean
     towards one position is taken out."""
-    rows = [r for r in store.read_jsonl(DIR / "bakeoff" / f"{reader}-probs.jsonl") if r.get("p_first") is not None]
+    f = DIR / "bakeoff" / f"{reader}-probs{_suffix(version)}.jsonl"
+    rows = [r for r in store.read_jsonl(f) if r.get("p_first") is not None] if f.exists() else []
     pics, crops, judged, hp = _bakeoff_frame()
     sh = sorted(pics)
     idx = {s: i for i, s in enumerate(sh)}
@@ -851,6 +862,187 @@ def probs_report(reader: str = "qwen3") -> dict:
     return out
 
 
+# ---------- the new instrument version, tested on the bake-off's pictures ----------
+
+V2 = {"tone": "tone-v2", "pairs": "pairs-v2", "composition": "composition-v1"}
+PERSON = ("gaze", "expression", "pose", "horizontal_angle", "head_cant", "self_touch", "body_level", "withdrawal",
+          "skin_shown")                        # judged on the pictures that show a person (tone-v2.md)
+PAIRS_RULE = {"orders_agree_after_lean": 0.75, "crop_gap_vs_random": 0.5, "with_person": 0.60}   # pairs-v2.md
+ORDINAL = {     # each composition measure beside the reader's answer to the matching tone-v2 question
+    "open_space": ("open_space", {"little": 0, "some": 1, "much": 2}),
+    "complexity": ("objects", {"one": 0, "two_to_three": 1, "four_to_six": 2, "many": 3}),
+    "edge_density": ("objects", {"one": 0, "two_to_three": 1, "four_to_six": 2, "many": 3}),
+    "symmetry": ("arrangement", {"irregular": 0, "balanced": 1, "symmetrical": 2}),
+    "figure_size": ("framing", {"wide_scene": 0, "full_length": 1, "medium": 2, "close_up": 3}),
+    "mass_x": ("placement", {"left": 0, "centre": 1, "right": 2}),
+    "centre_offset": ("placement", {"centre": 0, "left": 1, "right": 1}),
+}
+
+
+def _bakeoff_tone(reader: str, version: str) -> dict[str, dict]:
+    f = DIR / "bakeoff" / f"{reader}-tone{_suffix(version)}.jsonl"
+    return {r["sha"]: r["out"] for r in store.read_jsonl(f) if r.get("out")} if f.exists() else {}
+
+
+def tone_report(reader: str = "qwen3", version: str = "tone-v2") -> dict:
+    """A tone rubric on the bake-off's pictures, by the rule fixed with it: a question goes forward when its
+    commonest answer covers under 90% of the pictures and two crops of one picture get the same answer beyond
+    chance, kappa at least 0.4. A kappa needs ten crop pairs; with fewer it is not shown, and the question
+    does not go forward. The questions about a person are judged on the pictures the reader says show one,
+    and on the crop pairs where it says both do. Brand differences (Cramér's V) are reported, not used."""
+    from .character import questions_of
+    from .readings import MAX_TOP, MIN_KAPPA, _cramers_v
+    from .score import load_rubric
+    spec = load_rubric(version).spec
+    pics, crops, _, _ = _bakeoff_frame()
+    f = DIR / "bakeoff" / f"{reader}-tone{_suffix(version)}.jsonl"
+    rows = list(store.read_jsonl(f)) if f.exists() else []
+    ans = {s: o for s, o in _bakeoff_tone(reader, version).items() if s in pics}
+    person = {s for s, o in ans.items() if o.get("people") not in (None, "none")}
+    out = {"version": version, "reader": reader, "pictures": len(ans), "showing_a_person": len(person),
+           "unreadable": len({r["sha"] for r in rows if r.get("error")} - set(ans)), "questions": {}}
+    for q in [*questions_of(spec), "mood", "street_couture_axis"]:
+        get = (lambda o: tuple(sorted(o.get("mood") or []))) if q == "mood" else (lambda o, q=q: o.get(q))
+        on = person if q in PERSON else set(ans)
+        vals = [get(ans[s]) for s in sorted(on)]
+        if not vals:
+            out["questions"][q] = {"pictures": 0, "keep": False}
+            continue
+        c = Counter(vals)
+        top_value, top_n = c.most_common(1)[0]
+        cp = [(get(ans[a]), get(ans[b])) for a, b in crops if a in on and b in on]
+        kap = bakeoff._kappa(cp)
+        v = _cramers_v([(pics[s]["house"], str(get(ans[s]))) for s in sorted(on)])
+        out["questions"][q] = {
+            "on": "pictures showing a person" if q in PERSON else "all pictures", "pictures": len(vals),
+            "top_value": "|".join(top_value) if isinstance(top_value, tuple) else top_value,
+            "top_share": round(top_n / len(vals), 3),
+            "values_used": sum(1 for n in c.values() if n / len(vals) >= 0.02),
+            "crop_pairs": len(cp), "crop_kappa": kap, "brand_v": None if v is None else round(v, 3),
+            "keep": bool(top_n / len(vals) < MAX_TOP and kap is not None and kap >= MIN_KAPPA)}
+    kinds = Counter(o.get("creative_type") for o in ans.values())
+    out["kinds"] = dict(kinds.most_common())
+    out["on_model_without_a_person"] = sum(1 for o in ans.values()
+                                           if o.get("creative_type") == "product_on_model" and o.get("people") == "none")
+    v1 = {s: o for s, o in _bakeoff_tone(reader, "tone-v1").items() if s in pics}
+    both = sorted(set(v1) & set(ans))
+    if both:      # the questions both versions ask: how far the new wording moved the same reader's answers
+        out["against_v1"] = {
+            "pictures": len(both),
+            "kinds_v1": dict(Counter(v1[s].get("creative_type") for s in both).most_common()),
+            "on_model_without_a_person_v1": sum(1 for s in both if v1[s].get("creative_type") == "product_on_model"
+                                                and v1[s].get("people") == "none"),
+            "kappa": {q: bakeoff._kappa2([v1[s].get(q) for s in both], [ans[s].get(q) for s in both])
+                      for q in ["creative_type", *questions_of(spec)] if q in v1[both[0]]}}
+    return out
+
+
+def _composition() -> dict[str, dict]:
+    """composition-v1 for each picture measured (the last good row for each)."""
+    f = DIR / "composition-v1.jsonl"
+    return {r["sha"]: r for r in store.read_jsonl(f) if not r.get("error")} if f.exists() else {}
+
+
+def composition_read(budget_min: float = 60) -> dict:
+    """composition-v1 from the pixels of the readers' copies on the volume: the bake-off's pictures first,
+    then every other picture fetched again. No reader; resumable."""
+    from PIL import Image
+    from . import composition
+    t0 = time.monotonic()
+    deadline = t0 + budget_min * 60
+    out = DIR / f"{composition.VERSION}.jsonl"
+    first = sorted(r["sha"] for r in store.read_jsonl(bakeoff.DIR / "pictures.jsonl") if r.get("found"))
+    rest = sorted(set(found()) - set(first)) if (DIR / "corpus.json").exists() else []
+    done = set(_composition())
+    todo = [x for x in first + rest if x not in done]
+    n = bad = 0
+    for i in range(0, len(todo), 100):
+        if time.monotonic() > deadline:
+            break
+        part = todo[i:i + 100]
+        jpegs = bakeoff.from_volume(part, VOL_DIR)
+        rows = []
+        for sha in part:
+            if sha not in jpegs:
+                rows.append({"sha": sha, "version": composition.VERSION, "error": "not on the volume"})
+                continue
+            try:
+                rows.append({"sha": sha, "version": composition.VERSION,
+                             **composition.measure(Image.open(io.BytesIO(jpegs[sha])))})
+            except Exception as e:      # a picture the measures cannot take is recorded, not skipped silently
+                rows.append({"sha": sha, "version": composition.VERSION, "error": f"{e.__class__.__name__}: {str(e)[:120]}"})
+        store.append_jsonl(out, rows)
+        n += sum(1 for r in rows if not r.get("error"))
+        bad += sum(1 for r in rows if r.get("error"))
+    _log("composition", asked=len(todo), measured=n, errors=bad, seconds=round(time.monotonic() - t0))
+    return {"asked": len(todo), "measured": n, "errors": bad}
+
+
+def composition_report(reader: str = "qwen3") -> dict:
+    """composition-v1 on the bake-off's pictures, by the rule fixed with it: a measure goes forward when it varies
+    (interquartile range above zero) and brands differ on it beyond chance (between-brand share of variance net
+    of chance, permutation p below 0.05 after Benjamini and Hochberg across the measures). Reported beside it,
+    not deciding: how far two crops of one picture agree (Pearson r), and how far each measure goes with the
+    reader's answer to the matching tone-v2 question (Spearman)."""
+    from . import composition, readings
+    pics, crops, _, _ = _bakeoff_frame()
+    m = _composition()
+    nrng = np.random.default_rng(bakeoff.SEED)
+    tone = _bakeoff_tone(reader, V2["tone"])
+    rows = {}
+    for k in composition.KEYS:
+        have = sorted(s for s in pics if s in m and m[s].get(k) is not None)
+        if len(have) < 30:
+            rows[k] = {"pictures": len(have)}
+            continue
+        v = np.array([float(m[s][k]) for s in have])
+        q1, med, q3 = (float(x) for x in np.percentile(v, [25, 50, 75]))
+        cp = [(float(m[a][k]), float(m[b][k])) for a, b in crops if a in have and b in have]
+        r = float(np.corrcoef(*zip(*cp))[0, 1]) if len(cp) >= 5 and np.std([x for x, _ in cp]) and np.std([y for _, y in cp]) else None
+        rows[k] = {"pictures": len(have), "median": round(med, 4), "iqr": round(q3 - q1, 4),
+                   **bakeoff._eta2(v, [pics[s]["house"] for s in have], nrng),
+                   "crop_pairs": len(cp), "crop_r": None if r is None else round(r, 3)}
+        if k in ORDINAL:
+            q, scale = ORDINAL[k]
+            both = [s for s in have if (tone.get(s) or {}).get(q) in scale]
+            rows[k]["with_reader"] = {"question": q, "pictures": len(both), "spearman": round(bakeoff._spearman(
+                np.array([float(m[s][k]) for s in both]), np.array([scale[tone[s][q]] for s in both])), 3)
+                if len(both) >= 30 else None}
+    tested = [k for k in composition.KEYS if "p" in rows[k]]
+    for k, q in zip(tested, readings._bh([rows[k]["p"] for k in tested])):
+        rows[k]["p_adjusted"] = q
+        rows[k]["keep"] = bool(rows[k]["iqr"] > 0 and q < 0.05)
+    for k in composition.KEYS:
+        rows[k].setdefault("keep", False)
+    return {"version": V2["composition"], "pictures": len([s for s in pics if s in m]), "crop_pairs": len(crops),
+            "measures": rows}
+
+
+def v2_report(reader: str = "qwen3") -> dict:
+    """The new instrument on the bake-off's pictures, each part judged by the rule frozen with it, and v1 beside
+    it where the two ask the same thing."""
+    tone = tone_report(reader, V2["tone"])
+    pairs = probs_report(reader, V2["pairs"])
+    for ax, a in pairs["axes"].items():
+        cg, wp = a.get("crop_gap_vs_random"), a["with_person"]["agreement"]
+        a["keep"] = bool(a["orders_agree_after_lean"] >= PAIRS_RULE["orders_agree_after_lean"]
+                         and cg is not None and cg < PAIRS_RULE["crop_gap_vs_random"]
+                         and wp is not None and wp >= PAIRS_RULE["with_person"])
+    v1 = probs_report(reader, "pairs-v1")
+    comp = composition_report(reader)
+    out = {"generated_at": store.utc_now(), "status": "exploratory: not in the pre-registration",
+           "instrument": V2, "reader": reader,
+           "kept": {"questions": [q for q, r in tone["questions"].items() if r.get("keep")],
+                    "axes": sorted(ax for ax, a in pairs["axes"].items() if a["keep"]),
+                    "measures": [k for k, r in comp["measures"].items() if r.get("keep")]},
+           "tone": tone, "pairs": pairs, "composition": comp,
+           "pairs_v1": {ax: {k: a[k] for k in ("orders_agree_after_lean", "crop_gap_vs_random", "with_person")}
+                        for ax, a in v1["axes"].items()}}
+    (DIR / "bakeoff_v2.json").write_text(json.dumps(out, indent=1, default=float) + "\n", encoding="utf-8")
+    _log("v2_report", reader=reader, kept={k: len(v) for k, v in out["kept"].items()})
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.luxury")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -868,10 +1060,15 @@ def main(argv: list[str] | None = None) -> int:
     bo = sub.add_parser("bakeoff")
     bo.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     bo.add_argument("--what", choices=["tone", "pairs", "human"], required=True)
+    bo.add_argument("--version", default=None, help="tone-v2 or pairs-v2; v1 when left out")
     rc = sub.add_parser("recognise")
     rc.add_argument("--reader", choices=sorted(APPS) + ["claude"], required=True)
     pb = sub.add_parser("probs")
     pb.add_argument("--reader", choices=sorted(APPS), default="qwen3")
+    pb.add_argument("--version", default="pairs-v1")
+    cm = sub.add_parser("composition")
+    cm.add_argument("--budget", type=float, default=60)
+    sub.add_parser("v2-report")
     sub.add_parser("bakeoff-report")
     an = sub.add_parser("analyse")
     an.add_argument("--reader", default="qwen3")
@@ -891,11 +1088,16 @@ def main(argv: list[str] | None = None) -> int:
     elif a.cmd == "positions":
         print(f"luxury positions {a.reader}: {positions(a.reader)}")
     elif a.cmd == "bakeoff":
-        print(f"luxury bakeoff {a.reader} {a.what}: {bakeoff_read(a.reader, a.what)}")
+        print(f"luxury bakeoff {a.reader} {a.what} {a.version or 'v1'}: {bakeoff_read(a.reader, a.what, version=a.version)}")
     elif a.cmd == "recognise":
         print(f"luxury recognise {a.reader}: {recognise(a.reader)}")
     elif a.cmd == "probs":
-        print(f"luxury probs {a.reader}: {bakeoff_probs(a.reader)}")
+        print(f"luxury probs {a.reader} {a.version}: {bakeoff_probs(a.reader, version=a.version)}")
+    elif a.cmd == "composition":
+        print(f"luxury composition: {composition_read(a.budget)}")
+    elif a.cmd == "v2-report":
+        rep = v2_report()
+        print("luxury v2-report: " + json.dumps(rep["kept"]))
     elif a.cmd == "bakeoff-report":
         rep = {"generated_at": store.utc_now(), "recognition": recognition_report(), "probs": probs_report("qwen3")}
         (DIR / "bakeoff_extra.json").write_text(json.dumps(rep, indent=1, default=float) + "\n", encoding="utf-8")

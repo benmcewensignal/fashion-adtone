@@ -330,3 +330,141 @@ def test_the_plan_decides_which_axes_are_read_and_how(tmp_path, monkeypatch):
     assert all(v == max(k[1], key=hidden.get) for k, v in decided)               # the lean taken out, the right picture
     (L.DIR / "plan.json").write_text(json.dumps({"comparisons": "probs", "axes": []}))
     assert L.read("qwen3", "comparisons") == {"comparisons": "the plan keeps no axis"}
+
+
+# ---------- the new instrument version on the bake-off's pictures ----------
+
+def _v2_frame(tmp_path, monkeypatch, n_houses=6, per=10, crops_per_house=2):
+    """A bake-off of n_houses x per pictures with crop pairs, as the v2 test reads it."""
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    monkeypatch.setattr(L, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(B, "DIR", tmp_path / "bakeoff")
+    (tmp_path / "bakeoff").mkdir()
+    (tmp_path / "luxury" / "bakeoff").mkdir(parents=True)
+    pics = [{"sha": f"{h}x{i}", "house": f"h{h}", "kind": "campaign", "side": "early"} for h in range(n_houses) for i in range(per)]
+    crops = [[f"{h}x{2 * k}", f"{h}x{2 * k + 1}"] for h in range(n_houses) for k in range(crops_per_house)]
+    (tmp_path / "bakeoff" / "sample.json").write_text(json.dumps({"pictures": pics, "crop_pairs": crops}))
+    store.write_jsonl(tmp_path / "bakeoff" / "pictures.jsonl", [{"sha": p["sha"], "found": True} for p in pics])
+    return pics, crops
+
+
+def test_tone_v2_is_judged_by_its_own_rule_and_person_questions_on_pictures_of_a_person(tmp_path, monkeypatch):
+    pics, crops = _v2_frame(tmp_path, monkeypatch)
+    (tmp_path / "bakeoff" / "pairs.json").write_text(json.dumps({"human": [], "reader": {}}))
+    rng = np.random.default_rng(3)
+    partner = {b: a for a, b in crops}
+    out = {}
+    for p in pics:
+        h, i = int(p["house"][1:]), int(p["sha"].split("x")[1])
+        person = i < 8                                    # crop pairs are 0-1 and 2-3: both crops show a person
+        o = {"creative_type": "product_on_model" if i == 9 else "brand_image",
+             "people": "one" if person else "none",
+             "light": ["high_key", "low_key", "natural_daylight"][h % 3],       # a brand's look, crops agree
+             "rhetoric": "juxtaposition" if (h, i) == (0, 9) else "none",       # almost always one answer
+             "gaze": ["to_camera", "away"][(i // 2 + h) % 2] if person else "not_applicable",
+             "head_cant": str(rng.choice(["yes", "no"])) if person else "not_applicable",   # crops disagree by chance
+             "mood": ["serene"], "street_couture_axis": 3}
+        out[p["sha"]] = o
+    for b, a in partner.items():                        # a crop is read as its picture, except for chance answers
+        out[b] = {**out[a], "head_cant": out[b]["head_cant"]}
+    store.write_jsonl(tmp_path / "luxury" / "bakeoff" / "qwen3-tone-v2.jsonl",
+                      [{"sha": s, "version": "tone-v2", "out": o} for s, o in out.items()])
+    r = L.tone_report("qwen3", "tone-v2")
+    q = r["questions"]
+    assert r["pictures"] == 60 and r["showing_a_person"] == 48
+    assert q["light"]["keep"] and q["light"]["crop_kappa"] == 1.0
+    assert not q["rhetoric"]["keep"] and q["rhetoric"]["top_share"] > 0.9
+    assert q["gaze"]["on"] == "pictures showing a person" and q["gaze"]["pictures"] == 48 and q["gaze"]["keep"]
+    assert q["gaze"]["crop_pairs"] == 12
+    assert not q["head_cant"]["keep"]
+    assert not q["mood"]["keep"] and not q["street_couture_axis"]["keep"]      # one answer for every picture
+    assert not q["vertical_angle"]["keep"]                                   # never answered
+    assert r["on_model_without_a_person"] == 6
+
+
+def test_a_question_with_too_few_crop_pairs_is_not_shown_to_be_reliable(tmp_path, monkeypatch):
+    pics, crops = _v2_frame(tmp_path, monkeypatch, crops_per_house=1)       # six crop pairs
+    (tmp_path / "bakeoff" / "pairs.json").write_text(json.dumps({"human": [], "reader": {}}))
+    store.write_jsonl(tmp_path / "luxury" / "bakeoff" / "qwen3-tone-v2.jsonl",
+                      [{"sha": p["sha"], "out": {"people": "one", "light": ["high_key", "low_key"][int(p["house"][1:]) % 2]}}
+                       for p in pics])
+    q = L.tone_report("qwen3", "tone-v2")["questions"]["light"]
+    assert q["crop_pairs"] == 6 and q["crop_kappa"] is None and not q["keep"]
+
+
+def test_composition_measures_go_forward_when_brands_differ_and_the_whole_is_written(tmp_path, monkeypatch):
+    pics, crops = _v2_frame(tmp_path, monkeypatch, per=12)
+    rng = np.random.default_rng(5)
+    partner = {b: a for a, b in crops}
+    rows = {}
+    for p in pics:
+        h = int(p["house"][1:])
+        rows[p["sha"]] = {"sha": p["sha"], "version": "composition-v1", "open_space": round(0.1 * h + 0.02 * rng.normal(), 4),
+                          "symmetry": round(float(rng.normal()), 4), "thirds": 0.5, "figure_size": None}
+    for b, a in partner.items():
+        rows[b] = {**rows[a], "sha": b, "symmetry": rows[b]["symmetry"]}
+    store.write_jsonl(tmp_path / "luxury" / "composition-v1.jsonl",
+                      list(rows.values()) + [{"sha": "0x0", "error": "not on the volume"}])
+    tone = {s: {"open_space": ["little", "some", "much"][min(2, int(r["open_space"] / 0.2))], "people": "none"}
+            for s, r in rows.items()}
+    store.write_jsonl(tmp_path / "luxury" / "bakeoff" / "qwen3-tone-v2.jsonl", [{"sha": s, "out": o} for s, o in tone.items()])
+    # pairs-v2 on one axis, a strong and honest reader, and the person's pairs on it
+    truth = {p["sha"]: int(p["house"][1:]) * 0.5 + rng.normal(scale=0.5) for p in pics}
+    for b, a in partner.items():
+        truth[b] = truth[a] + rng.normal(scale=0.05)
+    edges = [(pics[i]["sha"], pics[j]["sha"]) for i in range(72) for j in range(i + 1, 72) if (j - i) % 7 in (1, 3)]
+    human = [{"id": f"opulent-{k:02d}", "axis": "opulent", "left": a, "right": b} for k, (a, b) in enumerate(edges[:30])]
+    (tmp_path / "bakeoff" / "pairs.json").write_text(json.dumps({"human": human, "reader": {"opulent": [list(e) for e in edges]}}))
+    (tmp_path / "bakeoff" / "human.json").write_text(json.dumps({h["id"]: ("left" if truth[h["left"]] > truth[h["right"]] else "right") for h in human}))
+    probs = [{"axis": "opulent", "first": x, "second": y, "p_first": float(1 / (1 + np.exp(-(2.0 * (truth[x] - truth[y]) - 1.0))))}
+             for a, b in edges for x, y in ((a, b), (b, a))]
+    store.write_jsonl(tmp_path / "luxury" / "bakeoff" / "qwen3-probs-v2.jsonl", probs)
+    c = L.composition_report()["measures"]
+    assert c["open_space"]["keep"] and c["open_space"]["p_adjusted"] < 0.05 and c["open_space"]["crop_r"] > 0.9
+    assert c["open_space"]["with_reader"]["spearman"] > 0.8
+    assert not c["symmetry"]["keep"] and not c["thirds"]["keep"] and c["thirds"]["iqr"] == 0
+    assert not c["figure_size"]["keep"] and c["figure_size"]["pictures"] == 0
+    rep = L.v2_report()
+    assert rep["kept"]["axes"] == ["opulent"] and rep["pairs"]["axes"]["opulent"]["keep"]
+    assert "open_space" in rep["kept"]["measures"] and "symmetry" not in rep["kept"]["measures"]
+    assert rep["kept"]["questions"] == ["open_space"]                      # the only tone answer here that varies
+    assert json.loads((tmp_path / "luxury" / "bakeoff_v2.json").read_text())["instrument"]["tone"] == "tone-v2"
+
+
+def test_composition_is_measured_from_the_volume_bakeoff_first_and_resumes(tmp_path, monkeypatch):
+    monkeypatch.setattr(L, "DIR", tmp_path / "luxury")
+    monkeypatch.setattr(L, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(B, "DIR", tmp_path / "bakeoff")
+    (tmp_path / "bakeoff").mkdir()
+    (tmp_path / "luxury").mkdir()
+    store.write_jsonl(tmp_path / "bakeoff" / "pictures.jsonl", [{"sha": "b1", "found": True}, {"sha": "gone", "found": True}])
+    asked = []
+
+    def from_volume(shas, vol_dir=B.VOL_DIR):
+        asked.append(list(shas))
+        out = {}
+        for i, s in enumerate(shas):
+            if s != "gone":
+                b = io.BytesIO()
+                Image.new("RGB", (300, 200), (40 * i, 100, 200)).save(b, format="JPEG")
+                out[s] = b.getvalue()
+        return out
+    monkeypatch.setattr(B, "from_volume", from_volume)
+    r = L.composition_read()
+    assert r == {"asked": 2, "measured": 1, "errors": 1} and asked[0] == ["b1", "gone"]
+    rows = store.read_jsonl(tmp_path / "luxury" / "composition-v1.jsonl")
+    good = [x for x in rows if not x.get("error")]
+    assert good[0]["sha"] == "b1" and good[0]["version"] == "composition-v1" and good[0]["open_space"] == 1.0
+    assert L.composition_read() == {"asked": 1, "measured": 0, "errors": 1}      # only what failed is tried again
+
+
+def test_the_answers_follow_the_rubric_they_were_read_with():
+    from adtone import character, readings
+    from adtone.score import load_rubric
+    v1, v2 = load_rubric("tone-v1").spec, load_rubric("tone-v2").spec
+    assert character.questions_of(v1) == character.QUESTIONS
+    enc = character.Encoder(v2)
+    assert "production" not in enc.qs and "modality" in enc.qs and "skin_shown" in enc.qs
+    ans = readings.Answers(v2, {"modality": {"keep": True}, "production": {"keep": True}, "mood:serene": {"keep": True}})
+    assert ans.qs == ["modality"] and ans.moods == ["serene"]
+    assert ans.row({"modality": "reduced", "mood": ["serene"]}).tolist() == [0, 0, 1, 0, 1, 0]

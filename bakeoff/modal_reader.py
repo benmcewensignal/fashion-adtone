@@ -136,7 +136,7 @@ class Reader:
         conversations = [[{"role": "system", "content": system},
                           {"role": "user", "content": [_url(j), {"type": "text", "text": "Score this image. Return only the JSON object."}]}]
                          for j in jpegs]
-        return self._chat(conversations, {"json": _without(schema, "uniqueItems")}, 700)
+        return self._chat(conversations, {"json": _without(schema, "uniqueItems")}, 1200)   # tone-v2 has 30 keys
 
     def _compare(self, pairs: list[tuple[bytes, bytes]], system: str, prompts: list[str], choices: list[str]) -> list[str]:
         conversations = [[{"role": "system", "content": system},

@@ -71,7 +71,7 @@ from collections import Counter, defaultdict
 import numpy as np
 
 from . import character, config, registry, store
-from .character import QUESTIONS, next_period, period_of
+from .character import next_period, period_of, questions_of
 
 TYPES = {"brand_image": "campaign", "product_on_model": "on_model", "product_packshot": "packshot"}
 LED = ("campaign", "on_model")
@@ -232,7 +232,7 @@ def screen(images: list[dict], spec: dict) -> dict:
                       "values_used": sum(1 for c in marg.values() if c / max(1, len(values)) >= 0.02),
                       "kappa": None if kap is None else round(kap, 3), "pairs": len(pair_vals),
                       "brand_v": None if v is None else round(v, 3), "keep": bool(keep)}
-    for q in QUESTIONS:
+    for q in questions_of(spec):
         judge(q, lambda o, q=q: o.get(q))
     for m in spec["lists"]["mood"]["options"]:
         judge(f"mood:{m}", lambda o, m=m: m in (o.get("mood") or []))
@@ -248,7 +248,7 @@ class Answers:
     variation for shares), each mood counting as a question of its own."""
 
     def __init__(self, spec: dict, keep: dict):
-        self.qs = [q for q in QUESTIONS if keep.get(q, {}).get("keep")]
+        self.qs = [q for q in questions_of(spec) if keep.get(q, {}).get("keep")]
         self.vals = {q: list(spec["enums"][q]) for q in self.qs}
         self.moods = [m for m in spec["lists"]["mood"]["options"] if keep.get(f"mood:{m}", {}).get("keep")]
         self.blocks, i = [], 0

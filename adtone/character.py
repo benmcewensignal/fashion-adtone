@@ -52,6 +52,12 @@ from . import config, registry, store
 
 QUESTIONS = ("light", "colour_temperature", "saturation", "setting", "people", "gaze", "expression", "pose",
              "framing", "primary_subject", "styling_register", "production", "text_in_image")
+
+
+def questions_of(spec: dict) -> tuple[str, ...]:
+    """The single-answer questions of a rubric, in its order: every enum but the kind of picture and the
+    product category. For tone-v1 these are QUESTIONS."""
+    return tuple(q for q in spec["enums"] if q not in ("creative_type", "category"))
 IMAGE_LED = ("brand_image", "product_on_model")
 MIN_IMAGES = 6           # per period, before a shift or a distance is reported
 N_PERM = 999
@@ -83,11 +89,12 @@ class Encoder:
     and the scale mapped to 0..1. Distances are computed block by block on period means."""
 
     def __init__(self, spec: dict):
-        self.enums = {q: list(spec["enums"][q]) for q in QUESTIONS}
+        self.qs = questions_of(spec)
+        self.enums = {q: list(spec["enums"][q]) for q in self.qs}
         self.moods = list(spec["lists"]["mood"]["options"])
         self.blocks: list[tuple[str, int, int]] = []
         i = 0
-        for q in QUESTIONS:
+        for q in self.qs:
             self.blocks.append((q, i, i + len(self.enums[q])))
             i += len(self.enums[q])
         self.mood_at = i
