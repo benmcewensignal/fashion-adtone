@@ -1,0 +1,118 @@
+{
+ "decided_at": "2026-10-08T07:50Z",
+ "instrument": {
+  "tone": "tone-v2",
+  "pairs": "pairs-v2",
+  "composition": "composition-v1"
+ },
+ "reader": "qwen3",
+ "rule": "Each part by the rule frozen with it before it read a picture (rubric/tone-v2.md, rubric/pairs-v2.md, rubric/composition-v1.md; commit ff5e6d3), applied mechanically to the bake-off's 296 pictures read by Qwen3-VL-32B at its pinned weights. Implementation fixed before reading (commit 333c2fb): a kappa needs ten crop pairs, and the questions about a person are judged on the pictures the reader says show one and on the crop pairs where it says both do.",
+ "comparisons": "probs",
+ "comparisons_basis": "as v1: the weight the reader puts on each answer, judged by the yardstick fixed for that",
+ "axes": [
+  "intimate",
+  "provocative"
+ ],
+ "axes_measured": {
+  "contemporary": {
+   "orders_agree_after_lean": 0.676,
+   "crop_gap": 0.212,
+   "with_person": [
+    0.556,
+    27
+   ],
+   "kept": false
+  },
+  "intimate": {
+   "orders_agree_after_lean": 0.807,
+   "crop_gap": 0.254,
+   "with_person": [
+    0.87,
+    23
+   ],
+   "kept": true
+  },
+  "opulent": {
+   "orders_agree_after_lean": 0.788,
+   "crop_gap": 0.244,
+   "with_person": [
+    0.522,
+    23
+   ],
+   "kept": false
+  },
+  "provocative": {
+   "orders_agree_after_lean": 0.792,
+   "crop_gap": 0.246,
+   "with_person": [
+    0.895,
+    19
+   ],
+   "kept": true
+  },
+  "staged": {
+   "orders_agree_after_lean": 0.617,
+   "crop_gap": 0.294,
+   "with_person": [
+    0.679,
+    28
+   ],
+   "kept": false
+  }
+ },
+ "questions": [
+  "light",
+  "colour_temperature",
+  "saturation",
+  "setting",
+  "people",
+  "expression",
+  "framing",
+  "horizontal_angle",
+  "placement",
+  "open_space",
+  "objects",
+  "arrangement",
+  "head_cant",
+  "self_touch",
+  "withdrawal",
+  "skin_shown",
+  "primary_subject",
+  "styling_register",
+  "text_in_image",
+  "mood",
+  "street_couture_axis"
+ ],
+ "questions_dropped": {
+  "gaze": "two crops of one picture agree too little: kappa 0.354 over 18 crop pairs",
+  "pose": "commonest answer (posed_static) covers 97% of the 186 pictures showing a person",
+  "vertical_angle": "commonest answer (eye_level) covers 96% of the 296 pictures",
+  "modality": "two crops of one picture agree too little: kappa 0.371 over 29 crop pairs",
+  "body_level": "commonest answer (upright) covers 91% of the 186 pictures showing a person",
+  "rhetoric": "commonest answer (none) covers 98% of the 296 pictures"
+ },
+ "measures": [
+  "complexity",
+  "edge_density",
+  "open_space",
+  "symmetry",
+  "mass_y",
+  "centre_offset",
+  "thirds",
+  "figure_size",
+  "depth_of_field",
+  "diagonals",
+  "pleasure",
+  "arousal",
+  "dominance"
+ ],
+ "measures_dropped": {
+  "mass_x": "brands do not differ beyond chance (between-brand share -0.017, adjusted p 0.757)"
+ },
+ "kinds_note": "creative_type is not screened by the rule and sets each picture's kind. v2's definitions did what they were written for: no product on a model without a person (v1: 4), and 14 styled still lifes moved from packshot to campaign (all 14 checked by eye are staged scenes). They also moved 58 of v1's 135 campaign pictures to product on a model; of 24 of these checked by eye, about 19 are campaign photographs, 2 are runway pictures and 3 could be either. So under v2 roughly four in ten pictures called product on a model are campaign photographs (an estimate from the 24 checked). Campaign and product on a model both lead in the readings, so this moves pictures between kinds rather than in or out; the like-for-like comparisons and the split by kind rest on it.",
+ "measures_note": "Reported beside the rule, not deciding: complexity, edge density and open space are close to one measure (rank correlations 0.88 to 0.96) and agree with the reader's open_space and objects at Spearman 0.52 to 0.57; pleasure, arousal and dominance are three weightings of mean brightness and saturation, which the colour and light measures already carry; symmetry and the saliency-based measures (figure_size, mass_x, centre_offset) go with the reader's arrangement, framing and placement hardly at all (Spearman -0.10 to 0.10), so figure_size is the share of the frame the spectral residual marks as salient, highest for one object on a plain ground, not the size of a figure.",
+ "sources": [
+  "data/luxury/bakeoff_v2.json",
+  "adtone/luxury.py (tone_report, composition_report, v2_report)"
+ ]
+}
