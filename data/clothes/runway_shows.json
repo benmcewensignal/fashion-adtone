@@ -16,16 +16,16 @@
   "status": "collected"
  },
  "balenciaga:2017-03-05:rtw": {
-  "looks": 20,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "balenciaga:2017-10-01:rtw": {
-  "looks": 20,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "balenciaga:2018-03-04:rtw": {
-  "looks": 20,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "balenciaga:2020-03-01:rtw": {
   "looks": 20,
@@ -140,8 +140,8 @@
   "status": "collected"
  },
  "celine:2019-09-27:rtw": {
-  "looks": 13,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "celine:2022-03-19:rtw": {
   "looks": 0,
@@ -154,6 +154,10 @@
  "celine:2025-09-30:rtw": {
   "looks": 7,
   "status": "collected"
+ },
+ "celine:2025-10-05:rtw": {
+  "looks": 0,
+  "status": "no looks"
  },
  "celine:2026-03-07:rtw": {
   "looks": 0,
@@ -359,6 +363,22 @@
   "looks": 18,
   "status": "collected"
  },
+ "dior:2019-01-18:men": {
+  "looks": 16,
+  "status": "collected"
+ },
+ "dior:2019-01-21:couture": {
+  "looks": 6,
+  "status": "collected"
+ },
+ "dior:2019-02-26:rtw": {
+  "looks": 19,
+  "status": "collected"
+ },
+ "dior:2019-06-21:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
  "dior:2019-07-01:couture": {
   "looks": 19,
   "status": "collected"
@@ -368,20 +388,20 @@
   "status": "collected"
  },
  "dior:2020-01-20:couture": {
-  "looks": 10,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "dior:2020-02-25:rtw": {
-  "looks": 15,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "dior:2020-09-29:rtw": {
   "looks": 20,
   "status": "collected"
  },
  "dior:2021-01-29:couture": {
-  "looks": 13,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "dior:2021-01-29:men": {
   "looks": 5,
@@ -400,8 +420,8 @@
   "status": "no looks"
  },
  "dior:2021-09-28:rtw": {
-  "looks": 19,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "dior:2022-01-21:men": {
   "looks": 15,
@@ -412,8 +432,8 @@
   "status": "no looks"
  },
  "dior:2022-03-01:rtw": {
-  "looks": 11,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "dolce_gabbana:2015-01-17:men": {
   "looks": 0,
@@ -487,6 +507,46 @@
   "looks": 0,
   "status": "no looks"
  },
+ "dries_van_noten:2016-06-23:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "dries_van_noten:2016-09-28:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "dries_van_noten:2022-06-23:men": {
+  "looks": 15,
+  "status": "collected"
+ },
+ "dries_van_noten:2022-09-28:rtw": {
+  "looks": 16,
+  "status": "collected"
+ },
+ "dries_van_noten:2023-01-19:men": {
+  "looks": 15,
+  "status": "collected"
+ },
+ "dries_van_noten:2023-03-01:rtw": {
+  "looks": 15,
+  "status": "collected"
+ },
+ "dries_van_noten:2023-06-22:men": {
+  "looks": 17,
+  "status": "collected"
+ },
+ "dries_van_noten:2023-09-27:rtw": {
+  "looks": 18,
+  "status": "collected"
+ },
+ "dries_van_noten:2024-01-18:men": {
+  "looks": 19,
+  "status": "collected"
+ },
+ "dries_van_noten:2024-02-28:rtw": {
+  "looks": 19,
+  "status": "collected"
+ },
  "dries_van_noten:2024-06-22:men": {
   "looks": 20,
   "status": "collected"
@@ -508,7 +568,7 @@
   "status": "collected"
  },
  "dries_van_noten:2026-01-22:men": {
-  "looks": 20,
+  "looks": 15,
   "status": "collected"
  },
  "dries_van_noten:2026-03-04:rtw": {
@@ -519,13 +579,89 @@
   "looks": 20,
   "status": "collected"
  },
+ "fendi:2017-07-05:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2017-09-21:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2019-01-14:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2019-02-21:rtw": {
+  "looks": 4,
+  "status": "collected"
+ },
+ "fendi:2019-06-17:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2022-01-27:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2022-02-23:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2022-07-07:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2022-09-10:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2022-09-21:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2023-01-14:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2023-01-26:couture": {
+  "looks": 1,
+  "status": "collected"
+ },
+ "fendi:2023-02-22:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2023-06-18:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2023-07-06:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2023-09-20:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2024-01-13:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2024-01-25:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "fendi:2024-02-21:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
  "fendi:2024-06-15:men": {
   "looks": 20,
   "status": "collected"
  },
  "fendi:2024-09-17:rtw": {
-  "looks": 6,
-  "status": "collected"
+  "looks": 0,
+  "status": "no looks"
  },
  "fendi:2025-02-26:rtw": {
   "looks": 20,
@@ -538,5 +674,249 @@
  "fendi:2026-02-25:rtw": {
   "looks": 19,
   "status": "collected"
+ },
+ "givenchy:2019-07-02:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "givenchy:2020-01-21:couture": {
+  "looks": 2,
+  "status": "collected"
+ },
+ "givenchy:2020-10-04:rtw": {
+  "looks": 4,
+  "status": "collected"
+ },
+ "givenchy:2021-03-07:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2021-10-03:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2022-03-06:rtw": {
+  "looks": 2,
+  "status": "collected"
+ },
+ "givenchy:2022-06-22:men": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2022-10-02:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2023-01-18:men": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2023-03-02:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2023-06-22:men": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2023-09-28:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2024-01-17:men": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2024-02-29:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2025-03-07:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2025-10-03:rtw": {
+  "looks": 3,
+  "status": "collected"
+ },
+ "givenchy:2026-03-06:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "givenchy:2026-10-02:rtw": {
+  "looks": 5,
+  "status": "collected"
+ },
+ "gucci:2018-02-21:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "gucci:2018-09-25:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "gucci:2019-02-23:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "gucci:2020-01-14:men": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "gucci:2020-02-19:rtw": {
+  "looks": 7,
+  "status": "collected"
+ },
+ "gucci:2024-02-23:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2020-10-03:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2021-06-26:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2021-10-02:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2022-01-22:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2022-03-05:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2022-06-25:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2023-01-21:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2023-03-04:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2023-06-24:men": {
+  "looks": 1,
+  "status": "collected"
+ },
+ "hermes:2023-09-30:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2024-01-20:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2024-03-02:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2025-01-25:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2025-03-08:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2025-10-04:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "hermes:2026-01-24:men": {
+  "looks": 5,
+  "status": "collected"
+ },
+ "hermes:2026-03-07:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2015-02-28:rtw": {
+  "looks": 6,
+  "status": "collected"
+ },
+ "jil_sander:2015-09-26:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2016-01-16:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2016-02-27:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2016-06-18:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2017-02-25:rtw": {
+  "looks": 1,
+  "status": "collected"
+ },
+ "jil_sander:2021-03-07:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2021-06-27:men": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2021-09-22:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "jil_sander:2025-09-24:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "jil_sander:2026-02-25:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "margiela:2019-09-25:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "margiela:2020-01-22:couture": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "margiela:2020-02-26:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "margiela:2021-10-03:rtw": {
+  "looks": 0,
+  "status": "no looks"
+ },
+ "margiela:2025-10-04:rtw": {
+  "looks": 2,
+  "status": "collected"
+ },
+ "margiela:2026-09-29:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "miu_miu:2025-10-06:rtw": {
+  "looks": 8,
+  "status": "collected"
+ },
+ "miu_miu:2026-03-10:rtw": {
+  "looks": 2,
+  "status": "collected"
+ },
+ "miu_miu:2026-10-04:rtw": {
+  "looks": 0,
+  "status": "no looks"
  }
 }

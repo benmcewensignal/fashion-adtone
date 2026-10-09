@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T02:16:22Z",
+ "generated_at": "2026-10-09T09:13:31Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -1397,6 +1397,27 @@
      "url": "https://www.celine.com/en-gb/home?utm_campaign=%20WOMENSPRING26&utm_source=sothebys_uk&utm_medium=display",
      "ts": "20251002203943",
      "score": 1.12
+    }
+   ]
+  },
+  "celine:2025-10-05:rtw": {
+   "house": "celine",
+   "date": "2025-10-05",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
+     "ts": "20251006201856",
+     "score": 7.88
+    },
+    {
+     "url": "https://www.celine.com/en-us/cm/spring-26-highlights/",
+     "ts": "20251126183848",
+     "score": 0.88
     }
    ]
   },
@@ -2280,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ConnectTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2293,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3150,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -4294,6 +4315,32 @@
      "score": 4.0
     }
    ]
+  },
+  "fendi:2021-09-22:rtw": {
+   "house": "fendi",
+   "date": "2021-09-22",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "fendi.com": "ConnectTimeout"
+   }
+  },
+  "fendi:2022-01-15:men": {
+   "house": "fendi",
+   "date": "2022-01-15",
+   "season": "2022 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "fendi.com": "ConnectTimeout"
+   }
   },
   "fendi:2022-01-27:couture": {
    "house": "fendi",
@@ -5573,7 +5620,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ConnectTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -5927,7 +5974,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "ConnectTimeout"
    }
   },
   "hermes:2025-01-25:men": {
@@ -6092,7 +6139,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "jilsander.com": "ReadTimeout"
+    "jilsander.com": "ConnectTimeout"
    }
   },
   "jil_sander:2015-09-26:rtw": {
@@ -6493,13 +6540,10 @@
    "date": "2026-10-02",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loewe.com": "ReadTimeout"
-   }
+   "pages": 1,
+   "candidates": []
   },
   "loro_piana:2024-09-20:rtw": {
    "house": "loro_piana",
@@ -7328,11 +7372,15 @@
   "celine": {
    "prefixes": [
     "www.celine.com/en-us/cm/",
-    "www.celine.com/en-de/celine-collections/",
     "www.celine.com/en-gb/celine-collections/",
-    "www.celine.com/fr-fr/cm/celine-collections/"
+    "www.celine.com/en-de/celine-collections/",
+    "www.celine.com/fr-fr/cm/celine-collections/",
+    "www.celine.com/en-int/cm/celine-collections/",
+    "www.celine.com/en/collections/",
+    "www.celine.com/fr-ch/celine-collections/",
+    "www.celine.com/fr-ch/celine-boutique-homme/collection-toile-triomphe/"
    ],
-   "pages": 1171
+   "pages": 3608
   },
   "chloe": {
    "prefixes": [
@@ -7373,22 +7421,23 @@
   "dior": {
    "prefixes": [
     "www.dior.com/en_us/mens-fashion/shows/",
+    "www.dior.com/en_us/womens-fashion/ready-to-wear-shows/",
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1164
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
-    "www.dolcegabbana.com/man/collection/",
-    "www.dolcegabbana.com/child/collection/"
+    "www.dolcegabbana.com/child/collection/",
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 5009
   },
   "dries_van_noten": {
    "prefixes": [
@@ -7406,10 +7455,9 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/fi-en/cm/eu1-default/man/highlights-man/"
+    "www.fendi.com/qa/man/collections/"
    ],
-   "pages": 36
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
@@ -7424,14 +7472,12 @@
   },
   "jil_sander": {
    "prefixes": [
-    "www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/",
-    "www.jilsander.com/it-it/primavera-estate%3Cbr%3Euomo-e-donna/",
     "www.jilsander.com/en/woman/",
-    "www.jilsander.com/collections/ss18-men/",
-    "www.jilsander.com/collections/resort-18-men/",
-    "www.jilsander.com/collections/fw19-men/"
+    "www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/",
+    "jilsander.com/en/woman/",
+    "www.jilsander.com/en/man/"
    ],
-   "pages": 1235
+   "pages": 0
   },
   "hermes": {
    "prefixes": [
@@ -7445,17 +7491,18 @@
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/",
-    "www.gucci.com/us/en/st/link-to-love-collection/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/girl-collection-c-children-collections-girl/",
-    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-homeware-c-lifestyle-pet-home-food/",
-    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-clothes-c-lifestyle-pet-readytowear/"
+    "www.gucci.com/us/en/st/stories/runway/article/"
    ],
-   "pages": 108
+   "pages": 93
   },
   "loewe": {
-   "prefixes": [],
-   "pages": 0
+   "prefixes": [
+    "www.loewe.com/eur/en/stories-collection/",
+    "www.loewe.com/eur/en/stories/runway/",
+    "www.loewe.com/eur/en/men/",
+    "www.loewe.com/eur/en/stories-runway/"
+   ],
+   "pages": 20603
   },
   "loro_piana": {
    "prefixes": [],
@@ -7514,9 +7561,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 267,
-   "index failed": 54,
-   "none": 108
+   "found": 268,
+   "index failed": 55,
+   "none": 109
   },
   "by_house": {
    "alaia": {
@@ -7540,8 +7587,8 @@
     "found": 1
    },
    "celine": {
-    "shows": 16,
-    "found": 7
+    "shows": 17,
+    "found": 8
    },
    "chanel": {
     "shows": 44,
@@ -7564,7 +7611,7 @@
     "found": 18
    },
    "fendi": {
-    "shows": 26,
+    "shows": 28,
     "found": 24
    },
    "givenchy": {
@@ -7646,7 +7693,7 @@
     "found": 18
    },
    "2022": {
-    "shows": 35,
+    "shows": 37,
     "found": 29
    },
    "2023": {
@@ -7662,8 +7709,8 @@
     "found": 14
    },
    "2026": {
-    "shows": 43,
-    "found": 25
+    "shows": 44,
+    "found": 26
    },
    "2027": {
     "shows": 27,
