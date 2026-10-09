@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T18:51:57Z",
+ "generated_at": "2026-10-09T23:19:15Z",
  "window_days": [
   -1,
   14
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 502"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -4273,7 +4273,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2018-06-18:men": {
@@ -5848,7 +5848,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -7463,7 +7463,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "loewe.com": "ConnectionError"
+    "loewe.com": "ReadTimeout"
    }
   },
   "loewe:2026-03-06:rtw": {
@@ -7575,13 +7575,10 @@
    "date": "2016-09-28",
    "season": "2017 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "margiela:2017-01-25:couture": {
    "house": "margiela",
@@ -7944,13 +7941,10 @@
    "date": "2024-02-22",
    "season": "2024 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maxmara.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "max_mara:2024-09-19:rtw": {
    "house": "max_mara",
@@ -7973,13 +7967,10 @@
    "date": "2025-02-27",
    "season": "2025 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maxmara.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "max_mara:2026-02-26:rtw": {
    "house": "max_mara",
@@ -8236,13 +8227,10 @@
    "date": "2020-03-03",
    "season": "2020 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "miumiu.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "miu_miu:2020-10-06:rtw": {
    "house": "miu_miu",
@@ -8911,10 +8899,10 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
     "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 1068
+   "pages": 973
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -8942,11 +8930,9 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/us-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/us-en/cm/eu1-default/man/highlights-man/"
+    "www.fendi.com/qa/man/collections/"
    ],
-   "pages": 55
+   "pages": 5
   },
   "givenchy": {
    "prefixes": [
@@ -8983,12 +8969,9 @@
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/",
-    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
-    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
-    "www.gucci.com/us/en/st/stories/runway/"
+    "www.gucci.com/us/en/st/stories/runway/article/"
    ],
-   "pages": 206
+   "pages": 93
   },
   "loewe": {
    "prefixes": [
@@ -8996,7 +8979,7 @@
     "www.loewe.com/eur/en/runway/",
     "www.loewe.com/eur/en/stories/runway/"
    ],
-   "pages": 0
+   "pages": 2511
   },
   "loro_piana": {
    "prefixes": [
@@ -9010,21 +8993,23 @@
   "margiela": {
    "prefixes": [
     "www.maisonmargiela.com/us/collection/",
-    "www.maisonmargiela.com/en-gb/maison-margiela/"
+    "www.maisonmargiela.com/us/collections/look/",
+    "www.maisonmargiela.com/en-gb/maison-margiela/",
+    "www.maisonmargiela.com/us/collections/"
    ],
-   "pages": 953
+   "pages": 921
   },
   "miu_miu": {
    "prefixes": [
     "www.miumiu.com/us/en/miumiu-club/fashion-shows/",
     "www.miumiu.com/en/fashion-shows/",
     "www.miumiu.com/us/en/",
-    "www.miumiu.com/us/en/collections/",
-    "www.miumiu.com/fi/en/collections/",
-    "www.miumiu.com/content/miumiu/us/en/collections/",
-    "www.miumiu.com/content/miumiu/us/en/miumiu-club/fashion-shows/"
+    "www.miumiu.com/at/de/collections/c/10195EU/",
+    "www.miumiu.com/at/de/collections/",
+    "www.miumiu.com/at/de/collections/miu-miu-custom-studio/c/10731EU/",
+    "www.miumiu.com/at/de/collections/miu-closet/c/10652EU/"
    ],
-   "pages": 20893
+   "pages": 20480
   },
   "louis_vuitton": {
    "prefixes": [],
@@ -9072,9 +9057,9 @@
  "summary": {
   "by_status": {
    "found": 324,
-   "index failed": 59,
-   "none": 122,
-   "partial": 2
+   "index failed": 56,
+   "none": 126,
+   "partial": 1
   },
   "by_house": {
    "alaia": {
