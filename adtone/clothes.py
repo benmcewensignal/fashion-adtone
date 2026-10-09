@@ -866,11 +866,18 @@ def judge_questions(write: bool = True) -> dict:
 # dozen pictures differ by chance alone, and the fewer the pictures the more, so each comparison is set
 # against the same comparison between random splits of the two sets pooled. Likeness is the share the
 # two sets have in common as a fraction of what random splits of the same pictures have in common: about
-# one when they cannot be told apart, nought when they share nothing.
+# one when they cannot be told apart, nought when they share nothing. How often a random split lies as
+# far apart as the two sets do says whether they can be told apart at all at these numbers.
 
 NOT_JUDGED = {"not_visible", "not_applicable", "not_distinguishable"}
 NOT_CLOTHES = ("subject", "confidence")    # what the picture shows of clothing, and the reader's certainty
 WORN_SUBJECTS = ("worn_full", "worn_part")
+
+
+def shows_outfit(a: dict | None) -> bool:
+    """A picture of an outfit worn: a person wearing clothes, with at least one garment the reader can name
+    (a crowd too small to see what anyone wears is read as worn but names none)."""
+    return bool(a) and a.get("subject") in WORN_SUBJECTS and a.get("garments") not in (None, [], ["none"])
 MIN_ANSWERS = 3          # pictures answering a question, on each side, before it enters a comparison
 DRAWS = 200
 
@@ -957,9 +964,11 @@ class Wardrobe:
             t[ok] = 0.5 * np.abs(sa[ok] / na[ok, None] - sb[ok] / nb[ok, None]).sum(1)
             total += t
             counted += ok
-        d_null = float(np.mean(total[counted > 0] / counted[counted > 0]))
+        splits = total[counted > 0] / counted[counted > 0]
+        d_null = float(np.mean(splits))
         return {"distance": round(d_obs, 4), "by_chance": round(d_null, 4),
                 "likeness": round((1 - d_obs) / (1 - d_null), 4) if d_null < 1 else None,
+                "as_far_by_chance": round(float(np.mean(splits >= d_obs - 1e-12)), 3),
                 "questions": len(qs), "n": [int(len(ia)), int(len(ib))]}
 
 

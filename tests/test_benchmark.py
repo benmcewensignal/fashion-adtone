@@ -126,6 +126,7 @@ def test_likeness_is_about_one_for_two_draws_of_the_same_clothes_and_falls_as_th
     same, apart = w.compare(a, b, key="same"), w.compare(a, c, key="apart")
     assert same["distance"] > 0.1                       # twelve looks against forty differ by chance alone
     assert abs(same["likeness"] - 1) < 0.15 and apart["likeness"] < 0.5
+    assert same["as_far_by_chance"] > 0.05 and apart["as_far_by_chance"] == 0    # told apart only when they differ
     assert w.compare(a, b, key="same") == same          # the same comparison comes out the same
     assert same["questions"] == 4                       # what the picture shows is not a question about the clothes
     packshots = w.profile([f"d{i}" for i in range(10)])
@@ -171,11 +172,19 @@ def test_the_runway_is_translated_and_followed_into_the_shop_window():
     assert sw["h0"]["worn"] == 12 and sw["h0"]["reach"] == round(12 / 14, 3)
     assert sw["h0"]["transmission"]["value"] > 0.8 > sw["h1"]["transmission"]["value"]
     assert sw["h0"]["transmission"]["percentile"] > sw["h1"]["transmission"]["percentile"]
+    assert sw["h1"]["transmission"]["told_apart"] and not sw["h0"]["transmission"]["told_apart"]
     assert sw["h0"]["recognisable"]["value"] == 1.0 and sw["h1"]["recognisable"]["value"] < 0.5   # h1's window looks like h2
     mv = {h: c["runway"]["movement"]["value"] for h, c in now.items()}
     assert max(mv, key=mv.get) == "h3" and now["h3"]["runway"]["movement"]["previous"] == "2025-03-03"
     assert now["h0"]["runway"]["profile"]["garments"]["n"] == 20
+    wd = {h: s["distinctness"]["value"] for h, s in sw.items()}
+    assert max(wd, key=wd.get) == "h0"                                  # the only window not showing street clothes
+    wm = {h: s["movement"]["value"] for h, s in sw.items()}
+    assert max(wm, key=wm.get) == "h3" and sw["h3"]["movement"]["told_apart"]     # its window followed its new runway
     assert out["seasons"]["2026 SS"]["runway"] == 4 and out["seasons"]["2026 SS"]["transmission"] == 4
     assert out["clothes"]["status"] == "provisional" and "subject" not in out["clothes"]["use"]
+    few = B.build([c for c in cols if c["house"] != "h3"], pics, last_month="2026-06",
+                  clothes={"judge": judge, "readings": ans, "runway": runway, "spec": SPEC})
+    assert all("percentile" not in x["clothes"]["shop_window"]["transmission"] for x in few["collections"])   # three are too few to place
     nothing = B.build(cols, pics, last_month="2026-06", clothes={"judge": {"status": "waiting on the reading of the test set", "use": []}})
     assert nothing["collections"][0]["clothes"] == {"status": "waiting on the reading of the test set"}

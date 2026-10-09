@@ -22,12 +22,12 @@ For every main collection in data/thread/collections.jsonl:
   the campaigns     what the brand published for the season, as the Thread joins it;
   the advertising   none until Meta's archive opens;
   the clothes       the runway looks and the shop window's pictures of an outfit worn, described with the
-                    frozen clothes rubric (rubric/clothes-v1.md) on the questions that stand: the runway's
-                    distinctness against the season's other runways and its movement from the brand's own
-                    last runway; transmission, the likeness between the runway and the shop window; and
-                    whether the shop window looks more like its own runway than the season's others.
-                    Likeness is net of chance at the numbers of pictures compared (adtone/clothes.py).
-                    Provisional until the labels have checked the questions it rests on.
+                    frozen clothes rubric (rubric/clothes-v1.md) on the questions that stand: for the runway
+                    and for the shop window, distinctness against the season's other brands and movement
+                    from the brand's own last one; transmission, the likeness between the runway and the
+                    shop window; and whether the shop window looks more like its own runway than the
+                    season's others. Likeness is net of chance at the numbers of pictures compared
+                    (adtone/clothes.py). Provisional until the labels have checked the questions it rests on.
 
 Then, across collections, which shop-window measures go with attention that lasts: within brands, with
 momentum held constant, with bootstrap intervals. Descriptive throughout.
@@ -195,7 +195,9 @@ CLOTHES = config.DATA / "clothes"
 MIN_LOOKS = 8            # runway looks read as an outfit worn, before a show's clothes are measured
 MIN_WORN = 5             # shop-window pictures of an outfit worn, before the runway is followed into them
 MIN_RUNWAYS = 2          # other runways of the season, before a runway is set against them
+MIN_PLACED = 4           # collections of a season with a clothes measure, before each is given a place among them
 MATCH_DAYS = 7           # a runway page's show date and the collection's may differ by a few days
+TOLD_APART = 0.05        # a difference that random splits of the same pictures reach less often than this
 
 
 def load_clothes(path: Path | None = None) -> dict | None:
@@ -220,12 +222,16 @@ def _mean_or_none(xs: list) -> float | None:
     return round(float(np.mean(xs)), 4) if xs else None
 
 
-def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict) -> dict:
+def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
+                     peers: dict[str, dict[str, list[dict]]] | None = None) -> dict:
     """The runway translated, and followed into the shop window, for every main collection with its looks
     read. On each show's looks that show an outfit worn:
       distinctness   one less the mean likeness to each other brand's runway of the season;
       movement       one less the likeness to the brand's own previous runway;
-    and on the shop window's pictures that show an outfit worn (campaign pictures and product):
+    on the shop window's pictures that show an outfit worn (campaign pictures and product):
+      distinctness   one less the mean likeness to each other brand's in the same months;
+      movement       one less the likeness to the brand's own previous window;
+    and from one to the other:
       transmission   the likeness between the runway and the shop window;
       recognisable   the share of the season's other runways the shop window is less like than its own.
     Likeness is net of chance at the numbers of pictures compared (adtone/clothes.py). Every figure carries
@@ -238,7 +244,7 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict)
             r["clothes"] = {"status": status}
         return {"status": status}
     ans = cl["readings"]
-    worn = {s for s, a in ans.items() if a.get("subject") in C.WORN_SUBJECTS}
+    worn = {s for s, a in ans.items() if C.shows_outfit(a)}
     by_show = defaultdict(list)
     for x in cl["runway"]:
         by_show[(x["house"], x["category"], x["date"])].append(x["sha"])
@@ -255,7 +261,11 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict)
             looks[r["id"]] = [s for s in best[1] if s in worn]
         read = [p["sha"] for p in windows.get(r["id"], []) if p["group"] in GROUPS and p["sha"] in ans]
         shop[r["id"]] = (read, [s for s in read if s in worn])
-    wanted = {s for v in looks.values() for s in v} | {s for _, w in shop.values() for s in w}
+    peers = peers or {}
+    theirs_worn = {rid: {o: [p["sha"] for p in ps if p["group"] in GROUPS and p["sha"] in worn] for o, ps in pp.items()}
+                   for rid, pp in peers.items()}
+    wanted = ({s for v in looks.values() for s in v} | {s for _, w in shop.values() for s in w}
+              | {s for pp in theirs_worn.values() for ws in pp.values() for s in ws})
     table = C.Wardrobe({s: ans[s] for s in wanted}, cl["spec"], judge["use"], judge.get("options"))
 
     for r in rows:
@@ -266,7 +276,17 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict)
                                                            "distinctness": {}, "movement": {}},
                         "shop_window": {"read": len(read), "worn": len(wn),
                                         "reach": round(len(wn) / len(read), 3) if read else None,
-                                        "transmission": {}, "recognisable": {}}}
+                                        "profile": table.profile(wn, top=3) if len(wn) >= MIN_WORN else None,
+                                        "distinctness": {}, "movement": {}, "transmission": {}, "recognisable": {}}}
+        if len(wn) >= MIN_WORN:
+            others = {o: ws for o, ws in theirs_worn.get(r["id"], {}).items() if len(ws) >= MIN_WORN}
+            if len(others) >= MIN_PEERS:
+                sims = [table.compare(wn, ws, key=r["id"] + "|window|" + o) for o, ws in sorted(others.items())]
+                like = _mean_or_none([x["likeness"] for x in sims if x])
+                if like is not None:
+                    r["clothes"]["shop_window"]["distinctness"] = {
+                        "value": round(1 - like, 4), "peers": len(others),
+                        "told_apart": sum(x["as_far_by_chance"] < TOLD_APART for x in sims if x)}
 
     ok = {r["id"]: r for r in rows if len(looks.get(r["id"]) or []) >= MIN_LOOKS}
     seasons = defaultdict(list)
@@ -280,13 +300,16 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict)
                 sims = [table.compare(looks[r["id"]], looks[o["id"]], key="|".join(sorted((r["id"], o["id"])))) for o in others]
                 like = _mean_or_none([x["likeness"] for x in sims if x])
                 if like is not None:
-                    r["clothes"]["runway"]["distinctness"] = {"value": round(1 - like, 4), "runways": len(others)}
+                    r["clothes"]["runway"]["distinctness"] = {
+                        "value": round(1 - like, 4), "runways": len(others),
+                        "told_apart": sum(x["as_far_by_chance"] < TOLD_APART for x in sims if x)}
             sw = r["clothes"]["shop_window"]
             if sw["worn"] >= MIN_WORN:
                 own = table.compare(looks[r["id"]], shop[r["id"]][1], key=r["id"] + "|shop")
                 if own and own["likeness"] is not None:
                     sw["transmission"] = {"value": own["likeness"], "in_common": round(1 - own["distance"], 4),
-                                          "by_chance": round(1 - own["by_chance"], 4), "questions": own["questions"]}
+                                          "by_chance": round(1 - own["by_chance"], 4), "questions": own["questions"],
+                                          "told_apart": own["as_far_by_chance"] < TOLD_APART}
                     if len(others) >= MIN_RUNWAYS:
                         theirs = [table.compare(looks[o["id"]], shop[r["id"]][1], key=o["id"] + "|shop|" + r["id"]) for o in others]
                         theirs = [x["likeness"] for x in theirs if x and x["likeness"] is not None]
@@ -294,34 +317,43 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict)
                             closer = sum(own["likeness"] > t for t in theirs) + 0.5 * sum(own["likeness"] == t for t in theirs)
                             sw["recognisable"] = {"value": round(closer / len(theirs), 3), "less_like": int(sum(own["likeness"] > t for t in theirs)),
                                                   "of": len(theirs)}
-    # movement: against the brand's own last runway with its looks read
+    # movement: against the brand's own last runway with its looks read, and its own last window with outfits
     by_house = defaultdict(list)
     for r in rows:
         by_house[r["house"]].append(r)
     for h, rs in by_house.items():
-        prev = None
+        prev = prev_w = None
         for r in sorted(rs, key=lambda x: x["date"]):
-            if r["id"] not in ok:
-                continue
-            if prev is not None:
-                m = table.compare(looks[r["id"]], looks[prev["id"]], key=r["id"] + "|" + prev["id"])
-                if m and m["likeness"] is not None:
-                    r["clothes"]["runway"]["movement"] = {"value": round(1 - m["likeness"], 4), "previous": prev["date"]}
-            prev = r
+            if r["id"] in ok:
+                if prev is not None:
+                    m = table.compare(looks[r["id"]], looks[prev["id"]], key=r["id"] + "|" + prev["id"])
+                    if m and m["likeness"] is not None:
+                        r["clothes"]["runway"]["movement"] = {"value": round(1 - m["likeness"], 4), "previous": prev["date"],
+                                                              "told_apart": m["as_far_by_chance"] < TOLD_APART}
+                prev = r
+            if len(shop[r["id"]][1]) >= MIN_WORN:
+                if prev_w is not None:
+                    m = table.compare(shop[r["id"]][1], shop[prev_w["id"]][1], key=r["id"] + "|window|" + prev_w["id"])
+                    if m and m["likeness"] is not None:
+                        r["clothes"]["shop_window"]["movement"] = {"value": round(1 - m["likeness"], 4), "previous": prev_w["date"],
+                                                                   "told_apart": m["as_far_by_chance"] < TOLD_APART}
+                prev_w = r
     # places within each season
     for rs in seasons.values():
-        for part, name in (("runway", "distinctness"), ("runway", "movement"), ("shop_window", "transmission")):
+        for part, name in (("runway", "distinctness"), ("runway", "movement"), ("shop_window", "distinctness"),
+                           ("shop_window", "movement"), ("shop_window", "transmission")):
             vals = {r["id"]: r["clothes"][part][name]["value"] for r in rs
                     if r["clothes"].get(part) and r["clothes"][part].get(name)}
-            pct = percentiles(vals)
+            pct = percentiles(vals) if len(vals) >= MIN_PLACED else {}
             for r in rs:
                 if r["id"] in pct:
                     r["clothes"][part][name]["percentile"] = pct[r["id"]]
     return {"status": status, "questions": {q: v["status"] for q, v in judge.get("questions", {}).items()},
             "use": [q for q in judge["use"] if q not in C.NOT_CLOTHES], "counts": judge.get("counts"),
             "labellers": judge.get("labellers"), "reader": judge.get("reader"),
-            "runways": len(ok), "pictures_read": len(ans),
-            "min": {"looks": MIN_LOOKS, "worn": MIN_WORN, "runways": MIN_RUNWAYS}}
+            "runways": len(ok), "windows": sum(len(w) >= MIN_WORN for _, w in shop.values()), "pictures_read": len(ans),
+            "min": {"looks": MIN_LOOKS, "worn": MIN_WORN, "runways": MIN_RUNWAYS, "placed": MIN_PLACED},
+            "told_apart": f"random splits of the same pictures as far apart less than {TOLD_APART:.0%} of the time"}
 
 
 def build(collections: list[dict], pictures: list[dict], last_month: str | None = None, clothes: dict | None = None) -> dict:
@@ -334,7 +366,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
     for c in mains:
         by_house[c["house"]].append(c)
 
-    rows, windows = [], {}
+    rows, windows, peer_windows = [], {}, {}
     for h, cs in by_house.items():
         prev_pics, prev_mix, prev_date = None, None, None
         for i, c in enumerate(cs):
@@ -348,6 +380,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
             windows[c["id"]] = mine
             peers = {o: [p for m in months for p in pm.get(m, [])] for o, pm in by_house_month.items() if o != h}
             peers = {o: ps for o, ps in peers.items() if ps}
+            peer_windows[c["id"]] = peers
             mx = mix(mine)
             row = {"id": c["id"], "house": h, "season": season_of(c), "date": c["date"], "category": c["category"],
                    "show": {k: c["show"].get(k) for k in ("heat", "heat_z", "surprise", "lasting", "lasting_z",
@@ -393,7 +426,8 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
             for r in rs:
                 r["show"][f"{strand}_percentile"] = pct.get(r["id"])
 
-    worn = clothes_measures(rows, windows, clothes) if clothes else {"status": "waiting on the reading of the clothes"}
+    worn = (clothes_measures(rows, windows, clothes, peer_windows) if clothes
+            else {"status": "waiting on the reading of the clothes"})
 
     summary = {}
     for s, rs in sorted(seasons.items(), key=lambda kv: season_order(kv[0])):
@@ -407,6 +441,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                       "campaigns": sum(bool(r["campaigns"]["entries"]) for r in rs),
                       "scene": sum(bool((r["scene"] or {}).get("covered")) for r in rs),
                       "runway": sum(bool((r["clothes"].get("runway") or {}).get("profile")) for r in rs),
+                      "clothes_window": sum(bool((r["clothes"].get("shop_window") or {}).get("profile")) for r in rs),
                       "transmission": sum(bool((r["clothes"].get("shop_window") or {}).get("transmission")) for r in rs)}
     return {"generated_at": store.utc_now(), "status": "descriptive",
             "windows": {"shop_window": f"months after the show, to the day before the next main show, {SHOP_DAYS} days at most",
