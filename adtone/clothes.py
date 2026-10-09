@@ -12,6 +12,8 @@ questions of rubric/clothes-v1.md go forward.
     python -m adtone.clothes seal      # on the runner: the 100 pictures to label, from the volume, sealed
     python -m adtone.clothes collect   # on the runner: about 20 looks of every show the coverage map found
                                        #   pages for -> data/clothes/runway.jsonl; copies to the private volume
+    python -m adtone.clothes recheck   # runway looks taken from another line's pages (a men's page for a
+                                       #   women's show) dropped, and their shows cleared to be taken again
     python -m adtone.clothes read      # every picture on the volumes read with the frozen rubric by the
                                        #   chosen reader: the test set, the runway looks, the homepage
                                        #   pictures -> data/clothes/readings.jsonl (resumable)
@@ -39,6 +41,7 @@ import hashlib
 import io
 import json
 import random
+import re
 import sys
 import tarfile
 import threading
@@ -328,6 +331,55 @@ def show_key(show: dict) -> str:
     return f"{show['house']}:{show['date']}:{show['category']}"
 
 
+_SEP = r"(?:^|[/_\-.?=&#%])"
+_END = r"(?:$|[/_\-.?=&#%])"
+_MEN = re.compile(_SEP + r"(?:men|mens|man|menswear|homme|hommes|uomo|herren|hombre|for-him|fur-ihn|f%c3%bcr-ihn|für-ihn|m_section)" + _END, re.I)
+_WOMEN = re.compile(_SEP + r"(?:women|womens|woman|womenswear|femme|femmes|donna|damen|mujer|for-her|fur-sie|f%c3%bcr-sie|für-sie)" + _END, re.I)
+_COUTURE = re.compile(r"couture", re.I)
+
+
+def page_line(url: str) -> str | None:
+    """Which line a house's page belongs to, as its address says: men's, women's or couture; None when it
+    does not say."""
+    path = (url or "").split("://", 1)[-1].split("/", 1)[-1].lower()
+    men, women = bool(_MEN.search(path)), bool(_WOMEN.search(path))
+    if _COUTURE.search(path):
+        return "couture"
+    if men and not women:
+        return "men"
+    if women and not men:
+        return "women"
+    return None
+
+
+def page_fits(url: str, category: str) -> bool:
+    """Whether a page can hold a show's looks: a women's ready-to-wear show is not read from a men's page or a
+    couture page, a men's show not from a women's page or a couture page, and couture not from a men's page.
+    The archive keeps a house's other lines beside the show it is asked for (Dior's women's show of March
+    2022 came back as its men's show of January)."""
+    line = page_line(url)
+    bad = {"rtw": ("men", "couture"), "men": ("women", "couture"), "couture": ("men",)}.get(category, ())
+    return line not in bad
+
+
+def recheck_lines(write: bool = True) -> dict:
+    """The runway looks taken from another line's pages, gone: every show that kept any is cleared, its looks
+    and its status, so the next collection takes it again from the pages that fit."""
+    rows_path, status_path = DIR / "runway.jsonl", DIR / "runway_shows.json"
+    rows = store.read_jsonl(rows_path) if rows_path.exists() else []
+    status = json.loads(status_path.read_text()) if status_path.exists() else {}
+    misfit = {show_key(r) for r in rows if not page_fits(r.get("page", ""), r["category"])}
+    keep = [r for r in rows if show_key(r) not in misfit]
+    out = {"shows_cleared": len(misfit), "looks_dropped": len(rows) - len(keep), "looks_kept": len(keep)}
+    if write and misfit:
+        store.write_jsonl(rows_path, keep)
+        for k in misfit:
+            status.pop(k, None)
+        status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        _log("recheck_lines", **out, shows=sorted(misfit))
+    return out
+
+
 def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, workers: int = 4, pause: float = 0.4,
                    budget_min: float = 40, session_factory=None, local: Path | None = None, clock=time.monotonic) -> dict:
     """For every show the coverage map found pages for, newest first within each house: its likeliest pages
@@ -378,7 +430,7 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
         for sh in sorted(todo[house], key=lambda s: s["date"], reverse=True):
             if clock() > deadline:
                 return
-            pages = [(c["ts"], c["url"]) for c in sh.get("candidates", [])]
+            pages = [(c["ts"], c["url"]) for c in sh.get("candidates", []) if page_fits(c["url"], sh["category"])]
             got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
                               deadline=deadline, tries=TRIES_PER_PAGE)
             for g in got:
@@ -1012,6 +1064,7 @@ def main(argv: list[str] | None = None) -> int:
     rd.add_argument("--budget-min", type=float, default=70)
     rd.add_argument("--min-waiting", type=int, default=0, help="send nothing until this many pictures wait")
     sub.add_parser("judge")
+    sub.add_parser("recheck")
     lb = sub.add_parser("labels")
     lb.add_argument("folder", help="the labelling page's documents, one JSON file each")
     a = ap.parse_args(argv)
@@ -1034,6 +1087,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"clothes crops: {sum(1 for r in rows if r['crop'])} made, {n} copies on the volume")
     elif a.cmd == "read":
         print(f"clothes read: {read(a.budget_min, a.min_waiting)}")
+    elif a.cmd == "recheck":
+        print(f"clothes recheck: {recheck_lines()}")
     elif a.cmd == "judge":
         j = judge_questions()
         print(f"clothes judge: {j['status']}; {j.get('counts')}; standing {j['use']}")

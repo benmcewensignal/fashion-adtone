@@ -247,7 +247,8 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
     worn = {s for s, a in ans.items() if C.shows_outfit(a)}
     by_show = defaultdict(list)
     for x in cl["runway"]:
-        by_show[(x["house"], x["category"], x["date"])].append(x["sha"])
+        if C.page_fits(x.get("page", ""), x["category"]):      # not a house's other line kept beside the show
+            by_show[(x["house"], x["category"], x["date"])].append(x["sha"])
     shows = defaultdict(list)
     for (h, cat, d), shas in by_show.items():
         shows[(h, cat)].append((date.fromisoformat(d), shas))

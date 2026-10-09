@@ -378,3 +378,25 @@ def test_labels_from_the_page_are_kept_by_role_never_by_name_the_latest_answer_f
     assert "jane" not in json.dumps(out) and "trained-al" not in json.dumps(out)
     assert labs["ben"]["answers"]["p0"]["subject"] == "worn_full"                         # the later answer stands
     assert labs["ben"]["complete"] and labs["trained-2"]["complete"] and not labs["trained-1"]["complete"]
+
+
+def test_a_show_is_read_only_from_pages_of_its_own_line(tmp_path, monkeypatch):
+    assert not C.page_fits("https://www.dior.com/en_us/mens-fashion/shows/folder-winter-2022-2023-mens-show/x", "rtw")
+    assert not C.page_fits("https://www.balenciaga.com/at/f%C3%BCr-ihn/collections/fallwinter-18-m_section", "rtw")
+    assert not C.page_fits("https://www.chloe.com/us/chloe/women/fashionshow/", "men")
+    assert not C.page_fits("https://www.dior.com/en_us/womens-fashion/haute-couture", "rtw")
+    assert C.page_fits("https://www.chloe.com/us/chloe/women/fashionshow/", "rtw")
+    assert C.page_fits("https://www.balenciaga.com/en-us/spring-24", "rtw")        # says nothing: kept
+    assert C.page_fits("https://www.hermes.com/us/en/men/ready-wear/", "men")
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    rows = [{"sha": "a", "house": "dior", "date": "2022-03-01", "category": "rtw", "page": "https://www.dior.com/en_us/mens-fashion/shows/x"},
+            {"sha": "b", "house": "dior", "date": "2022-03-01", "category": "rtw", "page": "https://www.dior.com/en_us/womens-fashion/shows/y"},
+            {"sha": "c", "house": "chloe", "date": "2022-03-03", "category": "rtw", "page": "https://www.chloe.com/us/chloe/women/fashionshow/"}]
+    (tmp_path / "runway.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    (tmp_path / "runway_shows.json").write_text(json.dumps({"dior:2022-03-01:rtw": {"status": "collected", "looks": 2},
+                                                             "chloe:2022-03-03:rtw": {"status": "collected", "looks": 1}}))
+    assert C.recheck_lines() == {"shows_cleared": 1, "looks_dropped": 2, "looks_kept": 1}
+    assert [r["sha"] for r in C.store.read_jsonl(tmp_path / "runway.jsonl")] == ["c"]
+    assert set(json.loads((tmp_path / "runway_shows.json").read_text())) == {"chloe:2022-03-03:rtw"}   # Dior's to be taken again
+    assert C.recheck_lines() == {"shows_cleared": 0, "looks_dropped": 0, "looks_kept": 1}
