@@ -313,7 +313,7 @@
    "A2": {
     "id": "A2",
     "from": "A1-3",
-    "key": "5c33fdd181bca695",
+    "key": "885c92864c973e9e",
     "prompt": "Replace the dress with two pieces in the same mid-grey matte wool: a plain fitted top with long sleeves, tucked in at her natural waist, and a pleated skirt that flares out from the waist and ends at mid-calf. Keep the necklace, earrings, hands, shoes, face and everything else exactly the same.",
     "mask": [
      {
@@ -326,9 +326,9 @@
      },
      {
       "box": [
-       0.3822,
-       0.5288,
-       0.6346,
+       0.2837,
+       0.5256,
+       0.726,
        0.617
       ]
      },
@@ -354,8 +354,8 @@
      {
       "name": "A2-1",
       "seed": 1,
-      "sha": "1fc5d83840dd7e2159791227d51838f0f38af3f983271ce9efdbba9d799a0386",
-      "png_sha": "3d2921b1bc5226ea6728cca5d919f6d2f86ed9c690bd85482c9553e87f531870",
+      "sha": "5ed6ebb5ffbf438d946eb71550335e4cdbb40792d8ae3bdfc6f312a9872eeb13",
+      "png_sha": "ba17d7275f5c7abb5b17e0ab97c972a07f07dcc6d73600121038f5493eb7450f",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
@@ -364,9 +364,9 @@
        "skin_shown": "some",
        "hemline": "midi",
        "layers": "two",
-       "silhouette": "straight",
-       "construction": "soft_cut",
-       "formality": "casual",
+       "silhouette": "fitted",
+       "construction": "tailored",
+       "formality": "formal_tailored",
        "garments": [
         "sweater",
         "skirt"
@@ -382,7 +382,7 @@
         "knit",
         "plain_woven"
        ],
-       "street_couture_axis": 3,
+       "street_couture_axis": 4,
        "confidence": 0.95
       },
       "met": [
@@ -397,68 +397,21 @@
        "silhouette=flared"
       ],
       "unmeant": [
+       "construction=tailored",
+       "formality=formal_tailored",
        "garments+sweater",
        "layers=two",
-       "materials+knit"
+       "materials+knit",
+       "silhouette=fitted",
+       "street_couture_axis=4"
       ],
-      "score": 8.0
+      "score": 4.5
      },
      {
       "name": "A2-2",
       "seed": 2,
-      "sha": "6b23ac641348dd4d52705bcfae9e2f590c5abb78fac88731a197e181a6b8f1b6",
-      "png_sha": "ff73dc04c2cb136ed627c8c7c90d732a813ca43bdac3099851139e8b35abd578",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "grey",
-       "colour_second": "black",
-       "pattern": "plain",
-       "skin_shown": "some",
-       "hemline": "midi",
-       "layers": "one",
-       "silhouette": "straight",
-       "construction": "soft_cut",
-       "formality": "casual",
-       "garments": [
-        "sweater",
-        "skirt"
-       ],
-       "accessories": [
-        "shoes",
-        "jewellery"
-       ],
-       "finishing": [
-        "pleated"
-       ],
-       "materials": [
-        "knit",
-        "plain_woven"
-       ],
-       "street_couture_axis": 3,
-       "confidence": 0.95
-      },
-      "met": [
-       "garments-dress",
-       "garments+skirt",
-       "hemline=midi",
-       "finishing+pleated",
-       "finishing-none"
-      ],
-      "missed": [
-       "garments+top",
-       "silhouette=flared"
-      ],
-      "unmeant": [
-       "garments+sweater",
-       "materials+knit"
-      ],
-      "score": 9.0
-     },
-     {
-      "name": "A2-3",
-      "seed": 3,
-      "sha": "0526cac7eb21665c000b24765a85075bf4f16ca58ffc90754f0dcd772dfcb9fc",
-      "png_sha": "f0ba91f0004e10074e8544b9080dcbac5f9ae05075026bdbd620bb7713e2637c",
+      "sha": "a9114473516fb564078601547c1a0a4afc58fb7cb107e2f93576ed90cddb0cef",
+      "png_sha": "ae74ec340176538770e9fd95c4bf052095e3556c57c9a30c71472c4d9843158d",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
@@ -505,15 +458,119 @@
        "materials+knit"
       ],
       "score": 13.0
+     },
+     {
+      "name": "A2-3",
+      "seed": 3,
+      "sha": "838aa3c7fbb7ad6f66f3d06ec48748749f05bd9b9c56512c00db1e1c17fbe76f",
+      "png_sha": "1a4ae73eb76b105b4a1ab227f50bb97be5cf9c485efc96fd930d32152cd2313b",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "grey",
+       "colour_second": "black",
+       "pattern": "plain",
+       "skin_shown": "some",
+       "hemline": "midi",
+       "layers": "two",
+       "silhouette": "flared",
+       "construction": "soft_cut",
+       "formality": "casual",
+       "garments": [
+        "sweater",
+        "skirt"
+       ],
+       "accessories": [
+        "shoes",
+        "jewellery"
+       ],
+       "finishing": [
+        "pleated"
+       ],
+       "materials": [
+        "knit",
+        "plain_woven"
+       ],
+       "street_couture_axis": 3,
+       "confidence": 0.95
+      },
+      "met": [
+       "garments-dress",
+       "garments+skirt",
+       "hemline=midi",
+       "finishing+pleated",
+       "finishing-none",
+       "silhouette=flared"
+      ],
+      "missed": [
+       "garments+top"
+      ],
+      "unmeant": [
+       "garments+sweater",
+       "layers=two",
+       "materials+knit"
+      ],
+      "score": 13.0
+     },
+     {
+      "name": "A2-4",
+      "seed": 4,
+      "sha": "04032f7717749bccbc436a9a665860c382d5d33fa1a50fda9eebbfe0cc352f33",
+      "png_sha": "b8f55067669454f64791f9dd4b479c64c5e19811a92ec2aa46aa5512ab741264",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "grey",
+       "colour_second": "black",
+       "pattern": "plain",
+       "skin_shown": "some",
+       "hemline": "midi",
+       "layers": "two",
+       "silhouette": "flared",
+       "construction": "soft_cut",
+       "formality": "casual",
+       "garments": [
+        "sweater",
+        "skirt"
+       ],
+       "accessories": [
+        "shoes",
+        "jewellery"
+       ],
+       "finishing": [
+        "pleated"
+       ],
+       "materials": [
+        "knit"
+       ],
+       "street_couture_axis": 3,
+       "confidence": 0.95
+      },
+      "met": [
+       "garments-dress",
+       "garments+skirt",
+       "hemline=midi",
+       "finishing+pleated",
+       "finishing-none",
+       "silhouette=flared"
+      ],
+      "missed": [
+       "garments+top"
+      ],
+      "unmeant": [
+       "garments+sweater",
+       "layers=two",
+       "materials+knit",
+       "materials-plain_woven"
+      ],
+      "score": 12.0
      }
     ],
-    "chosen": "A2-3",
-    "at": "2026-10-09T14:25:06Z"
+    "chosen": "A2-2",
+    "at": "2026-10-09T14:38:00Z"
    },
    "A3": {
     "id": "A3",
-    "from": "A2-3",
-    "key": "ca7d156e8e0db6dc",
+    "from": "A2-2",
+    "key": "1dc4368db7386a21",
     "prompt": "Make the skirt sheer: layers of soft pleated grey tulle with her legs faintly visible through it, ending at mid-calf as before. Keep the top, the necklace, her hands and everything else exactly the same.",
     "mask": [
      {
@@ -526,9 +583,9 @@
      },
      {
       "box": [
-       0.3822,
-       0.5288,
-       0.6346,
+       0.2837,
+       0.5256,
+       0.726,
        0.617
       ]
      },
@@ -548,8 +605,8 @@
      {
       "name": "A3-1",
       "seed": 1,
-      "sha": "29a460333032a0fd590df603301161126c0773feb47657d33070d000e0419792",
-      "png_sha": "4967171237570a7b8e2717d75d92ece31654c1abba50392d410d94a1bc4cfab5",
+      "sha": "6ab72cd727d6e4c118c0ed3a9d3261e08c09a6c43efba4194fc2343e9f7468f1",
+      "png_sha": "8b937ce7bc2df175c28339c5b1f5260217a9bb8f75cf9a6c3343a89f5539b6fb",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
@@ -593,8 +650,52 @@
      {
       "name": "A3-2",
       "seed": 2,
-      "sha": "89aacbb128d79851425db4fea5c5d58634d820864e2bd7eec98a9b8623bfa427",
-      "png_sha": "dfa518c7a860fc27122ab8c5350b25eaf472101aa54b775e586904ea673677f4",
+      "sha": "48381b118a5359414cc62d13161cf27207563395c836968968d8712e3754fba2",
+      "png_sha": "59259192c9777e09f38b90dcc561e1159d206608460f37c67d49676bf0091f6a",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "grey",
+       "colour_second": "none",
+       "pattern": "plain",
+       "skin_shown": "some",
+       "hemline": "midi",
+       "layers": "two",
+       "silhouette": "straight",
+       "construction": "soft_cut",
+       "formality": "casual",
+       "garments": [
+        "sweater",
+        "skirt"
+       ],
+       "accessories": [
+        "shoes",
+        "jewellery"
+       ],
+       "finishing": [
+        "pleated"
+       ],
+       "materials": [
+        "knit"
+       ],
+       "street_couture_axis": 3,
+       "confidence": 0.95
+      },
+      "met": [],
+      "missed": [
+       "materials+sheer_lace"
+      ],
+      "unmeant": [
+       "colour_second=none",
+       "materials-plain_woven",
+       "silhouette=straight"
+      ],
+      "score": -5.0
+     },
+     {
+      "name": "A3-3",
+      "seed": 3,
+      "sha": "77e36c3821764015f2b0d8a6dbb101b185a1aea09f52828438006348720ab113",
+      "png_sha": "77b2978ddc5109e3e988f7941ec9562a91f7c8c5e2055d7e52864f51db3970d1",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
@@ -603,7 +704,7 @@
        "skin_shown": "some",
        "hemline": "midi",
        "layers": "two",
-       "silhouette": "mixed",
+       "silhouette": "fitted",
        "construction": "soft_cut",
        "formality": "casual",
        "garments": [
@@ -630,62 +731,19 @@
       "missed": [],
       "unmeant": [
        "materials-plain_woven",
-       "silhouette=mixed"
+       "silhouette=fitted"
       ],
       "score": 1.0
-     },
-     {
-      "name": "A3-3",
-      "seed": 3,
-      "sha": "e9bda13e5c9ac2664503566f4e66947d7e0675f125e6310d9497063f678ff220",
-      "png_sha": "416dcb88f9177503f921217defb56988854b17d315ff3c9f1e14d1d6ceefd9fb",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "grey",
-       "colour_second": "black",
-       "pattern": "plain",
-       "skin_shown": "some",
-       "hemline": "midi",
-       "layers": "two",
-       "silhouette": "flared",
-       "construction": "soft_cut",
-       "formality": "casual",
-       "garments": [
-        "sweater",
-        "skirt"
-       ],
-       "accessories": [
-        "shoes",
-        "jewellery"
-       ],
-       "finishing": [
-        "pleated"
-       ],
-       "materials": [
-        "knit",
-        "sheer_lace"
-       ],
-       "street_couture_axis": 3,
-       "confidence": 0.95
-      },
-      "met": [
-       "materials+sheer_lace"
-      ],
-      "missed": [],
-      "unmeant": [
-       "materials-plain_woven"
-      ],
-      "score": 2.0
      }
     ],
     "chosen": "A3-3",
-    "at": "2026-10-09T14:27:08Z"
+    "at": "2026-10-09T14:39:59Z"
    },
    "A4": {
     "id": "A4",
     "from": "A3-3",
-    "key": "f3311bb81158a3f4",
-    "prompt": "Embroider the top densely with small grey glass beads over the bodice and the sleeves. Keep the necklace, the earrings, the skirt, her hands and everything else exactly the same.",
+    "key": "7a719243a736974d",
+    "prompt": "Embroider the top with small grey glass beads scattered evenly over the bodice and the sleeves. Keep the necklace, the earrings, the skirt, her hands and everything else exactly the same.",
     "mask": [
      {
       "box": [
@@ -719,21 +777,21 @@
      {
       "name": "A4-1",
       "seed": 1,
-      "sha": "49c531a11c199bb9b76b9e486099e64b74124766a2787f8b2e17ebf9d41cb724",
-      "png_sha": "65ac4ff245a180257bc7c43ac6ec2ee6f2e41d4b28d28320793134510871862e",
+      "sha": "e5966767d7dcc47bb7825251adceb0f30f96164dafbee72cef2e660258ba23ee",
+      "png_sha": "362830e68194ffd1f4c131f4409204de6c36a2996f117eb3de05f774ce4eb67c",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
        "colour_second": "black",
-       "pattern": "mixed",
-       "skin_shown": "covered",
-       "hemline": "midi",
+       "pattern": "plain",
+       "skin_shown": "some",
+       "hemline": "knee",
        "layers": "two",
-       "silhouette": "mixed",
-       "construction": "mixed",
+       "silhouette": "fitted",
+       "construction": "tailored",
        "formality": "formal_tailored",
        "garments": [
-        "shirt_blouse",
+        "sweater",
         "skirt"
        ],
        "accessories": [
@@ -756,32 +814,28 @@
       ],
       "missed": [],
       "unmeant": [
-       "construction=mixed",
+       "construction=tailored",
        "formality=formal_tailored",
-       "garments+shirt_blouse",
-       "garments-sweater",
-       "pattern=mixed",
-       "silhouette=mixed",
-       "skin_shown=covered",
+       "hemline=knee",
        "street_couture_axis=5"
       ],
-      "score": -4.5
+      "score": -0.5
      },
      {
       "name": "A4-2",
       "seed": 2,
-      "sha": "ae945f6628f34d2f15fb30ac924bbc1d46281ffbc5ab555809525a06a9931739",
-      "png_sha": "79ec0f5e1a0c971ebb635192a5cd210734a25c901a3b72f242d6d5ff986baccb",
+      "sha": "3559c6e16886310e7fc0a748439a2307b7bc9ab5ad790e744a35c963aa70a08c",
+      "png_sha": "ef6c7013307ba85a423058d870751d6412a310f58406b371919df8e56412c7c7",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
        "colour_second": "black",
        "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "midi",
+       "skin_shown": "some",
+       "hemline": "knee",
        "layers": "two",
-       "silhouette": "fitted",
-       "construction": "tailored",
+       "silhouette": "mixed",
+       "construction": "mixed",
        "formality": "formal_tailored",
        "garments": [
         "shirt_blouse",
@@ -792,13 +846,14 @@
         "jewellery"
        ],
        "finishing": [
+        "studded",
         "pleated"
        ],
        "materials": [
         "knit",
         "sheer_lace"
        ],
-       "street_couture_axis": 5,
+       "street_couture_axis": 4,
        "confidence": 0.95
       },
       "met": [],
@@ -806,34 +861,34 @@
        "finishing+beaded"
       ],
       "unmeant": [
-       "construction=tailored",
+       "construction=mixed",
        "formality=formal_tailored",
        "garments+shirt_blouse",
        "garments-sweater",
-       "silhouette=fitted",
-       "skin_shown=covered",
-       "street_couture_axis=5"
+       "hemline=knee",
+       "silhouette=mixed",
+       "street_couture_axis=4"
       ],
       "score": -8.5
      },
      {
       "name": "A4-3",
       "seed": 3,
-      "sha": "b21040a8ad7954bd8aa64a87c5ead9285a4e3f5c9aa9aeb72e24a0c1c68ac3a3",
-      "png_sha": "77b4c47f53ac07515be358978186be5bb9c2bb7e6207adfa824de254479d430c",
+      "sha": "6d90c1346af18545da49f4e5d01524dbfc9cb03495fc826fdc97844a2eb9f954",
+      "png_sha": "583330df332347a3ecb9420c286ce93ff27ac20103662a49671a63d23af4fd4d",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
        "colour_second": "black",
        "pattern": "plain",
-       "skin_shown": "covered",
+       "skin_shown": "some",
        "hemline": "midi",
        "layers": "two",
        "silhouette": "fitted",
-       "construction": "tailored",
-       "formality": "formal_tailored",
+       "construction": "soft_cut",
+       "formality": "casual",
        "garments": [
-        "shirt_blouse",
+        "top",
         "skirt"
        ],
        "accessories": [
@@ -841,14 +896,14 @@
         "jewellery"
        ],
        "finishing": [
-        "pleated",
-        "beaded"
+        "beaded",
+        "pleated"
        ],
        "materials": [
-        "knit",
-        "sheer_lace"
+        "sheer_lace",
+        "knit"
        ],
-       "street_couture_axis": 5,
+       "street_couture_axis": 3,
        "confidence": 0.95
       },
       "met": [
@@ -856,24 +911,19 @@
       ],
       "missed": [],
       "unmeant": [
-       "construction=tailored",
-       "formality=formal_tailored",
-       "garments+shirt_blouse",
-       "garments-sweater",
-       "silhouette=fitted",
-       "skin_shown=covered",
-       "street_couture_axis=5"
+       "garments+top",
+       "garments-sweater"
       ],
-      "score": -3.5
+      "score": 1.0
      }
     ],
     "chosen": "A4-3",
-    "at": "2026-10-09T14:29:08Z"
+    "at": "2026-10-09T14:41:59Z"
    },
    "A5": {
     "id": "A5",
     "from": "A4-3",
-    "key": "8a3d7766db175f1a",
+    "key": "f83fe026941c2e5a",
     "prompt": "Add a narrow belt in the same grey cloth at her waist, tied in a small bow at the front. Keep everything else exactly the same.",
     "mask": [
      {
@@ -892,15 +942,15 @@
      {
       "name": "A5-1",
       "seed": 1,
-      "sha": "dd839934da55da881ac884f537a33fc5a4b0fc7c0320504aa00a929cb77cc421",
-      "png_sha": "b22a2584296d8104c9d144ff3eab3c279c3c5d613489df3e0f1261b5a75afdb8",
+      "sha": "4956974b8f8f6fee5db91df5c3551871209750306908cbaa79be0d78ea8a0b13",
+      "png_sha": "35500a18107a4f236944787ab50bff16ef9346e4396e5aa3eac401519db60fcb",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
        "colour_second": "black",
        "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "midi",
+       "skin_shown": "some",
+       "hemline": "knee",
        "layers": "two",
        "silhouette": "fitted",
        "construction": "tailored",
@@ -915,12 +965,12 @@
         "belt"
        ],
        "finishing": [
-        "pleated",
-        "beaded"
+        "beaded",
+        "pleated"
        ],
        "materials": [
-        "knit",
-        "sheer_lace"
+        "sheer_lace",
+        "plain_woven"
        ],
        "street_couture_axis": 5,
        "confidence": 0.95
@@ -929,21 +979,79 @@
        "accessories+belt"
       ],
       "missed": [],
-      "unmeant": [],
-      "score": 3
+      "unmeant": [
+       "construction=tailored",
+       "formality=formal_tailored",
+       "garments+shirt_blouse",
+       "garments-top",
+       "hemline=knee",
+       "materials+plain_woven",
+       "materials-knit",
+       "street_couture_axis=5"
+      ],
+      "score": -4.5
      },
      {
       "name": "A5-2",
       "seed": 2,
-      "sha": "91c03d85da72bb931cc88aa2c6fd831fa76b994bab5fdefb332c3289dd06e66b",
-      "png_sha": "9bf3a5edce4e41bf519f8a579e5d2ee8e35296ff60d9fe58676d13b0d7687bb8",
+      "sha": "8071db26cab90c89ba70a46769eb1f41f0886641726dd28b1e594f45b69a5645",
+      "png_sha": "98fbea4cbfad081f6b2269f5488db7e932c007717a1e5614ac91b4652af530f1",
       "reading": {
        "subject": "worn_full",
        "colour_main": "grey",
        "colour_second": "black",
        "pattern": "plain",
-       "skin_shown": "covered",
+       "skin_shown": "some",
        "hemline": "midi",
+       "layers": "two",
+       "silhouette": "fitted",
+       "construction": "tailored",
+       "formality": "formal_tailored",
+       "garments": [
+        "top",
+        "skirt"
+       ],
+       "accessories": [
+        "shoes",
+        "jewellery",
+        "belt"
+       ],
+       "finishing": [
+        "beaded",
+        "pleated"
+       ],
+       "materials": [
+        "sheer_lace",
+        "plain_woven"
+       ],
+       "street_couture_axis": 4,
+       "confidence": 0.95
+      },
+      "met": [
+       "accessories+belt"
+      ],
+      "missed": [],
+      "unmeant": [
+       "construction=tailored",
+       "formality=formal_tailored",
+       "materials+plain_woven",
+       "materials-knit",
+       "street_couture_axis=4"
+      ],
+      "score": -1.5
+     },
+     {
+      "name": "A5-3",
+      "seed": 3,
+      "sha": "99a4f91b31c31058ee347f38b3937849daab5a7d28222e5c509bc3e0df0cc73a",
+      "png_sha": "b9c576d7d19bd5048d7c0e9bb22023d5ffa2c972ddd1686b0f0990f188745462",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "grey",
+       "colour_second": "black",
+       "pattern": "plain",
+       "skin_shown": "some",
+       "hemline": "knee",
        "layers": "two",
        "silhouette": "fitted",
        "construction": "tailored",
@@ -961,8 +1069,8 @@
         "pleated"
        ],
        "materials": [
-        "knit",
-        "sheer_lace"
+        "sheer_lace",
+        "plain_woven"
        ],
        "street_couture_axis": 5,
        "confidence": 0.95
@@ -971,54 +1079,21 @@
       "missed": [
        "accessories+belt"
       ],
-      "unmeant": [],
-      "score": -2
-     },
-     {
-      "name": "A5-3",
-      "seed": 3,
-      "sha": "a494f2ea1c11d3fdddd3f5e978b76ba03a2b7428aa7a0b199d20aee905da1224",
-      "png_sha": "f85ec4bd795f1cde7368667b246c1b90d82544603aa98c09b3f744dd92fd3fac",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "grey",
-       "colour_second": "black",
-       "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "midi",
-       "layers": "two",
-       "silhouette": "fitted",
-       "construction": "tailored",
-       "formality": "formal_tailored",
-       "garments": [
-        "shirt_blouse",
-        "skirt"
-       ],
-       "accessories": [
-        "shoes",
-        "jewellery"
-       ],
-       "finishing": [
-        "pleated",
-        "beaded"
-       ],
-       "materials": [
-        "knit",
-        "sheer_lace"
-       ],
-       "street_couture_axis": 5,
-       "confidence": 0.95
-      },
-      "met": [],
-      "missed": [
-       "accessories+belt"
+      "unmeant": [
+       "construction=tailored",
+       "formality=formal_tailored",
+       "garments+shirt_blouse",
+       "garments-top",
+       "hemline=knee",
+       "materials+plain_woven",
+       "materials-knit",
+       "street_couture_axis=5"
       ],
-      "unmeant": [],
-      "score": -2
+      "score": -9.5
      }
     ],
-    "chosen": "A5-1",
-    "at": "2026-10-09T14:31:09Z"
+    "chosen": "A5-2",
+    "at": "2026-10-09T14:44:00Z"
    }
   },
   "plainer": {
@@ -1535,8 +1610,8 @@
    "B4": {
     "id": "B4",
     "from": "B3-1",
-    "key": "a0589c119bbded39",
-    "prompt": "Make the coat smooth black leather with a soft sheen, keeping its shape, size and folds exactly the same. Keep everything else exactly the same.",
+    "key": "871556736050390a",
+    "prompt": "Change only the material of the coat to smooth, plain black leather with a soft sheen, with no texture, grain or pattern. Keep the coat's very wide padded shoulders, its shape, size, length, lapels and folds exactly the same. Keep everything else exactly the same.",
     "mask": [
      {
       "box": [
@@ -1568,10 +1643,10 @@
     ],
     "candidates": [
      {
-      "name": "B4-1",
-      "seed": 1,
-      "sha": "ce7451f6b087b79a8d01412ed5b1a8222fa0b138e31582dd442b8e6ae36e3b1c",
-      "png_sha": "e67c26e84743cbe8d9a1c66d7345b9665e7bac83840f959807c9e650bb83d898",
+      "name": "B4-4",
+      "seed": 4,
+      "sha": "4537086cbf84d3d5108f93cab8ba1d1e6ed8a4a0a96c41a4ff154d6e437b636e",
+      "png_sha": "f8e5140ec5040ba272540ddc40fe9da3f436969f26462372978ea8f2428ab21d",
       "reading": {
        "subject": "worn_full",
        "colour_main": "black",
@@ -1580,48 +1655,7 @@
        "skin_shown": "covered",
        "hemline": "ankle_floor",
        "layers": "two",
-       "silhouette": "volume",
-       "construction": "tailored",
-       "formality": "formal_tailored",
-       "garments": [
-        "coat",
-        "top",
-        "trousers"
-       ],
-       "accessories": [
-        "shoes"
-       ],
-       "finishing": [
-        "none"
-       ],
-       "materials": [
-        "leather",
-        "plain_woven"
-       ],
-       "street_couture_axis": 5,
-       "confidence": 0.95
-      },
-      "met": [
-       "materials+leather"
-      ],
-      "missed": [],
-      "unmeant": [],
-      "score": 3
-     },
-     {
-      "name": "B4-2",
-      "seed": 2,
-      "sha": "72de32774dfad1eaf8d19b008dd5dadefad7a14a493f65beb2348e5b1092bd3a",
-      "png_sha": "3e9580847792326b9e273bef797670213e132bdbc62c8f9f11e3b1fab02be2d7",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "black",
-       "colour_second": "none",
-       "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "ankle_floor",
-       "layers": "two",
-       "silhouette": "straight",
+       "silhouette": "fitted",
        "construction": "tailored",
        "formality": "formal_tailored",
        "garments": [
@@ -1649,15 +1683,103 @@
       "unmeant": [
        "garments+shirt_blouse",
        "garments-top",
-       "silhouette=straight"
+       "silhouette=fitted"
       ],
       "score": 0.0
      },
      {
-      "name": "B4-3",
-      "seed": 3,
-      "sha": "c02950f328c12752ba245966e962f8c67b4368ca0069dbd35e572d2ea627f46f",
-      "png_sha": "7dcbeceb94ddc41b16c1d10f7f0c6429a5d64aaa786baa5a10fcf58a149a14c6",
+      "name": "B4-5",
+      "seed": 5,
+      "sha": "ebdec16acdc3027865507004a682edb6dd7498af7fbf04790f38fc36f9573caf",
+      "png_sha": "474a90186bb3a7dd6c614ad48ba3ae0692bdf4ffaeb598c906bfbd9a601e0280",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "black",
+       "colour_second": "none",
+       "pattern": "plain",
+       "skin_shown": "covered",
+       "hemline": "ankle_floor",
+       "layers": "two",
+       "silhouette": "volume",
+       "construction": "tailored",
+       "formality": "formal_tailored",
+       "garments": [
+        "coat",
+        "shirt_blouse",
+        "trousers"
+       ],
+       "accessories": [
+        "shoes"
+       ],
+       "finishing": [
+        "none"
+       ],
+       "materials": [
+        "leather",
+        "plain_woven"
+       ],
+       "street_couture_axis": 5,
+       "confidence": 0.95
+      },
+      "met": [
+       "materials+leather"
+      ],
+      "missed": [],
+      "unmeant": [
+       "garments+shirt_blouse",
+       "garments-top"
+      ],
+      "score": 1.0
+     },
+     {
+      "name": "B4-6",
+      "seed": 6,
+      "sha": "312198d9f68518c7c3660fa313716130dbff837639aa916b5c6f6bf77f702db6",
+      "png_sha": "0393dbc8451bf5537019cc3dbdeac5b7501cd44387f2c610e0f8b4ce9f465fdc",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "black",
+       "colour_second": "none",
+       "pattern": "plain",
+       "skin_shown": "covered",
+       "hemline": "ankle_floor",
+       "layers": "two",
+       "silhouette": "volume",
+       "construction": "tailored",
+       "formality": "formal_tailored",
+       "garments": [
+        "coat",
+        "shirt_blouse",
+        "trousers"
+       ],
+       "accessories": [
+        "shoes"
+       ],
+       "finishing": [
+        "none"
+       ],
+       "materials": [
+        "leather",
+        "plain_woven"
+       ],
+       "street_couture_axis": 5,
+       "confidence": 0.95
+      },
+      "met": [
+       "materials+leather"
+      ],
+      "missed": [],
+      "unmeant": [
+       "garments+shirt_blouse",
+       "garments-top"
+      ],
+      "score": 1.0
+     },
+     {
+      "name": "B4-7",
+      "seed": 7,
+      "sha": "655acf248cc577a76d4aba6dee922f0a8c05136a8ff5ca6489905fd54b4ea7b5",
+      "png_sha": "c5ba5c006d0b7630ea3d6f881cf2fc22eade4496db1c87e669c79d529ef719d3",
       "reading": {
        "subject": "worn_full",
        "colour_main": "black",
@@ -1699,13 +1821,13 @@
       "score": 0.0
      }
     ],
-    "chosen": "B4-1",
-    "at": "2026-10-09T14:30:07Z"
+    "chosen": "B4-5",
+    "at": "2026-10-09T14:39:26Z"
    },
    "B5": {
     "id": "B5",
-    "from": "B4-1",
-    "key": "4e5220dcfbd4ae02",
+    "from": "B4-5",
+    "key": "37503b15678137ee",
     "prompt": "Add dark wraparound sunglasses. Keep her face, hair and everything else exactly the same.",
     "mask": [
      {
@@ -1724,100 +1846,8 @@
      {
       "name": "B5-1",
       "seed": 1,
-      "sha": "af5794427f36f97069f3fe1571b2f180891611bff0686810a8af0815098d9803",
-      "png_sha": "1ce034e7384de63839017627cc86707abcad7a39c56349012213cda30653a1d5",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "black",
-       "colour_second": "none",
-       "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "ankle_floor",
-       "layers": "two",
-       "silhouette": "volume",
-       "construction": "tailored",
-       "formality": "formal_tailored",
-       "garments": [
-        "coat",
-        "shirt_blouse",
-        "trousers"
-       ],
-       "accessories": [
-        "eyewear",
-        "shoes"
-       ],
-       "finishing": [
-        "none"
-       ],
-       "materials": [
-        "leather",
-        "plain_woven"
-       ],
-       "street_couture_axis": 5,
-       "confidence": 0.95
-      },
-      "met": [
-       "accessories+eyewear"
-      ],
-      "missed": [],
-      "unmeant": [
-       "garments+shirt_blouse",
-       "garments-top"
-      ],
-      "score": 1.0
-     },
-     {
-      "name": "B5-2",
-      "seed": 2,
-      "sha": "56e4531a01b02b73349af9be05e3fb89c0bc2032b28425ffc97fa3eda5b10ff7",
-      "png_sha": "c4522cca7781c0815c82917549379bda2f02bbf813ebc3a830655c3093d7c28b",
-      "reading": {
-       "subject": "worn_full",
-       "colour_main": "black",
-       "colour_second": "none",
-       "pattern": "plain",
-       "skin_shown": "covered",
-       "hemline": "ankle_floor",
-       "layers": "two",
-       "silhouette": "volume",
-       "construction": "tailored",
-       "formality": "formal_tailored",
-       "garments": [
-        "coat",
-        "shirt_blouse",
-        "trousers"
-       ],
-       "accessories": [
-        "eyewear",
-        "shoes"
-       ],
-       "finishing": [
-        "pleated"
-       ],
-       "materials": [
-        "leather",
-        "plain_woven"
-       ],
-       "street_couture_axis": 5,
-       "confidence": 0.95
-      },
-      "met": [
-       "accessories+eyewear"
-      ],
-      "missed": [],
-      "unmeant": [
-       "finishing+pleated",
-       "finishing-none",
-       "garments+shirt_blouse",
-       "garments-top"
-      ],
-      "score": -1.0
-     },
-     {
-      "name": "B5-3",
-      "seed": 3,
-      "sha": "063f06330a5bd13c8039140ea4f443d2e44617068548abc1d760cb05e1d3d99a",
-      "png_sha": "29c27c3e3af1d4d8618c5e21c6744404573c871c8e9e092f96fd5a043da48def",
+      "sha": "a2be59708f328aaee9243f72229cb10fb53b5ea604eb4d32372a210de2285adf",
+      "png_sha": "659427a5ca21fcbb09ca5d350010445ea5903d5318a96272db57df82803a0543",
       "reading": {
        "subject": "worn_full",
        "colour_main": "black",
@@ -1839,7 +1869,7 @@
         "eyewear"
        ],
        "finishing": [
-        "quilted"
+        "none"
        ],
        "materials": [
         "leather",
@@ -1852,16 +1882,96 @@
        "accessories+eyewear"
       ],
       "missed": [],
-      "unmeant": [
-       "finishing-none",
-       "garments+shirt_blouse",
-       "garments-top"
+      "unmeant": [],
+      "score": 3
+     },
+     {
+      "name": "B5-2",
+      "seed": 2,
+      "sha": "fb9784a0ab579da489b1ab6e5b65b93e39adf2bf973d02f410dcf644b30e5b34",
+      "png_sha": "bc2a0d47891177c4e02fb2197656f74f8696921039b38ccf9c3c446c0e74102c",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "black",
+       "colour_second": "none",
+       "pattern": "plain",
+       "skin_shown": "covered",
+       "hemline": "ankle_floor",
+       "layers": "two",
+       "silhouette": "volume",
+       "construction": "tailored",
+       "formality": "formal_tailored",
+       "garments": [
+        "coat",
+        "shirt_blouse",
+        "trousers"
+       ],
+       "accessories": [
+        "shoes",
+        "eyewear"
+       ],
+       "finishing": [
+        "none"
+       ],
+       "materials": [
+        "leather",
+        "plain_woven"
+       ],
+       "street_couture_axis": 5,
+       "confidence": 0.95
+      },
+      "met": [
+       "accessories+eyewear"
       ],
-      "score": 0.0
+      "missed": [],
+      "unmeant": [],
+      "score": 3
+     },
+     {
+      "name": "B5-3",
+      "seed": 3,
+      "sha": "48e04d58885a77c51be16ee5067321cc050eff0514f47bfe8643dfef67400396",
+      "png_sha": "88e5bf5138a82e474548e1d8574ec750d543d092372ac0b2a1bd1eb7748e1e37",
+      "reading": {
+       "subject": "worn_full",
+       "colour_main": "black",
+       "colour_second": "none",
+       "pattern": "plain",
+       "skin_shown": "covered",
+       "hemline": "ankle_floor",
+       "layers": "two",
+       "silhouette": "volume",
+       "construction": "tailored",
+       "formality": "formal_tailored",
+       "garments": [
+        "coat",
+        "shirt_blouse",
+        "trousers"
+       ],
+       "accessories": [
+        "eyewear",
+        "shoes"
+       ],
+       "finishing": [
+        "none"
+       ],
+       "materials": [
+        "leather",
+        "plain_woven"
+       ],
+       "street_couture_axis": 5,
+       "confidence": 0.95
+      },
+      "met": [
+       "accessories+eyewear"
+      ],
+      "missed": [],
+      "unmeant": [],
+      "score": 3
      }
     ],
     "chosen": "B5-1",
-    "at": "2026-10-09T14:32:10Z"
+    "at": "2026-10-09T14:41:34Z"
    }
   }
  },
@@ -1917,5 +2027,5 @@
   832,
   1248
  ],
- "at": "2026-10-09T14:32:10Z"
+ "at": "2026-10-09T14:44:00Z"
 }
