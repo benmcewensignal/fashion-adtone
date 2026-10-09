@@ -1,9 +1,11 @@
 # Clothes rubric v1
 
-**Draft of 8 October 2026. Not frozen: no picture has been read with it.** It is frozen, and its hash
-committed as `rubric/clothes-v1.sha256`, after Ben and the trained labeller have read the questions and
-before any picture is read with it. Until then it can change; once frozen, any change is v2. The
-loader refuses a rubric without its hash, so nothing can be read with this draft.
+**Frozen on 9 October 2026, at Ben's direction, before any picture was read with it and before any
+label was given.** Its hash is committed as `rubric/clothes-v1.sha256`, and any change from here is v2.
+The trained labeller had not yet read the questions. Every picture is read with it now, and what is built
+on the readings is provisional: which questions stand is decided by the rules below, the first two from
+the reader's own answers as soon as the test set is read, the last two when the labels arrive. Until a
+question has passed all four, every result that uses it says so.
 
 Exploratory, not in the pre-registration. `rubric/tone-v1.md` stays the registered instrument and
 `rubric/tone-v2.md` the exploratory reading of the picture; nothing here changes either.
@@ -217,11 +219,26 @@ proportion), are labelled on a private page by Ben (every
 question) and by at least one trained labeller (the trained questions; every question if they are
 willing). With two trained labellers, both label the same 100.
 
-## Which questions go forward
+## What is read
+
+The test set and its crops first, since rules 1 and 2 are judged on them; then the runway looks kept for
+every show the archive holds pages for (`data/clothes/runway.jsonl`); then every homepage picture on the
+private volume, which together make each brand's shop window. Each picture is read once, by the reader
+named below at temperature nought under the rubric's JSON schema, and its answers are kept in
+`data/clothes/readings.jsonl`.
+
+## Which questions stand
 
 Fixed with this file, before any picture is read with it, and implemented in `adtone/clothes.py`
 (`judge`), tested on synthetic answers, before any reading. The reader is the one the earlier bake-off
-chose (Qwen3-VL-32B at its pinned weights). Questions about a worn outfit (skin_shown, hemline, layers,
+chose (Qwen3-VL-32B at its pinned weights).
+
+The rules are applied after the reading rather than before it. Nothing about the reading depends on
+them: the scorer is always given the whole prompt above, so every picture is read on every question
+whichever questions stand, and the rules only decide which answers the analysis uses. Rules 1 and 2 need
+only the reader and are applied as soon as the test set is read; rules 3 and 4 need the labels and are
+applied when they arrive. A question that fails a rule is dropped from every result. A question that has
+passed rules 1 and 2 but has not yet met its reference labels is used, and marked provisional. Questions about a worn outfit (skin_shown, hemline, layers,
 silhouette) apply to pictures that show one (subject worn_full or worn_part); the others to every
 picture that shows clothing (subject other than no_clothing). Rules 1 and 2 are judged over the whole
 test set, using the reader's own subject answer to decide where a question applies; rules 3 and 4 over
@@ -240,12 +257,23 @@ A question goes forward when all of these hold:
    at least 20 labelled pictures the question applies to. A question that works on one kind only is
    not part of the shared layer. The reference is Ben's labels for the questions marked anyone, the
    trained labeller's for those marked trained; with two trained labellers the reader must reach it
-   with each. Without a trained labeller, no trained question goes forward.
+   with each. Without a trained labeller, no trained question is checked: each stays provisional
+   until one has labelled, and is then kept or dropped by this rule.
 4. **The trained labellers agree with each other**, where there are two: kappa at least 0.4 on each
    kind of picture. A question two trained eyes split on does not go forward whatever the reader does.
 
 Kappa at least 0.4 is the lower edge of what Landis and Koch call moderate agreement. No question
-goes forward on whether it shows the result anyone hoped for.
+stands or falls on whether it shows the result anyone hoped for.
+
+## The qualified eye, afterwards
+
+Labels given on the private labelling page are copied into `data/clothes/labels.json`, each labeller
+recorded as `ben`, `trained-1` or `trained-2` and never by name, and the clothes workflow's judge step
+applies rules 3 and 4 to them (`data/clothes/judge.json`). A question that passes is marked checked: by
+Ben's labels for the questions anyone can judge, by a trained eye for the rest. A question that fails
+is dropped, and every measure is computed again without it. No picture is read again: the readings
+stand, and only which answers count changes. Ben's labels on the trained questions are reported beside
+the trained labeller's, to show how far an untrained eye differs from a trained one; they do not decide.
 
 ## Sources
 

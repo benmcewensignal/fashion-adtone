@@ -12,12 +12,24 @@ questions of rubric/clothes-v1.md go forward.
     python -m adtone.clothes seal      # on the runner: the 100 pictures to label, from the volume, sealed
     python -m adtone.clothes collect   # on the runner: about 20 looks of every show the coverage map found
                                        #   pages for -> data/clothes/runway.jsonl; copies to the private volume
+    python -m adtone.clothes read      # every picture on the volumes read with the frozen rubric by the
+                                       #   chosen reader: the test set, the runway looks, the homepage
+                                       #   pictures -> data/clothes/readings.jsonl (resumable)
+    python -m adtone.clothes judge     # which questions stand: rules 1 and 2 from the reader now, rules 3
+                                       #   and 4 from the labels once given -> data/clothes/judge.json
+    python -m adtone.clothes labels <folder>
+                                       # the labelling page's documents, exported one JSON file each, as
+                                       #   data/clothes/labels.json (labellers by role, never by name)
 
 The test set is described in the rubric. No picture is written to the repository, which is public: the
 reader's copies go to the private Modal volume, and the thumbnails for the labelling page leave the
 runner only sealed to a key held outside the repository. What the repository keeps is each picture's
-hash, where it was found, its size and its perceptual hash. Reading and scoring wait until the rubric
-is frozen.
+hash, where it was found, its size and its perceptual hash, and the reader's answers.
+
+The rubric was frozen on 9 October 2026 and every picture is read with it. Which questions the measures
+use is decided after the reading: the questions that fail rules 1 or 2 on the test set are dropped at
+once, the rest are used and marked provisional until the labels decide rules 3 and 4 (the rubric's "The
+qualified eye, afterwards"). No picture needs reading again when that happens.
 """
 from __future__ import annotations
 
@@ -31,7 +43,7 @@ import sys
 import tarfile
 import threading
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -393,7 +405,127 @@ def runway_to_volume(local: Path | None = None) -> int:
     return upload(local=local or RUNWAY_LOCAL, vol_dir=RUNWAY_VOL_DIR)
 
 
-# ---------- which questions go forward (rubric/clothes-v1.md, "Which questions go forward") ----------
+# ---------- the reading (rubric/clothes-v1.md, "What is read") ----------
+
+VERSION = "clothes-v1"
+READER = "qwen3"                 # Qwen3-VL-32B at the weights pinned in data/luxury/readers.json
+READINGS = DIR / "readings.jsonl"
+HOME_VOL_DIR = "/pictures-v1"    # the homepage pictures, where the luxury reading keeps them
+BATCH = 16
+FOLDERS = (VOL_DIR, ADS_VOL_DIR, RUNWAY_VOL_DIR, HOME_VOL_DIR)
+
+
+def reading_plan(present: dict[str, set[str]] | None = None) -> list[tuple[str, str, str]]:
+    """Every picture to read, once, as (set, folder, sha) in the order they are read: the test set and its
+    crops first (rules 1 and 2 are judged on them), then the runway looks, then every homepage picture on
+    the volume. A picture is read from its own folder, or from another that holds the same picture; one
+    on no volume yet is left for a later run."""
+    if present is None:
+        from .bakeoff import on_volume
+        present = {d: on_volume(d) for d in FOLDERS}
+    s = json.loads((DIR / "sample.json").read_text(encoding="utf-8")) if (DIR / "sample.json").exists() else {}
+    crops = [r["crop"] for r in store.read_jsonl(DIR / "crops.jsonl") if r.get("crop")] if (DIR / "crops.jsonl").exists() else []
+    runway = store.read_jsonl(DIR / "runway.jsonl") if (DIR / "runway.jsonl").exists() else []
+    want = ([("testset", VOL_DIR, x["sha"]) for x in s.get("looks", [])]
+            + [("testset", ADS_VOL_DIR, x["sha"]) for x in s.get("adverts", [])]
+            + [("testset", VOL_DIR, c) for c in crops]
+            + [("runway", RUNWAY_VOL_DIR, r["sha"]) for r in runway]
+            + [("homepages", HOME_VOL_DIR, sha) for sha in sorted(present.get(HOME_VOL_DIR, ()))])
+    out, seen = [], set()
+    for st, folder, sha in want:
+        if sha in seen:
+            continue
+        where = next((d for d in (folder, *FOLDERS) if sha in present.get(d, ())), None)
+        if where:
+            out.append((st, where, sha))
+            seen.add(sha)
+    return out
+
+
+def _parse(text: str, rub) -> tuple[dict, bool]:
+    """The reader's answer checked against the rubric. The engine cannot hold a list to distinct items, so
+    an answer that names an item twice is taken with each item once, which changes no option chosen, and
+    flagged."""
+    import re
+    from .score import ScoreError, parse, validate
+    try:
+        return parse(text, rub), False
+    except ScoreError as e:
+        if "repeats a value" not in str(e):
+            raise
+    obj = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
+    for k in rub.spec.get("lists", {}):
+        if isinstance(obj.get(k), list):
+            obj[k] = list(dict.fromkeys(obj[k]))
+    return validate(obj, rub), True
+
+
+def _reading_rows(part: list[tuple[str, str, str]], texts: list[str], rub) -> list[dict]:
+    from .score import ScoreError
+    rows = []
+    for (st, folder, sha), text in zip(part, texts):
+        row = {"sha": sha, "set": st, "folder": folder, "version": rub.version, "reader": READER}
+        try:
+            row["out"], dedup = _parse(text, rub)
+            if dedup:
+                row["deduplicated"] = True
+        except (ScoreError, AttributeError, ValueError) as e:
+            row.update(error=f"{e.__class__.__name__}: {str(e)[:200]}", text=(text or "")[:300])
+        rows.append(row)
+    return rows
+
+
+def _read_already(path: Path | None = None) -> set[str]:
+    path = path or READINGS
+    return {r["sha"] for r in store.read_jsonl(path) if r.get("out") and r.get("version") == VERSION} if path.exists() else set()
+
+
+def read(budget_min: float = 70, min_waiting: int = 0, present: dict | None = None, on_modal=None) -> dict:
+    """Every picture of the plan not yet read, in batches to the reader on Modal, written as they come back
+    to data/clothes/readings.jsonl. Resumable: a picture read is never read again, one whose answer did
+    not fit the rubric is tried again next run. With `min_waiting`, nothing is sent until that many wait,
+    so a run every few hours does not start the GPUs for a handful of new looks."""
+    from .score import json_schema, load_rubric
+    if on_modal is None:
+        from .luxury import _on_modal as on_modal
+    rub = load_rubric(VERSION)          # refuses a rubric changed since it was frozen
+    t0 = time.monotonic()
+    plan = reading_plan(present)
+    done = _read_already()
+    todo = [p for p in plan if p[2] not in done]
+    result = {"on_volumes": len(plan), "read_before": len(plan) - len(todo), "waiting": len(todo),
+              "by_set": dict(Counter(st for st, _, _ in todo))}
+    if not todo or len(todo) < min_waiting:
+        _log("read", **result, sent=0)
+        return {**result, "sent": 0}
+    parts, cur = [], []
+    for item in todo:                   # batches of one folder each, in the plan's order
+        if cur and (len(cur) == BATCH or cur[-1][1] != item[1]):
+            parts.append(cur)
+            cur = []
+        cur.append(item)
+    parts.append(cur)
+    schema = json_schema(rub)
+    n = on_modal(READER, "read_from", parts, lambda part: (part[0][1], [x[2] for x in part], rub.prompt, schema),
+                 lambda part, texts: _reading_rows(part, texts, rub), READINGS, t0 + budget_min * 60, log=_log)
+    good = _read_already()
+    result.update(sent=sum(len(p) for p in parts), rows=n, read_now=len(good) - len(done),
+                  seconds=round(time.monotonic() - t0))
+    _log("read", **result)
+    return result
+
+
+def readings(path: Path | None = None) -> dict[str, dict]:
+    """The reader's answers by picture, the last good reading of each."""
+    path = path or READINGS
+    out = {}
+    for r in store.read_jsonl(path) if path.exists() else []:
+        if r.get("out") and r.get("version") == VERSION:
+            out[r["sha"]] = r["out"]
+    return out
+
+
+# ---------- which questions stand (rubric/clothes-v1.md, "Which questions stand") ----------
 #
 # Fixed with the rubric, before any picture is read with it. Pure functions over answers already read:
 # the reader's on every picture and on the crops, and each labeller's on the labelled pictures.
@@ -566,7 +698,166 @@ def judge(spec: dict, reader: dict[str, dict], crops: list[tuple[str, str]], kin
             "trained_labellers": len(trained), "questions": out, "forward": forward, "options": options}
 
 
-LABEL_EDGE = 720          # thumbnails for the labelling page: enough to see cloth and finish on a phone
+# ---------- the standing of each question, now and when the labels arrive ----------
+#
+# Rules 1 and 2 need only the reader, and are applied as soon as the test set is read. Rules 3 and 4 need
+# the labels, and are applied to a labeller's labels once they cover the set to label. Until then a
+# question that has passed rules 1 and 2 is used and marked provisional.
+
+LABELS = DIR / "labels.json"
+JUDGE = DIR / "judge.json"
+COMPLETE = 0.95          # labels, or readings of the test set, are taken as given once they cover this share
+
+
+def kinds_of_test_set(s: dict | None = None) -> dict[str, str]:
+    s = s if s is not None else json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
+    return {**{x["sha"]: "look" for x in s.get("looks", [])}, **{x["sha"]: "advert" for x in s.get("adverts", [])}}
+
+
+def crop_pairs() -> list[tuple[str, str]]:
+    path = DIR / "crops.jsonl"
+    return [(r["orig"], r["crop"]) for r in store.read_jsonl(path) if r.get("crop")] if path.exists() else []
+
+
+def load_labels(path: Path | None = None) -> dict:
+    path = path or LABELS
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"labellers": {}}
+
+
+def _scope_keys(spec: dict, scope: str) -> list[str]:
+    eye = spec["eye"]
+    return list(eye["trained"]) if scope == "trained" else list(eye["anyone"]) + list(eye["trained"])
+
+
+def import_labels(folder: Path, s: dict | None = None, spec: dict | None = None, write: bool = True) -> dict:
+    """The labels given on the private labelling page, exported from its database as one JSON file per
+    document, as data/clothes/labels.json. Only clothes labels under this rubric, for the pictures to label,
+    are kept, the latest answer for each picture. Each labeller is recorded as `ben`, or as `trained-1`,
+    `trained-2` in the order they began, never by name. A labeller's labels are complete once every
+    question in their scope is answered for 95 of the 100 pictures."""
+    from .score import load_rubric
+    s = s if s is not None else json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
+    spec = spec or load_rubric(VERSION).spec
+    want = set(s["label"])
+    got: dict[str, dict[str, tuple]] = defaultdict(dict)
+    began, scope = {}, {}
+    for f in sorted(Path(folder).rglob("*.json")):
+        try:
+            doc = json.loads(f.read_text(encoding="utf-8"))
+        except (ValueError, UnicodeDecodeError):
+            continue
+        d = doc.get("data") if isinstance(doc, dict) and isinstance(doc.get("data"), dict) else doc
+        if not isinstance(d, dict) or d.get("task") != "clothes" or d.get("rubric") != VERSION or d.get("sha") not in want:
+            continue
+        key = str(d.get("labeller") or "")
+        if key != "ben" and not key.startswith("trained-"):
+            continue
+        at = float(d.get("at") or 0)
+        if d["sha"] not in got[key] or at >= got[key][d["sha"]][0]:
+            got[key][d["sha"]] = (at, d.get("answers") or {})
+        began[key] = min(began.get(key, at), at)
+        scope[key] = "all" if key == "ben" else (d.get("scope") or "trained")
+    names = {"ben": "ben"}
+    for i, key in enumerate(sorted((k for k in got if k != "ben"), key=lambda k: (began[k], k)), 1):
+        names[key] = f"trained-{i}"
+    out = {"imported_at": store.utc_now(), "rubric": VERSION, "label_set": len(want), "labellers": {}}
+    for key, rows in sorted(got.items(), key=lambda kv: names[kv[0]]):
+        answers = {sha: a for sha, (_, a) in sorted(rows.items())}
+        keys = _scope_keys(spec, scope[key])
+        full = sum(1 for a in answers.values() if all(a.get(k) not in (None, []) for k in keys))
+        out["labellers"][names[key]] = {"scope": scope[key], "pictures": len(answers), "answered_in_full": full,
+                                        "complete": full >= COMPLETE * len(want), "answers": answers}
+    if write:
+        DIR.mkdir(parents=True, exist_ok=True)
+        LABELS.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        _log("labels", **{k: {x: v[x] for x in ("pictures", "answered_in_full", "complete")} for k, v in out["labellers"].items()})
+    return out
+
+
+def _unit_status(r: dict, reference_given: bool) -> tuple[str, list[str]]:
+    failed = [rule for rule, ok in (("rule 1: varies", r["varies"]), ("rule 2: stable on a crop", r["stable"])) if not ok]
+    if failed:
+        return "dropped", failed
+    if not reference_given:
+        return "provisional", []
+    failed = [rule for rule, ok in (("rule 3: agrees with the reference on both kinds", r["agrees"]),
+                                    ("rule 4: the trained labellers agree", r["experts_agree"] is not False)) if not ok]
+    return ("dropped", failed) if failed else ("checked", [])
+
+
+def standing(spec: dict, verdict: dict, labellers: dict[str, str]) -> dict:
+    """Each question's standing from the four rules' verdict: dropped (it failed a rule), provisional (it has
+    passed rules 1 and 2 and its reference labels have not been given), or checked (it has passed all four).
+    A list question stands with its options that are not dropped, if at least two are; it is checked when
+    all of those are. `labellers` maps those whose labels were complete, and went into the verdict, to
+    their scope. Where a question applies is judged by Ben's subject label, so a trained labeller who
+    answered only the trained questions is taken as given once Ben's labels are too."""
+    eye = {k: g for g, ks in spec["eye"].items() for k in ks}
+    trained = [k for k in labellers if k.startswith("trained-")]
+    given = {"anyone": "ben" in labellers,
+             "trained": bool(trained) and ("ben" in labellers or all(labellers[k] == "all" for k in trained))}
+    out, use, options = {}, [], {}
+    for key in sorted(eye):
+        g = eye[key]
+        if key in spec.get("lists", {}):
+            per = {o: _unit_status(verdict["questions"][f"{key}.{o}"], given[g]) for o in spec["lists"][key]["options"]}
+            kept = [o for o, (st, _) in per.items() if st != "dropped"]
+            if len(kept) < 2:
+                status, why = "dropped", ["fewer than two options stand"]
+            else:
+                status, why = ("checked" if all(per[o][0] == "checked" for o in kept) else "provisional"), []
+            out[key] = {"group": g, "status": status, "why": why, "options": kept,
+                        "dropped_options": {o: w for o, (st, w) in per.items() if st == "dropped"}}
+            if status != "dropped":
+                use.append(key)
+                options[key] = kept
+        else:
+            status, why = _unit_status(verdict["questions"][key], given[g])
+            out[key] = {"group": g, "status": status, "why": why}
+            if status != "dropped":
+                use.append(key)
+    kinds = Counter(q["status"] for k, q in out.items() if k in use)
+    return {"questions": out, "use": use, "options": options,
+            "status": "checked" if use and kinds.get("provisional", 0) == 0 else "provisional" if use else "none stand",
+            "counts": {"checked": kinds.get("checked", 0), "provisional": kinds.get("provisional", 0),
+                       "dropped": len(out) - len(use)}}
+
+
+def judge_questions(write: bool = True) -> dict:
+    """The rules applied to what is on file: the reader's answers on the test set and its crops, and the
+    labels that are complete. -> data/clothes/judge.json, which every clothes measure reads to know which
+    answers to use and how to mark what it shows."""
+    from .score import load_rubric
+    spec = load_rubric(VERSION).spec
+    s = json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
+    kinds = kinds_of_test_set(s)
+    reader = readings()
+    crops = crop_pairs()
+    labs = load_labels().get("labellers", {})
+    decided = {k: v["answers"] for k, v in labs.items() if v.get("complete")}
+    test = set(kinds) | {c for _, c in crops}
+    got = sum(1 for x in test if x in reader)
+    out = {"generated_at": store.utc_now(), "version": VERSION, "reader": READER,
+           "test_set": {"pictures": len(test), "read": got, "looks": sum(v == "look" for v in kinds.values()),
+                        "adverts": sum(v == "advert" for v in kinds.values()), "crop_pairs": len(crops)},
+           "labellers": {k: {x: v.get(x) for x in ("scope", "pictures", "answered_in_full", "complete")} for k, v in labs.items()}}
+    if not test or got < COMPLETE * len(test):
+        out.update(status="waiting on the reading of the test set", use=[], options={}, questions={})
+    else:
+        verdict = judge(spec, {k: v for k, v in reader.items() if k in test}, crops, kinds, decided)
+        out.update(standing(spec, verdict, {k: labs[k].get("scope") or "all" for k in decided}))
+        out["rules"] = verdict["rules"]
+        out["detail"] = verdict["questions"]
+    before = json.loads(JUDGE.read_text(encoding="utf-8")) if JUDGE.exists() else {}
+    same = {k: v for k, v in before.items() if k != "generated_at"} == {k: v for k, v in out.items() if k != "generated_at"}
+    if write and not same:              # a run that changes nothing leaves the file, and the history, alone
+        DIR.mkdir(parents=True, exist_ok=True)
+        JUDGE.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        _log("judge", status=out["status"], use=len(out["use"]), **out.get("counts", {}))
+    return out
+
+
+LABEL_EDGE = 720         # thumbnails for the labelling page: enough to see cloth and finish on a phone
 
 
 def seal_labelled(s: dict | None = None, edge: int = LABEL_EDGE, local: Path | None = None) -> Path:
@@ -602,6 +893,12 @@ def main(argv: list[str] | None = None) -> int:
     co = sub.add_parser("collect")
     co.add_argument("--budget-min", type=float, default=40)
     co.add_argument("--workers", type=int, default=4)
+    rd = sub.add_parser("read")
+    rd.add_argument("--budget-min", type=float, default=70)
+    rd.add_argument("--min-waiting", type=int, default=0, help="send nothing until this many pictures wait")
+    sub.add_parser("judge")
+    lb = sub.add_parser("labels")
+    lb.add_argument("folder", help="the labelling page's documents, one JSON file each")
     a = ap.parse_args(argv)
     if a.cmd == "looks":
         rows = fetch_looks(budget_min=a.budget_min, workers=a.workers)
@@ -620,6 +917,15 @@ def main(argv: list[str] | None = None) -> int:
         rows = make_crops()
         n = to_volume()
         print(f"clothes crops: {sum(1 for r in rows if r['crop'])} made, {n} copies on the volume")
+    elif a.cmd == "read":
+        print(f"clothes read: {read(a.budget_min, a.min_waiting)}")
+    elif a.cmd == "judge":
+        j = judge_questions()
+        print(f"clothes judge: {j['status']}; {j.get('counts')}; standing {j['use']}")
+    elif a.cmd == "labels":
+        out = import_labels(Path(a.folder))
+        print("clothes labels: " + json.dumps({k: {x: v[x] for x in ("pictures", "answered_in_full", "complete")}
+                                                for k, v in out["labellers"].items()}))
     return 0
 
 

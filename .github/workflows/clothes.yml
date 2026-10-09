@@ -12,7 +12,13 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 #        (adtone/looks.py; addresses only), resumed run by run
 # auto (every three hours): coverage, then collect, each on half the budget, until both are complete
 # collect: about twenty looks of every show the coverage map found pages for, copies to the private volume,
-#        hashes and places to data/clothes/runway.jsonl; resumed run by run; nothing read until the rubric is frozen
+#        hashes and places to data/clothes/runway.jsonl; resumed run by run
+# read:  the reader deployed at its pinned weights (data/luxury/readers.json), then every picture on the
+#        volumes read with the frozen rubric (the test set first, then the runway looks, then the homepage
+#        pictures) to data/clothes/readings.jsonl, resumed run by run; then judge
+# judge: which questions stand (data/clothes/judge.json): rules 1 and 2 from the reader's answers on the
+#        test set, rules 3 and 4 from data/clothes/labels.json once the labels are complete
+# auto also reads the looks collected since the last reading once a hundred wait, then judges
 # No picture is written to the repository. Editing .github/kick/clothes starts a run; its first word is the mode.
 on:
   schedule:
@@ -22,7 +28,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal, testset, coverage, collect, auto]
+        options: [looks, sample, crops, seal, testset, coverage, collect, auto, read, judge]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -37,7 +43,7 @@ concurrency:
 jobs:
   clothes:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 90
+    timeout-minutes: 150
     env:
       PYTHONUNBUFFERED: "1"
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
@@ -56,7 +62,7 @@ jobs:
           mode="${{ inputs.mode }}"
           if [ "${{ github.event_name }}" = "schedule" ]; then mode=auto; fi
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal|testset|coverage|collect|auto) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset|coverage|collect|auto|read|judge) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
@@ -108,6 +114,30 @@ jobs:
           cd "$tmp" && git init -q && git checkout -q -b clothes-sealed && git add thumbs.tar.sealed
           git -c user.name=adtone-clothes-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed pictures for the clothes labelling page"
           git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" clothes-sealed
+      - name: Deploy the reader at its pinned weights
+        if: steps.m.outputs.mode == 'read'
+        timeout-minutes: 30
+        run: |
+          set -o pipefail
+          q3=$(python -c "import json; print(json.load(open('data/luxury/readers.json'))['qwen3']['revision'])")
+          test -n "$q3"
+          BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_REVISION="$q3" BAKEOFF_APP=adtone-luxury-qwen3 BAKEOFF_GPU=H100 \
+            BAKEOFF_CONTAINERS=4 BAKEOFF_SEQS=32 modal deploy bakeoff/modal_reader.py
+      - name: Every picture on the volumes, read with the frozen rubric
+        if: steps.m.outputs.mode == 'read'
+        continue-on-error: true
+        timeout-minutes: 80
+        run: python -m adtone.clothes read --budget-min 65
+      - name: The looks collected since the last reading, once a hundred wait
+        if: steps.m.outputs.mode == 'auto'
+        continue-on-error: true
+        timeout-minutes: 30
+        run: python -m adtone.clothes read --budget-min 20 --min-waiting 100
+      - name: Which questions stand
+        if: steps.m.outputs.mode == 'read' || steps.m.outputs.mode == 'judge' || steps.m.outputs.mode == 'auto'
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.clothes judge
       - name: Persist
         if: always()
         timeout-minutes: 5

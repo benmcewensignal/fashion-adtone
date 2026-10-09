@@ -250,3 +250,131 @@ def test_the_runway_collector_keeps_a_spread_of_looks_per_show_and_resumes(tmp_p
     before = S.calls
     again = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
     assert S.calls == before and again["looks"] == C.PER_SHOW          # nothing asked again
+
+
+# ---------- the reading, and which questions stand ----------
+
+ANSWER = {"subject": "worn_full", "garments": ["coat", "trousers"], "accessories": ["shoes"], "colour_main": "black",
+          "colour_second": "white_ivory", "pattern": "plain", "skin_shown": "covered", "hemline": "ankle_floor",
+          "layers": "two", "silhouette": "straight", "construction": "tailored", "finishing": ["none"],
+          "materials": ["plain_woven"], "formality": "formal_tailored", "street_couture_axis": 4, "confidence": 0.8}
+
+
+def _files(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "READINGS", tmp_path / "readings.jsonl")
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    (tmp_path / "sample.json").write_text(json.dumps({
+        "looks": [{"sha": "aa01", "house": "x"}, {"sha": "aa02", "house": "y"}],
+        "adverts": [{"sha": "bb01", "house": "x", "person": True}, {"sha": "bb02", "house": "y", "person": False}],
+        "label": ["aa01", "bb01"], "crop": ["aa01", "bb01"]}))
+    (tmp_path / "crops.jsonl").write_text("".join(json.dumps(r) + "\n" for r in [
+        {"orig": "aa01", "crop": "cc01", "kind": "look"}, {"orig": "bb01", "crop": "cc02", "kind": "advert"}]))
+    (tmp_path / "runway.jsonl").write_text("".join(json.dumps({"sha": s, "house": "x", "date": "2026-03-01",
+                                                               "category": "rtw"}) + "\n" for s in ("dd01", "dd02", "aa02")))
+    return {C.VOL_DIR: {"aa01", "aa02", "cc01", "cc02"}, C.ADS_VOL_DIR: {"bb01"},
+            C.RUNWAY_VOL_DIR: {"dd01", "aa02"}, C.HOME_VOL_DIR: {"bb01", "bb02", "ee01"}}
+
+
+def test_the_test_set_is_read_first_and_each_picture_once_from_a_volume_that_holds_it(tmp_path, monkeypatch):
+    present = _files(tmp_path, monkeypatch)
+    plan = C.reading_plan(present)
+    assert [p[2] for p in plan] == ["aa01", "aa02", "bb01", "bb02", "cc01", "cc02", "dd01", "ee01"]
+    where = {sha: (st, folder) for st, folder, sha in plan}
+    assert where["bb02"] == ("testset", C.HOME_VOL_DIR)        # not in the bake-off's folder, but the homepages hold it
+    assert where["aa02"] == ("testset", C.VOL_DIR)             # a test-set look the runway also kept is read once
+    assert "dd02" not in where                                 # on no volume yet: left for a later run
+
+
+def test_the_reading_keeps_what_fits_the_rubric_tries_the_rest_again_and_never_reads_twice(tmp_path, monkeypatch):
+    present = _files(tmp_path, monkeypatch)
+    sent = []
+
+    def fake(reader, method, parts, args, rows_of, out, deadline, log=None):
+        n = 0
+        for part in parts:
+            folder, shas, system, schema = args(part)
+            assert len({p[1] for p in part}) == 1 and folder == part[0][1] and len(shas) <= C.BATCH
+            assert "Do not identify any person" in system and schema["additionalProperties"] is False
+            sent.extend(shas)
+            texts = []
+            for sha in shas:
+                if sha == "cc02" and sha not in sent[:-1]:
+                    texts.append('{"subject": "worn_full"}')                              # does not fit: tried again
+                elif sha == "dd01":
+                    texts.append(json.dumps({**ANSWER, "garments": ["coat", "coat", "trousers"]}))
+                else:
+                    texts.append(json.dumps(ANSWER))
+            rows = rows_of(part, texts)
+            C.store.append_jsonl(out, rows)
+            n += len(rows)
+        return n
+
+    first = C.read(present=present, on_modal=fake)
+    assert first["sent"] == 8 and first["read_now"] == 7
+    got = C.readings()
+    assert set(got) == {"aa01", "aa02", "bb01", "bb02", "cc01", "dd01", "ee01"}
+    assert got["dd01"]["garments"] == ["coat", "trousers"]          # an item named twice, taken once
+    second = C.read(present=present, on_modal=fake)
+    assert second["sent"] == 1 and set(C.readings()) == set(got) | {"cc02"}
+    assert C.read(present=present, on_modal=fake)["sent"] == 0
+    present[C.RUNWAY_VOL_DIR].add("dd02")
+    assert C.read(present=present, on_modal=fake, min_waiting=5)["sent"] == 0      # one new look does not start the GPUs
+    assert sent.count("aa01") == 1
+
+
+def test_a_question_is_dropped_at_once_by_the_reader_rules_and_otherwise_provisional_until_its_labels_come():
+    truth, kinds = _world()
+    reader = {s: dict(a) for s, a in truth.items()}
+    rng = random.Random(9)
+    crops = []
+    for s in list(truth)[::3]:
+        reader[s + "c"] = dict(reader[s], pattern=rng.choice(["plain", "stripe", "check"]))   # pattern does not hold on a crop
+        crops.append((s, s + "c"))
+    for s, a in reader.items():
+        if kinds.get(s) == "advert" and a["subject"] == "worn_full":
+            a["hemline"] = rng.choice(["above_knee", "knee", "ankle_floor"])    # right on runway looks only
+    now = C.standing(SPEC, C.judge(SPEC, reader, crops, kinds, {}), {})
+    q = now["questions"]
+    assert q["pattern"]["status"] == "dropped" and q["pattern"]["why"] == ["rule 2: stable on a crop"]
+    assert q["hemline"]["status"] == q["subject"]["status"] == q["street_couture_axis"]["status"] == "provisional"
+    assert q["garments"]["status"] == "provisional" and q["garments"]["options"] == ["dress", "coat", "trousers"]
+    assert set(q["garments"]["dropped_options"]) == {"cape", "none"}
+    assert now["status"] == "provisional" and "pattern" not in now["use"]
+    labels = {"ben": _labels(truth, kinds)}
+    ben = C.standing(SPEC, C.judge(SPEC, reader, crops, kinds, labels), {"ben": "all"})
+    assert ben["questions"]["hemline"]["status"] == "dropped"                     # rule 3 on the advertising
+    assert ben["questions"]["garments"]["status"] == "checked"
+    assert ben["questions"]["subject"]["why"] == ["rule 3: agrees with the reference on both kinds"]   # every look is worn: no kappa
+    assert ben["questions"]["street_couture_axis"]["status"] == "provisional"     # waits on a trained eye
+    labels["trained-1"] = {s: {"street_couture_axis": a["street_couture_axis"]} for s, a in _labels(truth, kinds).items()}
+    full = C.standing(SPEC, C.judge(SPEC, reader, crops, kinds, labels), {"ben": "all", "trained-1": "trained"})
+    assert full["questions"]["street_couture_axis"]["status"] == "checked" and full["status"] == "checked"
+    alone = C.standing(SPEC, C.judge(SPEC, reader, crops, kinds, {"trained-1": labels["trained-1"]}), {"trained-1": "trained"})
+    assert alone["questions"]["street_couture_axis"]["status"] == "provisional"   # where it applies needs Ben's subject
+
+
+def test_labels_from_the_page_are_kept_by_role_never_by_name_the_latest_answer_for_each_picture(tmp_path):
+    spec = {"eye": {"anyone": ["subject", "pattern"], "trained": ["street_couture_axis"]}}
+    s = {"label": [f"p{i}" for i in range(20)]}
+    docs = tmp_path / "labels" / "u1"
+    docs.mkdir(parents=True)
+    full = {"subject": "worn_full", "pattern": "plain", "street_couture_axis": 3}
+    n = 0
+    for who, scope, shas, wrap in (("ben", "all", s["label"], False), ("trained-jane-doe", "trained", s["label"][:19], True),
+                                   ("trained-al", "all", s["label"][:3], False)):
+        for sha in shas:
+            n += 1
+            d = {"labeller": who, "role": "ben" if who == "ben" else "trained", "scope": scope, "task": "clothes",
+                 "rubric": "clothes-v1", "sha": sha, "answers": dict(full), "at": 1000 + n + (0 if who != "trained-al" else -900)}
+            (docs / f"{who}-{sha}.json").write_text(json.dumps({"id": sha, "version": 1, "data": d} if wrap else d))
+    (docs / "old.json").write_text(json.dumps({"labeller": "ben", "task": "clothes", "rubric": "clothes-v1", "sha": "p0",
+                                               "answers": {"subject": "no_clothing"}, "at": 1}))
+    (docs / "kind.json").write_text(json.dumps({"labeller": "ben", "task": "picture_kind", "sha": "p1", "answers": {}}))
+    out = C.import_labels(tmp_path / "labels", s=s, spec=spec, write=False)
+    labs = out["labellers"]
+    assert set(labs) == {"ben", "trained-1", "trained-2"}
+    assert labs["trained-1"]["pictures"] == 3 and labs["trained-2"]["pictures"] == 19     # in the order they began
+    assert "jane" not in json.dumps(out) and "trained-al" not in json.dumps(out)
+    assert labs["ben"]["answers"]["p0"]["subject"] == "worn_full"                         # the later answer stands
+    assert labs["ben"]["complete"] and labs["trained-2"]["complete"] and not labs["trained-1"]["complete"]

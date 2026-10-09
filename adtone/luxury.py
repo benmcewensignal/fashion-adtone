@@ -219,12 +219,14 @@ def _tone_rows(part: list[str], texts: list[str], rub) -> list[dict]:
     return rows
 
 
-def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, deadline: float) -> int:
+def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, deadline: float, log=None) -> int:
     """Batches to the open reader on Modal, spread over its GPUs; each batch's rows are written as they
-    come back, so a run that stops keeps what was read."""
+    come back, so a run that stops keeps what was read. Failed batches go to `log` (by default this
+    reading's own provenance, since a workflow writes only the provenance it owns)."""
     if not inputs:          # nothing to read: a map over no inputs can wait on Modal indefinitely
         return 0
     import modal
+    say = log or _log
     rd = modal.Cls.from_name(APPS[reader], "Reader")()
     sent = []
 
@@ -237,7 +239,7 @@ def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, 
     n, failed = 0, []
     for k, res in enumerate(getattr(rd, method).starmap(gen(), return_exceptions=True)):
         if isinstance(res, BaseException):
-            _log("batch_failed", reader=reader, method=method, error=f"{res.__class__.__name__}: {str(res)[:200]}")
+            say("batch_failed", reader=reader, method=method, error=f"{res.__class__.__name__}: {str(res)[:200]}")
             failed.append(sent[k])
             continue
         rows = rows_of(sent[k], res)
@@ -246,7 +248,7 @@ def _on_modal(reader: str, method: str, inputs: list, args, rows_of, out: Path, 
     if failed and time.monotonic() < deadline:     # once more: a container whose engine stopped has been replaced
         for part, res in zip(failed, getattr(rd, method).starmap([args(p) for p in failed], return_exceptions=True)):
             if isinstance(res, BaseException):
-                _log("batch_failed", reader=reader, method=method, again=True, error=f"{res.__class__.__name__}: {str(res)[:200]}")
+                say("batch_failed", reader=reader, method=method, again=True, error=f"{res.__class__.__name__}: {str(res)[:200]}")
                 continue
             rows = rows_of(part, res)
             store.append_jsonl(out, rows)
