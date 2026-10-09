@@ -38,6 +38,13 @@ def test_a_mask_is_the_union_of_its_shapes_in_fractions_of_the_picture():
     assert set(np.unique(m)) == {0, 255}
 
 
+def test_a_cut_takes_out_every_square_it_touches_so_what_it_covers_is_never_redrawn():
+    m = np.asarray(Image.open(io.BytesIO(F.mask_png([{"box": [0, 0, 1, 1]}, {"cut": [20 / 64, 20 / 96, 30 / 64, 40 / 96]}],
+                                                    (64, 96)))))
+    assert (m[16:48, 16:32] == 0).all()               # the squares the cut touches, whole
+    assert m[15, 20] == 255 and m[20, 32] == 255 and m[48, 20] == 255
+
+
 def test_a_step_is_judged_by_the_changes_it_meant_and_those_it_did_not():
     after = {**ANSWER, "accessories": ["shoes", "jewellery", "hat"], "formality": "eveningwear"}
     j = F.judge_step(ANSWER, after, ["accessories+jewellery"], USE, OPTIONS)
@@ -194,3 +201,18 @@ def test_a_house_is_read_from_its_designers_seasons_of_its_own_line(tmp_path, mo
     assert out["looks"] == 2 and out["shows"] == 1
     assert out["shares"]["accessories+jewellery"] == [1, 2] and out["shares"]["hemline=knee"] == [2, 2]
     assert "subject=worn_full" not in out["shares"]
+
+
+def test_a_tidying_step_comes_first_and_both_directions_start_from_it(tmp_path, monkeypatch):
+    _paths(tmp_path, monkeypatch)
+    w = _World()
+    F.start(PLAN, starter=w, reader=w, put=w.put)
+    plan = json.loads(json.dumps(PLAN))
+    plan["prep"] = [{"id": "P1", "prompt": "tidy the edges", "mask": [{"box": [0, 0.4, 0.1, 0.7]}], "expect": []}]
+    w.plan[("tidy the edges", 1)] = {**ANSWER, "formality": "eveningwear"}       # a change not meant
+    frames = F.steps(plan, editor=w, reader=w, put=w.put, get=w.get)
+    assert frames["arms"]["prep"]["P1"]["chosen"] == "P1-2"
+    tidy = F.sha_of(w.volume[f"{F.VOL_DIR}/png/P1-2.png"])
+    firsts = [prev for prev, prompt, _ in w.edits if prompt in ("add jewellery", "make it black")]
+    assert firsts == [tidy, tidy]
+    assert frames["arms"]["decorated"]["A1"]["from"] == "P1-2"

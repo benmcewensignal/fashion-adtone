@@ -20,7 +20,8 @@
   ],
   "steps": 50,
   "cfg": 4.0,
-  "chosen": null
+  "chosen": "start-104",
+  "why": "the plainest reading of the eight (straight, soft cut, casual, 3 of 5), the figure whole with room on every side"
  },
  "negative": " ",
  "edit_steps": 40,
@@ -45,7 +46,346 @@
   }
  ],
  "arms": {
-  "decorated": [],
-  "plainer": []
- }
+  "decorated": [
+   {
+    "id": "A1",
+    "what": "gold jewellery",
+    "prompt": "Add jewellery: a short, bold gold chain necklace sitting close around the base of her neck, and small gold drop earrings. Keep her face, hair, dress and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4351,
+       0.234,
+       0.5793,
+       0.2949
+      ]
+     },
+     {
+      "box": [
+       0.4279,
+       0.1891,
+       0.4603,
+       0.234
+      ]
+     },
+     {
+      "box": [
+       0.5589,
+       0.1891,
+       0.5889,
+       0.234
+      ]
+     }
+    ],
+    "expect": [
+     "accessories+jewellery"
+    ]
+   },
+   {
+    "id": "A2",
+    "what": "a pleated skirt to mid-calf",
+    "prompt": "Replace the dress with two pieces in the same mid-grey matte wool: a plain fitted top with long sleeves, tucked in at her natural waist, and a pleated skirt that flares out from the waist and ends at mid-calf. Keep the necklace, earrings, hands, shoes, face and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4147,
+       0.3365,
+       0.601,
+       0.5385
+      ]
+     },
+     {
+      "box": [
+       0.3822,
+       0.5288,
+       0.6346,
+       0.617
+      ]
+     },
+     {
+      "box": [
+       0.3005,
+       0.609,
+       0.7091,
+       0.8333
+      ]
+     }
+    ],
+    "expect": [
+     "garments-dress",
+     "garments+top",
+     "garments+skirt",
+     "hemline=midi",
+     "finishing+pleated",
+     "finishing-none",
+     "silhouette=flared"
+    ]
+   },
+   {
+    "id": "A3",
+    "what": "sheer tulle",
+    "prompt": "Make the skirt sheer: layers of soft pleated grey tulle with her legs faintly visible through it, ending at mid-calf as before. Keep the top, the necklace, her hands and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4087,
+       0.4006,
+       0.607,
+       0.5385
+      ]
+     },
+     {
+      "box": [
+       0.3822,
+       0.5288,
+       0.6346,
+       0.617
+      ]
+     },
+     {
+      "box": [
+       0.3005,
+       0.609,
+       0.7091,
+       0.8333
+      ]
+     }
+    ],
+    "expect": [
+     "materials+sheer_lace"
+    ]
+   },
+   {
+    "id": "A4",
+    "what": "beading",
+    "prompt": "Embroider the top densely with small grey glass beads over the bodice and the sleeves. Keep the necklace, the earrings, the skirt, her hands and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.3966,
+       0.2949,
+       0.619,
+       0.4487
+      ]
+     },
+     {
+      "box": [
+       0.3245,
+       0.2644,
+       0.4147,
+       0.5385
+      ]
+     },
+     {
+      "box": [
+       0.5986,
+       0.2612,
+       0.6875,
+       0.5353
+      ]
+     }
+    ],
+    "expect": [
+     "finishing+beaded"
+    ]
+   },
+   {
+    "id": "A5",
+    "what": "a belt",
+    "prompt": "Add a narrow belt in the same grey cloth at her waist, tied in a small bow at the front. Keep everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4038,
+       0.3766,
+       0.6106,
+       0.4728
+      ]
+     }
+    ],
+    "expect": [
+     "accessories+belt"
+    ]
+   }
+  ],
+  "plainer": [
+   {
+    "id": "B1",
+    "what": "black",
+    "prompt": "Change the colour of the dress to black. Keep its shape, length, sleeves, folds and cloth exactly the same, and keep everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.3245,
+       0.2452,
+       0.6851,
+       0.5449
+      ]
+     },
+     {
+      "box": [
+       0.3726,
+       0.5353,
+       0.643,
+       0.6795
+      ]
+     }
+    ],
+    "expect": [
+     "colour_main=black"
+    ]
+   },
+   {
+    "id": "B2",
+    "what": "wide trousers to the floor",
+    "prompt": "Replace the dress with a plain black top with long sleeves and wide, plain black trousers that fall to the floor and pool over plain black boots. Keep her face, hair, hands, pose and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4038,
+       0.3526,
+       0.6106,
+       0.5449
+      ]
+     },
+     {
+      "box": [
+       0.3726,
+       0.5353,
+       0.643,
+       0.641
+      ]
+     },
+     {
+      "box": [
+       0.3005,
+       0.633,
+       0.7212,
+       0.9744
+      ]
+     }
+    ],
+    "expect": [
+     "garments-dress",
+     "garments+top",
+     "garments+trousers",
+     "hemline=ankle_floor",
+     "skin_shown=covered"
+    ]
+   },
+   {
+    "id": "B3",
+    "what": "an oversized coat",
+    "prompt": "Add an oversized black wool coat worn open over the outfit, with very wide, sharp, padded shoulders and long sleeves to the wrists, falling to below the knee. Keep her face, hair, hands, the trousers, the boots and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.2404,
+       0.2372,
+       0.4567,
+       0.8093
+      ]
+     },
+     {
+      "box": [
+       0.4567,
+       0.258,
+       0.5529,
+       0.8093
+      ]
+     },
+     {
+      "box": [
+       0.5529,
+       0.2372,
+       0.7692,
+       0.8093
+      ]
+     }
+    ],
+    "expect": [
+     "garments+coat",
+     "layers=two"
+    ]
+   },
+   {
+    "id": "B4",
+    "what": "leather",
+    "prompt": "Make the coat smooth black leather with a soft sheen, keeping its shape, size and folds exactly the same. Keep everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.2404,
+       0.2372,
+       0.4567,
+       0.8093
+      ]
+     },
+     {
+      "box": [
+       0.4567,
+       0.258,
+       0.5529,
+       0.8093
+      ]
+     },
+     {
+      "box": [
+       0.5529,
+       0.2372,
+       0.7692,
+       0.8093
+      ]
+     }
+    ],
+    "expect": [
+     "materials+leather"
+    ]
+   },
+   {
+    "id": "B5",
+    "what": "dark glasses",
+    "prompt": "Add dark wraparound sunglasses. Keep her face, hair and everything else exactly the same.",
+    "mask": [
+     {
+      "box": [
+       0.4399,
+       0.1571,
+       0.5793,
+       0.2003
+      ]
+     }
+    ],
+    "expect": [
+     "accessories+eyewear"
+    ]
+   }
+  ]
+ },
+ "prep": [
+  {
+   "id": "P1",
+   "what": "the seated audience at the edges taken out",
+   "prompt": "Remove the seated people at the left and right edges of the picture, and the paper on the right. Continue the plain off-white wall and the pale stone floor in their place. Change nothing else.",
+   "mask": [
+    {
+     "box": [
+      0.0,
+      0.4487,
+      0.1442,
+      0.7051
+     ]
+    },
+    {
+     "box": [
+      0.8894,
+      0.4487,
+      1.0,
+      0.7051
+     ]
+    }
+   ],
+   "expect": []
+  }
+ ]
 }

@@ -64,9 +64,15 @@ def save(path: Path, obj: dict) -> None:
 
 # ---------- pictures ----------
 
+SQUARE = 16       # the edit model redraws the picture in squares of this many pixels
+
+
 def mask_png(shapes: list[dict], size: tuple[int, int] = SIZE) -> bytes:
     """The mask of a step: white where the picture may change. Shapes are boxes or ellipses in fractions of
-    the picture's width and height, [left, top, right, bottom]; the mask is their union."""
+    the picture's width and height, [left, top, right, bottom]; the mask is their union, less any "cut"
+    boxes. A cut takes out every square of the edit model's grid that it touches, so what it covers (a
+    hand, a face) is never redrawn."""
+    import math
     from PIL import Image, ImageDraw
     w, h = size
     img = Image.new("L", size, 0)
@@ -79,8 +85,14 @@ def mask_png(shapes: list[dict], size: tuple[int, int] = SIZE) -> bytes:
             d.rectangle(xy, fill=255)
         elif kind == "ellipse":
             d.ellipse(xy, fill=255)
-        else:
+        elif kind != "cut":
             raise ValueError(f"unknown shape {kind!r}")
+    for s in shapes:
+        if "cut" in s:
+            x0, y0, x1, y1 = s["cut"]
+            q = SQUARE
+            d.rectangle([math.floor(x0 * w / q) * q, math.floor(y0 * h / q) * q,
+                         math.ceil(x1 * w / q) * q - 1, math.ceil(y1 * h / q) * q - 1], fill=0)
     buf = io.BytesIO()
     img.save(buf, format="PNG")
     return buf.getvalue()
@@ -318,8 +330,8 @@ def steps(plan: dict | None = None, editor=None, reader=None, put=None, get=None
     review: dict[str, bytes] = {}
     seeds_default = [plan.get("draw_seed", 1) + k for k in range(plan.get("draws", 3))]
 
-    def arm(name: str, todo: list[dict]):
-        prev_png, prev_name, prev_read = base, first, st0["reading"]
+    def arm(name: str, todo: list[dict], begin: tuple) -> tuple | None:
+        prev_png, prev_name, prev_read = begin
         kept = frames["arms"].setdefault(name, {})
         for st in todo:
             key = _step_key(prev_png, st, plan)
@@ -335,7 +347,7 @@ def steps(plan: dict | None = None, editor=None, reader=None, put=None, get=None
                 continue
             if time.monotonic() > deadline:
                 _log("steps_stopped", arm=name, at=st["id"], why="budget")
-                return
+                return None
             seeds = st.get("seeds") or seeds_default
             pngs = editor.edit.remote(prev_png, mask_png(st["mask"]), st["prompt"], plan["negative"], seeds,
                                       plan["edit_steps"], plan["cfg"], plan["feather"])
@@ -361,11 +373,17 @@ def steps(plan: dict | None = None, editor=None, reader=None, put=None, get=None
                 save(FRAMES, frames)
             _log("step", arm=name, id=st["id"], chosen=cands[i]["name"], scores=[c["score"] for c in cands])
             prev_png, prev_name, prev_read = pngs[i], cands[i]["name"], cands[i]["reading"]
+        return prev_png, prev_name, prev_read
 
     errors = []
     try:
+        begin = (base, first, st0["reading"])
+        if plan.get("prep"):       # tidying both directions start from, drawn first
+            begin = arm("prep", plan["prep"], begin)
+            if begin is None:
+                raise RuntimeError("the preparation did not finish within the budget")
         with ThreadPoolExecutor(max_workers=len(plan["arms"])) as ex:
-            futs = {name: ex.submit(arm, name, todo) for name, todo in plan["arms"].items()}
+            futs = {name: ex.submit(arm, name, todo, begin) for name, todo in plan["arms"].items()}
             for name, f in futs.items():
                 try:
                     f.result()
