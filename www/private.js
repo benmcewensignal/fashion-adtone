@@ -185,7 +185,9 @@
   }
   function reshuffleClothes(r, norms) {
     const c = r.clothes || {}, db = c.debut || {}, nx = c.next || {}, bits = [];
-    if (db.runway) bits.push(`The first show's ${db.runway.looks} looks moved ${db.runway.v.toFixed(2)} from the show of ${db.runway.prev}, against ${norms.runway_median != null ? norms.runway_median.toFixed(2) : "?"} for the median runway from one season to the next.`);
+    if (db.runway) bits.push(db.runway.v > 0.005
+      ? `The first show's ${db.runway.looks} looks moved ${db.runway.v.toFixed(2)} from the show of ${db.runway.prev}, against ${norms.runway_median != null ? norms.runway_median.toFixed(2) : "?"} for the median runway from one season to the next.`
+      : `The first show's ${db.runway.looks} looks moved no more than chance from the show of ${db.runway.prev}.`);
     for (const [w, when] of [[db.window, "after the first show"], [nx.window, "after the next"]]) {
       if (w) bits.push(`The shop window's ${w.worn} outfits ${when} ${w.apart ? "can" : "cannot"} be told apart from those after the show of ${w.prev}.`);
     }
@@ -318,6 +320,7 @@
     "The shop window is the brand's homepage as public web archives keep it, from the day after the show to the day before its next main show, six months at most. Archived pages for Chanel, Dior, Fendi, Louis Vuitton and Burberry are mostly blocked.",
     "Attention is daily English Wikipedia page views: the jump from the day before the show to three days after, and the level from 30 to 120 days after, net of the median brand, each against the brand's usual level. Momentum is the change from four to five months before the show to two to three months before.",
     "The clothes are described by an open vision model, Qwen3-VL-32B at fixed weights, with a fixed set of fifteen questions, from what the picture shows of clothing to its garments, accessories, colours, pattern, how much skin shows, hemline, layers, silhouette, construction, finishing, materials, formality and a street to couture scale. Every question has passed the model's own checks: its answers vary, and hold when the picture is cropped. None has yet been checked against labels, so every clothes figure is provisional. Ben's labels will check the questions anyone can judge and a trained eye the rest; a question that fails is dropped and the figures computed again.",
+    "The questions describe what is worn at the level of garments, colours, shape and register, so two collections with the same kinds of clothes in the same colours read alike however different their design.",
     "Clothes distinct sets the shop window's outfits, the pictures that show clothes worn, against each other brand's outfits in the same months, and moved against the brand's own previous window. The runway's looks are set against the season's other runways and the brand's own last runway. Each comparison is of the shares of each answer, net of the difference two random draws of the same pictures would show at those numbers: likeness is 1 when two sets cannot be told apart and 0 when they share nothing. A difference counts as told apart when random draws reach it less than one time in twenty. Places are given when four brands or more in the season have a value.",
     "Still to come: the runway looks of most shows, still being collected from the archive; the campaign pictures, listed but not yet read; and the advertising, which waits on Meta.",
   ];
