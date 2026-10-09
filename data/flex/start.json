@@ -1,0 +1,292 @@
+{
+ "version": "flex-v1",
+ "at": "2026-10-09T14:05:50Z",
+ "models": {
+  "gen": {
+   "model": "Qwen/Qwen-Image-2512",
+   "revision": "25468b98e3276ca6700de15c6628e51b7de54a26",
+   "licence": "apache-2.0",
+   "bytes": 57704605953,
+   "passed_over": [],
+   "pinned_at": "2026-10-09T13:59:32Z"
+  },
+  "edit": {
+   "model": "Qwen/Qwen-Image-Edit-2511",
+   "revision": "6f3ccc0b56e431dc6a0c2b2039706d7d26f22cb9",
+   "licence": "apache-2.0",
+   "bytes": 57720473939,
+   "passed_over": [],
+   "pinned_at": "2026-10-09T13:59:32Z"
+  }
+ },
+ "prompt": "A full-length photograph from a fashion show. A woman walks straight towards the camera along a pale stone runway, centred in a tall portrait frame and seen whole from head to toe, with clear space above her head and below her feet. Behind her is a plain off-white wall. Soft, even, diffuse light. She wears a plain mid-grey shift dress of matte woven wool that ends at the knee, with long fitted sleeves and a simple round neckline, and plain black flat shoes. Her dark hair is pulled back smoothly into a low bun, with her ears showing. Bare legs. No jewellery, no earrings, no necklace, no hat, no belt, no bag, no glasses. Arms relaxed at her sides. Calm, neutral expression. Natural skin texture, realistic proportions, sharp focus, professional runway photography. No audience, no other people, no text, no logos.",
+ "negative": "blurry, out of focus, cropped head, cropped feet, cut-off limbs, extra limbs, extra fingers, deformed hands, distorted face, cartoon, illustration, painting, 3d render, text, watermark, logo, audience, crowd, other people, jewellery, earrings, necklace, hat, sunglasses, glasses, bag, belt, pattern, print",
+ "draw_size": [
+  1056,
+  1584
+ ],
+ "size": [
+  832,
+  1248
+ ],
+ "steps": 50,
+ "cfg": 4.0,
+ "candidates": [
+  {
+   "name": "start-101",
+   "seed": 101,
+   "sha": "6f79e4c7b9325861aef50799dd1997979b811f47afccc00d9496d9a18ab0297a",
+   "png_sha": "617d2ecd012aec23ecdd37c13a3b45bdabf79b9705273e4bf2e79c7f0c6f936a",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "straight",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "tweed_boucle"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-102",
+   "seed": 102,
+   "sha": "c0d78a76f7acc6dedf71794a955863507671fb3a3a7ab2ca496228efa398a0d7",
+   "png_sha": "0b51018a62f970107267c5566fff0fb40abaa50b204e46ef335e5b4837f01b01",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "straight",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-103",
+   "seed": 103,
+   "sha": "74f0390cc97b464e19f6d94c62ecdbd3b80251954846c126dedb525c1b9d3776",
+   "png_sha": "5a8b873ac6097d6fccb2e80a970250471a3fee0989a048106cc1520a00bf08d2",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "above_knee",
+    "layers": "one",
+    "silhouette": "straight",
+    "construction": "soft_cut",
+    "formality": "casual",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 3,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-104",
+   "seed": 104,
+   "sha": "66464e83d374908e6fbbc481da063be041784b7909a96340963d1d113dca1e31",
+   "png_sha": "b7c0bd591b0e78e2dbec9d49c485974d8526b968a98eeca794cc5c3b86c8ade2",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "straight",
+    "construction": "soft_cut",
+    "formality": "casual",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 3,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-105",
+   "seed": 105,
+   "sha": "2c4360dc9f75a0143200f24ee30ab0629d49ca9e16fe88be1127ff90f59b2f37",
+   "png_sha": "f6ce60df6116f1cd15fd1f03f8921f2e848a54248bf5c7aa2479b03e154eae57",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "black",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "fitted",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-106",
+   "seed": 106,
+   "sha": "7b12f007ea9373fa653eb35365a0bd8b2738132b64cdd2d7ce9abf9f64e8ee0b",
+   "png_sha": "74a3c8e6b425e43f12fdd96c599124320b73af19869f5b2e4635e090f431435d",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "covered",
+    "hemline": "midi",
+    "layers": "one",
+    "silhouette": "fitted",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-107",
+   "seed": 107,
+   "sha": "28e5520834922ed4e5c9bc5af8d75813ec0c5ba0ab8d970b086e41240c802372",
+   "png_sha": "f704a69a13fbe15a079faec26d8a4e2562b7c27de4c75d441679c4e2a7e75217",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "fitted",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  },
+  {
+   "name": "start-108",
+   "seed": 108,
+   "sha": "0adfc1b31f7318090914e532affec3be6a68bf7ffee40a14ac16a4eb76da138d",
+   "png_sha": "1483de4ed9abbf122175cf0498366b125f6e1eba9c3d24fc4ec4876965e98867",
+   "reading": {
+    "subject": "worn_full",
+    "colour_main": "grey",
+    "colour_second": "none",
+    "pattern": "plain",
+    "skin_shown": "some",
+    "hemline": "knee",
+    "layers": "one",
+    "silhouette": "fitted",
+    "construction": "tailored",
+    "formality": "formal_tailored",
+    "garments": [
+     "dress"
+    ],
+    "accessories": [
+     "shoes"
+    ],
+    "finishing": [
+     "none"
+    ],
+    "materials": [
+     "plain_woven"
+    ],
+    "street_couture_axis": 5,
+    "confidence": 0.95
+   }
+  }
+ ]
+}

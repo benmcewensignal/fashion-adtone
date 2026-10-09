@@ -1,0 +1,18 @@
+{
+ "gen": {
+  "model": "Qwen/Qwen-Image-2512",
+  "revision": "25468b98e3276ca6700de15c6628e51b7de54a26",
+  "licence": "apache-2.0",
+  "bytes": 57704605953,
+  "passed_over": [],
+  "pinned_at": "2026-10-09T13:59:32Z"
+ },
+ "edit": {
+  "model": "Qwen/Qwen-Image-Edit-2511",
+  "revision": "6f3ccc0b56e431dc6a0c2b2039706d7d26f22cb9",
+  "licence": "apache-2.0",
+  "bytes": 57720473939,
+  "passed_over": [],
+  "pinned_at": "2026-10-09T13:59:32Z"
+ }
+}
