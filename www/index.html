@@ -81,19 +81,19 @@
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-rows: auto 1fr;
     column-gap: clamp(1.5rem, 5vw, 5rem);
-    min-height: calc(100vh - 7rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-    min-height: calc(100svh - 7rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     padding: 1.25rem 0 2rem;
   }
   .spine {
     grid-column: 1; grid-row: 1 / span 2; align-self: end;
     margin: 0;
-    font-size: min(calc((100vh - 11.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
-    font-size: min(calc((100svh - 11.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+    font-size: min(calc((100vh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+    font-size: min(calc((100svh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
   }
   .landing nav { grid-column: 2; grid-row: 1; }
   .lead { grid-column: 2; grid-row: 2; align-self: end; }
-  .statement { max-width: 24rem; margin: 2rem 0 0; font-size: 1.0625rem; line-height: 1.5; text-wrap: pretty; }
+  .statement { max-width: 24rem; margin: 2rem 0 0; font-size: 1rem; line-height: 1.55; text-wrap: pretty; }
   @media (min-width: 48rem) { .landing nav, .lead { justify-self: end; text-align: right; } }
 
   /* Pages: a small Focal and the menu across the top, the heading centred beneath */
@@ -106,19 +106,19 @@
   @media (min-width: 48rem) { .top .sections { justify-content: flex-end; column-gap: clamp(1.25rem, 2.5vw, 2.25rem); } }
   .intro { max-width: 36rem; margin: 0 auto clamp(2.5rem, 7vw, 4rem); text-align: center; }
   .intro h2 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 5vw, 3.25rem); line-height: 1.08; text-wrap: balance; }
-  .intro p { margin: 0.85rem auto 0; max-width: 30rem; font-size: 1.0625rem; line-height: 1.55; text-wrap: pretty; }
+  .intro p { margin: 0.85rem auto 0; max-width: 30rem; font-size: 1rem; line-height: 1.6; text-wrap: pretty; }
 
   main { margin: 0; }
   .body { max-width: 36rem; margin: 0 auto; }
   .note { color: var(--graphite); font-size: 0.875rem; text-wrap: pretty; }
   .block { margin: 0 0 2.75rem; text-wrap: pretty; }
   .sub { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; line-height: 1.2; text-align: center; }
-  .sub.big { font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
+  .sub.big { font-size: clamp(1.4375rem, 1.2rem + 1vw, 1.875rem); line-height: 1.1; }
 
   .body.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
-  .triad h3 { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
+  .triad h3 { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.4375rem, 1.2rem + 1vw, 1.875rem); line-height: 1.1; }
   .triad p { margin: 0; font-size: 1rem; }
   .triad .when { display: block; margin: 0 0 0.3rem; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
   @media (min-width: 48rem) { .triad { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); } }
@@ -127,10 +127,9 @@
   @media (min-width: 48rem) { .triad.duo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   /* Home: what we offer, end to end and where it stands, beneath the landing */
   .home { margin: clamp(4.5rem, 12vw, 7rem) 0 0; scroll-margin-top: 1.5rem; }
-  .landing + .home { margin-top: 2rem; }
   .four { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 0.95rem; }
   .four li { font-size: 0.875rem; line-height: 1.55; color: var(--graphite); }
-  .four .t { display: block; margin-bottom: 0.1rem; color: var(--ink); font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .four .t { display: block; margin-bottom: 0.1rem; color: var(--ink); font-weight: 500; font-size: 0.9375rem; line-height: 1.4; }
 
   /* The eighteen questions, on one invented image */
   .anat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin: 0 0 1.5rem; }
@@ -145,22 +144,22 @@
   .qs li { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); column-gap: 0.75rem; align-items: start; padding: 0.55rem 0; }
   .qs .n { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-top: 0.15rem; border-radius: 50%; background: var(--accent); color: var(--paper); font-size: 0.75rem; font-weight: 560; line-height: 1; }
   .qs .whole .n { background: none; color: var(--graphite); box-shadow: inset 0 0 0 1px var(--graphite); }
-  .qs .q { margin: 0; font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .qs .q { margin: 0; font-weight: 500; font-size: 0.9375rem; line-height: 1.4; }
   .qs .a { margin: 0.15rem 0 0; max-width: 40em; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; }
   .qs-g { margin: 1.5rem 0 0.15rem; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
   .qs-g:first-child { margin-top: 0; }
-  .qs .a b { color: var(--ink); font-weight: 600; }
+  .qs .a b { color: var(--ink); font-weight: 500; }
   @media (min-width: 44rem) { .anat { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 3rem); align-items: start; } .anat figure { position: sticky; top: 1.5rem; } }
   @media (min-width: 56rem) { .anat { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); } }
 
   /* Read as luxury: five axes, each picture placed by comparing it with others */
   .axes { list-style: none; margin: 0 0 1.75rem; padding: 0; }
   .axes li { padding: 0.95rem 0; }
-  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-weight: 500; font-size: 0.9375rem; line-height: 1.4; }
   .axes .to { color: var(--graphite); font-weight: 380; margin: 0 0.35rem; }
   .axes .ends { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0.35rem; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; text-align: center; }
   .axes .ends p { margin: 0; }
-  .axes .ends b { color: var(--ink); font-weight: 560; }
+  .axes .ends b { color: var(--ink); font-weight: 500; }
   .axes + .note { text-align: center; }
   @media (max-width: 39.99rem) { .axes .ax, .axes .ends, .axes + .note { text-align: left; } }
   @media (min-width: 40rem) {
@@ -189,8 +188,8 @@
   details[open] summary::after { content: "\2212"; }
   .pairs { margin: 1rem 0 0; }
   .pairs div { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0.45rem 0; }
-  .pairs dt { font-weight: 560; font-size: 1rem; }
-  .pairs dd { margin: 0; color: var(--graphite); font-size: 1rem; }
+  .pairs dt { font-weight: 500; font-size: 0.9375rem; }
+  .pairs dd { margin: 0; color: var(--graphite); font-size: 0.9375rem; }
   @media (min-width: 40rem) {
     .pairs div { grid-template-columns: 12rem minmax(0, 1fr); column-gap: 1rem; }
   }
@@ -207,13 +206,13 @@
   .stages { list-style: none; margin: 0 auto; padding: 0; max-width: 30rem; text-align: center; }
   .stages li + li::before { content: ""; display: block; width: 1px; height: 2.25rem; margin: 1rem auto; background: var(--graphite); }
   .stages .when { display: block; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
-  .stages .t { display: block; margin: 0.25rem 0 0.4rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
+  .stages .t { display: block; margin: 0.25rem 0 0.4rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.4375rem, 1.2rem + 1vw, 1.875rem); line-height: 1.1; }
   .stages .d { display: block; margin: 0 auto; max-width: 24rem; font-size: 1rem; }
 
   /* Status */
   .status { list-style: none; margin: 0; padding: 0; }
-  .status li { margin: 0 0 1.4rem; }
-  .status .t { display: block; margin-bottom: 0.1rem; font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .status li { margin: 0 0 1.4rem; font-size: 0.9375rem; }
+  .status .t { display: block; margin-bottom: 0.1rem; font-weight: 500; font-size: 0.9375rem; line-height: 1.4; }
 
   footer { margin: clamp(4rem, 10vw, 7rem) 0 0; padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); text-align: center; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; }
 
@@ -361,7 +360,7 @@
   .next { margin: clamp(4rem, 10vw, 6rem) auto 0; text-align: center; }
   .next a { display: inline-block; padding: 0.5rem 0; color: var(--ink); text-decoration: none; }
   .next .k { display: block; margin: 0 0 0.4rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
-  .next .t { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.15;
+  .next .t { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.4375rem, 1.2rem + 1vw, 1.875rem); line-height: 1.15;
              text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   @media (hover: hover) { .next a:hover .t { text-decoration-thickness: 2px; } }
   /*FX-CSS*/
@@ -450,7 +449,7 @@
         <div class="body wide">
           <div class="triad duo">
             <div>
-              <span class="when">Season benchmark &middot; each season</span>
+              <span class="when">Season benchmark</span>
               <h3>Did the collection carry, and did it stay distinct?</h3>
               <p>The runway translated into numbers and followed into the shop window, the campaigns and the advertising, then set against the attention that followed.</p>
               <ul class="four">
@@ -461,7 +460,7 @@
               </ul>
             </div>
             <div>
-              <span class="when">Monthly reading &middot; each month</span>
+              <span class="when">Monthly reading</span>
               <h3>Is the image drifting?</h3>
               <p>The brand's image read month by month, against its own past and its peers, each reading with its uncertainty.</p>
               <ul class="four">
