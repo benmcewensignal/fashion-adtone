@@ -7,6 +7,7 @@ import json
 import threading
 
 import numpy as np
+import pytest
 from PIL import Image
 
 from adtone import clothes as C
@@ -139,6 +140,7 @@ PLAN = {"version": "flex-test", "negative": " ", "edit_steps": 4, "cfg": 4.0, "f
 
 
 def test_the_start_picture_is_drawn_for_each_seed_brought_to_size_read_and_sealed(tmp_path, monkeypatch):
+    pytest.importorskip("nacl")    # the pictures are sealed with PyNaCl, which the flex workflow installs
     _paths(tmp_path, monkeypatch)
     w = _World()
     out = F.start(PLAN, starter=w, reader=w, put=w.put)
@@ -154,6 +156,7 @@ def test_the_start_picture_is_drawn_for_each_seed_brought_to_size_read_and_seale
 
 
 def test_steps_keep_the_version_read_as_meant_draw_on_from_it_and_never_draw_a_step_twice(tmp_path, monkeypatch):
+    pytest.importorskip("nacl")    # the pictures are sealed with PyNaCl, which the flex workflow installs
     _paths(tmp_path, monkeypatch)
     w = _World()
     F.start(PLAN, starter=w, reader=w, put=w.put)
@@ -204,6 +207,7 @@ def test_a_house_is_read_from_its_designers_seasons_of_its_own_line(tmp_path, mo
 
 
 def test_a_tidying_step_comes_first_and_both_directions_start_from_it(tmp_path, monkeypatch):
+    pytest.importorskip("nacl")    # the pictures are sealed with PyNaCl, which the flex workflow installs
     _paths(tmp_path, monkeypatch)
     w = _World()
     F.start(PLAN, starter=w, reader=w, put=w.put)
