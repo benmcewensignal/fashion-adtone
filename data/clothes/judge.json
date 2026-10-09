@@ -1,0 +1,1230 @@
+{
+ "counts": {
+  "checked": 0,
+  "dropped": 0,
+  "provisional": 15
+ },
+ "detail": {
+  "accessories.bag": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.964,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.401,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.belt": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.709,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.136,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.eyewear": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.937,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.143,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.gloves": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": null,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.007,
+   "stable": false,
+   "varies": false
+  },
+  "accessories.hat": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.037,
+   "stable": true,
+   "varies": false
+  },
+  "accessories.head_accessory": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.397,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.081,
+   "stable": false,
+   "varies": true
+  },
+  "accessories.hosiery": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.562,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.081,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.jewellery": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.846,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.257,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.none": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.848,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.092,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.scarf": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.015,
+   "stable": true,
+   "varies": false
+  },
+  "accessories.shoes": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.754,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.548,
+   "stable": true,
+   "varies": true
+  },
+  "accessories.tie": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.033,
+   "stable": true,
+   "varies": false
+  },
+  "accessories.watch": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.791,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.015,
+   "stable": true,
+   "varies": false
+  },
+  "colour_main": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.309,
+   "crop_kappa": 0.892,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "colour_second": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.224,
+   "crop_kappa": 0.712,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "construction": {
+   "agree": {},
+   "agrees": false,
+   "commonest_share": 0.338,
+   "crop_kappa": 0.852,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "finishing.beaded": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.566,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.14,
+   "stable": true,
+   "varies": true
+  },
+  "finishing.cut": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.791,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.048,
+   "stable": true,
+   "varies": false
+  },
+  "finishing.distressed": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.015,
+   "stable": true,
+   "varies": false
+  },
+  "finishing.embroidered": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.048,
+   "stable": true,
+   "varies": false
+  },
+  "finishing.feathers_fringe": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.022,
+   "stable": true,
+   "varies": false
+  },
+  "finishing.none": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.774,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.625,
+   "stable": true,
+   "varies": true
+  },
+  "finishing.pleated": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.683,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.191,
+   "stable": true,
+   "varies": true
+  },
+  "finishing.quilted": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": null,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.011,
+   "stable": false,
+   "varies": false
+  },
+  "finishing.studded": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": null,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.022,
+   "stable": false,
+   "varies": false
+  },
+  "finishing.tiered": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.848,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.04,
+   "stable": true,
+   "varies": false
+  },
+  "formality": {
+   "agree": {},
+   "agrees": false,
+   "commonest_share": 0.287,
+   "crop_kappa": 0.682,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "garments.cape": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": null,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.004,
+   "stable": false,
+   "varies": false
+  },
+  "garments.cardigan": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": null,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.007,
+   "stable": false,
+   "varies": false
+  },
+  "garments.coat": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.081,
+   "stable": true,
+   "varies": true
+  },
+  "garments.dress": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.837,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.165,
+   "stable": true,
+   "varies": true
+  },
+  "garments.jacket": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.769,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.243,
+   "stable": true,
+   "varies": true
+  },
+  "garments.jumpsuit": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.791,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.029,
+   "stable": true,
+   "varies": false
+  },
+  "garments.none": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.913,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.272,
+   "stable": true,
+   "varies": true
+  },
+  "garments.shirt_blouse": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.254,
+   "stable": true,
+   "varies": true
+  },
+  "garments.shorts": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.781,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.066,
+   "stable": true,
+   "varies": true
+  },
+  "garments.skirt": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.731,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.085,
+   "stable": true,
+   "varies": true
+  },
+  "garments.sweater": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.848,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.081,
+   "stable": true,
+   "varies": true
+  },
+  "garments.top": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.566,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.103,
+   "stable": true,
+   "varies": true
+  },
+  "garments.trousers": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": 0.905,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.283,
+   "stable": true,
+   "varies": true
+  },
+  "garments.vest": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "crop_kappa": -0.027,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.022,
+   "stable": false,
+   "varies": false
+  },
+  "hemline": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.396,
+   "crop_kappa": 0.852,
+   "crop_pairs": 39,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "layers": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.542,
+   "crop_kappa": 0.701,
+   "crop_pairs": 39,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "materials.denim": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.044,
+   "stable": true,
+   "varies": false
+  },
+  "materials.fur_shearling": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 1.0,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.022,
+   "stable": true,
+   "varies": false
+  },
+  "materials.knit": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.74,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.132,
+   "stable": true,
+   "varies": true
+  },
+  "materials.leather": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.89,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.357,
+   "stable": true,
+   "varies": true
+  },
+  "materials.metallic": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.814,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.066,
+   "stable": true,
+   "varies": true
+  },
+  "materials.not_distinguishable": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.658,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.051,
+   "stable": true,
+   "varies": true
+  },
+  "materials.plain_woven": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.789,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.474,
+   "stable": true,
+   "varies": true
+  },
+  "materials.satin_silk": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.558,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.188,
+   "stable": true,
+   "varies": true
+  },
+  "materials.sheer_lace": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.627,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.154,
+   "stable": true,
+   "varies": true
+  },
+  "materials.technical": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": 0.648,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.015,
+   "stable": true,
+   "varies": false
+  },
+  "materials.tweed_boucle": {
+   "agree": {},
+   "agrees": false,
+   "crop_kappa": -0.009,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "share": 0.015,
+   "stable": false,
+   "varies": false
+  },
+  "pattern": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.607,
+   "crop_kappa": 0.949,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "silhouette": {
+   "agree": {},
+   "agrees": false,
+   "commonest_share": 0.417,
+   "crop_kappa": 0.809,
+   "crop_pairs": 39,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "skin_shown": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.771,
+   "crop_kappa": 0.756,
+   "crop_pairs": 39,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "street_couture_axis": {
+   "agree": {},
+   "agrees": false,
+   "commonest_share": 0.489,
+   "crop_kappa": 0.802,
+   "crop_pairs": 57,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  },
+  "subject": {
+   "agree": {
+    "ben:advert": {
+     "kappa": null,
+     "n": 0
+    },
+    "ben:look": {
+     "kappa": null,
+     "n": 0
+    }
+   },
+   "agrees": false,
+   "commonest_share": 0.473,
+   "crop_kappa": 0.928,
+   "crop_pairs": 60,
+   "experts_agree": null,
+   "passes": false,
+   "stable": true,
+   "varies": true
+  }
+ },
+ "generated_at": "2026-10-09T08:54:19Z",
+ "labellers": {},
+ "options": {
+  "accessories": [
+   "bag",
+   "shoes",
+   "eyewear",
+   "belt",
+   "jewellery",
+   "hosiery",
+   "none"
+  ],
+  "finishing": [
+   "none",
+   "beaded",
+   "pleated"
+  ],
+  "garments": [
+   "shirt_blouse",
+   "top",
+   "sweater",
+   "jacket",
+   "coat",
+   "trousers",
+   "shorts",
+   "skirt",
+   "dress",
+   "none"
+  ],
+  "materials": [
+   "leather",
+   "knit",
+   "sheer_lace",
+   "satin_silk",
+   "metallic",
+   "plain_woven",
+   "not_distinguishable"
+  ]
+ },
+ "questions": {
+  "accessories": {
+   "dropped_options": {
+    "gloves": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ],
+    "hat": [
+     "rule 1: varies"
+    ],
+    "head_accessory": [
+     "rule 2: stable on a crop"
+    ],
+    "scarf": [
+     "rule 1: varies"
+    ],
+    "tie": [
+     "rule 1: varies"
+    ],
+    "watch": [
+     "rule 1: varies"
+    ]
+   },
+   "group": "anyone",
+   "options": [
+    "bag",
+    "shoes",
+    "eyewear",
+    "belt",
+    "jewellery",
+    "hosiery",
+    "none"
+   ],
+   "status": "provisional",
+   "why": []
+  },
+  "colour_main": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "colour_second": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "construction": {
+   "group": "trained",
+   "status": "provisional",
+   "why": []
+  },
+  "finishing": {
+   "dropped_options": {
+    "cut": [
+     "rule 1: varies"
+    ],
+    "distressed": [
+     "rule 1: varies"
+    ],
+    "embroidered": [
+     "rule 1: varies"
+    ],
+    "feathers_fringe": [
+     "rule 1: varies"
+    ],
+    "quilted": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ],
+    "studded": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ],
+    "tiered": [
+     "rule 1: varies"
+    ]
+   },
+   "group": "trained",
+   "options": [
+    "none",
+    "beaded",
+    "pleated"
+   ],
+   "status": "provisional",
+   "why": []
+  },
+  "formality": {
+   "group": "trained",
+   "status": "provisional",
+   "why": []
+  },
+  "garments": {
+   "dropped_options": {
+    "cape": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ],
+    "cardigan": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ],
+    "jumpsuit": [
+     "rule 1: varies"
+    ],
+    "vest": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ]
+   },
+   "group": "anyone",
+   "options": [
+    "shirt_blouse",
+    "top",
+    "sweater",
+    "jacket",
+    "coat",
+    "trousers",
+    "shorts",
+    "skirt",
+    "dress",
+    "none"
+   ],
+   "status": "provisional",
+   "why": []
+  },
+  "hemline": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "layers": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "materials": {
+   "dropped_options": {
+    "denim": [
+     "rule 1: varies"
+    ],
+    "fur_shearling": [
+     "rule 1: varies"
+    ],
+    "technical": [
+     "rule 1: varies"
+    ],
+    "tweed_boucle": [
+     "rule 1: varies",
+     "rule 2: stable on a crop"
+    ]
+   },
+   "group": "trained",
+   "options": [
+    "leather",
+    "knit",
+    "sheer_lace",
+    "satin_silk",
+    "metallic",
+    "plain_woven",
+    "not_distinguishable"
+   ],
+   "status": "provisional",
+   "why": []
+  },
+  "pattern": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "silhouette": {
+   "group": "trained",
+   "status": "provisional",
+   "why": []
+  },
+  "skin_shown": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  },
+  "street_couture_axis": {
+   "group": "trained",
+   "status": "provisional",
+   "why": []
+  },
+  "subject": {
+   "group": "anyone",
+   "status": "provisional",
+   "why": []
+  }
+ },
+ "reader": "qwen3",
+ "rules": {
+  "crop_pairs_min": 10,
+  "kappa_min": 0.4,
+  "labelled_min": 20,
+  "option_share": [
+   0.05,
+   0.95
+  ],
+  "vary_max": 0.9
+ },
+ "status": "provisional",
+ "test_set": {
+  "adverts": 150,
+  "crop_pairs": 60,
+  "looks": 127,
+  "pictures": 337,
+  "read": 337
+ },
+ "use": [
+  "accessories",
+  "colour_main",
+  "colour_second",
+  "construction",
+  "finishing",
+  "formality",
+  "garments",
+  "hemline",
+  "layers",
+  "materials",
+  "pattern",
+  "silhouette",
+  "skin_shown",
+  "street_couture_axis",
+  "subject"
+ ],
+ "version": "clothes-v1"
+}
