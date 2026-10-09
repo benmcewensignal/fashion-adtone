@@ -24,7 +24,7 @@
     --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --rule: #e4e4e4;        /* the private tab's hairlines, tracks and hover wash */
     --track: #ececec;
-    --muted: #8a8a8a;
+    --muted: #767676;
     --wash: rgba(54, 39, 190, 0.06);
     color-scheme: light dark;
   }
@@ -101,7 +101,7 @@
   .mark { display: inline-block; padding: 0.5rem 0; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1; font-variation-settings: "wdth" 125; font-weight: 200; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; color: var(--ink); text-decoration: none; }
   .top nav { flex: 1 1 auto; }
   .top .sections { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: 0.625rem; }
-  .top .sections a { font-size: clamp(0.6875rem, 3vw, 0.8125rem); letter-spacing: 0.04em; }
+  .top .sections a { font-size: clamp(0.75rem, 3.3vw, 0.8125rem); letter-spacing: 0.04em; }
   .top .sections a[aria-current="page"] { font-size: clamp(0.8125rem, 3.6vw, 1rem); letter-spacing: 0; }
   @media (min-width: 48rem) { .top .sections { justify-content: flex-end; column-gap: clamp(1.25rem, 2.5vw, 2.25rem); } }
   .intro { max-width: 36rem; margin: 0 auto clamp(2.5rem, 7vw, 4rem); text-align: center; }
@@ -110,25 +110,27 @@
 
   main { margin: 0; }
   .body { max-width: 36rem; margin: 0 auto; }
-  .note { color: var(--graphite); font-size: 0.875rem; }
-  .block { margin: 0 0 2.75rem; }
+  .note { color: var(--graphite); font-size: 0.875rem; text-wrap: pretty; }
+  .block { margin: 0 0 2.75rem; text-wrap: pretty; }
   .sub { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; line-height: 1.2; text-align: center; }
+  .sub.big { font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
 
   .body.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
-  .triad h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.75rem; line-height: 1.1; }
+  .triad h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
   .triad p { margin: 0; font-size: 0.9375rem; }
-  .triad .when { display: block; margin-top: 0.4rem; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.04em; }
+  .triad .when { display: block; margin: 0 0 0.3rem; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
   @media (min-width: 48rem) { .triad { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); } }
   .triad .q { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
-  .triad.duo > div { max-width: 26rem; margin: 0 auto; }
+  .triad.duo { row-gap: 3rem; }
+  .triad.duo > div { max-width: 26rem; margin: 0 auto; text-align: left; }
   @media (min-width: 48rem) { .triad.duo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   /* Home: what we offer, end to end and where it stands, beneath the landing */
   .home { margin: clamp(4.5rem, 12vw, 7rem) 0 0; scroll-margin-top: 1.5rem; }
   .four { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 0.95rem; }
   .four li { font-size: 0.875rem; line-height: 1.55; color: var(--graphite); }
-  .four .t { display: block; color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
+  .four .t { display: block; margin-bottom: 0.1rem; color: var(--ink); font-weight: 560; font-size: 0.9375rem; line-height: 1.4; }
 
   /* The eighteen questions, on one invented image */
   .anat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin: 0 0 1.5rem; }
@@ -151,11 +153,13 @@
   /* Read as luxury: five axes, each picture placed by comparing it with others */
   .axes { list-style: none; margin: 0 0 1.75rem; padding: 0; }
   .axes li { padding: 0.95rem 0; }
-  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.375rem; line-height: 1.2; }
+  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.25; }
   .axes .to { color: var(--graphite); font-size: 1rem; margin: 0 0.4rem; }
   .axes .ends { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0.35rem; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; text-align: center; }
   .axes .ends p { margin: 0; }
   .axes .ends b { color: var(--ink); font-weight: 560; }
+  .axes + .note { text-align: center; }
+  @media (max-width: 39.99rem) { .axes .ax, .axes .ends, .axes + .note { text-align: left; } }
   @media (min-width: 40rem) {
     .axes .ends { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
     .axes .ends p:first-child { text-align: right; }
@@ -165,7 +169,7 @@
   /* Brands: the new creative directors, folded away */
   .order { list-style: none; margin: 0 0 2.5rem; padding: 0; counter-reset: look; }
   .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: baseline; padding: 0.55rem 0; }
-  .order .h { font-family: var(--serif); font-size: 1.3125rem; line-height: 1.2; }
+  .order .h { font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; }
   .order .d { display: block; font-size: 0.8125rem; color: var(--graphite); }
   .order time { font-size: 0.8125rem; color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .groups { list-style: none; margin: 0 0 2.5rem; padding: 0; }
@@ -174,9 +178,9 @@
   .groups .b { display: block; font-family: var(--serif); font-size: 1.1875rem; line-height: 1.45; }
 
   /* Method */
-  details { margin: 0 0 1.25rem; border-top: 1px solid currentColor; padding-top: 1rem; }
+  details { margin: 0 0 0.75rem; border-top: 1px solid currentColor; padding-top: 0.5rem; }
   details + details { border-top: 0; }
-  summary { cursor: pointer; list-style: none; display: block; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; }
+  summary { cursor: pointer; list-style: none; display: block; padding: 0.5rem 0; text-align: center; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.1875rem; text-wrap: balance; }
   summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; margin-left: 0.6rem; font-family: var(--sans); font-style: normal; font-weight: 300; }
   details[open] summary::after { content: "\2212"; }
@@ -205,7 +209,7 @@
 
   /* Status */
   .status { list-style: none; margin: 0; padding: 0; }
-  .status li { text-align: center; margin: 0 0 1.4rem; }
+  .status li { margin: 0 0 1.4rem; }
   .status .t { display: block; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
 
   footer { margin: clamp(4rem, 10vw, 7rem) 0 0; padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); text-align: center; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; }
@@ -221,10 +225,11 @@
   .pv-btn[disabled] { opacity: 0.55; cursor: progress; }
   .pv-btn:focus-visible, .pv-link:focus-visible, .pv-chip:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
   .pv-msg { min-height: 1.5em; margin: 0; text-align: center; font-size: 0.875rem; color: var(--graphite); }
-  .pv-link { appearance: none; border: 0; padding: 0; background: none; font: inherit; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em; cursor: pointer; }
-  .pv-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; margin: -1.25rem auto clamp(2.5rem, 7vw, 3.75rem); max-width: 40rem; }
-  .pv-tabs a { padding: 0.4rem 0; font-size: 0.875rem; letter-spacing: 0.04em; color: var(--graphite); text-decoration: none; border-bottom: 1px solid transparent; }
-  .pv-tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+  .pv-link { appearance: none; border: 0; padding: 0.7rem 0.25rem; margin: -0.7rem -0.25rem; background: none; font: inherit; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em; cursor: pointer; }
+  .pv-tabs { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; justify-items: center; gap: 0 1.75rem; margin: -1.25rem auto clamp(2.5rem, 7vw, 3.75rem); max-width: 40rem; }
+  .pv-tabs a { padding: 0.7rem 0; font-size: 0.875rem; letter-spacing: 0.04em; color: var(--graphite); text-decoration: none; text-decoration-thickness: 1px; text-underline-offset: 0.45em; }
+  .pv-tabs a[aria-current="page"] { color: var(--ink); text-decoration-line: underline; }
+  @media (min-width: 40rem) { .pv-tabs { display: flex; flex-wrap: wrap; gap: 0 1.5rem; } }
   @media (hover: hover) { .pv-tabs a:hover { color: var(--ink); } }
   .pv-head { max-width: 36rem; margin: 0 auto 2.5rem; text-align: center; }
   .pv-head .k { display: block; margin: 0 0 0.35rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
@@ -251,13 +256,13 @@
   .sx-dot { fill: var(--accent); stroke: var(--paper); stroke-width: 2; }
 
   .pv-wide { max-width: 64rem; margin: 0 auto 3.25rem; }
-  .pv-key { margin: 0 0 0.75rem; font-size: 0.8125rem; color: var(--graphite); max-width: 46rem; }
+  .pv-key { margin: 0 0 0.75rem; font-size: 0.8125rem; color: var(--graphite); max-width: 30rem; }
   .pv-key .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); vertical-align: 0.05em; margin: 0 0.15rem 0 0.1rem; }
   .pv-key .dot.thin { background: var(--paper); box-shadow: inset 0 0 0 1.5px var(--accent); }
   .pv-rows { display: grid; border-top: 1px solid var(--ink); }
   .pv-rows > details, .pv-rows > .pv-line { border-bottom: 1px solid var(--rule); }
   .pv-rows > details { margin: 0; padding: 0; border-top: 0; }
-  .pv-rows summary { display: grid; list-style: none; text-align: left; font-family: var(--sans); font-style: normal; font-size: 1rem; cursor: pointer; padding: 0.85rem 0 0.9rem; }
+  .pv-rows summary { display: grid; list-style: none; text-align: left; font-family: var(--sans); font-style: normal; font-weight: inherit; font-size: 1rem; text-wrap: inherit; cursor: pointer; padding: 0.85rem 0 0.9rem; }
   .pv-rows summary::after, .pv-rows details[open] > summary::after { content: none; }
   .pv-rows details[open] > summary { background: var(--wash); }
   @media (hover: hover) { .pv-rows summary:hover { background: var(--wash); } }
@@ -288,7 +293,7 @@
   .pv-share .bar::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 6px; margin-top: -3px; background: var(--track); border-radius: 3px; }
   .pv-share .bar i { position: absolute; left: 0; top: 50%; height: 6px; margin-top: -3px; background: var(--accent); border-radius: 0 3px 3px 0; }
   .pv-cols { display: none; }
-  .pv-detail { display: grid; gap: 0.65rem; padding: 0.35rem 0.5rem 1.35rem; max-width: 46rem; }
+  .pv-detail { display: grid; gap: 0.65rem; padding: 0.35rem 0.5rem 1.35rem; max-width: 41rem; }
   .pv-detail dl, .pv-facts { margin: 0; display: grid; gap: 0.6rem; }
   .pv-detail dl > div, .pv-facts > div { display: grid; grid-template-columns: 7.75rem minmax(0, 1fr); column-gap: 1rem; }
   .pv-detail dt, .pv-facts dt { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); padding-top: 0.2rem; }
@@ -302,9 +307,9 @@
   .pv-notes ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; font-size: 0.8125rem; color: var(--graphite); }
   .pv-foot { margin: clamp(3rem, 8vw, 4.5rem) auto 0; text-align: center; }
   .pv-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .pv-chips.scroll { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 2px; }
+  .pv-chips.scroll { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 2px 2.5rem 2px 2px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); }
   .pv-chips.scroll::-webkit-scrollbar { display: none; }
-  .pv-chip { appearance: none; flex: 0 0 auto; font: inherit; font-size: 0.8125rem; letter-spacing: 0.02em; padding: 0.4rem 0.75rem; border: 1px solid var(--rule); border-radius: 0; background: var(--paper); color: var(--graphite); cursor: pointer; white-space: nowrap; }
+  .pv-chip { appearance: none; flex: 0 0 auto; font: inherit; font-size: 0.8125rem; letter-spacing: 0.02em; padding: 0.65rem 0.85rem; border: 1px solid var(--rule); border-radius: 0; background: var(--paper); color: var(--graphite); cursor: pointer; white-space: nowrap; }
   .pv-chip[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
   @media (hover: hover) { .pv-chip:hover { color: var(--ink); } }
   .pv-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin: 0 0 0.75rem; }
@@ -335,6 +340,21 @@
     .pv-cols span:first-child { padding-left: 0.5rem; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  /* The serif at the weight the face draws: the body's 380 is below Bodoni's lightest, 400 */
+  .sub, .triad .q, .qs .q, .axes .ax, .order .h, .groups .o, .groups .b, .person .n, .person .w, .stages .t, .status .t,
+  .sections a[aria-current="page"], .fx-now, .fx-all .sec, .pv-name, .pv-head .big { font-weight: 400; }
+  /* Line endings: no word stranded on a last line */
+  .triad p, .four li, .status li, .stages .d, .pairs dd, .qs .a, .axes .ends p, .person .c { text-wrap: pretty; }
+  .triad h3, .triad .q, .sub, .axes .ax, .groups .b, figcaption, .pv-cell .lab, .pv-stages .s,
+  .pv-stages .v, .pv-detail dt, .pv-facts dt, .pv-cols span { text-wrap: balance; }
+  .pv-detail dd, .pv-facts dd, .pv-notes li, .pv-key, .pv-cell .say, .pv-board-head p { text-wrap: pretty; }
+  /* The way on: each page ends with the next one, and each part of the Private tab with the next part */
+  .next { margin: clamp(4rem, 10vw, 6rem) auto 0; text-align: center; }
+  .next a { display: inline-block; padding: 0.5rem 0; color: var(--ink); text-decoration: none; }
+  .next .k { display: block; margin: 0 0 0.4rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+  .next .t { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.15;
+             text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  @media (hover: hover) { .next a:hover .t { text-decoration-thickness: 2px; } }
   /*FX-CSS*/
   /* One invented look, changed a step at a time, read by the clothes reader */
   .fx { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin: 0 0 1.5rem; }
@@ -416,10 +436,10 @@
         <div class="body wide">
           <div class="triad duo">
             <div>
+              <span class="when">Per brand, per season</span>
               <h3>Season benchmark</h3>
               <p class="q">Did the collection carry, and did it stand apart?</p>
               <p>The runway translated into numbers and followed into the shop window, the campaigns and the advertising, then set against the attention that followed.</p>
-              <span class="when">Per brand, per season</span>
               <ul class="four">
                 <li><span class="t">Transmission</span>How much of the runway's clothes reaches the shop window, the campaigns and the advertising, and how fast.</li>
                 <li><span class="t">Distinctness</span>How far the brand stands from its peers at each stage, so a distinctive runway flattened into look-alike advertising shows up as exactly that.</li>
@@ -428,10 +448,10 @@
               </ul>
             </div>
             <div>
+              <span class="when">Monthly</span>
               <h3>Monthly reading</h3>
               <p class="q">How is the brand's image moving?</p>
               <p>The brand's image read month by month, against its own past and its peers, each reading with its uncertainty.</p>
-              <span class="when">Monthly</span>
               <ul class="four">
                 <li><span class="t">Character</span>Its imagery on eighteen questions, five axes of luxury and its colour and light, with the cast of people who make it.</li>
                 <li><span class="t">Shift</span>How far the image has moved from its own past and against its peers, and whether it is drifting towards the brand of the moment.</li>
@@ -456,7 +476,7 @@
           <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season, and who shot it.</span></li>
           <li><span class="when">Around the show, then to the next one</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, then the campaign's until a week before its next show.</span></li>
         </ol>
-          <p class="block" style="text-align:center;margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is read from daily Wikipedia page views in ten languages: the jump at the show against the rest of its season, and whether it lasts from 30 to 120 days after, beside how much the press wrote and in what tone. The question is which of the benchmark's four measures go with attention that lasts.</p>
+          <p class="block" style="margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is read from daily Wikipedia page views in ten languages: the jump at the show against the rest of its season, and whether it lasts from 30 to 120 days after, beside how much the press wrote and in what tone. The question is which of the benchmark's four measures go with attention that lasts.</p>
         </div>
       </div>
       <div class="home" id="status">
@@ -466,14 +486,15 @@
         </div>
         <div class="body">
           <ul class="status">
-            <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the Private tab.</li>
+            <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the <a href="#/private">Private tab</a>.</li>
             <li><span class="t">Pictures</span>3,053 homepage pictures read for how they are made, and 4,634 for their clothes, 1,459 of them runway looks from 113 shows.</li>
             <li><span class="t">Attention</span>Daily for all 28 brands, in ten languages; 502 main shows scored for the jump around them.</li>
             <li><span class="t">Advertising</span>Built, and waiting on Meta to clear the account for its Ad Library.</li>
           </ul>
-          <p class="note" style="text-align:center">The clothes are provisional until people, one of them trained in fashion, have checked the questions.</p>
+          <p class="note">The clothes are provisional until people, one of them trained in fashion, have checked the questions.</p>
         </div>
       </div>
+      <p class="next"><a href="#/readings"><span class="k">Next</span> <span class="t">What it reads</span></a></p>
     </section>
     <section id="readings" data-panel aria-labelledby="readings-h">
       <header class="top">
@@ -554,7 +575,7 @@
         <!--FX-->
         <div class="narrow" id="fx-intro">
           <p class="sub" style="margin-top:4rem">The clothes</p>
-          <p class="block" style="text-align:center">Every runway look, and every picture that follows it, is also read for its clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
+          <p class="block">Every runway look, and every picture that follows it, is also read for its clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
         </div>
         <div class="fx" id="fx">
           <figure>
@@ -630,7 +651,7 @@
         <!--FX-END-->
         <div class="narrow">
           <p class="sub" style="margin-top:4rem">Read as luxury</p>
-          <p class="block" style="text-align:center">Most luxury pictures share a register: polished, posed and quiet. Questions asked of one picture at a time say little about what sets one apart from another, so each picture is also read against others like it, on five axes.</p>
+          <p class="block">Most luxury pictures share a register: polished, posed and quiet. Questions asked of one picture at a time say little about what sets one apart from another, so each picture is also read against others like it, on five axes.</p>
           <ol class="axes">
             <li><p class="ax">Austere<span class="to">to</span>opulent</p><div class="ends"><p><b>Austere.</b> Spare and reduced; few elements, plain surfaces, a quiet palette, nothing decorative.</p><p><b>Opulent.</b> Rich and abundant; ornament, layered textures, luxurious materials and settings, a sense of display.</p></div></li>
             <li><p class="ax">Remote<span class="to">to</span>intimate</p><div class="ends"><p><b>Remote.</b> Distant or withheld; the person is far off, closed, aloof or monumental, or there is no one to be close to.</p><p><b>Intimate.</b> Close and personal; the viewer feels near the person, in a private, unguarded moment.</p></div></li>
@@ -638,7 +659,7 @@
             <li><p class="ax">Classical<span class="to">to</span>contemporary</p><div class="ends"><p><b>Classical.</b> Timeless codes; heritage, elegance and craft that could belong to any decade.</p><p><b>Contemporary.</b> Of this moment; current youth culture, technology, street references, the look of now.</p></div></li>
             <li><p class="ax">Restrained<span class="to">to</span>provocative</p><div class="ends"><p><b>Restrained.</b> Discreet and composed; nothing that confronts, unsettles or flirts.</p><p><b>Provocative.</b> Made to provoke a reaction; confronting, overtly sensual, strange or unsettling.</p></div></li>
           </ol>
-          <p class="note" style="text-align:center;margin:0 0 2.75rem">Each picture is placed by comparing it with six others, both ways round, so the order they are shown in cannot decide.</p>
+          <p class="note" style="margin:0 0 2.75rem">Each picture is placed by comparing it with six others, both ways round, so the order they are shown in cannot decide.</p>
           <details style="margin-top:3rem">
           <summary>Colour and light</summary>
           <p class="note" style="text-align:center;margin:0.75rem 0 1.25rem">Measured from the pixels, with no reader involved.</p>
@@ -654,6 +675,7 @@
           </details>
         </div>
       </div>
+      <p class="next"><a href="#/method"><span class="k">Next</span> <span class="t">How it works</span></a></p>
     </section>
 
     <section id="method" data-panel aria-labelledby="method-h">
@@ -683,7 +705,7 @@
             <li><span class="t">Against controls</span>Every measure is also run on brands and dates where nothing happened, to see how often it fires anyway.</li>
             <li><span class="t">Proven first</span>Each measure is run on simulated brands with known answers before it touches real ones.</li>
           </ul>
-          <p class="block" style="text-align:center">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
+          <p class="block">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
           <details style="margin-top:3rem">
             <summary>How the stages are joined</summary>
             <dl class="pairs">
@@ -719,6 +741,7 @@
           <p class="note" style="text-align:center;margin-top:2.5rem">This page outlines the method. The full specification sets out every window, threshold and exclusion.</p>
         </div>
       </div>
+      <p class="next"><a href="#/brands"><span class="k">Next</span> <span class="t">Twenty‑eight brands</span></a></p>
     </section>
 
     <section id="brands" data-panel aria-labelledby="brands-h">
@@ -740,15 +763,15 @@
       </div>
       <div class="body">
         <ul class="groups">
-          <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro Piana, Louis Vuitton</span></li>
-          <li><span class="o">Kering</span><span class="b">Balenciaga, Bottega Veneta, Gucci, Saint Laurent</span></li>
-          <li><span class="o">Prada Group</span><span class="b">Miu Miu, Prada, Versace</span></li>
-          <li><span class="o">OTB</span><span class="b">Jil Sander, Maison Margiela</span></li>
+          <li><span class="o">LVMH</span><span class="b">Celine, Dior, Fendi, Givenchy, Loewe, Loro&nbsp;Piana, Louis&nbsp;Vuitton</span></li>
+          <li><span class="o">Kering</span><span class="b">Balenciaga, Bottega&nbsp;Veneta, Gucci, Saint&nbsp;Laurent</span></li>
+          <li><span class="o">Prada Group</span><span class="b">Miu&nbsp;Miu, Prada, Versace</span></li>
+          <li><span class="o">OTB</span><span class="b">Jil&nbsp;Sander, Maison&nbsp;Margiela</span></li>
           <li><span class="o">Richemont</span><span class="b">Alaïa, Chloé</span></li>
-          <li><span class="o">Zegna Group</span><span class="b">Tom Ford, Zegna</span></li>
+          <li><span class="o">Zegna Group</span><span class="b">Tom&nbsp;Ford, Zegna</span></li>
           <li><span class="o">Mayhoola and Kering</span><span class="b">Valentino</span></li>
-          <li><span class="o">Puig</span><span class="b">Dries Van Noten</span></li>
-          <li><span class="o">Independent</span><span class="b">Brunello Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max Mara</span></li>
+          <li><span class="o">Puig</span><span class="b">Dries&nbsp;Van&nbsp;Noten</span></li>
+          <li><span class="o">Independent</span><span class="b">Brunello&nbsp;Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max&nbsp;Mara</span></li>
         </ul>
         <p class="note" style="text-align:center">Zegna runs Tom Ford's fashion under licence from Estée Lauder.</p>
         <details style="margin-top:2.5rem">
@@ -765,17 +788,17 @@
             <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">October 2025</time></li>
             <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">February 2026</time></li>
           </ol>
-          <p class="note" style="text-align:center">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale; Pieter Mulier, in post since July 2026, shows first in February 2027.</p>
+          <p class="note">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale; Pieter Mulier, in post since July 2026, shows first in February 2027.</p>
         </details>
       </div>
       <div class="body wide" style="margin-top:4.5rem">
-        <div class="narrow" style="text-align:center">
-          <p class="sub" style="font-size:1.75rem">Who makes the image</p>
+        <div class="narrow">
+          <p class="sub big">Who makes the image</p>
           <p>A brand's image is made by a cast: the designer, and the photographers, stylists and directors around them. Focal reads the cast as part of the brand's character: how long a brand keeps the same image-makers, how much of its image comes from one or two hands, how many of them also work for its peers, and who arrives and leaves with a designer.</p>
         </div>
         <div class="narrow">
           <p class="sub" style="margin-top:3rem">Shared hands</p>
-          <p class="block" style="text-align:center">Some photographers shape several brands at once. David Sims has shot for nine of the twenty-eight, Steven Meisel for seven.</p>
+          <p class="block">Some photographers shape several brands at once. David Sims has shot for nine of the twenty‑eight, Steven Meisel for seven.</p>
           <details>
             <summary>Seventeen photographers, twenty-four brands</summary>
             <dl class="pairs">
@@ -822,6 +845,7 @@
           </details>
         </div>
       </div>
+      <p class="next"><a href="#/private"><span class="k">Next</span> <span class="t">Private</span></a></p>
     </section>
 
     <section id="private" data-panel aria-labelledby="private-h">
@@ -852,6 +876,7 @@
       <div id="pv-content" hidden>
         <div class="pv-tabs" id="pv-tabs" aria-label="Parts"></div>
         <div id="pv-parts"></div>
+        <p class="next" id="pv-next" hidden><a href="#/private"><span class="k">Next</span> <span class="t"></span></a></p>
         <p class="note pv-foot">Open on this device until the tab is closed. <button type="button" class="pv-link" id="pv-close">Lock it now</button></p>
       </div>
     </section>
@@ -893,6 +918,22 @@
   // a menu link to where the address already points still takes the reader there
   links.forEach(a => a.addEventListener("click", () => { if (a.getAttribute("href") === location.hash) setTimeout(route); }));
   route();
+})();
+</script>
+<script>
+(() => {
+  // the Private tab's parts end with the next part, named as its link names it
+  const tabs = document.getElementById("pv-tabs"), box = document.getElementById("pv-next");
+  if (!tabs || !box) return;
+  const a = box.querySelector("a"), t = box.querySelector(".t");
+  const sync = () => {
+    const all = [...tabs.querySelectorAll("a")];
+    const i = all.findIndex(x => x.getAttribute("aria-current") === "page");
+    const n = i >= 0 ? all[i + 1] : null;
+    box.hidden = !n;
+    if (n) { a.setAttribute("href", n.getAttribute("href")); t.textContent = n.textContent; }
+  };
+  new MutationObserver(sync).observe(tabs, { childList: true, subtree: true, attributes: true, attributeFilter: ["aria-current"] });
 })();
 </script>
 <script>/*FX-JS*/
