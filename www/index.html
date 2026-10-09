@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Focal</title>
-<meta name="description" content="Focal follows each collection from the runway to the advertising, measuring the character of fashion brands, how it shifts, and what it contributes to their success.">
+<meta name="description" content="Each collection read from the show to the shop window, the campaigns and the advertising, against the other twenty-seven brands: whether it carried, and whether it stayed distinct.">
 <meta property="og:title" content="Focal">
-<meta property="og:description" content="Focal measures the character of fashion brands.">
+<meta property="og:description" content="Each collection read from the show to the advertising, against the other twenty-seven brands.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%233627be' stroke-width='2'/%3E%3C/svg%3E">
@@ -81,19 +81,19 @@
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-rows: auto 1fr;
     column-gap: clamp(1.5rem, 5vw, 5rem);
-    min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-    min-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100vh - 7rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100svh - 7rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     padding: 1.25rem 0 2rem;
   }
   .spine {
     grid-column: 1; grid-row: 1 / span 2; align-self: end;
     margin: 0;
-    font-size: min(calc((100vh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
-    font-size: min(calc((100svh - 4.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+    font-size: min(calc((100vh - 11.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
+    font-size: min(calc((100svh - 11.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 4.5), 58vw);
   }
   .landing nav { grid-column: 2; grid-row: 1; }
   .lead { grid-column: 2; grid-row: 2; align-self: end; }
-  .statement { max-width: 24rem; margin: 2rem 0 0; font-size: 0.8125rem; line-height: 1.6; letter-spacing: 0.06em; color: var(--graphite); text-wrap: pretty; }
+  .statement { max-width: 24rem; margin: 2rem 0 0; font-size: 1.0625rem; line-height: 1.5; text-wrap: pretty; }
   @media (min-width: 48rem) { .landing nav, .lead { justify-self: end; text-align: right; } }
 
   /* Pages: a small Focal and the menu across the top, the heading centred beneath */
@@ -106,7 +106,7 @@
   @media (min-width: 48rem) { .top .sections { justify-content: flex-end; column-gap: clamp(1.25rem, 2.5vw, 2.25rem); } }
   .intro { max-width: 36rem; margin: 0 auto clamp(2.5rem, 7vw, 4rem); text-align: center; }
   .intro h2 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 5vw, 3.25rem); line-height: 1.08; text-wrap: balance; }
-  .intro p { margin: 0.85rem auto 0; max-width: 30rem; font-size: 0.9375rem; text-wrap: pretty; }
+  .intro p { margin: 0.85rem auto 0; max-width: 30rem; font-size: 1.0625rem; line-height: 1.55; text-wrap: pretty; }
 
   main { margin: 0; }
   .body { max-width: 36rem; margin: 0 auto; }
@@ -118,19 +118,19 @@
   .body.wide { max-width: 60rem; }
   .narrow { max-width: 36rem; margin-left: auto; margin-right: auto; }
   .triad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin: 2.5rem 0; text-align: center; }
-  .triad h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
-  .triad p { margin: 0; font-size: 0.9375rem; }
+  .triad h3 { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
+  .triad p { margin: 0; font-size: 1rem; }
   .triad .when { display: block; margin: 0 0 0.3rem; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
   @media (min-width: 48rem) { .triad { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); } }
-  .triad .q { margin: 0 0 0.75rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
   .triad.duo { row-gap: 3rem; }
   .triad.duo > div { max-width: 26rem; margin: 0 auto; text-align: left; }
   @media (min-width: 48rem) { .triad.duo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   /* Home: what we offer, end to end and where it stands, beneath the landing */
   .home { margin: clamp(4.5rem, 12vw, 7rem) 0 0; scroll-margin-top: 1.5rem; }
+  .landing + .home { margin-top: 2rem; }
   .four { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 0.95rem; }
   .four li { font-size: 0.875rem; line-height: 1.55; color: var(--graphite); }
-  .four .t { display: block; margin-bottom: 0.1rem; color: var(--ink); font-weight: 560; font-size: 0.9375rem; line-height: 1.4; }
+  .four .t { display: block; margin-bottom: 0.1rem; color: var(--ink); font-weight: 560; font-size: 1rem; line-height: 1.4; }
 
   /* The eighteen questions, on one invented image */
   .anat { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin: 0 0 1.5rem; }
@@ -145,16 +145,19 @@
   .qs li { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); column-gap: 0.75rem; align-items: start; padding: 0.55rem 0; }
   .qs .n { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-top: 0.15rem; border-radius: 50%; background: var(--accent); color: var(--paper); font-size: 0.75rem; font-weight: 560; line-height: 1; }
   .qs .whole .n { background: none; color: var(--graphite); box-shadow: inset 0 0 0 1px var(--graphite); }
-  .qs .q { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
-  .qs .a { margin: 0.15rem 0 0; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; }
+  .qs .q { margin: 0; font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .qs .a { margin: 0.15rem 0 0; max-width: 40em; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; }
+  .qs-g { margin: 1.5rem 0 0.15rem; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+  .qs-g:first-child { margin-top: 0; }
   .qs .a b { color: var(--ink); font-weight: 600; }
-  @media (min-width: 56rem) { .anat { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; } .anat figure { position: sticky; top: 1.5rem; } }
+  @media (min-width: 44rem) { .anat { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 3rem); align-items: start; } .anat figure { position: sticky; top: 1.5rem; } }
+  @media (min-width: 56rem) { .anat { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); } }
 
   /* Read as luxury: five axes, each picture placed by comparing it with others */
   .axes { list-style: none; margin: 0 0 1.75rem; padding: 0; }
   .axes li { padding: 0.95rem 0; }
-  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.25; }
-  .axes .to { color: var(--graphite); font-size: 1rem; margin: 0 0.4rem; }
+  .axes .ax { margin: 0 0 0.45rem; text-align: center; font-weight: 560; font-size: 1rem; line-height: 1.4; }
+  .axes .to { color: var(--graphite); font-weight: 380; margin: 0 0.35rem; }
   .axes .ends { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0.35rem; color: var(--graphite); font-size: 0.875rem; line-height: 1.5; text-align: center; }
   .axes .ends p { margin: 0; }
   .axes .ends b { color: var(--ink); font-weight: 560; }
@@ -180,14 +183,14 @@
   /* Method */
   details { margin: 0 0 0.75rem; border-top: 1px solid currentColor; padding-top: 0.5rem; }
   details + details { border-top: 0; }
-  summary { cursor: pointer; list-style: none; display: block; padding: 0.5rem 0; text-align: center; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.1875rem; text-wrap: balance; }
+  summary { cursor: pointer; list-style: none; display: block; padding: 0.5rem 0; text-align: center; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.25rem; text-wrap: balance; }
   summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; margin-left: 0.6rem; font-family: var(--sans); font-style: normal; font-weight: 300; }
   details[open] summary::after { content: "\2212"; }
   .pairs { margin: 1rem 0 0; }
   .pairs div { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0.45rem 0; }
-  .pairs dt { font-weight: 560; font-size: 0.9375rem; }
-  .pairs dd { margin: 0; color: var(--graphite); font-size: 0.9375rem; }
+  .pairs dt { font-weight: 560; font-size: 1rem; }
+  .pairs dd { margin: 0; color: var(--graphite); font-size: 1rem; }
   @media (min-width: 40rem) {
     .pairs div { grid-template-columns: 12rem minmax(0, 1fr); column-gap: 1rem; }
   }
@@ -197,7 +200,7 @@
   .person { text-align: center; margin: 0 0 1.9rem; }
   .person .n { margin: 0; font-family: var(--serif); font-size: 1.625rem; line-height: 1.15; }
   .person .w { margin: 0.2rem 0 0.5rem; font-family: var(--serif); font-style: italic; color: var(--graphite); }
-  .person .c { margin: 0 auto; max-width: 26rem; font-size: 0.9375rem; }
+  .person .c { margin: 0 auto; max-width: 26rem; font-size: 1rem; }
 
 
   /* End to end: the stages of one collection, in order, joined by a rule */
@@ -205,12 +208,12 @@
   .stages li + li::before { content: ""; display: block; width: 1px; height: 2.25rem; margin: 1rem auto; background: var(--graphite); }
   .stages .when { display: block; color: var(--graphite); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .stages .t { display: block; margin: 0.25rem 0 0.4rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
-  .stages .d { display: block; margin: 0 auto; max-width: 24rem; font-size: 0.9375rem; }
+  .stages .d { display: block; margin: 0 auto; max-width: 24rem; font-size: 1rem; }
 
   /* Status */
   .status { list-style: none; margin: 0; padding: 0; }
   .status li { margin: 0 0 1.4rem; }
-  .status .t { display: block; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .status .t { display: block; margin-bottom: 0.1rem; font-weight: 560; font-size: 1rem; line-height: 1.4; }
 
   footer { margin: clamp(4rem, 10vw, 7rem) 0 0; padding: 0 0 calc(2.5rem + env(safe-area-inset-bottom, 0)); text-align: center; color: var(--graphite); font-size: 0.8125rem; letter-spacing: 0.06em; }
 
@@ -306,6 +309,12 @@
   .pv-notes h4 { margin: 0 0 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); font-weight: 500; }
   .pv-notes ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; font-size: 0.8125rem; color: var(--graphite); }
   .pv-foot { margin: clamp(3rem, 8vw, 4.5rem) auto 0; text-align: center; }
+  .pv-specimen { max-width: 64rem; margin: 0 auto clamp(2.5rem, 6vw, 3.5rem); }
+  .pv-specimen .rd { display: inline-block; width: 2.4rem; height: 0.6rem; vertical-align: middle; background: var(--ink); opacity: 0.8; }
+  .pv-specimen figcaption { margin: 1.1rem auto 0; max-width: 36rem; font-size: 0.875rem; color: var(--graphite); text-align: center; text-wrap: pretty; }
+  #private:has(#pv-lock[hidden]) .pv-specimen { display: none; }
+  .aud { max-width: 40rem; margin-left: auto; margin-right: auto; text-align: center; }
+  @media (max-width: 39.99rem) { .aud, .pv-specimen figcaption { text-align: left; } }
   .pv-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
   .pv-chips.scroll { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 2px 2.5rem 2px 2px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); }
   .pv-chips.scroll::-webkit-scrollbar { display: none; }
@@ -341,11 +350,11 @@
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   /* The serif at the weight the face draws: the body's 380 is below Bodoni's lightest, 400 */
-  .sub, .triad .q, .qs .q, .axes .ax, .order .h, .groups .o, .groups .b, .person .n, .person .w, .stages .t, .status .t,
-  .sections a[aria-current="page"], .fx-now, .fx-all .sec, .pv-name, .pv-head .big { font-weight: 400; }
+  .sub, .order .h, .groups .o, .groups .b, .person .n, .person .w, .stages .t,
+  .sections a[aria-current="page"], .pv-name, .pv-head .big { font-weight: 400; }
   /* Line endings: no word stranded on a last line */
   .triad p, .four li, .status li, .stages .d, .pairs dd, .qs .a, .axes .ends p, .person .c { text-wrap: pretty; }
-  .triad h3, .triad .q, .sub, .axes .ax, .groups .b, figcaption, .pv-cell .lab, .pv-stages .s,
+  .triad h3, .sub, .axes .ax, .groups .b, figcaption, .pv-cell .lab, .pv-stages .s,
   .pv-stages .v, .pv-detail dt, .pv-facts dt, .pv-cols span { text-wrap: balance; }
   .pv-detail dd, .pv-facts dd, .pv-notes li, .pv-key, .pv-cell .say, .pv-board-head p { text-wrap: pretty; }
   /* The way on: each page ends with the next one, and each part of the Private tab with the next part */
@@ -377,7 +386,7 @@
   .fx-range:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
   .fx-ends { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.1rem; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
   .fx-ends span:last-child { text-align: right; }
-  .fx-now { margin: 1.1rem 0 0.2rem; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; line-height: 1.3; text-align: center; text-wrap: balance; min-height: 1.3em; }
+  .fx-now { margin: 1.1rem 0 0.2rem; font-weight: 500; font-size: 1rem; line-height: 1.4; text-align: center; text-wrap: balance; min-height: 1.4em; }
   .fx-cols, .fx-row { display: grid; grid-template-columns: minmax(0, 1fr) 3.4rem 5.6rem; column-gap: 0.5rem; align-items: baseline; }
   .fx-cols { padding: 0 0 0.35rem; border-bottom: 1px solid var(--ink); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
   .fx-cols span + span, .fx-row span + span { text-align: right; font-variant-numeric: tabular-nums; }
@@ -396,11 +405,16 @@
   .fx-lab { margin: 0.75rem 0 0.1rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
   .fx-all { margin-top: 1.75rem; }
   .fx .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
-  .fx-all .sec { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .fx-all .sec { margin: 0 0 0.35rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
   .fx-q { border-bottom: 1px solid var(--rule); padding: 0.3rem 0; }
   .fx-q .qn { display: block; padding-top: 0.15rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
   .fx-q .fx-row { padding: 0.12rem 0; }
-  .fx-side .note { margin-top: 0.9rem; font-size: 0.8125rem; }
+  .fx-side .note { margin-top: 0.9rem; max-width: 36em; font-size: 0.875rem; }
+  .fx-key { margin: 0 0 0.75rem; max-width: 36em; font-size: 0.875rem; color: var(--graphite); text-wrap: pretty; }
+  @media (min-width: 44rem) {
+    .fx { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+    .fx figure { position: sticky; top: 1.5rem; }
+  }
   @media (min-width: 56rem) {
     .fx { grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
     .fx figure { position: sticky; top: 1.5rem; }
@@ -417,7 +431,7 @@
       <h1 class="spine" aria-label="Focal">F<span class="o">O</span>CAL</h1>
       <nav aria-label="Sections">
         <ul class="sections">
-          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/benchmark">Benchmark</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -425,20 +439,19 @@
         </ul>
       </nav>
       <div class="lead">
-        <p class="statement">Focal follows each collection from the runway to the advertising, measuring the character of fashion brands, how it shifts, and what it contributes to their success.</p>
+        <p class="statement">Each collection read from the show to the shop window, the campaigns and the advertising, against the other twenty-seven brands: whether it carried, and whether it stayed distinct.</p>
       </div>
       </div>
-      <div class="home" id="offer">
+      <div class="home" id="benchmark">
         <div class="intro">
-          <h2>What we offer</h2>
-          <p>A benchmark of fashion brands, end to end: each collection read from the runway to the advertising, against the other twenty-seven brands and the attention that followed.</p>
+          <h2>The benchmark</h2>
+          <p>Two readings, made the same way for all twenty-eight brands: one of each season's collection, one of the image month by month.</p>
         </div>
         <div class="body wide">
           <div class="triad duo">
             <div>
-              <span class="when">Per brand, per season</span>
-              <h3>Season benchmark</h3>
-              <p class="q">Did the collection carry, and did it stand apart?</p>
+              <span class="when">Season benchmark &middot; each season</span>
+              <h3>Did the collection carry, and did it stay distinct?</h3>
               <p>The runway translated into numbers and followed into the shop window, the campaigns and the advertising, then set against the attention that followed.</p>
               <ul class="four">
                 <li><span class="t">Transmission</span>How much of the runway's clothes reaches the shop window, the campaigns and the advertising, and how fast.</li>
@@ -448,19 +461,18 @@
               </ul>
             </div>
             <div>
-              <span class="when">Monthly</span>
-              <h3>Monthly reading</h3>
-              <p class="q">How is the brand's image moving?</p>
+              <span class="when">Monthly reading &middot; each month</span>
+              <h3>Is the image drifting?</h3>
               <p>The brand's image read month by month, against its own past and its peers, each reading with its uncertainty.</p>
               <ul class="four">
                 <li><span class="t">Character</span>Its imagery on eighteen questions, five axes of luxury and its colour and light, with the cast of people who make it.</li>
                 <li><span class="t">Shift</span>How far the image has moved from its own past and against its peers, and whether it is drifting towards the brand of the moment.</li>
-                <li><span class="t">Contribution</span>The attention, desire and revenue that follow, beyond what the brand's own momentum and the reach it paid for would deliver.</li>
+                <li><span class="t">Contribution</span>The attention that follows, and in time the desire and revenue, beyond what the brand's own momentum and the reach it paid for would deliver. Not a sales forecast: a brand can set it against its own sales.</li>
                 <li><span class="t">Alignment</span>Its advertising set against its show notes and campaign statements, question by question.</li>
               </ul>
             </div>
           </div>
-          <p class="note" style="text-align:center">Not a sales forecast: a brand can set the readings against its own sales.</p>
+          <p class="note aud">For a brand's president or image director, the group that owns it, or an investor following it. <a href="#/brands">Fourteen of the twenty-eight</a> have new creative directors since 2025.</p>
         </div>
       </div>
       <div class="home" id="end-to-end">
@@ -476,7 +488,7 @@
           <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season, and who shot it.</span></li>
           <li><span class="when">Around the show, then to the next one</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, then the campaign's until a week before its next show.</span></li>
         </ol>
-          <p class="block" style="margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is read from daily Wikipedia page views in ten languages: the jump at the show against the rest of its season, and whether it lasts from 30 to 120 days after, beside how much the press wrote and in what tone. The question is which of the benchmark's four measures go with attention that lasts.</p>
+          <p class="block" style="margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is the jump at the show against the rest of its season, and whether it lasts, beside how much the press wrote and in what tone; <a href="#/method">Method</a> sets out how each is judged. The question is which of the season benchmark's four measures go with attention that lasts.</p>
         </div>
       </div>
       <div class="home" id="status">
@@ -488,7 +500,7 @@
           <ul class="status">
             <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the <a href="#/private">Private tab</a>.</li>
             <li><span class="t">Pictures</span>3,053 homepage pictures read for how they are made, and 4,634 for their clothes, 1,459 of them runway looks from 113 shows.</li>
-            <li><span class="t">Attention</span>Daily for all 28 brands, in ten languages; 502 main shows scored for the jump around them.</li>
+            <li><span class="t">Attention</span>Wikipedia page views, daily for all 28 brands in ten languages: a like-for-like measure of attention, not of sales. 502 main shows scored for the jump around them.</li>
             <li><span class="t">Advertising</span>Built, and waiting on Meta to clear the account for its Ad Library.</li>
           </ul>
           <p class="note">The clothes are provisional until people, one of them trained in fashion, have checked the questions.</p>
@@ -501,7 +513,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
-          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/benchmark">Benchmark</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -511,71 +523,13 @@
       </header>
       <div class="intro">
         <h2 id="readings-h">What it reads</h2>
-        <p>Every picture is read four ways: eighteen questions on how it is made, fourteen on the clothes, five axes of luxury, and its colour and light measured from the pixels.</p>
+        <p>Every picture is read four ways: fourteen questions on its clothes, eighteen on how it is made, five axes of luxury, and its colour and light, measured from the pixels.</p>
       </div>
       <div class="body wide">
-        <div class="anatomy">
-          <p class="sub">The eighteen questions</p>
-          <p class="block" style="text-align:center">Here they are on one campaign image, generated for illustration, with its answer to each.</p>
-          <div class="anat">
-          <figure>
-            <svg viewBox="0 0 784 1168" role="img" aria-labelledby="anat-title">
-              <title id="anat-title">A campaign image generated for illustration: a young man in an ivory tailored suit with peak lapels and an open-collared shirt stands against a plain pale grey backdrop, hands in his pockets, looking away to the side, with the wordmark MAISON in the lower left corner</title>
-              <rect width="784" height="1168" fill="#e9e9ea"/>
-              <image href="eighteen-questions.webp" width="784" height="1168"/>
-              <path class="leads" d="M110 250L318 236M650 205L468 217M650 300L457 284M700 960L594 984M700 1110L548 1158M84 640L268 640M700 420L532 426M99 1052L99 1102"/>
-              <g class="dots">
-                <circle cx="318" cy="236" r="6"/>
-                <circle cx="468" cy="217" r="6"/>
-                <circle cx="457" cy="284" r="6"/>
-                <circle cx="594" cy="984" r="6"/>
-                <circle cx="548" cy="1158" r="6"/>
-                <circle cx="268" cy="640" r="6"/>
-                <circle cx="532" cy="426" r="6"/>
-                <circle cx="99" cy="1102" r="6"/>
-              </g>
-              <g class="pins" font-family="Archivo, 'Helvetica Neue', Helvetica, sans-serif" font-size="25" font-weight="600" text-anchor="middle">
-                <g class="pin"><circle cx="700" cy="95" r="26"/><text x="700" y="104">1</text></g>
-                <g class="pin"><circle cx="84" cy="110" r="26"/><text x="84" y="119">4</text></g>
-                <g class="pin"><circle cx="110" cy="250" r="26"/><text x="110" y="259">5</text></g>
-                <g class="pin"><circle cx="650" cy="205" r="26"/><text x="650" y="214">6</text></g>
-                <g class="pin"><circle cx="650" cy="300" r="26"/><text x="650" y="309">7</text></g>
-                <g class="pin"><circle cx="700" cy="960" r="26"/><text x="700" y="969">8</text></g>
-                <g class="pin"><circle cx="700" cy="1110" r="26"/><text x="700" y="1119">9</text></g>
-                <g class="pin"><circle cx="84" cy="640" r="26"/><text x="84" y="649">10</text></g>
-                <g class="pin"><circle cx="700" cy="420" r="26"/><text x="700" y="429">11</text></g>
-                <g class="pin"><circle cx="99" cy="1052" r="26"/><text x="99" y="1061">15</text></g>
-              </g>
-            </svg>
-            <figcaption>Generated with AI for illustration. Not a real brand, campaign or model.</figcaption>
-          </figure>
-          <ol class="qs">
-          <li><span class="n" aria-hidden="true">1</span><div><p class="q">Light</p><p class="a"><b>high key</b>, low key, natural daylight, mixed, unclear</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">2</span><div><p class="q">Colour temperature</p><p class="a">warm, cool, <b>neutral</b>, mixed</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">3</span><div><p class="q">Saturation</p><p class="a"><b>muted</b>, moderate, vivid, monochrome</p></div></li>
-          <li><span class="n" aria-hidden="true">4</span><div><p class="q">Setting</p><p class="a"><b>plain studio</b>, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</p></div></li>
-          <li><span class="n" aria-hidden="true">5</span><div><p class="q">People</p><p class="a">none, <b>one</b>, two, group</p></div></li>
-          <li><span class="n" aria-hidden="true">6</span><div><p class="q">Gaze</p><p class="a">to camera, <b>away</b>, eyes hidden, no face, not applicable</p></div></li>
-          <li><span class="n" aria-hidden="true">7</span><div><p class="q">Expression</p><p class="a"><b>neutral</b>, smiling, intense, playful, not applicable</p></div></li>
-          <li><span class="n" aria-hidden="true">8</span><div><p class="q">Pose</p><p class="a"><b>posed and static</b>, candid and moving, performative, not applicable</p></div></li>
-          <li><span class="n" aria-hidden="true">9</span><div><p class="q">Framing</p><p class="a">close-up, <b>medium</b>, full length, wide scene, product only</p></div></li>
-          <li><span class="n" aria-hidden="true">10</span><div><p class="q">Primary subject</p><p class="a"><b>garment</b>, bag, footwear, accessory, jewellery, face, body, scene, object, text</p></div></li>
-          <li><span class="n" aria-hidden="true">11</span><div><p class="q">Styling register</p><p class="a"><b>formal and tailored</b>, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">12</span><div><p class="q">Production</p><p class="a"><b>polished commercial</b>, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">13</span><div><p class="q">Mood, up to three</p><p class="a"><b>austere</b>, <b>serene</b>, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">14</span><div><p class="q">Street to couture</p><p class="a">one point on a scale of 1 to 5: 1, 2, 3, <b>4</b>, 5</p></div></li>
-          <li><span class="n" aria-hidden="true">15</span><div><p class="q">Text in image</p><p class="a">none, <b>logo only</b>, headline, price or offer, call to action</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">16</span><div><p class="q">Creative type</p><p class="a">brand image, <b>product on model</b>, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">17</span><div><p class="q">Category</p><p class="a"><b>ready-to-wear</b>, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</p></div></li>
-          <li class="whole"><span class="n" aria-hidden="true">18</span><div><p class="q">Confidence</p><p class="a">how sure the reading is, from 0 to 1: <b>0.88</b></p></div></li>
-          </ol>
-          </div>
-          <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
-        </div>
         <!--FX-->
         <div class="narrow" id="fx-intro">
-          <p class="sub" style="margin-top:4rem">The clothes</p>
-          <p class="block">Every runway look, and every picture that follows it, is also read for its clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
+          <p class="sub">The clothes</p>
+          <p class="block">Every runway look, and every picture that follows it, is read for its clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
         </div>
         <div class="fx" id="fx">
           <figure>
@@ -640,6 +594,7 @@
             <figcaption>Generated with AI for illustration. Not a real person or collection.</figcaption>
           </figure>
           <div class="fx-side">
+            <p class="fx-key">Beside each answer, how often the reader gives the same answer to each house's own runway looks. Provisional until people have checked them.</p>
             <div class="fx-cols" aria-hidden="true"><span>What the reader answers</span><span>Dior</span><span>Balenciaga</span></div>
             <p class="fx-lab">Changed at this step</p>
             <div class="fx-step"></div>
@@ -649,6 +604,76 @@
           </div>
         </div>
         <!--FX-END-->
+        <div class="anatomy">
+          <p class="sub" style="margin-top:4rem">How it is made</p>
+          <p class="block">Every picture is also read for how it is made, on eighteen questions. Here they are on one campaign image, generated for illustration, with its answer to each.</p>
+          <div class="anat">
+          <figure>
+            <svg viewBox="0 0 784 1168" role="img" aria-labelledby="anat-title">
+              <title id="anat-title">A campaign image generated for illustration: a young man in an ivory tailored suit with peak lapels and an open-collared shirt stands against a plain pale grey backdrop, hands in his pockets, looking away to the side, with the wordmark MAISON in the lower left corner</title>
+              <rect width="784" height="1168" fill="#e9e9ea"/>
+              <image href="eighteen-questions.webp" width="784" height="1168"/>
+              <path class="leads" d="M110 250L318 236M650 205L468 217M650 300L457 284M700 960L594 984M700 1110L548 1158M84 640L268 640M700 420L532 426M99 1052L99 1102"/>
+              <g class="dots">
+                <circle cx="318" cy="236" r="6"/>
+                <circle cx="468" cy="217" r="6"/>
+                <circle cx="457" cy="284" r="6"/>
+                <circle cx="594" cy="984" r="6"/>
+                <circle cx="548" cy="1158" r="6"/>
+                <circle cx="268" cy="640" r="6"/>
+                <circle cx="532" cy="426" r="6"/>
+                <circle cx="99" cy="1102" r="6"/>
+              </g>
+              <g class="pins" font-family="Archivo, 'Helvetica Neue', Helvetica, sans-serif" font-size="25" font-weight="600" text-anchor="middle">
+                <g class="pin"><circle cx="700" cy="95" r="26"/><text x="700" y="104">1</text></g>
+                <g class="pin"><circle cx="84" cy="110" r="26"/><text x="84" y="119">4</text></g>
+                <g class="pin"><circle cx="110" cy="250" r="26"/><text x="110" y="259">5</text></g>
+                <g class="pin"><circle cx="650" cy="205" r="26"/><text x="650" y="214">6</text></g>
+                <g class="pin"><circle cx="650" cy="300" r="26"/><text x="650" y="309">7</text></g>
+                <g class="pin"><circle cx="700" cy="960" r="26"/><text x="700" y="969">8</text></g>
+                <g class="pin"><circle cx="700" cy="1110" r="26"/><text x="700" y="1119">9</text></g>
+                <g class="pin"><circle cx="84" cy="640" r="26"/><text x="84" y="649">10</text></g>
+                <g class="pin"><circle cx="700" cy="420" r="26"/><text x="700" y="429">11</text></g>
+                <g class="pin"><circle cx="99" cy="1052" r="26"/><text x="99" y="1061">15</text></g>
+              </g>
+            </svg>
+            <figcaption>Generated with AI for illustration. Not a real brand, campaign or model.</figcaption>
+          </figure>
+          <div class="qs-groups">
+          <p class="qs-g">Light and colour</p>
+          <ol class="qs">
+          <li><span class="n" aria-hidden="true">1</span><div><p class="q">Light</p><p class="a"><b>high key</b>, low key, natural daylight, mixed, unclear</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">2</span><div><p class="q">Colour temperature</p><p class="a">warm, cool, <b>neutral</b>, mixed</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">3</span><div><p class="q">Saturation</p><p class="a"><b>muted</b>, moderate, vivid, monochrome</p></div></li>
+          </ol>
+          <p class="qs-g">Setting and people</p>
+          <ol class="qs" start="4">
+          <li><span class="n" aria-hidden="true">4</span><div><p class="q">Setting</p><p class="a"><b>plain studio</b>, studio set, interior, urban exterior, landscape, water or beach, abstract or digital, unclear</p></div></li>
+          <li><span class="n" aria-hidden="true">5</span><div><p class="q">People</p><p class="a">none, <b>one</b>, two, group</p></div></li>
+          <li><span class="n" aria-hidden="true">6</span><div><p class="q">Gaze</p><p class="a">to camera, <b>away</b>, eyes hidden, no face, not applicable</p></div></li>
+          <li><span class="n" aria-hidden="true">7</span><div><p class="q">Expression</p><p class="a"><b>neutral</b>, smiling, intense, playful, not applicable</p></div></li>
+          <li><span class="n" aria-hidden="true">8</span><div><p class="q">Pose</p><p class="a"><b>posed and static</b>, candid and moving, performative, not applicable</p></div></li>
+          </ol>
+          <p class="qs-g">Framing and register</p>
+          <ol class="qs" start="9">
+          <li><span class="n" aria-hidden="true">9</span><div><p class="q">Framing</p><p class="a">close-up, <b>medium</b>, full length, wide scene, product only</p></div></li>
+          <li><span class="n" aria-hidden="true">10</span><div><p class="q">Primary subject</p><p class="a"><b>garment</b>, bag, footwear, accessory, jewellery, face, body, scene, object, text</p></div></li>
+          <li><span class="n" aria-hidden="true">11</span><div><p class="q">Styling register</p><p class="a"><b>formal and tailored</b>, eveningwear, casual, sport and street, utilitarian, mixed, not applicable</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">12</span><div><p class="q">Production</p><p class="a"><b>polished commercial</b>, editorial or art, documentary or lo-fi, user-generated in style, graphic or typographic, CGI or 3D</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">13</span><div><p class="q">Mood, up to three</p><p class="a"><b>austere</b>, <b>serene</b>, intimate, sensual, playful, ironic, nostalgic, opulent, surreal, aggressive, romantic, documentary</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">14</span><div><p class="q">Street to couture</p><p class="a">one point on a scale of 1 to 5: 1, 2, 3, <b>4</b>, 5</p></div></li>
+          </ol>
+          <p class="qs-g">What it is, and how sure</p>
+          <ol class="qs" start="15">
+          <li><span class="n" aria-hidden="true">15</span><div><p class="q">Text in image</p><p class="a">none, <b>logo only</b>, headline, price or offer, call to action</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">16</span><div><p class="q">Creative type</p><p class="a">brand image, <b>product on model</b>, product packshot, catalogue grid, promotional, event or announcement, text graphic, other</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">17</span><div><p class="q">Category</p><p class="a"><b>ready-to-wear</b>, leather goods, footwear, jewellery and watches, eyewear, fragrance and beauty, home, mixed, unclear</p></div></li>
+          <li class="whole"><span class="n" aria-hidden="true">18</span><div><p class="q">Confidence</p><p class="a">how sure the reading is, from 0 to 1: <b>0.88</b></p></div></li>
+          </ol>
+          </div>
+          </div>
+          <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
+        </div>
         <div class="narrow">
           <p class="sub" style="margin-top:4rem">Read as luxury</p>
           <p class="block">Most luxury pictures share a register: polished, posed and quiet. Questions asked of one picture at a time say little about what sets one apart from another, so each picture is also read against others like it, on five axes.</p>
@@ -660,9 +685,8 @@
             <li><p class="ax">Restrained<span class="to">to</span>provocative</p><div class="ends"><p><b>Restrained.</b> Discreet and composed; nothing that confronts, unsettles or flirts.</p><p><b>Provocative.</b> Made to provoke a reaction; confronting, overtly sensual, strange or unsettling.</p></div></li>
           </ol>
           <p class="note" style="margin:0 0 2.75rem">Each picture is placed by comparing it with six others, both ways round, so the order they are shown in cannot decide.</p>
-          <details style="margin-top:3rem">
-          <summary>Colour and light</summary>
-          <p class="note" style="text-align:center;margin:0.75rem 0 1.25rem">Measured from the pixels, with no reader involved.</p>
+          <p class="sub" style="margin-top:4rem">Colour and light</p>
+          <p class="note" style="text-align:center;margin:0 0 1.25rem">Measured from the pixels, with no reader involved.</p>
           <ul class="status">
             <li><span class="t">Lightness</span>How bright the picture is overall.</li>
             <li><span class="t">Contrast</span>How far its brightness spreads from dark to light.</li>
@@ -672,7 +696,6 @@
             <li><span class="t">Spread of hues</span>One hue throughout, or many.</li>
             <li><span class="t">Colourfulness</span>A standard measure of how colourful a picture looks (Hasler and S&uuml;sstrunk).</li>
           </ul>
-          </details>
         </div>
       </div>
       <p class="next"><a href="#/method"><span class="k">Next</span> <span class="t">How it works</span></a></p>
@@ -683,7 +706,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
-          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/benchmark">Benchmark</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -706,7 +729,7 @@
             <li><span class="t">Proven first</span>Each measure is run on simulated brands with known answers before it touches real ones.</li>
           </ul>
           <p class="block">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
-          <details style="margin-top:3rem">
+          <details open style="margin-top:3rem">
             <summary>How the stages are joined</summary>
             <dl class="pairs">
               <div><dt>The scene</dt><dd>Ambassador appointments in the 180 days before the show.</dd></div>
@@ -716,7 +739,7 @@
               <div><dt>The advertising</dt><dd>Ads first seen from a week before the show to three weeks after, and the campaign's from six weeks after to a week before the brand's next main show.</dd></div>
             </dl>
           </details>
-          <details>
+          <details open>
             <summary>How attention is judged</summary>
             <dl class="pairs">
               <div><dt>The jump</dt><dd>The peak of daily views from the day before a show to three days after, over the brand's level from 60 to 10 days before, set against the other shows of its season.</dd></div>
@@ -726,7 +749,7 @@
               <div><dt>Press</dt><dd>The volume and tone of news about the brand on the show day and the three days after, against its usual level.</dd></div>
             </dl>
           </details>
-          <details>
+          <details open>
             <summary>How movement is judged</summary>
             <dl class="pairs">
               <div><dt>Once</dt><dd>A picture counts once, in the month it was first shown, however long it stays up.</dd></div>
@@ -749,7 +772,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
-          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/benchmark">Benchmark</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -774,7 +797,7 @@
           <li><span class="o">Independent</span><span class="b">Brunello&nbsp;Cucinelli, Burberry, Chanel, Dolce&amp;Gabbana, Hermès, Max&nbsp;Mara</span></li>
         </ul>
         <p class="note" style="text-align:center">Zegna runs Tom Ford's fashion under licence from Estée Lauder.</p>
-        <details style="margin-top:2.5rem">
+        <details open style="margin-top:2.5rem">
           <summary>Fourteen with new creative directors since 2025</summary>
           <ol class="order">
             <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">July 2025</time></li>
@@ -822,7 +845,7 @@
             </dl>
             <p class="note">Brunello Cucinelli, Hermès, Maison Margiela and Zegna stand apart. Credits compiled 6 and 7 October 2026.</p>
           </details>
-          <details>
+          <details open>
           <summary>When people move</summary>
           <div class="people" style="margin-top:1.5rem">
             <div class="person">
@@ -853,7 +876,7 @@
       <a class="mark" href="#/overview" aria-label="Focal, home">F<span class="o">O</span>CAL</a>
       <nav aria-label="Sections">
         <ul class="sections">
-          <li><a href="#/offer">Offer</a></li>
+          <li><a href="#/benchmark">Benchmark</a></li>
           <li><a href="#/readings">Readings</a></li>
           <li><a href="#/method">Method</a></li>
           <li><a href="#/brands">Brands</a></li>
@@ -865,6 +888,13 @@
         <h2 id="private-h">Private</h2>
         <p id="pv-intro">Selected analysis for clients. Enter the password to open it.</p>
       </div>
+      <figure class="pv-specimen">
+        <div role="img" aria-label="A specimen of one brand's row on the season board, its figures withheld">
+        <div class="pv-cols pv-grid c-season"><span>Brand</span><span>Distinct from peers</span><span>Moved from last season</span><span>Clothes distinct</span><span>Attention lasted</span><span>Jump at the show</span><span>Campaign pictures</span></div>
+        <div class="pv-rows"><div class="pv-line pv-grid c-season"><span class="pv-who"><span class="pv-name">Gucci</span><span class="pv-sub">27 February 2026</span></span><span class="pv-cell"><span class="lab">Distinct from peers</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Moved from last season</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Clothes distinct</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Attention lasted</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Jump at the show</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Campaign pictures</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span></div></div>
+        </div>
+        <figcaption>Behind the password, rows like this one are filled in for every collection since autumn-winter 2022, each set against the others of its season from the show to the shop window. With them: the fourteen brands that changed designer, followed from the show to the people who make their pictures; whether each brand still looks like itself; and one brand end to end.</figcaption>
+      </figure>
       <form class="pv-lock" id="pv-lock" novalidate>
         <label class="pv-lab" for="pv-pass">Password</label>
         <div class="pv-entry">
@@ -890,7 +920,7 @@
   const panels = [...document.querySelectorAll("[data-panel]")];
   const links = [...document.querySelectorAll("nav a")];
   // pages folded into others keep their addresses: each opens the page that now holds it, at its part
-  const moved = { people: ["brands"], sources: ["overview"], offer: ["overview", "offer"],
+  const moved = { people: ["brands"], sources: ["overview"], offer: ["overview", "benchmark"], benchmark: ["overview", "benchmark"],
                   "end-to-end": ["overview", "end-to-end"], status: ["overview", "status"] };
   function route() {
     const raw = location.hash.replace(/^#\/?/, "");
@@ -898,7 +928,7 @@
     const [want, part] = moved[head] || [head];
     const id = panels.some(p => p.id === want) ? want : "overview";
     panels.forEach(p => { p.hidden = p.id !== id; });
-    const here = part ? "offer" : id;
+    const here = id === "overview" ? "benchmark" : id;     // the home page is the benchmark, the landing its start
     links.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#/" + here ? "page" : "false"));
     if (id === "private") {
       // the private part's code loads only when the tab is opened; its content arrives sealed
