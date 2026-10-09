@@ -3,7 +3,8 @@
     "balenciaga",
     "chanel",
     "dior",
-    "gucci"
+    "gucci",
+    "loewe"
   ],
   "covered": {
     "balenciaga": "2026-10-08",
@@ -17,6 +18,7 @@
     "gucci": "2026-10-08",
     "hermes": "2017-06-29",
     "jil_sander": "2017-03-31",
+    "loewe": "2026-10-08",
     "miu_miu": "2017-03-31"
   },
   "end": "2026-10-08",
@@ -53,7 +55,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh37952361822",
+  "run": "gh37991710185",
   "span": {},
-  "updated_at": "2026-10-09T15:58:10Z"
+  "updated_at": "2026-10-09T21:40:49Z"
 }
