@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-08T21:23:12Z",
+ "generated_at": "2026-10-09T02:16:22Z",
  "window_days": [
   -1,
   14
@@ -389,9 +389,9 @@
    "date": "2023-07-05",
    "season": "2023 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "none",
    "via": "window",
-   "pages": 1,
+   "pages": 2,
    "candidates": []
   },
   "balenciaga:2023-10-01:rtw": {
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "HTTP 504"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2332,13 +2332,10 @@
    "date": "2016-03-03",
    "season": "2016 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "chloe.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "chloe:2016-09-29:rtw": {
    "house": "chloe",
@@ -2717,6 +2714,22 @@
     }
    ]
   },
+  "dior:2019-01-21:couture": {
+   "house": "dior",
+   "date": "2019-01-21",
+   "season": "2019 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/summer-2019-collection",
+     "ts": "20190415072611",
+     "score": 2.88
+    }
+   ]
+  },
   "dior:2019-02-26:rtw": {
    "house": "dior",
    "date": "2019-02-26",
@@ -2858,6 +2871,32 @@
     }
    ]
   },
+  "dior:2020-09-29:rtw": {
+   "house": "dior",
+   "date": "2020-09-29",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/ready-to-wear-spring-summer-2021-show?utm_source=Rakuten&utm_medium=affiliates&ranMID=43935&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-WdN82QpiUBTOcI9zqwiDrg",
+     "ts": "20210113225337",
+     "score": 10.88
+    },
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-ready-to-wear-spring-summer-2021/the-collection",
+     "ts": "20201202230002",
+     "score": 9.88
+    },
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-ready-to-wear-spring-summer-2021/accessories",
+     "ts": "20201130025918",
+     "score": 7.88
+    }
+   ]
+  },
   "dior:2021-01-29:couture": {
    "house": "dior",
    "date": "2021-01-29",
@@ -2907,6 +2946,32 @@
      "url": "https://www.dior.com/en_us/mens-fashion/shows/folder-winter-2021-2022/set-design",
      "ts": "20210302102629",
      "score": 5.88
+    }
+   ]
+  },
+  "dior:2021-03-08:rtw": {
+   "house": "dior",
+   "date": "2021-03-08",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-fall-2021-ready-to-wear-show/la-collection",
+     "ts": "20210507012005",
+     "score": 12.88
+    },
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/fall-2021-ready-to-wear-show",
+     "ts": "20210420030051",
+     "score": 10.88
+    },
+    {
+     "url": "https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-autumn-winter-2021-2022-ready-to-wear-show/animated-feminity",
+     "ts": "20210525192211",
+     "score": 10.88
     }
    ]
   },
@@ -3072,7 +3137,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectionError"
+    "dior.com": "ReadTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3088,6 +3153,449 @@
     "dior.com": "HTTP 504"
    }
   },
+  "dolce_gabbana:2015-01-17:men": {
+   "house": "dolce_gabbana",
+   "date": "2015-01-17",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com/child/collection/dolce-and-gabbana-winter-2015-child-collection-09/",
+     "ts": "20150216213745",
+     "score": 2.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com/child/collection/dolce-and-gabbana-winter-2015-child-collection-29/",
+     "ts": "20150216224910",
+     "score": 2.0
+    }
+   ]
+  },
+  "dolce_gabbana:2015-06-20:men": {
+   "house": "dolce_gabbana",
+   "date": "2015-06-20",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com/man/fashion-show/summer-2016/catwalk/",
+     "ts": "20150905095914",
+     "score": 13.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com/man/fashion-show/summer-2016/",
+     "ts": "20150714044803",
+     "score": 9.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com/man/fashion-show/summer-2016/backstage/",
+     "ts": "20150905091630",
+     "score": 9.0
+    }
+   ]
+  },
+  "dolce_gabbana:2015-09-27:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2015-09-27",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com/woman/fashion-show/summer-2016/",
+     "ts": "20151123164335",
+     "score": 9.0
+    }
+   ]
+  },
+  "dolce_gabbana:2016-01-16:men": {
+   "house": "dolce_gabbana",
+   "date": "2016-01-16",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-01/",
+     "ts": "20160401162642",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-02/",
+     "ts": "20160401162647",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-03/",
+     "ts": "20160401163343",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2016-02-28:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2016-02-28",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-01/",
+     "ts": "20160507092344",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-02/",
+     "ts": "20160507094147",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-03/",
+     "ts": "20160507091636",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2016-06-18:men": {
+   "house": "dolce_gabbana",
+   "date": "2016-06-18",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-men-fashion-show-feed_runway-01/",
+     "ts": "20160624143936",
+     "score": 14.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-men-fashion-show-feed_runway-02/",
+     "ts": "20160624143941",
+     "score": 14.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/catwalk/",
+     "ts": "20160624111102",
+     "score": 13.0
+    }
+   ]
+  },
+  "dolce_gabbana:2016-09-25:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2016-09-25",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2017/catwalk/dolce-and-gabbana-summer-2017-women-fashion-show-runway-01/",
+     "ts": "20161123233202",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-women-fashion-show-runway_feed_1/",
+     "ts": "20161123214059",
+     "score": 14.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com/woman/fashion-show/summer-2017-fashion-show/catwalk/?i=dolce-and-gabbana-summer-2017-women-fashion-show-runway-28",
+     "ts": "20161026184800",
+     "score": 13.0
+    }
+   ]
+  },
+  "dolce_gabbana:2017-01-14:men": {
+   "house": "dolce_gabbana",
+   "date": "2017-01-14",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-01-2/",
+     "ts": "20170118124416",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-02-2/",
+     "ts": "20170118123619",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-03/",
+     "ts": "20170118124421",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2017-02-26:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2017-02-26",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-01/",
+     "ts": "20170302224111",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-02/",
+     "ts": "20170304050708",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-03/",
+     "ts": "20170304050713",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2017-06-17:men": {
+   "house": "dolce_gabbana",
+   "date": "2017-06-17",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-01/",
+     "ts": "20170924101223",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-02/",
+     "ts": "20170924102733",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-03/",
+     "ts": "20170924103148",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2017-09-24:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2017-09-24",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-01/",
+     "ts": "20170930110200",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-02/",
+     "ts": "20170930110205",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-03/",
+     "ts": "20170930104247",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2018-01-13:men": {
+   "house": "dolce_gabbana",
+   "date": "2018-01-13",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-01/",
+     "ts": "20180118135613",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-02/",
+     "ts": "20180118140659",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-03/",
+     "ts": "20180118135618",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2018-02-25:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2018-02-25",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-01/",
+     "ts": "20180413195613",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-02/",
+     "ts": "20180413195618",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-03/",
+     "ts": "20180413195623",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2018-06-16:men": {
+   "house": "dolce_gabbana",
+   "date": "2018-06-16",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-men-fashion-show-runway-01/",
+     "ts": "20180622092110",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-men-fashion-show-runway-02/",
+     "ts": "20180622092358",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-men-fashion-show-runway-03/",
+     "ts": "20180622092718",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2018-09-23:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2018-09-23",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-01/",
+     "ts": "20181217192958",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-02/",
+     "ts": "20181217190949",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-03/",
+     "ts": "20181217193124",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2019-01-12:men": {
+   "house": "dolce_gabbana",
+   "date": "2019-01-12",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-01/",
+     "ts": "20190118062946",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-02/",
+     "ts": "20190118062412",
+     "score": 18.0
+    },
+    {
+     "url": "http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-03/",
+     "ts": "20190118062804",
+     "score": 18.0
+    }
+   ]
+  },
+  "dolce_gabbana:2019-02-24:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2019-02-24",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.dolcegabbana.com/woman/fashion-show/fall-winter-2019-20/",
+     "ts": "20190326010311",
+     "score": 9.0
+    }
+   ]
+  },
+  "dolce_gabbana:2019-06-15:men": {
+   "house": "dolce_gabbana",
+   "date": "2019-06-15",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-01/",
+     "ts": "20190822203500",
+     "score": 18.0
+    },
+    {
+     "url": "https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-02/",
+     "ts": "20190817102751",
+     "score": 18.0
+    },
+    {
+     "url": "https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-03/",
+     "ts": "20190819012242",
+     "score": 18.0
+    }
+   ]
+  },
   "dolce_gabbana:2026-06-20:men": {
    "house": "dolce_gabbana",
    "date": "2026-06-20",
@@ -3098,7 +3606,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ConnectTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -3111,7 +3619,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -3787,6 +4295,116 @@
     }
    ]
   },
+  "fendi:2022-01-27:couture": {
+   "house": "fendi",
+   "date": "2022-01-27",
+   "season": "2022 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 6,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us-en/woman/highlights-woman/women-spring-summer-22-fashion-show",
+     "ts": "20220129051833",
+     "score": 8.94
+    },
+    {
+     "url": "https://www.fendi.com/it-it/donna/highlights-woman/women-spring-summer-22-fashion-show",
+     "ts": "20220129063056",
+     "score": 8.0
+    },
+    {
+     "url": "https://www.fendi.com/lt-en/inside-fendi/women-spring-summer-22-fashion-show",
+     "ts": "20220129013507",
+     "score": 7.62
+    }
+   ]
+  },
+  "fendi:2022-02-23:rtw": {
+   "house": "fendi",
+   "date": "2022-02-23",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/ii-en/cm/eu1-default/woman/highlights-woman/women-fall-winter-2022-2023-fashion-show",
+     "ts": "20220307034045",
+     "score": 10.62
+    }
+   ]
+  },
+  "fendi:2022-07-07:couture": {
+   "house": "fendi",
+   "date": "2022-07-07",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 7,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2022",
+     "ts": "20220709234107",
+     "score": 9.94
+    },
+    {
+     "url": "https://www.fendi.com/ch-en/cm/inside-fendi/fashion-show/women-fall-winter-2022-2023-fashion-show/women-s-fall-winter-22-23-fashion-show-collection",
+     "ts": "20220717191424",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.fendi.com/lt-en/cm/eu1-default/woman/highlights-woman/women-fall-winter-2022-2023-fashion-show",
+     "ts": "20220707171756",
+     "score": 8.62
+    }
+   ]
+  },
+  "fendi:2022-09-10:rtw": {
+   "house": "fendi",
+   "date": "2022-09-10",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/fr-fr/cm/eu1-default/woman/highlights-woman/fendi-womenswear-collection-ss-23",
+     "ts": "20220923093914",
+     "score": 4.0
+    }
+   ]
+  },
+  "fendi:2022-09-21:rtw": {
+   "house": "fendi",
+   "date": "2022-09-21",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/gr-en/cm/inside-fendi/fashion-show/fendi-womenswear-collection-ss-23",
+     "ts": "20220928175338",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.fendi.com/gr-en/cm/inside-fendi/fashion-show/men-spring-summer-2023-show/men-s-spring-summer-2023-show-collection",
+     "ts": "20220928175138",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.fendi.com/cz-en/cm/inside-fendi/fashion-show/men-spring-summer-2023-show",
+     "ts": "20221003235957",
+     "score": 5.62
+    }
+   ]
+  },
   "fendi:2023-01-14:men": {
    "house": "fendi",
    "date": "2023-01-14",
@@ -3845,18 +4463,47 @@
     }
    ]
   },
+  "fendi:2023-06-18:men": {
+   "house": "fendi",
+   "date": "2023-06-18",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us-en/cm/inside-fendi/fashion-show/fendi-mens-spring-summer-2024-fashion-show",
+     "ts": "20230617150823",
+     "score": 9.94
+    }
+   ]
+  },
   "fendi:2023-07-06:couture": {
    "house": "fendi",
    "date": "2023-07-06",
    "season": "2023 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "HTTP 504"
-   }
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/ae-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2023/fendi-couture-2023-collection",
+     "ts": "20230706193513",
+     "score": 11.62
+    },
+    {
+     "url": "https://www.fendi.com/ae-en/cm/inside-fendi/fashion-show/fendi-women-s-fall-winter-2023-24-fashion-show/fendi-women-s-fall-winter-2023-24-fashion-show-collection",
+     "ts": "20230706193739",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.fendi.com/ii-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2023",
+     "ts": "20230717011535",
+     "score": 9.62
+    }
+   ]
   },
   "fendi:2023-09-20:rtw": {
    "house": "fendi",
@@ -4939,7 +5586,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
    }
   },
   "hermes:2019-01-19:men": {
@@ -6692,11 +7339,11 @@
     "www.chloe.com/us/chloe/women/fashionshow/",
     "www.chloe.com/gb/women/fashionshow/",
     "www.chloe.com/en-us/news/",
-    "www.chloe.com/wx/chloe/women/subhome/",
-    "www.chloe.com/fi/chloe/women/fashionshow/",
-    "www.chloe.com/fi/see-by-chloe/women/fashionshow/"
+    "www.chloe.com/en/ready-to-wear-collection/",
+    "www.chloe.com/fi/see-by-chloe/women/fashionshow/",
+    "www.chloe.com/fi/chloe/women/fashionshow/"
    ],
-   "pages": 182
+   "pages": 161
   },
   "balenciaga": {
    "prefixes": [
@@ -6706,10 +7353,9 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/women/fashionshow/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 578
+   "pages": 577
   },
   "burberry": {
    "prefixes": [
@@ -6729,18 +7375,20 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/shows/mens-ready-to-wear/",
+    "www.dior.com/en_us/womens-fashion/"
    ],
-   "pages": 322
+   "pages": 1164
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/man/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/child/collection/"
    ],
-   "pages": 5364
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -6755,10 +7403,10 @@
   },
   "fendi": {
    "prefixes": [
+    "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/fi-en/cm/eu1-default/man/highlights-man/"
    ],
    "pages": 36
@@ -6790,17 +7438,20 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/fi/en/category/men/ready-wear/",
-    "www.hermes.com/fi/en/category/women/ready-wear/",
-    "www.hermes.com/fi/en/content/308227-tableware-collections/"
+    "www.hermes.com/us/en/men/ready-wear/",
+    "www.hermes.com/us/en/women/ready-wear/"
    ],
-   "pages": 726
+   "pages": 704
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/"
+    "www.gucci.com/us/en/st/stories/runway/article/",
+    "www.gucci.com/us/en/st/link-to-love-collection/",
+    "www.gucci.com/us/en/lo/children/childrens-collections/girl-collection-c-children-collections-girl/",
+    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-homeware-c-lifestyle-pet-home-food/",
+    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-clothes-c-lifestyle-pet-readytowear/"
    ],
-   "pages": 0
+   "pages": 108
   },
   "loewe": {
    "prefixes": [],
@@ -6863,10 +7514,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 239,
-   "index failed": 56,
-   "none": 106,
-   "partial": 1
+   "found": 267,
+   "index failed": 54,
+   "none": 108
   },
   "by_house": {
    "alaia": {
@@ -6902,20 +7552,20 @@
     "found": 17
    },
    "dior": {
-    "shows": 19,
-    "found": 15
+    "shows": 22,
+    "found": 18
    },
    "dolce_gabbana": {
-    "shows": 2,
-    "found": 0
+    "shows": 20,
+    "found": 18
    },
    "dries_van_noten": {
     "shows": 42,
     "found": 18
    },
    "fendi": {
-    "shows": 20,
-    "found": 17
+    "shows": 26,
+    "found": 24
    },
    "givenchy": {
     "shows": 40,
@@ -6968,44 +7618,44 @@
   },
   "by_year": {
    "2015": {
-    "shows": 15,
-    "found": 8
+    "shows": 16,
+    "found": 9
    },
    "2016": {
-    "shows": 31,
-    "found": 20
-   },
-   "2017": {
-    "shows": 29,
-    "found": 20
-   },
-   "2018": {
-    "shows": 30,
-    "found": 11
-   },
-   "2019": {
-    "shows": 41,
-    "found": 21
-   },
-   "2020": {
-    "shows": 41,
-    "found": 25
-   },
-   "2021": {
-    "shows": 22,
-    "found": 16
-   },
-   "2022": {
-    "shows": 32,
-    "found": 26
-   },
-   "2023": {
-    "shows": 31,
+    "shows": 35,
     "found": 24
    },
-   "2024": {
+   "2017": {
+    "shows": 33,
+    "found": 24
+   },
+   "2018": {
     "shows": 34,
-    "found": 23
+    "found": 15
+   },
+   "2019": {
+    "shows": 46,
+    "found": 26
+   },
+   "2020": {
+    "shows": 42,
+    "found": 26
+   },
+   "2021": {
+    "shows": 24,
+    "found": 18
+   },
+   "2022": {
+    "shows": 35,
+    "found": 29
+   },
+   "2023": {
+    "shows": 33,
+    "found": 27
+   },
+   "2024": {
+    "shows": 35,
+    "found": 24
    },
    "2025": {
     "shows": 26,
