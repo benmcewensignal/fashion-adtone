@@ -857,7 +857,113 @@ def judge_questions(write: bool = True) -> dict:
     return out
 
 
-LABEL_EDGE = 720         # thumbnails for the labelling page: enough to see cloth and finish on a phone
+# ---------- comparing the clothes of two sets of pictures ----------
+#
+# A set's clothes are the shares of each answer to each standing question, over the pictures the question
+# applies to and the answers that describe the clothes (not "not visible", "not applicable" or "cannot be
+# told"); a list question counts each option chosen. Two sets are compared question by question by the
+# total variation distance between their shares, averaged over the questions both answer. Sets of a few
+# dozen pictures differ by chance alone, and the fewer the pictures the more, so each comparison is set
+# against the same comparison between random splits of the two sets pooled. Likeness is the share the
+# two sets have in common as a fraction of what random splits of the same pictures have in common: about
+# one when they cannot be told apart, nought when they share nothing.
+
+NOT_JUDGED = {"not_visible", "not_applicable", "not_distinguishable"}
+NOT_CLOTHES = ("subject", "confidence")    # what the picture shows of clothing, and the reader's certainty
+WORN_SUBJECTS = ("worn_full", "worn_part")
+MIN_ANSWERS = 3          # pictures answering a question, on each side, before it enters a comparison
+DRAWS = 200
+
+
+class Wardrobe:
+    """Every picture's answers as counts, one matrix per standing question, so a comparison and its random
+    splits are sums over rows."""
+
+    def __init__(self, answers: dict[str, dict], spec: dict, use: list[str], options: dict[str, list[str]] | None = None):
+        import numpy as np
+        options = options or {}
+        self.index = {sha: i for i, sha in enumerate(sorted(answers))}
+        self.cats, self.mats = {}, {}
+        for q in use:
+            if q in NOT_CLOTHES:
+                continue
+            if q in spec.get("lists", {}):
+                cats = [o for o in options.get(q, spec["lists"][q]["options"]) if o not in NOT_JUDGED]
+            elif q in spec.get("integers", {}):
+                cats = list(range(spec["integers"][q]["min"], spec["integers"][q]["max"] + 1))
+            elif q in spec.get("enums", {}):
+                cats = [v for v in spec["enums"][q] if v not in NOT_JUDGED]
+            else:
+                continue
+            col = {c: j for j, c in enumerate(cats)}
+            m = np.zeros((len(self.index), len(cats)))
+            for sha, i in self.index.items():
+                a = answers[sha]
+                if not applies(q, a.get("subject")):
+                    continue
+                v = a.get(q)
+                for x in (v if isinstance(v, list) else [v]):
+                    if x in col:
+                        m[i, col[x]] += 1
+            self.cats[q], self.mats[q] = cats, m
+
+    def rows(self, shas):
+        import numpy as np
+        return np.array(sorted({self.index[s] for s in shas if s in self.index}), int)
+
+    def profile(self, shas, top: int | None = None) -> dict[str, dict]:
+        """Each question's answers as the share of the pictures answering it that give each one (for a list,
+        that show the option), largest first."""
+        ix = self.rows(shas)
+        out = {}
+        for q, m in self.mats.items():
+            sub = m[ix]
+            n = int((sub.sum(1) > 0).sum())
+            if n:
+                shares = sorted(((str(c), round(float((sub[:, j] > 0).sum() / n), 3)) for j, c in enumerate(self.cats[q])
+                                 if sub[:, j].any()), key=lambda kv: -kv[1])
+                out[q] = {"n": n, "shares": dict(shares[:top] if top else shares)}
+        return out
+
+    def compare(self, a, b, key: str = "", draws: int = DRAWS) -> dict | None:
+        """Distance, distance by chance and likeness between two sets of pictures (see above). `key` seeds the
+        random splits, so a comparison comes out the same every time it is made."""
+        import zlib
+        import numpy as np
+        ia, ib = self.rows(a), self.rows(b)
+        if not len(ia) or not len(ib):
+            return None
+        answered = lambda m, ix: int((m[ix].sum(1) > 0).sum())
+        qs = [q for q, m in self.mats.items() if answered(m, ia) >= MIN_ANSWERS and answered(m, ib) >= MIN_ANSWERS]
+        if not qs:
+            return None
+
+        def tvd(x, y):
+            return 0.5 * float(np.abs(x / x.sum() - y / y.sum()).sum())
+        d_obs = float(np.mean([tvd(self.mats[q][ia].sum(0), self.mats[q][ib].sum(0)) for q in qs]))
+        pool = np.concatenate([ia, ib])
+        rng = np.random.default_rng(zlib.crc32(key.encode()))
+        split = np.zeros((draws, len(pool)))
+        for r in range(draws):
+            split[r, rng.permutation(len(pool))[:len(ia)]] = 1.0
+        total, counted = np.zeros(draws), np.zeros(draws)
+        for q in qs:
+            m = self.mats[q][pool]
+            sa = split @ m
+            sb = m.sum(0) - sa
+            na, nb = sa.sum(1), sb.sum(1)
+            ok = (na > 0) & (nb > 0)
+            t = np.zeros(draws)
+            t[ok] = 0.5 * np.abs(sa[ok] / na[ok, None] - sb[ok] / nb[ok, None]).sum(1)
+            total += t
+            counted += ok
+        d_null = float(np.mean(total[counted > 0] / counted[counted > 0]))
+        return {"distance": round(d_obs, 4), "by_chance": round(d_null, 4),
+                "likeness": round((1 - d_obs) / (1 - d_null), 4) if d_null < 1 else None,
+                "questions": len(qs), "n": [int(len(ia)), int(len(ib))]}
+
+
+LABEL_EDGE = 720        # thumbnails for the labelling page: enough to see cloth and finish on a phone
 
 
 def seal_labelled(s: dict | None = None, edge: int = LABEL_EDGE, local: Path | None = None) -> Path:
