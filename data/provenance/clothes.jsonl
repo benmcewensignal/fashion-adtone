@@ -18,3 +18,6 @@
 {"at":"2026-10-09T09:48:42Z","event":"recheck_lines","looks_dropped":187,"looks_kept":876,"shows":["balenciaga:2017-03-05:rtw","balenciaga:2017-10-01:rtw","balenciaga:2018-03-04:rtw","celine:2019-03-01:rtw","celine:2019-09-27:rtw","dior:2020-01-20:couture","dior:2020-02-25:rtw","dior:2021-01-29:couture","dior:2021-09-28:rtw","dior:2022-03-01:rtw","dries_van_noten:2026-01-22:men","fendi:2024-09-17:rtw"],"shows_cleared":12}
 {"at":"2026-10-09T10:13:44Z","event":"runway","left":38,"looks":1459,"out_of_time":true,"shows_collected":113,"shows_without_looks":117}
 {"at":"2026-10-09T10:18:22Z","by_set":{"runway":543},"event":"read","on_volumes":4516,"read_before":3973,"read_now":543,"rows":543,"seconds":262,"sent":543,"waiting":543}
+{"at":"2026-10-09T11:54:41Z","event":"looks coverage","requests":297,"summary":{"found":303,"index failed":50,"none":121,"partial":2}}
+{"at":"2026-10-09T12:19:43Z","event":"runway","left":9,"looks":1831,"out_of_time":true,"shows_collected":136,"shows_without_looks":158}
+{"at":"2026-10-09T12:24:18Z","by_set":{"runway":334},"event":"read","on_volumes":4850,"read_before":4516,"read_now":334,"rows":334,"seconds":262,"sent":334,"waiting":334}

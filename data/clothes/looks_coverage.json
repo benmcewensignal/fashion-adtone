@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T09:13:31Z",
+ "generated_at": "2026-10-09T11:23:15Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "ConnectionError"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -4263,6 +4263,52 @@
     }
    ]
   },
+  "fendi:2018-02-22:rtw": {
+   "house": "fendi",
+   "date": "2018-02-22",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "fendi.com": "ConnectionError"
+   }
+  },
+  "fendi:2018-06-18:men": {
+   "house": "fendi",
+   "date": "2018-06-18",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "fendi.com": "HTTP 504"
+   }
+  },
+  "fendi:2018-07-04:couture": {
+   "house": "fendi",
+   "date": "2018-07-04",
+   "season": "2018 AW couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "fendi:2018-09-20:rtw": {
+   "house": "fendi",
+   "date": "2018-09-20",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "fendi:2019-01-14:men": {
    "house": "fendi",
    "date": "2019-01-14",
@@ -4316,31 +4362,213 @@
     }
    ]
   },
+  "fendi:2019-09-19:rtw": {
+   "house": "fendi",
+   "date": "2019-09-19",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/sk/woman/collections/spring-summer-2020",
+     "ts": "20190921175712",
+     "score": 4.0
+    },
+    {
+     "url": "https://www.fendi.com/hu/man/collections/spring-summer-2020/spring-summer-2020-looks",
+     "ts": "20190918111342",
+     "score": 2.0
+    }
+   ]
+  },
+  "fendi:2020-01-13:men": {
+   "house": "fendi",
+   "date": "2020-01-13",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "fendi:2020-02-20:rtw": {
+   "house": "fendi",
+   "date": "2020-02-20",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "fendi:2020-09-23:rtw": {
+   "house": "fendi",
+   "date": "2020-09-23",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/be/femme/a-voir-absolument/printemps-ete-2021/printemps-ete-2021-looks",
+     "ts": "20201007225706",
+     "score": 4.0
+    },
+    {
+     "url": "https://www.fendi.com/gb/woman/highlights/spring-summer-2021",
+     "ts": "20201001123917",
+     "score": 3.06
+    }
+   ]
+  },
+  "fendi:2021-01-16:men": {
+   "house": "fendi",
+   "date": "2021-01-16",
+   "season": "2021 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/gb/man/highlights/fall-winter-2021-22-collection",
+     "ts": "20210129224003",
+     "score": 5.06
+    },
+    {
+     "url": "https://www.fendi.com/ca-fr/homme/%C3%A0-voir-absolument/collection-automne-hiver-2021-22",
+     "ts": "20210129225439",
+     "score": 4.0
+    }
+   ]
+  },
+  "fendi:2021-01-29:couture": {
+   "house": "fendi",
+   "date": "2021-01-29",
+   "season": "2021 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "fendi:2021-02-24:rtw": {
+   "house": "fendi",
+   "date": "2021-02-24",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us/woman/highlights/fall-winter-2021-22-collection",
+     "ts": "20210227023611",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.fendi.com/gb/man/highlights/fall-winter-2021-22-collection",
+     "ts": "20210301041641",
+     "score": 0.06
+    }
+   ]
+  },
+  "fendi:2021-06-19:men": {
+   "house": "fendi",
+   "date": "2021-06-19",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us/man/highlights/mens-spring-summer-22",
+     "ts": "20210619185808",
+     "score": 2.81
+    },
+    {
+     "url": "https://www.fendi.com/jp/%E3%83%A1%E3%83%B3%E3%82%BA/%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1/mens-spring-summer-22",
+     "ts": "20210619124313",
+     "score": 2.0
+    }
+   ]
+  },
+  "fendi:2021-07-08:couture": {
+   "house": "fendi",
+   "date": "2021-07-08",
+   "season": "2021 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/jp/%E3%82%A6%E3%82%A3%E3%83%A1%E3%83%B3%E3%82%BA/%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1/fendi-couture-autumn-winter-2021/fendi-couture-autumn-winter-2021-looks",
+     "ts": "20210715184052",
+     "score": 5.0
+    },
+    {
+     "url": "https://www.fendi.com/us/woman/highlights/fendi-couture-autumn-winter-2021?twclid=11414630255076134916",
+     "ts": "20210712171121",
+     "score": 3.81
+    },
+    {
+     "url": "https://www.fendi.com/be/femme/a-voir-absolument/fendi-couture-autumn-winter-2021",
+     "ts": "20210722153134",
+     "score": 2.0
+    }
+   ]
+  },
   "fendi:2021-09-22:rtw": {
    "house": "fendi",
    "date": "2021-09-22",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "ConnectTimeout"
-   }
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us/woman/highlights/ready-to-wear-spring-summer-2022-woman/looks",
+     "ts": "20210924073506",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.fendi.com/jp/%E3%82%A6%E3%82%A3%E3%83%A1%E3%83%B3%E3%82%BA/%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1/ready-to-wear-spring-summer-2022-woman",
+     "ts": "20210924014245",
+     "score": 4.0
+    }
+   ]
   },
   "fendi:2022-01-15:men": {
    "house": "fendi",
    "date": "2022-01-15",
    "season": "2022 AW men",
    "category": "men",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "ConnectTimeout"
-   }
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/it-en/cm/eu1-default/man/highlights-man/men-fall-winter-2022-2023-fashion-show/men-fall-winter-22-23-fashion-show-collection",
+     "ts": "20220116222233",
+     "score": 12.62
+    },
+    {
+     "url": "https://www.fendi.com/us-en/cm/eu1-default/man/highlights-man/men-fall-winter-2022-2023-fashion-show",
+     "ts": "20220129050417",
+     "score": 10.94
+    },
+    {
+     "url": "https://www.fendi.com/de-en/cm/inside-fendi/men-fall-winter-2022-2023-fashion-show",
+     "ts": "20220117110550",
+     "score": 10.62
+    }
+   ]
   },
   "fendi:2022-01-27:couture": {
    "house": "fendi",
@@ -5620,7 +5848,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -5843,6 +6071,19 @@
     }
    ]
   },
+  "hermes:2022-10-01:rtw": {
+   "house": "hermes",
+   "date": "2022-10-01",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "hermes.com": "ConnectionError"
+   }
+  },
   "hermes:2023-01-21:men": {
    "house": "hermes",
    "date": "2023-01-21",
@@ -5964,18 +6205,34 @@
     }
    ]
   },
-  "hermes:2024-09-28:rtw": {
+  "hermes:2024-06-22:men": {
    "house": "hermes",
-   "date": "2024-09-28",
-   "season": "2025 SS rtw",
-   "category": "rtw",
+   "date": "2024-06-22",
+   "season": "2025 SS men",
+   "category": "men",
    "status": "index failed",
    "via": "window",
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectTimeout"
+    "hermes.com": "ReadTimeout"
    }
+  },
+  "hermes:2024-09-28:rtw": {
+   "house": "hermes",
+   "date": "2024-09-28",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/us/en/content/331778-men-spring-summer-2025-runway-show/",
+     "ts": "20241001053826",
+     "score": 3.94
+    }
+   ]
   },
   "hermes:2025-01-25:men": {
    "house": "hermes",
@@ -6082,26 +6339,36 @@
    "date": "2026-10-03",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "jil_sander:2015-01-17:men": {
    "house": "jil_sander",
    "date": "2015-01-17",
    "season": "2015 AW men",
    "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "jilsander.com": "ConnectionError"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://jilsander.com/en/man/fall-winter-2015-men/1088/05",
+     "ts": "20150509072344",
+     "score": 3.62
+    },
+    {
+     "url": "http://jilsander.com/en/man/fall-winter-2015-men/1115/32",
+     "ts": "20150508205250",
+     "score": 3.62
+    },
+    {
+     "url": "http://www.jilsander.com:80/en/man/fall-winter-2015-men",
+     "ts": "20150221002600",
+     "score": 3.62
+    }
+   ]
   },
   "jil_sander:2015-02-28:rtw": {
    "house": "jil_sander",
@@ -6134,13 +6401,26 @@
    "date": "2015-06-20",
    "season": "2016 SS men",
    "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "jilsander.com": "ConnectTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://jilsander.com/en/man/spring-summer-2016-men/1261/01-3",
+     "ts": "20150905054221",
+     "score": 3.62
+    },
+    {
+     "url": "http://jilsander.com/en/man/spring-summer-2016-men/1262/02-2",
+     "ts": "20150905054238",
+     "score": 3.62
+    },
+    {
+     "url": "http://jilsander.com/en/man/spring-summer-2016-men/1263/03-2",
+     "ts": "20150905054640",
+     "score": 3.62
+    }
+   ]
   },
   "jil_sander:2015-09-26:rtw": {
    "house": "jil_sander",
@@ -6522,10 +6802,10 @@
    "pages": 0,
    "candidates": []
   },
-  "loewe:2026-03-06:rtw": {
+  "loewe:2017-09-29:rtw": {
    "house": "loewe",
-   "date": "2026-03-06",
-   "season": "2026 AW rtw",
+   "date": "2017-09-29",
+   "season": "2018 SS rtw",
    "category": "rtw",
    "status": "index failed",
    "via": "window",
@@ -6534,6 +6814,648 @@
    "errors": {
     "loewe.com": "ConnectionError"
    }
+  },
+  "loewe:2018-03-02:rtw": {
+   "house": "loewe",
+   "date": "2018-03-02",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.loewe.com:80/eur/en/runway/fw18-runway/fw18-video-looks",
+     "ts": "20180330061033",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.loewe.com:80/eur/en/runway/fw18-runway",
+     "ts": "20180419042437",
+     "score": 4.62
+    }
+   ]
+  },
+  "loewe:2018-09-28:rtw": {
+   "house": "loewe",
+   "date": "2018-09-28",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "loewe.com": "ConnectionError"
+   }
+  },
+  "loewe:2019-01-19:men": {
+   "house": "loewe",
+   "date": "2019-01-19",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw19-men/backstage?country=ES",
+     "ts": "20190519170012",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw19-men/front-row?country=FI",
+     "ts": "20190519234652",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2019-03-01:rtw": {
+   "house": "loewe",
+   "date": "2019-03-01",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw19-women/looks",
+     "ts": "20190602155214",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw19-women",
+     "ts": "20190602140043",
+     "score": 6.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw19-women/backstage",
+     "ts": "20190602175557",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2019-06-22:men": {
+   "house": "loewe",
+   "date": "2019-06-22",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-men/looks?country=RO",
+     "ts": "20190810134857",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-men/backstage?country=CY",
+     "ts": "20190807192936",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-men/campaign?country=CH",
+     "ts": "20190801185420",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2019-09-27:rtw": {
+   "house": "loewe",
+   "date": "2019-09-27",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-women/looks",
+     "ts": "20191013225627",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-women/backstage?country=CZ",
+     "ts": "20200124160735",
+     "score": 6.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/ss20-women/campaign?country=FI",
+     "ts": "20200124164212",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2020-01-18:men": {
+   "house": "loewe",
+   "date": "2020-01-18",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw20-men/looks",
+     "ts": "20200416131649",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw20-men",
+     "ts": "20200428104322",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw20-men/backstage?country=ES",
+     "ts": "20200422132002",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2020-02-28:rtw": {
+   "house": "loewe",
+   "date": "2020-02-28",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw20-women/looks?country=MC",
+     "ts": "20200531210719",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/fw20-women/looks",
+     "ts": "20200623065230",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/runway/fw20-women/campaign?country=SK",
+     "ts": "20200531210656",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2020-10-02:rtw": {
+   "house": "loewe",
+   "date": "2020-10-02",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/ss21-women",
+     "ts": "20201023052811",
+     "score": 6.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/show-on-the-wall.html?utm_campaign=SS21_Show-on-the-Wall&utm_campaign=Show-on-the-Wall&utm_content=SS21_Show-on-the-Wall&utm_medium=Organic_&utm_medium=all&utm_source=Social-LGN&utm_source=Social_&utm_term=SS21_Show-on-the-Wall",
+     "ts": "20201101041942",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/ss21-men",
+     "ts": "20201020151854",
+     "score": 2.62
+    }
+   ]
+  },
+  "loewe:2021-01-23:men": {
+   "house": "loewe",
+   "date": "2021-01-23",
+   "season": "2021 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-men-runway.html",
+     "ts": "20210123113141",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-womens-runway-show-bags.html",
+     "ts": "20210310102520",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-womens-runway-show-details.html",
+     "ts": "20210310102407",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2021-03-05:rtw": {
+   "house": "loewe",
+   "date": "2021-03-05",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-womens-runway-show-bags.html",
+     "ts": "20210310102520",
+     "score": 11.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-womens-runway-show-details.html",
+     "ts": "20210310102407",
+     "score": 11.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw21-womens-runway-show.html",
+     "ts": "20210305104646",
+     "score": 11.62
+    }
+   ]
+  },
+  "loewe:2021-06-26:men": {
+   "house": "loewe",
+   "date": "2021-06-26",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss22-men-runway-david-sims.html",
+     "ts": "20210925093512",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss22-men-runway-florian.html",
+     "ts": "20210918004512",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss22-men-runway.html",
+     "ts": "20210729191740",
+     "score": 9.62
+    }
+   ]
+  },
+  "loewe:2021-10-01:rtw": {
+   "house": "loewe",
+   "date": "2021-10-01",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss22-women-runway-details.html",
+     "ts": "20211127123032",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss22-women-runway.html?utm_id=twitter_ss22_womens",
+     "ts": "20211005120243",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/ss22-women",
+     "ts": "20211024031246",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2022-01-22:men": {
+   "house": "loewe",
+   "date": "2022-01-22",
+   "season": "2022 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-men-runway-details.html",
+     "ts": "20220127060521",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-men-runway.html?utm_campaign=Talk_LN_FWM&utm_medium=Paid_Social&utm_source=LINE",
+     "ts": "20220325203640",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-women-runway-anthea.html",
+     "ts": "20220306072724",
+     "score": 4.62
+    }
+   ]
+  },
+  "loewe:2022-03-04:rtw": {
+   "house": "loewe",
+   "date": "2022-03-04",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-women-runway-anthea.html",
+     "ts": "20220306072724",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-women-runway-details.html",
+     "ts": "20220305112537",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-women-runway.html",
+     "ts": "20220402165317",
+     "score": 8.62
+    }
+   ]
+  },
+  "loewe:2022-06-25:men": {
+   "house": "loewe",
+   "date": "2022-06-25",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss23-men-runway-details.html",
+     "ts": "20220808072523",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss23-men-runway.html?fbclid=IwAR0kzscdSUw2tT9Lcwqpru10mTYwsDp-7g7pNYJEy6FHaKJpFV7tiFohNxc",
+     "ts": "20220720063609",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/ss23-men",
+     "ts": "20220812115401",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2022-09-30:rtw": {
+   "house": "loewe",
+   "date": "2022-09-30",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss23-women-runway-details.html",
+     "ts": "20221205003740",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss23-women-runway.html?ranMID=47194&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-gu8VUB5fzFtEbUZFZvsucw",
+     "ts": "20230109192809",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/ss23-women",
+     "ts": "20221204024930",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2023-01-21:men": {
+   "house": "loewe",
+   "date": "2023-01-21",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw23-men-runway-details.html",
+     "ts": "20230127134105",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw23-men-runway.html",
+     "ts": "20230121103834",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/fw23-men",
+     "ts": "20230328145949",
+     "score": 7.62
+    }
+   ]
+  },
+  "loewe:2023-03-03:rtw": {
+   "house": "loewe",
+   "date": "2023-03-03",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw23-women-runway-details.html",
+     "ts": "20230312223220",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw23-women-runway.html",
+     "ts": "20230308021232",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories/runway/fw23-women",
+     "ts": "20230323121013",
+     "score": 6.62
+    }
+   ]
+  },
+  "loewe:2023-06-24:men": {
+   "house": "loewe",
+   "date": "2023-06-24",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-men-runway.html?he=982bd3ff8514e7c286c7ad6cda8dea99fff5a1b1952527ae1fad3a45b9d948a9&j=25001737&jb=1049&l=183_HTML&mid=100008228&sfmc_sub=766072307&u=582905386",
+     "ts": "20230627110353",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-women-runway.html",
+     "ts": "20231010043339",
+     "score": 4.62
+    }
+   ]
+  },
+  "loewe:2023-09-29:rtw": {
+   "house": "loewe",
+   "date": "2023-09-29",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-women-runway.html",
+     "ts": "20231010043339",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-campaign.html",
+     "ts": "20231028114947",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-men-campaign.html",
+     "ts": "20240114073927",
+     "score": 0.62
+    }
+   ]
+  },
+  "loewe:2024-01-20:men": {
+   "house": "loewe",
+   "date": "2024-01-20",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-men-runway.html",
+     "ts": "20240324135756",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-women-runway.html",
+     "ts": "20240425082013",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-paulas-ibiza-campaign.html?utm_campaign=PAULASIBIZA2024&utm_content=PAULASIBIZA2024&utm_medium=Instagram%20bio&utm_medium=all&utm_source=Instagram&utm_source=Social-LGN&utm_term=PAULASIBIZA2024",
+     "ts": "20240413204745",
+     "score": 2.62
+    }
+   ]
+  },
+  "loewe:2024-03-01:rtw": {
+   "house": "loewe",
+   "date": "2024-03-01",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-women-runway.html",
+     "ts": "20240425082013",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-women-precollection-lookbook.html",
+     "ts": "20240613114027",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-men-runway.html?utm_campaign=_FW24RUNWAY&utm_campaign=fw24-men-runway&utm_content=_FW24RUNWAY&utm_medium=facebook&utm_medium=organic_social&utm_source=Facebook&utm_source=Social-LGN&utm_term=_FW24RUNWAY",
+     "ts": "20240528061413",
+     "score": 4.62
+    }
+   ]
+  },
+  "loewe:2024-06-22:men": {
+   "house": "loewe",
+   "date": "2024-06-22",
+   "season": "2025 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-men-runway-show-alert.html",
+     "ts": "20240620222118",
+     "score": 12.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-men-runway.html",
+     "ts": "20240622093703",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-women-runway.html",
+     "ts": "20240928180428",
+     "score": 4.62
+    }
+   ]
+  },
+  "loewe:2024-09-27:rtw": {
+   "house": "loewe",
+   "date": "2024-09-27",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-women-runway.html?utm_campaign=SS25-WOMENS-SHOW_POST-SHOW_CONSIDERATION_WW&utm_content=VIDEO-TRUEVIEW-ENGAGEMENT_SS25-M-POLISHED_VIDEO&utm_medium=DISPLAY&utm_source=YOUTUBE",
+     "ts": "20241206060412",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-campaign.html?utm_source=Social-LGN&utm_medium=twitter&utm_campaign=_SS25PRECOLLECTION&utm_term=_SS25PRECOLLECTION&utm_content=_SS25PRECOLLECTION",
+     "ts": "20241031212914",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-collection-campaign.html",
+     "ts": "20250121091311",
+     "score": 2.62
+    }
+   ]
+  },
+  "loewe:2025-10-03:rtw": {
+   "house": "loewe",
+   "date": "2025-10-03",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "partial",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "loewe:2026-03-06:rtw": {
+   "house": "loewe",
+   "date": "2026-03-06",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
   },
   "loewe:2026-10-02:rtw": {
    "house": "loewe",
@@ -6545,31 +7467,35 @@
    "pages": 1,
    "candidates": []
   },
+  "loro_piana:2024-02-23:rtw": {
+   "house": "loro_piana",
+   "date": "2024-02-23",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "loro_piana:2024-09-20:rtw": {
    "house": "loro_piana",
    "date": "2024-09-20",
    "season": "2025 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loropiana.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "loro_piana:2026-02-27:rtw": {
    "house": "loro_piana",
    "date": "2026-02-27",
    "season": "2026 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loropiana.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "louis_vuitton:2026-06-23:men": {
    "house": "louis_vuitton",
@@ -6595,6 +7521,19 @@
    "candidates": [],
    "errors": {
     "louisvuitton.com": "ConnectionError"
+   }
+  },
+  "margiela:2018-01-19:men": {
+   "house": "margiela",
+   "date": "2018-01-19",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "partial",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout"
    }
   },
   "margiela:2018-02-28:rtw": {
@@ -6851,26 +7790,20 @@
    "date": "2026-02-26",
    "season": "2026 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maxmara.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "max_mara:2026-09-24:rtw": {
    "house": "max_mara",
    "date": "2026-09-24",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maxmara.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "miu_miu:2015-10-07:rtw": {
    "house": "miu_miu",
@@ -7425,19 +8358,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/haute-couture/",
     "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1212
+   "pages": 973
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 5009
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -7457,7 +8390,7 @@
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/qa/man/collections/"
    ],
-   "pages": 0
+   "pages": 34
   },
   "givenchy": {
    "prefixes": [
@@ -7475,47 +8408,55 @@
     "www.jilsander.com/en/woman/",
     "www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/",
     "jilsander.com/en/woman/",
-    "www.jilsander.com/en/man/"
+    "www.jilsander.com/en/man/",
+    "www.jilsander.com/en-us/men/highlights/",
+    "www.jilsander.com/en-us/women/highlights/"
    ],
-   "pages": 0
+   "pages": 3191
   },
   "hermes": {
    "prefixes": [
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/fi/en/category/men/ready-wear/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/",
+    "www.hermes.com/fi/en/category/women/ready-wear/"
    ],
-   "pages": 704
+   "pages": 726
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/"
    ],
-   "pages": 93
+   "pages": 0
   },
   "loewe": {
    "prefixes": [
+    "www.loewe.com/eur/en/runway/",
     "www.loewe.com/eur/en/stories-collection/",
     "www.loewe.com/eur/en/stories/runway/",
-    "www.loewe.com/eur/en/men/",
-    "www.loewe.com/eur/en/stories-runway/"
+    "www.loewe.com/eur/en/men/"
    ],
-   "pages": 20603
+   "pages": 22874
   },
   "loro_piana": {
-   "prefixes": [],
-   "pages": 0
+   "prefixes": [
+    "fi.loropiana.com/en/lookbook/",
+    "www.loropiana.com/en/our-world-Loro-Piana/Interiors/Interiors_Collections/",
+    "fi.loropiana.com/lookbook/womenswear-fall-winter-2022/",
+    "fi.loropiana.com/lookbook/menswear-fall-winter-2022/"
+   ],
+   "pages": 33
   },
   "margiela": {
    "prefixes": [
-    "www.maisonmargiela.com/en-gb/maison-margiela/",
     "www.maisonmargiela.com/us/collection/",
-    "www.maisonmargiela.com/us/collection/hc-men_section/",
-    "www.maisonmargiela.com/en-us/mm6-autumn-winter-2025-show.html/"
+    "www.maisonmargiela.com/en-gb/maison-margiela/",
+    "www.maisonmargiela.com/us/collections/",
+    "www.maisonmargiela.com/us/collection/hc-men_section/"
    ],
-   "pages": 955
+   "pages": 1272
   },
   "miu_miu": {
    "prefixes": [
@@ -7561,9 +8502,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 268,
-   "index failed": 55,
-   "none": 109
+   "found": 303,
+   "index failed": 50,
+   "none": 121,
+   "partial": 2
   },
   "by_house": {
    "alaia": {
@@ -7611,8 +8553,8 @@
     "found": 18
    },
    "fendi": {
-    "shows": 28,
-    "found": 24
+    "shows": 41,
+    "found": 32
    },
    "givenchy": {
     "shows": 40,
@@ -7623,19 +8565,19 @@
     "found": 6
    },
    "hermes": {
-    "shows": 25,
-    "found": 23
+    "shows": 27,
+    "found": 24
    },
    "jil_sander": {
     "shows": 32,
-    "found": 11
+    "found": 13
    },
    "loewe": {
-    "shows": 2,
-    "found": 0
+    "shows": 29,
+    "found": 24
    },
    "loro_piana": {
-    "shows": 2,
+    "shows": 3,
     "found": 0
    },
    "louis_vuitton": {
@@ -7643,7 +8585,7 @@
     "found": 0
    },
    "margiela": {
-    "shows": 16,
+    "shows": 17,
     "found": 9
    },
    "max_mara": {
@@ -7666,50 +8608,50 @@
   "by_year": {
    "2015": {
     "shows": 16,
-    "found": 9
+    "found": 10
    },
    "2016": {
     "shows": 35,
-    "found": 24
+    "found": 25
    },
    "2017": {
     "shows": 33,
     "found": 24
    },
    "2018": {
-    "shows": 34,
-    "found": 15
+    "shows": 39,
+    "found": 16
    },
    "2019": {
-    "shows": 46,
-    "found": 26
+    "shows": 51,
+    "found": 28
    },
    "2020": {
-    "shows": 42,
-    "found": 26
+    "shows": 49,
+    "found": 31
    },
    "2021": {
-    "shows": 24,
-    "found": 18
+    "shows": 32,
+    "found": 25
    },
    "2022": {
-    "shows": 37,
-    "found": 29
+    "shows": 42,
+    "found": 36
    },
    "2023": {
-    "shows": 33,
-    "found": 27
+    "shows": 38,
+    "found": 31
    },
    "2024": {
-    "shows": 35,
-    "found": 24
+    "shows": 40,
+    "found": 28
    },
    "2025": {
-    "shows": 26,
-    "found": 14
+    "shows": 29,
+    "found": 17
    },
    "2026": {
-    "shows": 44,
+    "shows": 45,
     "found": 26
    },
    "2027": {
