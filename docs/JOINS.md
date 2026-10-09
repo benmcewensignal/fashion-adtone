@@ -44,8 +44,9 @@ started by editing its file in `.github/kick/`.
   the campaigns and other things the house published (by the season the title names, else the house's
   last main show within 183 days), and the advertising (7 days before to 21 after, and the campaign
   from 45 days after to a week before the house's next main show). One record per collection in `data/thread/collections.jsonl`, each saying
-  which stages are filled. The stages keep their own measures; comparing them needs the shared
-  description of the clothes, not yet built.
+  which stages are filled. The stages keep their own measures; the clothes, described with the frozen
+  clothes rubric on the runway and in the shop window alike, join them (`adtone.benchmark`), provisional
+  until labels have checked the questions.
 - **By month.** Each house's four advertising readings (movement, distance from the market,
   consistency, drift towards the leader) set against next month's curiosity and, more thinly, desire
   and money: the forecast. Amendment 2, section 8.

@@ -254,20 +254,34 @@ them, carry the runway looks it would read. The thread workflow runs the probe a
 
 `rubric/clothes-v1.md` is the description the show and the advertising share: what is worn or shown,
 its shape, colour, surface, material and register, in the terms of Fashionpedia's expert-built
-ontology. It is a draft until Ben and a labeller trained in fashion have read it; then it is frozen
-before any picture is read with it. Its questions are marked anyone (Ben's labels are the reference) or
-trained (a trained labeller's are), and a question goes forward only if it varies, is stable across
-crops, and agrees with its reference on runway looks and on advertising pictures separately.
-`adtone.clothes` assembles the test set: about 150 runway looks from the collection pages the archive
-keeps and 150 homepage pictures from the earlier bake-off, the reader's copies on the private Modal
-volume and the labelling page's thumbnails sealed. Workflow `clothes`.
+ontology. It was frozen on 9 October 2026, at Ben's direction, before any picture was read with it and
+before any label was given, and every picture on the private volumes is read with it
+(`adtone.clothes read`, `data/clothes/readings.jsonl`): the test set first, then the runway looks, then
+the homepage pictures. Its questions are marked anyone (Ben's labels are the reference) or trained (a
+trained labeller's are). Which questions stand is decided after the reading, by rules fixed with the
+rubric: a question whose answers do not vary, or do not hold on a crop of the same picture, is dropped
+as soon as the test set is read; the rest are used and marked provisional until the labels decide whether
+each agrees with its reference on runway looks and on advertising pictures separately
+(`adtone.clothes judge`, `data/clothes/judge.json`). When labels are given on the private labelling
+page, `adtone.clothes labels` copies them into `data/clothes/labels.json`, each labeller by role and
+never by name, and the judge step keeps or drops each question; no picture needs reading again.
+`adtone.clothes` also assembles the test set: about 150 runway looks from the collection pages the
+archive keeps and 150 homepage pictures from the earlier bake-off, the reader's copies on the private
+Modal volume and the labelling page's thumbnails sealed. Workflow `clothes`.
 
 The runway layer itself comes from the same archive: `adtone.looks coverage` maps, for every show since
 2015, the pages the Wayback Machine holds on the house's own site (each house's show sections first,
 read whole, then the fortnight after any show they miss), and `adtone.clothes collect` keeps about
 twenty looks of each show found, spread from first look to last, as copies on the private volume
-(`data/clothes/looks_coverage.json`, `data/clothes/runway.jsonl`). Nothing is read until the rubric
-is frozen. The clothes workflow runs both every three hours until they are complete.
+(`data/clothes/looks_coverage.json`, `data/clothes/runway.jsonl`). A show is read only from pages of its
+own line: the archive keeps a house's men's pages beside its women's show, and the reverse. The clothes
+workflow runs both every three hours until they are complete, and reads the new looks once a hundred wait.
+
+The season benchmark uses the clothes: for the runway and for the shop window's outfits, distinctness
+against the season's other brands and movement from the brand's own last one; transmission, the
+likeness between the runway and the shop window; and whether the shop window looks more like its own
+runway than the season's others. Every comparison is net of chance at the numbers of pictures compared
+(`adtone.clothes.Wardrobe`), and every figure carries the standing of the questions it rests on.
 `PREREGISTRATION-AMENDMENT-3.md` is a draft, not decided, of how the links between the show and the
 advertising would be tested if they are tested at all.
 

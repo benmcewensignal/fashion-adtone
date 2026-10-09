@@ -183,6 +183,20 @@
     c.append(t, el("span", "val num", before != null ? `${before}→${after.dist_p}` : String(after.dist_p)));
     return c;
   }
+  function reshuffleClothes(r, norms) {
+    const c = r.clothes || {}, db = c.debut || {}, nx = c.next || {}, bits = [];
+    if (db.runway) bits.push(`The first show's ${db.runway.looks} looks moved ${db.runway.v.toFixed(2)} from the show of ${db.runway.prev}, against ${norms.runway_median != null ? norms.runway_median.toFixed(2) : "?"} for the median runway from one season to the next.`);
+    for (const [w, when] of [[db.window, "after the first show"], [nx.window, "after the next"]]) {
+      if (w) bits.push(`The shop window's ${w.worn} outfits ${when} ${w.apart ? "can" : "cannot"} be told apart from those after the show of ${w.prev}.`);
+    }
+    if (!bits.length) {
+      const looks = db.looks, worn = db.worn;
+      bits.push((looks ? `Only ${looks} look${looks === 1 ? "" : "s"} of the first show read, too few;` : "The first show's looks are not on file yet;")
+        + ` ${worn ? `${worn} outfit${worn === 1 ? "" : "s"}` : "no outfits"} in the shop window since, ${worn && worn >= 5 ? "and too few before to compare" : "too few to read"}.`);
+      return ["The clothes", bits.join(" "), true];
+    }
+    return ["The clothes", bits.join(" ") + " Provisional."];
+  }
   function renderReshuffle(host, part) {
     head(host, part);
     findings(host, part.findings);
@@ -216,6 +230,7 @@
         .map(([k, n]) => `${r.window[k].label}: ${r.window[k].dist_p} of 100 for distinctness, on ${r.window[k].pics} pictures`);
       const mv = r.window.debut && r.window.debut.move_p;
       pairs.push(["The shop window", ws.length ? ws.join("; ") + "." + (mv != null ? ` Moved from the season before: ${mv} of 100.` : "") : "No homepage pictures on file since the change.", !ws.length]);
+      pairs.push(reshuffleClothes(r, part.clothes_norms || {}));
       let crew = r.crew ? `${r.crew.before} advertising photographer${r.crew.before === 1 ? "" : "s"} before the change and ${r.crew.after} since; kept: ${r.crew.kept.length ? r.crew.kept.join(", ") : "none"}.` : "No campaign credits on file before the change.";
       if (r.came) {
         const ppl = r.came.people.filter(p => p.name !== r.designer).map(p => p.name);
@@ -296,13 +311,15 @@
   }
 
   /* ---- the season board ---- */
-  const SORTS = [["dist", "Distinct"], ["move", "Moved"], ["last", "Lasted"], ["heat", "Jump"], ["name", "Name"]];
+  const SORTS = [["dist", "Distinct"], ["move", "Moved"], ["clothes", "Clothes"], ["last", "Lasted"], ["heat", "Jump"], ["name", "Name"]];
   const BOARD_NOTES = [
     "Places run from 0 to 100 within the season, among the brands that have a value: 100 is the most distinct, the most moved, the attention that lasted best, the biggest jump.",
     "Like for like: campaign pictures are ranked only against campaign pictures, and product only against product. A brand's place is the average of the two, weighted by its pictures.",
     "The shop window is the brand's homepage as public web archives keep it, from the day after the show to the day before its next main show, six months at most. Archived pages for Chanel, Dior, Fendi, Louis Vuitton and Burberry are mostly blocked.",
     "Attention is daily English Wikipedia page views: the jump from the day before the show to three days after, and the level from 30 to 120 days after, net of the median brand, each against the brand's usual level. Momentum is the change from four to five months before the show to two to three months before.",
-    "Still to come: the runway translated into numbers, which waits on the description of the clothes; the campaign pictures, listed but not yet read; and the advertising, which waits on Meta.",
+    "The clothes are described by an open vision model, Qwen3-VL-32B at fixed weights, with a fixed set of fifteen questions, from what the picture shows of clothing to its garments, accessories, colours, pattern, how much skin shows, hemline, layers, silhouette, construction, finishing, materials, formality and a street to couture scale. Every question has passed the model's own checks: its answers vary, and hold when the picture is cropped. None has yet been checked against labels, so every clothes figure is provisional. Ben's labels will check the questions anyone can judge and a trained eye the rest; a question that fails is dropped and the figures computed again.",
+    "Clothes distinct sets the shop window's outfits, the pictures that show clothes worn, against each other brand's outfits in the same months, and moved against the brand's own previous window. The runway's looks are set against the season's other runways and the brand's own last runway. Each comparison is of the shares of each answer, net of the difference two random draws of the same pictures would show at those numbers: likeness is 1 when two sets cannot be told apart and 0 when they share nothing. A difference counts as told apart when random draws reach it less than one time in twenty. Places are given when four brands or more in the season have a value.",
+    "Still to come: the runway looks of most shows, still being collected from the archive; the campaign pictures, listed but not yet read; and the advertising, which waits on Meta.",
   ];
   function renderBoard(host, part) {
     const D = part;
@@ -315,9 +332,9 @@
     const bh = el("div", "pv-board-head"); const title = el("h4"); const meta = el("p"); const stages = el("ul", "pv-stages"); bh.append(title, meta, stages);
     const controls = el("div", "pv-controls"); const sorts = el("div", "pv-chips"); controls.append(el("span", "lab", "Sort by"), sorts);
     const key = el("p", "pv-key");
-    key.append("Each dot is the brand's place among the season's brands, from 0 at the left to 100 at the right. ", el("span", "dot"), "read from eight homepage pictures or more; ", el("span", "dot thin"), "fewer. Open a brand to follow its collection stage by stage.");
+    key.append("Each dot is the brand's place among the season's brands, from 0 at the left to 100 at the right. ", el("span", "dot"), "read from eight homepage pictures or more (for the clothes, eight outfits); ", el("span", "dot thin"), "fewer. The clothes are provisional until a trained eye has checked the questions. Open a brand to follow its collection stage by stage.");
     const rowsHost = el("div", "pv-rows");
-    wide.append(seasons, bh, controls, key, cols("c-board", ["Brand", "Distinct from peers", "Moved from last season", "Attention lasted", "Jump at the show", "Campaign pictures"]), rowsHost);
+    wide.append(seasons, bh, controls, key, cols("c-season", ["Brand", "Distinct from peers", "Moved from last season", "Clothes distinct", "Attention lasted", "Jump at the show", "Campaign pictures"]), rowsHost);
     host.append(wide);
     function chips(h, items, cur, pick) {
       h.replaceChildren();
@@ -350,10 +367,36 @@
       const lines = Object.entries(r.lines || {}).map(([k, v]) => `${v} ${k}`).join(", ");
       pairs.push(["The campaigns", r.camps ? `${r.camps} listed for the season (${lines}). Their pictures are not read yet.` : "None listed for the season.", !r.camps]);
       pairs.push(["The advertising", "Waits on Meta's archive.", true]);
-      pairs.push(["The clothes", "How much of the runway reaches each stage waits on the description of the clothes.", true]);
+      pairs.push(...clothesPairs(r.cl || {}));
       return dl(pairs);
     }
-    const sortValue = r => sort === "name" ? r.name.toLowerCase() : sort === "dist" ? r.dist && r.dist.p : sort === "move" ? r.move && r.move.p : sort === "last" ? r.last_p : r.heat_p;
+    const apartText = (m, what) => m.apart ? `told apart from ${what}` : `not told apart from ${what} at these numbers`;
+    function clothesPairs(cl) {
+      const out = [], rw = cl.rw, sw = cl.sw;
+      if (!rw) out.push(["The runway, translated", "No runway looks on file for this show yet.", true]);
+      else if (!rw.desc) out.push(["The runway, translated", `Only ${rw.looks} look${rw.looks === 1 ? "" : "s"} read from the brand's runway pages, too few to describe.`, true]);
+      else {
+        let t = `${rw.looks} looks read from the brand's own runway pages for the show of ${rw.show}. ${rw.desc}`;
+        if (rw.dist) t += rw.dist.p != null ? ` Distinct from the season's other runways: ${ordinal(rw.dist.p)} of 100.` : ` Told apart from ${rw.dist.apart} of the ${rw.dist.n} other runways read for the season.`;
+        if (rw.move) t += ` Against its runway of ${rw.move.prev}: ${apartText(rw.move, "it")}${rw.move.p != null ? `, ${ordinal(rw.move.p)} of 100 for how far it moved` : ""}.`;
+        out.push(["The runway, translated", t + " Provisional."]);
+      }
+      if (!sw || !sw.read) out.push(["The clothes in the shop window", "No shop-window pictures read for their clothes.", true]);
+      else if (!sw.desc) out.push(["The clothes in the shop window", `${sw.worn} of the ${sw.read} pictures read show an outfit worn, too few to read the clothes.`, true]);
+      else {
+        let t = `${sw.worn} of the ${sw.read} pictures read show an outfit worn. ${sw.desc}`;
+        if (sw.dist) t += sw.dist.p != null ? ` Distinct from the other brands' outfits in the same months: ${ordinal(sw.dist.p)} of 100.` : ` Told apart from ${sw.dist.apart} of ${sw.dist.n} other brands.`;
+        if (sw.move) t += ` Against its window after the show of ${sw.move.prev}: ${apartText(sw.move, "it")}${sw.move.p != null ? `, ${ordinal(sw.move.p)} of 100 for how far it moved` : ""}.`;
+        if (sw.trans) {
+          t += ` Against its own runway: ${apartText(sw.trans, "it")}, likeness ${Math.min(1, sw.trans.v).toFixed(2)}`;
+          t += sw.recog ? `; closer to its own runway than to ${sw.recog.less} of the ${sw.recog.of} other runways read.` : ".";
+        }
+        out.push(["The clothes in the shop window", t + " Provisional."]);
+      }
+      return out;
+    }
+    const clothesP = r => r.cl && r.cl.sw && r.cl.sw.dist ? r.cl.sw.dist.p : null;
+    const sortValue = r => sort === "name" ? r.name.toLowerCase() : sort === "dist" ? r.dist && r.dist.p : sort === "move" ? r.move && r.move.p : sort === "clothes" ? clothesP(r) : sort === "last" ? r.last_p : r.heat_p;
     function render() {
       const s = byKey[season];
       chips(seasons, D.seasons.slice().reverse().map(x => [x.key, x.label]), season, k => { season = k; local.set("focal-pv-season", k); render(); });
@@ -363,7 +406,9 @@
       meta.textContent = `Shown ${s.from} to ${s.to}${s.window_to ? `, with shop windows to ${s.window_to}` : ""}. ${s.rows.length} brands, each set against the others of the season.`;
       const c = s.counts, n = s.rows.length; stages.replaceChildren();
       for (const [nm, text, wait] of [["The show", `${c.show} of ${n} with a jump in attention`, false], ["Attention lasted", c.lasting ? `${c.lasting} of ${n}` : "read 120 days after the show", !c.lasting],
-        ["The shop window", `${c.distinctness} of ${n} placed`, false], ["The campaigns", `${c.campaigns} of ${n} listed`, false], ["The advertising", "waits on Meta", true], ["The runway, translated", "waits on the clothes", true]]) {
+        ["The shop window", `${c.distinctness} of ${n} placed`, false], ["The clothes", c.clothes_window ? `${c.clothes_window} of ${n} shop windows, provisional` : "no shop window read yet", !c.clothes_window],
+        ["The runway, translated", c.runway ? `${c.runway} of ${n} runways, provisional` : "no runway looks read yet", !c.runway],
+        ["The campaigns", `${c.campaigns} of ${n} listed`, false], ["The advertising", "waits on Meta", true]]) {
         const li = el("li"); li.append(el("span", "s", nm), el("span", "v" + (wait ? " wait" : ""), text)); stages.append(li);
       }
       const rows = s.rows.slice().sort((a, b) => {
@@ -375,11 +420,14 @@
       });
       rowsHost.replaceChildren();
       for (const r of rows) {
-        const d = el("details"); const sm = el("summary", "pv-grid c-board");
+        const d = el("details"); const sm = el("summary", "pv-grid c-season");
         const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.name), el("span", "pv-sub num", r.day)); sm.append(who);
         const thin = r.pics < D.thin, noPic = r.pics ? "too few of one kind" : "no pictures on file";
         sm.append(place("Distinct from peers", r.dist && r.dist.p, thin, `Distinct: ${r.dist && r.dist.p} of 100, from ${r.pics} pictures`, noPic));
         sm.append(place("Moved from last season", r.move && r.move.p, thin, `Moved: ${r.move && r.move.p} of 100, from ${r.pics} pictures`, r.pics ? "no window to compare" : noPic));
+        const csw = r.cl && r.cl.sw, cp = clothesP(r);
+        sm.append(place("Clothes distinct", cp, !!csw && csw.worn < D.thin, `Clothes distinct: ${cp} of 100, from ${csw && csw.worn} outfits`,
+          !csw || !csw.read ? "no pictures read" : !csw.worn ? "no outfit shown" : csw.worn < 5 ? `${csw.worn} outfit${csw.worn === 1 ? "" : "s"}, too few` : "too few brands to place"));
         sm.append(place("Attention lasted", r.last_p, false, `Lasted: ${r.last_p} of 100`, r.heat == null ? "no page views" : "read after 120 days"));
         sm.append(place("Jump at the show", r.heat_p, false, `Jump: ${r.heat_p} of 100`, "too few page views"));
         sm.append(share("Campaign pictures", r.mix, r.pics));
