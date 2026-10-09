@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T09:01:37Z",
+ "generated_at": "2026-10-09T09:08:24Z",
  "status": "descriptive",
  "windows": {
   "shop_window": "months after the show, to the day before the next main show, 182 days at most",
@@ -201,8 +201,8 @@
    "campaigns": 3,
    "scene": 21,
    "runway": 2,
-   "clothes_window": 0,
-   "transmission": 0
+   "clothes_window": 9,
+   "transmission": 1
   },
   "2022 AW": {
    "brands": 22,
@@ -215,8 +215,8 @@
    "campaigns": 5,
    "scene": 22,
    "runway": 4,
-   "clothes_window": 0,
-   "transmission": 0
+   "clothes_window": 12,
+   "transmission": 2
   },
   "2023 SS": {
    "brands": 21,
@@ -229,8 +229,8 @@
    "campaigns": 2,
    "scene": 21,
    "runway": 2,
-   "clothes_window": 0,
-   "transmission": 0
+   "clothes_window": 13,
+   "transmission": 2
   },
   "2023 AW": {
    "brands": 22,
@@ -243,7 +243,7 @@
    "campaigns": 3,
    "scene": 22,
    "runway": 1,
-   "clothes_window": 5,
+   "clothes_window": 10,
    "transmission": 0
   },
   "2024 SS": {
@@ -257,7 +257,7 @@
    "campaigns": 3,
    "scene": 23,
    "runway": 2,
-   "clothes_window": 12,
+   "clothes_window": 14,
    "transmission": 0
   },
   "2024 AW": {
@@ -388,8 +388,8 @@
   "labellers": {},
   "reader": "qwen3",
   "runways": 44,
-  "windows": 77,
-  "pictures_read": 3186,
+  "windows": 118,
+  "pictures_read": 4091,
   "min": {
    "looks": 8,
    "worn": 5,
@@ -624,9 +624,9 @@
       }
      },
      "distinctness": {
-      "value": 0.1618,
-      "peers": 13,
-      "told_apart": 8,
+      "value": 0.1647,
+      "peers": 14,
+      "told_apart": 9,
       "percentile": 90
      },
      "movement": {},
@@ -2785,13 +2785,134 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 9,
+     "worn": 7,
+     "reach": 0.778,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "bag": 0.857,
+        "shoes": 0.857,
+        "eyewear": 0.571
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "black": 0.714,
+        "grey": 0.143,
+        "beige_camel": 0.143
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "beige_camel": 0.286,
+        "none": 0.286,
+        "black": 0.143
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.5,
+        "mixed": 0.333,
+        "soft_cut": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "none": 0.833,
+        "pleated": 0.167
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "formal_tailored": 0.333,
+        "sport_street": 0.333,
+        "casual": 0.167
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "jacket": 0.571,
+        "trousers": 0.571,
+        "skirt": 0.429
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "knee": 0.167,
+        "midi": 0.167
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "three_or_more": 0.333
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "plain_woven": 0.857,
+        "knit": 0.429,
+        "leather": 0.286
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 0.429,
+        "logo_letters": 0.286,
+        "animal": 0.143
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "volume": 0.5,
+        "fitted": 0.333,
+        "straight": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "covered": 0.833,
+        "some": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "2": 0.429,
+        "3": 0.286,
+        "5": 0.286
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1324,
+      "peers": 10,
+      "told_apart": 3,
+      "percentile": 62
+     },
      "movement": {},
-     "transmission": {},
+     "transmission": {
+      "value": 0.815,
+      "in_common": 0.6047,
+      "by_chance": 0.742,
+      "questions": 14,
+      "told_apart": true
+     },
      "recognisable": {}
     }
    }
@@ -2994,9 +3115,9 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 7,
+     "worn": 3,
+     "reach": 0.429,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -3204,13 +3325,137 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
-     "transmission": {},
+     "read": 16,
+     "worn": 12,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 12,
+       "shares": {
+        "shoes": 1.0,
+        "bag": 0.75,
+        "eyewear": 0.417
+       }
+      },
+      "colour_main": {
+       "n": 12,
+       "shares": {
+        "black": 0.667,
+        "beige_camel": 0.083,
+        "navy": 0.083
+       }
+      },
+      "colour_second": {
+       "n": 12,
+       "shares": {
+        "none": 0.333,
+        "black": 0.25,
+        "white_ivory": 0.25
+       }
+      },
+      "construction": {
+       "n": 12,
+       "shares": {
+        "tailored": 0.583,
+        "soft_cut": 0.417
+       }
+      },
+      "finishing": {
+       "n": 10,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 12,
+       "shares": {
+        "formal_tailored": 0.417,
+        "sport_street": 0.417,
+        "casual": 0.083
+       }
+      },
+      "garments": {
+       "n": 11,
+       "shares": {
+        "trousers": 0.727,
+        "shirt_blouse": 0.455,
+        "jacket": 0.455
+       }
+      },
+      "hemline": {
+       "n": 12,
+       "shares": {
+        "ankle_floor": 0.75,
+        "knee": 0.167,
+        "midi": 0.083
+       }
+      },
+      "layers": {
+       "n": 12,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 12,
+       "shares": {
+        "leather": 0.667,
+        "plain_woven": 0.5,
+        "knit": 0.333
+       }
+      },
+      "pattern": {
+       "n": 12,
+       "shares": {
+        "plain": 0.667,
+        "logo_letters": 0.25,
+        "stripe": 0.083
+       }
+      },
+      "silhouette": {
+       "n": 12,
+       "shares": {
+        "volume": 0.75,
+        "straight": 0.167,
+        "fitted": 0.083
+       }
+      },
+      "skin_shown": {
+       "n": 12,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 12,
+       "shares": {
+        "5": 0.417,
+        "1": 0.25,
+        "2": 0.25
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1803,
+      "peers": 14,
+      "told_apart": 12,
+      "percentile": 33
+     },
+     "movement": {
+      "value": 0.0242,
+      "previous": "2021-10-02",
+      "told_apart": false,
+      "percentile": 17
+     },
+     "transmission": {
+      "value": 0.7691,
+      "in_common": 0.6137,
+      "by_chance": 0.798,
+      "questions": 14,
+      "told_apart": true
+     },
      "recognisable": {}
     }
    }
@@ -3408,9 +3653,9 @@
      }
     },
     "shop_window": {
-     "read": 6,
-     "worn": 0,
-     "reach": 0.0,
+     "read": 10,
+     "worn": 3,
+     "reach": 0.3,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -5279,9 +5524,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 16,
+     "worn": 2,
+     "reach": 0.125,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -5370,9 +5615,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 13,
-     "worn": 0,
-     "reach": 0.0,
+     "read": 17,
+     "worn": 1,
+     "reach": 0.059,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -7124,9 +7369,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 3,
+     "reach": 0.75,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -8813,9 +9058,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 1,
+     "worn": 1,
+     "reach": 1.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -10132,11 +10377,124 @@
      "movement": {}
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 8,
+     "worn": 6,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "shoes": 0.667,
+        "bag": 0.5,
+        "jewellery": 0.5
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.833,
+        "white_ivory": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "white_ivory": 0.5,
+        "black": 0.167,
+        "beige_camel": 0.167
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 0.6,
+        "draped": 0.2,
+        "mixed": 0.2
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "beaded": 0.833,
+        "pleated": 0.5,
+        "none": 0.167
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "formal_tailored": 0.6,
+        "eveningwear": 0.2,
+        "mixed": 0.2
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "trousers": 0.667,
+        "top": 0.5,
+        "jacket": 0.5
+       }
+      },
+      "hemline": {
+       "n": 3,
+       "shares": {
+        "ankle_floor": 0.667,
+        "knee": 0.333
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.167,
+        "three_or_more": 0.167
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "sheer_lace": 0.6,
+        "satin_silk": 0.4,
+        "plain_woven": 0.4
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.5,
+        "mixed": 0.333,
+        "check": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 0.8,
+        "mixed": 0.2
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "5": 0.667,
+        "3": 0.333
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.0732,
+      "peers": 10,
+      "told_apart": 2,
+      "percentile": 0
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -10354,14 +10712,144 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
-     "transmission": {},
-     "recognisable": {}
+     "read": 12,
+     "worn": 9,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 9,
+       "shares": {
+        "jewellery": 0.889,
+        "belt": 0.556,
+        "shoes": 0.333
+       }
+      },
+      "colour_main": {
+       "n": 9,
+       "shares": {
+        "black": 0.778,
+        "white_ivory": 0.222
+       }
+      },
+      "colour_second": {
+       "n": 9,
+       "shares": {
+        "white_ivory": 0.556,
+        "black": 0.222,
+        "beige_camel": 0.111
+       }
+      },
+      "construction": {
+       "n": 9,
+       "shares": {
+        "tailored": 0.667,
+        "draped": 0.111,
+        "soft_cut": 0.111
+       }
+      },
+      "finishing": {
+       "n": 9,
+       "shares": {
+        "none": 0.444,
+        "beaded": 0.333,
+        "pleated": 0.333
+       }
+      },
+      "formality": {
+       "n": 9,
+       "shares": {
+        "formal_tailored": 0.556,
+        "eveningwear": 0.111,
+        "casual": 0.111
+       }
+      },
+      "garments": {
+       "n": 9,
+       "shares": {
+        "jacket": 0.778,
+        "shirt_blouse": 0.333,
+        "top": 0.333
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "ankle_floor": 0.75,
+        "knee": 0.25
+       }
+      },
+      "layers": {
+       "n": 9,
+       "shares": {
+        "two": 0.556,
+        "one": 0.222,
+        "three_or_more": 0.222
+       }
+      },
+      "materials": {
+       "n": 9,
+       "shares": {
+        "plain_woven": 0.444,
+        "knit": 0.333,
+        "satin_silk": 0.333
+       }
+      },
+      "pattern": {
+       "n": 9,
+       "shares": {
+        "plain": 0.444,
+        "floral": 0.222,
+        "check": 0.111
+       }
+      },
+      "silhouette": {
+       "n": 9,
+       "shares": {
+        "fitted": 0.778,
+        "flared": 0.111,
+        "volume": 0.111
+       }
+      },
+      "skin_shown": {
+       "n": 9,
+       "shares": {
+        "some": 0.778,
+        "covered": 0.222
+       }
+      },
+      "street_couture_axis": {
+       "n": 9,
+       "shares": {
+        "5": 0.667,
+        "3": 0.222,
+        "2": 0.111
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1624,
+      "peers": 12,
+      "told_apart": 9,
+      "percentile": 73
+     },
+     "movement": {
+      "value": -0.1231,
+      "previous": "2021-10-03",
+      "told_apart": false,
+      "percentile": 0
+     },
+     "transmission": {
+      "value": 0.9697,
+      "in_common": 0.7093,
+      "by_chance": 0.7315,
+      "questions": 14,
+      "told_apart": false
+     },
+     "recognisable": {
+      "value": 1.0,
+      "less_like": 3,
+      "of": 3
+     }
     }
    }
   },
@@ -10562,13 +11050,138 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
-     "transmission": {},
+     "read": 8,
+     "worn": 6,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "shoes": 0.833,
+        "jewellery": 0.667,
+        "bag": 0.5
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.333,
+        "multicolour": 0.333,
+        "white_ivory": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "black": 0.5,
+        "white_ivory": 0.333,
+        "beige_camel": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.833,
+        "mixed": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "beaded": 0.667,
+        "pleated": 0.5,
+        "none": 0.333
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "formal_tailored": 0.5,
+        "mixed": 0.333,
+        "sport_street": 0.167
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "jacket": 1.0,
+        "skirt": 0.8,
+        "shirt_blouse": 0.6
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.4,
+        "ankle_floor": 0.4,
+        "above_knee": 0.2
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.167,
+        "three_or_more": 0.167
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "leather": 0.6,
+        "plain_woven": 0.6,
+        "knit": 0.2
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "mixed": 0.5,
+        "plain": 0.333,
+        "check": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.667,
+        "mixed": 0.333
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "5": 0.5,
+        "3": 0.333,
+        "2": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1609,
+      "peers": 14,
+      "told_apart": 8,
+      "percentile": 25
+     },
+     "movement": {
+      "value": -0.0381,
+      "previous": "2022-03-08",
+      "told_apart": false,
+      "percentile": 0
+     },
+     "transmission": {
+      "value": 0.7906,
+      "in_common": 0.5785,
+      "by_chance": 0.7317,
+      "questions": 14,
+      "told_apart": true
+     },
      "recognisable": {}
     }
    }
@@ -10658,9 +11271,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 4,
+     "reach": 1.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -12968,9 +13581,9 @@
      "movement": {}
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 3,
+     "worn": 2,
+     "reach": 0.667,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -13171,9 +13784,9 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 3,
+     "worn": 2,
+     "reach": 0.667,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -13259,9 +13872,9 @@
      "movement": {}
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 2,
+     "reach": 0.5,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -13355,9 +13968,9 @@
      "movement": {}
     },
     "shop_window": {
-     "read": 3,
+     "read": 7,
      "worn": 2,
-     "reach": 0.667,
+     "reach": 0.286,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -14643,7 +15256,7 @@
       "value": 0.0623,
       "previous": "2025-10-05",
       "told_apart": false,
-      "percentile": 38
+      "percentile": 44
      },
      "transmission": {
       "value": 0.9691,
@@ -16139,9 +16752,9 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 11,
+     "worn": 3,
+     "reach": 0.273,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -16364,14 +16977,141 @@
      }
     },
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 17,
+     "worn": 15,
+     "reach": 0.882,
+     "profile": {
+      "accessories": {
+       "n": 14,
+       "shares": {
+        "shoes": 0.857,
+        "bag": 0.714,
+        "jewellery": 0.429
+       }
+      },
+      "colour_main": {
+       "n": 15,
+       "shares": {
+        "black": 0.467,
+        "white_ivory": 0.133,
+        "beige_camel": 0.133
+       }
+      },
+      "colour_second": {
+       "n": 15,
+       "shares": {
+        "white_ivory": 0.4,
+        "black": 0.267,
+        "blue": 0.133
+       }
+      },
+      "construction": {
+       "n": 14,
+       "shares": {
+        "tailored": 0.571,
+        "soft_cut": 0.214,
+        "mixed": 0.143
+       }
+      },
+      "finishing": {
+       "n": 14,
+       "shares": {
+        "none": 0.429,
+        "pleated": 0.357,
+        "beaded": 0.286
+       }
+      },
+      "formality": {
+       "n": 15,
+       "shares": {
+        "formal_tailored": 0.4,
+        "casual": 0.267,
+        "mixed": 0.2
+       }
+      },
+      "garments": {
+       "n": 15,
+       "shares": {
+        "shirt_blouse": 0.467,
+        "jacket": 0.467,
+        "trousers": 0.4
+       }
+      },
+      "hemline": {
+       "n": 10,
+       "shares": {
+        "knee": 0.7,
+        "ankle_floor": 0.2,
+        "midi": 0.1
+       }
+      },
+      "layers": {
+       "n": 15,
+       "shares": {
+        "one": 0.4,
+        "two": 0.4,
+        "three_or_more": 0.2
+       }
+      },
+      "materials": {
+       "n": 15,
+       "shares": {
+        "plain_woven": 0.8,
+        "leather": 0.267,
+        "knit": 0.267
+       }
+      },
+      "pattern": {
+       "n": 15,
+       "shares": {
+        "mixed": 0.333,
+        "graphic": 0.267,
+        "plain": 0.2
+       }
+      },
+      "silhouette": {
+       "n": 14,
+       "shares": {
+        "fitted": 0.429,
+        "straight": 0.214,
+        "volume": 0.214
+       }
+      },
+      "skin_shown": {
+       "n": 15,
+       "shares": {
+        "some": 0.8,
+        "covered": 0.2
+       }
+      },
+      "street_couture_axis": {
+       "n": 15,
+       "shares": {
+        "5": 0.467,
+        "3": 0.4,
+        "2": 0.133
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.129,
+      "peers": 12,
+      "told_apart": 7,
+      "percentile": 18
+     },
      "movement": {},
-     "transmission": {},
-     "recognisable": {}
+     "transmission": {
+      "value": 0.8447,
+      "in_common": 0.6015,
+      "by_chance": 0.7121,
+      "questions": 14,
+      "told_apart": true
+     },
+     "recognisable": {
+      "value": 0.333,
+      "less_like": 1,
+      "of": 3
+     }
     }
    }
   },
@@ -16467,12 +17207,133 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 14,
+     "worn": 11,
+     "reach": 0.786,
+     "profile": {
+      "accessories": {
+       "n": 11,
+       "shares": {
+        "shoes": 0.727,
+        "jewellery": 0.636,
+        "belt": 0.364
+       }
+      },
+      "colour_main": {
+       "n": 11,
+       "shares": {
+        "white_ivory": 0.273,
+        "beige_camel": 0.273,
+        "black": 0.182
+       }
+      },
+      "colour_second": {
+       "n": 11,
+       "shares": {
+        "black": 0.545,
+        "beige_camel": 0.273,
+        "white_ivory": 0.091
+       }
+      },
+      "construction": {
+       "n": 11,
+       "shares": {
+        "draped": 0.636,
+        "tailored": 0.182,
+        "mixed": 0.182
+       }
+      },
+      "finishing": {
+       "n": 10,
+       "shares": {
+        "pleated": 0.6,
+        "beaded": 0.3,
+        "none": 0.2
+       }
+      },
+      "formality": {
+       "n": 11,
+       "shares": {
+        "eveningwear": 0.545,
+        "mixed": 0.273,
+        "sport_street": 0.091
+       }
+      },
+      "garments": {
+       "n": 11,
+       "shares": {
+        "dress": 0.545,
+        "jacket": 0.455,
+        "shirt_blouse": 0.364
+       }
+      },
+      "hemline": {
+       "n": 8,
+       "shares": {
+        "ankle_floor": 0.75,
+        "midi": 0.25
+       }
+      },
+      "layers": {
+       "n": 11,
+       "shares": {
+        "one": 0.364,
+        "two": 0.364,
+        "three_or_more": 0.273
+       }
+      },
+      "materials": {
+       "n": 11,
+       "shares": {
+        "sheer_lace": 0.636,
+        "satin_silk": 0.455,
+        "plain_woven": 0.364
+       }
+      },
+      "pattern": {
+       "n": 11,
+       "shares": {
+        "plain": 0.364,
+        "floral": 0.182,
+        "graphic": 0.182
+       }
+      },
+      "silhouette": {
+       "n": 11,
+       "shares": {
+        "fitted": 0.364,
+        "flared": 0.273,
+        "volume": 0.273
+       }
+      },
+      "skin_shown": {
+       "n": 11,
+       "shares": {
+        "some": 0.909,
+        "covered": 0.091
+       }
+      },
+      "street_couture_axis": {
+       "n": 11,
+       "shares": {
+        "5": 0.545,
+        "3": 0.364,
+        "2": 0.091
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2531,
+      "peers": 14,
+      "told_apart": 12,
+      "percentile": 83
+     },
+     "movement": {
+      "value": 0.1296,
+      "previous": "2022-03-01",
+      "told_apart": true,
+      "percentile": 67
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -16572,125 +17433,132 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 11,
-     "worn": 8,
-     "reach": 0.727,
+     "read": 17,
+     "worn": 14,
+     "reach": 0.824,
      "profile": {
       "accessories": {
-       "n": 8,
+       "n": 13,
        "shares": {
-        "shoes": 0.75,
-        "bag": 0.5,
-        "jewellery": 0.375
+        "shoes": 0.769,
+        "bag": 0.615,
+        "jewellery": 0.462
        }
       },
       "colour_main": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "beige_camel": 0.5,
-        "white_ivory": 0.25,
-        "grey": 0.25
+        "beige_camel": 0.429,
+        "white_ivory": 0.357,
+        "grey": 0.143
        }
       },
       "colour_second": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "none": 0.375,
-        "white_ivory": 0.25,
-        "brown": 0.25
+        "white_ivory": 0.357,
+        "black": 0.286,
+        "none": 0.214
        }
       },
       "construction": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "tailored": 0.5,
-        "knitted": 0.25,
-        "soft_cut": 0.25
+        "soft_cut": 0.429,
+        "tailored": 0.357,
+        "knitted": 0.143
        }
       },
       "finishing": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "none": 0.75,
-        "pleated": 0.25
+        "none": 0.714,
+        "pleated": 0.286
        }
       },
       "formality": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "formal_tailored": 0.5,
-        "casual": 0.5
+        "casual": 0.571,
+        "formal_tailored": 0.357,
+        "mixed": 0.071
        }
       },
       "garments": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "dress": 0.625,
-        "shirt_blouse": 0.25,
-        "sweater": 0.25
+        "dress": 0.643,
+        "shirt_blouse": 0.357,
+        "jacket": 0.286
        }
       },
       "hemline": {
-       "n": 6,
+       "n": 11,
        "shares": {
-        "ankle_floor": 0.667,
-        "knee": 0.333
+        "ankle_floor": 0.545,
+        "knee": 0.364,
+        "midi": 0.091
        }
       },
       "layers": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "one": 0.5,
-        "two": 0.5
+        "two": 0.571,
+        "one": 0.429
        }
       },
       "materials": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "plain_woven": 0.75,
-        "knit": 0.25,
-        "satin_silk": 0.25
+        "plain_woven": 0.857,
+        "knit": 0.143,
+        "sheer_lace": 0.143
        }
       },
       "pattern": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "plain": 0.5,
-        "floral": 0.25,
-        "graphic": 0.25
+        "plain": 0.357,
+        "floral": 0.357,
+        "graphic": 0.286
        }
       },
       "silhouette": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "volume": 0.5,
-        "fitted": 0.25,
-        "straight": 0.25
+        "straight": 0.357,
+        "volume": 0.357,
+        "fitted": 0.143
        }
       },
       "skin_shown": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "some": 0.75,
-        "covered": 0.25
+        "some": 0.857,
+        "covered": 0.143
        }
       },
       "street_couture_axis": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "5": 0.5,
-        "2": 0.375,
-        "3": 0.125
+        "3": 0.429,
+        "5": 0.357,
+        "2": 0.214
        }
       }
      },
      "distinctness": {
-      "value": 0.1027,
-      "peers": 6,
-      "told_apart": 2,
-      "percentile": 0
+      "value": 0.1199,
+      "peers": 11,
+      "told_apart": 5,
+      "percentile": 11
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1944,
+      "previous": "2022-09-27",
+      "told_apart": true,
+      "percentile": 62
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -16894,13 +17762,13 @@
       }
      },
      "distinctness": {
-      "value": 0.1885,
-      "peers": 13,
-      "told_apart": 11,
-      "percentile": 82
+      "value": 0.1775,
+      "peers": 15,
+      "told_apart": 12,
+      "percentile": 92
      },
      "movement": {
-      "value": 0.1347,
+      "value": 0.1815,
       "previous": "2023-02-28",
       "told_apart": true,
       "percentile": 100
@@ -17118,7 +17986,7 @@
       "value": 0.0521,
       "previous": "2023-09-26",
       "told_apart": false,
-      "percentile": 33
+      "percentile": 36
      },
      "transmission": {},
      "recognisable": {}
@@ -17555,9 +18423,9 @@
       }
      },
      "distinctness": {
-      "value": 0.0995,
-      "peers": 13,
-      "told_apart": 5,
+      "value": 0.1017,
+      "peers": 14,
+      "told_apart": 6,
       "percentile": 30
      },
      "movement": {
@@ -18814,11 +19682,128 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 19,
+     "worn": 8,
+     "reach": 0.421,
+     "profile": {
+      "accessories": {
+       "n": 8,
+       "shares": {
+        "shoes": 0.875,
+        "jewellery": 0.75,
+        "eyewear": 0.625
+       }
+      },
+      "colour_main": {
+       "n": 8,
+       "shares": {
+        "black": 0.25,
+        "red": 0.25,
+        "beige_camel": 0.125
+       }
+      },
+      "colour_second": {
+       "n": 8,
+       "shares": {
+        "black": 0.5,
+        "none": 0.25,
+        "white_ivory": 0.125
+       }
+      },
+      "construction": {
+       "n": 8,
+       "shares": {
+        "tailored": 0.625,
+        "soft_cut": 0.25,
+        "draped": 0.125
+       }
+      },
+      "finishing": {
+       "n": 7,
+       "shares": {
+        "beaded": 0.714,
+        "pleated": 0.429,
+        "none": 0.286
+       }
+      },
+      "formality": {
+       "n": 8,
+       "shares": {
+        "eveningwear": 0.5,
+        "formal_tailored": 0.125,
+        "casual": 0.125
+       }
+      },
+      "garments": {
+       "n": 8,
+       "shares": {
+        "trousers": 0.5,
+        "shirt_blouse": 0.375,
+        "top": 0.375
+       }
+      },
+      "hemline": {
+       "n": 7,
+       "shares": {
+        "ankle_floor": 0.429,
+        "midi": 0.286,
+        "above_knee": 0.143
+       }
+      },
+      "layers": {
+       "n": 8,
+       "shares": {
+        "three_or_more": 0.5,
+        "two": 0.375,
+        "one": 0.125
+       }
+      },
+      "materials": {
+       "n": 8,
+       "shares": {
+        "satin_silk": 0.5,
+        "sheer_lace": 0.375,
+        "plain_woven": 0.375
+       }
+      },
+      "pattern": {
+       "n": 8,
+       "shares": {
+        "floral": 0.375,
+        "animal": 0.25,
+        "mixed": 0.25
+       }
+      },
+      "silhouette": {
+       "n": 8,
+       "shares": {
+        "fitted": 0.5,
+        "volume": 0.25,
+        "flared": 0.125
+       }
+      },
+      "skin_shown": {
+       "n": 8,
+       "shares": {
+        "some": 0.875,
+        "covered": 0.125
+       }
+      },
+      "street_couture_axis": {
+       "n": 8,
+       "shares": {
+        "5": 0.625,
+        "3": 0.25,
+        "2": 0.125
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1475,
+      "peers": 10,
+      "told_apart": 6,
+      "percentile": 75
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -18916,12 +19901,133 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 20,
+     "worn": 13,
+     "reach": 0.65,
+     "profile": {
+      "accessories": {
+       "n": 13,
+       "shares": {
+        "shoes": 0.615,
+        "jewellery": 0.462,
+        "bag": 0.385
+       }
+      },
+      "colour_main": {
+       "n": 13,
+       "shares": {
+        "black": 0.462,
+        "blue": 0.231,
+        "green": 0.154
+       }
+      },
+      "colour_second": {
+       "n": 13,
+       "shares": {
+        "white_ivory": 0.462,
+        "black": 0.154,
+        "orange": 0.154
+       }
+      },
+      "construction": {
+       "n": 13,
+       "shares": {
+        "soft_cut": 0.615,
+        "draped": 0.231,
+        "tailored": 0.077
+       }
+      },
+      "finishing": {
+       "n": 10,
+       "shares": {
+        "none": 0.5,
+        "pleated": 0.4,
+        "beaded": 0.2
+       }
+      },
+      "formality": {
+       "n": 13,
+       "shares": {
+        "casual": 0.385,
+        "mixed": 0.231,
+        "eveningwear": 0.154
+       }
+      },
+      "garments": {
+       "n": 13,
+       "shares": {
+        "trousers": 0.692,
+        "shirt_blouse": 0.462,
+        "top": 0.385
+       }
+      },
+      "hemline": {
+       "n": 10,
+       "shares": {
+        "ankle_floor": 0.6,
+        "knee": 0.3,
+        "above_knee": 0.1
+       }
+      },
+      "layers": {
+       "n": 13,
+       "shares": {
+        "one": 0.538,
+        "two": 0.231,
+        "three_or_more": 0.231
+       }
+      },
+      "materials": {
+       "n": 12,
+       "shares": {
+        "satin_silk": 0.583,
+        "plain_woven": 0.5,
+        "leather": 0.167
+       }
+      },
+      "pattern": {
+       "n": 13,
+       "shares": {
+        "graphic": 0.308,
+        "floral": 0.231,
+        "logo_letters": 0.231
+       }
+      },
+      "silhouette": {
+       "n": 13,
+       "shares": {
+        "volume": 0.538,
+        "fitted": 0.154,
+        "flared": 0.154
+       }
+      },
+      "skin_shown": {
+       "n": 13,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 13,
+       "shares": {
+        "3": 0.538,
+        "5": 0.231,
+        "2": 0.154
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1572,
+      "peers": 12,
+      "told_apart": 8,
+      "percentile": 55
+     },
+     "movement": {
+      "value": 0.1057,
+      "previous": "2021-09-25",
+      "told_apart": false,
+      "percentile": 57
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -19017,12 +20123,127 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 15,
+     "worn": 6,
+     "reach": 0.4,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "jewellery": 0.667,
+        "eyewear": 0.333,
+        "bag": 0.167
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 1.0
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "metallic": 0.5,
+        "none": 0.333,
+        "beige_camel": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.667,
+        "draped": 0.167,
+        "soft_cut": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "none": 0.5,
+        "beaded": 0.333,
+        "pleated": 0.167
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "eveningwear": 0.5,
+        "sport_street": 0.333,
+        "casual": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "top": 0.667,
+        "jacket": 0.333,
+        "shorts": 0.167
+       }
+      },
+      "hemline": {
+       "n": 2,
+       "shares": {
+        "above_knee": 0.5,
+        "ankle_floor": 0.5
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "one": 0.833,
+        "two": 0.167
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "sheer_lace": 0.5,
+        "leather": 0.333,
+        "plain_woven": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.667,
+        "logo_letters": 0.333
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 1.0
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "5": 0.5,
+        "2": 0.333,
+        "3": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2362,
+      "peers": 14,
+      "told_apart": 13,
+      "percentile": 58
+     },
+     "movement": {
+      "value": 0.2599,
+      "previous": "2022-02-26",
+      "told_apart": true,
+      "percentile": 83
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -19120,31 +20341,32 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 9,
-     "worn": 8,
-     "reach": 0.889,
+     "read": 10,
+     "worn": 9,
+     "reach": 0.9,
      "profile": {
       "accessories": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "shoes": 0.75,
-        "jewellery": 0.75,
-        "bag": 0.375
+        "shoes": 0.778,
+        "jewellery": 0.778,
+        "bag": 0.444
        }
       },
       "colour_main": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "black": 0.375,
-        "red": 0.25,
-        "blue": 0.125
+        "black": 0.333,
+        "red": 0.222,
+        "metallic": 0.222
        }
       },
       "colour_second": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "white_ivory": 0.5,
-        "none": 0.5
+        "white_ivory": 0.444,
+        "none": 0.444,
+        "beige_camel": 0.111
        }
       },
       "construction": {
@@ -19156,26 +20378,26 @@
        }
       },
       "finishing": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "none": 0.625,
-        "pleated": 0.25,
-        "beaded": 0.125
+        "none": 0.556,
+        "beaded": 0.222,
+        "pleated": 0.222
        }
       },
       "formality": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "eveningwear": 0.625,
-        "casual": 0.375
+        "eveningwear": 0.667,
+        "casual": 0.333
        }
       },
       "garments": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "top": 0.625,
-        "trousers": 0.375,
-        "dress": 0.375
+        "top": 0.556,
+        "trousers": 0.444,
+        "dress": 0.333
        }
       },
       "hemline": {
@@ -19187,26 +20409,26 @@
        }
       },
       "layers": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "one": 0.5,
-        "two": 0.5
+        "one": 0.556,
+        "two": 0.444
        }
       },
       "materials": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "satin_silk": 0.625,
-        "sheer_lace": 0.5,
-        "metallic": 0.125
+        "sheer_lace": 0.556,
+        "satin_silk": 0.556,
+        "metallic": 0.222
        }
       },
       "pattern": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "plain": 0.375,
-        "floral": 0.25,
-        "graphic": 0.25
+        "plain": 0.444,
+        "floral": 0.222,
+        "graphic": 0.222
        }
       },
       "silhouette": {
@@ -19218,27 +20440,32 @@
        }
       },
       "skin_shown": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "some": 0.875,
-        "much": 0.125
+        "some": 0.889,
+        "much": 0.111
        }
       },
       "street_couture_axis": {
-       "n": 8,
+       "n": 9,
        "shares": {
-        "5": 0.625,
-        "3": 0.375
+        "5": 0.667,
+        "3": 0.333
        }
       }
      },
      "distinctness": {
-      "value": 0.1713,
-      "peers": 6,
-      "told_apart": 3,
-      "percentile": 100
+      "value": 0.2129,
+      "peers": 11,
+      "told_apart": 10,
+      "percentile": 67
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1324,
+      "previous": "2022-09-24",
+      "told_apart": false,
+      "percentile": 38
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -19448,16 +20675,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1564,
-      "peers": 13,
+      "value": 0.1412,
+      "peers": 15,
       "told_apart": 9,
-      "percentile": 73
+      "percentile": 69
      },
      "movement": {
-      "value": 0.0476,
+      "value": 0.057,
       "previous": "2023-02-25",
       "told_apart": false,
-      "percentile": 0
+      "percentile": 22
      },
      "transmission": {},
      "recognisable": {}
@@ -19680,7 +20907,7 @@
       "value": 0.1297,
       "previous": "2023-09-23",
       "told_apart": true,
-      "percentile": 78
+      "percentile": 73
      },
      "transmission": {},
      "recognisable": {}
@@ -21423,9 +22650,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
+     "read": 2,
      "worn": 0,
-     "reach": null,
+     "reach": 0.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -22130,8 +23357,8 @@
       }
      },
      "distinctness": {
-      "value": 0.0725,
-      "peers": 13,
+      "value": 0.0735,
+      "peers": 14,
       "told_apart": 3,
       "percentile": 10
      },
@@ -22840,7 +24067,7 @@
       "value": 0.0431,
       "previous": "2025-09-30",
       "told_apart": false,
-      "percentile": 12
+      "percentile": 22
      },
      "transmission": {
       "value": 0.9687,
@@ -23991,9 +25218,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 8,
+     "worn": 4,
+     "reach": 0.5,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -24081,9 +25308,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
+     "read": 3,
      "worn": 0,
-     "reach": null,
+     "reach": 0.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -24171,9 +25398,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 1,
+     "reach": 0.25,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -24334,11 +25561,118 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 16,
-     "worn": 4,
-     "reach": 0.25,
-     "profile": null,
-     "distinctness": {},
+     "read": 19,
+     "worn": 5,
+     "reach": 0.263,
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "shoes": 1.0,
+        "bag": 0.6,
+        "jewellery": 0.4
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "black": 0.8,
+        "beige_camel": 0.2
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "white_ivory": 0.6,
+        "grey": 0.2,
+        "none": 0.2
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 1.0
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "none": 0.8,
+        "beaded": 0.2
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "formal_tailored": 1.0
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "shirt_blouse": 0.4,
+        "coat": 0.4,
+        "trousers": 0.4
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "midi": 0.4,
+        "ankle_floor": 0.4,
+        "knee": 0.2
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "one": 0.6,
+        "two": 0.2,
+        "three_or_more": 0.2
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "plain_woven": 1.0,
+        "satin_silk": 0.2
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "plain": 0.4,
+        "floral": 0.2,
+        "graphic": 0.2
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 0.6,
+        "straight": 0.4
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 0.6,
+        "covered": 0.4
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "5": 1.0
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1469,
+      "peers": 15,
+      "told_apart": 9,
+      "percentile": 77
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -24552,7 +25886,12 @@
       "told_apart": 14,
       "percentile": 57
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1193,
+      "previous": "2023-09-20",
+      "told_apart": false,
+      "percentile": 55
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -25115,8 +26454,8 @@
       }
      },
      "distinctness": {
-      "value": 0.0827,
-      "peers": 13,
+      "value": 0.0847,
+      "peers": 14,
       "told_apart": 5,
       "percentile": 20
      },
@@ -26491,11 +27830,125 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 12,
+     "worn": 6,
+     "reach": 0.5,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 0.833,
+        "shoes": 0.667,
+        "jewellery": 0.667
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.5,
+        "grey": 0.167,
+        "blue": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "black": 0.333,
+        "white_ivory": 0.333,
+        "red": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.333,
+        "knitted": 0.333,
+        "soft_cut": 0.167
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "pleated": 0.6,
+        "beaded": 0.4,
+        "none": 0.2
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "casual": 0.5,
+        "formal_tailored": 0.333,
+        "mixed": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "skirt": 0.667,
+        "sweater": 0.5,
+        "trousers": 0.5
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.4,
+        "ankle_floor": 0.4,
+        "midi": 0.2
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "knit": 0.667,
+        "plain_woven": 0.667,
+        "sheer_lace": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "graphic": 0.5,
+        "plain": 0.167,
+        "logo_letters": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "volume": 0.5,
+        "mixed": 0.333,
+        "fitted": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "3": 0.667,
+        "5": 0.333
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1118,
+      "peers": 10,
+      "told_apart": 2,
+      "percentile": 38
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -26593,12 +28046,131 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 12,
+     "worn": 10,
+     "reach": 0.833,
+     "profile": {
+      "accessories": {
+       "n": 10,
+       "shares": {
+        "bag": 0.8,
+        "shoes": 0.8,
+        "eyewear": 0.2
+       }
+      },
+      "colour_main": {
+       "n": 10,
+       "shares": {
+        "black": 0.7,
+        "white_ivory": 0.1,
+        "beige_camel": 0.1
+       }
+      },
+      "colour_second": {
+       "n": 10,
+       "shares": {
+        "white_ivory": 0.5,
+        "black": 0.2,
+        "none": 0.2
+       }
+      },
+      "construction": {
+       "n": 10,
+       "shares": {
+        "tailored": 0.4,
+        "soft_cut": 0.4,
+        "knitted": 0.1
+       }
+      },
+      "finishing": {
+       "n": 9,
+       "shares": {
+        "none": 0.889,
+        "pleated": 0.111
+       }
+      },
+      "formality": {
+       "n": 10,
+       "shares": {
+        "casual": 0.6,
+        "formal_tailored": 0.2,
+        "sport_street": 0.1
+       }
+      },
+      "garments": {
+       "n": 10,
+       "shares": {
+        "trousers": 1.0,
+        "jacket": 0.5,
+        "top": 0.4
+       }
+      },
+      "hemline": {
+       "n": 2,
+       "shares": {
+        "above_knee": 0.5,
+        "ankle_floor": 0.5
+       }
+      },
+      "layers": {
+       "n": 10,
+       "shares": {
+        "one": 0.5,
+        "two": 0.5
+       }
+      },
+      "materials": {
+       "n": 9,
+       "shares": {
+        "plain_woven": 0.778,
+        "knit": 0.444,
+        "leather": 0.333
+       }
+      },
+      "pattern": {
+       "n": 10,
+       "shares": {
+        "plain": 0.3,
+        "logo_letters": 0.3,
+        "mixed": 0.3
+       }
+      },
+      "silhouette": {
+       "n": 10,
+       "shares": {
+        "fitted": 0.4,
+        "volume": 0.4,
+        "straight": 0.2
+       }
+      },
+      "skin_shown": {
+       "n": 10,
+       "shares": {
+        "some": 0.8,
+        "covered": 0.2
+       }
+      },
+      "street_couture_axis": {
+       "n": 10,
+       "shares": {
+        "3": 0.4,
+        "1": 0.2,
+        "2": 0.2
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.0953,
+      "peers": 12,
+      "told_apart": 6,
+      "percentile": 9
+     },
+     "movement": {
+      "value": 0.0494,
+      "previous": "2021-10-03",
+      "told_apart": false,
+      "percentile": 14
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -26694,12 +28266,133 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 11,
+     "worn": 7,
+     "reach": 0.636,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "bag": 1.0,
+        "shoes": 1.0,
+        "jewellery": 0.286
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "black": 0.571,
+        "blue": 0.286,
+        "green": 0.143
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "beige_camel": 0.429,
+        "black": 0.286,
+        "purple": 0.143
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.333,
+        "mixed": 0.333,
+        "knitted": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "pleated": 0.667,
+        "none": 0.333,
+        "beaded": 0.167
+       }
+      },
+      "formality": {
+       "n": 7,
+       "shares": {
+        "formal_tailored": 0.429,
+        "sport_street": 0.286,
+        "casual": 0.143
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "trousers": 0.857,
+        "jacket": 0.429,
+        "shirt_blouse": 0.286
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "ankle_floor": 0.6,
+        "knee": 0.4
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.167,
+        "three_or_more": 0.167
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "leather": 1.0,
+        "knit": 0.429,
+        "plain_woven": 0.429
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 0.714,
+        "graphic": 0.143,
+        "mixed": 0.143
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "volume": 0.5,
+        "fitted": 0.333,
+        "mixed": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 7,
+       "shares": {
+        "some": 0.857,
+        "covered": 0.143
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "2": 0.286,
+        "3": 0.286,
+        "5": 0.286
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1473,
+      "peers": 14,
+      "told_apart": 9,
+      "percentile": 17
+     },
+     "movement": {
+      "value": 0.0603,
+      "previous": "2022-03-06",
+      "told_apart": false,
+      "percentile": 25
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -26796,128 +28489,133 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 11,
-     "worn": 10,
-     "reach": 0.909,
+     "read": 18,
+     "worn": 15,
+     "reach": 0.833,
      "profile": {
       "accessories": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "bag": 0.6,
-        "eyewear": 0.6,
-        "shoes": 0.5
+        "shoes": 0.6,
+        "bag": 0.533,
+        "eyewear": 0.533
        }
       },
       "colour_main": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "black": 0.5,
+        "black": 0.467,
         "beige_camel": 0.2,
-        "pink": 0.2
+        "white_ivory": 0.133
        }
       },
       "colour_second": {
-       "n": 10,
+       "n": 15,
        "shares": {
         "none": 0.4,
-        "white_ivory": 0.2,
-        "metallic": 0.2
+        "white_ivory": 0.133,
+        "blue": 0.133
        }
       },
       "construction": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "tailored": 0.7,
+        "tailored": 0.733,
         "soft_cut": 0.2,
-        "knitted": 0.1
+        "knitted": 0.067
        }
       },
       "finishing": {
-       "n": 10,
+       "n": 14,
        "shares": {
-        "none": 0.5,
-        "pleated": 0.3,
-        "beaded": 0.2
+        "none": 0.571,
+        "pleated": 0.286,
+        "beaded": 0.214
        }
       },
       "formality": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "casual": 0.4,
-        "formal_tailored": 0.3,
-        "sport_street": 0.2
+        "formal_tailored": 0.333,
+        "casual": 0.267,
+        "sport_street": 0.267
        }
       },
       "garments": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "trousers": 0.5,
-        "top": 0.3,
-        "dress": 0.3
+        "trousers": 0.467,
+        "top": 0.267,
+        "jacket": 0.267
        }
       },
       "hemline": {
-       "n": 5,
+       "n": 8,
        "shares": {
-        "knee": 0.4,
-        "midi": 0.4,
-        "ankle_floor": 0.2
+        "knee": 0.5,
+        "midi": 0.25,
+        "ankle_floor": 0.25
        }
       },
       "layers": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "one": 0.5,
-        "two": 0.5
+        "two": 0.533,
+        "one": 0.467
        }
       },
       "materials": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "leather": 0.5,
-        "plain_woven": 0.4,
-        "knit": 0.3
+        "plain_woven": 0.533,
+        "leather": 0.467,
+        "knit": 0.2
        }
       },
       "pattern": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "plain": 0.7,
-        "stripe": 0.1,
-        "logo_letters": 0.1
+        "plain": 0.733,
+        "graphic": 0.133,
+        "stripe": 0.067
        }
       },
       "silhouette": {
-       "n": 10,
+       "n": 15,
        "shares": {
+        "fitted": 0.4,
         "volume": 0.4,
-        "fitted": 0.3,
-        "straight": 0.2
+        "straight": 0.133
        }
       },
       "skin_shown": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "some": 0.8,
-        "much": 0.2
+        "some": 0.867,
+        "much": 0.133
        }
       },
       "street_couture_axis": {
-       "n": 10,
+       "n": 15,
        "shares": {
-        "3": 0.4,
-        "2": 0.3,
-        "5": 0.2
+        "3": 0.333,
+        "5": 0.333,
+        "2": 0.2
        }
       }
      },
      "distinctness": {
-      "value": 0.1095,
-      "peers": 6,
-      "told_apart": 3,
-      "percentile": 50
+      "value": 0.1289,
+      "peers": 11,
+      "told_apart": 9,
+      "percentile": 22
      },
-     "movement": {},
+     "movement": {
+      "value": 0.0151,
+      "previous": "2022-10-02",
+      "told_apart": false,
+      "percentile": 12
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -27116,16 +28814,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1222,
-      "peers": 13,
-      "told_apart": 10,
-      "percentile": 36
+      "value": 0.113,
+      "peers": 15,
+      "told_apart": 13,
+      "percentile": 54
      },
      "movement": {
-      "value": 0.0932,
+      "value": 0.0747,
       "previous": "2023-03-02",
       "told_apart": true,
-      "percentile": 67
+      "percentile": 44
      },
      "transmission": {},
      "recognisable": {}
@@ -27344,7 +29042,7 @@
       "value": 0.0303,
       "previous": "2023-09-28",
       "told_apart": false,
-      "percentile": 11
+      "percentile": 18
      },
      "transmission": {},
      "recognisable": {}
@@ -27538,8 +29236,8 @@
       }
      },
      "distinctness": {
-      "value": 0.1615,
-      "peers": 13,
+      "value": 0.1614,
+      "peers": 14,
       "told_apart": 8,
       "percentile": 80
      },
@@ -27851,7 +29549,7 @@
       "value": 0.0798,
       "previous": "2025-03-07",
       "told_apart": false,
-      "percentile": 50
+      "percentile": 56
      },
      "transmission": {},
      "recognisable": {}
@@ -28650,9 +30348,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
+     "read": 1,
      "worn": 0,
-     "reach": null,
+     "reach": 0.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -28721,9 +30419,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
+     "read": 1,
      "worn": 0,
-     "reach": null,
+     "reach": 0.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -28877,11 +30575,118 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 8,
-     "worn": 4,
+     "read": 10,
+     "worn": 5,
      "reach": 0.5,
-     "profile": null,
-     "distinctness": {},
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "bag": 1.0,
+        "shoes": 1.0,
+        "eyewear": 0.4
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "white_ivory": 0.4,
+        "beige_camel": 0.4,
+        "multicolour": 0.2
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "black": 0.4,
+        "white_ivory": 0.2,
+        "beige_camel": 0.2
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "soft_cut": 0.8,
+        "knitted": 0.2
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "casual": 1.0
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "shorts": 0.6,
+        "shirt_blouse": 0.4,
+        "sweater": 0.4
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "above_knee": 0.4,
+        "knee": 0.4,
+        "ankle_floor": 0.2
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "two": 0.6,
+        "one": 0.4
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "plain_woven": 1.0,
+        "knit": 0.4
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "logo_letters": 0.6,
+        "graphic": 0.4
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "straight": 0.4,
+        "volume": 0.4,
+        "fitted": 0.2
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "3": 0.8,
+        "1": 0.2
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2161,
+      "peers": 11,
+      "told_apart": 9,
+      "percentile": 78
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -28978,9 +30783,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 15,
+     "read": 17,
      "worn": 13,
-     "reach": 0.867,
+     "reach": 0.765,
      "profile": {
       "accessories": {
        "n": 13,
@@ -29093,12 +30898,17 @@
       }
      },
      "distinctness": {
-      "value": 0.1053,
-      "peers": 13,
-      "told_apart": 5,
-      "percentile": 18
+      "value": 0.1029,
+      "peers": 15,
+      "told_apart": 6,
+      "percentile": 31
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1676,
+      "previous": "2023-02-24",
+      "told_apart": true,
+      "percentile": 89
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -29612,8 +31422,8 @@
       }
      },
      "distinctness": {
-      "value": 0.1119,
-      "peers": 13,
+      "value": 0.1141,
+      "peers": 14,
       "told_apart": 6,
       "percentile": 40
      },
@@ -30839,9 +32649,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 3,
+     "worn": 1,
+     "reach": 0.333,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -30929,9 +32739,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 17,
+     "worn": 3,
+     "reach": 0.176,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -31020,9 +32830,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 1,
+     "reach": 0.25,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -31112,9 +32922,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 4,
-     "worn": 0,
-     "reach": 0.0,
+     "read": 22,
+     "worn": 3,
+     "reach": 0.136,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -31304,10 +33114,10 @@
       }
      },
      "distinctness": {
-      "value": 0.0966,
-      "peers": 13,
+      "value": 0.0829,
+      "peers": 15,
       "told_apart": 3,
-      "percentile": 9
+      "percentile": 15
      },
      "movement": {},
      "transmission": {},
@@ -31828,8 +33638,8 @@
       }
      },
      "distinctness": {
-      "value": 0.1368,
-      "peers": 13,
+      "value": 0.1387,
+      "peers": 14,
       "told_apart": 6,
       "percentile": 60
      },
@@ -32933,11 +34743,122 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 8,
+     "worn": 5,
+     "reach": 0.625,
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "bag": 0.8,
+        "shoes": 0.8,
+        "jewellery": 0.8
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "brown": 0.4,
+        "black": 0.2,
+        "beige_camel": 0.2
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "white_ivory": 0.4,
+        "black": 0.2,
+        "blue": 0.2
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 0.4,
+        "draped": 0.4,
+        "knitted": 0.2
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "none": 0.8,
+        "pleated": 0.2
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "formal_tailored": 0.6,
+        "eveningwear": 0.2,
+        "casual": 0.2
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "coat": 0.4,
+        "dress": 0.4,
+        "shirt_blouse": 0.2
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "ankle_floor": 1.0
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "two": 0.6,
+        "one": 0.4
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "leather": 0.6,
+        "knit": 0.4,
+        "sheer_lace": 0.2
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "plain": 1.0
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 0.6,
+        "flared": 0.2,
+        "volume": 0.2
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 0.6,
+        "covered": 0.4
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "5": 0.6,
+        "3": 0.2,
+        "4": 0.2
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1206,
+      "peers": 10,
+      "told_apart": 3,
+      "percentile": 50
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -33035,12 +34956,134 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 16,
+     "worn": 12,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 12,
+       "shares": {
+        "shoes": 0.667,
+        "bag": 0.583,
+        "jewellery": 0.417
+       }
+      },
+      "colour_main": {
+       "n": 12,
+       "shares": {
+        "white_ivory": 0.333,
+        "beige_camel": 0.167,
+        "black": 0.083
+       }
+      },
+      "colour_second": {
+       "n": 12,
+       "shares": {
+        "black": 0.417,
+        "white_ivory": 0.167,
+        "brown": 0.167
+       }
+      },
+      "construction": {
+       "n": 12,
+       "shares": {
+        "soft_cut": 0.5,
+        "tailored": 0.25,
+        "draped": 0.167
+       }
+      },
+      "finishing": {
+       "n": 12,
+       "shares": {
+        "none": 0.667,
+        "pleated": 0.333,
+        "beaded": 0.083
+       }
+      },
+      "formality": {
+       "n": 12,
+       "shares": {
+        "casual": 0.583,
+        "formal_tailored": 0.25,
+        "sport_street": 0.083
+       }
+      },
+      "garments": {
+       "n": 12,
+       "shares": {
+        "trousers": 0.5,
+        "top": 0.333,
+        "shirt_blouse": 0.25
+       }
+      },
+      "hemline": {
+       "n": 10,
+       "shares": {
+        "knee": 0.5,
+        "ankle_floor": 0.3,
+        "midi": 0.2
+       }
+      },
+      "layers": {
+       "n": 12,
+       "shares": {
+        "one": 0.583,
+        "two": 0.417
+       }
+      },
+      "materials": {
+       "n": 12,
+       "shares": {
+        "plain_woven": 0.5,
+        "knit": 0.333,
+        "leather": 0.25
+       }
+      },
+      "pattern": {
+       "n": 12,
+       "shares": {
+        "plain": 0.75,
+        "floral": 0.083,
+        "graphic": 0.083
+       }
+      },
+      "silhouette": {
+       "n": 12,
+       "shares": {
+        "fitted": 0.417,
+        "volume": 0.333,
+        "flared": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 12,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.083,
+        "much": 0.083
+       }
+      },
+      "street_couture_axis": {
+       "n": 12,
+       "shares": {
+        "3": 0.5,
+        "5": 0.25,
+        "2": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.093,
+      "peers": 12,
+      "told_apart": 6,
+      "percentile": 0
+     },
+     "movement": {
+      "value": 0.063,
+      "previous": "2021-09-22",
+      "told_apart": false,
+      "percentile": 29
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -33136,12 +35179,129 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 12,
+     "worn": 11,
+     "reach": 0.917,
+     "profile": {
+      "accessories": {
+       "n": 10,
+       "shares": {
+        "bag": 0.5,
+        "jewellery": 0.5,
+        "shoes": 0.3
+       }
+      },
+      "colour_main": {
+       "n": 11,
+       "shares": {
+        "black": 0.455,
+        "beige_camel": 0.364,
+        "blue": 0.091
+       }
+      },
+      "colour_second": {
+       "n": 11,
+       "shares": {
+        "none": 0.364,
+        "black": 0.182,
+        "white_ivory": 0.091
+       }
+      },
+      "construction": {
+       "n": 10,
+       "shares": {
+        "tailored": 0.7,
+        "soft_cut": 0.2,
+        "knitted": 0.1
+       }
+      },
+      "finishing": {
+       "n": 11,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 10,
+       "shares": {
+        "formal_tailored": 0.6,
+        "casual": 0.4
+       }
+      },
+      "garments": {
+       "n": 11,
+       "shares": {
+        "shirt_blouse": 0.364,
+        "jacket": 0.364,
+        "trousers": 0.364
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "ankle_floor": 0.75,
+        "knee": 0.25
+       }
+      },
+      "layers": {
+       "n": 11,
+       "shares": {
+        "one": 0.636,
+        "two": 0.364
+       }
+      },
+      "materials": {
+       "n": 11,
+       "shares": {
+        "plain_woven": 0.636,
+        "leather": 0.182,
+        "knit": 0.182
+       }
+      },
+      "pattern": {
+       "n": 11,
+       "shares": {
+        "plain": 0.727,
+        "floral": 0.091,
+        "animal": 0.091
+       }
+      },
+      "silhouette": {
+       "n": 9,
+       "shares": {
+        "fitted": 0.667,
+        "volume": 0.222,
+        "straight": 0.111
+       }
+      },
+      "skin_shown": {
+       "n": 10,
+       "shares": {
+        "some": 0.7,
+        "covered": 0.3
+       }
+      },
+      "street_couture_axis": {
+       "n": 11,
+       "shares": {
+        "3": 0.455,
+        "5": 0.455,
+        "4": 0.091
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1352,
+      "peers": 14,
+      "told_apart": 9,
+      "percentile": 0
+     },
+     "movement": {
+      "value": 0.0843,
+      "previous": "2022-02-26",
+      "told_apart": false,
+      "percentile": 42
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -33226,12 +35386,12 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 8,
-     "worn": 8,
+     "read": 10,
+     "worn": 10,
      "reach": 1.0,
      "profile": {
       "accessories": {
-       "n": 8,
+       "n": 10,
        "shares": {
         "bag": 0.5,
         "shoes": 0.5,
@@ -33239,112 +35399,119 @@
        }
       },
       "colour_main": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "white_ivory": 0.375,
-        "black": 0.25,
-        "beige_camel": 0.25
+        "black": 0.3,
+        "white_ivory": 0.3,
+        "beige_camel": 0.3
        }
       },
       "colour_second": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "white_ivory": 0.375,
-        "yellow_gold": 0.25,
-        "beige_camel": 0.125
+        "white_ivory": 0.3,
+        "yellow_gold": 0.2,
+        "none": 0.2
        }
       },
       "construction": {
-       "n": 8,
+       "n": 10,
        "shares": {
         "soft_cut": 0.5,
-        "tailored": 0.25,
-        "draped": 0.25
+        "tailored": 0.2,
+        "draped": 0.2
        }
       },
       "finishing": {
-       "n": 7,
+       "n": 9,
        "shares": {
-        "none": 0.857,
-        "pleated": 0.143
+        "none": 0.778,
+        "beaded": 0.111,
+        "pleated": 0.111
        }
       },
       "formality": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "casual": 0.5,
-        "formal_tailored": 0.125,
-        "eveningwear": 0.125
+        "casual": 0.6,
+        "formal_tailored": 0.1,
+        "eveningwear": 0.1
        }
       },
       "garments": {
-       "n": 7,
+       "n": 9,
        "shares": {
-        "shirt_blouse": 0.429,
-        "coat": 0.429,
-        "top": 0.286
+        "top": 0.444,
+        "shirt_blouse": 0.333,
+        "coat": 0.333
        }
       },
       "hemline": {
-       "n": 4,
+       "n": 5,
        "shares": {
-        "ankle_floor": 1.0
+        "ankle_floor": 0.8,
+        "knee": 0.2
        }
       },
       "layers": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "one": 0.625,
-        "two": 0.375
+        "one": 0.6,
+        "two": 0.4
        }
       },
       "materials": {
-       "n": 8,
+       "n": 10,
        "shares": {
         "plain_woven": 0.5,
-        "sheer_lace": 0.375,
-        "satin_silk": 0.375
+        "sheer_lace": 0.3,
+        "satin_silk": 0.3
        }
       },
       "pattern": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "plain": 0.375,
-        "floral": 0.375,
-        "check": 0.125
+        "plain": 0.5,
+        "floral": 0.3,
+        "check": 0.1
        }
       },
       "silhouette": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "volume": 0.5,
-        "straight": 0.375,
-        "fitted": 0.125
+        "straight": 0.4,
+        "volume": 0.4,
+        "fitted": 0.2
        }
       },
       "skin_shown": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "some": 0.75,
-        "covered": 0.25
+        "some": 0.8,
+        "covered": 0.2
        }
       },
       "street_couture_axis": {
-       "n": 8,
+       "n": 10,
        "shares": {
-        "3": 0.375,
-        "2": 0.25,
-        "5": 0.25
+        "3": 0.4,
+        "2": 0.3,
+        "5": 0.2
        }
       }
      },
      "distinctness": {
-      "value": 0.1047,
-      "peers": 6,
-      "told_apart": 3,
+      "value": 0.0916,
+      "peers": 11,
+      "told_apart": 5,
+      "percentile": 0
+     },
+     "movement": {
+      "value": 0.0399,
+      "previous": "2022-09-24",
+      "told_apart": false,
       "percentile": 25
      },
-     "movement": {},
      "transmission": {},
      "recognisable": {}
     }
@@ -33547,16 +35714,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1339,
-      "peers": 13,
-      "told_apart": 10,
-      "percentile": 45
+      "value": 0.1282,
+      "peers": 15,
+      "told_apart": 13,
+      "percentile": 62
      },
      "movement": {
-      "value": 0.0879,
+      "value": 0.0532,
       "previous": "2023-02-24",
       "told_apart": false,
-      "percentile": 33
+      "percentile": 11
      },
      "transmission": {},
      "recognisable": {}
@@ -33780,7 +35947,7 @@
       "value": 0.0437,
       "previous": "2023-09-23",
       "told_apart": false,
-      "percentile": 22
+      "percentile": 27
      },
      "transmission": {},
      "recognisable": {}
@@ -34213,7 +36380,7 @@
      },
      "distinctness": {
       "value": 0.0446,
-      "peers": 13,
+      "peers": 14,
       "told_apart": 2,
       "percentile": 0
      },
@@ -34655,7 +36822,7 @@
       "value": 0.0616,
       "previous": "2025-09-24",
       "told_apart": false,
-      "percentile": 25
+      "percentile": 33
      },
      "transmission": {},
      "recognisable": {}
@@ -35694,9 +37861,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 8,
+     "worn": 3,
+     "reach": 0.375,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -35787,11 +37954,125 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 7,
+     "worn": 6,
+     "reach": 0.857,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 0.833,
+        "shoes": 0.833,
+        "jewellery": 0.333
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "white_ivory": 0.333,
+        "multicolour": 0.333,
+        "grey": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "orange": 0.333,
+        "black": 0.167,
+        "beige_camel": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "draped": 0.333,
+        "tailored": 0.167,
+        "knitted": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "pleated": 0.667,
+        "none": 0.167,
+        "beaded": 0.167
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "casual": 0.5,
+        "mixed": 0.333,
+        "sport_street": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "trousers": 0.5,
+        "top": 0.333,
+        "sweater": 0.333
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "ankle_floor": 0.75,
+        "midi": 0.25
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "three_or_more": 0.5,
+        "one": 0.333,
+        "two": 0.167
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "knit": 0.667,
+        "plain_woven": 0.667,
+        "sheer_lace": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "mixed": 0.5,
+        "graphic": 0.333,
+        "plain": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "volume": 0.833,
+        "fitted": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "much": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "3": 0.667,
+        "2": 0.333
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2385,
+      "peers": 12,
+      "told_apart": 10,
+      "percentile": 100
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -35884,12 +38165,130 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 12,
+     "worn": 7,
+     "reach": 0.583,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "shoes": 0.714,
+        "jewellery": 0.571,
+        "bag": 0.429
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "black": 0.429,
+        "red": 0.286,
+        "white_ivory": 0.143
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "black": 0.286,
+        "white_ivory": 0.286,
+        "green": 0.143
+       }
+      },
+      "construction": {
+       "n": 7,
+       "shares": {
+        "draped": 0.429,
+        "tailored": 0.286,
+        "soft_cut": 0.286
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "none": 0.6,
+        "pleated": 0.4,
+        "beaded": 0.2
+       }
+      },
+      "formality": {
+       "n": 7,
+       "shares": {
+        "casual": 0.429,
+        "mixed": 0.286,
+        "formal_tailored": 0.143
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "dress": 0.571,
+        "top": 0.286,
+        "trousers": 0.286
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "knee": 0.333
+       }
+      },
+      "layers": {
+       "n": 7,
+       "shares": {
+        "one": 0.571,
+        "two": 0.429
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "plain_woven": 0.714,
+        "satin_silk": 0.286,
+        "leather": 0.143
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 0.714,
+        "stripe": 0.143,
+        "floral": 0.143
+       }
+      },
+      "silhouette": {
+       "n": 7,
+       "shares": {
+        "fitted": 0.429,
+        "volume": 0.286,
+        "straight": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 7,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "3": 0.714,
+        "5": 0.286
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1398,
+      "peers": 14,
+      "told_apart": 9,
+      "percentile": 8
+     },
+     "movement": {
+      "value": 0.119,
+      "previous": "2022-03-04",
+      "told_apart": true,
+      "percentile": 58
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -35986,9 +38385,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 6,
+     "worn": 4,
+     "reach": 0.667,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -36087,121 +38486,130 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 9,
-     "worn": 7,
-     "reach": 0.778,
+     "read": 13,
+     "worn": 10,
+     "reach": 0.769,
      "profile": {
       "accessories": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "shoes": 0.571,
-        "jewellery": 0.571,
-        "bag": 0.143
+        "shoes": 0.7,
+        "jewellery": 0.5,
+        "bag": 0.3
        }
       },
       "colour_main": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "grey": 0.286,
-        "brown": 0.286,
-        "black": 0.143
+        "black": 0.2,
+        "grey": 0.2,
+        "brown": 0.2
        }
       },
       "colour_second": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "black": 0.143,
-        "white_ivory": 0.143,
-        "beige_camel": 0.143
+        "white_ivory": 0.2,
+        "purple": 0.2,
+        "black": 0.1
        }
       },
       "construction": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "soft_cut": 0.429,
-        "tailored": 0.286,
-        "draped": 0.143
+        "tailored": 0.5,
+        "soft_cut": 0.3,
+        "draped": 0.1
        }
       },
       "finishing": {
-       "n": 4,
+       "n": 7,
        "shares": {
-        "none": 0.75,
-        "pleated": 0.25
+        "none": 0.714,
+        "pleated": 0.286
        }
       },
       "formality": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "casual": 1.0
+        "casual": 0.8,
+        "formal_tailored": 0.1,
+        "mixed": 0.1
        }
       },
       "garments": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "top": 0.286,
-        "coat": 0.286,
-        "trousers": 0.286
+        "dress": 0.4,
+        "top": 0.3,
+        "trousers": 0.3
        }
       },
       "hemline": {
-       "n": 6,
+       "n": 9,
        "shares": {
-        "ankle_floor": 0.5,
         "knee": 0.333,
-        "above_knee": 0.167
+        "ankle_floor": 0.333,
+        "midi": 0.222
        }
       },
       "layers": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "two": 0.714,
-        "one": 0.286
+        "two": 0.6,
+        "one": 0.4
        }
       },
       "materials": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "plain_woven": 0.714,
-        "knit": 0.429,
-        "leather": 0.143
+        "plain_woven": 0.6,
+        "knit": 0.3,
+        "satin_silk": 0.3
        }
       },
       "pattern": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "plain": 0.714,
-        "stripe": 0.143,
-        "graphic": 0.143
+        "plain": 0.7,
+        "graphic": 0.2,
+        "stripe": 0.1
        }
       },
       "silhouette": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "volume": 0.571,
-        "straight": 0.429
+        "volume": 0.4,
+        "straight": 0.3,
+        "fitted": 0.2
        }
       },
       "skin_shown": {
-       "n": 7,
+       "n": 10,
        "shares": {
         "some": 1.0
        }
       },
       "street_couture_axis": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "3": 1.0
+        "3": 0.9,
+        "5": 0.1
        }
       }
      },
      "distinctness": {
-      "value": 0.1509,
-      "peers": 13,
-      "told_apart": 6,
-      "percentile": 55
+      "value": 0.106,
+      "peers": 15,
+      "told_apart": 8,
+      "percentile": 38
      },
-     "movement": {},
+     "movement": {
+      "value": -0.061,
+      "previous": "2022-09-30",
+      "told_apart": false,
+      "percentile": 0
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -36420,10 +38828,10 @@
       "percentile": 64
      },
      "movement": {
-      "value": 0.0624,
+      "value": 0.0217,
       "previous": "2023-09-29",
       "told_apart": false,
-      "percentile": 56
+      "percentile": 9
      },
      "transmission": {},
      "recognisable": {}
@@ -38499,9 +40907,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 1,
+     "reach": 0.25,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -38596,9 +41004,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 7,
+     "worn": 4,
+     "reach": 0.571,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -38687,9 +41095,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 1,
-     "worn": 1,
-     "reach": 1.0,
+     "read": 4,
+     "worn": 3,
+     "reach": 0.75,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -38784,9 +41192,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 9,
-     "worn": 2,
-     "reach": 0.222,
+     "read": 10,
+     "worn": 3,
+     "reach": 0.3,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -40172,9 +42580,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 3,
+     "worn": 1,
+     "reach": 0.333,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -40377,9 +42785,9 @@
       }
      },
      "distinctness": {
-      "value": 0.0807,
-      "peers": 16,
-      "told_apart": 4,
+      "value": 0.0674,
+      "peers": 17,
+      "told_apart": 3,
       "percentile": 0
      },
      "movement": {},
@@ -43034,11 +45442,125 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 15,
+     "worn": 10,
+     "reach": 0.667,
+     "profile": {
+      "accessories": {
+       "n": 10,
+       "shares": {
+        "shoes": 1.0,
+        "bag": 0.5,
+        "hosiery": 0.3
+       }
+      },
+      "colour_main": {
+       "n": 10,
+       "shares": {
+        "white_ivory": 0.6,
+        "beige_camel": 0.3,
+        "blue": 0.1
+       }
+      },
+      "colour_second": {
+       "n": 10,
+       "shares": {
+        "blue": 0.8,
+        "white_ivory": 0.2
+       }
+      },
+      "construction": {
+       "n": 10,
+       "shares": {
+        "soft_cut": 0.4,
+        "mixed": 0.3,
+        "tailored": 0.2
+       }
+      },
+      "finishing": {
+       "n": 9,
+       "shares": {
+        "beaded": 0.778,
+        "pleated": 0.333,
+        "none": 0.111
+       }
+      },
+      "formality": {
+       "n": 10,
+       "shares": {
+        "casual": 0.3,
+        "sport_street": 0.3,
+        "mixed": 0.3
+       }
+      },
+      "garments": {
+       "n": 10,
+       "shares": {
+        "trousers": 0.7,
+        "shirt_blouse": 0.6,
+        "jacket": 0.5
+       }
+      },
+      "hemline": {
+       "n": 9,
+       "shares": {
+        "above_knee": 0.667,
+        "ankle_floor": 0.222,
+        "knee": 0.111
+       }
+      },
+      "layers": {
+       "n": 10,
+       "shares": {
+        "two": 0.9,
+        "one": 0.1
+       }
+      },
+      "materials": {
+       "n": 10,
+       "shares": {
+        "plain_woven": 0.8,
+        "sheer_lace": 0.4,
+        "knit": 0.2
+       }
+      },
+      "pattern": {
+       "n": 10,
+       "shares": {
+        "mixed": 0.7,
+        "plain": 0.3
+       }
+      },
+      "silhouette": {
+       "n": 10,
+       "shares": {
+        "volume": 0.7,
+        "mixed": 0.2,
+        "straight": 0.1
+       }
+      },
+      "skin_shown": {
+       "n": 10,
+       "shares": {
+        "some": 0.8,
+        "much": 0.2
+       }
+      },
+      "street_couture_axis": {
+       "n": 10,
+       "shares": {
+        "3": 0.5,
+        "2": 0.4,
+        "5": 0.1
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.301,
+      "peers": 10,
+      "told_apart": 10,
+      "percentile": 100
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -43137,12 +45659,130 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 16,
+     "worn": 15,
+     "reach": 0.938,
+     "profile": {
+      "accessories": {
+       "n": 15,
+       "shares": {
+        "bag": 0.733,
+        "belt": 0.733,
+        "shoes": 0.467
+       }
+      },
+      "colour_main": {
+       "n": 15,
+       "shares": {
+        "beige_camel": 0.467,
+        "black": 0.4,
+        "blue": 0.133
+       }
+      },
+      "colour_second": {
+       "n": 15,
+       "shares": {
+        "white_ivory": 0.4,
+        "beige_camel": 0.267,
+        "black": 0.133
+       }
+      },
+      "construction": {
+       "n": 15,
+       "shares": {
+        "tailored": 0.467,
+        "knitted": 0.267,
+        "draped": 0.133
+       }
+      },
+      "finishing": {
+       "n": 15,
+       "shares": {
+        "none": 0.8,
+        "pleated": 0.133,
+        "beaded": 0.067
+       }
+      },
+      "formality": {
+       "n": 15,
+       "shares": {
+        "casual": 0.533,
+        "formal_tailored": 0.2,
+        "eveningwear": 0.133
+       }
+      },
+      "garments": {
+       "n": 15,
+       "shares": {
+        "shirt_blouse": 0.467,
+        "shorts": 0.4,
+        "sweater": 0.267
+       }
+      },
+      "hemline": {
+       "n": 9,
+       "shares": {
+        "above_knee": 0.778,
+        "ankle_floor": 0.222
+       }
+      },
+      "layers": {
+       "n": 15,
+       "shares": {
+        "two": 0.867,
+        "one": 0.133
+       }
+      },
+      "materials": {
+       "n": 15,
+       "shares": {
+        "plain_woven": 0.667,
+        "leather": 0.6,
+        "knit": 0.467
+       }
+      },
+      "pattern": {
+       "n": 15,
+       "shares": {
+        "plain": 0.933,
+        "floral": 0.067
+       }
+      },
+      "silhouette": {
+       "n": 15,
+       "shares": {
+        "fitted": 0.667,
+        "volume": 0.333
+       }
+      },
+      "skin_shown": {
+       "n": 15,
+       "shares": {
+        "some": 0.867,
+        "much": 0.133
+       }
+      },
+      "street_couture_axis": {
+       "n": 15,
+       "shares": {
+        "3": 0.533,
+        "5": 0.2,
+        "2": 0.133
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1792,
+      "peers": 12,
+      "told_apart": 10,
+      "percentile": 82
+     },
+     "movement": {
+      "value": 0.2715,
+      "previous": "2021-10-03",
+      "told_apart": true,
+      "percentile": 100
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -43239,12 +45879,131 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 10,
+     "worn": 6,
+     "reach": 0.6,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 0.667,
+        "shoes": 0.667,
+        "belt": 0.667
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.5,
+        "white_ivory": 0.333,
+        "grey": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "beige_camel": 0.333,
+        "none": 0.333,
+        "black": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.667,
+        "soft_cut": 0.333
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "beaded": 0.5,
+        "pleated": 0.5,
+        "none": 0.167
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "casual": 0.5,
+        "sport_street": 0.333,
+        "formal_tailored": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "jacket": 0.667,
+        "shorts": 0.5,
+        "top": 0.333
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "above_knee": 0.5,
+        "knee": 0.5
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.5,
+        "one": 0.333,
+        "three_or_more": 0.167
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "leather": 0.667,
+        "plain_woven": 0.5,
+        "knit": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "check": 0.5,
+        "plain": 0.333,
+        "mixed": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.667,
+        "volume": 0.333
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "much": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "3": 0.5,
+        "2": 0.333,
+        "4": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1936,
+      "peers": 14,
+      "told_apart": 8,
+      "percentile": 50
+     },
+     "movement": {
+      "value": 0.1108,
+      "previous": "2022-03-08",
+      "told_apart": false,
+      "percentile": 50
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -43331,9 +46090,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 2,
-     "worn": 0,
-     "reach": 0.0,
+     "read": 12,
+     "worn": 3,
+     "reach": 0.25,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -43427,12 +46186,129 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 7,
-     "worn": 3,
-     "reach": 0.429,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 11,
+     "worn": 7,
+     "reach": 0.636,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "bag": 0.857,
+        "shoes": 0.571,
+        "eyewear": 0.429
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "black": 0.429,
+        "beige_camel": 0.143,
+        "brown": 0.143
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "beige_camel": 0.429,
+        "white_ivory": 0.286,
+        "black": 0.143
+       }
+      },
+      "construction": {
+       "n": 7,
+       "shares": {
+        "tailored": 0.286,
+        "soft_cut": 0.286,
+        "draped": 0.143
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "none": 0.833,
+        "beaded": 0.167,
+        "pleated": 0.167
+       }
+      },
+      "formality": {
+       "n": 7,
+       "shares": {
+        "casual": 0.429,
+        "formal_tailored": 0.286,
+        "mixed": 0.286
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "shirt_blouse": 0.571,
+        "coat": 0.286,
+        "trousers": 0.286
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.8,
+        "above_knee": 0.2
+       }
+      },
+      "layers": {
+       "n": 7,
+       "shares": {
+        "two": 0.714,
+        "one": 0.286
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "plain_woven": 0.857,
+        "knit": 0.286,
+        "leather": 0.143
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 0.714,
+        "mixed": 0.286
+       }
+      },
+      "silhouette": {
+       "n": 7,
+       "shares": {
+        "fitted": 0.429,
+        "volume": 0.286,
+        "straight": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 7,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "3": 0.714,
+        "5": 0.286
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.0871,
+      "peers": 15,
+      "told_apart": 6,
+      "percentile": 23
+     },
+     "movement": {
+      "value": 0.0894,
+      "previous": "2022-10-04",
+      "told_apart": false,
+      "percentile": 56
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -43924,7 +46800,12 @@
       "told_apart": 3,
       "percentile": 11
      },
-     "movement": {},
+     "movement": {
+      "value": 0.015,
+      "previous": "2023-10-03",
+      "told_apart": false,
+      "percentile": 11
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -44010,9 +46891,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 2,
+     "read": 4,
      "worn": 2,
-     "reach": 1.0,
+     "reach": 0.5,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -44831,11 +47712,124 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 10,
+     "worn": 9,
+     "reach": 0.9,
+     "profile": {
+      "accessories": {
+       "n": 9,
+       "shares": {
+        "shoes": 0.444,
+        "belt": 0.333,
+        "bag": 0.222
+       }
+      },
+      "colour_main": {
+       "n": 9,
+       "shares": {
+        "black": 0.667,
+        "white_ivory": 0.111,
+        "beige_camel": 0.111
+       }
+      },
+      "colour_second": {
+       "n": 9,
+       "shares": {
+        "white_ivory": 0.444,
+        "beige_camel": 0.222,
+        "grey": 0.111
+       }
+      },
+      "construction": {
+       "n": 7,
+       "shares": {
+        "tailored": 1.0
+       }
+      },
+      "finishing": {
+       "n": 8,
+       "shares": {
+        "none": 0.625,
+        "beaded": 0.25,
+        "pleated": 0.25
+       }
+      },
+      "formality": {
+       "n": 9,
+       "shares": {
+        "formal_tailored": 0.444,
+        "casual": 0.222,
+        "sport_street": 0.222
+       }
+      },
+      "garments": {
+       "n": 9,
+       "shares": {
+        "trousers": 0.778,
+        "jacket": 0.556,
+        "shirt_blouse": 0.444
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "above_knee": 0.167,
+        "knee": 0.167
+       }
+      },
+      "layers": {
+       "n": 9,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 8,
+       "shares": {
+        "plain_woven": 0.875,
+        "leather": 0.375,
+        "knit": 0.125
+       }
+      },
+      "pattern": {
+       "n": 9,
+       "shares": {
+        "plain": 0.444,
+        "stripe": 0.222,
+        "check": 0.111
+       }
+      },
+      "silhouette": {
+       "n": 7,
+       "shares": {
+        "fitted": 0.857,
+        "straight": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 9,
+       "shares": {
+        "some": 0.667,
+        "covered": 0.333
+       }
+      },
+      "street_couture_axis": {
+       "n": 9,
+       "shares": {
+        "3": 0.333,
+        "5": 0.333,
+        "2": 0.222
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1034,
+      "peers": 10,
+      "told_apart": 4,
+      "percentile": 25
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -44922,12 +47916,124 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 12,
+     "worn": 6,
+     "reach": 0.5,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 0.667,
+        "eyewear": 0.5,
+        "shoes": 0.333
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "green": 0.667,
+        "black": 0.333
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "white_ivory": 0.5,
+        "yellow_gold": 0.333,
+        "beige_camel": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.333,
+        "knitted": 0.333,
+        "soft_cut": 0.333
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "casual": 0.667,
+        "formal_tailored": 0.333
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "top": 0.667,
+        "dress": 0.5,
+        "jacket": 0.333
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "above_knee": 0.5,
+        "knee": 0.5
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "one": 0.667,
+        "two": 0.333
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "satin_silk": 0.5,
+        "knit": 0.333,
+        "sheer_lace": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.667,
+        "logo_letters": 0.333
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.833,
+        "straight": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "3": 0.667,
+        "5": 0.333
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.161,
+      "peers": 12,
+      "told_apart": 7,
+      "percentile": 64
+     },
+     "movement": {
+      "value": 0.1903,
+      "previous": "2021-09-24",
+      "told_apart": true,
+      "percentile": 71
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -45004,12 +48110,126 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 8,
+     "worn": 6,
+     "reach": 0.75,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "shoes": 1.0,
+        "bag": 0.667,
+        "belt": 0.333
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.667,
+        "grey": 0.333
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "white_ivory": 0.667,
+        "black": 0.333
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 1.0
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "beaded": 0.5,
+        "none": 0.333,
+        "pleated": 0.333
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "formal_tailored": 0.5,
+        "sport_street": 0.333,
+        "eveningwear": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "jacket": 0.5,
+        "trousers": 0.5,
+        "shirt_blouse": 0.333
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "above_knee": 0.5,
+        "ankle_floor": 0.333,
+        "knee": 0.167
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 4,
+       "shares": {
+        "plain_woven": 0.75,
+        "metallic": 0.5,
+        "leather": 0.25
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.333,
+        "logo_letters": 0.333,
+        "dot": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.833,
+        "volume": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "5": 0.667,
+        "2": 0.333
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1818,
+      "peers": 14,
+      "told_apart": 10,
+      "percentile": 42
+     },
+     "movement": {
+      "value": 0.254,
+      "previous": "2022-02-24",
+      "told_apart": false,
+      "percentile": 75
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -45101,12 +48321,132 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 6,
-     "worn": 2,
-     "reach": 0.333,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 20,
+     "worn": 13,
+     "reach": 0.65,
+     "profile": {
+      "accessories": {
+       "n": 13,
+       "shares": {
+        "bag": 0.615,
+        "shoes": 0.538,
+        "jewellery": 0.154
+       }
+      },
+      "colour_main": {
+       "n": 13,
+       "shares": {
+        "yellow_gold": 0.308,
+        "beige_camel": 0.231,
+        "black": 0.154
+       }
+      },
+      "colour_second": {
+       "n": 13,
+       "shares": {
+        "black": 0.385,
+        "white_ivory": 0.385,
+        "red": 0.154
+       }
+      },
+      "construction": {
+       "n": 12,
+       "shares": {
+        "tailored": 0.417,
+        "draped": 0.25,
+        "knitted": 0.167
+       }
+      },
+      "finishing": {
+       "n": 13,
+       "shares": {
+        "none": 0.846,
+        "pleated": 0.154
+       }
+      },
+      "formality": {
+       "n": 13,
+       "shares": {
+        "casual": 0.538,
+        "formal_tailored": 0.231,
+        "eveningwear": 0.154
+       }
+      },
+      "garments": {
+       "n": 13,
+       "shares": {
+        "trousers": 0.462,
+        "shirt_blouse": 0.308,
+        "top": 0.308
+       }
+      },
+      "hemline": {
+       "n": 10,
+       "shares": {
+        "knee": 0.6,
+        "ankle_floor": 0.3,
+        "midi": 0.1
+       }
+      },
+      "layers": {
+       "n": 12,
+       "shares": {
+        "two": 0.833,
+        "one": 0.167
+       }
+      },
+      "materials": {
+       "n": 13,
+       "shares": {
+        "plain_woven": 0.692,
+        "leather": 0.308,
+        "sheer_lace": 0.231
+       }
+      },
+      "pattern": {
+       "n": 13,
+       "shares": {
+        "plain": 0.692,
+        "check": 0.154,
+        "stripe": 0.154
+       }
+      },
+      "silhouette": {
+       "n": 12,
+       "shares": {
+        "fitted": 0.333,
+        "straight": 0.333,
+        "volume": 0.333
+       }
+      },
+      "skin_shown": {
+       "n": 13,
+       "shares": {
+        "some": 0.846,
+        "covered": 0.154
+       }
+      },
+      "street_couture_axis": {
+       "n": 13,
+       "shares": {
+        "3": 0.462,
+        "5": 0.385,
+        "2": 0.154
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1332,
+      "peers": 11,
+      "told_apart": 6,
+      "percentile": 33
+     },
+     "movement": {
+      "value": 0.2044,
+      "previous": "2022-09-22",
+      "told_apart": true,
+      "percentile": 88
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -45202,128 +48542,134 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 12,
-     "worn": 11,
-     "reach": 0.917,
+     "read": 18,
+     "worn": 17,
+     "reach": 0.944,
      "profile": {
       "accessories": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "bag": 0.818,
-        "shoes": 0.636,
-        "belt": 0.545
+        "bag": 0.765,
+        "shoes": 0.588,
+        "belt": 0.588
        }
       },
       "colour_main": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "black": 0.545,
-        "white_ivory": 0.364,
-        "beige_camel": 0.091
+        "black": 0.471,
+        "white_ivory": 0.353,
+        "beige_camel": 0.176
        }
       },
       "colour_second": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "black": 0.364,
-        "red": 0.182,
-        "none": 0.182
+        "black": 0.353,
+        "white_ivory": 0.294,
+        "red": 0.118
        }
       },
       "construction": {
-       "n": 9,
+       "n": 15,
        "shares": {
-        "draped": 0.333,
+        "tailored": 0.4,
         "soft_cut": 0.333,
-        "tailored": 0.222
+        "draped": 0.2
        }
       },
       "finishing": {
-       "n": 9,
+       "n": 12,
        "shares": {
-        "none": 0.444,
-        "pleated": 0.333,
-        "beaded": 0.222
+        "none": 0.583,
+        "pleated": 0.25,
+        "beaded": 0.167
        }
       },
       "formality": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "formal_tailored": 0.455,
-        "eveningwear": 0.182,
-        "casual": 0.182
+        "formal_tailored": 0.529,
+        "casual": 0.235,
+        "eveningwear": 0.118
        }
       },
       "garments": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "trousers": 0.818,
-        "shirt_blouse": 0.545,
-        "skirt": 0.364
+        "trousers": 0.765,
+        "shirt_blouse": 0.588,
+        "skirt": 0.353
        }
       },
       "hemline": {
-       "n": 7,
+       "n": 13,
        "shares": {
-        "ankle_floor": 0.571,
-        "knee": 0.429
+        "ankle_floor": 0.615,
+        "knee": 0.231,
+        "midi": 0.154
        }
       },
       "layers": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "one": 0.636,
-        "two": 0.273,
-        "three_or_more": 0.091
+        "two": 0.529,
+        "one": 0.412,
+        "three_or_more": 0.059
        }
       },
       "materials": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "sheer_lace": 0.636,
-        "plain_woven": 0.545,
-        "leather": 0.455
+        "plain_woven": 0.706,
+        "leather": 0.412,
+        "sheer_lace": 0.412
        }
       },
       "pattern": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "plain": 0.455,
-        "graphic": 0.364,
-        "dot": 0.182
+        "plain": 0.529,
+        "graphic": 0.294,
+        "dot": 0.118
        }
       },
       "silhouette": {
-       "n": 9,
+       "n": 15,
        "shares": {
-        "fitted": 0.444,
+        "fitted": 0.4,
         "straight": 0.333,
-        "volume": 0.222
+        "volume": 0.267
        }
       },
       "skin_shown": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "some": 0.727,
-        "covered": 0.273
+        "some": 0.706,
+        "covered": 0.294
        }
       },
       "street_couture_axis": {
-       "n": 11,
+       "n": 17,
        "shares": {
-        "5": 0.455,
-        "3": 0.364,
-        "4": 0.182
+        "5": 0.529,
+        "3": 0.353,
+        "4": 0.118
        }
       }
      },
      "distinctness": {
-      "value": 0.1532,
-      "peers": 13,
-      "told_apart": 9,
-      "percentile": 64
+      "value": 0.1091,
+      "peers": 15,
+      "told_apart": 7,
+      "percentile": 46
      },
-     "movement": {},
+     "movement": {
+      "value": 0.0629,
+      "previous": "2023-02-23",
+      "told_apart": false,
+      "percentile": 33
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -45794,7 +49140,7 @@
       "percentile": 92
      },
      "movement": {
-      "value": 0.2604,
+      "value": 0.2195,
       "previous": "2023-09-21",
       "told_apart": true,
       "percentile": 100
@@ -46011,7 +49357,7 @@
       "value": 0.0886,
       "previous": "2025-09-25",
       "told_apart": false,
-      "percentile": 62
+      "percentile": 67
      },
      "transmission": {},
      "recognisable": {}
@@ -46911,11 +50257,119 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 7,
+     "worn": 5,
+     "reach": 0.714,
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "jewellery": 0.8,
+        "hosiery": 0.6,
+        "shoes": 0.2
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "brown": 0.6,
+        "black": 0.4
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "yellow_gold": 0.6,
+        "white_ivory": 0.2,
+        "none": 0.2
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 0.6,
+        "knitted": 0.4
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "beaded": 0.6,
+        "pleated": 0.6
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "casual": 0.6,
+        "eveningwear": 0.2,
+        "mixed": 0.2
+       }
+      },
+      "garments": {
+       "n": 4,
+       "shares": {
+        "skirt": 0.75,
+        "top": 0.5,
+        "sweater": 0.5
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.8,
+        "above_knee": 0.2
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "two": 0.8,
+        "one": 0.2
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "knit": 0.6,
+        "sheer_lace": 0.4,
+        "satin_silk": 0.2
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "mixed": 0.6,
+        "plain": 0.4
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 1.0
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 0.8,
+        "covered": 0.2
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "3": 0.8,
+        "5": 0.2
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2381,
+      "peers": 10,
+      "told_apart": 7,
+      "percentile": 88
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -47002,12 +50456,127 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 7,
+     "worn": 7,
+     "reach": 1.0,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "jewellery": 1.0,
+        "shoes": 0.714,
+        "bag": 0.429
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "black": 1.0
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "none": 0.571,
+        "white_ivory": 0.286,
+        "metallic": 0.143
+       }
+      },
+      "construction": {
+       "n": 7,
+       "shares": {
+        "tailored": 0.429,
+        "knitted": 0.286,
+        "soft_cut": 0.286
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 7,
+       "shares": {
+        "casual": 0.571,
+        "formal_tailored": 0.143,
+        "eveningwear": 0.143
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "trousers": 0.714,
+        "top": 0.286,
+        "sweater": 0.286
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "above_knee": 0.333
+       }
+      },
+      "layers": {
+       "n": 7,
+       "shares": {
+        "one": 0.714,
+        "two": 0.286
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "plain_woven": 0.571,
+        "leather": 0.286,
+        "knit": 0.286
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 0.429,
+        "logo_letters": 0.286,
+        "graphic": 0.286
+       }
+      },
+      "silhouette": {
+       "n": 7,
+       "shares": {
+        "fitted": 0.857,
+        "volume": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 7,
+       "shares": {
+        "some": 0.857,
+        "much": 0.143
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "3": 0.571,
+        "5": 0.286,
+        "2": 0.143
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1499,
+      "peers": 12,
+      "told_apart": 9,
+      "percentile": 45
+     },
+     "movement": {
+      "value": 0.2302,
+      "previous": "2021-09-28",
+      "told_apart": true,
+      "percentile": 86
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -47092,12 +50661,123 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 10,
+     "worn": 8,
+     "reach": 0.8,
+     "profile": {
+      "accessories": {
+       "n": 8,
+       "shares": {
+        "eyewear": 0.75,
+        "shoes": 0.375,
+        "jewellery": 0.375
+       }
+      },
+      "colour_main": {
+       "n": 8,
+       "shares": {
+        "black": 0.75,
+        "beige_camel": 0.25
+       }
+      },
+      "colour_second": {
+       "n": 8,
+       "shares": {
+        "white_ivory": 0.375,
+        "black": 0.25,
+        "none": 0.25
+       }
+      },
+      "construction": {
+       "n": 8,
+       "shares": {
+        "tailored": 0.5,
+        "draped": 0.5
+       }
+      },
+      "finishing": {
+       "n": 7,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 8,
+       "shares": {
+        "formal_tailored": 0.875,
+        "eveningwear": 0.125
+       }
+      },
+      "garments": {
+       "n": 8,
+       "shares": {
+        "coat": 0.75,
+        "jacket": 0.25,
+        "trousers": 0.25
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.8,
+        "ankle_floor": 0.2
+       }
+      },
+      "layers": {
+       "n": 8,
+       "shares": {
+        "one": 0.625,
+        "two": 0.375
+       }
+      },
+      "materials": {
+       "n": 4,
+       "shares": {
+        "plain_woven": 1.0,
+        "leather": 0.25,
+        "satin_silk": 0.25
+       }
+      },
+      "pattern": {
+       "n": 8,
+       "shares": {
+        "plain": 1.0
+       }
+      },
+      "silhouette": {
+       "n": 8,
+       "shares": {
+        "volume": 0.75,
+        "fitted": 0.125,
+        "straight": 0.125
+       }
+      },
+      "skin_shown": {
+       "n": 8,
+       "shares": {
+        "covered": 0.5,
+        "some": 0.5
+       }
+      },
+      "street_couture_axis": {
+       "n": 8,
+       "shares": {
+        "5": 1.0
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2682,
+      "peers": 14,
+      "told_apart": 13,
+      "percentile": 100
+     },
+     "movement": {
+      "value": 0.2943,
+      "previous": "2022-03-01",
+      "told_apart": true,
+      "percentile": 92
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -47189,12 +50869,114 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 2,
-     "worn": 2,
-     "reach": 1.0,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 10,
+     "worn": 6,
+     "reach": 0.6,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "eyewear": 1.0,
+        "bag": 0.667,
+        "shoes": 0.5
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.667,
+        "green": 0.333
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "metallic": 0.667,
+        "none": 0.333
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "soft_cut": 0.667,
+        "tailored": 0.167,
+        "draped": 0.167
+       }
+      },
+      "finishing": {
+       "n": 4,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "casual": 0.833,
+        "formal_tailored": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "top": 1.0,
+        "trousers": 0.667
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "one": 1.0
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "leather": 0.5,
+        "plain_woven": 0.333,
+        "knit": 0.167
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.833,
+        "logo_letters": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 1.0
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.667,
+        "covered": 0.333
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "3": 0.833,
+        "5": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2893,
+      "peers": 11,
+      "told_apart": 11,
+      "percentile": 100
+     },
+     "movement": {
+      "value": 0.3204,
+      "previous": "2022-09-27",
+      "told_apart": true,
+      "percentile": 100
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -47290,9 +51072,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 6,
+     "read": 7,
      "worn": 2,
-     "reach": 0.333,
+     "reach": 0.286,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -47510,7 +51292,12 @@
       "told_apart": 5,
       "percentile": 7
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1496,
+      "previous": "2023-02-28",
+      "told_apart": true,
+      "percentile": 82
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -48171,7 +51958,7 @@
       "value": 0.1095,
       "previous": "2025-09-29",
       "told_apart": false,
-      "percentile": 75
+      "percentile": 78
      },
      "transmission": {},
      "recognisable": {}
@@ -48983,9 +52770,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 1,
+     "reach": 0.25,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -49187,10 +52974,10 @@
       }
      },
      "distinctness": {
-      "value": 0.196,
-      "peers": 13,
+      "value": 0.1706,
+      "peers": 15,
       "told_apart": 11,
-      "percentile": 100
+      "percentile": 85
      },
      "movement": {},
      "transmission": {},
@@ -49406,7 +53193,7 @@
       "value": 0.1227,
       "previous": "2023-09-21",
       "told_apart": true,
-      "percentile": 67
+      "percentile": 64
      },
      "transmission": {},
      "recognisable": {}
@@ -49605,9 +53392,9 @@
       }
      },
      "distinctness": {
-      "value": 0.1451,
-      "peers": 13,
-      "told_apart": 7,
+      "value": 0.1479,
+      "peers": 14,
+      "told_apart": 8,
       "percentile": 70
      },
      "movement": {
@@ -50914,11 +54701,123 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 9,
+     "worn": 5,
+     "reach": 0.556,
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "bag": 1.0,
+        "shoes": 1.0,
+        "jewellery": 1.0
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "black": 0.4,
+        "brown": 0.2,
+        "pink": 0.2
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "black": 0.2,
+        "white_ivory": 0.2,
+        "yellow_gold": 0.2
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 0.8,
+        "mixed": 0.2
+       }
+      },
+      "finishing": {
+       "n": 4,
+       "shares": {
+        "none": 0.5,
+        "beaded": 0.5,
+        "pleated": 0.25
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "formal_tailored": 0.6,
+        "mixed": 0.4
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "jacket": 0.8,
+        "trousers": 0.8,
+        "dress": 0.6
+       }
+      },
+      "hemline": {
+       "n": 3,
+       "shares": {
+        "knee": 0.667,
+        "ankle_floor": 0.333
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "two": 0.6,
+        "one": 0.2,
+        "three_or_more": 0.2
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "leather": 0.8,
+        "plain_woven": 0.6,
+        "satin_silk": 0.4
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "plain": 0.4,
+        "floral": 0.2,
+        "logo_letters": 0.2
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 0.4,
+        "volume": 0.4,
+        "straight": 0.2
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "5": 0.6,
+        "3": 0.4
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.0753,
+      "peers": 10,
+      "told_apart": 1,
+      "percentile": 12
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -51017,12 +54916,131 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 18,
+     "worn": 8,
+     "reach": 0.444,
+     "profile": {
+      "accessories": {
+       "n": 8,
+       "shares": {
+        "bag": 0.875,
+        "shoes": 0.75,
+        "jewellery": 0.75
+       }
+      },
+      "colour_main": {
+       "n": 8,
+       "shares": {
+        "purple": 0.375,
+        "yellow_gold": 0.25,
+        "black": 0.125
+       }
+      },
+      "colour_second": {
+       "n": 8,
+       "shares": {
+        "beige_camel": 0.25,
+        "brown": 0.25,
+        "white_ivory": 0.125
+       }
+      },
+      "construction": {
+       "n": 8,
+       "shares": {
+        "soft_cut": 0.75,
+        "tailored": 0.125,
+        "draped": 0.125
+       }
+      },
+      "finishing": {
+       "n": 8,
+       "shares": {
+        "none": 0.75,
+        "pleated": 0.25
+       }
+      },
+      "formality": {
+       "n": 8,
+       "shares": {
+        "casual": 0.625,
+        "formal_tailored": 0.125,
+        "eveningwear": 0.125
+       }
+      },
+      "garments": {
+       "n": 8,
+       "shares": {
+        "shirt_blouse": 0.625,
+        "jacket": 0.25,
+        "trousers": 0.25
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.4,
+        "ankle_floor": 0.4,
+        "above_knee": 0.2
+       }
+      },
+      "layers": {
+       "n": 8,
+       "shares": {
+        "two": 0.625,
+        "one": 0.375
+       }
+      },
+      "materials": {
+       "n": 8,
+       "shares": {
+        "plain_woven": 0.875,
+        "satin_silk": 0.25,
+        "sheer_lace": 0.125
+       }
+      },
+      "pattern": {
+       "n": 8,
+       "shares": {
+        "plain": 0.5,
+        "floral": 0.375,
+        "stripe": 0.125
+       }
+      },
+      "silhouette": {
+       "n": 8,
+       "shares": {
+        "fitted": 0.375,
+        "volume": 0.375,
+        "straight": 0.25
+       }
+      },
+      "skin_shown": {
+       "n": 8,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 8,
+       "shares": {
+        "3": 0.625,
+        "5": 0.25,
+        "2": 0.125
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1408,
+      "peers": 12,
+      "told_apart": 9,
+      "percentile": 27
+     },
+     "movement": {
+      "value": 0.077,
+      "previous": "2021-10-01",
+      "told_apart": false,
+      "percentile": 43
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -51119,12 +55137,124 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 18,
+     "worn": 7,
+     "reach": 0.389,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 0.833,
+        "shoes": 0.833,
+        "eyewear": 0.5
+       }
+      },
+      "colour_main": {
+       "n": 7,
+       "shares": {
+        "pink": 0.429,
+        "green": 0.286,
+        "purple": 0.286
+       }
+      },
+      "colour_second": {
+       "n": 7,
+       "shares": {
+        "black": 0.429,
+        "none": 0.286,
+        "green": 0.143
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.667,
+        "draped": 0.333
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "beaded": 0.8,
+        "none": 0.2
+       }
+      },
+      "formality": {
+       "n": 7,
+       "shares": {
+        "eveningwear": 0.714,
+        "formal_tailored": 0.286
+       }
+      },
+      "garments": {
+       "n": 7,
+       "shares": {
+        "jacket": 0.714,
+        "trousers": 0.571,
+        "dress": 0.571
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "knee": 0.333
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 7,
+       "shares": {
+        "satin_silk": 0.714,
+        "plain_woven": 0.286,
+        "sheer_lace": 0.143
+       }
+      },
+      "pattern": {
+       "n": 7,
+       "shares": {
+        "plain": 1.0
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.833,
+        "volume": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 7,
+       "shares": {
+        "5": 1.0
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2426,
+      "peers": 14,
+      "told_apart": 14,
+      "percentile": 75
+     },
+     "movement": {
+      "value": 0.2961,
+      "previous": "2022-03-06",
+      "told_apart": true,
+      "percentile": 100
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -51221,12 +55351,131 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 4,
-     "worn": 4,
-     "reach": 1.0,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 13,
+     "worn": 12,
+     "reach": 0.923,
+     "profile": {
+      "accessories": {
+       "n": 12,
+       "shares": {
+        "shoes": 0.833,
+        "bag": 0.667,
+        "jewellery": 0.417
+       }
+      },
+      "colour_main": {
+       "n": 12,
+       "shares": {
+        "beige_camel": 0.667,
+        "pink": 0.167,
+        "black": 0.083
+       }
+      },
+      "colour_second": {
+       "n": 12,
+       "shares": {
+        "white_ivory": 0.417,
+        "none": 0.25,
+        "black": 0.167
+       }
+      },
+      "construction": {
+       "n": 12,
+       "shares": {
+        "tailored": 0.833,
+        "draped": 0.083,
+        "soft_cut": 0.083
+       }
+      },
+      "finishing": {
+       "n": 10,
+       "shares": {
+        "none": 0.9,
+        "beaded": 0.1
+       }
+      },
+      "formality": {
+       "n": 12,
+       "shares": {
+        "formal_tailored": 0.5,
+        "casual": 0.333,
+        "eveningwear": 0.083
+       }
+      },
+      "garments": {
+       "n": 12,
+       "shares": {
+        "jacket": 0.75,
+        "trousers": 0.583,
+        "top": 0.25
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "above_knee": 0.333,
+        "knee": 0.333,
+        "ankle_floor": 0.333
+       }
+      },
+      "layers": {
+       "n": 12,
+       "shares": {
+        "two": 0.583,
+        "one": 0.417
+       }
+      },
+      "materials": {
+       "n": 12,
+       "shares": {
+        "plain_woven": 0.75,
+        "satin_silk": 0.333,
+        "sheer_lace": 0.083
+       }
+      },
+      "pattern": {
+       "n": 12,
+       "shares": {
+        "plain": 0.667,
+        "graphic": 0.25,
+        "logo_letters": 0.083
+       }
+      },
+      "silhouette": {
+       "n": 12,
+       "shares": {
+        "volume": 0.583,
+        "fitted": 0.333,
+        "straight": 0.083
+       }
+      },
+      "skin_shown": {
+       "n": 12,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 12,
+       "shares": {
+        "5": 0.417,
+        "3": 0.333,
+        "4": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1485,
+      "peers": 11,
+      "told_apart": 8,
+      "percentile": 44
+     },
+     "movement": {
+      "value": 0.1987,
+      "previous": "2022-10-02",
+      "told_apart": true,
+      "percentile": 75
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -51322,126 +55571,133 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 10,
-     "worn": 7,
-     "reach": 0.7,
+     "read": 13,
+     "worn": 10,
+     "reach": 0.769,
      "profile": {
       "accessories": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "shoes": 0.571,
-        "bag": 0.286,
-        "jewellery": 0.286
+        "shoes": 0.7,
+        "jewellery": 0.4,
+        "bag": 0.3
        }
       },
       "colour_main": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "white_ivory": 0.429,
-        "black": 0.286,
-        "brown": 0.143
+        "black": 0.4,
+        "white_ivory": 0.3,
+        "brown": 0.1
        }
       },
       "colour_second": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "white_ivory": 0.429,
-        "brown": 0.286,
-        "black": 0.143
+        "white_ivory": 0.5,
+        "brown": 0.2,
+        "black": 0.1
        }
       },
       "construction": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "soft_cut": 0.571,
-        "tailored": 0.429
+        "tailored": 0.5,
+        "soft_cut": 0.5
        }
       },
       "finishing": {
-       "n": 6,
+       "n": 9,
        "shares": {
-        "none": 0.5,
-        "pleated": 0.5
+        "none": 0.556,
+        "pleated": 0.444,
+        "beaded": 0.111
        }
       },
       "formality": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "casual": 0.571,
-        "formal_tailored": 0.286,
-        "mixed": 0.143
+        "casual": 0.5,
+        "formal_tailored": 0.4,
+        "mixed": 0.1
        }
       },
       "garments": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "shirt_blouse": 0.571,
-        "dress": 0.429,
-        "shorts": 0.286
+        "shirt_blouse": 0.7,
+        "dress": 0.5,
+        "jacket": 0.2
        }
       },
       "hemline": {
-       "n": 6,
+       "n": 9,
        "shares": {
-        "above_knee": 0.5,
-        "ankle_floor": 0.333,
-        "knee": 0.167
+        "above_knee": 0.556,
+        "knee": 0.222,
+        "ankle_floor": 0.222
        }
       },
       "layers": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "one": 0.571,
-        "two": 0.286,
-        "three_or_more": 0.143
+        "one": 0.5,
+        "two": 0.4,
+        "three_or_more": 0.1
        }
       },
       "materials": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "plain_woven": 0.857,
-        "knit": 0.143
+        "plain_woven": 0.7,
+        "leather": 0.2,
+        "knit": 0.2
        }
       },
       "pattern": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "plain": 0.429,
-        "logo_letters": 0.286,
-        "stripe": 0.143
+        "plain": 0.6,
+        "logo_letters": 0.2,
+        "stripe": 0.1
        }
       },
       "silhouette": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "fitted": 0.429,
-        "volume": 0.286,
-        "straight": 0.143
+        "fitted": 0.5,
+        "volume": 0.3,
+        "straight": 0.1
        }
       },
       "skin_shown": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "some": 0.714,
-        "covered": 0.286
+        "some": 0.8,
+        "covered": 0.2
        }
       },
       "street_couture_axis": {
-       "n": 7,
+       "n": 10,
        "shares": {
-        "3": 0.571,
-        "2": 0.143,
-        "4": 0.143
+        "3": 0.5,
+        "5": 0.3,
+        "2": 0.1
        }
       }
      },
      "distinctness": {
-      "value": 0.1152,
-      "peers": 13,
-      "told_apart": 6,
-      "percentile": 27
+      "value": 0.0796,
+      "peers": 15,
+      "told_apart": 5,
+      "percentile": 8
      },
-     "movement": {},
+     "movement": {
+      "value": 0.0943,
+      "previous": "2023-03-05",
+      "told_apart": true,
+      "percentile": 67
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -51657,7 +55913,7 @@
       "percentile": 21
      },
      "movement": {
-      "value": -0.0672,
+      "value": -0.0488,
       "previous": "2023-10-01",
       "told_apart": false,
       "percentile": 0
@@ -52097,9 +56353,9 @@
       }
      },
      "distinctness": {
-      "value": 0.1221,
-      "peers": 13,
-      "told_apart": 5,
+      "value": 0.1243,
+      "peers": 14,
+      "told_apart": 6,
       "percentile": 50
      },
      "movement": {
@@ -53440,9 +57696,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
+     "read": 4,
+     "worn": 4,
+     "reach": 1.0,
      "profile": null,
      "distinctness": {},
      "movement": {},
@@ -53538,11 +57794,123 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 9,
+     "worn": 6,
+     "reach": 0.667,
+     "profile": {
+      "accessories": {
+       "n": 6,
+       "shares": {
+        "bag": 1.0,
+        "shoes": 0.833,
+        "eyewear": 0.667
+       }
+      },
+      "colour_main": {
+       "n": 6,
+       "shares": {
+        "black": 0.833,
+        "green": 0.167
+       }
+      },
+      "colour_second": {
+       "n": 6,
+       "shares": {
+        "white_ivory": 0.667,
+        "black": 0.167,
+        "pink": 0.167
+       }
+      },
+      "construction": {
+       "n": 6,
+       "shares": {
+        "tailored": 0.667,
+        "knitted": 0.167,
+        "soft_cut": 0.167
+       }
+      },
+      "finishing": {
+       "n": 6,
+       "shares": {
+        "none": 0.667,
+        "beaded": 0.333,
+        "pleated": 0.167
+       }
+      },
+      "formality": {
+       "n": 6,
+       "shares": {
+        "formal_tailored": 0.5,
+        "sport_street": 0.333,
+        "casual": 0.167
+       }
+      },
+      "garments": {
+       "n": 6,
+       "shares": {
+        "top": 0.667,
+        "jacket": 0.5,
+        "trousers": 0.5
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "knee": 0.75,
+        "ankle_floor": 0.25
+       }
+      },
+      "layers": {
+       "n": 6,
+       "shares": {
+        "two": 0.667,
+        "one": 0.333
+       }
+      },
+      "materials": {
+       "n": 6,
+       "shares": {
+        "leather": 0.667,
+        "knit": 0.333,
+        "satin_silk": 0.333
+       }
+      },
+      "pattern": {
+       "n": 6,
+       "shares": {
+        "plain": 0.833,
+        "logo_letters": 0.167
+       }
+      },
+      "silhouette": {
+       "n": 6,
+       "shares": {
+        "fitted": 0.833,
+        "volume": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 6,
+       "shares": {
+        "some": 0.833,
+        "covered": 0.167
+       }
+      },
+      "street_couture_axis": {
+       "n": 6,
+       "shares": {
+        "5": 0.5,
+        "2": 0.333,
+        "3": 0.167
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1431,
+      "peers": 12,
+      "told_apart": 5,
+      "percentile": 36
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -53639,12 +58007,121 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 10,
+     "worn": 5,
+     "reach": 0.5,
+     "profile": {
+      "accessories": {
+       "n": 5,
+       "shares": {
+        "bag": 1.0,
+        "shoes": 1.0,
+        "belt": 0.8
+       }
+      },
+      "colour_main": {
+       "n": 5,
+       "shares": {
+        "black": 0.6,
+        "pink": 0.4
+       }
+      },
+      "colour_second": {
+       "n": 5,
+       "shares": {
+        "white_ivory": 0.6,
+        "black": 0.4
+       }
+      },
+      "construction": {
+       "n": 5,
+       "shares": {
+        "tailored": 0.8,
+        "soft_cut": 0.2
+       }
+      },
+      "finishing": {
+       "n": 5,
+       "shares": {
+        "beaded": 1.0,
+        "pleated": 0.2
+       }
+      },
+      "formality": {
+       "n": 5,
+       "shares": {
+        "formal_tailored": 0.6,
+        "sport_street": 0.4
+       }
+      },
+      "garments": {
+       "n": 5,
+       "shares": {
+        "shirt_blouse": 1.0,
+        "trousers": 0.8,
+        "jacket": 0.6
+       }
+      },
+      "hemline": {
+       "n": 5,
+       "shares": {
+        "knee": 0.6,
+        "ankle_floor": 0.4
+       }
+      },
+      "layers": {
+       "n": 5,
+       "shares": {
+        "two": 1.0
+       }
+      },
+      "materials": {
+       "n": 5,
+       "shares": {
+        "plain_woven": 1.0,
+        "leather": 0.4,
+        "knit": 0.2
+       }
+      },
+      "pattern": {
+       "n": 5,
+       "shares": {
+        "logo_letters": 1.0
+       }
+      },
+      "silhouette": {
+       "n": 5,
+       "shares": {
+        "fitted": 0.6,
+        "volume": 0.4
+       }
+      },
+      "skin_shown": {
+       "n": 5,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 5,
+       "shares": {
+        "5": 0.6,
+        "2": 0.4
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2369,
+      "peers": 14,
+      "told_apart": 12,
+      "percentile": 67
+     },
+     "movement": {
+      "value": 0.0642,
+      "previous": "2022-02-25",
+      "told_apart": false,
+      "percentile": 33
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -53741,125 +58218,132 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 12,
-     "worn": 8,
-     "reach": 0.667,
+     "read": 20,
+     "worn": 14,
+     "reach": 0.7,
      "profile": {
       "accessories": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "jewellery": 0.875,
-        "shoes": 0.625,
-        "bag": 0.375
+        "shoes": 0.786,
+        "jewellery": 0.786,
+        "bag": 0.5
        }
       },
       "colour_main": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "black": 0.625,
-        "orange": 0.25,
-        "multicolour": 0.125
+        "black": 0.786,
+        "orange": 0.143,
+        "multicolour": 0.071
        }
       },
       "colour_second": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "none": 0.5,
-        "white_ivory": 0.25,
-        "black": 0.125
+        "none": 0.429,
+        "white_ivory": 0.286,
+        "black": 0.071
        }
       },
       "construction": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "tailored": 0.875,
-        "soft_cut": 0.125
+        "tailored": 0.929,
+        "soft_cut": 0.071
        }
       },
       "finishing": {
-       "n": 8,
+       "n": 10,
        "shares": {
         "none": 0.5,
-        "beaded": 0.25,
-        "pleated": 0.25
+        "beaded": 0.3,
+        "pleated": 0.2
        }
       },
       "formality": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "formal_tailored": 0.5,
-        "mixed": 0.25,
-        "eveningwear": 0.125
+        "formal_tailored": 0.571,
+        "sport_street": 0.143,
+        "mixed": 0.143
        }
       },
       "garments": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "jacket": 0.5,
-        "skirt": 0.375,
-        "dress": 0.375
+        "jacket": 0.571,
+        "skirt": 0.357,
+        "dress": 0.357
        }
       },
       "hemline": {
-       "n": 5,
+       "n": 11,
        "shares": {
-        "ankle_floor": 0.8,
-        "midi": 0.2
+        "ankle_floor": 0.727,
+        "above_knee": 0.182,
+        "midi": 0.091
        }
       },
       "layers": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "one": 0.625,
-        "two": 0.25,
-        "three_or_more": 0.125
+        "one": 0.5,
+        "two": 0.429,
+        "three_or_more": 0.071
        }
       },
       "materials": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "leather": 0.625,
-        "plain_woven": 0.5,
-        "knit": 0.125
+        "leather": 0.643,
+        "plain_woven": 0.571,
+        "metallic": 0.143
        }
       },
       "pattern": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "plain": 0.5,
-        "floral": 0.25,
-        "mixed": 0.25
+        "plain": 0.571,
+        "stripe": 0.143,
+        "floral": 0.143
        }
       },
       "silhouette": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "fitted": 0.625,
-        "mixed": 0.25,
-        "flared": 0.125
+        "fitted": 0.786,
+        "mixed": 0.143,
+        "flared": 0.071
        }
       },
       "skin_shown": {
-       "n": 8,
+       "n": 14,
        "shares": {
         "some": 1.0
        }
       },
       "street_couture_axis": {
-       "n": 8,
+       "n": 14,
        "shares": {
-        "5": 0.625,
-        "3": 0.375
+        "5": 0.643,
+        "3": 0.214,
+        "2": 0.143
        }
       }
      },
      "distinctness": {
-      "value": 0.1702,
-      "peers": 6,
-      "told_apart": 4,
-      "percentile": 75
+      "value": 0.243,
+      "peers": 11,
+      "told_apart": 11,
+      "percentile": 89
      },
-     "movement": {},
+     "movement": {
+      "value": 0.1875,
+      "previous": "2022-09-23",
+      "told_apart": true,
+      "percentile": 50
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -54070,10 +58554,10 @@
       "percentile": 100
      },
      "movement": {
-      "value": 0.1382,
+      "value": 0.1549,
       "previous": "2023-03-02",
-      "told_apart": false,
-      "percentile": 89
+      "told_apart": true,
+      "percentile": 91
      },
      "transmission": {},
      "recognisable": {}
@@ -55332,11 +59816,123 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
+     "read": 22,
+     "worn": 17,
+     "reach": 0.773,
+     "profile": {
+      "accessories": {
+       "n": 16,
+       "shares": {
+        "eyewear": 0.438,
+        "shoes": 0.25,
+        "none": 0.25
+       }
+      },
+      "colour_main": {
+       "n": 17,
+       "shares": {
+        "brown": 0.353,
+        "beige_camel": 0.294,
+        "black": 0.118
+       }
+      },
+      "colour_second": {
+       "n": 17,
+       "shares": {
+        "beige_camel": 0.235,
+        "black": 0.176,
+        "white_ivory": 0.176
+       }
+      },
+      "construction": {
+       "n": 15,
+       "shares": {
+        "tailored": 0.6,
+        "soft_cut": 0.4
+       }
+      },
+      "finishing": {
+       "n": 17,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 17,
+       "shares": {
+        "casual": 0.647,
+        "formal_tailored": 0.235,
+        "utilitarian": 0.118
+       }
+      },
+      "garments": {
+       "n": 17,
+       "shares": {
+        "jacket": 0.647,
+        "shirt_blouse": 0.588,
+        "trousers": 0.529
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "knee": 0.333
+       }
+      },
+      "layers": {
+       "n": 17,
+       "shares": {
+        "two": 0.765,
+        "one": 0.235
+       }
+      },
+      "materials": {
+       "n": 17,
+       "shares": {
+        "plain_woven": 0.882,
+        "knit": 0.294,
+        "leather": 0.059
+       }
+      },
+      "pattern": {
+       "n": 17,
+       "shares": {
+        "plain": 0.882,
+        "stripe": 0.059,
+        "mixed": 0.059
+       }
+      },
+      "silhouette": {
+       "n": 15,
+       "shares": {
+        "straight": 0.667,
+        "fitted": 0.2,
+        "volume": 0.133
+       }
+      },
+      "skin_shown": {
+       "n": 17,
+       "shares": {
+        "some": 0.706,
+        "covered": 0.294
+       }
+      },
+      "street_couture_axis": {
+       "n": 17,
+       "shares": {
+        "3": 0.647,
+        "4": 0.235,
+        "2": 0.118
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1954,
+      "peers": 13,
+      "told_apart": 12,
+      "percentile": 91
+     },
      "movement": {},
      "transmission": {},
      "recognisable": {}
@@ -55434,12 +60030,128 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 0,
-     "worn": 0,
-     "reach": null,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "read": 16,
+     "worn": 13,
+     "reach": 0.812,
+     "profile": {
+      "accessories": {
+       "n": 13,
+       "shares": {
+        "shoes": 0.385,
+        "eyewear": 0.308,
+        "belt": 0.308
+       }
+      },
+      "colour_main": {
+       "n": 13,
+       "shares": {
+        "beige_camel": 0.462,
+        "black": 0.231,
+        "blue": 0.154
+       }
+      },
+      "colour_second": {
+       "n": 13,
+       "shares": {
+        "white_ivory": 0.308,
+        "brown": 0.154,
+        "blue": 0.154
+       }
+      },
+      "construction": {
+       "n": 12,
+       "shares": {
+        "tailored": 0.5,
+        "soft_cut": 0.5
+       }
+      },
+      "finishing": {
+       "n": 13,
+       "shares": {
+        "none": 1.0
+       }
+      },
+      "formality": {
+       "n": 13,
+       "shares": {
+        "casual": 0.692,
+        "formal_tailored": 0.231,
+        "sport_street": 0.077
+       }
+      },
+      "garments": {
+       "n": 13,
+       "shares": {
+        "trousers": 0.846,
+        "shirt_blouse": 0.692,
+        "jacket": 0.385
+       }
+      },
+      "hemline": {
+       "n": 11,
+       "shares": {
+        "ankle_floor": 0.545,
+        "knee": 0.455
+       }
+      },
+      "layers": {
+       "n": 12,
+       "shares": {
+        "two": 0.583,
+        "one": 0.417
+       }
+      },
+      "materials": {
+       "n": 13,
+       "shares": {
+        "plain_woven": 1.0,
+        "leather": 0.077,
+        "knit": 0.077
+       }
+      },
+      "pattern": {
+       "n": 13,
+       "shares": {
+        "plain": 0.769,
+        "graphic": 0.154,
+        "mixed": 0.077
+       }
+      },
+      "silhouette": {
+       "n": 12,
+       "shares": {
+        "straight": 0.833,
+        "fitted": 0.167
+       }
+      },
+      "skin_shown": {
+       "n": 12,
+       "shares": {
+        "some": 0.75,
+        "covered": 0.25
+       }
+      },
+      "street_couture_axis": {
+       "n": 13,
+       "shares": {
+        "3": 0.615,
+        "5": 0.231,
+        "2": 0.154
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2558,
+      "peers": 13,
+      "told_apart": 13,
+      "percentile": 92
+     },
+     "movement": {
+      "value": 0.0038,
+      "previous": "2022-01-14",
+      "told_apart": false,
+      "percentile": 8
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -55535,12 +60247,131 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 4,
-     "worn": 4,
+     "read": 14,
+     "worn": 14,
      "reach": 1.0,
-     "profile": null,
-     "distinctness": {},
-     "movement": {},
+     "profile": {
+      "accessories": {
+       "n": 14,
+       "shares": {
+        "shoes": 0.357,
+        "eyewear": 0.357,
+        "belt": 0.214
+       }
+      },
+      "colour_main": {
+       "n": 14,
+       "shares": {
+        "beige_camel": 0.643,
+        "black": 0.143,
+        "brown": 0.143
+       }
+      },
+      "colour_second": {
+       "n": 14,
+       "shares": {
+        "yellow_gold": 0.357,
+        "white_ivory": 0.143,
+        "brown": 0.143
+       }
+      },
+      "construction": {
+       "n": 14,
+       "shares": {
+        "tailored": 0.5,
+        "soft_cut": 0.5
+       }
+      },
+      "finishing": {
+       "n": 14,
+       "shares": {
+        "none": 0.929,
+        "pleated": 0.071
+       }
+      },
+      "formality": {
+       "n": 14,
+       "shares": {
+        "casual": 0.643,
+        "utilitarian": 0.214,
+        "formal_tailored": 0.071
+       }
+      },
+      "garments": {
+       "n": 14,
+       "shares": {
+        "trousers": 0.643,
+        "top": 0.5,
+        "shirt_blouse": 0.429
+       }
+      },
+      "hemline": {
+       "n": 6,
+       "shares": {
+        "ankle_floor": 0.667,
+        "above_knee": 0.167,
+        "knee": 0.167
+       }
+      },
+      "layers": {
+       "n": 14,
+       "shares": {
+        "two": 0.714,
+        "one": 0.214,
+        "three_or_more": 0.071
+       }
+      },
+      "materials": {
+       "n": 13,
+       "shares": {
+        "plain_woven": 1.0,
+        "knit": 0.077
+       }
+      },
+      "pattern": {
+       "n": 14,
+       "shares": {
+        "plain": 0.857,
+        "graphic": 0.071,
+        "mixed": 0.071
+       }
+      },
+      "silhouette": {
+       "n": 14,
+       "shares": {
+        "straight": 0.571,
+        "fitted": 0.286,
+        "volume": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 14,
+       "shares": {
+        "some": 0.714,
+        "covered": 0.286
+       }
+      },
+      "street_couture_axis": {
+       "n": 14,
+       "shares": {
+        "3": 0.5,
+        "2": 0.357,
+        "1": 0.071
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.182,
+      "peers": 11,
+      "told_apart": 9,
+      "percentile": 56
+     },
+     "movement": {
+      "value": -0.0211,
+      "previous": "2022-06-20",
+      "told_apart": false,
+      "percentile": 0
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -55638,9 +60469,9 @@
     "status": "provisional",
     "runway": null,
     "shop_window": {
-     "read": 12,
+     "read": 13,
      "worn": 11,
-     "reach": 0.917,
+     "reach": 0.846,
      "profile": {
       "accessories": {
        "n": 11,
@@ -55749,12 +60580,17 @@
       }
      },
      "distinctness": {
-      "value": 0.1927,
-      "peers": 11,
-      "told_apart": 10,
-      "percentile": 91
+      "value": 0.1868,
+      "peers": 14,
+      "told_apart": 13,
+      "percentile": 100
      },
-     "movement": {},
+     "movement": {
+      "value": 0.103,
+      "previous": "2023-01-16",
+      "told_apart": true,
+      "percentile": 78
+     },
      "transmission": {},
      "recognisable": {}
     }
@@ -55966,7 +60802,7 @@
       "value": 0.0555,
       "previous": "2023-06-19",
       "told_apart": false,
-      "percentile": 44
+      "percentile": 45
      },
      "transmission": {},
      "recognisable": {}
@@ -56387,9 +61223,9 @@
       }
      },
      "distinctness": {
-      "value": 0.1719,
-      "peers": 10,
-      "told_apart": 5,
+      "value": 0.1875,
+      "peers": 11,
+      "told_apart": 6,
       "percentile": 100
      },
      "movement": {
@@ -56817,7 +61653,7 @@
       "value": 0.1316,
       "previous": "2025-06-23",
       "told_apart": false,
-      "percentile": 88
+      "percentile": 89
      },
      "transmission": {},
      "recognisable": {}
