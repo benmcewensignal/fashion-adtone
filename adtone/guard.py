@@ -42,6 +42,7 @@ ALLOW = {
     "thread": ["data/thread/*.jsonl", "data/thread/*.json", "data/thread/*.csv", "data/results/thread.json",
                "data/results/benchmark.json", "data/results/benchmark.csv", "data/provenance/thread.jsonl"],
     "clothes": ["data/clothes/*.json", "data/clothes/*.jsonl", "data/provenance/clothes.jsonl"],
+    "flex": ["data/flex/*.json", "data/provenance/flex.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
@@ -86,7 +87,8 @@ def main(argv: list[str] | None = None) -> int:
         print("usage: python -m adtone.guard <workflow> <path>...")
         return 2
     secrets = [os.environ.get(k, "") for k in ("META_AD_LIBRARY_TOKEN", "ANTHROPIC_API_KEY", "META_APP_SECRET",
-                                                "YOUTUBE_API_KEY", "TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET")]
+                                                "YOUTUBE_API_KEY", "TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET",
+                                                "MODAL_TOKEN_ID", "MODAL_TOKEN_SECRET")]
     v = violations(argv[0], argv[1:], secrets=secrets)
     for line in v:
         print(f"::error::{line}")

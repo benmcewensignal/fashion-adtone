@@ -1,0 +1,130 @@
+name: flex
+run-name: flex ${{ inputs.mode || 'kick' }}
+# The site's illustration of the clothes reader (adtone/flex.py): one invented runway look, changed a step at
+# a time in two directions, each picture read by the clothes reader.
+# start: the image models pinned if they are not yet (bakeoff/modal_paint.py: Qwen-Image and Qwen-Image-Edit,
+#        Apache 2.0), the painter and the reader deployed, the start picture drawn once for each seed of
+#        data/flex/plan.json and each read -> data/flex/start.json
+# steps: each step of the plan drawn a few times from the picture before, held to its mask, and each version
+#        read; the version read as the step intends is kept -> data/flex/frames.json
+# pin:   the image models pinned again
+# The pictures go to the private Modal volume, and the copies to look at to a branch of their own, sealed to a
+# key outside this repository. No picture is written to the repository. Editing .github/kick/flex starts a
+# run; its first word is the mode.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: start
+        options: [start, steps, pin]
+  push:
+    branches: [main]
+    paths: [".github/kick/flex"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-flex
+  cancel-in-progress: false
+
+jobs:
+  flex:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 220
+    env:
+      PYTHONUNBUFFERED: "1"
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start from the latest main
+        run: git fetch -q --depth=1 origin main && git reset -q --hard FETCH_HEAD && git log --oneline -1
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Mode
+        id: m
+        run: |
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ]; then mode=$(head -1 .github/kick/flex 2>/dev/null | awk '{print $1}'); fi
+          case "$mode" in start|steps|pin) ;; *) mode=start ;; esac
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "flex mode: $mode" | tee -a /tmp/flex.log
+      - name: Install
+        timeout-minutes: 10
+        run: pip install -q -r requirements.txt pynacl
+      - name: Pin the image models
+        id: pin
+        timeout-minutes: 80
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          have=$(python -c "import json, pathlib; p = pathlib.Path('data/flex/models.json'); d = json.loads(p.read_text()) if p.exists() else {}; print('yes' if d.get('gen', {}).get('revision') and d.get('edit', {}).get('revision') else 'no')")
+          if [ "$have" = yes ] && [ "${{ steps.m.outputs.mode }}" != pin ]; then echo "pinned already" | tee -a /tmp/flex.log; exit 0; fi
+          modal run bakeoff/modal_paint.py 2>&1 | tee /tmp/pin.log | tee -a /tmp/flex.log
+          python - <<'PY'
+          import json, pathlib, datetime
+          rows = [json.loads(l.split("PAINT_PIN ", 1)[1]) for l in pathlib.Path("/tmp/pin.log").read_text().splitlines() if "PAINT_PIN " in l]
+          p = pathlib.Path("data/flex/models.json")
+          d = json.loads(p.read_text()) if p.exists() else {}
+          for r in rows:
+              role = r.pop("role")
+              if "error" in r:
+                  print(f"::error::{role}: {r['error']}")
+                  continue
+              d[role] = {**r, "pinned_at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"}
+          p.parent.mkdir(parents=True, exist_ok=True)
+          p.write_text(json.dumps(d, indent=1) + "\n")
+          assert d.get("gen", {}).get("revision") and d.get("edit", {}).get("revision"), "a model was not pinned"
+          PY
+      - name: Deploy the painter and the reader
+        id: deploy
+        if: steps.m.outputs.mode != 'pin' && steps.pin.outcome == 'success'
+        timeout-minutes: 40
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          gen=$(python -c "import json; d = json.load(open('data/flex/models.json'))['gen']; print(d['model'] + '@' + d['revision'])")
+          edit=$(python -c "import json; d = json.load(open('data/flex/models.json'))['edit']; print(d['model'] + '@' + d['revision'])")
+          PAINT_GEN="$gen" PAINT_EDIT="$edit" modal deploy bakeoff/modal_paint.py 2>&1 | tee -a /tmp/flex.log
+          q3=$(python -c "import json; print(json.load(open('data/luxury/readers.json'))['qwen3']['revision'])")
+          test -n "$q3"
+          BAKEOFF_MODEL=Qwen/Qwen3-VL-32B-Instruct-FP8 BAKEOFF_REVISION="$q3" BAKEOFF_APP=adtone-luxury-qwen3 BAKEOFF_GPU=H100 \
+            BAKEOFF_CONTAINERS=4 BAKEOFF_SEQS=32 BAKEOFF_SCALEDOWN=900 modal deploy bakeoff/modal_reader.py 2>&1 | tee -a /tmp/flex.log
+      - name: The start picture, once for each seed, each read
+        if: steps.m.outputs.mode == 'start' && steps.deploy.outcome == 'success'
+        timeout-minutes: 70
+        continue-on-error: true
+        run: set -o pipefail; python -m adtone.flex start 2>&1 | tee -a /tmp/flex.log
+      - name: The steps, each drawn a few times and read
+        if: steps.m.outputs.mode == 'steps' && steps.deploy.outcome == 'success'
+        timeout-minutes: 140
+        continue-on-error: true
+        run: set -o pipefail; python -m adtone.flex steps --budget-min 120 2>&1 | tee -a /tmp/flex.log
+      - name: Sealed pictures to look at, on a branch of their own
+        # One file sealed to a key that is not in this repository: it holds no readable picture.
+        if: always() && hashFiles('flex_pictures/flex.tar.sealed') != ''
+        timeout-minutes: 5
+        run: |
+          tmp=$(mktemp -d)
+          cp flex_pictures/flex.tar.sealed "$tmp/"
+          cd "$tmp" && git init -q && git checkout -q -b flex-sealed && git add flex.tar.sealed
+          git -c user.name=adtone-flex-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed pictures of the flex illustration"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" flex-sealed
+      - name: Keep the end of the log
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib, datetime
+          p = pathlib.Path("/tmp/flex.log")
+          lines = p.read_text(errors="replace").splitlines()[-300:] if p.exists() else []
+          out = pathlib.Path("data/flex/runlog.json")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps({"at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "lines": lines}, indent=0) + "\n")
+          PY
+      - name: Persist
+        if: always()
+        timeout-minutes: 5
+        run: bash scripts/persist.sh flex "flex ${{ steps.m.outputs.mode }}"

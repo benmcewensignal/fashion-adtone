@@ -1,0 +1,51 @@
+{
+ "version": "flex-v1",
+ "note": "One invented runway look changed a step at a time in two directions, each picture read by the clothes reader (adtone/flex.py). Masks are fractions of the picture's width and height.",
+ "start": {
+  "prompt": "A full-length photograph from a fashion show. A woman walks straight towards the camera along a pale stone runway, centred in a tall portrait frame and seen whole from head to toe, with clear space above her head and below her feet. Behind her is a plain off-white wall. Soft, even, diffuse light. She wears a plain mid-grey shift dress of matte woven wool that ends at the knee, with long fitted sleeves and a simple round neckline, and plain black flat shoes. Her dark hair is pulled back smoothly into a low bun, with her ears showing. Bare legs. No jewellery, no earrings, no necklace, no hat, no belt, no bag, no glasses. Arms relaxed at her sides. Calm, neutral expression. Natural skin texture, realistic proportions, sharp focus, professional runway photography. No audience, no other people, no text, no logos.",
+  "negative": "blurry, out of focus, cropped head, cropped feet, cut-off limbs, extra limbs, extra fingers, deformed hands, distorted face, cartoon, illustration, painting, 3d render, text, watermark, logo, audience, crowd, other people, jewellery, earrings, necklace, hat, sunglasses, glasses, bag, belt, pattern, print",
+  "seeds": [
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108
+  ],
+  "draw_size": [
+   1056,
+   1584
+  ],
+  "steps": 50,
+  "cfg": 4.0,
+  "chosen": null
+ },
+ "negative": " ",
+ "edit_steps": 40,
+ "cfg": 4.0,
+ "feather": 6,
+ "draws": 3,
+ "draw_seed": 1,
+ "houses": [
+  {
+   "house": "dior",
+   "designer": "Maria Grazia Chiuri",
+   "category": "rtw",
+   "from": "2016-09-01",
+   "to": "2025-06-30"
+  },
+  {
+   "house": "balenciaga",
+   "designer": "Demna",
+   "category": "rtw",
+   "from": "2016-03-01",
+   "to": "2025-06-30"
+  }
+ ],
+ "arms": {
+  "decorated": [],
+  "plainer": []
+ }
+}

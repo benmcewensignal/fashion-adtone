@@ -9,7 +9,8 @@ questions (tone-v1) for one picture, or saying which of two pictures lies furthe
 Pictures arrive in memory with each call, or are read from the private picture volume by their sha
 (the luxury reading, adtone/luxury.py), and are not kept. The model sees the pictures and the question
 only, never the house. BAKEOFF_CONTAINERS (default 1) lets a long reading spread over more GPUs, and
-BAKEOFF_SEQS (default 16) sets how many conversations one GPU takes at once.
+BAKEOFF_SEQS (default 16) sets how many conversations one GPU takes at once, and BAKEOFF_SCALEDOWN (default
+60) how many seconds a container waits for more work before it stops.
 """
 import base64
 import math
@@ -23,6 +24,7 @@ GPU = os.environ.get("BAKEOFF_GPU", "H100")
 APP = os.environ.get("BAKEOFF_APP", "adtone-bakeoff-qwen3")
 CONTAINERS = int(os.environ.get("BAKEOFF_CONTAINERS", "1"))
 SEQS = int(os.environ.get("BAKEOFF_SEQS", "16"))
+SCALEDOWN = int(os.environ.get("BAKEOFF_SCALEDOWN", "60"))   # seconds a container waits idle before it stops
 VLLM = "vllm==0.11.0"
 
 # Everything resolved as it stood on 20 October 2025, a fortnight after vLLM 0.11.0: it names no upper
@@ -33,7 +35,7 @@ image = (modal.Image.debian_slim(python_version="3.12")
                          extra_options=f"--exclude-newer {RESOLVED_AS_OF}")
          .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "BAKEOFF_MODEL": MODEL, "BAKEOFF_REVISION": REVISION,
                "BAKEOFF_GPU": GPU, "BAKEOFF_APP": APP, "BAKEOFF_CONTAINERS": str(CONTAINERS),
-               "BAKEOFF_SEQS": str(SEQS)}))
+               "BAKEOFF_SEQS": str(SEQS), "BAKEOFF_SCALEDOWN": str(SCALEDOWN)}))
 weights = modal.Volume.from_name("adtone-reader-weights", create_if_missing=True)
 pictures = modal.Volume.from_name("adtone-pictures", create_if_missing=True)
 app = modal.App(APP)
@@ -72,7 +74,7 @@ def _picture(folder: str, sha: str) -> bytes:
 
 
 @app.cls(image=image, gpu=GPU, volumes={"/weights": weights, "/pictures": pictures}, timeout=3600,
-         scaledown_window=60, max_containers=CONTAINERS)
+         scaledown_window=SCALEDOWN, max_containers=CONTAINERS)
 class Reader:
     @modal.enter()
     def load(self):
