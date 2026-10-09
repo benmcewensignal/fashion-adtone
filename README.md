@@ -42,6 +42,49 @@ their clothes look like.
   `registry/houses.yml` are verified; the registry stays DRAFT until its page ids are confirmed.
   Analysis refuses to run until both are frozen.
 
+## Where it stands, 9 October 2026
+
+The site's Status page in full, as it stood when it was folded into a few lines on the home page.
+
+- **Advertising.** Built. The first collection, on 8 October, was turned away until Meta clears the account
+  for its Ad Library.
+- **Homepages.** 1,330 months with pictures across all 28 brands, back to September 2021 so far, 3,053 images
+  read. Filling back to 2014 every two hours.
+- **Luxury reading.** The reader is chosen, after a test against 150 pairs judged by hand. Every picture
+  collected by 7 October has been read again, 2,039 in all, and the rest follow as the history fills. A second
+  version of the instrument, drawn from the research on advertising pictures and tested by its own fixed rules,
+  has read them too.
+- **First readings.** Run on the homepage history, by both readers and both versions of the instrument, to
+  test the method. Descriptive, and not shown on the site yet.
+- **Films.** Built, waiting on access.
+- **Campaign archive.** 542 campaigns listed for ten brands.
+- **Shows.** 896 since 2015, dated from the brands' listings on NOWFASHION and checked against 86 verified
+  dates; 502 main shows scored for the jump in attention around them.
+- **End to end.** 548 collections followed: the scene covered for 330, the show scored for 501 and whether its
+  attention lasted for 483, the shop window read for 212 and its clothes for 118, the runway's clothes for 53,
+  the campaigns joined for 81, and the advertising for none until Meta's archive opens. The clothes are
+  provisional until a trained eye has checked the questions.
+- **Season benchmark.** Every collection since autumn-winter 2022 placed against the other brands of its
+  season: distinctness and movement in the shop window, of its pictures and of its clothes, the runway's
+  clothes where its looks are read, the share of campaign pictures, the jump at the show and whether its
+  attention lasted. In the Private tab.
+- **Runway looks.** The archive holds the brands' own pages for 268 of the 432 shows checked. 1,459 looks kept
+  from 113 shows so far, each from pages of the show's own line, and read for their clothes.
+- **Clothes.** A description of what is worn, shared by the show and the advertising, in the terms of
+  Fashionpedia's ontology. Fixed on 9 October and read since: 4,634 pictures, every runway look kept and every
+  homepage picture the archive still serves. Every question passes the reader's own checks, its answers
+  varying and holding when a picture is cropped; 21 rarer options of the list questions do not. The questions
+  are used, marked provisional, until labels by people, one of them trained in fashion, check them; a question
+  that fails is dropped and every figure computed again.
+- **Credits.** 579, across all 28 brands.
+- **Ambassadors.** 197 dated appointments since 2019, each with its source.
+- **Statements.** 34, read into the same questions as the images; most are too short to say much yet.
+- **Attention.** All 28 brands, daily, in ten languages.
+- **Press.** Eleven brands begun from early 2017, three of them up to this week.
+- **Media value.** 145 placings across 25 fashion weeks since September 2023.
+- **Desire.** A ranking of demand for the first two quarters of 2026.
+- **Revenue.** 412 figures for the 14 brands whose owners report them, from 2018 to mid-2026.
+
 ## How it works
 
 1. **collect** pulls every ad delivered in the EU27 and the UK from the panel's Facebook pages, and
