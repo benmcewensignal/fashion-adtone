@@ -1,0 +1,49 @@
+  /* One invented look, changed a step at a time, read by the clothes reader */
+  .fx { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin: 0 0 1.5rem; }
+  .fx figure { margin: 0; }
+  .fx-pic { position: relative; width: 100%; max-width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e6e3dc; }
+  .fx-pic img { position: absolute; display: block; max-width: none; height: auto; pointer-events: none; user-select: none; -webkit-user-select: none; }
+  .fx-pic .fx-base { inset: 0; width: 100%; height: 100%; }
+  .fx figcaption { margin-top: 0.6rem; color: var(--graphite); font-size: 0.8125rem; text-align: center; }
+  .fx-ctl { margin: 1.1rem 0 0; }
+  .fx-slide { position: relative; padding: 0 2px; }
+  .fx-ticks { position: absolute; left: 15px; right: 15px; top: 50%; height: 9px; margin-top: -4.5px; display: flex; justify-content: space-between; pointer-events: none; }
+  .fx-ticks i { width: 1px; height: 9px; background: var(--graphite); opacity: 0.6; }
+  .fx-ticks i.mid { height: 13px; margin-top: -2px; opacity: 1; }
+  .fx-range { -webkit-appearance: none; appearance: none; position: relative; z-index: 1; display: block; width: 100%; height: 2.75rem; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
+  .fx-range::-webkit-slider-runnable-track { height: 1px; background: var(--graphite); }
+  .fx-range::-moz-range-track { height: 1px; background: var(--graphite); }
+  .fx-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; margin-top: -12.5px; border-radius: 50%; background: var(--accent); border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--accent); }
+  .fx-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--accent); }
+  .fx-range:focus { outline: none; }
+  .fx-range:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+  .fx-ends { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.1rem; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+  .fx-ends span:last-child { text-align: right; }
+  .fx-now { margin: 1.1rem 0 0.2rem; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; line-height: 1.3; text-align: center; text-wrap: balance; min-height: 1.3em; }
+  .fx-cols, .fx-row { display: grid; grid-template-columns: minmax(0, 1fr) 3.4rem 5.6rem; column-gap: 0.5rem; align-items: baseline; }
+  .fx-cols { padding: 0 0 0.35rem; border-bottom: 1px solid var(--ink); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-cols span + span, .fx-row span + span { text-align: right; font-variant-numeric: tabular-nums; }
+  .fx-row { padding: 0.32rem 0; font-size: 0.875rem; line-height: 1.4; }
+  .fx-row .w { min-width: 0; display: flex; align-items: baseline; gap: 0.45rem; }
+  .fx-row .w .t { min-width: 0; }
+  .fx-row .w b { font-weight: 600; }
+  .fx-row .w .k { color: var(--graphite); }
+  .fx-row .w .was { color: var(--graphite); font-size: 0.8125rem; }
+  .fx-row.gone .w, .fx-row.gone span + span { color: var(--muted); }
+  .fx-row.gone .w s { text-decoration-thickness: 1px; }
+  .fx-row i.d { flex: 0 0 auto; display: inline-block; width: 7px; height: 7px; margin-bottom: 0.08em; border-radius: 50%; background: var(--accent); }
+  .fx-row i.d.off { background: none; box-shadow: inset 0 0 0 1px var(--graphite); }
+  .fx-step .fx-row:last-child { border-bottom: 1px solid var(--rule); }
+  .fx-step .empty { margin: 0; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); color: var(--graphite); font-size: 0.875rem; text-align: center; }
+  .fx-lab { margin: 0.75rem 0 0.1rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-all { margin-top: 1.75rem; }
+  .fx .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .fx-all .sec { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .fx-q { border-bottom: 1px solid var(--rule); padding: 0.3rem 0; }
+  .fx-q .qn { display: block; padding-top: 0.15rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-q .fx-row { padding: 0.12rem 0; }
+  .fx-side .note { margin-top: 0.9rem; font-size: 0.8125rem; }
+  @media (min-width: 56rem) {
+    .fx { grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .fx figure { position: sticky; top: 1.5rem; }
+  }

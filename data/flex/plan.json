@@ -79,7 +79,8 @@
     ],
     "expect": [
      "accessories+jewellery"
-    ]
+    ],
+    "headline": "accessories+jewellery"
    },
    {
     "id": "A2",
@@ -125,7 +126,8 @@
      2,
      3,
      4
-    ]
+    ],
+    "headline": "garments+skirt"
    },
    {
     "id": "A3",
@@ -159,7 +161,8 @@
     ],
     "expect": [
      "materials+sheer_lace"
-    ]
+    ],
+    "headline": "materials+sheer_lace"
    },
    {
     "id": "A4",
@@ -193,7 +196,8 @@
     ],
     "expect": [
      "finishing+beaded"
-    ]
+    ],
+    "headline": "finishing+beaded"
    },
    {
     "id": "A5",
@@ -211,7 +215,8 @@
     ],
     "expect": [
      "accessories+belt"
-    ]
+    ],
+    "headline": "accessories+belt"
    }
   ],
   "plainer": [
@@ -239,7 +244,8 @@
     ],
     "expect": [
      "colour_main=black"
-    ]
+    ],
+    "headline": "colour_main=black"
    },
    {
     "id": "B2",
@@ -277,7 +283,8 @@
      "garments+trousers",
      "hemline=ankle_floor",
      "skin_shown=covered"
-    ]
+    ],
+    "headline": "garments+trousers"
    },
    {
     "id": "B3",
@@ -312,7 +319,8 @@
     "expect": [
      "garments+coat",
      "layers=two"
-    ]
+    ],
+    "headline": "garments+coat"
    },
    {
     "id": "B4",
@@ -352,7 +360,8 @@
      5,
      6,
      7
-    ]
+    ],
+    "headline": "materials+leather"
    },
    {
     "id": "B5",
@@ -370,7 +379,8 @@
     ],
     "expect": [
      "accessories+eyewear"
-    ]
+    ],
+    "headline": "accessories+eyewear"
    }
   ]
  },

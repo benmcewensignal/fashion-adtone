@@ -285,6 +285,21 @@ runway than the season's others. Every comparison is net of chance at the number
 `PREREGISTRATION-AMENDMENT-3.md` is a draft, not decided, of how the links between the show and the
 advertising would be tested if they are tested at all.
 
+## The site's illustration of the clothes reader
+
+`adtone.flex` makes the slider on the site's Readings page: one invented runway look changed a step at a
+time in two directions, each step one of the answers in use on which two houses' runway looks differ
+most (Dior's ready-to-wear under Maria Grazia Chiuri, Balenciaga's under Demna). `bakeoff/modal_paint.py`
+draws the pictures on Modal with open image models licensed Apache 2.0, Qwen-Image-2512 for the start
+picture and Qwen-Image-Edit-2511 for each change, and holds every edit to a mask: after each denoising
+step the parts outside it are put back to the picture before at that step's noise, and at the end the
+picture before is laid back over them, so nothing outside the mask changes. Each step is drawn three or
+four times and every version is read by the clothes reader with the frozen rubric; the version kept is
+the one whose answers change most as the step intends and least otherwise (`data/flex/plan.json`,
+`data/flex/frames.json`). The houses' shares come from the runway readings (`adtone.flex shares`,
+`data/flex/shares.json`). The pictures stay on the private volume and leave the runner only sealed; the
+site's copies are uploaded to the deployment and are not in the repository. Workflow `flex`.
+
 ## The reader
 
 Each image's eighteen answers come from an open vision model, Qwen2.5-VL-7B-Instruct, on a Modal GPU
@@ -315,9 +330,11 @@ description, not effects (`docs/SUCCESS.md`).
 
 ## Site
 
-`www/index.html` is the public page that frames the project: one static file, no images, no
-scripts. It is live at https://adtone-benmcewen20-9581s-projects.vercel.app (Vercel project `adtone`,
-first deployed 6 October 2026), separate from the timestamp record.
+`www/index.html` is the public page that frames the project: one static file with its styles and a
+little script, the Private tab's code in `www/private.js` and its content sealed in `www/private.json`.
+It is live at https://adtone-benmcewen20-9581s-projects.vercel.app (Vercel project `adtone`, first
+deployed 6 October 2026), separate from the timestamp record. The Readings page's slider shows pictures
+uploaded with the deployment, not kept here.
 (`site/` is not used for it: the status workflow builds the GitHub Pages status page there.)
 
 ## Relation to fashion-position

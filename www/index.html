@@ -339,6 +339,57 @@
     .pv-cols span:first-child { padding-left: 0.5rem; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  /*FX-CSS*/
+  /* One invented look, changed a step at a time, read by the clothes reader */
+  .fx { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin: 0 0 1.5rem; }
+  .fx figure { margin: 0; }
+  .fx-pic { position: relative; width: 100%; max-width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e6e3dc; }
+  .fx-pic img { position: absolute; display: block; max-width: none; height: auto; pointer-events: none; user-select: none; -webkit-user-select: none; }
+  .fx-pic .fx-base { inset: 0; width: 100%; height: 100%; }
+  .fx figcaption { margin-top: 0.6rem; color: var(--graphite); font-size: 0.8125rem; text-align: center; }
+  .fx-ctl { margin: 1.1rem 0 0; }
+  .fx-slide { position: relative; padding: 0 2px; }
+  .fx-ticks { position: absolute; left: 15px; right: 15px; top: 50%; height: 9px; margin-top: -4.5px; display: flex; justify-content: space-between; pointer-events: none; }
+  .fx-ticks i { width: 1px; height: 9px; background: var(--graphite); opacity: 0.6; }
+  .fx-ticks i.mid { height: 13px; margin-top: -2px; opacity: 1; }
+  .fx-range { -webkit-appearance: none; appearance: none; position: relative; z-index: 1; display: block; width: 100%; height: 2.75rem; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
+  .fx-range::-webkit-slider-runnable-track { height: 1px; background: var(--graphite); }
+  .fx-range::-moz-range-track { height: 1px; background: var(--graphite); }
+  .fx-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; margin-top: -12.5px; border-radius: 50%; background: var(--accent); border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--accent); }
+  .fx-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--accent); }
+  .fx-range:focus { outline: none; }
+  .fx-range:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+  .fx-ends { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.1rem; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+  .fx-ends span:last-child { text-align: right; }
+  .fx-now { margin: 1.1rem 0 0.2rem; font-family: var(--serif); font-style: italic; font-size: 1.1875rem; line-height: 1.3; text-align: center; text-wrap: balance; min-height: 1.3em; }
+  .fx-cols, .fx-row { display: grid; grid-template-columns: minmax(0, 1fr) 3.4rem 5.6rem; column-gap: 0.5rem; align-items: baseline; }
+  .fx-cols { padding: 0 0 0.35rem; border-bottom: 1px solid var(--ink); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-cols span + span, .fx-row span + span { text-align: right; font-variant-numeric: tabular-nums; }
+  .fx-row { padding: 0.32rem 0; font-size: 0.875rem; line-height: 1.4; }
+  .fx-row .w { min-width: 0; display: flex; align-items: baseline; gap: 0.45rem; }
+  .fx-row .w .t { min-width: 0; }
+  .fx-row .w b { font-weight: 600; }
+  .fx-row .w .k { color: var(--graphite); }
+  .fx-row .w .was { color: var(--graphite); font-size: 0.8125rem; }
+  .fx-row.gone .w, .fx-row.gone span + span { color: var(--muted); }
+  .fx-row.gone .w s { text-decoration-thickness: 1px; }
+  .fx-row i.d { flex: 0 0 auto; display: inline-block; width: 7px; height: 7px; margin-bottom: 0.08em; border-radius: 50%; background: var(--accent); }
+  .fx-row i.d.off { background: none; box-shadow: inset 0 0 0 1px var(--graphite); }
+  .fx-step .fx-row:last-child { border-bottom: 1px solid var(--rule); }
+  .fx-step .empty { margin: 0; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); color: var(--graphite); font-size: 0.875rem; text-align: center; }
+  .fx-lab { margin: 0.75rem 0 0.1rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-all { margin-top: 1.75rem; }
+  .fx .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .fx-all .sec { margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; font-size: 1.125rem; }
+  .fx-q { border-bottom: 1px solid var(--rule); padding: 0.3rem 0; }
+  .fx-q .qn { display: block; padding-top: 0.15rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .fx-q .fx-row { padding: 0.12rem 0; }
+  .fx-side .note { margin-top: 0.9rem; font-size: 0.8125rem; }
+  @media (min-width: 56rem) {
+    .fx { grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .fx figure { position: sticky; top: 1.5rem; }
+  }
+  /*FX-CSS-END*/
 </style>
 </head>
 <body>
@@ -493,6 +544,46 @@
           </div>
           <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
         </div>
+        <!--FX-->
+        <div class="narrow" id="fx-intro">
+          <p class="sub" style="margin-top:4rem">The clothes</p>
+          <p class="block" style="text-align:center">Every runway look, and every picture that follows it, is also read for its clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
+        </div>
+        <div class="fx" id="fx">
+          <figure>
+            <div class="fx-pic" role="img" aria-label="A woman walks towards the camera on a pale stone runway against a plain off-white wall, in a plain mid-grey knee-length dress with long sleeves and black flat shoes.">
+              <img class="fx-base" src="flex/look.webp" width="832" height="1248" alt="">
+              <img class="fx-patch" data-k="-1" src="flex/A1.webp" style="left:40.3846%;top:16.5865%;width:21.3942%" width="178" height="194" alt="" hidden>
+              <img class="fx-patch" data-k="-2" src="flex/A2.webp" style="left:25.4808%;top:31.8910%;width:49.0385%" width="408" height="674" alt="" hidden>
+              <img class="fx-patch" data-k="-3" src="flex/A3.webp" style="left:26.0817%;top:38.4615%;width:48.1971%" width="401" height="592" alt="" hidden>
+              <img class="fx-patch" data-k="-4" src="flex/A4.webp" style="left:29.3269%;top:24.5192%;width:41.3462%" width="344" height="396" alt="" hidden>
+              <img class="fx-patch" data-k="-5" src="flex/A5.webp" style="left:38.3413%;top:35.5769%;width:25.4808%" width="212" height="165" alt="" hidden>
+              <img class="fx-patch" data-k="1" src="flex/B1.webp" style="left:29.3269%;top:23.3173%;width:41.3462%" width="344" height="587" alt="" hidden>
+              <img class="fx-patch" data-k="2" src="flex/B2.webp" style="left:27.0433%;top:33.6538%;width:47.5962%" width="396" height="827" alt="" hidden>
+              <img class="fx-patch" data-k="3" src="flex/B3.webp" style="left:21.6346%;top:21.9551%;width:58.6538%" width="488" height="769" alt="" hidden>
+              <img class="fx-patch" data-k="4" src="flex/B4.webp" style="left:21.6346%;top:22.0353%;width:58.6538%" width="488" height="765" alt="" hidden>
+              <img class="fx-patch" data-k="5" src="flex/B5.webp" style="left:40.8654%;top:14.0224%;width:20.1923%" width="168" height="97" alt="" hidden>
+            </div>
+            <div class="fx-ctl">
+              <div class="fx-slide">
+                <div class="fx-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="mid"></i><i></i><i></i><i></i><i></i><i></i></div>
+                <input class="fx-range" type="range" min="-5" max="5" step="1" value="0" aria-label="Change the look, one step at a time" aria-valuetext="As drawn">
+              </div>
+              <div class="fx-ends" aria-hidden="true"><span>More decorated</span><span>Plainer and darker</span></div>
+              <p class="fx-now" aria-live="polite">As drawn</p>
+            </div>
+            <figcaption>Generated with AI for illustration. Not a real person or collection.</figcaption>
+          </figure>
+          <div class="fx-side">
+            <div class="fx-cols" aria-hidden="true"><span>What the reader answers</span><span>Dior</span><span>Balenciaga</span></div>
+            <p class="fx-lab">Changed at this step</p>
+            <div class="fx-step"></div>
+            <div class="fx-all"><p class="sec">Every answer for this picture</p><div class="fx-list"></div></div>
+            <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 47 looks from three shows of 2019 to 2021, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025. Like every description of the clothes, they are provisional until people have checked them.</p>
+            <p class="note">The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 28 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
+          </div>
+        </div>
+        <!--FX-END-->
         <div class="narrow">
           <p class="sub" style="margin-top:4rem">Read as luxury</p>
           <p class="block" style="text-align:center">Most luxury pictures share a register: polished, posed and quiet. Questions asked of one picture at a time say little about what sets one apart from another, so each picture is also read against others like it, on five axes.</p>
@@ -852,6 +943,92 @@
   if (/^#[a-z]+$/.test(location.hash)) history.replaceState(null, "", "#/" + location.hash.slice(1));
   addEventListener("hashchange", route);
   route();
+})();
+</script>
+<script>/*FX-JS*/
+(() => {
+  // One invented look, changed a step at a time; the reader's answers for each picture, and how often each
+  // answer comes up in two houses' runway looks (built from data/flex by the site's build).
+  const FX = /*FX*/{"q":[["garments","Garments"],["accessories","Accessories"],["colour_main","Main colour"],["colour_second","Second colour"],["pattern","Pattern"],["skin_shown","Skin shown"],["hemline","Hemline"],["layers","Layers"],["silhouette","Silhouette"],["construction","Construction"],["finishing","Finishing"],["materials","Materials"],["formality","Formality"],["street_couture_axis","Street to couture"]],"lists":["garments","accessories","finishing","materials"],"labels":{"shirt_blouse":"shirt or blouse","white_ivory":"white or ivory","beige_camel":"beige or camel","yellow_gold":"yellow or gold","logo_letters":"logo or letters","above_knee":"above the knee","knee":"at the knee","midi":"midi","ankle_floor":"ankle or floor","three_or_more":"three or more","soft_cut":"soft cut","sheer_lace":"sheer or lace","satin_silk":"satin or silk","plain_woven":"plain woven","not_distinguishable":"can't tell","formal_tailored":"formal tailored","sport_street":"sport or street","not_visible":"not visible","not_applicable":"not applicable","1":"1 of 5","2":"2 of 5","3":"3 of 5","4":"4 of 5","5":"5 of 5"},"shares":{"accessories+belt":[[18,47],[16,139]],"accessories+eyewear":[[5,47],[62,139]],"accessories+jewellery":[[33,47],[25,139]],"accessories+shoes":[[45,47],[132,139]],"colour_main=black":[[13,47],[90,139]],"colour_main=grey":[[2,47],[8,139]],"colour_second=black":[[22,47],[26,139]],"colour_second=none":[[3,47],[56,139]],"construction=soft_cut":[[7,47],[17,139]],"construction=tailored":[[20,47],[97,139]],"finishing+beaded":[[16,47],[15,139]],"finishing+none":[[12,47],[103,139]],"finishing+pleated":[[25,47],[23,139]],"formality=casual":[[9,47],[13,139]],"formality=formal_tailored":[[15,47],[82,139]],"garments+coat":[[7,47],[43,139]],"garments+dress":[[15,47],[34,139]],"garments+shirt_blouse":[[20,47],[48,139]],"garments+skirt":[[16,47],[14,139]],"garments+sweater":[[1,47],[4,139]],"garments+top":[[5,47],[10,139]],"garments+trousers":[[11,47],[97,139]],"hemline=ankle_floor":[[25,47],[110,139]],"hemline=knee":[[2,47],[19,139]],"hemline=midi":[[13,47],[10,139]],"layers=one":[[8,47],[44,139]],"layers=two":[[27,47],[82,139]],"materials+knit":[[6,47],[10,139]],"materials+leather":[[3,47],[36,139]],"materials+plain_woven":[[24,47],[98,139]],"materials+sheer_lace":[[23,47],[12,139]],"pattern=plain":[[15,47],[102,139]],"silhouette=fitted":[[12,47],[58,139]],"silhouette=flared":[[8,47],[0,139]],"silhouette=straight":[[8,47],[12,139]],"silhouette=volume":[[15,47],[68,139]],"skin_shown=covered":[[4,47],[80,139]],"skin_shown=some":[[41,47],[59,139]],"street_couture_axis=3":[[18,47],[18,139]],"street_couture_axis=4":[[3,47],[4,139]],"street_couture_axis=5":[[24,47],[96,139]]},"frames":[{"k":-5,"id":"A5","label":"More decorated, 5 of 5: a belt","alt":"A grey belt tied in a bow at the waist of the beaded top and the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery","belt"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"tailored","finishing":["beaded","pleated"],"materials":["sheer_lace","plain_woven"],"formality":"formal_tailored","street_couture_axis":"4"}},{"k":-4,"id":"A4","label":"More decorated, 4 of 5: beading","alt":"Small beads scattered over the grey top, above the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["beaded","pleated"],"materials":["sheer_lace","knit"],"formality":"casual","street_couture_axis":"3"}},{"k":-3,"id":"A3","label":"More decorated, 3 of 5: sheer tulle","alt":"The pleated skirt now sheer grey tulle over a short slip, her legs showing through it, with the grey top and gold necklace.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["pleated"],"materials":["knit","sheer_lace"],"formality":"casual","street_couture_axis":"3"}},{"k":-2,"id":"A2","label":"More decorated, 2 of 5: a pleated skirt to mid-calf","alt":"The dress replaced by a fitted grey top and a grey pleated skirt to below the knee, with the gold necklace and earrings.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"flared","construction":"soft_cut","finishing":["pleated"],"materials":["knit","plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":-1,"id":"A1","label":"More decorated, 1 of 5: gold jewellery","alt":"The same look with a bold gold chain necklace and small gold drop earrings.","a":{"garments":["dress"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":0,"id":"start","label":"As drawn","alt":"A woman walks towards the camera on a pale stone runway against a plain off-white wall, in a plain mid-grey knee-length dress with long sleeves and black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"grey","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":1,"id":"B1","label":"Plainer and darker, 1 of 5: black","alt":"The same plain knee-length dress with long sleeves, now black, with black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":2,"id":"B2","label":"Plainer and darker, 2 of 5: wide trousers to the floor","alt":"A plain black top with long sleeves and straight black trousers to the floor over black boots.","a":{"garments":["top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":3,"id":"B3","label":"Plainer and darker, 3 of 5: an oversized coat","alt":"An oversized black wool coat with wide padded shoulders, worn open over the black top and trousers.","a":{"garments":["coat","top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":4,"id":"B4","label":"Plainer and darker, 4 of 5: leather","alt":"The oversized coat now in smooth black leather, over the black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":5,"id":"B5","label":"Plainer and darker, 5 of 5: dark glasses","alt":"Dark wraparound sunglasses with the oversized black leather coat, black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes","eyewear"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}}]}/*FX*/;
+  const root = document.getElementById("fx");
+  if (!root || !FX) return;
+  const range = root.querySelector(".fx-range");
+  const pic = root.querySelector(".fx-pic");
+  const now = root.querySelector(".fx-now");
+  const step = root.querySelector(".fx-step");
+  const list = root.querySelector(".fx-list");
+  const byK = new Map(FX.frames.map(f => [f.k, f]));
+  const start = byK.get(0);
+  const word = v => (v in FX.labels ? FX.labels[v] : String(v).replace(/_/g, " "));
+  const vals = (f, q) => [].concat(f.a[q] ?? []);
+  const isList = q => FX.lists.includes(q);
+  const key = (q, v) => (isList(q) ? q + "+" + v : q + "=" + v);
+  const share = k => (FX.shares[k] || [null, null]).map(x => (x ? Math.round((100 * x[0]) / x[1]) + "%" : ""));
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // what changed from picture b to picture a: options added and taken away, single answers replaced
+  function diff(a, b) {
+    const out = [];
+    for (const [q] of FX.q) {
+      const va = vals(a, q), vb = vals(b, q);
+      if (isList(q)) {
+        va.filter(v => !vb.includes(v)).forEach(v => out.push({ q, v, on: true }));
+        vb.filter(v => !va.includes(v)).forEach(v => out.push({ q, v, on: false }));
+      } else if (va[0] !== vb[0]) out.push({ q, v: va[0], was: vb[0], on: true });
+    }
+    return out;
+  }
+  const qname = q => FX.q.find(x => x[0] === q)[1];
+
+  function row(c, withQ) {
+    const r = el("div", "fx-row" + (c.on ? "" : " gone"));
+    const [d, b] = share(key(c.q, c.v));
+    const name = withQ ? `<span class="k">${esc(qname(c.q))}:</span> ` : "";
+    const val = c.on ? `<b>${esc(word(c.v))}</b>` : `<s>${esc(word(c.v))}</s>`;
+    const was = c.was != null ? ` <span class="was">(was ${esc(word(c.was))})</span>` : "";
+    const gone = c.on ? "" : '<span class="vh">no longer </span>';
+    r.innerHTML = `<span class="w"><i class="d${c.on ? "" : " off"}" aria-hidden="true"></i><span class="t">${name}${gone}${val}${was}</span></span>` +
+      `<span><span class="vh">Dior </span>${d}</span><span><span class="vh">Balenciaga </span>${b}</span>`;
+    return r;
+  }
+
+  function show(k) {
+    const f = byK.get(k);
+    if (!f) return;
+    pic.querySelectorAll(".fx-patch").forEach(img => {
+      const p = +img.dataset.k;
+      img.hidden = !(Math.sign(p) === Math.sign(k) && Math.abs(p) <= Math.abs(k));
+    });
+    pic.setAttribute("aria-label", f.alt);
+    range.setAttribute("aria-valuetext", f.label);
+    now.textContent = f.label;
+    // this step's changes, against the picture one step nearer the start
+    step.replaceChildren();
+    if (k === 0) step.append(el("p", "empty", "Move the slider either way."));
+    else {
+      const ch = diff(f, byK.get(k - Math.sign(k)));
+      if (!ch.length) step.append(el("p", "empty", "The reader's answers did not change at this step."));
+      ch.forEach(c => step.append(row(c, true)));
+    }
+    // every answer, those that differ from the start marked
+    list.replaceChildren();
+    const away = diff(f, start);
+    for (const [q, name] of FX.q) {
+      const g = el("div", "fx-q");
+      g.append(el("span", "qn", esc(name)));
+      vals(f, q).forEach(v => {
+        const c = away.find(x => x.q === q && x.v === v && x.on);
+        const r = row({ q, v, on: true, was: c && c.was }, false);
+        if (!c) r.querySelector("i.d").classList.add("off");
+        g.append(r);
+      });
+      away.filter(x => x.q === q && !x.on).forEach(c => g.append(row(c, false)));
+      list.append(g);
+    }
+  }
+  range.addEventListener("input", () => show(+range.value));
+  show(+range.value);
 })();
 </script>
 </body>

@@ -1,0 +1,910 @@
+{
+ "version": "flex-v1",
+ "at": "2026-10-09T14:51:58Z",
+ "houses": {
+  "dior": {
+   "house": "dior",
+   "designer": "Maria Grazia Chiuri",
+   "category": "rtw",
+   "from": "2016-09-01",
+   "to": "2025-06-30",
+   "looks": 47,
+   "shows": 3,
+   "seasons": [
+    "2019 AW rtw",
+    "2021 AW rtw",
+    "2021 SS rtw"
+   ],
+   "shares": {
+    "accessories+bag": [
+     25,
+     47
+    ],
+    "accessories+shoes": [
+     45,
+     47
+    ],
+    "accessories+eyewear": [
+     5,
+     47
+    ],
+    "accessories+belt": [
+     18,
+     47
+    ],
+    "accessories+jewellery": [
+     33,
+     47
+    ],
+    "accessories+hosiery": [
+     5,
+     47
+    ],
+    "accessories+none": [
+     0,
+     47
+    ],
+    "colour_main=black": [
+     13,
+     47
+    ],
+    "colour_main=white_ivory": [
+     1,
+     47
+    ],
+    "colour_main=grey": [
+     2,
+     47
+    ],
+    "colour_main=beige_camel": [
+     5,
+     47
+    ],
+    "colour_main=brown": [
+     2,
+     47
+    ],
+    "colour_main=navy": [
+     4,
+     47
+    ],
+    "colour_main=blue": [
+     7,
+     47
+    ],
+    "colour_main=green": [
+     6,
+     47
+    ],
+    "colour_main=yellow_gold": [
+     1,
+     47
+    ],
+    "colour_main=orange": [
+     0,
+     47
+    ],
+    "colour_main=red": [
+     4,
+     47
+    ],
+    "colour_main=pink": [
+     1,
+     47
+    ],
+    "colour_main=purple": [
+     0,
+     47
+    ],
+    "colour_main=metallic": [
+     0,
+     47
+    ],
+    "colour_main=multicolour": [
+     1,
+     47
+    ],
+    "colour_main=not_applicable": [
+     0,
+     47
+    ],
+    "colour_second=black": [
+     22,
+     47
+    ],
+    "colour_second=white_ivory": [
+     10,
+     47
+    ],
+    "colour_second=grey": [
+     0,
+     47
+    ],
+    "colour_second=beige_camel": [
+     6,
+     47
+    ],
+    "colour_second=brown": [
+     1,
+     47
+    ],
+    "colour_second=navy": [
+     0,
+     47
+    ],
+    "colour_second=blue": [
+     3,
+     47
+    ],
+    "colour_second=green": [
+     1,
+     47
+    ],
+    "colour_second=yellow_gold": [
+     1,
+     47
+    ],
+    "colour_second=orange": [
+     0,
+     47
+    ],
+    "colour_second=red": [
+     0,
+     47
+    ],
+    "colour_second=pink": [
+     0,
+     47
+    ],
+    "colour_second=purple": [
+     0,
+     47
+    ],
+    "colour_second=metallic": [
+     0,
+     47
+    ],
+    "colour_second=none": [
+     3,
+     47
+    ],
+    "construction=tailored": [
+     20,
+     47
+    ],
+    "construction=draped": [
+     16,
+     47
+    ],
+    "construction=knitted": [
+     0,
+     47
+    ],
+    "construction=soft_cut": [
+     7,
+     47
+    ],
+    "construction=mixed": [
+     4,
+     47
+    ],
+    "construction=not_visible": [
+     0,
+     47
+    ],
+    "construction=not_applicable": [
+     0,
+     47
+    ],
+    "finishing+none": [
+     12,
+     47
+    ],
+    "finishing+beaded": [
+     16,
+     47
+    ],
+    "finishing+pleated": [
+     25,
+     47
+    ],
+    "formality=formal_tailored": [
+     15,
+     47
+    ],
+    "formality=eveningwear": [
+     11,
+     47
+    ],
+    "formality=casual": [
+     9,
+     47
+    ],
+    "formality=sport_street": [
+     2,
+     47
+    ],
+    "formality=utilitarian": [
+     0,
+     47
+    ],
+    "formality=mixed": [
+     10,
+     47
+    ],
+    "formality=not_applicable": [
+     0,
+     47
+    ],
+    "garments+shirt_blouse": [
+     20,
+     47
+    ],
+    "garments+top": [
+     5,
+     47
+    ],
+    "garments+sweater": [
+     1,
+     47
+    ],
+    "garments+jacket": [
+     21,
+     47
+    ],
+    "garments+coat": [
+     7,
+     47
+    ],
+    "garments+trousers": [
+     11,
+     47
+    ],
+    "garments+shorts": [
+     5,
+     47
+    ],
+    "garments+skirt": [
+     16,
+     47
+    ],
+    "garments+dress": [
+     15,
+     47
+    ],
+    "garments+none": [
+     0,
+     47
+    ],
+    "hemline=above_knee": [
+     5,
+     47
+    ],
+    "hemline=knee": [
+     2,
+     47
+    ],
+    "hemline=midi": [
+     13,
+     47
+    ],
+    "hemline=ankle_floor": [
+     25,
+     47
+    ],
+    "hemline=not_visible": [
+     2,
+     47
+    ],
+    "hemline=not_applicable": [
+     0,
+     47
+    ],
+    "layers=one": [
+     8,
+     47
+    ],
+    "layers=two": [
+     27,
+     47
+    ],
+    "layers=three_or_more": [
+     12,
+     47
+    ],
+    "layers=not_applicable": [
+     0,
+     47
+    ],
+    "materials+leather": [
+     3,
+     47
+    ],
+    "materials+knit": [
+     6,
+     47
+    ],
+    "materials+sheer_lace": [
+     23,
+     47
+    ],
+    "materials+satin_silk": [
+     16,
+     47
+    ],
+    "materials+metallic": [
+     1,
+     47
+    ],
+    "materials+plain_woven": [
+     24,
+     47
+    ],
+    "materials+not_distinguishable": [
+     0,
+     47
+    ],
+    "pattern=plain": [
+     15,
+     47
+    ],
+    "pattern=check": [
+     7,
+     47
+    ],
+    "pattern=stripe": [
+     0,
+     47
+    ],
+    "pattern=dot": [
+     0,
+     47
+    ],
+    "pattern=floral": [
+     5,
+     47
+    ],
+    "pattern=animal": [
+     0,
+     47
+    ],
+    "pattern=logo_letters": [
+     2,
+     47
+    ],
+    "pattern=graphic": [
+     6,
+     47
+    ],
+    "pattern=mixed": [
+     12,
+     47
+    ],
+    "pattern=not_applicable": [
+     0,
+     47
+    ],
+    "silhouette=fitted": [
+     12,
+     47
+    ],
+    "silhouette=straight": [
+     8,
+     47
+    ],
+    "silhouette=flared": [
+     8,
+     47
+    ],
+    "silhouette=volume": [
+     15,
+     47
+    ],
+    "silhouette=mixed": [
+     4,
+     47
+    ],
+    "silhouette=not_visible": [
+     0,
+     47
+    ],
+    "silhouette=not_applicable": [
+     0,
+     47
+    ],
+    "skin_shown=covered": [
+     4,
+     47
+    ],
+    "skin_shown=some": [
+     41,
+     47
+    ],
+    "skin_shown=much": [
+     2,
+     47
+    ],
+    "skin_shown=not_applicable": [
+     0,
+     47
+    ],
+    "street_couture_axis=1": [
+     0,
+     47
+    ],
+    "street_couture_axis=2": [
+     2,
+     47
+    ],
+    "street_couture_axis=3": [
+     18,
+     47
+    ],
+    "street_couture_axis=4": [
+     3,
+     47
+    ],
+    "street_couture_axis=5": [
+     24,
+     47
+    ]
+   }
+  },
+  "balenciaga": {
+   "house": "balenciaga",
+   "designer": "Demna",
+   "category": "rtw",
+   "from": "2016-03-01",
+   "to": "2025-06-30",
+   "looks": 139,
+   "shows": 11,
+   "seasons": [
+    "2016 AW rtw",
+    "2017 SS rtw",
+    "2020 AW rtw",
+    "2022 AW rtw",
+    "2022 SS rtw",
+    "2023 AW rtw",
+    "2023 SS rtw",
+    "2024 AW rtw",
+    "2024 SS rtw",
+    "2025 AW rtw",
+    "2025 SS rtw"
+   ],
+   "shares": {
+    "accessories+bag": [
+     63,
+     139
+    ],
+    "accessories+shoes": [
+     132,
+     139
+    ],
+    "accessories+eyewear": [
+     62,
+     139
+    ],
+    "accessories+belt": [
+     16,
+     139
+    ],
+    "accessories+jewellery": [
+     25,
+     139
+    ],
+    "accessories+hosiery": [
+     22,
+     139
+    ],
+    "accessories+none": [
+     0,
+     139
+    ],
+    "colour_main=black": [
+     90,
+     139
+    ],
+    "colour_main=white_ivory": [
+     3,
+     139
+    ],
+    "colour_main=grey": [
+     8,
+     139
+    ],
+    "colour_main=beige_camel": [
+     8,
+     139
+    ],
+    "colour_main=brown": [
+     5,
+     139
+    ],
+    "colour_main=navy": [
+     5,
+     139
+    ],
+    "colour_main=blue": [
+     5,
+     139
+    ],
+    "colour_main=green": [
+     4,
+     139
+    ],
+    "colour_main=yellow_gold": [
+     1,
+     139
+    ],
+    "colour_main=orange": [
+     0,
+     139
+    ],
+    "colour_main=red": [
+     6,
+     139
+    ],
+    "colour_main=pink": [
+     0,
+     139
+    ],
+    "colour_main=purple": [
+     2,
+     139
+    ],
+    "colour_main=metallic": [
+     1,
+     139
+    ],
+    "colour_main=multicolour": [
+     1,
+     139
+    ],
+    "colour_main=not_applicable": [
+     0,
+     139
+    ],
+    "colour_second=black": [
+     26,
+     139
+    ],
+    "colour_second=white_ivory": [
+     12,
+     139
+    ],
+    "colour_second=grey": [
+     5,
+     139
+    ],
+    "colour_second=beige_camel": [
+     5,
+     139
+    ],
+    "colour_second=brown": [
+     1,
+     139
+    ],
+    "colour_second=navy": [
+     1,
+     139
+    ],
+    "colour_second=blue": [
+     5,
+     139
+    ],
+    "colour_second=green": [
+     3,
+     139
+    ],
+    "colour_second=yellow_gold": [
+     3,
+     139
+    ],
+    "colour_second=orange": [
+     1,
+     139
+    ],
+    "colour_second=red": [
+     12,
+     139
+    ],
+    "colour_second=pink": [
+     2,
+     139
+    ],
+    "colour_second=purple": [
+     5,
+     139
+    ],
+    "colour_second=metallic": [
+     2,
+     139
+    ],
+    "colour_second=none": [
+     56,
+     139
+    ],
+    "construction=tailored": [
+     97,
+     139
+    ],
+    "construction=draped": [
+     22,
+     139
+    ],
+    "construction=knitted": [
+     3,
+     139
+    ],
+    "construction=soft_cut": [
+     17,
+     139
+    ],
+    "construction=mixed": [
+     0,
+     139
+    ],
+    "construction=not_visible": [
+     0,
+     139
+    ],
+    "construction=not_applicable": [
+     0,
+     139
+    ],
+    "finishing+none": [
+     103,
+     139
+    ],
+    "finishing+beaded": [
+     15,
+     139
+    ],
+    "finishing+pleated": [
+     23,
+     139
+    ],
+    "formality=formal_tailored": [
+     82,
+     139
+    ],
+    "formality=eveningwear": [
+     17,
+     139
+    ],
+    "formality=casual": [
+     13,
+     139
+    ],
+    "formality=sport_street": [
+     22,
+     139
+    ],
+    "formality=utilitarian": [
+     1,
+     139
+    ],
+    "formality=mixed": [
+     4,
+     139
+    ],
+    "formality=not_applicable": [
+     0,
+     139
+    ],
+    "garments+shirt_blouse": [
+     48,
+     139
+    ],
+    "garments+top": [
+     10,
+     139
+    ],
+    "garments+sweater": [
+     4,
+     139
+    ],
+    "garments+jacket": [
+     43,
+     139
+    ],
+    "garments+coat": [
+     43,
+     139
+    ],
+    "garments+trousers": [
+     97,
+     139
+    ],
+    "garments+shorts": [
+     3,
+     139
+    ],
+    "garments+skirt": [
+     14,
+     139
+    ],
+    "garments+dress": [
+     34,
+     139
+    ],
+    "garments+none": [
+     0,
+     139
+    ],
+    "hemline=above_knee": [
+     0,
+     139
+    ],
+    "hemline=knee": [
+     19,
+     139
+    ],
+    "hemline=midi": [
+     10,
+     139
+    ],
+    "hemline=ankle_floor": [
+     110,
+     139
+    ],
+    "hemline=not_visible": [
+     0,
+     139
+    ],
+    "hemline=not_applicable": [
+     0,
+     139
+    ],
+    "layers=one": [
+     44,
+     139
+    ],
+    "layers=two": [
+     82,
+     139
+    ],
+    "layers=three_or_more": [
+     13,
+     139
+    ],
+    "layers=not_applicable": [
+     0,
+     139
+    ],
+    "materials+leather": [
+     36,
+     139
+    ],
+    "materials+knit": [
+     10,
+     139
+    ],
+    "materials+sheer_lace": [
+     12,
+     139
+    ],
+    "materials+satin_silk": [
+     23,
+     139
+    ],
+    "materials+metallic": [
+     4,
+     139
+    ],
+    "materials+plain_woven": [
+     98,
+     139
+    ],
+    "materials+not_distinguishable": [
+     0,
+     139
+    ],
+    "pattern=plain": [
+     102,
+     139
+    ],
+    "pattern=check": [
+     11,
+     139
+    ],
+    "pattern=stripe": [
+     4,
+     139
+    ],
+    "pattern=dot": [
+     1,
+     139
+    ],
+    "pattern=floral": [
+     7,
+     139
+    ],
+    "pattern=animal": [
+     2,
+     139
+    ],
+    "pattern=logo_letters": [
+     3,
+     139
+    ],
+    "pattern=graphic": [
+     5,
+     139
+    ],
+    "pattern=mixed": [
+     4,
+     139
+    ],
+    "pattern=not_applicable": [
+     0,
+     139
+    ],
+    "silhouette=fitted": [
+     58,
+     139
+    ],
+    "silhouette=straight": [
+     12,
+     139
+    ],
+    "silhouette=flared": [
+     0,
+     139
+    ],
+    "silhouette=volume": [
+     68,
+     139
+    ],
+    "silhouette=mixed": [
+     1,
+     139
+    ],
+    "silhouette=not_visible": [
+     0,
+     139
+    ],
+    "silhouette=not_applicable": [
+     0,
+     139
+    ],
+    "skin_shown=covered": [
+     80,
+     139
+    ],
+    "skin_shown=some": [
+     59,
+     139
+    ],
+    "skin_shown=much": [
+     0,
+     139
+    ],
+    "skin_shown=not_applicable": [
+     0,
+     139
+    ],
+    "street_couture_axis=1": [
+     2,
+     139
+    ],
+    "street_couture_axis=2": [
+     19,
+     139
+    ],
+    "street_couture_axis=3": [
+     18,
+     139
+    ],
+    "street_couture_axis=4": [
+     4,
+     139
+    ],
+    "street_couture_axis=5": [
+     96,
+     139
+    ]
+   }
+  }
+ }
+}
