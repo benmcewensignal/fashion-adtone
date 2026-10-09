@@ -27,12 +27,17 @@
   let sealed = null, P = null, current = null;
   const redraw = {};
 
-  async function unseal(pw) {
-    if (!sealed) {
-      const r = await fetch("private.json", { cache: "no-store" });
-      if (!r.ok) throw new Error("missing");
-      sealed = await r.json();
+  // the sealed content lives in the public repo, so it can be refreshed without redeploying the site; a copy
+  // deployed beside the page is the fallback
+  const SOURCES = ["https://raw.githubusercontent.com/benmcewensignal/fashion-adtone/main/www/private.json", "private.json"];
+  async function fetchSealed() {
+    for (const u of SOURCES) {
+      try { const r = await fetch(u, { cache: "no-store" }); if (r.ok) return await r.json(); } catch (e) {}
     }
+    throw new Error("missing");
+  }
+  async function unseal(pw) {
+    if (!sealed) sealed = await fetchSealed();
     const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
     const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(sealed.salt), iterations: sealed.iter, hash: sealed.hash },
       base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
