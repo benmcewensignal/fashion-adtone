@@ -6,7 +6,8 @@ markers. Pictures never go into the repository.
     python3 scripts/flex_site.py <kept_png_dir> <out_dir> [--quality 78] [--edge 832] [--full]
 
 The base picture is the start of both directions; each step is a patch over the picture before it, cut to
-where the two differ, so the page carries one whole picture and ten small ones.
+where the two differ. Every picture is cut into strips of a few kilobytes, each a file of its own, so they
+can be uploaded one by one.
 """
 import argparse
 import io
@@ -65,6 +66,7 @@ def main():
     ap.add_argument("--quality", type=int, default=78)
     ap.add_argument("--edge", type=int, default=832, help="width of the pictures on the site")
     ap.add_argument("--full", action="store_true", help="a whole picture for every step, not patches")
+    ap.add_argument("--max-bytes", type=int, default=4600, help="each picture file under this size, cut into strips")
     ap.add_argument("--alts", default=str(HERE / "alts.json"))
     a = ap.parse_args()
     kept, out = Path(a.kept), Path(a.out)
@@ -90,15 +92,36 @@ def main():
     size = (a.edge, round(F.SIZE[1] * scale))
     pics = {k: Image.open(kept / f"{name}.png").convert("RGB") for k, _, name, _, _ in seq}
     files, layers = {}, []
-    base = pics[0].resize(size, Image.Resampling.LANCZOS)
-    files["flex/look.webp"] = webp(base, a.quality)
+
+    def cut(img, box, prefix, k):
+        """A region as horizontal strips each under the byte limit, each overlapping the next by two rows so no
+        hairline shows where they meet."""
+        x0, y0, x1, y1 = box
+        region = img.crop(box)
+        n = 1
+        while True:
+            edges = [round(i * (y1 - y0) / n) for i in range(n + 1)]
+            parts = []
+            for i in range(n):
+                top, bottom = edges[i], min(y1 - y0, edges[i + 1] + (2 if i < n - 1 else 0))
+                parts.append((top, bottom, webp(region.crop((0, top, x1 - x0, bottom)), a.quality)))
+            if all(len(d) <= a.max_bytes for _, _, d in parts) or n >= 60:
+                break
+            n += 1
+        for i, (top, bottom, data) in enumerate(parts):
+            name = f"flex/{prefix}-{i + 1}.webp" if n > 1 else f"flex/{prefix}.webp"
+            files[name] = data
+            layers.append({"k": k, "src": name, "box": [x0, y0 + top, x1, y0 + bottom]})
+
+    full0 = pics[0].resize(size, Image.Resampling.LANCZOS)
+    cut(full0, (0, 0, size[0], size[1]), "look", 0)
     for k, sid, name, _, _ in seq:
         if k == 0:
             continue
         cur = pics[k]
+        full = cur.resize(size, Image.Resampling.LANCZOS)
         if a.full:
-            files[f"flex/{sid}.webp"] = webp(cur.resize(size, Image.Resampling.LANCZOS), a.quality)
-            layers.append({"k": k, "src": f"flex/{sid}.webp", "box": [0, 0, F.SIZE[0], F.SIZE[1]]})
+            cut(full, (0, 0, size[0], size[1]), sid, k)
             continue
         prev = pics[k - (1 if k > 0 else -1)]
         d = np.abs(np.asarray(cur, dtype=np.int16) - np.asarray(prev, dtype=np.int16)).max(axis=2) > 2
@@ -108,10 +131,8 @@ def main():
         y0, y1 = max(0, ys.min() - pad), min(F.SIZE[1], ys.max() + 1 + pad)
         # whole site pixels, so a patch lies exactly over the picture below it
         s0 = [int(np.floor(v * scale)) for v in (x0, y0)]
-        s1 = [int(np.ceil(v * scale)) for v in (x1, y1)]
-        full = cur.resize(size, Image.Resampling.LANCZOS)
-        files[f"flex/{sid}.webp"] = webp(full.crop((s0[0], s0[1], s1[0], s1[1])), a.quality)
-        layers.append({"k": k, "src": f"flex/{sid}.webp", "box": [s0[0], s0[1], s1[0], s1[1]]})
+        s1 = [min(lim, int(np.ceil(v * scale))) for v, lim in ((x1, size[0]), (y1, size[1]))]
+        cut(full, (s0[0], s0[1], s1[0], s1[1]), sid, k)
     for p, data in files.items():
         (out / p).write_bytes(data)
     total = sum(len(v) for v in files.values())
@@ -168,16 +189,16 @@ def main():
               f"own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the "
               f"reader saw the change in {met} of the {drawn} versions, and the one shown is the version whose answers moved "
               f"most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.")
-    imgs = [f'              <img class="fx-base" src="flex/look.webp" width="{size[0]}" height="{size[1]}" alt="">']
+    imgs = []
     for L in sorted(layers, key=lambda L: (L["k"] > 0, abs(L["k"]))):     # each step painted over the one before it
         x0, y0, x1, y1 = L["box"]
-        if a.full:
-            style = "left:0;top:0;width:100%"
+        style = (f"left:{100 * x0 / size[0]:.4f}%;top:{100 * y0 / size[1]:.4f}%;"
+                 f"width:{100 * (x1 - x0) / size[0]:.4f}%")
+        if L["k"] == 0:
+            imgs.append(f'              <img src="{L["src"]}" style="{style}" width="{x1 - x0}" height="{y1 - y0}" alt="">')
         else:
-            style = (f"left:{100 * x0 / size[0]:.4f}%;top:{100 * y0 / size[1]:.4f}%;"
-                     f"width:{100 * (x1 - x0) / size[0]:.4f}%")
-        imgs.append(f'              <img class="fx-patch" data-k="{L["k"]}" src="{L["src"]}" style="{style}" '
-                    f'width="{x1 - x0}" height="{y1 - y0}" alt="" hidden>')
+            imgs.append(f'              <img class="fx-patch" data-k="{L["k"]}" src="{L["src"]}" style="{style}" '
+                        f'width="{x1 - x0}" height="{y1 - y0}" alt="" hidden>')
     html = (HERE / "fx.html").read_text()
     zero_f = next(f for f in fx_frames if f["k"] == 0)
     html = (html.replace("@@IMGS@@", "\n".join(imgs)).replace("@@ALT0@@", zero_f["alt"])
