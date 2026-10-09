@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T11:23:15Z",
+ "generated_at": "2026-10-09T18:51:57Z",
  "window_days": [
   -1,
   14
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -4273,7 +4273,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ConnectionError"
+    "fendi.com": "ReadTimeout"
    }
   },
   "fendi:2018-06-18:men": {
@@ -4286,7 +4286,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "HTTP 504"
+    "fendi.com": "ReadTimeout"
    }
   },
   "fendi:2018-07-04:couture": {
@@ -5848,7 +5848,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -5986,6 +5986,19 @@
     }
    ]
   },
+  "hermes:2021-03-06:rtw": {
+   "house": "hermes",
+   "date": "2021-03-06",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "hermes.com": "ConnectionError"
+   }
+  },
   "hermes:2021-06-26:men": {
    "house": "hermes",
    "date": "2021-06-26",
@@ -6081,7 +6094,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "ReadTimeout"
    }
   },
   "hermes:2023-01-21:men": {
@@ -6210,13 +6223,16 @@
    "date": "2024-06-22",
    "season": "2025 SS men",
    "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/us/en/content/331778-men-spring-summer-2025-runway-show/",
+     "ts": "20240717210043",
+     "score": 8.94
+    }
+   ]
   },
   "hermes:2024-09-28:rtw": {
    "house": "hermes",
@@ -7442,10 +7458,13 @@
    "date": "2025-10-03",
    "season": "2026 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "index failed",
    "via": "window",
-   "pages": 1,
-   "candidates": []
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "loewe.com": "ConnectionError"
+   }
   },
   "loewe:2026-03-06:rtw": {
    "house": "loewe",
@@ -7522,6 +7541,141 @@
    "errors": {
     "louisvuitton.com": "ConnectionError"
    }
+  },
+  "margiela:2016-06-24:men": {
+   "house": "margiela",
+   "date": "2016-06-24",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout",
+    "maisonmartinmargiela.com": "ConnectionError"
+   }
+  },
+  "margiela:2016-07-06:couture": {
+   "house": "margiela",
+   "date": "2016-07-06",
+   "season": "2016 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout",
+    "maisonmartinmargiela.com": "ConnectionError"
+   }
+  },
+  "margiela:2016-09-28:rtw": {
+   "house": "margiela",
+   "date": "2016-09-28",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "partial",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout"
+   }
+  },
+  "margiela:2017-01-25:couture": {
+   "house": "margiela",
+   "date": "2017-01-25",
+   "season": "2017 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-01-0",
+     "ts": "20170408033641",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-02",
+     "ts": "20170408144412",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-03",
+     "ts": "20170415021937",
+     "score": 7.81
+    }
+   ]
+  },
+  "margiela:2017-03-01:rtw": {
+   "house": "margiela",
+   "date": "2017-03-01",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-01",
+     "ts": "20170408144135",
+     "score": 8.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-02",
+     "ts": "20170406051920",
+     "score": 8.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-03",
+     "ts": "20170405003844",
+     "score": 8.81
+    }
+   ]
+  },
+  "margiela:2017-07-05:couture": {
+   "house": "margiela",
+   "date": "2017-07-05",
+   "season": "2017 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-1",
+     "ts": "20170911162045",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-10",
+     "ts": "20170911175548",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-2",
+     "ts": "20170911153135",
+     "score": 7.81
+    }
+   ]
+  },
+  "margiela:2017-09-27:rtw": {
+   "house": "margiela",
+   "date": "2017-09-27",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/mm6-ss18-defile",
+     "ts": "20180124104704",
+     "score": 6.81
+    }
+   ]
   },
   "margiela:2018-01-19:men": {
    "house": "margiela",
@@ -7785,6 +7939,48 @@
     }
    ]
   },
+  "max_mara:2024-02-22:rtw": {
+   "house": "max_mara",
+   "date": "2024-02-22",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maxmara.com": "ReadTimeout"
+   }
+  },
+  "max_mara:2024-09-19:rtw": {
+   "house": "max_mara",
+   "date": "2024-09-19",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://fr.maxmara.com/editorial/runway-spring-summer?twclid=2cqm1ztbzp276rzqvzwbcglj2&utm_source=X&utm_term=X&utm_medium=paidsocial&utm_campaign=MaxMara_FR_Brand_FW24&utm_content=FR_X_RunwaySS25_REACH_FW24_PPLV_01",
+     "ts": "20240923153356",
+     "score": 4.0
+    }
+   ]
+  },
+  "max_mara:2025-02-27:rtw": {
+   "house": "max_mara",
+   "date": "2025-02-27",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maxmara.com": "ConnectionError"
+   }
+  },
   "max_mara:2026-02-26:rtw": {
    "house": "max_mara",
    "date": "2026-02-26",
@@ -7804,6 +8000,27 @@
    "via": "window",
    "pages": 0,
    "candidates": []
+  },
+  "miu_miu:2015-03-11:rtw": {
+   "house": "miu_miu",
+   "date": "2015-03-11",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.miumiu.com:80/en/fashion-shows/fw15/backstage",
+     "ts": "20150326020102",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.miumiu.com:80/en/fashion-shows/fw15/video?cc=NL",
+     "ts": "20150504062025",
+     "score": 11.62
+    }
+   ]
   },
   "miu_miu:2015-10-07:rtw": {
    "house": "miu_miu",
@@ -8259,7 +8476,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ConnectionError"
+    "prada.com": "ReadTimeout"
    }
   },
   "prada:2026-09-22:rtw": {
@@ -8272,8 +8489,308 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ReadTimeout"
+    "prada.com": "ConnectionError"
    }
+  },
+  "saint_laurent:2021-07-14:men": {
+   "house": "saint_laurent",
+   "date": "2021-07-14",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-fi/displayname-collections-mss22-fashion-show",
+     "ts": "20210928102336",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/men-s-spring-summer-22",
+     "ts": "20210727075012",
+     "score": 6.12
+    }
+   ]
+  },
+  "saint_laurent:2021-09-28:rtw": {
+   "house": "saint_laurent",
+   "date": "2021-09-28",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-fi/displayname-collections-mss22-fashion-show",
+     "ts": "20210928102336",
+     "score": 9.62
+    }
+   ]
+  },
+  "saint_laurent:2022-03-01:rtw": {
+   "house": "saint_laurent",
+   "date": "2022-03-01",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-fi/displayname-collections-women-winter-22-fashion-show",
+     "ts": "20220629062247",
+     "score": 11.62
+    }
+   ]
+  },
+  "saint_laurent:2022-06-22:men": {
+   "house": "saint_laurent",
+   "date": "2022-06-22",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "ysl.com": "ConnectionError"
+   }
+  },
+  "saint_laurent:2022-09-27:rtw": {
+   "house": "saint_laurent",
+   "date": "2022-09-27",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "ysl.com": "ReadTimeout"
+   }
+  },
+  "saint_laurent:2023-01-17:men": {
+   "house": "saint_laurent",
+   "date": "2023-01-17",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/women-s-winter-23",
+     "ts": "20230330045335",
+     "score": 1.12
+    }
+   ]
+  },
+  "saint_laurent:2023-02-28:rtw": {
+   "house": "saint_laurent",
+   "date": "2023-02-28",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/women-s-winter-23",
+     "ts": "20230330045335",
+     "score": 5.12
+    }
+   ]
+  },
+  "saint_laurent:2023-09-26:rtw": {
+   "house": "saint_laurent",
+   "date": "2023-09-26",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/women-s-summer-24",
+     "ts": "20231203013900",
+     "score": 5.12
+    }
+   ]
+  },
+  "saint_laurent:2024-02-27:rtw": {
+   "house": "saint_laurent",
+   "date": "2024-02-27",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/women-s-winter-24",
+     "ts": "20240403112433",
+     "score": 5.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/men-s-winter-24",
+     "ts": "20240403133726",
+     "score": 1.12
+    }
+   ]
+  },
+  "saint_laurent:2024-09-24:rtw": {
+   "house": "saint_laurent",
+   "date": "2024-09-24",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-25-show",
+     "ts": "20241005180824",
+     "score": 8.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-spring-25-campaign",
+     "ts": "20250121143545",
+     "score": 5.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-spring25-digital-campaign",
+     "ts": "20250114002505",
+     "score": 5.12
+    }
+   ]
+  },
+  "saint_laurent:2025-01-28:couture": {
+   "house": "saint_laurent",
+   "date": "2025-01-28",
+   "season": "2025 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25-2/looks",
+     "ts": "20250429191346",
+     "score": 6.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25/looks",
+     "ts": "20250423074757",
+     "score": 6.12
+    },
+    {
+     "url": "https://www.ysl.com/en-ie/collections/page-men-spring-25/looks",
+     "ts": "20250212041853",
+     "score": 5.62
+    }
+   ]
+  },
+  "saint_laurent:2025-06-24:men": {
+   "house": "saint_laurent",
+   "date": "2025-06-24",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-men-summer-26-show",
+     "ts": "20250712031813",
+     "score": 9.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-26",
+     "ts": "20251016062042",
+     "score": 1.12
+    }
+   ]
+  },
+  "saint_laurent:2025-09-29:rtw": {
+   "house": "saint_laurent",
+   "date": "2025-09-29",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-ie/collections/page-women-spring-26/looks",
+     "ts": "20251210030410",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-26",
+     "ts": "20251016062042",
+     "score": 5.12
+    },
+    {
+     "url": "https://www.ysl.com/en-us/collections/women-spring-26-campaign",
+     "ts": "20260115022955",
+     "score": 4.88
+    }
+   ]
+  },
+  "saint_laurent:2026-01-27:men": {
+   "house": "saint_laurent",
+   "date": "2026-01-27",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-men-winter-26",
+     "ts": "20260203093612",
+     "score": 5.88
+    },
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-women-winter-26-show",
+     "ts": "20260411171813",
+     "score": 3.88
+    }
+   ]
+  },
+  "saint_laurent:2026-03-03:rtw": {
+   "house": "saint_laurent",
+   "date": "2026-03-03",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-women-winter-26-show",
+     "ts": "20260411171813",
+     "score": 7.88
+    }
+   ]
+  },
+  "saint_laurent:2026-06-23:men": {
+   "house": "saint_laurent",
+   "date": "2026-06-23",
+   "season": "2027 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-women-summer-27-show",
+     "ts": "20261006173911",
+     "score": 3.88
+    }
+   ]
   },
   "saint_laurent:2026-09-29:rtw": {
    "house": "saint_laurent",
@@ -8290,6 +8807,42 @@
      "score": 7.0
     }
    ]
+  },
+  "tom_ford:2026-03-04:rtw": {
+   "house": "tom_ford",
+   "date": "2026-03-04",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "tomford.com": "ReadTimeout"
+   }
+  },
+  "tom_ford:2026-09-30:rtw": {
+   "house": "tom_ford",
+   "date": "2026-09-30",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "valentino:2026-10-04:rtw": {
+   "house": "valentino",
+   "date": "2026-10-04",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "valentino.com": "ReadTimeout"
+   }
   }
  },
  "sections": {
@@ -8358,19 +8911,20 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 973
+   "pages": 1068
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/man/collection/",
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 6223
   },
   "dries_van_noten": {
    "prefixes": [
@@ -8388,9 +8942,11 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/qa/man/collections/"
+    "www.fendi.com/qa/man/collections/",
+    "www.fendi.com/us-en/cm/inside-fendi/fashion-show/",
+    "www.fendi.com/us-en/cm/eu1-default/man/highlights-man/"
    ],
-   "pages": 34
+   "pages": 55
   },
   "givenchy": {
    "prefixes": [
@@ -8419,26 +8975,28 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/fi/en/category/men/ready-wear/",
-    "www.hermes.com/fi/en/content/308227-tableware-collections/",
-    "www.hermes.com/fi/en/category/women/ready-wear/"
+    "www.hermes.com/us/en/content/",
+    "www.hermes.com/us/en/men/ready-wear/",
+    "www.hermes.com/us/en/women/ready-wear/"
    ],
-   "pages": 726
+   "pages": 884
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/"
+    "www.gucci.com/us/en/st/stories/runway/article/",
+    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
+    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
+    "www.gucci.com/us/en/st/stories/runway/"
    ],
-   "pages": 0
+   "pages": 206
   },
   "loewe": {
    "prefixes": [
-    "www.loewe.com/eur/en/runway/",
     "www.loewe.com/eur/en/stories-collection/",
-    "www.loewe.com/eur/en/stories/runway/",
-    "www.loewe.com/eur/en/men/"
+    "www.loewe.com/eur/en/runway/",
+    "www.loewe.com/eur/en/stories/runway/"
    ],
-   "pages": 22874
+   "pages": 0
   },
   "loro_piana": {
    "prefixes": [
@@ -8452,22 +9010,21 @@
   "margiela": {
    "prefixes": [
     "www.maisonmargiela.com/us/collection/",
-    "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/",
-    "www.maisonmargiela.com/us/collection/hc-men_section/"
+    "www.maisonmargiela.com/en-gb/maison-margiela/"
    ],
-   "pages": 1272
+   "pages": 953
   },
   "miu_miu": {
    "prefixes": [
     "www.miumiu.com/us/en/miumiu-club/fashion-shows/",
+    "www.miumiu.com/en/fashion-shows/",
     "www.miumiu.com/us/en/",
-    "www.miumiu.com/fi/en/collections.html/",
-    "www.miumiu.com/fi/en/collections/character_study.html/",
-    "www.miumiu.com/fi/en/collections/a_remedy.html/",
-    "www.miumiu.com/fi/en/collections/miu_miu_select.html/"
+    "www.miumiu.com/us/en/collections/",
+    "www.miumiu.com/fi/en/collections/",
+    "www.miumiu.com/content/miumiu/us/en/collections/",
+    "www.miumiu.com/content/miumiu/us/en/miumiu-club/fashion-shows/"
    ],
-   "pages": 20131
+   "pages": 20893
   },
   "louis_vuitton": {
    "prefixes": [],
@@ -8478,33 +9035,45 @@
    "pages": 0
   },
   "prada": {
-   "prefixes": [
-    "www.prada.com/us/en/women/accessories/prada_fine_jewellery_collection.html/",
-    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men.html/",
-    "www.prada.com/us/en/women/sunglasses/prada_eyewear_collection.html/",
-    "www.prada.com/us/en/women/sunglasses/prada_runway.html/"
-   ],
-   "pages": 4
+   "prefixes": [],
+   "pages": 0
   },
   "saint_laurent": {
    "prefixes": [
+    "www.ysl.com/ja-jp/collections/",
     "www.ysl.com/en-us/collections/",
     "www.ysl.com/en-ie/collections/",
     "www.ysl.com/en-gb/collections/",
-    "www.ysl.com/corporate/saint-laurent-collections/archives-campaign/",
-    "www.ysl.com/corporate/saint-laurent-collections/archives/",
-    "www.ysl.com/corporate/us/saint-laurent-collections/archives/",
-    "www.ysl.com/corporate/us/saint-laurent-collections/archives-campaign/"
+    "www.ysl.com/de-de/collections/",
+    "www.ysl.com/en-fi/collections-ws21-video-collections-ws21-video/",
+    "www.ysl.com/en-fi/displayname-collections-women-winter-22-fashion-show/",
+    "www.ysl.com/en-fi/displayname-collections-mss22-fashion-show/"
    ],
-   "pages": 838
+   "pages": 1313
+  },
+  "tom_ford": {
+   "prefixes": [
+    "www.tomford.com/watches/the-curated-collection/",
+    "www.tomford.com/eyewear/women/blue-block-collection/",
+    "www.tomford.com/eyewear/men/blue-block-collection/",
+    "www.tomford.com/eyewear/runway-eyewear/"
+   ],
+   "pages": 1628
+  },
+  "valentino": {
+   "prefixes": [
+    "www.valentino.com/en-gb/experience/",
+    "www.valentino.com/en-us/experience/"
+   ],
+   "pages": 0
   }
  },
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 303,
-   "index failed": 50,
-   "none": 121,
+   "found": 324,
+   "index failed": 59,
+   "none": 122,
    "partial": 2
   },
   "by_house": {
@@ -8565,8 +9134,8 @@
     "found": 6
    },
    "hermes": {
-    "shows": 27,
-    "found": 24
+    "shows": 28,
+    "found": 25
    },
    "jil_sander": {
     "shows": 32,
@@ -8585,42 +9154,50 @@
     "found": 0
    },
    "margiela": {
-    "shows": 17,
-    "found": 9
+    "shows": 24,
+    "found": 13
    },
    "max_mara": {
-    "shows": 2,
-    "found": 0
+    "shows": 5,
+    "found": 1
    },
    "miu_miu": {
-    "shows": 22,
-    "found": 21
+    "shows": 23,
+    "found": 22
    },
    "prada": {
     "shows": 2,
     "found": 0
    },
    "saint_laurent": {
+    "shows": 17,
+    "found": 15
+   },
+   "tom_ford": {
+    "shows": 2,
+    "found": 0
+   },
+   "valentino": {
     "shows": 1,
-    "found": 1
+    "found": 0
    }
   },
   "by_year": {
    "2015": {
-    "shows": 16,
-    "found": 10
+    "shows": 17,
+    "found": 11
    },
    "2016": {
-    "shows": 35,
+    "shows": 36,
     "found": 25
    },
    "2017": {
-    "shows": 33,
-    "found": 24
+    "shows": 38,
+    "found": 27
    },
    "2018": {
-    "shows": 39,
-    "found": 16
+    "shows": 40,
+    "found": 17
    },
    "2019": {
     "shows": 51,
@@ -8631,32 +9208,32 @@
     "found": 31
    },
    "2021": {
-    "shows": 32,
+    "shows": 33,
     "found": 25
    },
    "2022": {
-    "shows": 42,
-    "found": 36
+    "shows": 45,
+    "found": 39
    },
    "2023": {
-    "shows": 38,
-    "found": 31
+    "shows": 42,
+    "found": 33
    },
    "2024": {
-    "shows": 40,
-    "found": 28
+    "shows": 43,
+    "found": 30
    },
    "2025": {
-    "shows": 29,
-    "found": 17
+    "shows": 33,
+    "found": 21
    },
    "2026": {
-    "shows": 45,
-    "found": 26
+    "shows": 50,
+    "found": 30
    },
    "2027": {
-    "shows": 27,
-    "found": 6
+    "shows": 30,
+    "found": 7
    }
   }
  }
