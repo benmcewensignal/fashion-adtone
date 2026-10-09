@@ -153,6 +153,21 @@ def vouched(row: dict, ref: list[dict]) -> dict | None:
     return near[0] if near else None
 
 
+def redated(row: dict, ref: list[dict], days: int = 7) -> dict:
+    """A listing a few days off a verified show of the same house takes the verified date: the listing's date is
+    then a gallery timestamp, not the show (NOWFASHION dates Celine's SS26 page 30 September 2025; the show was on
+    5 October, and a jump read on the 30th misses it). Left alone within a day of a verified show, or more than
+    `days` from any; the listed date is kept as `listed_date`."""
+    try:
+        d = date.fromisoformat(row["date"])
+    except (KeyError, ValueError):
+        return row
+    gaps = sorted((abs((date.fromisoformat(v["date"]) - d).days), v["date"]) for v in ref if v["house"] == row.get("house"))
+    if not gaps or gaps[0][0] <= 1 or gaps[0][0] > days:
+        return row
+    return {**row, "date": gaps[0][1], "listed_date": row["date"]}
+
+
 def doubtful(row: dict, ref: list[dict]) -> bool:
     """A listed date outside the weeks its kind of show takes place, unless a verified show of the house falls
     within a day of it: a show held off the calendar (Gucci's Love Parade in Los Angeles in November 2021) is
@@ -328,8 +343,8 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
     if shows is None:
         # the flags are judged again against the verified shows on file now, which may have grown since the read
         ref = _reference()
-        shows = [{**s, "date_doubtful": doubtful(s, ref)} if s.get("year") else s
-                 for s in store.read_jsonl(DIR / "shows.jsonl")]
+        shows = [redated(s, ref) for s in store.read_jsonl(DIR / "shows.jsonl")]
+        shows = [{**s, "date_doubtful": doubtful(s, ref)} if s.get("year") else s for s in shows]
         # a show kept off the calendar takes its place from the verified record: the listing's title can
         # carry the usual city (NOWFASHION files the Love Parade under Milan)
         for s in shows:

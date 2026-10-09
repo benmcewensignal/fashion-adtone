@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-10-08T21:03:43Z",
+ "generated_at": "2026-10-09T07:52:43Z",
  "status": "descriptive",
  "windows": {
   "shop_window": "months after the show, to the day before the next main show, 182 days at most",
   "lasting": "30 to 120 days after the show, net of the median brand"
  },
- "pictures": 2717,
+ "pictures": 2989,
  "last_month": "2026-10",
  "seasons": {
   "2015 AW": {
@@ -155,9 +155,9 @@
    "brands": 21,
    "show": 21,
    "lasting": 21,
-   "shop_window": 6,
+   "shop_window": 17,
    "shop_window_complete": 21,
-   "distinctness": 0,
+   "distinctness": 15,
    "movement": 0,
    "campaigns": 3,
    "scene": 21
@@ -166,10 +166,10 @@
    "brands": 22,
    "show": 22,
    "lasting": 22,
-   "shop_window": 20,
+   "shop_window": 21,
    "shop_window_complete": 22,
-   "distinctness": 16,
-   "movement": 2,
+   "distinctness": 18,
+   "movement": 14,
    "campaigns": 5,
    "scene": 22
   },
@@ -177,10 +177,10 @@
    "brands": 21,
    "show": 21,
    "lasting": 21,
-   "shop_window": 17,
+   "shop_window": 18,
    "shop_window_complete": 21,
-   "distinctness": 17,
-   "movement": 12,
+   "distinctness": 18,
+   "movement": 15,
    "campaigns": 2,
    "scene": 21
   },
@@ -274,7 +274,7 @@
   }
  },
  "association": {
-  "n": 135,
+  "n": 150,
   "brands": 22,
   "terms": [
    "distinctness",
@@ -285,31 +285,31 @@
   "status": "ok",
   "coefficients": {
    "distinctness": {
-    "estimate": -0.019,
+    "estimate": -0.0163,
     "interval_90": [
-     -0.0456,
-     0.0076
+     -0.0385,
+     0.0066
     ]
    },
    "movement": {
-    "estimate": -0.0122,
+    "estimate": -0.0088,
     "interval_90": [
-     -0.0349,
-     0.0134
+     -0.033,
+     0.0154
     ]
    },
    "image_share": {
-    "estimate": 0.0216,
+    "estimate": 0.018,
     "interval_90": [
-     -0.0046,
-     0.0508
+     -0.0064,
+     0.0431
     ]
    },
    "momentum": {
-    "estimate": -0.0242,
+    "estimate": -0.0214,
     "interval_90": [
-     -0.0459,
-     -0.0014
+     -0.0415,
+     -0.0006
     ]
    }
   },
@@ -396,16 +396,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.424,
-    "heat_z": -0.205,
+    "heat_z": -0.306,
     "surprise": null,
     "lasting": 0.0523,
-    "lasting_z": 0.496,
+    "lasting_z": 0.494,
     "momentum": -0.1873,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 48,
+    "heat_percentile": 44,
     "lasting_percentile": 64
    },
    "scene": {
@@ -802,10 +802,10 @@
     "lasting": 0.278,
     "lasting_z": 2.254,
     "momentum": 0.0067,
-    "press": null,
-    "press_z": null,
-    "tone": null,
-    "tone_z": null,
+    "press": 1.0249,
+    "press_z": -0.827,
+    "tone": -0.0715,
+    "tone_z": -0.29,
     "heat_percentile": 57,
     "lasting_percentile": 100
    },
@@ -858,10 +858,10 @@
     "lasting": 0.2121,
     "lasting_z": 0.863,
     "momentum": -0.0756,
-    "press": null,
-    "press_z": null,
-    "tone": null,
-    "tone_z": null,
+    "press": 1.6883,
+    "press_z": -0.035,
+    "tone": -0.8947,
+    "tone_z": -1.405,
     "heat_percentile": 91,
     "lasting_percentile": 86
    },
@@ -913,10 +913,10 @@
     "lasting": 0.1886,
     "lasting_z": 0.798,
     "momentum": 0.035,
-    "press": null,
-    "press_z": null,
-    "tone": null,
-    "tone_z": null,
+    "press": 0.8506,
+    "press_z": -0.922,
+    "tone": 0.2209,
+    "tone_z": 1.348,
     "heat_percentile": 67,
     "lasting_percentile": 90
    },
@@ -969,9 +969,9 @@
     "lasting": 0.045,
     "lasting_z": 0.19,
     "momentum": -0.1819,
-    "press": null,
+    "press": 0.6947,
     "press_z": null,
-    "tone": null,
+    "tone": -0.3704,
     "tone_z": null,
     "heat_percentile": 29,
     "lasting_percentile": 62
@@ -1024,9 +1024,9 @@
     "lasting": 0.1304,
     "lasting_z": 0.889,
     "momentum": 0.1259,
-    "press": null,
+    "press": 1.7488,
     "press_z": null,
-    "tone": null,
+    "tone": -2.4704,
     "tone_z": null,
     "heat_percentile": 18,
     "lasting_percentile": 82
@@ -1080,9 +1080,9 @@
     "lasting": -0.0268,
     "lasting_z": -0.336,
     "momentum": -0.1321,
-    "press": null,
+    "press": 1.3654,
     "press_z": null,
-    "tone": null,
+    "tone": 0.052,
     "tone_z": null,
     "heat_percentile": 28,
     "lasting_percentile": 33
@@ -1135,9 +1135,9 @@
     "lasting": -0.2329,
     "lasting_z": -1.571,
     "momentum": 0.0517,
-    "press": null,
+    "press": 1.2076,
     "press_z": null,
-    "tone": null,
+    "tone": -1.0925,
     "tone_z": null,
     "heat_percentile": 45,
     "lasting_percentile": 5
@@ -1191,9 +1191,9 @@
     "lasting": -0.106,
     "lasting_z": -1.264,
     "momentum": 0.0078,
-    "press": null,
+    "press": 0.8759,
     "press_z": null,
-    "tone": null,
+    "tone": 0.0302,
     "tone_z": null,
     "heat_percentile": 40,
     "lasting_percentile": 13
@@ -1247,9 +1247,9 @@
     "lasting": 0.1219,
     "lasting_z": 0.158,
     "momentum": -0.1733,
-    "press": null,
+    "press": 1.2682,
     "press_z": null,
-    "tone": null,
+    "tone": 0.5606,
     "tone_z": null,
     "heat_percentile": 80,
     "lasting_percentile": 65
@@ -1268,18 +1268,34 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 4,
+    "pictures": 11,
     "by_kind": {
-     "image": 3,
-     "product": 1
+     "other": 2,
+     "product": 5,
+     "image": 4
     },
     "mix": {
-     "image": 0.75,
-     "product": 0.25,
-     "other": 0.0
+     "image": 0.364,
+     "product": 0.455,
+     "other": 0.182
     },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.2211,
+      "n": 4,
+      "peers": 14,
+      "percentile": 82
+     },
+     "product": {
+      "value": 0.1957,
+      "n": 5,
+      "peers": 14,
+      "percentile": 30
+     },
+     "value": 0.207,
+     "percentile": 53
+    },
     "movement": {},
     "previous": null
    },
@@ -1309,9 +1325,9 @@
     "lasting": 0.1013,
     "lasting_z": 1.081,
     "momentum": 0.1515,
-    "press": null,
+    "press": 1.6558,
     "press_z": null,
-    "tone": null,
+    "tone": -1.2866,
     "tone_z": null,
     "heat_percentile": 95,
     "lasting_percentile": 81
@@ -1341,18 +1357,26 @@
      "product": 0.714,
      "other": 0.0
     },
-    "mix_shift": 0.464,
+    "mix_shift": 0.259,
     "distinctness": {
      "product": {
-      "value": 0.2408,
+      "value": 0.2418,
       "n": 5,
-      "peers": 16,
-      "percentile": 50
+      "peers": 17,
+      "percentile": 71
      },
-     "value": 0.2408,
-     "percentile": 50
+     "value": 0.2418,
+     "percentile": 71
     },
-    "movement": {},
+    "movement": {
+     "product": {
+      "value": 0.2887,
+      "n": 5,
+      "percentile": 78
+     },
+     "value": 0.2887,
+     "percentile": 78
+    },
     "previous": "2021-10-02"
    },
    "campaigns": {
@@ -1381,9 +1405,9 @@
     "lasting": 0.8657,
     "lasting_z": 2.911,
     "momentum": -0.1122,
-    "press": null,
+    "press": 1.7534,
     "press_z": null,
-    "tone": null,
+    "tone": -0.665,
     "tone_z": null,
     "heat_percentile": 100,
     "lasting_percentile": 100
@@ -1415,28 +1439,28 @@
     "mix_shift": 0.276,
     "distinctness": {
      "image": {
-      "value": 0.1422,
+      "value": 0.1459,
       "n": 9,
-      "peers": 14,
-      "percentile": 17
+      "peers": 15,
+      "percentile": 15
      },
      "product": {
-      "value": 0.2302,
+      "value": 0.2308,
       "n": 7,
       "peers": 16,
-      "percentile": 69
+      "percentile": 79
      },
-     "value": 0.1807,
-     "percentile": 40
+     "value": 0.183,
+     "percentile": 43
     },
     "movement": {
      "product": {
       "value": 0.224,
       "n": 5,
-      "percentile": 50
+      "percentile": 45
      },
      "value": 0.224,
-     "percentile": 50
+     "percentile": 45
     },
     "previous": "2022-03-06"
    },
@@ -1466,9 +1490,9 @@
     "lasting": 0.2492,
     "lasting_z": 1.308,
     "momentum": 0.4767,
-    "press": null,
+    "press": 2.5509,
     "press_z": null,
-    "tone": null,
+    "tone": 0.345,
     "tone_z": null,
     "heat_percentile": 0,
     "lasting_percentile": 95
@@ -1501,13 +1525,13 @@
     "mix_shift": 0.362,
     "distinctness": {
      "product": {
-      "value": 0.3069,
+      "value": 0.3101,
       "n": 8,
       "peers": 16,
-      "percentile": 71
+      "percentile": 79
      },
-     "value": 0.3069,
-     "percentile": 71
+     "value": 0.3101,
+     "percentile": 79
     },
     "movement": {
      "product": {
@@ -1549,9 +1573,9 @@
     "lasting": 0.1852,
     "lasting_z": 1.236,
     "momentum": -0.2788,
-    "press": null,
+    "press": 0.5301,
     "press_z": null,
-    "tone": null,
+    "tone": -0.7906,
     "tone_z": null,
     "heat_percentile": 36,
     "lasting_percentile": 82
@@ -1627,9 +1651,9 @@
     "lasting": -0.1275,
     "lasting_z": -0.756,
     "momentum": 0.3315,
-    "press": null,
+    "press": 0.7819,
     "press_z": null,
-    "tone": null,
+    "tone": -0.0895,
     "tone_z": null,
     "heat_percentile": 4,
     "lasting_percentile": 17
@@ -1706,9 +1730,9 @@
     "lasting": -0.0513,
     "lasting_z": -0.451,
     "momentum": 0.2548,
-    "press": null,
+    "press": 1.8215,
     "press_z": null,
-    "tone": null,
+    "tone": 0.3162,
     "tone_z": null,
     "heat_percentile": 19,
     "lasting_percentile": 33
@@ -1784,9 +1808,9 @@
     "lasting": -0.1766,
     "lasting_z": -1.488,
     "momentum": -0.1777,
-    "press": null,
+    "press": 1.1511,
     "press_z": null,
-    "tone": null,
+    "tone": -0.8077,
     "tone_z": null,
     "heat_percentile": 79,
     "lasting_percentile": 5
@@ -1858,14 +1882,14 @@
    "category": "rtw",
    "show": {
     "heat": 1.3953,
-    "heat_z": 2.41,
+    "heat_z": 2.259,
     "surprise": 0.8167,
     "lasting": 0.0388,
-    "lasting_z": 0.415,
+    "lasting_z": 0.412,
     "momentum": -0.1665,
-    "press": null,
+    "press": 2.4637,
     "press_z": null,
-    "tone": null,
+    "tone": 0.897,
     "tone_z": null,
     "heat_percentile": 100,
     "lasting_percentile": 60
@@ -1943,9 +1967,9 @@
     "lasting": 0.1085,
     "lasting_z": 0.627,
     "momentum": -0.0742,
-    "press": null,
+    "press": 1.3419,
     "press_z": null,
-    "tone": null,
+    "tone": -0.4389,
     "tone_z": null,
     "heat_percentile": 96,
     "lasting_percentile": 80
@@ -2026,9 +2050,9 @@
     "lasting": null,
     "lasting_z": null,
     "momentum": -0.3566,
-    "press": null,
+    "press": 1.824,
     "press_z": null,
-    "tone": null,
+    "tone": -1.4785,
     "tone_z": null,
     "heat_percentile": 53,
     "lasting_percentile": null
@@ -2685,26 +2709,26 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 14,
+    "pictures": 16,
     "by_kind": {
      "image": 2,
-     "product": 12
+     "product": 14
     },
     "mix": {
-     "image": 0.143,
-     "product": 0.857,
+     "image": 0.125,
+     "product": 0.875,
      "other": 0.0
     },
     "mix_shift": null,
     "distinctness": {
      "product": {
-      "value": 0.2748,
-      "n": 12,
-      "peers": 16,
-      "percentile": 75
+      "value": 0.2279,
+      "n": 14,
+      "peers": 17,
+      "percentile": 57
      },
-     "value": 0.2748,
-     "percentile": 75
+     "value": 0.2279,
+     "percentile": 57
     },
     "movement": {},
     "previous": null
@@ -2767,25 +2791,25 @@
      "product": 0.941,
      "other": 0.0
     },
-    "mix_shift": 0.084,
+    "mix_shift": 0.066,
     "distinctness": {
      "product": {
-      "value": 0.362,
+      "value": 0.364,
       "n": 16,
       "peers": 16,
       "percentile": 93
      },
-     "value": 0.362,
+     "value": 0.364,
      "percentile": 93
     },
     "movement": {
      "product": {
-      "value": 0.1789,
-      "n": 12,
-      "percentile": 18
+      "value": 0.1842,
+      "n": 14,
+      "percentile": 27
      },
-     "value": 0.1789,
-     "percentile": 18
+     "value": 0.1842,
+     "percentile": 27
     },
     "previous": "2022-02-26"
    },
@@ -3048,16 +3072,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.935,
-    "heat_z": 1.171,
+    "heat_z": 1.043,
     "surprise": 0.534,
     "lasting": -0.198,
-    "lasting_z": -1.023,
+    "lasting_z": -1.027,
     "momentum": 0.1209,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 92,
+    "heat_percentile": 88,
     "lasting_percentile": 12
    },
    "scene": {
@@ -3282,7 +3306,7 @@
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 28,
+    "heat_percentile": 24,
     "lasting_percentile": 80
    },
    "scene": {
@@ -3677,9 +3701,9 @@
     "lasting_z": -1.175,
     "momentum": 0.3382,
     "press": 2.0275,
-    "press_z": -0.039,
+    "press_z": 0.036,
     "tone": 0.5404,
-    "tone_z": 0.865,
+    "tone_z": 0.926,
     "heat_percentile": 95,
     "lasting_percentile": 14
    },
@@ -3733,9 +3757,9 @@
     "lasting_z": 0.73,
     "momentum": -0.1819,
     "press": 2.8313,
-    "press_z": 1.764,
+    "press_z": 1.939,
     "tone": -0.4408,
-    "tone_z": -0.402,
+    "tone_z": -0.061,
     "heat_percentile": 59,
     "lasting_percentile": 77
    },
@@ -4156,13 +4180,13 @@
     "mix_shift": null,
     "distinctness": {
      "product": {
-      "value": 0.199,
+      "value": 0.2019,
       "n": 3,
-      "peers": 16,
-      "percentile": 33
+      "peers": 17,
+      "percentile": 36
      },
-     "value": 0.199,
-     "percentile": 33
+     "value": 0.2019,
+     "percentile": 36
     },
     "movement": {},
     "previous": null
@@ -4539,16 +4563,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.2999,
-    "heat_z": -0.539,
+    "heat_z": -0.634,
     "surprise": -0.2186,
     "lasting": 0.1077,
-    "lasting_z": 0.833,
+    "lasting_z": 0.831,
     "momentum": -0.1903,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 36,
+    "heat_percentile": 32,
     "lasting_percentile": 76
    },
    "scene": {
@@ -4934,9 +4958,9 @@
     "lasting_z": -0.031,
     "momentum": 0.0359,
     "press": 1.9836,
-    "press_z": -0.076,
+    "press_z": -0.002,
     "tone": 0.7722,
-    "tone_z": 1.307,
+    "tone_z": 1.386,
     "heat_percentile": 24,
     "lasting_percentile": 48
    },
@@ -5318,20 +5342,20 @@
    "id": "celine:2026:SS:rtw",
    "house": "celine",
    "season": "2026 SS",
-   "date": "2025-09-30",
+   "date": "2025-10-05",
    "category": "rtw",
    "show": {
-    "heat": 0.1104,
-    "heat_z": -1.049,
-    "surprise": -0.4487,
-    "lasting": -0.1204,
-    "lasting_z": -0.552,
-    "momentum": 0.2125,
+    "heat": 1.0657,
+    "heat_z": 1.388,
+    "surprise": 0.5066,
+    "lasting": -0.1082,
+    "lasting_z": -0.481,
+    "momentum": 0.1678,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 24,
+    "heat_percentile": 92,
     "lasting_percentile": 28
    },
    "scene": {
@@ -5396,7 +5420,7 @@
    "show": {
     "heat": 0.1621,
     "heat_z": -0.048,
-    "surprise": -0.3562,
+    "surprise": -0.4431,
     "lasting": 0.0694,
     "lasting_z": 0.456,
     "momentum": -0.0209,
@@ -5444,7 +5468,7 @@
      "percentile": 25
     },
     "movement": {},
-    "previous": "2025-09-30"
+    "previous": "2025-10-05"
    },
    "campaigns": {
     "entries": 9,
@@ -5712,9 +5736,9 @@
     "lasting_z": 0.488,
     "momentum": 0.0307,
     "press": 1.1397,
-    "press_z": -0.795,
+    "press_z": -0.729,
     "tone": 0.0428,
-    "tone_z": -0.086,
+    "tone_z": -0.063,
     "heat_percentile": 48,
     "lasting_percentile": 71
    },
@@ -5771,9 +5795,9 @@
     "lasting_z": -1.119,
     "momentum": -0.0692,
     "press": 1.1944,
-    "press_z": -0.816,
+    "press_z": -0.887,
     "tone": -0.3534,
-    "tone_z": -0.098,
+    "tone_z": 0.198,
     "heat_percentile": 5,
     "lasting_percentile": 5
    },
@@ -5829,9 +5853,9 @@
     "lasting_z": 0.205,
     "momentum": -0.0379,
     "press": 1.3932,
-    "press_z": null,
+    "press_z": 0.046,
     "tone": -0.1836,
-    "tone_z": null,
+    "tone_z": 0.312,
     "heat_percentile": 29,
     "lasting_percentile": 52
    },
@@ -6264,11 +6288,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 8,
+    "by_kind": {
+     "image": 7,
+     "product": 1
+    },
+    "mix": {
+     "image": 0.875,
+     "product": 0.125,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1376,
+      "n": 7,
+      "peers": 14,
+      "percentile": 9
+     },
+     "value": 0.1376,
+     "percentile": 9
+    },
     "movement": {},
     "previous": null
    },
@@ -6325,28 +6365,36 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 9,
+    "pictures": 12,
     "by_kind": {
-     "image": 9
+     "image": 12
     },
     "mix": {
      "image": 1.0,
      "product": 0.0,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.125,
     "distinctness": {
      "image": {
-      "value": 0.1309,
-      "n": 9,
-      "peers": 11,
+      "value": 0.1323,
+      "n": 12,
+      "peers": 13,
+      "percentile": 10
+     },
+     "value": 0.1323,
+     "percentile": 10
+    },
+    "movement": {
+     "image": {
+      "value": 0.1369,
+      "n": 7,
       "percentile": 0
      },
-     "value": 0.1309,
+     "value": 0.1369,
      "percentile": 0
     },
-    "movement": {},
-    "previous": null
+    "previous": "2021-10-03"
    },
    "campaigns": {
     "entries": 12,
@@ -6412,22 +6460,22 @@
     "mix_shift": 0.0,
     "distinctness": {
      "image": {
-      "value": 0.1336,
+      "value": 0.1265,
       "n": 8,
-      "peers": 14,
+      "peers": 15,
       "percentile": 8
      },
-     "value": 0.1336,
+     "value": 0.1265,
      "percentile": 8
     },
     "movement": {
      "image": {
-      "value": 0.1295,
+      "value": 0.1375,
       "n": 8,
-      "percentile": 0
+      "percentile": 10
      },
-     "value": 0.1295,
-     "percentile": 0
+     "value": 0.1375,
+     "percentile": 10
     },
     "previous": "2022-03-08"
    },
@@ -6496,22 +6544,22 @@
     "mix_shift": 0.0,
     "distinctness": {
      "image": {
-      "value": 0.1877,
+      "value": 0.1896,
       "n": 4,
       "peers": 15,
-      "percentile": 50
+      "percentile": 58
      },
-     "value": 0.1877,
-     "percentile": 50
+     "value": 0.1896,
+     "percentile": 58
     },
     "movement": {
      "image": {
       "value": 0.2344,
       "n": 4,
-      "percentile": 45
+      "percentile": 55
      },
      "value": 0.2344,
-     "percentile": 45
+     "percentile": 55
     },
     "previous": "2022-10-04"
    },
@@ -6792,16 +6840,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.7621,
-    "heat_z": 0.705,
+    "heat_z": 0.587,
     "surprise": 0.4718,
     "lasting": 0.0901,
-    "lasting_z": 0.726,
+    "lasting_z": 0.724,
     "momentum": -0.024,
     "press": 1.6501,
     "press_z": null,
     "tone": 0.233,
     "tone_z": null,
-    "heat_percentile": 80,
+    "heat_percentile": 76,
     "lasting_percentile": 72
    },
    "scene": {
@@ -6916,7 +6964,7 @@
     "lasting": null,
     "lasting_z": null,
     "momentum": -0.1976,
-    "press": null,
+    "press": -2.5209,
     "press_z": null,
     "tone": null,
     "tone_z": null,
@@ -7719,11 +7767,26 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 3,
+    "by_kind": {
+     "product": 3
+    },
+    "mix": {
+     "image": 0.0,
+     "product": 1.0,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "product": {
+      "value": 0.28,
+      "n": 3,
+      "peers": 14,
+      "percentile": 80
+     },
+     "value": 0.28,
+     "percentile": 80
+    },
     "movement": {},
     "previous": null
    },
@@ -7786,10 +7849,10 @@
      "product": 0.5,
      "other": 0.25
     },
-    "mix_shift": null,
+    "mix_shift": 0.5,
     "distinctness": {},
     "movement": {},
-    "previous": null
+    "previous": "2021-09-30"
    },
    "campaigns": {
     "entries": 0,
@@ -7851,13 +7914,13 @@
     "mix_shift": 0.25,
     "distinctness": {
      "product": {
-      "value": 0.1878,
+      "value": 0.1852,
       "n": 3,
       "peers": 16,
-      "percentile": 31
+      "percentile": 29
      },
-     "value": 0.1878,
-     "percentile": 31
+     "value": 0.1852,
+     "percentile": 29
     },
     "movement": {},
     "previous": "2022-03-03"
@@ -7922,22 +7985,22 @@
     "mix_shift": 0.25,
     "distinctness": {
      "product": {
-      "value": 0.2872,
+      "value": 0.2867,
       "n": 7,
       "peers": 16,
       "percentile": 64
      },
-     "value": 0.2872,
+     "value": 0.2867,
      "percentile": 64
     },
     "movement": {
      "product": {
       "value": 0.3962,
       "n": 3,
-      "percentile": 82
+      "percentile": 91
      },
      "value": 0.3962,
-     "percentile": 82
+     "percentile": 91
     },
     "previous": "2022-09-29"
    },
@@ -8013,10 +8076,10 @@
      "product": {
       "value": 0.355,
       "n": 4,
-      "percentile": 92
+      "percentile": 100
      },
      "value": 0.355,
-     "percentile": 92
+     "percentile": 100
     },
     "previous": "2023-03-02"
    },
@@ -8288,16 +8351,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.4045,
-    "heat_z": -0.258,
+    "heat_z": -0.358,
     "surprise": -0.1111,
     "lasting": -0.0115,
-    "lasting_z": 0.109,
+    "lasting_z": 0.106,
     "momentum": 0.0849,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 44,
+    "heat_percentile": 40,
     "lasting_percentile": 52
    },
    "scene": {
@@ -8777,9 +8840,9 @@
     "lasting_z": -1.16,
     "momentum": -0.0485,
     "press": 1.0279,
-    "press_z": -0.89,
+    "press_z": -0.825,
     "tone": 0.3582,
-    "tone_z": 0.517,
+    "tone_z": 0.564,
     "heat_percentile": 0,
     "lasting_percentile": 19
    },
@@ -8836,9 +8899,9 @@
     "lasting_z": -0.759,
     "momentum": -0.0895,
     "press": 1.2259,
-    "press_z": -0.767,
+    "press_z": -0.833,
     "tone": -0.2508,
-    "tone_z": 0.259,
+    "tone_z": 0.502,
     "heat_percentile": 18,
     "lasting_percentile": 23
    },
@@ -8894,9 +8957,9 @@
     "lasting_z": 0.127,
     "momentum": -0.0816,
     "press": 0.9695,
-    "press_z": null,
+    "press_z": -0.71,
     "tone": -0.1395,
-    "tone_z": null,
+    "tone_z": 0.424,
     "heat_percentile": 5,
     "lasting_percentile": 48
    },
@@ -9266,18 +9329,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 3,
+    "pictures": 11,
     "by_kind": {
-     "image": 1,
+     "image": 9,
      "product": 2
     },
     "mix": {
-     "image": 0.333,
-     "product": 0.667,
+     "image": 0.818,
+     "product": 0.182,
      "other": 0.0
     },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.2734,
+      "n": 9,
+      "peers": 14,
+      "percentile": 100
+     },
+     "value": 0.2734,
+     "percentile": 100
+    },
     "movement": {},
     "previous": null
    },
@@ -9332,34 +9404,42 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 17,
     "by_kind": {
-     "image": 6,
-     "product": 4
+     "image": 12,
+     "product": 5
     },
     "mix": {
-     "image": 0.6,
-     "product": 0.4,
+     "image": 0.706,
+     "product": 0.294,
      "other": 0.0
     },
-    "mix_shift": 0.267,
+    "mix_shift": 0.112,
     "distinctness": {
      "image": {
-      "value": 0.1629,
-      "n": 6,
-      "peers": 11,
-      "percentile": 22
+      "value": 0.14,
+      "n": 12,
+      "peers": 13,
+      "percentile": 20
      },
      "product": {
-      "value": 0.2453,
-      "n": 4,
-      "peers": 16,
-      "percentile": 58
+      "value": 0.2086,
+      "n": 5,
+      "peers": 17,
+      "percentile": 43
      },
-     "value": 0.1959,
-     "percentile": 36
+     "value": 0.1602,
+     "percentile": 27
     },
-    "movement": {},
+    "movement": {
+     "image": {
+      "value": 0.3341,
+      "n": 9,
+      "percentile": 100
+     },
+     "value": 0.3341,
+     "percentile": 100
+    },
     "previous": "2021-09-28"
    },
    "campaigns": {
@@ -9422,36 +9502,36 @@
      "product": 0.188,
      "other": 0.0
     },
-    "mix_shift": 0.212,
+    "mix_shift": 0.106,
     "distinctness": {
      "image": {
-      "value": 0.1149,
+      "value": 0.11,
       "n": 13,
-      "peers": 14,
+      "peers": 15,
       "percentile": 0
      },
      "product": {
-      "value": 0.3702,
+      "value": 0.3703,
       "n": 3,
       "peers": 16,
       "percentile": 100
      },
-     "value": 0.1628,
+     "value": 0.1588,
      "percentile": 19
     },
     "movement": {
      "image": {
-      "value": 0.1691,
-      "n": 6,
-      "percentile": 12
+      "value": 0.1575,
+      "n": 12,
+      "percentile": 20
      },
      "product": {
-      "value": 0.3772,
+      "value": 0.3537,
       "n": 3,
-      "percentile": 100
+      "percentile": 91
      },
-     "value": 0.2385,
-     "percentile": 41
+     "value": 0.1967,
+     "percentile": 34
     },
     "previous": "2022-03-01"
    },
@@ -9518,18 +9598,18 @@
     "mix_shift": 0.047,
     "distinctness": {
      "image": {
-      "value": 0.106,
+      "value": 0.1065,
       "n": 13,
       "peers": 15,
       "percentile": 8
      },
      "product": {
-      "value": 0.3347,
+      "value": 0.3306,
       "n": 4,
       "peers": 16,
       "percentile": 86
      },
-     "value": 0.1598,
+     "value": 0.1592,
      "percentile": 26
     },
     "movement": {
@@ -9541,10 +9621,10 @@
      "product": {
       "value": 0.3548,
       "n": 3,
-      "percentile": 73
+      "percentile": 82
      },
      "value": 0.1496,
-     "percentile": 14
+     "percentile": 15
     },
     "previous": "2022-09-27"
    },
@@ -9925,16 +10005,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.435,
-    "heat_z": -0.175,
+    "heat_z": -0.277,
     "surprise": 0.2369,
     "lasting": -0.2149,
-    "lasting_z": -1.125,
+    "lasting_z": -1.13,
     "momentum": -0.1408,
     "press": 1.1143,
     "press_z": null,
     "tone": 0.4979,
     "tone_z": null,
-    "heat_percentile": 52,
+    "heat_percentile": 48,
     "lasting_percentile": 8
    },
    "scene": {
@@ -10362,9 +10442,9 @@
     "lasting_z": 1.111,
     "momentum": 0.1235,
     "press": 1.7923,
-    "press_z": -0.239,
+    "press_z": -0.166,
     "tone": 0.8888,
-    "tone_z": 1.53,
+    "tone_z": 1.618,
     "heat_percentile": 71,
     "lasting_percentile": 90
    },
@@ -10418,9 +10498,9 @@
     "lasting_z": 0.858,
     "momentum": -0.0767,
     "press": 2.0081,
-    "press_z": 0.466,
+    "press_z": 0.517,
     "tone": 0.1518,
-    "tone_z": 1.659,
+    "tone_z": 1.694,
     "heat_percentile": 55,
     "lasting_percentile": 82
    },
@@ -10473,9 +10553,9 @@
     "lasting_z": 0.635,
     "momentum": 0.1631,
     "press": 2.4251,
-    "press_z": null,
+    "press_z": 1.885,
     "tone": -0.4752,
-    "tone_z": null,
+    "tone_z": -0.436,
     "heat_percentile": 62,
     "lasting_percentile": 76
    },
@@ -10827,18 +10907,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 4,
+    "pictures": 19,
     "by_kind": {
-     "image": 1,
-     "product": 3
+     "product": 14,
+     "image": 5
     },
     "mix": {
-     "image": 0.25,
-     "product": 0.75,
+     "image": 0.263,
+     "product": 0.737,
      "other": 0.0
     },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1687,
+      "n": 5,
+      "peers": 14,
+      "percentile": 27
+     },
+     "product": {
+      "value": 0.2359,
+      "n": 14,
+      "peers": 14,
+      "percentile": 50
+     },
+     "value": 0.2182,
+     "percentile": 44
+    },
     "movement": {},
     "previous": null
    },
@@ -10900,31 +10995,36 @@
      "product": 0.7,
      "other": 0.0
     },
-    "mix_shift": 0.05,
+    "mix_shift": 0.037,
     "distinctness": {
      "image": {
-      "value": 0.1888,
+      "value": 0.1882,
       "n": 6,
-      "peers": 11,
-      "percentile": 33
+      "peers": 13,
+      "percentile": 60
      },
      "product": {
-      "value": 0.25,
+      "value": 0.2572,
       "n": 14,
-      "peers": 16,
-      "percentile": 67
+      "peers": 17,
+      "percentile": 79
      },
-     "value": 0.2316,
-     "percentile": 57
+     "value": 0.2365,
+     "percentile": 73
     },
     "movement": {
+     "image": {
+      "value": 0.1911,
+      "n": 5,
+      "percentile": 25
+     },
      "product": {
-      "value": 0.1952,
-      "n": 3,
+      "value": 0.0858,
+      "n": 14,
       "percentile": 0
      },
-     "value": 0.1952,
-     "percentile": 0
+     "value": 0.1135,
+     "percentile": 7
     },
     "previous": "2021-09-25"
    },
@@ -10988,33 +11088,33 @@
     "mix_shift": 0.167,
     "distinctness": {
      "image": {
-      "value": 0.214,
+      "value": 0.2074,
       "n": 7,
-      "peers": 14,
-      "percentile": 58
+      "peers": 15,
+      "percentile": 69
      },
      "product": {
-      "value": 0.1635,
+      "value": 0.157,
       "n": 8,
       "peers": 16,
-      "percentile": 15
+      "percentile": 7
      },
-     "value": 0.1871,
-     "percentile": 35
+     "value": 0.1805,
+     "percentile": 36
     },
     "movement": {
      "image": {
       "value": 0.2925,
       "n": 6,
-      "percentile": 75
+      "percentile": 80
      },
      "product": {
       "value": 0.3169,
       "n": 8,
-      "percentile": 88
+      "percentile": 82
      },
      "value": 0.3064,
-     "percentile": 82
+     "percentile": 81
     },
     "previous": "2022-02-26"
    },
@@ -11080,33 +11180,33 @@
     "mix_shift": 0.167,
     "distinctness": {
      "image": {
-      "value": 0.2379,
+      "value": 0.2408,
       "n": 4,
       "peers": 15,
       "percentile": 100
      },
      "product": {
-      "value": 0.2319,
+      "value": 0.2314,
       "n": 6,
       "peers": 16,
       "percentile": 50
      },
-     "value": 0.2343,
+     "value": 0.2352,
      "percentile": 70
     },
     "movement": {
      "image": {
       "value": 0.3142,
       "n": 4,
-      "percentile": 82
+      "percentile": 91
      },
      "product": {
       "value": 0.285,
       "n": 6,
-      "percentile": 64
+      "percentile": 73
      },
      "value": 0.2967,
-     "percentile": 71
+     "percentile": 80
     },
     "previous": "2022-09-24"
    },
@@ -11481,16 +11581,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.2953,
-    "heat_z": -0.552,
+    "heat_z": -0.646,
     "surprise": -0.0078,
     "lasting": -0.0714,
-    "lasting_z": -0.254,
+    "lasting_z": -0.258,
     "momentum": 0.1659,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 32,
+    "heat_percentile": 28,
     "lasting_percentile": 44
    },
    "scene": {
@@ -11941,9 +12041,9 @@
     "lasting_z": -1.248,
     "momentum": -0.1847,
     "press": 4.1263,
-    "press_z": 1.749,
+    "press_z": 1.844,
     "tone": -0.3237,
-    "tone_z": -0.785,
+    "tone_z": -0.791,
     "heat_percentile": 100,
     "lasting_percentile": 5
    },
@@ -12797,16 +12897,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.5458,
-    "heat_z": 0.123,
+    "heat_z": 0.015,
     "surprise": -0.0614,
     "lasting": 0.1103,
-    "lasting_z": 0.849,
+    "lasting_z": 0.847,
     "momentum": -0.1589,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 60,
+    "heat_percentile": 56,
     "lasting_percentile": 84
    },
    "scene": {
@@ -13264,9 +13364,9 @@
     "lasting_z": 0.895,
     "momentum": -0.0598,
     "press": 2.1558,
-    "press_z": 0.071,
+    "press_z": 0.147,
     "tone": -0.7233,
-    "tone_z": -1.548,
+    "tone_z": -1.585,
     "heat_percentile": 86,
     "lasting_percentile": 81
    },
@@ -13786,11 +13886,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 8,
+    "by_kind": {
+     "image": 4,
+     "product": 4
+    },
+    "mix": {
+     "image": 0.5,
+     "product": 0.5,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.2209,
+      "n": 4,
+      "peers": 14,
+      "percentile": 73
+     },
+     "product": {
+      "value": 0.4817,
+      "n": 4,
+      "peers": 14,
+      "percentile": 100
+     },
+     "value": 0.3513,
+     "percentile": 86
+    },
     "movement": {},
     "previous": null
    },
@@ -13851,19 +13973,27 @@
      "product": 1.0,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.5,
     "distinctness": {
      "product": {
-      "value": 0.3419,
+      "value": 0.3517,
       "n": 3,
-      "peers": 16,
-      "percentile": 92
+      "peers": 17,
+      "percentile": 93
      },
-     "value": 0.3419,
-     "percentile": 92
+     "value": 0.3517,
+     "percentile": 93
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "product": {
+      "value": 0.2838,
+      "n": 3,
+      "percentile": 67
+     },
+     "value": 0.2838,
+     "percentile": 67
+    },
+    "previous": "2021-09-22"
    },
    "campaigns": {
     "entries": 0,
@@ -13913,12 +14043,35 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
-    "mix_shift": null,
-    "distinctness": {},
-    "movement": {},
+    "pictures": 4,
+    "by_kind": {
+     "product": 4
+    },
+    "mix": {
+     "image": 0.0,
+     "product": 1.0,
+     "other": 0.0
+    },
+    "mix_shift": 0.0,
+    "distinctness": {
+     "product": {
+      "value": 0.3642,
+      "n": 4,
+      "peers": 17,
+      "percentile": 93
+     },
+     "value": 0.3642,
+     "percentile": 93
+    },
+    "movement": {
+     "product": {
+      "value": 0.3015,
+      "n": 3,
+      "percentile": 64
+     },
+     "value": 0.3015,
+     "percentile": 64
+    },
     "previous": "2022-02-23"
    },
    "campaigns": {
@@ -13975,7 +14128,7 @@
     "mix_shift": null,
     "distinctness": {},
     "movement": {},
-    "previous": "2022-02-23"
+    "previous": "2022-09-10"
    },
    "campaigns": {
     "entries": 0,
@@ -14053,14 +14206,14 @@
     },
     "movement": {
      "product": {
-      "value": 0.2709,
-      "n": 3,
-      "percentile": 69
+      "value": 0.3273,
+      "n": 4,
+      "percentile": 85
      },
-     "value": 0.2709,
-     "percentile": 69
+     "value": 0.3273,
+     "percentile": 85
     },
-    "previous": "2022-02-23"
+    "previous": "2022-09-10"
    },
    "campaigns": {
     "entries": 0,
@@ -14357,7 +14510,7 @@
    "category": "rtw",
    "show": {
     "heat": 0.6921,
-    "heat_z": 0.517,
+    "heat_z": 0.402,
     "surprise": 0.0954,
     "lasting": 0.2381,
     "lasting_z": 1.624,
@@ -14366,7 +14519,7 @@
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 72,
+    "heat_percentile": 68,
     "lasting_percentile": 100
    },
    "scene": {
@@ -15247,11 +15400,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 12,
+    "by_kind": {
+     "image": 5,
+     "product": 7
+    },
+    "mix": {
+     "image": 0.417,
+     "product": 0.583,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1321,
+      "n": 5,
+      "peers": 14,
+      "percentile": 0
+     },
+     "product": {
+      "value": 0.1955,
+      "n": 7,
+      "peers": 14,
+      "percentile": 20
+     },
+     "value": 0.1691,
+     "percentile": 12
+    },
     "movement": {},
     "previous": null
    },
@@ -15303,35 +15478,48 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 12,
     "by_kind": {
-     "image": 4,
-     "product": 6
+     "image": 5,
+     "product": 7
     },
     "mix": {
-     "image": 0.4,
-     "product": 0.6,
+     "image": 0.417,
+     "product": 0.583,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.0,
     "distinctness": {
      "image": {
-      "value": 0.2037,
-      "n": 4,
-      "peers": 11,
-      "percentile": 67
+      "value": 0.2258,
+      "n": 5,
+      "peers": 13,
+      "percentile": 90
      },
      "product": {
-      "value": 0.1834,
-      "n": 6,
-      "peers": 16,
-      "percentile": 25
+      "value": 0.1647,
+      "n": 7,
+      "peers": 17,
+      "percentile": 21
      },
-     "value": 0.1915,
-     "percentile": 42
+     "value": 0.1902,
+     "percentile": 50
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "image": {
+      "value": 0.3188,
+      "n": 5,
+      "percentile": 88
+     },
+     "product": {
+      "value": 0.1809,
+      "n": 7,
+      "percentile": 33
+     },
+     "value": 0.2384,
+     "percentile": 56
+    },
+    "previous": "2021-10-03"
    },
    "campaigns": {
     "entries": 0,
@@ -15390,36 +15578,36 @@
      "product": 0.667,
      "other": 0.0
     },
-    "mix_shift": 0.067,
+    "mix_shift": 0.084,
     "distinctness": {
      "image": {
-      "value": 0.1703,
+      "value": 0.1723,
       "n": 4,
-      "peers": 14,
-      "percentile": 25
+      "peers": 15,
+      "percentile": 31
      },
      "product": {
-      "value": 0.1391,
+      "value": 0.1389,
       "n": 8,
       "peers": 16,
       "percentile": 0
      },
-     "value": 0.1495,
-     "percentile": 8
+     "value": 0.15,
+     "percentile": 10
     },
     "movement": {
      "image": {
-      "value": 0.3527,
+      "value": 0.3691,
       "n": 4,
-      "percentile": 100
+      "percentile": 90
      },
      "product": {
-      "value": 0.1929,
-      "n": 6,
-      "percentile": 25
+      "value": 0.1836,
+      "n": 7,
+      "percentile": 36
      },
-     "value": 0.2568,
-     "percentile": 55
+     "value": 0.2511,
+     "percentile": 56
     },
     "previous": "2022-03-06"
    },
@@ -15484,18 +15672,18 @@
     "mix_shift": 0.278,
     "distinctness": {
      "image": {
-      "value": 0.0768,
+      "value": 0.0763,
       "n": 11,
       "peers": 15,
       "percentile": 0
      },
      "product": {
-      "value": 0.1103,
+      "value": 0.1094,
       "n": 7,
       "peers": 16,
       "percentile": 0
      },
-     "value": 0.0898,
+     "value": 0.0892,
      "percentile": 0
     },
     "movement": {
@@ -15507,10 +15695,10 @@
      "product": {
       "value": 0.1645,
       "n": 7,
-      "percentile": 9
+      "percentile": 18
      },
      "value": 0.1735,
-     "percentile": 19
+     "percentile": 25
     },
     "previous": "2022-10-02"
    },
@@ -15780,16 +15968,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.3928,
-    "heat_z": -0.289,
+    "heat_z": -0.389,
     "surprise": 0.0225,
     "lasting": -0.1068,
-    "lasting_z": -0.469,
+    "lasting_z": -0.473,
     "momentum": -0.1938,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 40,
+    "heat_percentile": 36,
     "lasting_percentile": 32
    },
    "scene": {
@@ -16229,9 +16417,9 @@
     "lasting_z": 1.019,
     "momentum": 0.1952,
     "press": 0.9674,
-    "press_z": -0.941,
+    "press_z": -0.877,
     "tone": -0.4843,
-    "tone_z": -1.092,
+    "tone_z": -1.11,
     "heat_percentile": 43,
     "lasting_percentile": 86
    },
@@ -16285,9 +16473,9 @@
     "lasting_z": 1.348,
     "momentum": -0.0439,
     "press": 1.3023,
-    "press_z": -0.646,
+    "press_z": -0.701,
     "tone": -0.7333,
-    "tone_z": -1.418,
+    "tone_z": -0.927,
     "heat_percentile": 36,
     "lasting_percentile": 91
    },
@@ -16340,9 +16528,9 @@
     "lasting_z": -0.388,
     "momentum": 0.195,
     "press": 1.1996,
-    "press_z": null,
+    "press_z": -0.3,
     "tone": -0.9486,
-    "tone_z": null,
+    "tone_z": -1.648,
     "heat_percentile": 38,
     "lasting_percentile": 14
    },
@@ -16582,8 +16770,11 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
+    "pictures": 2,
+    "by_kind": {
+     "other": 1,
+     "product": 1
+    },
     "mix": null,
     "mix_shift": null,
     "distinctness": {},
@@ -16648,7 +16839,7 @@
     "mix_shift": null,
     "distinctness": {},
     "movement": {},
-    "previous": null
+    "previous": "2021-11-03"
    },
    "campaigns": {
     "entries": 1,
@@ -16755,33 +16946,33 @@
      "2023-08"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 12,
     "by_kind": {
      "other": 1,
-     "product": 6,
-     "image": 3
+     "product": 7,
+     "image": 4
     },
     "mix": {
-     "image": 0.3,
-     "product": 0.6,
-     "other": 0.1
+     "image": 0.333,
+     "product": 0.583,
+     "other": 0.083
     },
     "mix_shift": null,
     "distinctness": {
      "image": {
-      "value": 0.2018,
-      "n": 3,
+      "value": 0.1656,
+      "n": 4,
       "peers": 15,
-      "percentile": 75
+      "percentile": 50
      },
      "product": {
-      "value": 0.2282,
-      "n": 6,
+      "value": 0.1982,
+      "n": 7,
       "peers": 16,
-      "percentile": 43
+      "percentile": 29
      },
-     "value": 0.2194,
-     "percentile": 54
+     "value": 0.1863,
+     "percentile": 37
     },
     "movement": {},
     "previous": "2022-02-25"
@@ -16843,13 +17034,13 @@
      "product": 0.471,
      "other": 0.0
     },
-    "mix_shift": 0.229,
+    "mix_shift": 0.196,
     "distinctness": {
      "image": {
       "value": 0.1547,
       "n": 9,
       "peers": 18,
-      "percentile": 57
+      "percentile": 64
      },
      "product": {
       "value": 0.1517,
@@ -16858,21 +17049,21 @@
       "percentile": 18
      },
      "value": 0.1533,
-     "percentile": 39
+     "percentile": 42
     },
     "movement": {
      "image": {
-      "value": 0.338,
-      "n": 3,
+      "value": 0.3078,
+      "n": 4,
       "percentile": 90
      },
      "product": {
-      "value": 0.1709,
-      "n": 6,
-      "percentile": 23
+      "value": 0.144,
+      "n": 7,
+      "percentile": 15
      },
-     "value": 0.2266,
-     "percentile": 45
+     "value": 0.2036,
+     "percentile": 42
     },
     "previous": "2023-02-24"
    },
@@ -17154,16 +17345,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.4361,
-    "heat_z": -0.172,
+    "heat_z": -0.274,
     "surprise": 0.1202,
     "lasting": 0.0642,
-    "lasting_z": 0.569,
+    "lasting_z": 0.567,
     "momentum": -0.1029,
     "press": 1.6031,
     "press_z": null,
     "tone": 0.753,
     "tone_z": null,
-    "heat_percentile": 56,
+    "heat_percentile": 52,
     "lasting_percentile": 68
    },
    "scene": {
@@ -17624,9 +17815,9 @@
     "lasting_z": -0.069,
     "momentum": 0.0894,
     "press": 0.7976,
-    "press_z": -1.086,
+    "press_z": -1.023,
     "tone": -0.0464,
-    "tone_z": -0.256,
+    "tone_z": -0.24,
     "heat_percentile": 5,
     "lasting_percentile": 43
    },
@@ -18144,11 +18335,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 4,
+    "by_kind": {
+     "product": 3,
+     "other": 1
+    },
+    "mix": {
+     "image": 0.0,
+     "product": 0.75,
+     "other": 0.25
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "product": {
+      "value": 0.3466,
+      "n": 3,
+      "peers": 14,
+      "percentile": 90
+     },
+     "value": 0.3466,
+     "percentile": 90
+    },
     "movement": {},
     "previous": null
    },
@@ -18200,28 +18407,36 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 8,
+    "pictures": 17,
     "by_kind": {
-     "product": 8
+     "product": 17
     },
     "mix": {
      "image": 0.0,
      "product": 1.0,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.25,
     "distinctness": {
      "product": {
-      "value": 0.2842,
-      "n": 8,
-      "peers": 16,
-      "percentile": 83
+      "value": 0.236,
+      "n": 17,
+      "peers": 17,
+      "percentile": 64
      },
-     "value": 0.2842,
-     "percentile": 83
+     "value": 0.236,
+     "percentile": 64
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "product": {
+      "value": 0.3058,
+      "n": 3,
+      "percentile": 89
+     },
+     "value": 0.3058,
+     "percentile": 89
+    },
+    "previous": "2021-10-02"
    },
    "campaigns": {
     "entries": 0,
@@ -18270,36 +18485,36 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 9,
+    "pictures": 12,
     "by_kind": {
-     "other": 4,
-     "product": 4,
+     "other": 6,
+     "product": 5,
      "image": 1
     },
     "mix": {
-     "image": 0.111,
-     "product": 0.444,
-     "other": 0.444
+     "image": 0.083,
+     "product": 0.417,
+     "other": 0.5
     },
-    "mix_shift": 0.555,
+    "mix_shift": 0.583,
     "distinctness": {
      "product": {
-      "value": 0.3042,
-      "n": 4,
+      "value": 0.2908,
+      "n": 5,
       "peers": 16,
-      "percentile": 92
+      "percentile": 86
      },
-     "value": 0.3042,
-     "percentile": 92
+     "value": 0.2908,
+     "percentile": 86
     },
     "movement": {
      "product": {
-      "value": 0.2137,
-      "n": 4,
-      "percentile": 38
+      "value": 0.1753,
+      "n": 5,
+      "percentile": 27
      },
-     "value": 0.2137,
-     "percentile": 38
+     "value": 0.1753,
+     "percentile": 27
     },
     "previous": "2022-03-05"
    },
@@ -18362,24 +18577,24 @@
      "product": 0.87,
      "other": 0.043
     },
-    "mix_shift": 0.425,
+    "mix_shift": 0.457,
     "distinctness": {
      "product": {
-      "value": 0.2466,
+      "value": 0.2454,
       "n": 20,
       "peers": 16,
       "percentile": 57
      },
-     "value": 0.2466,
+     "value": 0.2454,
      "percentile": 57
     },
     "movement": {
      "product": {
-      "value": 0.1359,
-      "n": 4,
+      "value": 0.1247,
+      "n": 5,
       "percentile": 0
      },
-     "value": 0.1359,
+     "value": 0.1247,
      "percentile": 0
     },
     "previous": "2022-10-01"
@@ -18752,10 +18967,10 @@
    "category": "rtw",
    "show": {
     "heat": 0.0866,
-    "heat_z": -1.113,
+    "heat_z": -1.197,
     "surprise": -0.1486,
     "lasting": -0.0767,
-    "lasting_z": -0.286,
+    "lasting_z": -0.29,
     "momentum": 0.275,
     "press": null,
     "press_z": null,
@@ -19156,9 +19371,9 @@
     "lasting_z": -0.938,
     "momentum": -0.0857,
     "press": 4.524,
-    "press_z": 2.088,
+    "press_z": 2.187,
     "tone": 0.4314,
-    "tone_z": 0.656,
+    "tone_z": 0.709,
     "heat_percentile": 90,
     "lasting_percentile": 24
    },
@@ -19625,18 +19840,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 4,
+    "pictures": 8,
     "by_kind": {
-     "product": 3,
-     "image": 1
+     "image": 3,
+     "product": 5
     },
     "mix": {
-     "image": 0.25,
-     "product": 0.75,
+     "image": 0.375,
+     "product": 0.625,
      "other": 0.0
     },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1926,
+      "n": 3,
+      "peers": 14,
+      "percentile": 55
+     },
+     "product": {
+      "value": 0.2301,
+      "n": 5,
+      "peers": 14,
+      "percentile": 40
+     },
+     "value": 0.216,
+     "percentile": 46
+    },
     "movement": {},
     "previous": null
    },
@@ -19688,41 +19918,46 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 11,
+    "pictures": 16,
     "by_kind": {
-     "product": 7,
-     "image": 4
+     "image": 9,
+     "product": 7
     },
     "mix": {
-     "image": 0.364,
-     "product": 0.636,
+     "image": 0.562,
+     "product": 0.438,
      "other": 0.0
     },
-    "mix_shift": 0.114,
+    "mix_shift": 0.187,
     "distinctness": {
      "image": {
-      "value": 0.2006,
-      "n": 4,
-      "peers": 11,
-      "percentile": 56
+      "value": 0.141,
+      "n": 9,
+      "peers": 13,
+      "percentile": 30
      },
      "product": {
-      "value": 0.1714,
+      "value": 0.1603,
       "n": 7,
-      "peers": 16,
-      "percentile": 8
+      "peers": 17,
+      "percentile": 14
      },
-     "value": 0.182,
-     "percentile": 25
+     "value": 0.1494,
+     "percentile": 23
     },
     "movement": {
-     "product": {
-      "value": 0.2416,
+     "image": {
+      "value": 0.1921,
       "n": 3,
-      "percentile": 100
+      "percentile": 38
      },
-     "value": 0.2416,
-     "percentile": 100
+     "product": {
+      "value": 0.1466,
+      "n": 5,
+      "percentile": 22
+     },
+     "value": 0.1637,
+     "percentile": 28
     },
     "previous": "2021-09-22"
    },
@@ -19783,36 +20018,36 @@
      "product": 0.583,
      "other": 0.0
     },
-    "mix_shift": 0.053,
+    "mix_shift": 0.145,
     "distinctness": {
      "image": {
-      "value": 0.1884,
+      "value": 0.1873,
       "n": 5,
-      "peers": 14,
-      "percentile": 33
+      "peers": 15,
+      "percentile": 62
      },
      "product": {
-      "value": 0.1597,
+      "value": 0.1614,
       "n": 7,
       "peers": 16,
-      "percentile": 8
+      "percentile": 14
      },
-     "value": 0.1717,
-     "percentile": 18
+     "value": 0.1722,
+     "percentile": 34
     },
     "movement": {
      "image": {
-      "value": 0.2884,
-      "n": 4,
-      "percentile": 62
+      "value": 0.1919,
+      "n": 5,
+      "percentile": 50
      },
      "product": {
       "value": 0.1352,
       "n": 7,
-      "percentile": 0
+      "percentile": 9
      },
-     "value": 0.1909,
-     "percentile": 23
+     "value": 0.1588,
+     "percentile": 26
     },
     "previous": "2022-02-26"
    },
@@ -19876,12 +20111,12 @@
     "mix_shift": 0.583,
     "distinctness": {
      "image": {
-      "value": 0.158,
+      "value": 0.1579,
       "n": 10,
       "peers": 15,
       "percentile": 42
      },
-     "value": 0.158,
+     "value": 0.1579,
      "percentile": 42
     },
     "movement": {
@@ -20273,16 +20508,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.7317,
-    "heat_z": 0.623,
+    "heat_z": 0.506,
     "surprise": 0.0857,
     "lasting": 0.1837,
-    "lasting_z": 1.294,
+    "lasting_z": 1.293,
     "momentum": -0.0397,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 76,
+    "heat_percentile": 72,
     "lasting_percentile": 88
    },
    "scene": {
@@ -21284,11 +21519,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 8,
+    "by_kind": {
+     "product": 7,
+     "image": 1
+    },
+    "mix": {
+     "image": 0.125,
+     "product": 0.875,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "product": {
+      "value": 0.2631,
+      "n": 7,
+      "peers": 14,
+      "percentile": 70
+     },
+     "value": 0.2631,
+     "percentile": 70
+    },
     "movement": {},
     "previous": null
    },
@@ -21340,13 +21591,37 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
-    "mix_shift": null,
-    "distinctness": {},
-    "movement": {},
-    "previous": null
+    "pictures": 7,
+    "by_kind": {
+     "product": 5,
+     "image": 2
+    },
+    "mix": {
+     "image": 0.286,
+     "product": 0.714,
+     "other": 0.0
+    },
+    "mix_shift": 0.161,
+    "distinctness": {
+     "product": {
+      "value": 0.3537,
+      "n": 5,
+      "peers": 17,
+      "percentile": 100
+     },
+     "value": 0.3537,
+     "percentile": 100
+    },
+    "movement": {
+     "product": {
+      "value": 0.2603,
+      "n": 5,
+      "percentile": 56
+     },
+     "value": 0.2603,
+     "percentile": 56
+    },
+    "previous": "2021-10-01"
    },
    "campaigns": {
     "entries": 1,
@@ -21397,36 +21672,44 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 11,
+    "pictures": 15,
     "by_kind": {
-     "product": 3,
-     "image": 5,
+     "image": 7,
+     "product": 5,
      "other": 3
     },
     "mix": {
-     "image": 0.455,
-     "product": 0.273,
-     "other": 0.273
+     "image": 0.467,
+     "product": 0.333,
+     "other": 0.2
     },
-    "mix_shift": null,
+    "mix_shift": 0.381,
     "distinctness": {
      "image": {
-      "value": 0.2151,
-      "n": 5,
-      "peers": 14,
-      "percentile": 75
+      "value": 0.1634,
+      "n": 7,
+      "peers": 15,
+      "percentile": 23
      },
      "product": {
-      "value": 0.2937,
-      "n": 3,
+      "value": 0.1942,
+      "n": 5,
       "peers": 16,
-      "percentile": 85
+      "percentile": 43
      },
-     "value": 0.2446,
-     "percentile": 79
+     "value": 0.1762,
+     "percentile": 31
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "product": {
+      "value": 0.4374,
+      "n": 5,
+      "percentile": 100
+     },
+     "value": 0.4374,
+     "percentile": 100
+    },
+    "previous": "2022-03-04"
    },
    "campaigns": {
     "entries": 0,
@@ -21486,36 +21769,36 @@
      "product": 0.5,
      "other": 0.0
     },
-    "mix_shift": 0.272,
+    "mix_shift": 0.2,
     "distinctness": {
      "image": {
-      "value": 0.2125,
+      "value": 0.2135,
       "n": 3,
       "peers": 15,
       "percentile": 92
      },
      "product": {
-      "value": 0.3101,
+      "value": 0.3093,
       "n": 3,
       "peers": 16,
-      "percentile": 79
+      "percentile": 71
      },
-     "value": 0.2613,
-     "percentile": 86
+     "value": 0.2614,
+     "percentile": 82
     },
     "movement": {
      "image": {
-      "value": 0.2708,
+      "value": 0.2124,
       "n": 3,
-      "percentile": 64
+      "percentile": 45
      },
      "product": {
-      "value": 0.4811,
+      "value": 0.3987,
       "n": 3,
       "percentile": 100
      },
-     "value": 0.376,
-     "percentile": 82
+     "value": 0.3055,
+     "percentile": 72
     },
     "previous": "2022-09-30"
    },
@@ -21602,10 +21885,10 @@
      "product": {
       "value": 0.2906,
       "n": 3,
-      "percentile": 77
+      "percentile": 69
      },
      "value": 0.2476,
-     "percentile": 64
+     "percentile": 60
     },
     "previous": "2023-03-03"
    },
@@ -21803,10 +22086,10 @@
    "category": "rtw",
    "show": {
     "heat": 1.1371,
-    "heat_z": 1.715,
+    "heat_z": 1.577,
     "surprise": 0.516,
     "lasting": -0.2264,
-    "lasting_z": -1.195,
+    "lasting_z": -1.2,
     "momentum": -0.259,
     "press": null,
     "press_z": null,
@@ -23043,13 +23326,26 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 1,
+    "pictures": 4,
     "by_kind": {
-     "image": 1
+     "image": 4
     },
-    "mix": null,
+    "mix": {
+     "image": 1.0,
+     "product": 0.0,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.3549,
+      "n": 4,
+      "peers": 13,
+      "percentile": 100
+     },
+     "value": 0.3549,
+     "percentile": 100
+    },
     "movement": {},
     "previous": null
    },
@@ -23111,24 +23407,32 @@
      "product": 0.444,
      "other": 0.222
     },
-    "mix_shift": null,
+    "mix_shift": 0.666,
     "distinctness": {
      "image": {
-      "value": 0.4572,
+      "value": 0.4606,
       "n": 3,
-      "peers": 14,
+      "peers": 15,
       "percentile": 100
      },
      "product": {
-      "value": 0.1707,
+      "value": 0.1684,
       "n": 4,
       "peers": 16,
-      "percentile": 23
+      "percentile": 21
      },
-     "value": 0.2935,
-     "percentile": 56
+     "value": 0.2936,
+     "percentile": 55
     },
-    "movement": {},
+    "movement": {
+     "image": {
+      "value": 0.4682,
+      "n": 3,
+      "percentile": 100
+     },
+     "value": 0.4682,
+     "percentile": 100
+    },
     "previous": "2022-03-07"
    },
    "campaigns": {
@@ -23192,12 +23496,12 @@
     "mix_shift": 0.416,
     "distinctness": {
      "image": {
-      "value": 0.2048,
+      "value": 0.2047,
       "n": 3,
       "peers": 15,
       "percentile": 83
      },
-     "value": 0.2048,
+     "value": 0.2047,
      "percentile": 83
     },
     "movement": {
@@ -23544,10 +23848,10 @@
    "category": "rtw",
    "show": {
     "heat": 0.0191,
-    "heat_z": -1.295,
+    "heat_z": -1.376,
     "surprise": -0.1905,
     "lasting": -0.1831,
-    "lasting_z": -0.932,
+    "lasting_z": -0.937,
     "momentum": -0.1726,
     "press": null,
     "press_z": null,
@@ -24359,9 +24663,16 @@
      "2022-03"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 3,
+    "by_kind": {
+     "image": 1,
+     "product": 2
+    },
+    "mix": {
+     "image": 0.333,
+     "product": 0.667,
+     "other": 0.0
+    },
     "mix_shift": null,
     "distinctness": {},
     "movement": {},
@@ -24425,7 +24736,7 @@
      "product": 0.643,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.024,
     "distinctness": {
      "image": {
       "value": 0.1259,
@@ -24443,7 +24754,7 @@
      "percentile": 13
     },
     "movement": {},
-    "previous": null
+    "previous": "2021-10-03"
    },
    "campaigns": {
     "entries": 2,
@@ -24469,16 +24780,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.8162,
-    "heat_z": 0.851,
+    "heat_z": 0.729,
     "surprise": 0.3093,
     "lasting": 0.0212,
-    "lasting_z": 0.308,
+    "lasting_z": 0.305,
     "momentum": 0.1366,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 84,
+    "heat_percentile": 80,
     "lasting_percentile": 56
    },
    "scene": {
@@ -26126,9 +26437,9 @@
     "lasting_z": -0.439,
     "momentum": 0.2708,
     "press": 2.2591,
-    "press_z": 0.159,
+    "press_z": 0.236,
     "tone": -0.4922,
-    "tone_z": -1.107,
+    "tone_z": -1.126,
     "heat_percentile": 38,
     "lasting_percentile": 29
    },
@@ -26646,11 +26957,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 15,
+    "by_kind": {
+     "product": 10,
+     "image": 5
+    },
+    "mix": {
+     "image": 0.333,
+     "product": 0.667,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1659,
+      "n": 5,
+      "peers": 14,
+      "percentile": 18
+     },
+     "product": {
+      "value": 0.1502,
+      "n": 10,
+      "peers": 14,
+      "percentile": 0
+     },
+     "value": 0.1554,
+     "percentile": 6
+    },
     "movement": {},
     "previous": null
    },
@@ -26702,35 +27035,49 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 17,
     "by_kind": {
      "product": 4,
-     "image": 6
+     "image": 12,
+     "other": 1
     },
     "mix": {
-     "image": 0.6,
-     "product": 0.4,
-     "other": 0.0
+     "image": 0.706,
+     "product": 0.235,
+     "other": 0.059
     },
-    "mix_shift": null,
+    "mix_shift": 0.432,
     "distinctness": {
      "image": {
-      "value": 0.1619,
-      "n": 6,
-      "peers": 11,
-      "percentile": 11
+      "value": 0.1216,
+      "n": 12,
+      "peers": 13,
+      "percentile": 0
      },
      "product": {
-      "value": 0.3427,
+      "value": 0.3315,
       "n": 4,
-      "peers": 16,
+      "peers": 17,
+      "percentile": 86
+     },
+     "value": 0.1741,
+     "percentile": 22
+    },
+    "movement": {
+     "image": {
+      "value": 0.1698,
+      "n": 5,
+      "percentile": 12
+     },
+     "product": {
+      "value": 0.3622,
+      "n": 4,
       "percentile": 100
      },
-     "value": 0.2342,
-     "percentile": 47
+     "value": 0.2553,
+     "percentile": 51
     },
-    "movement": {},
-    "previous": null
+    "previous": "2021-10-03"
    },
    "campaigns": {
     "entries": 0,
@@ -26779,35 +27126,47 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 6,
+    "pictures": 11,
     "by_kind": {
-     "product": 4,
-     "image": 2
+     "image": 4,
+     "product": 6,
+     "other": 1
     },
     "mix": {
-     "image": 0.333,
-     "product": 0.667,
-     "other": 0.0
+     "image": 0.364,
+     "product": 0.545,
+     "other": 0.091
     },
-    "mix_shift": 0.267,
+    "mix_shift": 0.342,
     "distinctness": {
-     "product": {
-      "value": 0.213,
+     "image": {
+      "value": 0.2597,
       "n": 4,
-      "peers": 16,
-      "percentile": 54
+      "peers": 15,
+      "percentile": 92
      },
-     "value": 0.213,
-     "percentile": 54
+     "product": {
+      "value": 0.1874,
+      "n": 6,
+      "peers": 16,
+      "percentile": 36
+     },
+     "value": 0.2163,
+     "percentile": 58
     },
     "movement": {
-     "product": {
-      "value": 0.3002,
+     "image": {
+      "value": 0.1917,
       "n": 4,
-      "percentile": 75
+      "percentile": 40
      },
-     "value": 0.3002,
-     "percentile": 75
+     "product": {
+      "value": 0.3033,
+      "n": 4,
+      "percentile": 73
+     },
+     "value": 0.2475,
+     "percentile": 56
     },
     "previous": "2022-03-08"
    },
@@ -26870,25 +27229,25 @@
      "product": 0.769,
      "other": 0.077
     },
-    "mix_shift": 0.179,
+    "mix_shift": 0.224,
     "distinctness": {
      "product": {
-      "value": 0.2055,
+      "value": 0.2049,
       "n": 10,
       "peers": 16,
-      "percentile": 29
+      "percentile": 36
      },
-     "value": 0.2055,
-     "percentile": 29
+     "value": 0.2049,
+     "percentile": 36
     },
     "movement": {
      "product": {
-      "value": 0.2531,
-      "n": 4,
-      "percentile": 36
+      "value": 0.1598,
+      "n": 6,
+      "percentile": 9
      },
-     "value": 0.2531,
-     "percentile": 36
+     "value": 0.1598,
+     "percentile": 9
     },
     "previous": "2022-10-04"
    },
@@ -27156,16 +27515,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.6089,
-    "heat_z": 0.293,
+    "heat_z": 0.182,
     "surprise": -0.127,
     "lasting": -0.1666,
-    "lasting_z": -0.832,
+    "lasting_z": -0.836,
     "momentum": -0.2627,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 64,
+    "heat_percentile": 60,
     "lasting_percentile": 20
    },
    "scene": {
@@ -28050,13 +28409,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 2,
+    "pictures": 10,
     "by_kind": {
-     "image": 2
+     "image": 3,
+     "product": 7
     },
-    "mix": null,
+    "mix": {
+     "image": 0.3,
+     "product": 0.7,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.2049,
+      "n": 3,
+      "peers": 14,
+      "percentile": 64
+     },
+     "product": {
+      "value": 0.1677,
+      "n": 7,
+      "peers": 14,
+      "percentile": 10
+     },
+     "value": 0.1789,
+     "percentile": 26
+    },
     "movement": {},
     "previous": null
    },
@@ -28108,27 +28487,36 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 12,
     "by_kind": {
+     "image": 2,
      "product": 10
     },
     "mix": {
-     "image": 0.0,
-     "product": 1.0,
+     "image": 0.167,
+     "product": 0.833,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.133,
     "distinctness": {
      "product": {
-      "value": 0.1607,
+      "value": 0.1602,
       "n": 10,
-      "peers": 16,
-      "percentile": 0
+      "peers": 17,
+      "percentile": 7
      },
-     "value": 0.1607,
-     "percentile": 0
+     "value": 0.1602,
+     "percentile": 7
     },
-    "movement": {},
+    "movement": {
+     "product": {
+      "value": 0.2321,
+      "n": 7,
+      "percentile": 44
+     },
+     "value": 0.2321,
+     "percentile": 44
+    },
     "previous": "2021-09-24"
    },
    "campaigns": {
@@ -28188,16 +28576,16 @@
      "product": 0.25,
      "other": 0.0
     },
-    "mix_shift": 0.75,
+    "mix_shift": 0.583,
     "distinctness": {
      "image": {
-      "value": 0.218,
+      "value": 0.2113,
       "n": 6,
-      "peers": 14,
-      "percentile": 83
+      "peers": 15,
+      "percentile": 77
      },
-     "value": 0.218,
-     "percentile": 83
+     "value": 0.2113,
+     "percentile": 77
     },
     "movement": {},
     "previous": "2022-02-24"
@@ -28263,28 +28651,28 @@
     "mix_shift": 0.4,
     "distinctness": {
      "image": {
-      "value": 0.1331,
+      "value": 0.1347,
       "n": 7,
       "peers": 15,
       "percentile": 25
      },
      "product": {
-      "value": 0.1534,
+      "value": 0.1532,
       "n": 13,
       "peers": 16,
       "percentile": 21
      },
-     "value": 0.1463,
+     "value": 0.1467,
      "percentile": 22
     },
     "movement": {
      "image": {
       "value": 0.2754,
       "n": 6,
-      "percentile": 73
+      "percentile": 82
      },
      "value": 0.2754,
-     "percentile": 73
+     "percentile": 82
     },
     "previous": "2022-09-22"
    },
@@ -28371,10 +28759,10 @@
      "product": {
       "value": 0.298,
       "n": 4,
-      "percentile": 85
+      "percentile": 77
      },
      "value": 0.2509,
-     "percentile": 69
+     "percentile": 66
     },
     "previous": "2023-02-23"
    },
@@ -28636,10 +29024,10 @@
    "category": "rtw",
    "show": {
     "heat": 0.0946,
-    "heat_z": -1.092,
+    "heat_z": -1.176,
     "surprise": -0.2365,
     "lasting": -0.0873,
-    "lasting_z": -0.351,
+    "lasting_z": -0.354,
     "momentum": -0.0041,
     "press": null,
     "press_z": null,
@@ -29528,13 +29916,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 2,
+    "pictures": 7,
     "by_kind": {
-     "image": 2
+     "image": 5,
+     "product": 2
     },
-    "mix": null,
+    "mix": {
+     "image": 0.714,
+     "product": 0.286,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.2219,
+      "n": 5,
+      "peers": 14,
+      "percentile": 91
+     },
+     "value": 0.2219,
+     "percentile": 91
+    },
     "movement": {},
     "previous": null
    },
@@ -29586,28 +29988,36 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 6,
+    "pictures": 7,
     "by_kind": {
      "image": 5,
-     "product": 1
+     "product": 2
     },
     "mix": {
-     "image": 0.833,
-     "product": 0.167,
+     "image": 0.714,
+     "product": 0.286,
      "other": 0.0
     },
-    "mix_shift": null,
+    "mix_shift": 0.0,
     "distinctness": {
      "image": {
-      "value": 0.1989,
+      "value": 0.1957,
       "n": 5,
-      "peers": 11,
-      "percentile": 44
+      "peers": 13,
+      "percentile": 70
      },
-     "value": 0.1989,
-     "percentile": 44
+     "value": 0.1957,
+     "percentile": 70
     },
-    "movement": {},
+    "movement": {
+     "image": {
+      "value": 0.2189,
+      "n": 5,
+      "percentile": 50
+     },
+     "value": 0.2189,
+     "percentile": 50
+    },
     "previous": "2021-09-28"
    },
    "campaigns": {
@@ -29657,35 +30067,35 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 6,
+    "pictures": 10,
     "by_kind": {
-     "image": 4,
+     "image": 8,
      "product": 2
     },
     "mix": {
-     "image": 0.667,
-     "product": 0.333,
+     "image": 0.8,
+     "product": 0.2,
      "other": 0.0
     },
-    "mix_shift": 0.166,
+    "mix_shift": 0.086,
     "distinctness": {
      "image": {
-      "value": 0.2928,
-      "n": 4,
-      "peers": 14,
-      "percentile": 92
+      "value": 0.1817,
+      "n": 8,
+      "peers": 15,
+      "percentile": 46
      },
-     "value": 0.2928,
-     "percentile": 92
+     "value": 0.1817,
+     "percentile": 46
     },
     "movement": {
      "image": {
-      "value": 0.2476,
-      "n": 4,
-      "percentile": 50
+      "value": 0.2165,
+      "n": 5,
+      "percentile": 60
      },
-     "value": 0.2476,
-     "percentile": 50
+     "value": 0.2165,
+     "percentile": 60
     },
     "previous": "2022-03-01"
    },
@@ -29747,31 +30157,31 @@
      "product": 0.6,
      "other": 0.0
     },
-    "mix_shift": 0.267,
+    "mix_shift": 0.4,
     "distinctness": {
      "image": {
-      "value": 0.2011,
+      "value": 0.2004,
       "n": 4,
       "peers": 15,
-      "percentile": 67
+      "percentile": 75
      },
      "product": {
-      "value": 0.2188,
+      "value": 0.2184,
       "n": 6,
       "peers": 16,
-      "percentile": 36
+      "percentile": 43
      },
-     "value": 0.2117,
-     "percentile": 48
+     "value": 0.2112,
+     "percentile": 56
     },
     "movement": {
      "image": {
-      "value": 0.3648,
+      "value": 0.2645,
       "n": 4,
-      "percentile": 91
+      "percentile": 73
      },
-     "value": 0.3648,
-     "percentile": 91
+     "value": 0.2645,
+     "percentile": 73
     },
     "previous": "2022-09-27"
    },
@@ -30068,10 +30478,10 @@
    "category": "rtw",
    "show": {
     "heat": -0.1551,
-    "heat_z": -1.764,
+    "heat_z": -1.836,
     "surprise": -0.4861,
     "lasting": -0.4196,
-    "lasting_z": -2.367,
+    "lasting_z": -2.374,
     "momentum": -0.0216,
     "press": null,
     "press_z": null,
@@ -30902,13 +31312,13 @@
     "mix_shift": null,
     "distinctness": {
      "product": {
-      "value": 0.1957,
+      "value": 0.1955,
       "n": 4,
-      "peers": 17,
-      "percentile": 38
+      "peers": 18,
+      "percentile": 50
      },
-     "value": 0.1957,
-     "percentile": 38
+     "value": 0.1955,
+     "percentile": 50
     },
     "movement": {},
     "previous": null
@@ -30976,7 +31386,7 @@
       "value": 0.1457,
       "n": 4,
       "peers": 18,
-      "percentile": 50
+      "percentile": 57
      },
      "product": {
       "value": 0.2187,
@@ -30985,7 +31395,7 @@
       "percentile": 59
      },
      "value": 0.1944,
-     "percentile": 56
+     "percentile": 58
     },
     "movement": {
      "product": {
@@ -31077,7 +31487,7 @@
      "image": {
       "value": 0.1573,
       "n": 4,
-      "percentile": 55
+      "percentile": 45
      },
      "product": {
       "value": 0.1654,
@@ -31085,7 +31495,7 @@
       "percentile": 38
      },
      "value": 0.1627,
-     "percentile": 44
+     "percentile": 40
     },
     "previous": "2023-09-21"
    },
@@ -31190,16 +31600,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.6346,
-    "heat_z": 0.362,
+    "heat_z": 0.25,
     "surprise": 0.1116,
     "lasting": 0.1983,
-    "lasting_z": 1.383,
+    "lasting_z": 1.382,
     "momentum": -0.0463,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 68,
+    "heat_percentile": 64,
     "lasting_percentile": 92
    },
    "scene": {
@@ -32144,11 +32554,33 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 9,
+    "by_kind": {
+     "image": 4,
+     "product": 5
+    },
+    "mix": {
+     "image": 0.444,
+     "product": 0.556,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1739,
+      "n": 4,
+      "peers": 14,
+      "percentile": 36
+     },
+     "product": {
+      "value": 0.2477,
+      "n": 5,
+      "peers": 14,
+      "percentile": 60
+     },
+     "value": 0.2149,
+     "percentile": 49
+    },
     "movement": {},
     "previous": null
    },
@@ -32200,35 +32632,49 @@
      "2022-08"
     ],
     "complete": true,
-    "pictures": 12,
+    "pictures": 20,
     "by_kind": {
-     "image": 3,
-     "product": 9
+     "other": 2,
+     "image": 5,
+     "product": 13
     },
     "mix": {
      "image": 0.25,
-     "product": 0.75,
-     "other": 0.0
+     "product": 0.65,
+     "other": 0.1
     },
-    "mix_shift": null,
+    "mix_shift": 0.194,
     "distinctness": {
      "image": {
-      "value": 0.2356,
-      "n": 3,
-      "peers": 11,
-      "percentile": 89
+      "value": 0.1762,
+      "n": 5,
+      "peers": 13,
+      "percentile": 40
      },
      "product": {
-      "value": 0.1739,
-      "n": 9,
-      "peers": 16,
-      "percentile": 17
+      "value": 0.1558,
+      "n": 13,
+      "peers": 17,
+      "percentile": 0
      },
-     "value": 0.1893,
-     "percentile": 35
+     "value": 0.1615,
+     "percentile": 11
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "image": {
+      "value": 0.2438,
+      "n": 4,
+      "percentile": 75
+     },
+     "product": {
+      "value": 0.086,
+      "n": 5,
+      "percentile": 11
+     },
+     "value": 0.1561,
+     "percentile": 39
+    },
+    "previous": "2021-10-01"
    },
    "campaigns": {
     "entries": 0,
@@ -32288,36 +32734,36 @@
      "product": 0.5,
      "other": 0.1
     },
-    "mix_shift": 0.25,
+    "mix_shift": 0.15,
     "distinctness": {
      "image": {
-      "value": 0.2144,
+      "value": 0.2137,
       "n": 8,
-      "peers": 14,
-      "percentile": 67
+      "peers": 15,
+      "percentile": 85
      },
      "product": {
-      "value": 0.2263,
+      "value": 0.222,
       "n": 10,
       "peers": 16,
-      "percentile": 62
+      "percentile": 57
      },
-     "value": 0.221,
-     "percentile": 64
+     "value": 0.2183,
+     "percentile": 69
     },
     "movement": {
      "image": {
-      "value": 0.3097,
-      "n": 3,
-      "percentile": 88
+      "value": 0.2726,
+      "n": 5,
+      "percentile": 70
      },
      "product": {
-      "value": 0.1729,
-      "n": 9,
-      "percentile": 12
+      "value": 0.1625,
+      "n": 10,
+      "percentile": 18
      },
-     "value": 0.2071,
-     "percentile": 31
+     "value": 0.1992,
+     "percentile": 35
     },
     "previous": "2022-03-06"
    },
@@ -32382,33 +32828,33 @@
     "mix_shift": 0.192,
     "distinctness": {
      "image": {
-      "value": 0.1531,
+      "value": 0.1529,
       "n": 4,
       "peers": 15,
       "percentile": 33
      },
      "product": {
-      "value": 0.1374,
+      "value": 0.1359,
       "n": 9,
       "peers": 16,
       "percentile": 7
      },
-     "value": 0.1422,
+     "value": 0.1411,
      "percentile": 15
     },
     "movement": {
      "image": {
       "value": 0.2514,
       "n": 4,
-      "percentile": 55
+      "percentile": 64
      },
      "product": {
       "value": 0.2728,
       "n": 9,
-      "percentile": 55
+      "percentile": 64
      },
      "value": 0.2662,
-     "percentile": 55
+     "percentile": 64
     },
     "previous": "2022-10-02"
    },
@@ -32495,10 +32941,10 @@
      "product": {
       "value": 0.1676,
       "n": 9,
-      "percentile": 15
+      "percentile": 23
      },
      "value": 0.1735,
-     "percentile": 21
+     "percentile": 27
     },
     "previous": "2023-03-05"
    },
@@ -32795,16 +33241,16 @@
    "category": "rtw",
    "show": {
     "heat": 0.8722,
-    "heat_z": 1.002,
+    "heat_z": 0.877,
     "surprise": 0.4165,
     "lasting": 0.2361,
-    "lasting_z": 1.612,
+    "lasting_z": 1.611,
     "momentum": -0.2185,
     "press": null,
     "press_z": null,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 88,
+    "heat_percentile": 84,
     "lasting_percentile": 96
    },
    "scene": {
@@ -33780,11 +34226,27 @@
      "2022-02"
     ],
     "complete": true,
-    "pictures": 0,
-    "by_kind": {},
-    "mix": null,
+    "pictures": 5,
+    "by_kind": {
+     "image": 4,
+     "product": 1
+    },
+    "mix": {
+     "image": 0.8,
+     "product": 0.2,
+     "other": 0.0
+    },
     "mix_shift": null,
-    "distinctness": {},
+    "distinctness": {
+     "image": {
+      "value": 0.1883,
+      "n": 4,
+      "peers": 14,
+      "percentile": 45
+     },
+     "value": 0.1883,
+     "percentile": 45
+    },
     "movement": {},
     "previous": null
    },
@@ -33847,25 +34309,33 @@
      "product": 0.5,
      "other": 0.1
     },
-    "mix_shift": null,
+    "mix_shift": 0.4,
     "distinctness": {
      "image": {
-      "value": 0.225,
+      "value": 0.2257,
       "n": 4,
-      "peers": 11,
-      "percentile": 78
+      "peers": 13,
+      "percentile": 80
      },
      "product": {
-      "value": 0.2075,
+      "value": 0.2094,
       "n": 5,
-      "peers": 16,
-      "percentile": 42
+      "peers": 17,
+      "percentile": 50
      },
-     "value": 0.2153,
-     "percentile": 58
+     "value": 0.2166,
+     "percentile": 63
     },
-    "movement": {},
-    "previous": null
+    "movement": {
+     "image": {
+      "value": 0.2372,
+      "n": 4,
+      "percentile": 62
+     },
+     "value": 0.2372,
+     "percentile": 62
+    },
+    "previous": "2021-09-24"
    },
    "campaigns": {
     "entries": 0,
@@ -33914,46 +34384,46 @@
      "2023-02"
     ],
     "complete": true,
-    "pictures": 10,
+    "pictures": 12,
     "by_kind": {
-     "image": 6,
-     "product": 4
+     "image": 7,
+     "product": 5
     },
     "mix": {
-     "image": 0.6,
-     "product": 0.4,
+     "image": 0.583,
+     "product": 0.417,
      "other": 0.0
     },
-    "mix_shift": 0.2,
+    "mix_shift": 0.183,
     "distinctness": {
      "image": {
-      "value": 0.2021,
-      "n": 6,
-      "peers": 14,
-      "percentile": 50
-     },
-     "product": {
-      "value": 0.2879,
-      "n": 4,
-      "peers": 16,
-      "percentile": 77
-     },
-     "value": 0.2364,
-     "percentile": 61
-    },
-    "movement": {
-     "image": {
-      "value": 0.2084,
-      "n": 4,
+      "value": 0.181,
+      "n": 7,
+      "peers": 15,
       "percentile": 38
      },
      "product": {
-      "value": 0.2671,
-      "n": 4,
-      "percentile": 62
+      "value": 0.2246,
+      "n": 5,
+      "peers": 16,
+      "percentile": 71
      },
-     "value": 0.2378,
-     "percentile": 50
+     "value": 0.1992,
+     "percentile": 52
+    },
+    "movement": {
+     "image": {
+      "value": 0.1866,
+      "n": 4,
+      "percentile": 30
+     },
+     "product": {
+      "value": 0.2534,
+      "n": 5,
+      "percentile": 55
+     },
+     "value": 0.2237,
+     "percentile": 44
     },
     "previous": "2022-02-25"
    },
@@ -34005,46 +34475,46 @@
      "2023-08"
     ],
     "complete": true,
-    "pictures": 20,
+    "pictures": 22,
     "by_kind": {
      "product": 11,
-     "image": 9
+     "image": 11
     },
     "mix": {
-     "image": 0.45,
-     "product": 0.55,
+     "image": 0.5,
+     "product": 0.5,
      "other": 0.0
     },
-    "mix_shift": 0.15,
+    "mix_shift": 0.083,
     "distinctness": {
      "image": {
-      "value": 0.1284,
-      "n": 9,
+      "value": 0.1109,
+      "n": 11,
       "peers": 15,
       "percentile": 17
      },
      "product": {
-      "value": 0.1396,
+      "value": 0.1406,
       "n": 11,
       "peers": 16,
       "percentile": 14
      },
-     "value": 0.1346,
-     "percentile": 15
+     "value": 0.1258,
+     "percentile": 16
     },
     "movement": {
      "image": {
-      "value": 0.1479,
-      "n": 6,
+      "value": 0.124,
+      "n": 7,
       "percentile": 9
      },
      "product": {
-      "value": 0.2397,
-      "n": 4,
-      "percentile": 27
+      "value": 0.2201,
+      "n": 5,
+      "percentile": 36
      },
-     "value": 0.1846,
-     "percentile": 16
+     "value": 0.164,
+     "percentile": 20
     },
     "previous": "2022-09-23"
    },
@@ -34106,7 +34576,7 @@
      "product": 0.8,
      "other": 0.0
     },
-    "mix_shift": 0.25,
+    "mix_shift": 0.3,
     "distinctness": {
      "image": {
       "value": 0.1756,
@@ -34125,7 +34595,7 @@
     },
     "movement": {
      "image": {
-      "value": 0.2609,
+      "value": 0.2488,
       "n": 3,
       "percentile": 82
      },
@@ -34134,7 +34604,7 @@
       "n": 11,
       "percentile": 31
      },
-     "value": 0.1829,
+     "value": 0.1803,
      "percentile": 42
     },
     "previous": "2023-03-02"
@@ -34306,10 +34776,10 @@
    "category": "rtw",
    "show": {
     "heat": 0.0299,
-    "heat_z": -1.266,
+    "heat_z": -1.347,
     "surprise": -0.4298,
     "lasting": -0.1663,
-    "lasting_z": -0.83,
+    "lasting_z": -0.835,
     "momentum": -0.257,
     "press": null,
     "press_z": null,
@@ -35079,26 +35549,32 @@
      "2022-06"
     ],
     "complete": true,
-    "pictures": 8,
+    "pictures": 22,
     "by_kind": {
-     "product": 2,
-     "image": 6
+     "product": 6,
+     "image": 16
     },
     "mix": {
-     "image": 0.75,
-     "product": 0.25,
+     "image": 0.727,
+     "product": 0.273,
      "other": 0.0
     },
     "mix_shift": null,
     "distinctness": {
      "image": {
-      "value": 0.2991,
-      "n": 6,
-      "peers": 8,
-      "percentile": 100
+      "value": 0.1845,
+      "n": 16,
+      "peers": 14,
+      "percentile": 50
      },
-     "value": 0.2991,
-     "percentile": 100
+     "product": {
+      "value": 0.1751,
+      "n": 6,
+      "peers": 16,
+      "percentile": 29
+     },
+     "value": 0.1819,
+     "percentile": 44
     },
     "movement": {},
     "previous": null
@@ -35151,41 +35627,46 @@
      "2022-12"
     ],
     "complete": true,
-    "pictures": 13,
+    "pictures": 16,
     "by_kind": {
-     "product": 5,
-     "image": 8
+     "product": 6,
+     "image": 10
     },
     "mix": {
-     "image": 0.615,
-     "product": 0.385,
+     "image": 0.625,
+     "product": 0.375,
      "other": 0.0
     },
-    "mix_shift": 0.135,
+    "mix_shift": 0.102,
     "distinctness": {
      "image": {
-      "value": 0.1917,
-      "n": 8,
-      "peers": 13,
-      "percentile": 42
+      "value": 0.186,
+      "n": 10,
+      "peers": 14,
+      "percentile": 54
      },
      "product": {
-      "value": 0.2122,
-      "n": 5,
-      "peers": 14,
-      "percentile": 46
+      "value": 0.2228,
+      "n": 6,
+      "peers": 17,
+      "percentile": 64
      },
-     "value": 0.1996,
-     "percentile": 44
+     "value": 0.1998,
+     "percentile": 58
     },
     "movement": {
      "image": {
-      "value": 0.1719,
-      "n": 6,
-      "percentile": 25
+      "value": 0.1089,
+      "n": 10,
+      "percentile": 0
      },
-     "value": 0.1719,
-     "percentile": 25
+     "product": {
+      "value": 0.103,
+      "n": 6,
+      "percentile": 0
+     },
+     "value": 0.1067,
+     "percentile": 0
     },
     "previous": "2022-01-14"
    },
@@ -35236,46 +35717,46 @@
      "2023-06"
     ],
     "complete": true,
-    "pictures": 12,
+    "pictures": 14,
     "by_kind": {
-     "product": 4,
+     "product": 6,
      "image": 8
     },
     "mix": {
-     "image": 0.667,
-     "product": 0.333,
+     "image": 0.571,
+     "product": 0.429,
      "other": 0.0
     },
-    "mix_shift": 0.052,
+    "mix_shift": 0.054,
     "distinctness": {
      "image": {
-      "value": 0.2003,
+      "value": 0.1974,
       "n": 8,
       "peers": 14,
-      "percentile": 58
+      "percentile": 67
      },
      "product": {
-      "value": 0.4972,
-      "n": 4,
+      "value": 0.3729,
+      "n": 6,
       "peers": 16,
       "percentile": 100
      },
-     "value": 0.2993,
-     "percentile": 72
+     "value": 0.2726,
+     "percentile": 81
     },
     "movement": {
      "image": {
-      "value": 0.1753,
+      "value": 0.1655,
       "n": 8,
       "percentile": 27
      },
      "product": {
-      "value": 0.4189,
-      "n": 4,
-      "percentile": 91
+      "value": 0.2636,
+      "n": 6,
+      "percentile": 55
      },
-     "value": 0.2565,
-     "percentile": 48
+     "value": 0.2075,
+     "percentile": 39
     },
     "previous": "2022-06-20"
    },
@@ -35327,47 +35808,47 @@
      "2023-12"
     ],
     "complete": true,
-    "pictures": 13,
+    "pictures": 14,
     "by_kind": {
+     "image": 8,
      "product": 5,
-     "image": 7,
      "other": 1
     },
     "mix": {
-     "image": 0.538,
-     "product": 0.385,
-     "other": 0.077
+     "image": 0.571,
+     "product": 0.357,
+     "other": 0.071
     },
-    "mix_shift": 0.129,
+    "mix_shift": 0.072,
     "distinctness": {
      "image": {
-      "value": 0.1583,
-      "n": 7,
+      "value": 0.1405,
+      "n": 8,
       "peers": 16,
-      "percentile": 64
+      "percentile": 50
      },
      "product": {
-      "value": 0.2411,
+      "value": 0.2403,
       "n": 5,
       "peers": 19,
       "percentile": 71
      },
-     "value": 0.1928,
-     "percentile": 67
+     "value": 0.1789,
+     "percentile": 58
     },
     "movement": {
      "image": {
-      "value": 0.1528,
-      "n": 7,
+      "value": 0.1586,
+      "n": 8,
       "percentile": 30
      },
      "product": {
-      "value": 0.4635,
-      "n": 4,
-      "percentile": 100
+      "value": 0.3377,
+      "n": 5,
+      "percentile": 92
      },
-     "value": 0.2658,
-     "percentile": 55
+     "value": 0.2275,
+     "percentile": 54
     },
     "previous": "2023-01-16"
    },
@@ -35429,7 +35910,7 @@
      "product": 0.684,
      "other": 0.053
     },
-    "mix_shift": 0.299,
+    "mix_shift": 0.327,
     "distinctness": {
      "image": {
       "value": 0.1918,
@@ -35448,17 +35929,17 @@
     },
     "movement": {
      "image": {
-      "value": 0.1517,
+      "value": 0.1574,
       "n": 5,
-      "percentile": 45
+      "percentile": 55
      },
      "product": {
       "value": 0.2626,
       "n": 5,
       "percentile": 81
      },
-     "value": 0.2072,
-     "percentile": 63
+     "value": 0.21,
+     "percentile": 68
     },
     "previous": "2023-06-19"
    },

@@ -200,6 +200,19 @@ def test_a_jump_read_off_a_handful_of_views_a_day_is_left_out(tmp_path, monkeypa
     assert out["left_out_thin_views"] == 1
 
 
+def test_a_listing_a_few_days_off_a_verified_show_takes_its_date():
+    ref = [{"house": "celine", "date": "2025-10-05"}, {"house": "celine", "date": "2025-07-06"}]
+    row = {"house": "celine", "date": "2025-09-30", "year": 2026, "season": "SS", "category": "rtw"}
+    out = T.redated(row, ref)
+    assert out["date"] == "2025-10-05" and out["listed_date"] == "2025-09-30"
+    near = {**row, "date": "2025-10-04"}
+    assert T.redated(near, ref) == near                      # within a day: the listing stands
+    far = {**row, "date": "2025-09-01"}
+    assert T.redated(far, ref) == far                        # more than a week from any: left alone
+    other = {**row, "house": "dior"}
+    assert T.redated(other, ref) == other
+
+
 def test_momentum_shares_no_days_with_the_weeks_lasting_attention_is_measured_from(tmp_path, monkeypatch):
     monkeypatch.setattr(T, "DIR", tmp_path / "thread")
     monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
