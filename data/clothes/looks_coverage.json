@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T13:50:01Z",
+ "generated_at": "2026-10-10T20:09:27Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3640,7 +3640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -5948,6 +5948,100 @@
     }
    ]
   },
+  "gucci:2015-09-23:rtw": {
+   "house": "gucci",
+   "date": "2015-09-23",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.gucci.com:80/us/en/lo/runway/women/cruise-2016/look-1-p-SS16_CRWLook01US",
+     "ts": "20160101171217",
+     "score": 9.94
+    },
+    {
+     "url": "http://www.gucci.com:80/us/en/lo/runway/women/cruise-2016/look-14-p-SS16_CRWLook14US",
+     "ts": "20151226105610",
+     "score": 9.94
+    },
+    {
+     "url": "http://www.gucci.com:80/us/en/lo/runway/women/cruise-2016/look-28-p-SS16_CRWLook28US",
+     "ts": "20151224174536",
+     "score": 9.94
+    }
+   ]
+  },
+  "gucci:2016-01-18:men": {
+   "house": "gucci",
+   "date": "2016-01-18",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-1-p-FW16_MNMLook01US",
+     "ts": "20160424173036",
+     "score": 10.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-10-p-FW16_MNMLook10US",
+     "ts": "20160424173312",
+     "score": 10.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-14-p-FW16_MNMLook14US",
+     "ts": "20160424173333",
+     "score": 10.94
+    }
+   ]
+  },
+  "gucci:2016-02-24:rtw": {
+   "house": "gucci",
+   "date": "2016-02-24",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-1-p-FW16_MNWLook01US",
+     "ts": "20160424165319",
+     "score": 9.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-10-p-FW16_MNWLook11US",
+     "ts": "20160424165754",
+     "score": 9.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-11-p-FW16_MNWLook12US",
+     "ts": "20160424165815",
+     "score": 9.94
+    }
+   ]
+  },
+  "gucci:2017-02-22:rtw": {
+   "house": "gucci",
+   "date": "2017-02-22",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2017-c-runway-men-pre-fall-2017",
+     "ts": "20170602132640",
+     "score": 2.94
+    }
+   ]
+  },
   "gucci:2018-02-21:rtw": {
    "house": "gucci",
    "date": "2018-02-21",
@@ -6053,6 +6147,53 @@
     }
    ]
   },
+  "gucci:2021-11-03:rtw": {
+   "house": "gucci",
+   "date": "2021-11-03",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/aria-2022/look-54-p-SS22_MNMLook054US",
+     "ts": "20211130192208",
+     "score": 5.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/aria-2022/look-86-p-SS22_MNMLook086US",
+     "ts": "20211207182301",
+     "score": 5.94
+    }
+   ]
+  },
+  "gucci:2022-09-23:rtw": {
+   "house": "gucci",
+   "date": "2022-09-23",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/gucci-ha-ha-ha/look-1-p-SS23_FSMLook301US",
+     "ts": "20221105100130",
+     "score": 5.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/gucci-ha-ha-ha/look-10-p-SS23_FSMLook310US",
+     "ts": "20221103225452",
+     "score": 5.94
+    },
+    {
+     "url": "https://www.gucci.com/us/en/lo/runway/men/gucci-ha-ha-ha/look-11-p-SS23_FSMLook311US",
+     "ts": "20221103215503",
+     "score": 5.94
+    }
+   ]
+  },
   "gucci:2024-02-23:rtw": {
    "house": "gucci",
    "date": "2024-02-23",
@@ -6084,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6097,7 +6238,20 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
+   }
+  },
+  "hermes:2017-06-24:men": {
+   "house": "hermes",
+   "date": "2017-06-24",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2017-10-02:rtw": {
@@ -6110,7 +6264,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "HTTP 504"
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2018-01-20:men": {
@@ -7130,6 +7284,19 @@
    "pages": 0,
    "candidates": []
   },
+  "loewe:2017-03-03:rtw": {
+   "house": "loewe",
+   "date": "2017-03-03",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "loewe.com": "ConnectionError"
+   }
+  },
   "loewe:2017-09-29:rtw": {
    "house": "loewe",
    "date": "2017-09-29",
@@ -7845,7 +8012,35 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectionError"
+    "louisvuitton.com": "HTTP 504"
+   }
+  },
+  "margiela:2016-01-27:couture": {
+   "house": "margiela",
+   "date": "2016-01-27",
+   "season": "2016 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout",
+    "maisonmartinmargiela.com": "ConnectionError"
+   }
+  },
+  "margiela:2016-03-02:rtw": {
+   "house": "margiela",
+   "date": "2016-03-02",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maisonmargiela.com": "ReadTimeout",
+    "maisonmartinmargiela.com": "ConnectionError"
    }
   },
   "margiela:2016-06-24:men": {
@@ -8230,6 +8425,19 @@
      "score": 3.62
     }
    ]
+  },
+  "max_mara:2023-09-20:rtw": {
+   "house": "max_mara",
+   "date": "2023-09-20",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "maxmara.com": "ReadTimeout"
+   }
   },
   "max_mara:2024-02-22:rtw": {
    "house": "max_mara",
@@ -9194,20 +9402,20 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
     "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1390
+   "pages": 973
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/man/collection/",
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 6223
   },
   "dries_van_noten": {
    "prefixes": [
@@ -9258,13 +9466,17 @@
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/"
    ],
-   "pages": 464
+   "pages": 0
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/"
+    "www.gucci.com/us/en/st/stories/runway/article/",
+    "www.gucci.com/us/en/lo/runway/women/",
+    "www.gucci.com/us/en/lo/runway/men/",
+    "www.gucci.com/us/en/article/",
+    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
    ],
-   "pages": 0
+   "pages": 885
   },
   "loewe": {
    "prefixes": [
@@ -9351,8 +9563,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 335,
-   "index failed": 49,
+   "found": 341,
+   "index failed": 54,
    "none": 141
   },
   "by_house": {
@@ -9409,11 +9621,11 @@
     "found": 28
    },
    "gucci": {
-    "shows": 8,
-    "found": 6
+    "shows": 14,
+    "found": 12
    },
    "hermes": {
-    "shows": 33,
+    "shows": 34,
     "found": 29
    },
    "jil_sander": {
@@ -9421,7 +9633,7 @@
     "found": 13
    },
    "loewe": {
-    "shows": 29,
+    "shows": 30,
     "found": 24
    },
    "loro_piana": {
@@ -9433,11 +9645,11 @@
     "found": 0
    },
    "margiela": {
-    "shows": 24,
+    "shows": 26,
     "found": 13
    },
    "max_mara": {
-    "shows": 5,
+    "shows": 6,
     "found": 1
    },
    "miu_miu": {
@@ -9467,15 +9679,15 @@
     "found": 14
    },
    "2016": {
-    "shows": 40,
-    "found": 29
+    "shows": 45,
+    "found": 32
    },
    "2017": {
-    "shows": 42,
-    "found": 27
+    "shows": 44,
+    "found": 28
    },
    "2018": {
-    "shows": 45,
+    "shows": 46,
     "found": 19
    },
    "2019": {
@@ -9491,15 +9703,15 @@
     "found": 26
    },
    "2022": {
-    "shows": 45,
-    "found": 39
+    "shows": 46,
+    "found": 40
    },
    "2023": {
-    "shows": 42,
-    "found": 33
+    "shows": 43,
+    "found": 34
    },
    "2024": {
-    "shows": 43,
+    "shows": 44,
     "found": 30
    },
    "2025": {
