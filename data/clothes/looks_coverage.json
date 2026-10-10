@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T07:15:32Z",
+ "generated_at": "2026-10-10T13:50:01Z",
  "window_days": [
   -1,
   14
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectTimeout"
+    "dior.com": "ConnectionError"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 504"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -3640,7 +3640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "HTTP 504"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -4520,13 +4520,10 @@
    "date": "2018-06-18",
    "season": "2019 SS men",
    "category": "men",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "fendi:2018-07-04:couture": {
    "house": "fendi",
@@ -6087,7 +6084,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6100,8 +6097,37 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectionError"
    }
+  },
+  "hermes:2017-10-02:rtw": {
+   "house": "hermes",
+   "date": "2017-10-02",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "hermes.com": "HTTP 504"
+   }
+  },
+  "hermes:2018-01-20:men": {
+   "house": "hermes",
+   "date": "2018-01-20",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/en?xtor=Vignette&utm_campaign=DefileH_AH18_Internal_BR&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=header",
+     "ts": "20180129080516",
+     "score": 0.62
+    }
+   ]
   },
   "hermes:2018-03-03:rtw": {
    "house": "hermes",
@@ -7827,28 +7853,20 @@
    "date": "2016-06-24",
    "season": "2017 SS men",
    "category": "men",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "margiela:2016-07-06:couture": {
    "house": "margiela",
    "date": "2016-07-06",
    "season": "2016 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "margiela:2016-09-28:rtw": {
    "house": "margiela",
@@ -7959,13 +7977,10 @@
    "date": "2018-01-19",
    "season": "2018 AW men",
    "category": "men",
-   "status": "partial",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "margiela:2018-02-28:rtw": {
    "house": "margiela",
@@ -9180,8 +9195,8 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/haute-couture/",
+    "www.dior.com/en_us/womens-fashion/"
    ],
    "pages": 1390
   },
@@ -9190,10 +9205,9 @@
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 6223
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -9211,12 +9225,9 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/fi-en/cm/eu1-default/man/highlights-man/",
-    "www.fendi.com/fi-en/cm/eu1-default/woman/highlights-woman/",
-    "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/celebrating-25-years-of-the-baguette/"
+    "www.fendi.com/us/woman/"
    ],
-   "pages": 38
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
@@ -9245,31 +9256,24 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/us/en/content/"
    ],
-   "pages": 884
+   "pages": 464
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/",
-    "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/lo/runway/men/",
-    "www.gucci.com/us/en/article/",
-    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
+    "www.gucci.com/us/en/st/stories/runway/article/"
    ],
-   "pages": 885
+   "pages": 0
   },
   "loewe": {
    "prefixes": [
     "www.loewe.com/eur/en/stories-collection/",
     "www.loewe.com/eur/en/runway/",
     "www.loewe.com/eur/en/stories/runway/",
-    "www.loewe.com/eur/en/men/",
-    "www.loewe.com/eur/en/stories-runway/"
+    "www.loewe.com/eur/en/men/"
    ],
-   "pages": 22878
+   "pages": 22874
   },
   "loro_piana": {
    "prefixes": [
@@ -9285,9 +9289,10 @@
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/us/collections/look/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/"
+    "www.maisonmargiela.com/us/collections/",
+    "www.maisonmargiela.com/us/collection/hc-men_section/"
    ],
-   "pages": 921
+   "pages": 1569
   },
   "miu_miu": {
    "prefixes": [
@@ -9346,10 +9351,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 334,
-   "index failed": 51,
-   "none": 137,
-   "partial": 1
+   "found": 335,
+   "index failed": 49,
+   "none": 141
   },
   "by_house": {
    "alaia": {
@@ -9409,8 +9413,8 @@
     "found": 6
    },
    "hermes": {
-    "shows": 31,
-    "found": 28
+    "shows": 33,
+    "found": 29
    },
    "jil_sander": {
     "shows": 32,
@@ -9471,8 +9475,8 @@
     "found": 27
    },
    "2018": {
-    "shows": 43,
-    "found": 18
+    "shows": 45,
+    "found": 19
    },
    "2019": {
     "shows": 53,
