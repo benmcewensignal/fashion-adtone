@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T23:19:15Z",
+ "generated_at": "2026-10-10T07:15:32Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ReadTimeout"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ConnectTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectionError"
+    "dior.com": "ConnectTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 502"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ConnectTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -4226,6 +4226,238 @@
     }
    ]
   },
+  "fendi:2015-01-19:men": {
+   "house": "fendi",
+   "date": "2015-01-19",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/ii/en/collections/man/fall-winter-2015-16/fashion-show/gallery/look-12",
+     "ts": "20150124172943",
+     "score": 14.62
+    },
+    {
+     "url": "http://www.fendi.com:80/ii/en/collections/man/fall-winter-2015-16/fashion-show/gallery/look-34",
+     "ts": "20150124172954",
+     "score": 14.62
+    },
+    {
+     "url": "http://www.fendi.com:80/us/en/collections/man/fall-winter-2015-16/fashion-show",
+     "ts": "20150123081404",
+     "score": 11.94
+    }
+   ]
+  },
+  "fendi:2015-02-26:rtw": {
+   "house": "fendi",
+   "date": "2015-02-26",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 10,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/gb/woman/Autunno-Inverno-2015-16/sfilata/The-show.html",
+     "ts": "20150308192806",
+     "score": 10.06
+    },
+    {
+     "url": "http://www.fendi.com:80/gb/Galleries/backstage-fashion-show-fw15.html",
+     "ts": "20150308192951",
+     "score": 8.06
+    },
+    {
+     "url": "http://www.fendi.com:80/fr/femme/Autunno-Inverno-2015-16/sfilata/The-show.html",
+     "ts": "20150311172908",
+     "score": 8.0
+    }
+   ]
+  },
+  "fendi:2015-06-22:men": {
+   "house": "fendi",
+   "date": "2015-06-22",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/us/Galleries/man-fashion-show-ss16-backstage.html",
+     "ts": "20150629080108",
+     "score": 9.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/Galleries/man-look-ss16.html",
+     "ts": "20150629203938",
+     "score": 5.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us-es/man/spring-summer-2016.html",
+     "ts": "20150630004900",
+     "score": 2.81
+    }
+   ]
+  },
+  "fendi:2015-07-08:couture": {
+   "house": "fendi",
+   "date": "2015-07-08",
+   "season": "2015 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 19,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/gb/Galleries/backstage-fashion-show-fw15.html",
+     "ts": "20150710170230",
+     "score": 7.06
+    },
+    {
+     "url": "http://www.fendi.com:80/ro/woman/fall-winter-2015-16/fashion-show/The-show.html",
+     "ts": "20150720073745",
+     "score": 7.0
+    },
+    {
+     "url": "http://www.fendi.com:80/gb/Galleries/full_screen_gallery_looks_man_fs_fw_15-16.html",
+     "ts": "20150710170315",
+     "score": 3.06
+    }
+   ]
+  },
+  "fendi:2015-09-24:rtw": {
+   "house": "fendi",
+   "date": "2015-09-24",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 9,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/us/woman/spring-summer-2016/fashion-show/look.html",
+     "ts": "20151006004136",
+     "score": 12.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/spring-summer-2016/fashion-show/The-show.html",
+     "ts": "20150930030126",
+     "score": 9.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/spring-summer-2016/fashion-show/extras.html?",
+     "ts": "20151007010324",
+     "score": 9.81
+    }
+   ]
+  },
+  "fendi:2016-01-18:men": {
+   "house": "fendi",
+   "date": "2016-01-18",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 13,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/it/man/fall-winter-2016-17/fashion-show/looks/look-11.html",
+     "ts": "20160122020839",
+     "score": 15.0
+    },
+    {
+     "url": "http://www.fendi.com:80/it/man/fall-winter-2016-17/fashion-show/looks/look-14.html",
+     "ts": "20160122020845",
+     "score": 15.0
+    },
+    {
+     "url": "http://www.fendi.com:80/it/man/fall-winter-2016-17/fashion-show/looks/look-23.html",
+     "ts": "20160122020850",
+     "score": 15.0
+    }
+   ]
+  },
+  "fendi:2016-02-25:rtw": {
+   "house": "fendi",
+   "date": "2016-02-25",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 22,
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2016-17/fashion-show/look.html",
+     "ts": "20160303130443",
+     "score": 12.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2016-17/fashion-show/look/look-4.html",
+     "ts": "20160303130941",
+     "score": 12.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2016-17/fashion-show/look/look-44.html",
+     "ts": "20160303130946",
+     "score": 12.81
+    }
+   ]
+  },
+  "fendi:2016-06-20:men": {
+   "house": "fendi",
+   "date": "2016-06-20",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "fendi:2016-09-22:rtw": {
+   "house": "fendi",
+   "date": "2016-09-22",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "fendi:2017-01-16:men": {
+   "house": "fendi",
+   "date": "2017-01-16",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "fendi:2017-02-23:rtw": {
+   "house": "fendi",
+   "date": "2017-02-23",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "fendi:2017-06-19:men": {
+   "house": "fendi",
+   "date": "2017-06-19",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "fendi:2017-07-05:couture": {
    "house": "fendi",
    "date": "2017-07-05",
@@ -4263,18 +4495,25 @@
     }
    ]
   },
+  "fendi:2018-01-15:men": {
+   "house": "fendi",
+   "date": "2018-01-15",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "fendi:2018-02-22:rtw": {
    "house": "fendi",
    "date": "2018-02-22",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "fendi.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "fendi:2018-06-18:men": {
    "house": "fendi",
@@ -5848,7 +6087,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -5863,6 +6102,53 @@
    "errors": {
     "gucci.com": "ReadTimeout"
    }
+  },
+  "hermes:2018-03-03:rtw": {
+   "house": "hermes",
+   "date": "2018-03-03",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/en/women-aw18",
+     "ts": "20180317080626",
+     "score": 2.62
+    },
+    {
+     "url": "http://lesailes.hermes.com:80/pre-fall-women-FW18?utm_campaign=precofemme_Internal_PO&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=vignette",
+     "ts": "20180302172749",
+     "score": 2.0
+    }
+   ]
+  },
+  "hermes:2018-06-23:men": {
+   "house": "hermes",
+   "date": "2018-06-23",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "hermes:2018-09-29:rtw": {
+   "house": "hermes",
+   "date": "2018-09-29",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/en/women-ss19",
+     "ts": "20181002170529",
+     "score": 2.62
+    }
+   ]
   },
   "hermes:2019-01-19:men": {
    "house": "hermes",
@@ -5991,13 +6277,16 @@
    "date": "2021-03-06",
    "season": "2021 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/fr/fr/story/281192-defile-femme-automne-hiver-21/",
+     "ts": "20210308235425",
+     "score": 3.0
+    }
+   ]
   },
   "hermes:2021-06-26:men": {
    "house": "hermes",
@@ -6089,13 +6378,10 @@
    "date": "2022-10-01",
    "season": "2023 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "hermes:2023-01-21:men": {
    "house": "hermes",
@@ -6828,7 +7114,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "loewe.com": "ConnectionError"
+    "loewe.com": "ReadTimeout"
    }
   },
   "loewe:2018-03-02:rtw": {
@@ -6857,13 +7143,10 @@
    "date": "2018-09-28",
    "season": "2019 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loewe.com": "ConnectionError"
-   }
+   "candidates": []
   },
   "loewe:2019-01-19:men": {
    "house": "loewe",
@@ -7458,13 +7741,10 @@
    "date": "2025-10-03",
    "season": "2026 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loewe.com": "ReadTimeout"
-   }
+   "pages": 1,
+   "candidates": []
   },
   "loewe:2026-03-06:rtw": {
    "house": "loewe",
@@ -8900,9 +9180,10 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/womens-fashion/",
     "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 973
+   "pages": 1390
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -8930,9 +9211,12 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/qa/woman/collections/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
-    "www.fendi.com/qa/man/collections/"
+    "www.fendi.com/qa/man/collections/",
+    "www.fendi.com/fi-en/cm/eu1-default/man/highlights-man/",
+    "www.fendi.com/fi-en/cm/eu1-default/woman/highlights-woman/",
+    "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/celebrating-25-years-of-the-baguette/"
    ],
-   "pages": 5
+   "pages": 38
   },
   "givenchy": {
    "prefixes": [
@@ -8969,17 +9253,23 @@
   },
   "gucci": {
    "prefixes": [
-    "www.gucci.com/us/en/st/stories/runway/article/"
+    "www.gucci.com/us/en/st/stories/runway/article/",
+    "www.gucci.com/us/en/lo/runway/women/",
+    "www.gucci.com/us/en/lo/runway/men/",
+    "www.gucci.com/us/en/article/",
+    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
    ],
-   "pages": 93
+   "pages": 885
   },
   "loewe": {
    "prefixes": [
     "www.loewe.com/eur/en/stories-collection/",
     "www.loewe.com/eur/en/runway/",
-    "www.loewe.com/eur/en/stories/runway/"
+    "www.loewe.com/eur/en/stories/runway/",
+    "www.loewe.com/eur/en/men/",
+    "www.loewe.com/eur/en/stories-runway/"
    ],
-   "pages": 2511
+   "pages": 22878
   },
   "loro_piana": {
    "prefixes": [
@@ -9056,9 +9346,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 324,
-   "index failed": 56,
-   "none": 126,
+   "found": 334,
+   "index failed": 51,
+   "none": 137,
    "partial": 1
   },
   "by_house": {
@@ -9107,8 +9397,8 @@
     "found": 18
    },
    "fendi": {
-    "shows": 41,
-    "found": 32
+    "shows": 54,
+    "found": 39
    },
    "givenchy": {
     "shows": 40,
@@ -9119,8 +9409,8 @@
     "found": 6
    },
    "hermes": {
-    "shows": 28,
-    "found": 25
+    "shows": 31,
+    "found": 28
    },
    "jil_sander": {
     "shows": 32,
@@ -9169,24 +9459,24 @@
   },
   "by_year": {
    "2015": {
-    "shows": 17,
-    "found": 11
+    "shows": 20,
+    "found": 14
    },
    "2016": {
-    "shows": 36,
-    "found": 25
+    "shows": 40,
+    "found": 29
    },
    "2017": {
-    "shows": 38,
+    "shows": 42,
     "found": 27
    },
    "2018": {
-    "shows": 40,
-    "found": 17
+    "shows": 43,
+    "found": 18
    },
    "2019": {
-    "shows": 51,
-    "found": 28
+    "shows": 53,
+    "found": 29
    },
    "2020": {
     "shows": 49,
@@ -9194,7 +9484,7 @@
    },
    "2021": {
     "shows": 33,
-    "found": 25
+    "found": 26
    },
    "2022": {
     "shows": 45,
