@@ -487,6 +487,45 @@
     notes(host, BOARD_NOTES.concat([`Updated ${D.generated}, from ${D.pictures.toLocaleString("en-GB")} homepage pictures and daily page views since 2015.`]));
   }
 
+  /* ---- a reading: findings, then figures of two plain kinds, so a new reading needs only new content ---- */
+  function renderReading(host, part) {
+    head(host, part);
+    findings(host, part.findings);
+    for (const f of part.figures || []) {
+      const wide = el("div", "pv-wide");
+      if (f.title) wide.append(el("p", "pv-sec", f.title));
+      if (f.caption) wide.append(el("p", "pv-key", f.caption));
+      const rows = el("div", "pv-rows");
+      for (const r of f.rows) {
+        const line = el("div", "pv-line pv-grid"); line.style.gridTemplateColumns = "minmax(0, 1fr)";
+        const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.name));
+        if (r.sub) who.append(el("span", "pv-sub", r.sub));
+        line.append(who);
+        if (f.kind === "pair") {
+          // then (hollow) and now (filled) on one track
+          const c = el("span", "pv-cell pv-bar"); c.style.gridTemplateColumns = "minmax(0, 1fr) 7.5rem";
+          const t = el("span", "pv-track"); t.title = r.title || "";
+          const lo = Math.min(r.a, r.b) / f.max * 100, hi = Math.max(r.a, r.b) / f.max * 100;
+          const span = el("b"); span.style.left = at(lo); span.style.width = `calc((100% - 10px) * ${(hi - lo) / 100})`;
+          const was = el("i", "was"); was.style.left = at(r.a / f.max * 100);
+          const now = el("i"); now.style.left = at(r.b / f.max * 100);
+          t.append(span, was, now);
+          c.append(t, el("span", "val num", r.label)); line.append(c);
+        } else {
+          const c = el("span", "pv-cell pv-share"); c.style.gridTemplateColumns = "minmax(0, 1fr) 4.5rem";
+          const bar = el("span", "bar"); bar.title = r.title || "";
+          const i = el("i"); i.style.width = `${Math.max(0, Math.min(100, r.v / f.max * 100))}%`;
+          if (r.other) i.style.background = "var(--graphite)";
+          bar.append(i); c.append(bar, el("span", "val num", r.label)); line.append(c);
+        }
+        rows.append(line);
+      }
+      wide.append(rows);
+      host.append(wide);
+    }
+    notes(host, part.notes);
+  }
+
   const RENDER = { reshuffle: renderReshuffle, themselves: renderThemselves, loewe: renderBrand, board: renderBoard };
 
   /* ---- lock, open, show ---- */
@@ -501,7 +540,7 @@
     for (const part of P.parts) {
       const a = el("a", null, part.tab); a.href = "#/private/" + part.key; a.dataset.key = part.key; tabs.append(a);
       const sec = el("div", "pv-part"); sec.dataset.key = part.key; sec.hidden = true;
-      try { (RENDER[part.key] || (() => {}))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
+      try { (RENDER[part.key] || (part.kind === "reading" ? renderReading : () => {}))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
       host.append(sec);
     }
   }
