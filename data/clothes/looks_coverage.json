@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T01:03:13Z",
+ "generated_at": "2026-10-11T07:17:59Z",
  "window_days": [
   -1,
   14
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "ConnectTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ConnectTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -3640,7 +3640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -6241,18 +6241,37 @@
     "gucci.com": "ReadTimeout"
    }
   },
+  "hermes:2017-03-06:rtw": {
+   "house": "hermes",
+   "date": "2017-03-06",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/en/?utm_campaign=D%C3%A9fil%C3%A9F_AH17_Internal_RU&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=Vignette",
+     "ts": "20170317210956",
+     "score": 0.62
+    }
+   ]
+  },
   "hermes:2017-06-24:men": {
    "house": "hermes",
    "date": "2017-06-24",
    "season": "2018 SS men",
    "category": "men",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/en/?utm_campaign=DefileH_PE18_Internal_KR&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=Header",
+     "ts": "20170708055409",
+     "score": 0.62
+    }
+   ]
   },
   "hermes:2017-10-02:rtw": {
    "house": "hermes",
@@ -6264,7 +6283,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "HTTP 504"
    }
   },
   "hermes:2018-01-20:men": {
@@ -7289,13 +7308,16 @@
    "date": "2017-03-03",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loewe.com": "ConnectionError"
-   }
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.loewe.com:80/usa/en/fw17-runway?country=US",
+     "ts": "20170308144957",
+     "score": 4.94
+    }
+   ]
   },
   "loewe:2017-09-29:rtw": {
    "house": "loewe",
@@ -8014,6 +8036,26 @@
    "errors": {
     "louisvuitton.com": "ConnectionError"
    }
+  },
+  "margiela:2015-09-30:rtw": {
+   "house": "margiela",
+   "date": "2015-09-30",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "margiela:2016-01-22:men": {
+   "house": "margiela",
+   "date": "2016-01-22",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
   },
   "margiela:2016-01-27:couture": {
    "house": "margiela",
@@ -9510,18 +9552,23 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/"
+    "www.hermes.com/us/en/content/",
+    "www.hermes.com/us/en/men/ready-wear/",
+    "www.hermes.com/us/en/women/ready-wear/"
    ],
-   "pages": 0
+   "pages": 884
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
-    "www.gucci.com/us/en/lo/runway/women/"
+    "www.gucci.com/us/en/lo/runway/women/",
+    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
+    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
+    "www.gucci.com/us/en/st/stories/runway/"
    ],
-   "pages": 0
+   "pages": 963
   },
   "loewe": {
    "prefixes": [
@@ -9546,9 +9593,10 @@
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/us/collections/look/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/"
+    "www.maisonmargiela.com/us/collections/",
+    "www.maisonmargiela.com/us/collection/hc-men_section/"
    ],
-   "pages": 318
+   "pages": 1569
   },
   "miu_miu": {
    "prefixes": [
@@ -9607,9 +9655,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 344,
-   "index failed": 51,
-   "none": 145
+   "found": 347,
+   "index failed": 49,
+   "none": 147
   },
   "by_house": {
    "alaia": {
@@ -9669,8 +9717,8 @@
     "found": 12
    },
    "hermes": {
-    "shows": 34,
-    "found": 29
+    "shows": 35,
+    "found": 31
    },
    "jil_sander": {
     "shows": 32,
@@ -9678,7 +9726,7 @@
    },
    "loewe": {
     "shows": 30,
-    "found": 24
+    "found": 25
    },
    "loro_piana": {
     "shows": 3,
@@ -9689,7 +9737,7 @@
     "found": 0
    },
    "margiela": {
-    "shows": 26,
+    "shows": 28,
     "found": 15
    },
    "max_mara": {
@@ -9723,16 +9771,16 @@
     "found": 14
    },
    "2016": {
-    "shows": 45,
+    "shows": 47,
     "found": 34
    },
    "2017": {
-    "shows": 44,
-    "found": 28
+    "shows": 45,
+    "found": 30
    },
    "2018": {
     "shows": 46,
-    "found": 19
+    "found": 20
    },
    "2019": {
     "shows": 53,
