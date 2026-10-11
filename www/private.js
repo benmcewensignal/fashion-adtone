@@ -322,6 +322,7 @@
     "The clothes are described by an open vision model, Qwen3-VL-32B at fixed weights, with a fixed set of fifteen questions, from what the picture shows of clothing to its garments, accessories, colours, pattern, how much skin shows, hemline, layers, silhouette, construction, finishing, materials, formality and a street to couture scale. Every question has passed the model's own checks: its answers vary, and hold when the picture is cropped. None has yet been checked against people's labels, so every clothes figure is provisional. Labels will check each question, a trained eye's for those that need one; a question that fails is dropped and the figures computed again.",
     "The questions describe what is worn at the level of garments, colours, shape and register, so two collections with the same kinds of clothes in the same colours read alike however different their design.",
     "Clothes distinct sets the shop window's outfits, the pictures that show clothes worn, against each other brand's outfits in the same months, and moved against the brand's own previous window. The runway's looks are set against the season's other runways and the brand's own last runway. Each comparison is of the shares of each answer, net of the difference two random draws of the same pictures would show at those numbers: likeness is 1 when two sets cannot be told apart and 0 when they share nothing. A difference counts as told apart when random draws reach it less than one time in twenty. Places are given when four brands or more in the season have a value.",
+    "The shop window's likeness to its own runway is shown, not scored as transmission. A homepage does a different job from a show: it changes less from season to season, and its first months' pictures look no more like the show they follow than like the one before. Whether the advertising moves the way the runway moved is read on the advertising itself.",
     "Still to come: the runway looks of most shows, still being collected from the archive; the campaign pictures, listed but not yet read; and the advertising, which waits on Meta.",
   ];
   function renderBoard(host, part) {
@@ -480,6 +481,7 @@
       const st = D.sticky;
       const sp = el("p", "note", `A show's attention lasts no better than an equal jump on an ordinary day. Across ${st.n} shows since 2015, comparing each brand with itself, the attention that lasted rose ${st.slope.toFixed(2)} for each unit of surprise at the show, against ${st.placebo.toFixed(2)} on days away from any show (p ${st.p.toFixed(2)}).`);
       sec.append(sp);
+      for (const t of D.sticky_more || []) sec.append(el("p", "note", t));
     }
     host.append(sec);
     notes(host, BOARD_NOTES.concat([`Updated ${D.generated}, from ${D.pictures.toLocaleString("en-GB")} homepage pictures and daily page views since 2015.`]));
