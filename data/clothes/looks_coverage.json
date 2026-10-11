@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T20:09:27Z",
+ "generated_at": "2026-10-11T01:03:13Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ReadTimeout"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectionError"
+    "dior.com": "ReadTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 504"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3640,7 +3640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "HTTP 504"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -8012,7 +8012,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "HTTP 504"
+    "louisvuitton.com": "ConnectionError"
    }
   },
   "margiela:2016-01-27:couture": {
@@ -8020,28 +8020,32 @@
    "date": "2016-01-27",
    "season": "2016 SS couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://mmmphoto.maisonmartinmargiela.com:80/collections-homme/spring-summer-2016",
+     "ts": "20160128105843",
+     "score": 1.0
+    }
+   ]
   },
   "margiela:2016-03-02:rtw": {
    "house": "margiela",
    "date": "2016-03-02",
    "season": "2016 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://mmmphoto.maisonmartinmargiela.com:80/autumn-winter-2015-defile-collection/-avant-premiere-autumn-winter-2016",
+     "ts": "20160303135352",
+     "score": 6.0
+    }
+   ]
   },
   "margiela:2016-06-24:men": {
    "house": "margiela",
@@ -8426,18 +8430,61 @@
     }
    ]
   },
+  "max_mara:2021-09-23:rtw": {
+   "house": "max_mara",
+   "date": "2021-09-23",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2022-02-24:rtw": {
+   "house": "max_mara",
+   "date": "2022-02-24",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://nl.maxmara.com/editorial/runway-fall-winter?r=0&utm_source=facebook_instagram&utm_medium=social&utm_campaign=facebook_instagram_MaxMaraFW22RunwayShow&utm_term=facebook_instagram&utm_content=facebook_instagram_MaxMaraFW22RunwayShow_240222",
+     "ts": "20220223224328",
+     "score": 4.0
+    }
+   ]
+  },
+  "max_mara:2022-09-22:rtw": {
+   "house": "max_mara",
+   "date": "2022-09-22",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2023-02-23:rtw": {
+   "house": "max_mara",
+   "date": "2023-02-23",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "max_mara:2023-09-20:rtw": {
    "house": "max_mara",
    "date": "2023-09-20",
    "season": "2024 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maxmara.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "max_mara:2024-02-22:rtw": {
    "house": "max_mara",
@@ -9402,20 +9449,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/womens-fashion/"
    ],
-   "pages": 973
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/",
     "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 6223
+   "pages": 5009
   },
   "dries_van_noten": {
    "prefixes": [
@@ -9471,12 +9517,11 @@
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
-    "www.gucci.com/us/en/lo/runway/women/",
     "www.gucci.com/us/en/lo/runway/men/",
-    "www.gucci.com/us/en/article/",
-    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
+    "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
+    "www.gucci.com/us/en/lo/runway/women/"
    ],
-   "pages": 885
+   "pages": 0
   },
   "loewe": {
    "prefixes": [
@@ -9501,10 +9546,9 @@
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/us/collections/look/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/",
-    "www.maisonmargiela.com/us/collection/hc-men_section/"
+    "www.maisonmargiela.com/us/collections/"
    ],
-   "pages": 1569
+   "pages": 318
   },
   "miu_miu": {
    "prefixes": [
@@ -9563,9 +9607,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 341,
-   "index failed": 54,
-   "none": 141
+   "found": 344,
+   "index failed": 51,
+   "none": 145
   },
   "by_house": {
    "alaia": {
@@ -9646,11 +9690,11 @@
    },
    "margiela": {
     "shows": 26,
-    "found": 13
+    "found": 15
    },
    "max_mara": {
-    "shows": 6,
-    "found": 1
+    "shows": 10,
+    "found": 2
    },
    "miu_miu": {
     "shows": 23,
@@ -9680,7 +9724,7 @@
    },
    "2016": {
     "shows": 45,
-    "found": 32
+    "found": 34
    },
    "2017": {
     "shows": 44,
@@ -9703,11 +9747,11 @@
     "found": 26
    },
    "2022": {
-    "shows": 46,
-    "found": 40
+    "shows": 48,
+    "found": 41
    },
    "2023": {
-    "shows": 43,
+    "shows": 45,
     "found": 34
    },
    "2024": {
