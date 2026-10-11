@@ -160,11 +160,15 @@ def collect(sess, reg: registry.Registry, run: str, end: date | None = None, bud
     span = state.get("span", {})
     failed, fetched, t0, limited, pauses, last_error = {}, 0, clock(), None, 0, None
     for h in reg.houses:
+        if state.get("queries", {}).get(h.id, queries[h.id]) != queries[h.id]:
+            covered.pop(h.id, None)      # a changed query is a different series: refetch it from the start
+    # The houses furthest behind go first. GDELT answers only a few requests a run from GitHub's shared
+    # addresses, and in registry order every run spent them topping up the houses already current, then
+    # stopped at the first house behind: from 7 October 2026 twenty-three houses did not move.
+    for h in sorted(reg.houses, key=lambda h: covered.get(h.id) or ""):
         if limited:
             break
         q = queries[h.id]
-        if state.get("queries", {}).get(h.id, q) != q:
-            covered.pop(h.id, None)      # a changed query is a different series: refetch it from the start
         nxt = date.fromisoformat(covered[h.id]) + timedelta(days=1) if h.id in covered else START
         path = P["dir"] / f"{h.id}.jsonl"
         while nxt <= end:

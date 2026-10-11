@@ -1,3 +1,4 @@
+import pytest
 from PIL import Image
 
 from adtone import media
@@ -96,4 +97,17 @@ def test_a_picture_cut_off_mid_transfer_is_skipped_not_fatal():
 
     s = FakeSession(lambda url, params: Cut() if url == "u/cut" else FakeResponse(200, content=big))
     got = media.download(["u/cut", "u/big"], session=s)
+    assert [(g.w, g.h) for g in got] == [(900, 1100)]
+
+
+def test_a_picture_too_large_to_decode_is_skipped_not_fatal(monkeypatch):
+    # From 9 October 2026 one 229-megapixel picture on an archived homepage stopped every homepages run
+    # that reached it: Pillow's guard raised an error the download did not catch.
+    monkeypatch.setattr(Image, "MAX_IMAGE_PIXELS", 1_000_000)       # so 1500 x 1500 counts as too large
+    big = jpeg_bytes(toned_image(0.7, size=(900, 1100), seed=1))
+    huge = jpeg_bytes(toned_image(0.4, size=(1500, 1500), seed=2))
+    with pytest.raises(media.MediaError):
+        media.open_image(huge)
+    s = FakeSession(lambda url, params: FakeResponse(200, content={"u/huge": huge, "u/big": big}[url]))
+    got = media.download(["u/huge", "u/big"], session=s)
     assert [(g.w, g.h) for g in got] == [(900, 1100)]

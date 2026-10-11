@@ -59,3 +59,10 @@ jobs:
       - name: Persist
         timeout-minutes: 10
         run: bash scripts/persist.sh homepages "homepages"
+      # A crash is recorded in provenance and what came before it is kept, but the run shows red, so a
+      # stage that stops every run (as one oversized picture did from 9 October 2026) is not missed.
+      - name: Fail if reading crashed
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "::error::homepages crashed; progress before the crash was kept (see data/provenance/homepages.jsonl)"
+          exit 1

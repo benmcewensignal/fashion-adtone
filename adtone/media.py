@@ -211,6 +211,10 @@ def open_image(data: bytes) -> Image.Image:
     try:
         img = Image.open(io.BytesIO(data))
         img.load()
+    except Image.DecompressionBombError as e:
+        # too many pixels to decode safely: skipped like any unreadable picture. Uncaught, one 229-megapixel
+        # picture on an archived homepage stopped every homepages run that reached it from 9 October 2026.
+        raise MediaError(f"too large to decode: {e}") from None
     except (UnidentifiedImageError, OSError) as e:
         raise MediaError(f"not an image: {e}") from None
     return img.convert("RGB")

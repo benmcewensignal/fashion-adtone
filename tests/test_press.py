@@ -214,6 +214,32 @@ def test_a_rate_limit_is_waited_out_twice_then_stops_the_run(tmp_path, monkeypat
     assert "HTTP 429" in st["last_error"]
 
 
+class AnswersTwice(FakeGdelt):
+    """GDELT from a shared runner address: the first window's two requests answered, then refusals."""
+    def get(self, url, params=None, timeout=None):
+        if len(self.calls) >= 2:
+            self.calls.append(params)
+            return R(status=429, text="")
+        return super().get(url, params, timeout)
+
+
+def test_the_houses_furthest_behind_are_fetched_first(tmp_path, monkeypatch):
+    # In registry order every run spent GDELT's few answers topping up the houses already current, then
+    # stopped at the first house behind; from 7 October 2026 twenty-three houses did not move.
+    _press_paths(monkeypatch, tmp_path)
+    monkeypatch.setattr(press, "START", date(2026, 1, 1))
+    reg = Registry(1, "T", [House("chanel", "Chanel", "treated", "G", [], [], []),
+                            House("dior", "Dior", "treated", "G", [], [], []),
+                            House("prada", "Prada", "control", "G", [], [], [])])
+    end = date(2026, 12, 31)
+    press.store.write_state(tmp_path / "press.json", {"covered": {"chanel": "2026-12-30", "dior": "2026-06-30"}})
+    st = press.collect(AnswersTwice(), reg, "r1", end=end, sleep=lambda s: None)
+    assert st["rate_limited"] and st["covered"]["prada"] == "2026-12-31"     # the house with nothing went first
+    assert st["covered"]["chanel"] == "2026-12-30" and st["covered"]["dior"] == "2026-06-30"
+    st = press.collect(AnswersTwice(), reg, "r2", end=end, sleep=lambda s: None)
+    assert st["covered"]["dior"] == "2026-12-31" and st["covered"]["chanel"] == "2026-12-30"   # then the next behind
+
+
 class Pleading(FakeGdelt):
     """GDELT's other way of saying no: HTTP 200 and a sentence instead of JSON."""
     def get(self, url, params=None, timeout=None):
