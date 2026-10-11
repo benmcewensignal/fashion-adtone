@@ -381,8 +381,9 @@ little script, the Private tab's code in `www/private.js` and its content sealed
 It is live at https://adtone-benmcewen20-9581s-projects.vercel.app (Vercel project `adtone`, first
 deployed 6 October 2026), separate from the timestamp record. The Readings page's slider shows pictures
 uploaded with the deployment, not kept here. Deployments go through the Vercel API file by file:
-`scripts/deploy_parts.py` cuts the gzipped page into parts small enough to upload one at a time against
-their SHA-1, and the deployment's `vercel.json` joins them back into `public/index.html` at build. The
+`scripts/deploy_parts.py` cuts the gzipped page and the Private tab's script into parts small enough to
+upload one at a time against their SHA-1, and the deployment's build joins them back into
+`public/index.html` and `public/private.js`. The
 page served on 9 October 2026 was checked byte for byte against `www/index.html`.
 (`site/` is not used for it: the status workflow builds the GitHub Pages status page there.)
 
