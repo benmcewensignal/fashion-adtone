@@ -7,7 +7,8 @@
     "gucci",
     "louis_vuitton",
     "margiela",
-    "prada"
+    "prada",
+    "saint_laurent"
   ],
   "covered": {
     "balenciaga": "2026-10-10",
@@ -26,7 +27,8 @@
     "louis_vuitton": "2026-10-10",
     "margiela": "2026-10-10",
     "miu_miu": "2017-03-31",
-    "prada": "2026-10-10"
+    "prada": "2026-10-10",
+    "saint_laurent": "2026-10-10"
   },
   "end": "2026-10-10",
   "failed": {},
@@ -62,7 +64,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh38149615556",
+  "run": "gh38172517456",
   "span": {},
-  "updated_at": "2026-10-11T15:37:09Z"
+  "updated_at": "2026-10-11T21:02:42Z"
 }
