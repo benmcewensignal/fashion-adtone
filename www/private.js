@@ -441,7 +441,7 @@
     const a = D.association, names = { distinctness: "Distinct from peers", movement: "Moved from last season", image_share: "Share of campaign pictures", momentum: "Momentum coming in" };
     const sec = el("section", "pv-fig"); sec.style.maxWidth = "40rem";
     sec.append(el("p", "pv-sec", "What goes with attention that lasts"));
-    const fp = el("p", null, a.status === "ok" ? `Across ${a.n} collections from ${a.brands} brands since 2022, each brand compared with itself, none of the shop window's measures goes clearly with attention that lasts. A brand already rising in the months before a show gains slightly less in the months after it, a small effect at the edge of its interval.` : "Too few collections yet to say.");
+    const fp = el("p", null, a.text || (a.status === "ok" ? `Across ${a.n} collections from ${a.brands} brands, each brand compared with itself.` : "Too few collections yet to say."));
     fp.style.fontSize = "0.9375rem"; sec.append(fp);
     if (a.status === "ok") {
       const svg = mk("svg", { role: "img", "aria-label": "Each measure's association with lasting attention, with its 90 per cent interval" });
