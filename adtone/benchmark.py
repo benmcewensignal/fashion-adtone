@@ -24,13 +24,17 @@ For every main collection in data/thread/collections.jsonl:
   the clothes       the runway looks and the shop window's pictures of an outfit worn, described with the
                     frozen clothes rubric (rubric/clothes-v1.md) on the questions that stand: for the runway
                     and for the shop window, distinctness against the season's other brands and movement
-                    from the brand's own last one; transmission, the likeness between the runway and the
-                    shop window; and whether the shop window looks more like its own runway than the
-                    season's others. Likeness is net of chance at the numbers of pictures compared
+                    from the brand's own last one; the shop window's likeness to its own runway; and whether
+                    the shop window looks more like its own runway than the season's others, the house's
+                    signature. Likeness is net of chance at the numbers of pictures compared
                     (adtone/clothes.py). Provisional until the labels have checked the questions it rests on.
+                    Whether a runway's change carries into what the house shows is Amendment 3's test, and it
+                    runs on the advertising: the shop window changes too little between seasons, and its
+                    early months cannot be told from the previous show's, to carry it.
 
-Then, across collections, which shop-window measures go with attention that lasts: within brands, with
-momentum held constant, with bootstrap intervals. Descriptive throughout.
+Then, across collections, which shop-window measures go with attention that lasts, read on the months of
+the window up to the end of the lasting window (day 120): within brands, with momentum held constant, with
+bootstrap intervals. Descriptive throughout.
 
 Picture kind is the larger reader's (Qwen3-VL-32B) where it has read the picture and the pinned smaller
 reader's otherwise. The two agree on campaign picture or not at kappa 0.73; they differ mostly between
@@ -57,6 +61,9 @@ RESULTS = config.RESULTS_DIR / "benchmark.json"
 TABLE = config.RESULTS_DIR / "benchmark.csv"
 
 SHOP_DAYS = 182          # the shop window runs at most six months after the show
+ATTENTION_END = 120      # the last day of the lasting window (adtone/runway.py LASTING): the association with lasting
+                         # attention reads only the shop window's months up to it, since a picture put up later
+                         # cannot have moved it. Over a quarter of a window's pictures go up after day 120.
 MIN_KIND = 3             # pictures of a kind, in a window, before a brand gets a value for that kind
 MIN_PEERS = 3            # other brands with that kind in the same months, before distinctness is given
 MIN_MIX = 3              # pictures in a window before its mix is given
@@ -232,8 +239,11 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
       distinctness   one less the mean likeness to each other brand's in the same months;
       movement       one less the likeness to the brand's own previous window;
     and from one to the other:
-      transmission   the likeness between the runway and the shop window;
-      recognisable   the share of the season's other runways the shop window is less like than its own.
+      own_runway     the likeness between the runway and the shop window: a level, which mixes what every
+                     house's shop window does (sell more plainly than it shows) and the house's own choices
+                     with anything carried, so it is described, not read as transmission;
+      recognisable   the share of the season's other runways the shop window is less like than its own: the
+                     house's signature.
     Likeness is net of chance at the numbers of pictures compared (adtone/clothes.py). Every figure carries
     the standing of the questions it rests on: provisional until the labels have checked them."""
     from . import clothes as C
@@ -278,7 +288,7 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
                         "shop_window": {"read": len(read), "worn": len(wn),
                                         "reach": round(len(wn) / len(read), 3) if read else None,
                                         "profile": table.profile(wn, top=3) if len(wn) >= MIN_WORN else None,
-                                        "distinctness": {}, "movement": {}, "transmission": {}, "recognisable": {}}}
+                                        "distinctness": {}, "movement": {}, "own_runway": {}, "recognisable": {}}}
         if len(wn) >= MIN_WORN:
             others = {o: ws for o, ws in theirs_worn.get(r["id"], {}).items() if len(ws) >= MIN_WORN}
             if len(others) >= MIN_PEERS:
@@ -308,7 +318,7 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
             if sw["worn"] >= MIN_WORN:
                 own = table.compare(looks[r["id"]], shop[r["id"]][1], key=r["id"] + "|shop")
                 if own and own["likeness"] is not None:
-                    sw["transmission"] = {"value": own["likeness"], "in_common": round(1 - own["distance"], 4),
+                    sw["own_runway"] = {"value": own["likeness"], "in_common": round(1 - own["distance"], 4),
                                           "by_chance": round(1 - own["by_chance"], 4), "questions": own["questions"],
                                           "told_apart": own["as_far_by_chance"] < TOLD_APART}
                     if len(others) >= MIN_RUNWAYS:
@@ -342,7 +352,7 @@ def clothes_measures(rows: list[dict], windows: dict[str, list[dict]], cl: dict,
     # places within each season
     for rs in seasons.values():
         for part, name in (("runway", "distinctness"), ("runway", "movement"), ("shop_window", "distinctness"),
-                           ("shop_window", "movement"), ("shop_window", "transmission")):
+                           ("shop_window", "movement"), ("shop_window", "own_runway")):
             vals = {r["id"]: r["clothes"][part][name]["value"] for r in rs
                     if r["clothes"].get(part) and r["clothes"][part].get(name)}
             pct = percentiles(vals) if len(vals) >= MIN_PLACED else {}
@@ -369,12 +379,16 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
 
     rows, windows, peer_windows = [], {}, {}
     for h, cs in by_house.items():
-        prev_pics, prev_mix, prev_date = None, None, None
+        prev_pics, prev_mix, prev_date, prev_early = None, None, None, None
         for i, c in enumerate(cs):
             d = date.fromisoformat(c["date"])
             nxt = date.fromisoformat(cs[i + 1]["date"]) if i + 1 < len(cs) else None
             end = shop_window_end(d, nxt)
             months = window_months(d, end)
+            early = window_months(d, min(end, d + timedelta(days=ATTENTION_END)))
+            mine_early = [p for m in early for p in by_house_month[h].get(m, [])]
+            peers_early = {o: ps for o, ps in ((o, [p for m in early for p in pm.get(m, [])])
+                                               for o, pm in by_house_month.items() if o != h) if ps}
             complete = bool(months) and last_month is not None and months[-1] <= last_month and (
                 nxt is not None or end <= date.fromisoformat(f"{last_month}-28"))
             mine = [p for m in months for p in by_house_month[h].get(m, [])]
@@ -392,7 +406,12 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                                    "mix_shift": tvd(mx, prev_mix) if mx and prev_mix else None,
                                    "distinctness": distinctness(mine, peers),
                                    "movement": movement(mine, prev_pics) if prev_pics else {},
-                                   "previous": prev_date},
+                                   "previous": prev_date,
+                                   # the same measures on the months up to day 120, for the association only
+                                   "while_attention": {"months": early, "pictures": len(mine_early),
+                                                       "mix": mix(mine_early),
+                                                       "distinctness": distinctness(mine_early, peers_early),
+                                                       "movement": movement(mine_early, prev_early) if prev_early else {}}},
                    "campaigns": {"entries": c.get("campaign", {}).get("entries", 0),
                                  "by_line": c.get("campaign", {}).get("by_line", {})},
                    "advertising": {"status": "waiting on Meta's archive",
@@ -402,6 +421,8 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
             rows.append(row)
             if mine:
                 prev_pics, prev_mix, prev_date = mine, mx, c["date"]
+            if mine_early:
+                prev_early = mine_early
 
     # places within each season
     seasons = defaultdict(list)
@@ -411,17 +432,18 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
         for name in ("distinctness", "movement"):
             # each kind is placed among the brands showing that kind, and a brand's place is the average of its
             # kinds' places weighted by its pictures, so campaign pictures are only ever ranked against campaign
-            # pictures and product against product
-            for g in GROUPS:
-                pct = percentiles({r["id"]: r["shop_window"][name][g]["value"] for r in rs if g in r["shop_window"][name]})
+            # pictures and product against product; the same for the months up to day 120
+            for get in (lambda r: r["shop_window"], lambda r: r["shop_window"]["while_attention"]):
+                for g in GROUPS:
+                    pct = percentiles({r["id"]: get(r)[name][g]["value"] for r in rs if g in get(r)[name]})
+                    for r in rs:
+                        if r["id"] in pct:
+                            get(r)[name][g]["percentile"] = pct[r["id"]]
                 for r in rs:
-                    if r["id"] in pct:
-                        r["shop_window"][name][g]["percentile"] = pct[r["id"]]
-            for r in rs:
-                m = r["shop_window"][name]
-                parts = [(m[g]["percentile"], m[g]["n"]) for g in GROUPS if g in m]
-                if parts:
-                    m["percentile"] = round(sum(p * n for p, n in parts) / sum(n for _, n in parts))
+                    m = get(r)[name]
+                    parts = [(m[g]["percentile"], m[g]["n"]) for g in GROUPS if g in m]
+                    if parts:
+                        m["percentile"] = round(sum(p * n for p, n in parts) / sum(n for _, n in parts))
         for strand in ("heat", "lasting"):
             pct = percentiles({r["id"]: r["show"][strand] for r in rs if r["show"].get(strand) is not None})
             for r in rs:
@@ -443,7 +465,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                       "scene": sum(bool((r["scene"] or {}).get("covered")) for r in rs),
                       "runway": sum(bool((r["clothes"].get("runway") or {}).get("profile")) for r in rs),
                       "clothes_window": sum(bool((r["clothes"].get("shop_window") or {}).get("profile")) for r in rs),
-                      "transmission": sum(bool((r["clothes"].get("shop_window") or {}).get("transmission")) for r in rs)}
+                      "own_runway": sum(bool((r["clothes"].get("shop_window") or {}).get("own_runway")) for r in rs)}
     return {"generated_at": store.utc_now(), "status": "descriptive",
             "windows": {"shop_window": f"months after the show, to the day before the next main show, {SHOP_DAYS} days at most",
                         "lasting": "30 to 120 days after the show, net of the median brand"},
@@ -454,26 +476,30 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
 def association(rows: list[dict], boot: int = BOOT, seed: int = 43) -> dict:
     """Which shop-window measures go with attention that lasts: lasting attention on the season places of
     distinctness and movement, the share of campaign pictures and momentum, within brands (each brand's own
-    averages removed), standardised, with intervals from resampling collections. Descriptive."""
+    averages removed), standardised, with intervals from resampling collections. The shop window is read on
+    its months up to day 120, where the lasting window ends: a picture put up later cannot have moved it.
+    Descriptive: the shop window's job is the house's, not the show's, and attention is only the scale the
+    two share."""
     names = ["distinctness", "movement", "image_share", "momentum"]
     data = []
     for r in rows:
-        sw, sh = r["shop_window"], r["show"]
+        sw, sh = r["shop_window"]["while_attention"], r["show"]
         x = [sw["distinctness"].get("percentile"), sw["movement"].get("percentile"),
              (sw["mix"] or {}).get("image"), sh.get("momentum")]
         if sh.get("lasting") is None or any(v is None for v in x):
             continue
-        data.append((r["house"], sh["lasting"], x))
+        data.append((r["house"], sh["lasting"], x, r["date"]))
     by = defaultdict(list)
-    for h, y, x in data:
-        by[h].append((y, x))
-    X, Y = [], []
+    for h, y, x, d in data:
+        by[h].append((y, x, d))
+    X, Y, dates = [], [], []
     for h, items in by.items():
         if len(items) < 2:
             continue
-        ys = np.array([y for y, _ in items]); xs = np.array([x for _, x in items], float)
-        Y += list(ys - ys.mean()); X += list(xs - xs.mean(axis=0))
-    out = {"n": len(Y), "brands": sum(1 for v in by.values() if len(v) >= 2), "terms": names}
+        ys = np.array([y for y, _, _ in items]); xs = np.array([x for _, x, _ in items], float)
+        Y += list(ys - ys.mean()); X += list(xs - xs.mean(axis=0)); dates += [d for _, _, d in items]
+    out = {"n": len(Y), "brands": sum(1 for v in by.values() if len(v) >= 2), "terms": names,
+           "from": min(dates) if dates else None}
     if len(Y) < 30:
         return {**out, "status": "insufficient: fewer than 30 collections with every term in brands with two"}
     X, Y = np.array(X), np.array(Y)
@@ -488,10 +514,11 @@ def association(rows: list[dict], boot: int = BOOT, seed: int = 43) -> dict:
         draws.append(np.linalg.lstsq(Xs[k], Y[k], rcond=None)[0])
     lo, hi = np.quantile(np.array(draws), [0.05, 0.95], axis=0)
     terms = [n for n, k in zip(names, keep) if k]
-    return {**out, "status": "ok",
+    return {**out, "status": "ok", "shop_window_to_day": ATTENTION_END,
             "coefficients": {n: {"estimate": round(float(b), 4), "interval_90": [round(float(a), 4), round(float(c), 4)]}
                              for n, b, a, c in zip(terms, beta, lo, hi)},
-            "reading": "lasting attention in log views per standard deviation of each term, within brands"}
+            "reading": "lasting attention in log views per standard deviation of each term, within brands, "
+                       f"with the shop window read on its months up to day {ATTENTION_END}"}
 
 
 def write_table(rows: list[dict], path: Path = TABLE) -> None:
@@ -499,7 +526,7 @@ def write_table(rows: list[dict], path: Path = TABLE) -> None:
               "tone", "appointments", "pictures", "complete", "image", "product", "other", "mix_shift",
               "distinctness", "distinctness_percentile", "movement", "movement_percentile", "campaigns",
               "runway_looks", "runway_distinctness", "runway_distinctness_percentile", "runway_movement",
-              "runway_movement_percentile", "shop_window_worn", "transmission", "transmission_percentile",
+              "runway_movement_percentile", "shop_window_worn", "own_runway", "own_runway_percentile",
               "recognisable", "clothes_status"]
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
@@ -526,8 +553,8 @@ def write_table(rows: list[dict], path: Path = TABLE) -> None:
                         "runway_movement": (cr.get("movement") or {}).get("value"),
                         "runway_movement_percentile": (cr.get("movement") or {}).get("percentile"),
                         "shop_window_worn": cs.get("worn"),
-                        "transmission": (cs.get("transmission") or {}).get("value"),
-                        "transmission_percentile": (cs.get("transmission") or {}).get("percentile"),
+                        "own_runway": (cs.get("own_runway") or {}).get("value"),
+                        "own_runway_percentile": (cs.get("own_runway") or {}).get("percentile"),
                         "recognisable": (cs.get("recognisable") or {}).get("value"),
                         "clothes_status": r["clothes"].get("status")})
 

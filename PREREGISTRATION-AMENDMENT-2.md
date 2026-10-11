@@ -275,15 +275,41 @@ year per house, so this rests on many events rather than ten debuts.
   1,000 times. Supported if the show slope exceeds 95 per cent of placebo slopes: a show's attention
   lasts better than an equal jump on an ordinary day. It runs on page views back to July 2015 and
   needs no advertising.
-- **The bridge.** For shows inside Meta's archive: lasting attention regressed on surprise, the log of
-  EU and UK reach in the 90 days after the show, and alignment, the cosine between the centroid of the
-  house's ads first seen from 7 days before to 21 days after the show and the centroid of those first
-  seen 45 to 150 days after. Each needs three concepts. Standardised, with 90 per cent bootstrap
-  intervals. Reported as more than description only from 30 shows. Predictive, not causal: houses push
-  more after a show that went well.
-- **Limits.** A front-row celebrity can make a spike, not the clothes. The show-period ads are the
-  looks the house chose to promote, not the runway. Saint Laurent stays out of the bridge until its
-  forward prediction is judged.
+- **The scene, held constant: an extra run.** Added on 11 October 2026, after the sticky test's result
+  had been computed and seen (not supported, p 0.28). The same test, with the same placebo draws, with
+  fashion ambassador appointments in the 180 days before each date, show or placebo, held constant
+  (`reference/ambassadors.csv`, as the Thread reads it), on the dates whose 180 days the file covers,
+  from mid-2019. Ambassadors front both the shows and the advertising, and the industry's own measures
+  credit single ambassadors with a quarter to two fifths of a show's media value. Reported beside the
+  registered result, never in its place.
+- **The campaign window.** From 45 days after the show to 7 days before the house's next main show, or,
+  where that show is not on file, to 203 days after an autumn-winter show and 147 after a spring-summer
+  one (`adtone/thread.py`, `campaign_window`). It holds 34 of the 38 autumn-winter campaigns the Thread
+  dates; a fixed end at 150 days would have missed between a quarter and a half of them.
+- **The campaign's landing.** The day the third concept for the season's collection is first seen in
+  the campaign window. Ads are sorted by their own text when collected, and by a picture of a full
+  outfit worn where the text names nothing (Amendment 3, section 2); leather goods, beauty, jewellery
+  and watches, capsules and the holidays never count.
+- **The campaign's lift.** The mean of log daily page views from the landing to 60 days after it, cut
+  10 days before the house's next main show, over the mean from 60 to 10 days before the landing, less
+  the median house's change over the same days. It needs 30 days after the landing and 80 per cent of
+  each window's days.
+- **The bridge.** For shows inside Meta's archive with a landing: the campaign's lift regressed on the
+  show's surprise, the log of EU and UK reach of the house's ads first seen from the landing to 60 days
+  after it, and alignment, the cosine between the centroid of the house's ads first seen from 7 days
+  before to 21 days after the show and the centroid of its concepts for the season's collection in the
+  campaign window. Each needs three concepts. Standardised, with 90 per cent bootstrap intervals.
+  Reported as more than description only from 30 shows. Predictive, not causal: houses push more after
+  a show that went well. Changed on 11 October 2026, before any advertisement was read: the bridge
+  first explained lasting attention, 30 to 120 days after the show, but the season's campaign mostly
+  arrives as that window closes or after it (the 38 autumn-winter campaigns the Thread dates came out a
+  median 143.5 days after the show, three quarters of them from day 120 on), so it now runs on the
+  campaign's own clock.
+- **Limits.** A front-row celebrity can make a spike, not the clothes; appointments are held constant
+  in the extra run and in 13b, attendance is not on file. The show-period ads are the looks the house
+  chose to promote, not the runway. The landing rests on the archive's first-seen dates, which follow
+  delivery, not announcement. Saint Laurent stays out of the bridge until its forward prediction is
+  judged.
 
 ## 13b. What the clothes add
 
@@ -294,20 +320,24 @@ the house's momentum? This is the question of how much the clothes matter, asked
   name, with fashion context for the ambiguous ones), on the show day and the three days after, less
   its mean from 60 to 10 days before. It needs two covered days after and ten in the baseline.
 - **Spectacle** is the attention spike of section 13. **Momentum** is the mean log page views from 60
-  to 10 days before, less the mean from 150 to 90 days before.
+  to 10 days before, less the mean from 150 to 90 days before. **The scene** is the number of fashion
+  ambassador appointments in the 180 days before (section 13), which limits the test to shows from
+  mid-2019. Added on 11 October 2026, before the test had a result: until then it had too few shows.
 - **Test.** Within houses (each house's own averages removed, so a house whose press is always warm
-  cannot pass for good clothes), the increase in R-squared from adding reception to spectacle and
-  momentum, set against 1,000 shuffles of reception among each house's own shows. Supported if p is
-  at most 0.05 and the coefficient is positive; reported with a 90 per cent bootstrap interval. Read
-  only from 60 shows with every term, in houses with at least three.
+  cannot pass for good clothes), the increase in R-squared from adding reception to spectacle,
+  momentum and the scene, set against 1,000 shuffles of reception among each house's own shows.
+  Supported if p is at most 0.05 and the coefficient is positive; reported with a 90 per cent bootstrap
+  interval. Read only from 60 shows with every term, in houses with at least three.
 - **Reading.** Supported: a well-received collection is followed by more lasting attention than its
-  spectacle and the house's momentum predict. Not supported: nothing beyond spectacle and momentum
+  spectacle, the house's momentum and its new ambassadors predict. Not supported: nothing beyond them
   is detectable at this sample. Desire (the next Lyst rank change) and money (revenue growth two
   quarters on) get the same decomposition, reported as description: too few observations to test.
-- **Limits.** News tone is not criticism; celebrity coverage enters it; reception may follow momentum,
-  which is why momentum is in the model. Predictive, not causal.
+- **Limits.** News tone is not criticism; celebrity coverage enters it, which the scene holds back only
+  as far as new appointments go; reception may follow momentum, which is why momentum is in the model.
+  Predictive, not causal.
 - **The thread.** Every show is one row of `data/results/runway_events.csv`, joining attention,
-  press, momentum and, inside the archive, reach and alignment, on house and date.
+  press, momentum, the scene and, inside the archive, the campaign's landing and lift, reach and
+  alignment, on house and date.
 
 ## Before freezing
 

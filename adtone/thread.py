@@ -532,6 +532,44 @@ def title_line(title: str, named: bool) -> str:
     return "collection" if named else "other"
 
 
+# An advertisement's own text, sorted as campaign titles are (Amendment 3, section 2). The text itself is never kept
+# (adtone/copyfeat.py), so the sorting happens at collection time, while the text is in hand. Meta's EU archive holds
+# ads in many languages: each line's words in English, French, Italian, German and Spanish. "Watch" before "the",
+# "now" or "live" is how a show is advertised, not a watch.
+AD_LINES = [
+    ("beauty", re.compile(r"fragrance|parfum|perfume|profum|fragranz|\bduft|beauty|beaut[eé]\b|bellezza|belleza|"
+                          r"sch[öo]nheit|make[-\s]?up|maquillage|trucco|maquillaje|skin\s?care|\bsoins?\b|lipstick|"
+                          r"rossetto|lippenstift|labial|cosm[eé]tic|kosmetik|eau de", re.I)),
+    ("jewellery_watches", re.compile(r"jewel|joaill|bijou|gioiell|schmuck|joyer|\bjoyas?\b|watches|watchmak|timepiece|"
+                                     r"\bwatch\b(?!\s+(?:the|now|live|it|our|more|here|full|video|film|on)\b)|"
+                                     r"horlog|orolog|\buhren?\b|reloj", re.I)),
+    ("accessories", re.compile(r"handbag|\bbags?\b|\bsacs?\b|\bborse\b|\bborsa\b|tasche|\bbolsos?\b|\bshoes?\b|chaussure|"
+                               r"\bscarpe\b|schuh|zapato|footwear|sneaker|eyewear|sunglass|lunettes|occhiali|sonnenbrille|"
+                               r"gafas|leather goods|maroquinerie|pelletteria|lederwaren|marroquiner|accessor|accessoire|"
+                               r"accesori|charms", re.I)),
+    ("capsule", re.compile(r"capsule|kapsel|c[aá]psula|collab", re.I)),
+    ("holiday", re.compile(r"holiday|\bgifts?\b|gifting|christmas|festive|cadeau|no[eë]l\b|\bf[eê]tes\b|\bregal[oi]\b|"
+                           r"natale|natalizi|geschenk|weihnacht|navidad|navide[nñ]", re.I)),
+]
+AD_SEASON = re.compile(r"(?:printemps|\b[eé]t[eé]\b|automne|hiver|primavera|estate|autunno|inverno|fr[uü]hling|"
+                       r"fr[uü]hjahr|sommer|herbst|verano|oto[nñ]o|invierno)[^\d\n]{0,15}(?:19|20)?\d{2}(?!\d)", re.I)
+AD_COLLECTION = re.compile(r"collection|collezion|kollektion|colecci[oó]n|campaign|campagn|kampagne|campa[nñ]a|"
+                           r"runway|d[eé]fil[eé]|sfilat|laufsteg|desfile|modenschau|\bshow\b", re.I)
+AD_TITLE_SEASON = re.compile(r"\b" + TITLE_SEASON.pattern, re.I)   # whole words only: "Express 24h" names no season
+
+
+def ad_line(texts: list[str] | None) -> str:
+    """What an advertisement sells, from its own text (body, link title and description together): beauty,
+    jewellery and watches, accessories, a capsule or the holidays by their words; the season's collection when
+    the text names a season, a collection, a campaign or a show and none of those; otherwise other."""
+    t = "\n".join(x for x in (texts or []) if x)
+    for line, rx in AD_LINES:
+        if rx.search(t):
+            return line
+    named = AD_TITLE_SEASON.search(t) or AD_SEASON.search(t) or AD_COLLECTION.search(t)
+    return "collection" if named else "other"
+
+
 def _entry_kind(r: dict) -> str:
     t = (r.get("title") or "").lower()
     if "lookbook" in t:

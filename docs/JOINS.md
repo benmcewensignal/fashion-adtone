@@ -31,9 +31,11 @@ started by editing its file in `.github/kick/`.
   falsifications and kill rule. `adtone.analysis`, `adtone.family`.
 - **Around shows.** One row per show, every source joined on house and date: the attention spike, its
   surprise against the house's earlier shows, the lasting lift, press reception and its spike,
-  momentum, and inside the archive the reach after the show and the campaign's alignment with the
-  house's show-period ads. That table is written to `data/results/runway_events.csv`; the sticky
-  test, the bridge and what the clothes add all read it. `adtone.runway`. The Thread is the part of
+  momentum, the scene (ambassador appointments in the 180 days before), and inside the archive the
+  day the season's campaign lands, the lift in attention from it, the reach pushed from it and the
+  campaign's alignment with the house's show-period ads. The advertising runs on its own clock: the
+  campaign mostly arrives as the lasting window closes. That table is written to
+  `data/results/runway_events.csv`; the sticky test, the bridge and what the clothes add all read it. `adtone.runway`. The Thread is the part of
   that row that needs no registered test, for every show from 2015 on a calendar read from
   NOWFASHION: the spike, its surprise, press and its tone, each also placed within its season, and no
   lasting lift. `adtone.thread`, `data/results/thread.json`. Both read the English page views with

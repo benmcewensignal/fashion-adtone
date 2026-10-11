@@ -20,6 +20,7 @@ def test_normalise_drops_snapshot_url_token_and_copy_text():
     text = json.dumps(row)
     assert "access_token" not in text and "SECRETTOKEN" not in text and "render_ad" not in text
     assert "Découvrez" not in text
+    assert row["line"] == "collection"         # what it sells is kept, its words are not
     assert row["copy"]["has_price"] is True and row["copy"]["n_excl"] == 1 and row["copy"]["sha"]
     assert row["reach"]["by_gender"] == {"female": 500, "male": 180, "unknown": 5}
     assert row["reach"]["by_age"]["25-34"] == 405

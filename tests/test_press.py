@@ -88,16 +88,19 @@ def test_reception_is_the_tone_after_a_show_against_the_usual_tone():
     assert pp.at("b", show)["reception"] is None
 
 
-def _rows(effect: float, seed: int, houses: int = 12, shows: int = 12):
+def _rows(effect: float, seed: int, houses: int = 12, shows: int = 12, guests: float = 0.0):
+    """Shows whose lasting attention follows their reception by `effect`. New ambassadors before a show (the
+    scene) warm its press and lift its attention by `guests`, whatever the clothes."""
     rng = np.random.default_rng(seed)
     rows = []
     for h in range(houses):
         level = rng.normal(0, 1)
         for k in range(shows):
-            spike, mom, rec = rng.normal(0, 1), rng.normal(0, 1), rng.normal(0, 1) + 0.5 * level
-            lasting = level + 0.4 * spike + 0.3 * mom + effect * rec + rng.normal(0, 0.6)
+            spike, mom, scene = rng.normal(0, 1), rng.normal(0, 1), float(rng.integers(0, 3))
+            rec = rng.normal(0, 1) + 0.5 * level + guests * scene
+            lasting = level + 0.4 * spike + 0.3 * mom + effect * rec + guests * scene + rng.normal(0, 0.6)
             rows.append({"house": f"h{h}", "date": date(2020, 1, 1) + timedelta(days=60 * k), "spike": spike,
-                         "momentum": mom, "reception": rec, "lasting": lasting})
+                         "momentum": mom, "scene": scene, "reception": rec, "lasting": lasting})
     return rows
 
 
@@ -108,6 +111,14 @@ def test_clothes_that_matter_are_found_and_clothes_that_do_not_are_not():
     assert no["status"] == "ok" and not no["supported"]
 
 
+def test_new_ambassadors_do_not_pass_for_good_clothes():
+    rows = _rows(0.0, 4, guests=0.8)
+    guests_in = runway.what_the_clothes_add(rows, controls=("spike", "momentum"), perms=300, boot=200)
+    assert guests_in["supported"]                                       # without the scene, the guests read as clothes
+    held = runway.what_the_clothes_add(rows, perms=300, boot=200)
+    assert held["controls"] == ["spike", "momentum", "scene"] and not held["supported"]
+
+
 def test_a_house_whose_press_is_always_warm_does_not_pass_for_good_clothes():
     rng = np.random.default_rng(3)
     rows = []
@@ -116,7 +127,7 @@ def test_a_house_whose_press_is_always_warm_does_not_pass_for_good_clothes():
         for k in range(12):
             spike, mom = rng.normal(0, 1), rng.normal(0, 1)
             rows.append({"house": f"h{h}", "date": date(2020, 1, 1) + timedelta(days=60 * k), "spike": spike,
-                         "momentum": mom, "reception": 3 * level + rng.normal(0, 1),
+                         "momentum": mom, "scene": 0.0, "reception": 3 * level + rng.normal(0, 1),
                          "lasting": 2 * level + 0.4 * spike + rng.normal(0, 0.6)})
     pooled = np.corrcoef([r["reception"] for r in rows], [r["lasting"] for r in rows])[0, 1]
     assert pooled > 0.6                                       # the naive reading: warm press, lasting attention

@@ -282,6 +282,29 @@ def test_what_a_campaign_sells_is_read_from_its_title():
     assert T.title_line("The New 'DiorAlps' Ski Wear Capsule F/W 21", True) == "capsule"
 
 
+@pytest.mark.parametrize("texts,line", [
+    (["Discover the Fall-Winter 2026 collection"], "collection"),
+    (["Découvrez la collection Printemps-Été 2027"], "collection"),
+    (["La nuova campagna Autunno-Inverno 2026"], "collection"),
+    (["Watch the show live", "Spring-Summer 2027"], "collection"),     # a show is advertised, not a watch
+    (["The new Galleria bag"], "accessories"),
+    (["Le nouveau sac", "Découvrir"], "accessories"),
+    (["Die neue Tasche"], "accessories"),
+    (["Eau de Parfum, the new fragrance"], "beauty"),
+    (["A beautiful collection"], "collection"),                       # beautiful is not beauty
+    (["Haute Joaillerie"], "jewellery_watches"),
+    (["The new Tank watch"], "jewellery_watches"),
+    (["Holiday gifts for everyone"], "holiday"),
+    (["Idées cadeaux pour Noël"], "holiday"),
+    (["Express 24h delivery"], "other"),                              # no season in "ss 24"
+    (["Complete the look"], "other"),                                 # été only as a word
+    ([], "other"),
+    (None, "other"),
+])
+def test_what_an_ad_sells_is_read_from_its_own_text_in_five_languages(texts, line):
+    assert T.ad_line(texts) == line
+
+
 def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     monkeypatch.setattr(T, "DIR", tmp_path / "thread")
     monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")

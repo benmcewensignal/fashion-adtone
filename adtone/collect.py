@@ -23,7 +23,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import requests
 
-from . import config, copyfeat, registry, store
+from . import config, copyfeat, registry, store, thread
 from .adlib import AdLibraryClient, GraphError, TokenError, scrub
 
 log = logging.getLogger("adtone.collect")
@@ -79,6 +79,9 @@ def normalise(raw: dict, house_id: str, rid: str) -> dict:
         "beneficiary_payers": payers or None,
         "copy": copyfeat.features(raw.get("ad_creative_bodies")),
         "title": copyfeat.features(raw.get("ad_creative_link_titles")),
+        # what the ad sells, read from its text now, because the text is not kept (Amendment 3, section 2)
+        "line": thread.ad_line([*(raw.get("ad_creative_bodies") or []), *(raw.get("ad_creative_link_titles") or []),
+                                *(raw.get("ad_creative_link_descriptions") or [])]),
         "first_collected": rid,
         "last_collected": rid,
     }

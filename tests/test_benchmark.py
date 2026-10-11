@@ -80,6 +80,27 @@ def test_the_benchmark_follows_each_collection_and_places_it_within_its_season()
     assert out["association"]["status"].startswith("insufficient")          # 12 collections with every term
 
 
+def test_the_association_reads_only_the_shop_window_months_before_the_attention_window_closes():
+    """Lasting attention is measured to day 120. Pictures put up later cannot have moved it, so the measures the
+    association reads come from the months up to day 120; the window's own measures still cover all of it."""
+    rng = np.random.default_rng(6)
+    houses = [f"h{k}" for k in range(5)]
+    cols, pics = [], []
+    for h in houses:
+        cols.append({"id": f"{h}:2026 AW rtw", "house": h, "season": "2026 AW rtw", "date": "2026-03-02", "category": "rtw",
+                     "main": True, "show": {"heat": 0.3, "lasting": 0.0, "momentum": 0.0},
+                     "scene": None, "campaign": {"entries": 0, "by_line": {}}, "advertising": {}})
+        early, late = rng.normal(size=16), rng.normal(size=16)
+        for i in range(4):
+            pics.append(_pic(h, "2026-04", "image", early + rng.normal(0, 0.05, 16), i))   # day 44
+            pics.append(_pic(h, "2026-08", "image", (late if h == "h0" else early) + rng.normal(0, 0.05, 16), i))  # day 166
+    out = B.build(cols, pics, last_month="2026-10")
+    r = {x["house"]: x["shop_window"] for x in out["collections"]}
+    assert r["h0"]["months"][0] == "2026-03" and r["h0"]["while_attention"]["months"] == ["2026-03", "2026-04", "2026-05", "2026-06"]
+    assert r["h0"]["pictures"] == 8 and r["h0"]["while_attention"]["pictures"] == 4      # August is after day 120
+    assert r["h0"]["while_attention"]["mix"] == {"image": 1.0, "product": 0.0, "other": 0.0}
+
+
 def test_the_thread_workflow_owns_the_benchmark_results():
     from adtone import guard
     assert guard.violations("thread", ["data/results/benchmark.json", "data/results/benchmark.csv"]) == []
@@ -170,9 +191,9 @@ def test_the_runway_is_translated_and_followed_into_the_shop_window():
     assert r[("h1", "2025 AW")]["runway"]["show"] == "2025-03-06"      # a runway page dated three days off
     sw = {h: c["shop_window"] for h, c in now.items()}
     assert sw["h0"]["worn"] == 12 and sw["h0"]["reach"] == round(12 / 14, 3)
-    assert sw["h0"]["transmission"]["value"] > 0.8 > sw["h1"]["transmission"]["value"]
-    assert sw["h0"]["transmission"]["percentile"] > sw["h1"]["transmission"]["percentile"]
-    assert sw["h1"]["transmission"]["told_apart"] and not sw["h0"]["transmission"]["told_apart"]
+    assert sw["h0"]["own_runway"]["value"] > 0.8 > sw["h1"]["own_runway"]["value"]
+    assert sw["h0"]["own_runway"]["percentile"] > sw["h1"]["own_runway"]["percentile"]
+    assert sw["h1"]["own_runway"]["told_apart"] and not sw["h0"]["own_runway"]["told_apart"]
     assert sw["h0"]["recognisable"]["value"] == 1.0 and sw["h1"]["recognisable"]["value"] < 0.5   # h1's window looks like h2
     mv = {h: c["runway"]["movement"]["value"] for h, c in now.items()}
     assert max(mv, key=mv.get) == "h3" and now["h3"]["runway"]["movement"]["previous"] == "2025-03-03"
@@ -181,10 +202,10 @@ def test_the_runway_is_translated_and_followed_into_the_shop_window():
     assert max(wd, key=wd.get) == "h0"                                  # the only window not showing street clothes
     wm = {h: s["movement"]["value"] for h, s in sw.items()}
     assert max(wm, key=wm.get) == "h3" and sw["h3"]["movement"]["told_apart"]     # its window followed its new runway
-    assert out["seasons"]["2026 SS"]["runway"] == 4 and out["seasons"]["2026 SS"]["transmission"] == 4
+    assert out["seasons"]["2026 SS"]["runway"] == 4 and out["seasons"]["2026 SS"]["own_runway"] == 4
     assert out["clothes"]["status"] == "provisional" and "subject" not in out["clothes"]["use"]
     few = B.build([c for c in cols if c["house"] != "h3"], pics, last_month="2026-06",
                   clothes={"judge": judge, "readings": ans, "runway": runway, "spec": SPEC})
-    assert all("percentile" not in x["clothes"]["shop_window"]["transmission"] for x in few["collections"])   # three are too few to place
+    assert all("percentile" not in x["clothes"]["shop_window"]["own_runway"] for x in few["collections"])   # three are too few to place
     nothing = B.build(cols, pics, last_month="2026-06", clothes={"judge": {"status": "waiting on the reading of the test set", "use": []}})
     assert nothing["collections"][0]["clothes"] == {"status": "waiting on the reading of the test set"}

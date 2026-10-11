@@ -321,12 +321,15 @@ own line: the archive keeps a house's men's pages beside its women's show, and t
 workflow runs both every three hours until they are complete, and reads the new looks once a hundred wait.
 
 The season benchmark uses the clothes: for the runway and for the shop window's outfits, distinctness
-against the season's other brands and movement from the brand's own last one; transmission, the
-likeness between the runway and the shop window; and whether the shop window looks more like its own
-runway than the season's others. Every comparison is net of chance at the numbers of pictures compared
-(`adtone.clothes.Wardrobe`), and every figure carries the standing of the questions it rests on.
-`PREREGISTRATION-AMENDMENT-3.md` is a draft, not decided, of how the links between the show and the
-advertising would be tested if they are tested at all.
+against the season's other brands and movement from the brand's own last one; the shop window's
+likeness to its own runway; and whether the shop window looks more like its own runway than the
+season's others, the house's signature. Every comparison is net of chance at the numbers of pictures
+compared (`adtone.clothes.Wardrobe`), and every figure carries the standing of the questions it rests
+on. The show and the advertising have different jobs and are scored on different scorecards; what they
+share is the clothes. `PREREGISTRATION-AMENDMENT-3.md`, a draft, tests whether a house's advertising
+for the collection moves the way its runway moves, each channel placed against its own kind, and
+describes the shop window: its early months cannot be told from the previous show's, and it changes
+too little between seasons to carry a test.
 
 ## The site's illustration of the clothes reader
 
