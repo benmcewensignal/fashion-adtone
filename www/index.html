@@ -276,6 +276,7 @@
   .pv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.45rem 1.25rem; align-items: end; }
   .pv-who { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; column-gap: 0.75rem; min-width: 0; }
   .pv-name { font-family: var(--serif); font-style: italic; font-size: 1.25rem; line-height: 1.15; }
+  .pv-who.stack { flex-direction: column; align-items: flex-start; row-gap: 0.15rem; }
   .pv-sub { font-size: 0.75rem; color: var(--muted); }
   .pv-cell { display: grid; grid-template-columns: minmax(0, 1fr) 3.4rem; column-gap: 0.5rem; align-items: center; min-width: 0; }
   .pv-cell .lab { grid-column: 1 / -1; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
@@ -513,13 +514,13 @@
   details > .status { margin: 0 0 1rem; }
   /* Readings: the slider first, with one sentence; the long notes and the eighteen questions behind disclosures */
   /* the look and its slider fit the first screen: on a short screen the picture gives up width, the slider keeps the column */
-  #readings .intro { margin-bottom: clamp(1.75rem, 4vw, 2rem); }
-  .fx-pic { width: min(100%, max(13.5rem, calc((100vh - 20rem) * 2 / 3))); width: min(100%, max(13.5rem, calc((100svh - 20rem) * 2 / 3))); margin-inline: auto; }
-  @media (min-width: 44rem) { .fx-pic { width: min(100%, max(14rem, calc((100vh - 23rem) * 2 / 3))); width: min(100%, max(14rem, calc((100svh - 23rem) * 2 / 3))); } }
+  #readings .intro { margin-bottom: clamp(1.25rem, 4vw, 2rem); }
+  #readings .intro p { margin-top: 0.6rem; font-size: 0.9375rem; line-height: 1.5; }
+  .fx-pic { width: min(100%, max(11rem, calc((100vh - 26rem) * 2 / 3))); width: min(100%, max(11rem, calc((100svh - 26rem) * 2 / 3))); margin-inline: auto; }
+  @media (min-width: 44rem) { .fx-pic { width: min(100%, max(13rem, calc((100vh - 28rem) * 2 / 3))); width: min(100%, max(13rem, calc((100svh - 28rem) * 2 / 3))); } }
   .fx-one { margin: 0.9rem auto 0; max-width: 24rem; font-size: 0.9375rem; line-height: 1.5; text-align: center; text-wrap: pretty; }
   .fx-more { margin-top: 1.5rem; }
   .fx-more summary { font-size: 1.0625rem; }
-  .four-ways { max-width: 34rem; margin: clamp(3.5rem, 9vw, 5rem) auto 0; text-align: center; }
   .anat.solo { grid-template-columns: minmax(0, 1fr); max-width: 22rem; margin: 0 auto 1.75rem; }
   .anat.solo figure { position: static; }
   .qs-more { max-width: 44rem; margin: 0 auto; }
@@ -600,7 +601,7 @@
               <p>The runway translated into numbers and followed into the shop window, the campaigns and the advertising, then set against the attention that followed.</p>
               <ul class="four">
                 <li><span class="t">Transmission</span>Whether the advertising moves the way the runway moved, season to season. Advertising can sell more plainly than the show and still follow its direction.</li>
-                <li><span class="t">Distinctness</span>How far the brand stands from its peers at each stage: the runway among runways, the advertising among advertising.</li>
+                <li><span class="t">Distinctness</span>How far the brand stands from its peers at each stage, the runway among runways and the advertising among advertising, and what sets it apart: the answers on which its pictures differ most from theirs.</li>
                 <li><span class="t">Mix</span>How much of each stage is campaign imagery, product on a model and product alone.</li>
                 <li><span class="t">Movement</span>How far each stage has moved from the brand's own previous seasons. The advertising's movement is shown without a score, since staying recognisable is part of its job.</li>
               </ul>
@@ -627,6 +628,7 @@
       </header>
       <div class="intro">
         <h2 id="readings-h">What it reads</h2>
+        <p>Every picture a house shows is read four ways: its clothes, how it is made, its place on the axes of luxury, and its colour and light. The answers say what sets a house apart. The clothes come first.</p>
       </div>
       <div class="body wide">
         <!--FX-->
@@ -707,7 +709,6 @@
           </div>
         </div>
         <!--FX-END-->
-        <p class="block four-ways">Each picture is read four ways: fourteen questions on the clothes, as above; eighteen on how it is made; its place on the axes of luxury; and its colour and light, measured from the pixels.</p>
         <div class="anatomy">
           <p class="sub" style="margin-top:4rem">How it is made</p>
           <p class="block">The homepage pictures are also read for how they are made, on eighteen questions. Here they are on one campaign image, generated for illustration, with its answer to each.</p>
@@ -993,7 +994,7 @@
               <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
               <div><dt>Tim El Kaïm</dt><dd>Chanel, Louis Vuitton</dd></div>
             </dl>
-            <p class="note">Brunello Cucinelli, Hermès, Maison Margiela and Zegna stand apart. Fashion and beauty campaigns; credits compiled 6 to 12 October 2026.</p>
+            <p class="note">Brunello Cucinelli, Hermès, Maison Margiela and Zegna share none: no photographer credited for them is credited at another of the <span class="nw">twenty-eight</span>, though Brunello Cucinelli and Zegna have one photographer each on file. Fashion and beauty campaigns; credits compiled 6 to 12 October 2026.</p>
           </details>
           <details open>
           <summary>When people move</summary>

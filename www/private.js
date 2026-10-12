@@ -22,6 +22,28 @@
   const byPct = (v, up, down) => v === 0 ? "no different from" : `${Math.abs(v)}% ${v > 0 ? up : down}`;
   const signed = (x, d) => (x > 0 ? "+" : x < 0 ? MINUS : "") + Math.abs(x).toFixed(d);
   const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const andList = xs => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
+  // what sets a set of pictures apart, from the reader's answers: each named answer's share of the pictures against the
+  // median other brand's (or runway's), the comparison named once
+  const sayApart = (a, who) => andList(a.map((x, i) => `${pct(x.h)} ${x.l} against ${pct(x.m)}${i === 0 && who ? ` at ${who}` : ""}`));
+  const KIND_NAME = { image: "campaign pictures", product: "product" };
+  const kindsText = m => ["image", "product"].filter(k => m[k]).map(k => `${KIND_NAME[k]} ${ordinal(m[k].p)} of 100 (${m[k].n} pictures)`).join(", ");
+  // after a window's distinctness, kind by kind: what sets it apart, or why nothing is named
+  function whatSetsApart(m, who, answers = "the reader's answers") {
+    const ks = ["image", "product"].filter(k => m[k] && "a" in m[k]);
+    if (!ks.length) return "";
+    const named = ks.filter(k => m[k].a && m[k].a.length);
+    if (!named.length) {
+      return ks.some(k => m[k].a) ? ` No answer stands far from ${who}'s.` : " Too few pictures of one kind to say what sets them apart.";
+    }
+    if (ks.length === 1) return ` What sets them apart in ${answers}: ${sayApart(m[ks[0]].a, who)}.`;
+    return ` What sets them apart in ${answers}: ` + ks.map((k, i) => {
+      const x = m[k];
+      return `the ${KIND_NAME[k]}, ${x.a == null ? "too few to say" : x.a.length ? sayApart(x.a, k === named[0] ? who : null) : `nothing far from ${who}'s`}`;
+    }).join("; ") + ".";
+  }
+  // the clothes: one set of outfits or looks
+  const clothesApart = (a, who) => a == null ? "" : a.length ? ` What sets them apart in the clothes answers: ${sayApart(a, who)}.` : ` No clothes answer stands far from ${who}'s.`;
   const THIN = 8;
 
   let sealed = null, P = null, current = null;
@@ -267,9 +289,9 @@
       pairs.push(["The next show", sc ? `${sc.day}: ${ordinal(sc.heat_p)} of 100 for the jump` + (sc.last_p != null ? `, ${ordinal(sc.last_p)} for whether it lasted.` : "; whether it lasted is read 120 days after.") : "None on file since.", !sc]);
       const ws = [["before", "Before"], ["debut", "First season"], ["next", "Next season"]]
         .filter(([k]) => r.window[k] && r.window[k].dist_p != null)
-        .map(([k, n]) => `${r.window[k].label}: ${r.window[k].dist_p} of 100 for distinctness, on ${r.window[k].pics} pictures`);
+        .map(([k, n]) => `${r.window[k].label}: ${r.window[k].dist_p} of 100 for distinctness, on ${r.window[k].pics} pictures.` + whatSetsApart(r.window[k].apart || {}, "the median brand"));
       const mv = r.window.debut && r.window.debut.move_p;
-      pairs.push(["The shop window", ws.length ? ws.join("; ") + "." + (mv != null ? ` Moved from the season before: ${mv} of 100.` : "") : "No homepage pictures on file since the change.", !ws.length]);
+      pairs.push(["The shop window", ws.length ? ws.join(" ") + (mv != null ? ` Moved from the season before: ${mv} of 100.` : "") : "No homepage pictures on file since the change.", !ws.length]);
       pairs.push(reshuffleClothes(r, part.clothes_norms || {}));
       let crew = r.crew ? `${r.crew.before} advertising photographer${r.crew.before === 1 ? "" : "s"} before the change and ${r.crew.after} since; kept: ${r.crew.kept.length ? r.crew.kept.join(", ") : "none"}.` : "No campaign credits on file before the change.";
       if (r.came) {
@@ -358,7 +380,7 @@
     let divided = false;
     for (const r of list) {
       if (!divided && so(r.season) < so(part.change_season)) { rows.append(el("div", "pv-divider", `Above: ${part.change_label}`)); divided = true; }
-      const line = el("div", "pv-line pv-grid c-board");
+      const d = el("details"); const line = el("summary", "pv-grid c-board");
       const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.label), el("span", "pv-sub", r.day)); line.append(who);
       const thin = r.pics < THIN, none = r.pics ? "too few of one kind" : "no pictures on file";
       line.append(place("Distinct from peers", r.dist_p, thin, `${r.dist_p} of 100, from ${r.pics} pictures`, none));
@@ -366,7 +388,10 @@
       line.append(place("Attention lasted", r.last_p, false, r.last != null ? `${r.last_p} of 100` : "", r.heat_p == null ? "no page views" : "read after 120 days"));
       line.append(place("Jump at the show", r.heat_p, false, r.heat != null ? `${r.heat}% on its usual level, ${r.heat_p} of 100` : "", "too few page views"));
       line.append(share("Campaign pictures", r.image != null ? { image: r.image } : null, r.pics));
-      rows.append(line);
+      const sw = !r.pics ? "No homepage pictures on file for the season." : `${r.pics} homepage picture${r.pics > 1 ? "s" : ""}.`
+        + (r.kinds ? ` Distinct from peers: ${kindsText(r.kinds)}.` + whatSetsApart(r.kinds, "the median brand") : " Too few pictures of one kind to place it.");
+      d.append(line, dl([["The shop window", sw, !r.kinds]]));
+      rows.append(d);
     }
     wide.append(rows); host.append(wide);
     findings(host, [{ p: part.close }]);
@@ -394,7 +419,7 @@
       h.replaceChildren();
       for (const [k, t] of items) { const b = el("button", "pv-chip", t); b.type = "button"; b.setAttribute("aria-pressed", String(k === cur)); b.addEventListener("click", () => pick(k)); h.append(b); }
     }
-    const kinds = m => [m.image && `campaign pictures ${ordinal(m.image.p)} of 100 (${m.image.n} pictures)`, m.product && `product ${ordinal(m.product.p)} of 100 (${m.product.n} pictures)`].filter(Boolean).join(", ");
+    const kinds = kindsText;
     function detail(r) {
       const pairs = [];
       pairs.push(["The scene", r.amb == null ? "Ambassador appointments are on file from 2019." : r.amb === 0 ? "No ambassador appointed in the six months before." : `${r.amb} ambassador${r.amb > 1 ? "s" : ""} appointed in the six months before.`, r.amb == null]);
@@ -412,7 +437,7 @@
         sw = `${r.pics} homepage picture${r.pics > 1 ? "s" : ""} first shown from ${r.months[0]} to ${r.months[1]}`;
         sw += r.mix ? `: ${pct(r.mix.image)} campaign pictures, ${pct(r.mix.product)} product, ${pct(r.mix.other)} other.` : ".";
         if (r.shift != null) sw += ` The mix moved ${pct(r.shift)} from the previous window.`;
-        if (r.dist) sw += ` Distinct from peers: ${kinds(r.dist)}.`;
+        if (r.dist) sw += ` Distinct from peers: ${kinds(r.dist)}.` + whatSetsApart(r.dist, "the median brand");
         if (r.move) sw += ` Moved from its pictures after the show of ${r.move.prev}: ${kinds(r.move)}.`;
         if (!r.dist && !r.move) sw += " Too few pictures of one kind to place it.";
         if (!r.complete) sw += " The window is still open.";
@@ -431,7 +456,8 @@
       else if (!rw.desc) out.push(["The runway, translated", `Only ${rw.looks} look${rw.looks === 1 ? "" : "s"} read from the brand's runway pages, too few to describe.`, true]);
       else {
         let t = `${rw.looks} looks read from the brand's own runway pages for the show of ${rw.show}. ${rw.desc}`;
-        if (rw.dist) t += rw.dist.p != null ? ` Distinct from the season's other runways: ${ordinal(rw.dist.p)} of 100.` : ` Told apart from ${rw.dist.apart} of the ${rw.dist.n} other runways read for the season.`;
+        if (rw.dist) t += (rw.dist.p != null ? ` Distinct from the season's other runways: ${ordinal(rw.dist.p)} of 100.` : ` Told apart from ${rw.dist.apart} of the ${rw.dist.n} other runways read for the season.`)
+          + clothesApart(rw.dist.a, "the median runway");
         if (rw.move) t += ` Against its runway of ${rw.move.prev}: ${apartText(rw.move, "it")}${rw.move.p != null ? `, ${ordinal(rw.move.p)} of 100 for how far it moved` : ""}.`;
         out.push(["The runway, translated", t]);
       }
@@ -439,7 +465,8 @@
       else if (!sw.desc) out.push(["The clothes in the shop window", `${sw.worn} of the ${sw.read} pictures read show an outfit worn, too few to read the clothes.`, true]);
       else {
         let t = `${sw.worn} of the ${sw.read} pictures read show an outfit worn. ${sw.desc}`;
-        if (sw.dist) t += sw.dist.p != null ? ` Distinct from the other brands' outfits in the same months: ${ordinal(sw.dist.p)} of 100.` : ` Told apart from ${sw.dist.apart} of ${sw.dist.n} other brands.`;
+        if (sw.dist) t += (sw.dist.p != null ? ` Distinct from the other brands' outfits in the same months: ${ordinal(sw.dist.p)} of 100.` : ` Told apart from ${sw.dist.apart} of ${sw.dist.n} other brands.`)
+          + clothesApart(sw.dist.a, "the median brand");
         if (sw.move) t += ` Against its window after the show of ${sw.move.prev}: ${apartText(sw.move, "it")}${sw.move.p != null ? `, ${ordinal(sw.move.p)} of 100 for how far it moved` : ""}.`;
         if (sw.trans) {
           t += ` Against its own runway: ${apartText(sw.trans, "it")}, likeness ${Math.min(1, sw.trans.v).toFixed(2)}`;
@@ -548,7 +575,7 @@
       const rows = el("div", "pv-rows");
       for (const r of f.rows) {
         const line = el("div", "pv-line pv-grid"); line.style.gridTemplateColumns = "minmax(0, 1fr)";
-        const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.name));
+        const who = el("span", "pv-who stack"); who.append(el("span", "pv-name", r.name));
         if (r.sub) who.append(el("span", "pv-sub", r.sub));
         line.append(who);
         if (f.kind === "pair") {
