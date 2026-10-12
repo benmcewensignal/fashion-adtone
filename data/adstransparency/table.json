@@ -1,0 +1,211 @@
+{
+  "bytes": 141031466839,
+  "clustering": null,
+  "modified": "2026-10-12",
+  "partitioning": null,
+  "read_at": "2026-10-12T18:16:30Z",
+  "rows": 163343489,
+  "run": "gh38289737527",
+  "schema": [
+    {
+      "description": "A unique identifier for a specific advertiser",
+      "mode": "NULLABLE",
+      "name": "advertiser_id",
+      "type": "STRING"
+    },
+    {
+      "description": "A unique identifier for a specific ad",
+      "mode": "NULLABLE",
+      "name": "creative_id",
+      "type": "STRING"
+    },
+    {
+      "description": "A link to the relevant Ads Transparency Center page for this ad",
+      "mode": "NULLABLE",
+      "name": "creative_page_url",
+      "type": "STRING"
+    },
+    {
+      "description": "A description of the ad type",
+      "mode": "NULLABLE",
+      "name": "ad_format_type",
+      "type": "STRING"
+    },
+    {
+      "description": "The advertiser's name for transparency reporting and disclosures",
+      "mode": "NULLABLE",
+      "name": "advertiser_disclosed_name",
+      "type": "STRING"
+    },
+    {
+      "description": "The legal name of the advertiser",
+      "mode": "NULLABLE",
+      "name": "advertiser_legal_name",
+      "type": "STRING"
+    },
+    {
+      "description": "ISO 3166-2 region code (for example \"FR\" for France)",
+      "mode": "NULLABLE",
+      "name": "advertiser_location",
+      "type": "STRING"
+    },
+    {
+      "description": "Whether or not the advertiser has verified their identity with Google yet",
+      "mode": "NULLABLE",
+      "name": "advertiser_verification_status",
+      "type": "STRING"
+    },
+    {
+      "description": "Collection of regions in which the ad served (in the European Economic Area and Turkey) and their relevant stats",
+      "fields": [
+        {
+          "description": "ISO 3166-2 region code (for example \"FR\" for France) of the region where the ad was shown, or a text representation of an aggregate region (for example \"EEA\" for the European Economic Area)",
+          "mode": "NULLABLE",
+          "name": "region_code",
+          "type": "STRING"
+        },
+        {
+          "description": "YYYY-MM-DD representation of the first date the ad was shown. If the ad was first shown before March 1st, 2023, March 1st, 2023 will be reported as the first_shown date.",
+          "mode": "NULLABLE",
+          "name": "first_shown",
+          "type": "STRING"
+        },
+        {
+          "description": "YYYY-MM-DD representation of the last date the ad was shown",
+          "mode": "NULLABLE",
+          "name": "last_shown",
+          "type": "STRING"
+        },
+        {
+          "description": "YYYY-MM-DD representation of the date up to which times_shown (both upper and lower bounds) has been updated. This field is NULL if no impressions occurred within the reporting period.",
+          "mode": "NULLABLE",
+          "name": "times_shown_end_date",
+          "type": "STRING"
+        },
+        {
+          "description": "The lower bound of the number of times the ad was shown in the associated region. This field is NULL if no impressions occurred within the reporting period.",
+          "mode": "NULLABLE",
+          "name": "times_shown_lower_bound",
+          "type": "INTEGER"
+        },
+        {
+          "description": "The upper bound of the number of times the ad was shown in the associated region. This field is NULL if no impressions occurred within the valid reporting period.",
+          "mode": "NULLABLE",
+          "name": "times_shown_upper_bound",
+          "type": "INTEGER"
+        },
+        {
+          "description": "YYYY-MM-DD representation of the earliest date for which times_shown is considered (both upper and lower bounds). Impressions are reported for activity since March 1st, 2023. This field is NULL if no impressions occurred with the reporting period.",
+          "mode": "NULLABLE",
+          "name": "times_shown_start_date",
+          "type": "STRING"
+        },
+        {
+          "description": "YYYY-MM-DD representation of the date on which impressions will become available if no impressions occurred within the reporting period. This field is NULL if impressions did occur within the reporting period.",
+          "mode": "NULLABLE",
+          "name": "times_shown_availability_date",
+          "type": "STRING"
+        },
+        {
+          "description": "Collection of platforms where the ad served and their relevant serving times lower/upper bound. This field is NULL if no platform serving stats data is populated.",
+          "fields": [
+            {
+              "description": "Collection of platforms where the ad served and their relevant serving times lower/upper bound. The field is empty if no platform serving stats data is available within the valid reporting period.",
+              "fields": [
+                {
+                  "description": "The platform where the ad served. Possible values are: SEARCH, MAPS, PLAY, SHOPPING, YOUTUBE.",
+                  "mode": "NULLABLE",
+                  "name": "surface",
+                  "type": "STRING"
+                },
+                {
+                  "description": "The upper bound of the number of times the ad was shown in the associated region and platform.",
+                  "mode": "NULLABLE",
+                  "name": "times_shown_upper_bound",
+                  "type": "INTEGER"
+                },
+                {
+                  "description": "The lower bound of the number of times the ad was shown in the associated region and platform.",
+                  "mode": "NULLABLE",
+                  "name": "times_shown_lower_bound",
+                  "type": "INTEGER"
+                },
+                {
+                  "mode": "NULLABLE",
+                  "name": "times_shown_availability_date",
+                  "type": "STRING"
+                }
+              ],
+              "mode": "REPEATED",
+              "name": "surface_serving_stats",
+              "type": "RECORD"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "surface_serving_stats",
+          "type": "RECORD"
+        }
+      ],
+      "mode": "REPEATED",
+      "name": "region_stats",
+      "type": "RECORD"
+    },
+    {
+      "description": "Information on audience selection, broken out by approach type. The available values are: \"CRITERIA_INCLUDED\" (Criteria from this category were included in the ad's audience), \"CRITERIA_EXCLUDED\" (Criteria from this category were excluded from the ad's audience), \"CRITERIA_INCLUDED_AND_EXCLUDED\" (Some criteria from this category were included and others were excluded from the ad's audience), and \"CRITERIA_UNUSED\" (Criteria from these categories were not used for audience selection).",
+      "fields": [
+        {
+          "description": "Describes if and how demographic info was used to select the ad audience (see audience_selection_approach_info above for more details)",
+          "mode": "NULLABLE",
+          "name": "demographic_info",
+          "type": "STRING"
+        },
+        {
+          "description": "Describes if and how geo location info was used to select the ad audience (see audience_selection_approach_info above for more details)",
+          "mode": "NULLABLE",
+          "name": "geo_location",
+          "type": "STRING"
+        },
+        {
+          "description": "Describes if and how contextual signals were used to select the ad audience (see audience_selection_approach_info above for more details)",
+          "mode": "NULLABLE",
+          "name": "contextual_signals",
+          "type": "STRING"
+        },
+        {
+          "description": "Describes if and how customer lists were used to select the ad audience (see audience_selection_approach_info above for more details)",
+          "mode": "NULLABLE",
+          "name": "customer_lists",
+          "type": "STRING"
+        },
+        {
+          "description": "Describes if and how topics of interest were used to select the ad audience (see audience_selection_approach_info above for more details)",
+          "mode": "NULLABLE",
+          "name": "topics_of_interest",
+          "type": "STRING"
+        }
+      ],
+      "mode": "NULLABLE",
+      "name": "audience_selection_approach_info",
+      "type": "RECORD"
+    },
+    {
+      "description": "The topic of the ad",
+      "mode": "NULLABLE",
+      "name": "topic",
+      "type": "STRING"
+    },
+    {
+      "description": "Indicates whether the ad is funded by an in-kind donation through Google Ad Grants. This field is set to true if the advertiser is a recipient of a Google Ad Grants in-kind donation. Google ad Grants donates Search advertising to eligible organizations. Google does not endorse these ad.",
+      "mode": "NULLABLE",
+      "name": "is_funded_by_google_ad_grants",
+      "type": "BOOLEAN"
+    },
+    {
+      "description": "The payer of the ad when different from the advertiser's disclosed name",
+      "mode": "NULLABLE",
+      "name": "ad_funded_by",
+      "type": "STRING"
+    }
+  ],
+  "table": "bigquery-public-data.google_ads_transparency_center.creative_stats"
+}
