@@ -223,3 +223,27 @@ def test_a_picture_is_dated_by_the_first_month_the_homepage_showed_it(tmp_path):
     np.savez(vecs / "v.npz", shas=np.array(["a1"]), vecs=np.ones((1, 4)))
     pics = B.load_pictures(obs_path=obs, larger=tmp_path / "none.jsonl", vectors=vecs, captures=caps)
     assert [(p["sha"], p["month"], p["group"]) for p in pics] == [("a1", "2025-01", "image")]
+
+
+def test_a_brand_s_number_of_pictures_does_not_set_its_distinctness_or_movement():
+    # every brand's pictures come from one look; one brand shows forty, another four. On whole sets the forty
+    # make a steady centroid close to the market and the four a noisy one far from it; drawn at equal sizes,
+    # the two come out alike.
+    rng = np.random.default_rng(0)
+    base = rng.normal(size=512)
+
+    def pics(n, h):
+        out = []
+        for i in range(n):
+            v = base + rng.normal(scale=3.0, size=512)
+            out.append({"sha": f"{h}{i}", "group": "image", "vec": v / np.linalg.norm(v)})
+        return out
+
+    by = {"many": pics(40, "m"), "few": pics(4, "f"), **{f"p{k}": pics(6, f"p{k}") for k in range(5)}}
+    d = {h: B.distinctness(by[h], {o: by[o] for o in by if o != h})["image"]["value"] for h in ("many", "few")}
+    assert abs(d["many"] - d["few"]) < 0.03
+    whole = {h: 1 - float(B._centroid([p["vec"] for p in by[h]]) @ B._centroid(
+        [B._centroid([p["vec"] for p in by[o]]) for o in by if o != h])) for h in ("many", "few")}
+    assert whole["few"] - whole["many"] > 0.1                              # what the whole sets would have said
+    m = {h: B.movement(by[h], pics(len(by[h]), h + "x"))["image"]["value"] for h in ("many", "few")}
+    assert abs(m["many"] - m["few"]) < 0.03

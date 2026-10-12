@@ -17,6 +17,10 @@ For every main collection in data/thread/collections.jsonl:
       distinctness  one less the cosine between the brand's centroid and the mean of the other brands'
                     centroids for the same months, by the fingerprint (OpenCLIP ViT-B-32);
       movement      one less the cosine between the brand's centroid and its own in the previous window;
+                    both on equal numbers of pictures: every centroid is of MIN_KIND pictures drawn at random,
+                    averaged over EQUAL_DRAWS draws. A centroid of many pictures is steadier than one of few,
+                    so on whole sets a brand that shows many pictures looks typical and one that shows few
+                    looks distinct, whatever its pictures are like;
       mix           the shares of campaign pictures, product and everything else, and how far they moved
                     from the previous window (total variation distance);
   the campaigns     what the brand published for the season, as the Thread joins it;
@@ -45,6 +49,7 @@ from __future__ import annotations
 import csv
 import json
 import sys
+import zlib
 from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
@@ -67,6 +72,7 @@ ATTENTION_END = 120      # the last day of the lasting window (adtone/runway.py 
 MIN_KIND = 3             # pictures of a kind, in a window, before a brand gets a value for that kind
 MIN_PEERS = 3            # other brands with that kind in the same months, before distinctness is given
 MIN_MIX = 3              # pictures in a window before its mix is given
+EQUAL_DRAWS = 200        # draws of MIN_KIND pictures a side, so that no brand's sample size sets its place
 GROUPS = ("image", "product")
 GROUP_OF = {"brand_image": "image", "product_on_model": "product", "product_packshot": "product",
             "catalogue_grid": "product"}      # promotional, events, text and other: "other"
@@ -149,32 +155,54 @@ def _centroid(vs: list[np.ndarray]) -> np.ndarray:
     return c / n if n else c
 
 
+def _seed(*groups: list[dict]) -> int:
+    """A seed fixed by the pictures themselves, so a brand's value does not depend on the order brands are read."""
+    return zlib.crc32("|".join(sorted(str(p.get("sha", i)) for ps in groups for i, p in enumerate(ps))).encode())
+
+
+def _drawn(vs: list[np.ndarray], k: int, draws: int, rng: np.random.Generator) -> np.ndarray:
+    """Unit centroids of k pictures drawn without replacement, one row per draw."""
+    X = np.vstack(vs)
+    idx = np.argsort(rng.random((draws, len(vs))), axis=1)[:, :k]
+    C = X[idx].mean(axis=1)
+    return C / np.linalg.norm(C, axis=1, keepdims=True)
+
+
 def distinctness(brand: list[dict], peers: dict[str, list[dict]], min_kind: int = MIN_KIND,
-                 min_peers: int = MIN_PEERS) -> dict:
+                 min_peers: int = MIN_PEERS, draws: int = EQUAL_DRAWS) -> dict:
     """Like for like: for each kind, one less the cosine between the brand's centroid and the mean of the
-    other brands' centroids of the same kind; then the kinds averaged, weighted by the brand's pictures."""
+    other brands' centroids of the same kind; then the kinds averaged, weighted by the brand's pictures.
+    Every centroid is of min_kind pictures, drawn again and again, so a brand's number of pictures does not
+    move its value: on whole sets, many pictures make a steady centroid that sits close to the market."""
     out = {}
     for g in GROUPS:
-        mine = [p["vec"] for p in brand if p["group"] == g]
-        others = [_centroid([p["vec"] for p in ps if p["group"] == g]) for ps in peers.values()
-                  if sum(p["group"] == g for p in ps) >= min_kind]
+        mine = [p for p in brand if p["group"] == g]
+        others = {o: [p for p in ps if p["group"] == g] for o, ps in peers.items()}
+        others = {o: ps for o, ps in others.items() if len(ps) >= min_kind}
         if len(mine) >= min_kind and len(others) >= min_peers:
-            out[g] = {"value": round(1 - float(_centroid(mine) @ _centroid(others)), 4), "n": len(mine),
-                      "peers": len(others)}
+            rng = np.random.default_rng(_seed(mine, *others.values()))
+            c = _drawn([p["vec"] for p in mine], min_kind, draws, rng)
+            m = np.mean([_drawn([p["vec"] for p in ps], min_kind, draws, rng) for o, ps in sorted(others.items())], axis=0)
+            m = m / np.linalg.norm(m, axis=1, keepdims=True)
+            out[g] = {"value": round(float(np.mean(1 - np.sum(c * m, axis=1))), 4), "n": len(mine), "peers": len(others)}
     if out:
         w = np.array([v["n"] for v in out.values()], float)
         out["value"] = round(float(np.average([v["value"] for v in out.values()], weights=w)), 4)
     return out
 
 
-def movement(now: list[dict], before: list[dict], min_kind: int = MIN_KIND) -> dict:
-    """Like for like: for each kind, one less the cosine between this window's centroid and the previous one's."""
+def movement(now: list[dict], before: list[dict], min_kind: int = MIN_KIND, draws: int = EQUAL_DRAWS) -> dict:
+    """Like for like: for each kind, one less the cosine between this window's centroid and the previous one's,
+    each of min_kind pictures drawn again and again, so that larger windows do not look steadier."""
     out = {}
     for g in GROUPS:
-        a = [p["vec"] for p in now if p["group"] == g]
-        b = [p["vec"] for p in before if p["group"] == g]
+        a = [p for p in now if p["group"] == g]
+        b = [p for p in before if p["group"] == g]
         if len(a) >= min_kind and len(b) >= min_kind:
-            out[g] = {"value": round(1 - float(_centroid(a) @ _centroid(b)), 4), "n": min(len(a), len(b))}
+            rng = np.random.default_rng(_seed(a, b))
+            ca = _drawn([p["vec"] for p in a], min_kind, draws, rng)
+            cb = _drawn([p["vec"] for p in b], min_kind, draws, rng)
+            out[g] = {"value": round(float(np.mean(1 - np.sum(ca * cb, axis=1))), 4), "n": min(len(a), len(b))}
     if out:
         w = np.array([v["n"] for v in out.values() if isinstance(v, dict)], float)
         out["value"] = round(float(np.average([v["value"] for v in out.values() if isinstance(v, dict)], weights=w)), 4)
