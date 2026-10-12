@@ -4,7 +4,8 @@ run-name: archiveprobe ${{ github.event_name }}
 # Transparency Center (Google keeps an ad only a year after it was last shown) and the houses' YouTube films
 # (the Data API gives today's totals only). Counts captures and reads a few for the figures they carry;
 # stores counts, dates and view figures, never a page or a picture. Run by hand. A second part lists the
-# site's data calls the archive kept and opens a sample of them.
+# site's data calls the archive kept and opens a sample of them; a third counts the ad pages it saved,
+# whose addresses name the advertiser, and how many saved calls came with one.
 on:
   workflow_dispatch:
   push:   # editing .github/kick/archiveprobe starts a run
@@ -34,10 +35,12 @@ jobs:
       - name: Probe the archive
         continue-on-error: true
         timeout-minutes: 45
-        # a kick whose last line names the data calls runs only that part
+        # a kick whose last line names the data calls, or the ad pages, runs only that part
         run: |
           if tail -n 1 .github/kick/archiveprobe | grep -qi "data calls"; then
             python -m adtone.archiveprobe calls --run "gh${GITHUB_RUN_ID}" --budget-min 30
+          elif tail -n 1 .github/kick/archiveprobe | grep -qi "ad pages"; then
+            python -m adtone.archiveprobe pages --run "gh${GITHUB_RUN_ID}" --budget-min 30
           else
             python -m adtone.archiveprobe run --run "gh${GITHUB_RUN_ID}"
           fi

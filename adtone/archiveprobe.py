@@ -4,6 +4,7 @@ Article 39 asks) and the houses' YouTube films (the Data API gives today's total
 
     python -m adtone.archiveprobe run --run <id> [--films 8]
     python -m adtone.archiveprobe calls --run <id>
+    python -m adtone.archiveprobe pages --run <id>
 
 
 A probe, run by hand. For the Transparency Center: how many captures the archive has of each house's main
@@ -279,9 +280,140 @@ def calls_probe(c: Crawler, open_max: int = 80) -> tuple[list[dict], dict]:
     return rows, summary
 
 
+PAGES = "adstransparency.google.com/advertiser/"
+SITE = "adstransparency.google.com/"
+DATE = "%Y%m%d%H%M%S"
+
+
+def page_of(url: str) -> dict:
+    """What a saved Transparency Center page was: the advertiser its address names, and whether it is one ad's
+    page (its address then carries the ad's id) or the advertiser's list of ads."""
+    path = url.split("adstransparency.google.com", 1)[-1]
+    a = ADVERTISER.search(path)
+    return {"advertiser": a.group(0) if a else None, "ad": bool(re.search(r"/creative/CR\d{20}", path))}
+
+
+def house_sites() -> dict[str, str]:
+    """Each house's websites, as domain to house."""
+    out = {}
+    with (config.ROOT / "reference" / "brand_sites.csv").open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            out.update({d.strip().lower(): r["house"] for d in r["domains"].split(";") if d.strip()})
+    return out
+
+
+def site_named(url: str, sites: dict[str, str]) -> str | None:
+    """The house whose website a search by website asks about (the address's domain=), or None."""
+    from urllib.parse import parse_qs, urlsplit
+    for v in parse_qs(urlsplit(url).query).get("domain", []):
+        d = v.lower().strip().removeprefix("www.")
+        for s, h in sites.items():
+            if d == s or d.endswith("." + s):
+                return h
+    return None
+
+
+def paired(a: list[str], b: list[str], within: int = 120, shift_s: int = 0) -> int:
+    """How many of the archive times in a can each be matched to a different time in b no more than `within`
+    seconds apart, b moved by `shift_s` seconds (a shift of a day gives the matches chance alone would make)."""
+    from datetime import datetime, timedelta
+    ta = sorted(datetime.strptime(t[:14], DATE) for t in a)
+    tb = sorted(datetime.strptime(t[:14], DATE) + timedelta(seconds=shift_s) for t in b)
+    i = j = n = 0
+    while i < len(ta) and j < len(tb):
+        d = (tb[j] - ta[i]).total_seconds()
+        if abs(d) <= within:
+            n, i, j = n + 1, i + 1, j + 1
+        elif d < 0:
+            j += 1
+        else:
+            i += 1
+    return n
+
+
+def cdx_all(c: Crawler, params: dict, pages: int = 6) -> tuple[list[list[str]], list[dict]]:
+    """Every row the index gives for a query, followed across its resume keys (at most `pages` queries), and
+    for each query asked the archive's answer status and the rows it gave."""
+    out, asked, key = [], [], None
+    for _ in range(pages):
+        q = {**params, "showResumeKey": "true", **({"resumeKey": key} if key else {})}
+        r = fetch(c, CDX, q)
+        rows = [] if r is None else _cdx_rows(r)
+        width = len(rows[0]) if rows else 0
+        got = [x for x in rows[1:] if len(x) == width]
+        asked.append({"status": None if r is None else r.status_code, "rows": len(got)})
+        out += got
+        key = rows[-1][0] if len(rows) >= 2 and len(rows[-1]) == 1 and rows[-2] == [] else None
+        if not key:
+            break
+    return out, asked
+
+
+def pages_probe(c: Crawler) -> tuple[list[dict], dict]:
+    """The Transparency Center pages the archive saved, whose addresses do name their advertiser: how many, of
+    which kind (one ad's page, an advertiser's list of ads, a search by website), when, and whether any is a
+    house's. Then how many of the saved single-ad lookups and ad lists (the calls stage) were saved within two
+    minutes of such a page, as a page's own calls are, set against the matches a day's shift gives by chance.
+    Only counts and the houses' own ids are kept, never another advertiser's id or website."""
+    houses, sites = house_accounts(), house_sites()
+    fl = {"output": "json", "fl": "timestamp,original,statuscode", "limit": "50000"}
+    got, asked = cdx_all(c, {"url": PAGES, "matchType": "prefix", **fl})
+    srch, asked_s = cdx_all(c, {"url": SITE, "matchType": "prefix", "filter": "original:.*domain=.*", **fl}, pages=3)
+    srch2, asked_s2 = cdx_all(c, {"url": SITE + "?d", "matchType": "prefix", **fl}, pages=2)
+
+    def status(s):
+        return "200" if s == "200" else "copy of an earlier save" if s == "-" else "redirect" if s.startswith("3") else "other"
+
+    kinds, months, advs, rows = Counter(), Counter(), set(), []
+    ad_times, list_times = [], []
+    for ts, url, st in got:
+        p = page_of(url)
+        kind = "ad page" if p["ad"] else "advertiser page" if p["advertiser"] else "other"
+        kinds[f"{kind}, {status(st)}"] += 1
+        months[(kind, ts[:6])] += 1
+        (ad_times if kind == "ad page" else list_times).append(ts)
+        if p["advertiser"]:
+            advs.add(p["advertiser"])
+        if p["advertiser"] in houses:
+            rows.append({"house": houses[p["advertiser"]], "advertiser_id": p["advertiser"], "kind": kind,
+                         "timestamp": ts, "status": st})
+    seen_search, search_times = set(), []
+    for ts, url, st in srch + srch2:
+        if (ts, url) in seen_search or "domain=" not in url:
+            continue
+        seen_search.add((ts, url))
+        search_times.append(ts)
+        h = site_named(url, sites)
+        if h:
+            rows.append({"house": h, "advertiser_id": None, "kind": "search by website", "timestamp": ts, "status": st})
+    calls = store.read_jsonl(config.DATA / "archiveprobe" / "ad_calls.jsonl")
+    lookups = [x["timestamp"] for x in calls if x["call"] == "LookupService/GetCreativeById"]
+    lists = [x["timestamp"] for x in calls if x["call"] == "SearchService/SearchCreatives"]
+    lk_months = Counter(t[:6] for t in lookups)
+    by_month = {m: {"single-ad lookups": lk_months.get(m, 0), "ad pages": months.get(("ad page", m), 0)}
+                for m in sorted(set(lk_months) | {m for k, m in months if k == "ad page"})}
+    day = 86400
+    summary = {
+        "asked": {"pages": asked, "searches by website (filtered)": asked_s, "searches by website (domain first)": asked_s2},
+        "page_captures": len(got), "kinds": dict(kinds.most_common()), "advertisers_named": len(advs),
+        "searches_by_website": len(search_times),
+        "house_pages": len([r for r in rows if r["kind"] != "search by website"]),
+        "house_searches": len([r for r in rows if r["kind"] == "search by website"]),
+        "houses_found": sorted({r["house"] for r in rows}),
+        "lookups_with_an_ad_page_within_2_min": paired(lookups, ad_times),
+        "lookups_by_chance_a_day_apart": paired(lookups, ad_times, shift_s=day),
+        "lookups": len(lookups),
+        "ad_lists_with_a_page_within_2_min": paired(lists, list_times + search_times),
+        "ad_lists_by_chance_a_day_apart": paired(lists, list_times + search_times, shift_s=day),
+        "ad_lists": len(lists),
+        "by_month": by_month,
+    }
+    return rows, summary
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.archiveprobe")
-    ap.add_argument("stage", choices=["run", "calls"])
+    ap.add_argument("stage", choices=["run", "calls", "pages"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--films", type=int, default=4)
     ap.add_argument("--budget-min", type=float, default=36)
@@ -289,20 +421,21 @@ def main(argv: list[str] | None = None) -> int:
     P = paths()
     c = Crawler(pause=1.5)
     start = time.monotonic()
-    if a.stage == "calls":
+    if a.stage in ("calls", "pages"):
         DEADLINE[0] = start + a.budget_min * 60
+        out = config.DATA / "archiveprobe" / ("ad_calls.jsonl" if a.stage == "calls" else "ad_pages.jsonl")
         try:
-            rows, summary = calls_probe(c)
-            store.write_jsonl(config.DATA / "archiveprobe" / "ad_calls.jsonl", rows)
+            rows, summary = (calls_probe if a.stage == "calls" else pages_probe)(c)
+            store.write_jsonl(out, rows)
         except Exception as e:
             summary = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
         state = json.loads(P["state"].read_text()) if P["state"].exists() else {}
         ts = sorted(TIMES)
-        key = "ad_calls" if "data_calls" in state else "data_calls"
+        key = "ad_pages" if a.stage == "pages" else "ad_calls" if "data_calls" in state else "data_calls"
         state[key] = {**summary, "run": a.run, "archive_calls": c.calls, "answered": len(ts), "updated_at": store.utc_now()}
         store.write_state(P["state"], state)
-        store.append_jsonl(P["prov"], [{"run": a.run, "data_calls": summary}])
-        print(json.dumps(state[key], indent=1)[:4000])
+        store.append_jsonl(P["prov"], [{"run": a.run, key: summary}])
+        print(json.dumps(state[key], indent=1)[:6000])
         return 0
     DEADLINE[0] = start + a.budget_min * 60 * 0.3              # the Google part gets under a third of the time
     out = {"run": a.run}

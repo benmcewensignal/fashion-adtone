@@ -27,3 +27,27 @@ def test_house_accounts_include_the_doubtful_ones():
     acc = P.house_accounts()
     assert acc["AR15269313249355497473"] == "dior"
     assert len(acc) > len(P.main_accounts())
+
+
+def test_what_a_saved_page_names():
+    ad = P.page_of("https://adstransparency.google.com/advertiser/AR15269313249355497473/creative/CR01234567890123456789?region=GB")
+    assert ad == {"advertiser": "AR15269313249355497473", "ad": True}
+    lst = P.page_of("https://adstransparency.google.com/advertiser/AR15269313249355497473?region=anywhere")
+    assert lst == {"advertiser": "AR15269313249355497473", "ad": False}
+    assert P.page_of("https://adstransparency.google.com/?region=GB") == {"advertiser": None, "ad": False}
+
+
+def test_a_search_by_website_names_a_house():
+    sites = P.house_sites()
+    assert P.site_named("https://adstransparency.google.com/?region=anywhere&domain=dior.com", sites) == "dior"
+    assert P.site_named("https://adstransparency.google.com/?domain=www.maisonmargiela.com", sites) == "margiela"
+    assert P.site_named("https://adstransparency.google.com/?domain=example.com", sites) is None
+    assert P.site_named("https://adstransparency.google.com/?region=GB", sites) is None
+
+
+def test_each_saved_call_is_matched_to_one_page_at_most():
+    calls = ["20250901120000", "20250901120030", "20250901130000"]
+    pages = ["20250901120010"]
+    assert P.paired(calls, pages) == 1                                  # one page, one call
+    assert P.paired(calls, pages + ["20250901125930"]) == 2             # 30 seconds before the third call
+    assert P.paired(calls, pages, shift_s=86400) == 0                   # a day apart, nothing
