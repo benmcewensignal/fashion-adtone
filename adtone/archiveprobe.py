@@ -5,6 +5,7 @@ Article 39 asks) and the houses' YouTube films (the Data API gives today's total
     python -m adtone.archiveprobe run --run <id> [--films 8]
     python -m adtone.archiveprobe calls --run <id>
     python -m adtone.archiveprobe pages --run <id>
+    python -m adtone.archiveprobe accounts --run <id>
 
 
 A probe, run by hand. For the Transparency Center: how many captures the archive has of each house's main
@@ -411,9 +412,86 @@ def pages_probe(c: Crawler) -> tuple[list[dict], dict]:
     return rows, summary
 
 
+def accounts_probe(c: Crawler, open_max: int = 60, within: int = 120) -> tuple[list[dict], dict]:
+    """Each of the houses' accounts asked for on its own (the pages stage reads the index in address order and
+    stops at 300,000 rows, short of most accounts): the ad pages and ad lists the archive saved under it, when,
+    and which of the house's ads they show. Then the single-ad lookups and ad lists saved within two minutes of a
+    house's page, opened to see whether they hold that house's ads. Kept: per account its counts and dates, and
+    per saved page of a house its date, kind and the house's own ad id. Never another advertiser's id."""
+    with (config.ROOT / "reference" / "google_advertisers.csv").open(encoding="utf-8", newline="") as f:
+        accounts = [r for r in csv.DictReader(f) if r["status"] in ("house", "doubt")]
+    per, pages, cut = [], [], None
+    try:
+        for r in accounts:
+            aid = r["advertiser_id"]
+            got, asked = cdx_all(c, {"url": PAGES + aid, "matchType": "prefix", "output": "json",
+                                     "fl": "timestamp,original,statuscode", "limit": "10000"}, pages=2)
+            mine = [(ts, u, st) for ts, u, st in got if page_of(u)["advertiser"] == aid]
+            for ts, u, st in mine:
+                m = CREATIVE.search(u.split("/creative/", 1)[-1]) if page_of(u)["ad"] else None
+                pages.append({"house": r["house"], "account_status": r["status"], "advertiser_id": aid,
+                              "kind": "ad page" if m else "advertiser page", "ad_id": m.group(0) if m else None,
+                              "timestamp": ts, "status": st})
+            per.append({"house": r["house"], "account_status": r["status"], "advertiser_id": aid,
+                        "answered": asked[0]["status"] if asked else None, "saved": len(mine),
+                        "saved_200": sum(1 for x in mine if x[2] == "200"),
+                        "first": min((x[0] for x in mine), default=None), "last": max((x[0] for x in mine), default=None)})
+    except (OutOfTime, ArchiveDown) as e:
+        cut = str(e)
+    # the data calls saved near a house's page: a page's own calls are saved within seconds of it
+    opened = []
+    if pages and not cut:
+        try:
+            houses = house_accounts()
+            near = []
+            for pre, kind in ((CALL_PREFIXES[1], "ad page"), (CALL_PREFIXES[0] + "SearchCreatives", "advertiser page")):
+                got, _ = cdx_all(c, {"url": pre, "matchType": "prefix", "output": "json",
+                                     "fl": "timestamp,original,statuscode,digest", "limit": "50000"}, pages=2)
+                from datetime import datetime
+                when = [(datetime.strptime(p["timestamp"][:14], DATE), p) for p in pages if p["kind"] == kind]
+                for ts, u, st, dg in got:
+                    t = datetime.strptime(ts[:14], DATE)
+                    hit = [p for tp, p in when if abs((t - tp).total_seconds()) <= within]
+                    if hit and st == "200":
+                        near.append((ts, u, dg, hit[0]))
+            seen = set()
+            for ts, u, dg, p in near:
+                if len(opened) >= open_max:
+                    break
+                if dg in seen:
+                    continue
+                seen.add(dg)
+                resp = fetch(c, WAYBACK_RAW.format(ts=ts, url=u))
+                body = resp.text if resp is not None and resp.status_code == 200 else ""
+                advs = set(ADVERTISER.findall(body))
+                opened.append({"house": p["house"], "kind": p["kind"], "page_timestamp": p["timestamp"], "call_timestamp": ts,
+                               "status": None if resp is None else resp.status_code,
+                               "ads_in_answer": len(set(CREATIVE.findall(body))),
+                               "holds_the_house": bool({a for a in advs if houses.get(a) == p["house"]}),
+                               "holds_that_ad": bool(p["ad_id"] and p["ad_id"] in body)})
+        except (OutOfTime, ArchiveDown) as e:
+            cut = str(e)
+    by_house = {}
+    for p in pages:
+        b = by_house.setdefault(p["house"], {"ad pages": 0, "advertiser pages": 0, "ads": set(), "first": None, "last": None})
+        b["ad pages" if p["kind"] == "ad page" else "advertiser pages"] += 1
+        if p["ad_id"]:
+            b["ads"].add(p["ad_id"])
+        b["first"] = min(filter(None, [b["first"], p["timestamp"][:8]]))
+        b["last"] = max(filter(None, [b["last"], p["timestamp"][:8]]))
+    summary = {"cut_short": cut, "accounts": len(per), "accounts_answered": sum(1 for x in per if x["answered"] == 200),
+               "accounts_with_saved_pages": sum(1 for x in per if x["saved"]),
+               "by_house": {h: {**v, "ads": len(v["ads"])} for h, v in sorted(by_house.items())},
+               "calls_opened": len(opened), "calls_holding_the_house": sum(1 for x in opened if x["holds_the_house"]),
+               "calls_holding_that_ad": sum(1 for x in opened if x["holds_that_ad"]),
+               "houses_with_ads_in_saved_calls": sorted({x["house"] for x in opened if x["holds_the_house"]}),
+               "accounts_table": per, "opened": opened}
+    return pages, summary
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.archiveprobe")
-    ap.add_argument("stage", choices=["run", "calls", "pages"])
+    ap.add_argument("stage", choices=["run", "calls", "pages", "accounts"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--films", type=int, default=4)
     ap.add_argument("--budget-min", type=float, default=36)
@@ -421,17 +499,18 @@ def main(argv: list[str] | None = None) -> int:
     P = paths()
     c = Crawler(pause=1.5)
     start = time.monotonic()
-    if a.stage in ("calls", "pages"):
+    if a.stage in ("calls", "pages", "accounts"):
         DEADLINE[0] = start + a.budget_min * 60
-        out = config.DATA / "archiveprobe" / ("ad_calls.jsonl" if a.stage == "calls" else "ad_pages.jsonl")
+        name = {"calls": "ad_calls", "pages": "ad_pages", "accounts": "house_pages"}[a.stage]
+        fn = {"calls": calls_probe, "pages": pages_probe, "accounts": accounts_probe}[a.stage]
         try:
-            rows, summary = (calls_probe if a.stage == "calls" else pages_probe)(c)
-            store.write_jsonl(out, rows)
+            rows, summary = fn(c)
+            store.write_jsonl(config.DATA / "archiveprobe" / f"{name}.jsonl", rows)
         except Exception as e:
             summary = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
         state = json.loads(P["state"].read_text()) if P["state"].exists() else {}
         ts = sorted(TIMES)
-        key = "ad_pages" if a.stage == "pages" else "ad_calls" if "data_calls" in state else "data_calls"
+        key = name if a.stage != "calls" else "ad_calls" if "data_calls" in state else "data_calls"
         state[key] = {**summary, "run": a.run, "archive_calls": c.calls, "answered": len(ts), "updated_at": store.utc_now()}
         store.write_state(P["state"], state)
         store.append_jsonl(P["prov"], [{"run": a.run, key: summary}])
