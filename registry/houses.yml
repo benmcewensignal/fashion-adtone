@@ -86,6 +86,10 @@ houses:
     name: Jil Sander
     group: treated
     owner: OTB
+    # OTB bought Jil Sander from Onward Holdings: announced 5 March 2021, completed by 19 April 2021
+    # (Highsnobiety, 19 April 2021). Earlier owners are read only where a reading goes year by year.
+    earlier_owners:
+      - {owner: Onward Holdings, until: 2021-04-19}
     search_terms: ["Jil Sander"]
     page_ids: []
     events:
@@ -124,6 +128,11 @@ houses:
     group: treated
     tier: extension
     owner: Prada Group
+    # Capri Holdings (then Michael Kors Holdings) completed its purchase from the Versace family and Blackstone
+    # on 31 December 2018; Prada Group completed its purchase from Capri on 2 December 2025 (Prada Group, 2 December 2025)
+    earlier_owners:
+      - {owner: Versace family and Blackstone, until: 2018-12-31}
+      - {owner: Capri Holdings, until: 2025-12-02}
     search_terms: ["Versace"]
     page_ids: []
     events:
@@ -148,6 +157,10 @@ houses:
     group: treated
     tier: extension
     owner: Zegna Group
+    # Zegna completed its purchase of Tom Ford International on 28 April 2023, when the Estée Lauder Companies
+    # bought the brand and licensed the fashion business to Zegna (Business Wire, 28 April 2023)
+    earlier_owners:
+      - {owner: Tom Ford International, until: 2023-04-28}
     search_terms: ["TOM FORD"]
     page_ids: []
     events:

@@ -77,6 +77,15 @@ def test_shipped_registry_is_coherent():
     assert ext and checked <= {"givenchy", "tom_ford"}, "extension dates stay unverified until checked against a calendar"
 
 
+def test_a_house_counts_with_the_owner_of_the_day():
+    full = registry.load()
+    versace = full.by_id("versace")
+    assert versace.owner_on(date(2018, 7, 1)) != versace.owner_on(date(2019, 7, 1)) != "Prada Group"
+    assert versace.owner_on(date(2025, 7, 1)) == "Capri Holdings" and versace.owner_on(date(2026, 7, 1)) == "Prada Group"
+    assert full.by_id("jil_sander").owner_on(date(2020, 7, 1)) == "Onward Holdings"
+    assert full.by_id("prada").owner_on(date(2018, 7, 1)) == "Prada Group"       # no earlier owner on file
+
+
 def test_registry_rejects_a_page_claimed_by_two_houses(tmp_path):
     p = tmp_path / "h.yml"
     p.write_text("version: 1\nstatus: DRAFT\nhouses:\n"

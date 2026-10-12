@@ -112,3 +112,35 @@ def test_one_campaign_in_many_crops_is_not_taken_for_a_shift():
     X1 = np.vstack([enc.row(i["out"]) for i in X if i["month"] > "2024-06"])
     by_image = character.permuted(enc, X0, X1, None, None, 999, np.random.default_rng(1))
     assert by_image["rubric_p"] < 0.01 and by_month["rubric_p"] > 0.1
+
+
+def test_identity_keeps_the_fingerprint_test_when_a_picture_lacks_its_fingerprint():
+    rng = np.random.default_rng(3)
+    centre = {h: rng.normal(size=8) * 5 for h in ("a", "b", "c")}
+    ims = []
+    for h in centre:
+        for side, month in (("early", "2025-01"), ("late", "2025-09")):
+            for i in range(11):
+                ims.append({"house": h, "month": month, "sha": f"{h}-{side}-{i}", "out": _ans(),
+                            "vec": centre[h] + rng.normal(size=8) * 0.1})
+    ims[0]["vec"] = None                       # one picture still waiting for its fingerprint
+    out = character.identity(ims, _enc())
+    assert out["brands"] == 3
+    assert out["fingerprint_hits"] == 3 and out["fingerprint_mean_rank"] == 1.0
+
+
+def test_identity_counts_a_picture_once_on_the_side_it_was_first_shown():
+    rng = np.random.default_rng(4)
+    centre = {h: rng.normal(size=8) * 5 for h in ("a", "b", "c", "d")}
+    ims = []
+    for h in ("a", "b", "c"):
+        for side, month in (("early", "2025-01"), ("late", "2025-09")):
+            for i in range(11):
+                ims.append({"house": h, "month": month, "sha": f"{h}-{side}-{i}", "out": _ans(),
+                            "vec": centre[h] + rng.normal(size=8) * 0.1})
+    # house d shows the same eleven pictures before and after the split, and nothing new
+    for month in ("2025-01", "2025-09"):
+        for i in range(11):
+            ims.append({"house": "d", "month": month, "sha": f"d-{i}", "out": _ans(), "vec": centre["d"] + 0.01 * i})
+    out = character.identity(ims, _enc())
+    assert out["brands"] == 3          # d has nothing first shown after the split, so it is not tested

@@ -306,3 +306,27 @@ def test_a_change_with_nothing_to_judge_it_against_is_left_out_of_the_event_stud
     assert b0.get("print_unjudged") and "own_print_score" not in b0
     assert got["summary"]["unjudged"]["print"] == 1
     assert all(r.get("own_print_score") != R.UNJUDGED for r in got["rows"])
+
+
+def test_daily_views_read_the_joined_english_series_once(tmp_path, monkeypatch):
+    from adtone import config
+    monkeypatch.setattr(config, "DATA", tmp_path)
+    for sub, views in (("attention", 5), ("wikiviews/en", 50), ("wikiviews/fr", 7)):
+        d = tmp_path / sub
+        d.mkdir(parents=True)
+        (d / "x.jsonl").write_text('{"date": "2020-01-01", "views": %d}\n' % views)
+    assert R._daily_views("x", "en") == {"2020-01-01": 50}
+    assert R._daily_views("x", "all") == {"2020-01-01": 57}
+    (tmp_path / "wikiviews/en/x.jsonl").unlink()
+    assert R._daily_views("x", "en") == {"2020-01-01": 5}     # the single-title series only when the joined one is missing
+
+
+def test_the_market_drift_leaves_out_a_picture_still_waiting_for_its_fingerprint():
+    rng = np.random.default_rng(6)
+    ims = []
+    for h, c in _brands(rng).items():
+        ims += _cloud(h, c, H1, rng, noise=0.4)
+        ims += _cloud(h, c, H2, rng, noise=0.4)
+    ims[0]["vec"] = None
+    out = R.market(ims, _answers(), rng, n_boot=20, n_perm=19)
+    assert list(out["drift"]) == ["2024H1->2024H2"]

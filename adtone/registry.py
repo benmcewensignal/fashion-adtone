@@ -29,6 +29,14 @@ class House:
     events: list[Event] = field(default_factory=list)
     models_slug: str | None = None   # models.com client slug, when it is not the slugified name
     tier: str = "core"               # core: the frozen v1 panel; extension: added by Amendment 2
+    earlier_owners: list[tuple[date, str]] = field(default_factory=list)   # (owned until, owner), oldest first
+
+    def owner_on(self, d: date) -> str:
+        """Who owned the house on a day: the earlier owner whose time had not yet ended, else today's."""
+        for until, who in sorted(self.earlier_owners):
+            if d < until:
+                return who
+        return self.owner
 
     @property
     def debut(self) -> Event | None:
@@ -104,6 +112,7 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
             events=events,
             models_slug=h.get("models_slug"),
             tier=tier,
+            earlier_owners=[(_as_date(o["until"]), str(o["owner"])) for o in h.get("earlier_owners") or []],
         ))
     reg = Registry(version=int(raw["version"]), status=str(raw["status"]), houses=houses)
     reg.page_to_house()  # raises on a page claimed twice

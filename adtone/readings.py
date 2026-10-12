@@ -67,6 +67,7 @@ import json
 import math
 import sys
 from collections import Counter, defaultdict
+from datetime import date
 
 import numpy as np
 
@@ -724,7 +725,6 @@ def _distinct(cells: dict[str, list[dict]], ans: Answers, rng, n_sub: int = MIN_
 
 
 def cross_brand(images: list[dict], ans: Answers, reg: registry.Registry, rng) -> dict:
-    owners = {h.id: h.owner for h in reg.houses}
     led = once([i for i in images if i["type"] in LED and i["vec"] is not None], lambda m: m[:4])
     years: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
     for im in led:
@@ -734,6 +734,9 @@ def cross_brand(images: list[dict], ans: Answers, reg: registry.Registry, rng) -
         hs = sorted(h for h, ims in by.items() if _enough(ims))
         if len(hs) < 4:
             continue
+        # owners as they stood in the middle of the year, so a house sold during the panel counts with
+        # the group that held it then (Versace joined Prada only in December 2025)
+        owners = {h.id: h.owner_on(date(int(y), 7, 1)) for h in reg.houses}
         C = np.vstack([_centroid(by[h]) for h in hs])
         S = _similarity(C)
         near = {}
@@ -847,17 +850,19 @@ def market(images: list[dict], ans: Answers, rng, n_boot: int = N_BOOT, n_perm: 
                                 "high": np.percentile(bm, 95, axis=0).round(3).tolist()}
     # the market's move between consecutive half-years, on the brands present in both
     drift = {}
+    # pictures still waiting for their fingerprint are left out of the drift, for the answers too, so both
+    # measures are read on the same pictures
+    led = lambda p, h: [i for i in by[p][h] if i["type"] in LED and i["vec"] is not None]
     for p0, p1 in zip(periods, periods[1:]):
         if next_period(p0) != p1:
             continue
-        common = sorted(h for h in set(by[p0]) & set(by[p1])
-                        if sum(1 for i in by[p0][h] if i["type"] in LED) >= 3 and sum(1 for i in by[p1][h] if i["type"] in LED) >= 3)
+        common = sorted(h for h in set(by[p0]) & set(by[p1]) if len(led(p0, h)) >= 3 and len(led(p1, h)) >= 3)
         if len(common) < 5:
             continue
-        A = np.vstack([_centroid([i for i in by[p0][h] if i["type"] in LED]) for h in common])
-        B = np.vstack([_centroid([i for i in by[p1][h] if i["type"] in LED]) for h in common])
-        RA = np.vstack([ans.rows([i for i in by[p0][h] if i["type"] in LED]).mean(0) for h in common])
-        RB = np.vstack([ans.rows([i for i in by[p1][h] if i["type"] in LED]).mean(0) for h in common])
+        A = np.vstack([_centroid(led(p0, h)) for h in common])
+        B = np.vstack([_centroid(led(p1, h)) for h in common])
+        RA = np.vstack([ans.rows(led(p0, h)).mean(0) for h in common])
+        RB = np.vstack([ans.rows(led(p1, h)).mean(0) for h in common])
         sw = rng.random((n_perm, len(common))) < 0.5
         o_v = _away(A.mean(0), B.mean(0))
         n_v = np.array([_away(np.where(s[:, None], B, A).mean(0), np.where(s[:, None], A, B).mean(0)) for s in sw])
@@ -1036,11 +1041,17 @@ def crew_turnover(path=None) -> dict[str, dict[str, float]]:
 # ---------- 6. success ----------
 
 def _daily_views(h: str, languages: str) -> dict[str, int]:
-    """Daily Wikipedia views for one brand: English, or English and the nine other languages summed."""
+    """Daily Wikipedia views for one brand: English, or English and the nine other languages summed.
+
+    English is the series with renamed articles joined to their old titles (data/wikiviews/en), as the
+    runway reading uses: the single-title series (data/attention) breaks when an article is renamed, as
+    Celine's did in 2018 and Dior's in 2020, and is read only for a brand the joined series lacks. The
+    joined English series is counted once, never beside the single-title one."""
     days: dict[str, int] = defaultdict(int)
-    files = [config.DATA / "attention" / f"{h}.jsonl"]
+    joined = config.DATA / "wikiviews" / "en" / f"{h}.jsonl"
+    files = [joined if joined.exists() else config.DATA / "attention" / f"{h}.jsonl"]
     if languages == "all":
-        files += sorted((config.DATA / "wikiviews").glob(f"*/{h}.jsonl"))
+        files += sorted(f for f in (config.DATA / "wikiviews").glob(f"*/{h}.jsonl") if f.parent.name != "en")
     for f in files:
         for r in store.read_jsonl(f):
             try:

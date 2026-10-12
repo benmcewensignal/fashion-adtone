@@ -281,11 +281,24 @@ def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_image
     """Whether character is stable and particular to each brand: for brands with enough images before and
     after `split`, how many have later images closest to their own earlier ones, by the answers and by the
     fingerprint, against what chance gives (about one). A measure that cannot tell brands apart cannot
-    say much about how any one of them changes."""
+    say much about how any one of them changes.
+
+    Each picture counts once, on the side of `split` where it was first shown: a picture left on the
+    homepage across the split would otherwise sit on both sides and match its brand by itself. When
+    fingerprints are on file, pictures still waiting for theirs are left out of both tests, so the
+    answers and the fingerprint are read on the same pictures."""
+    first: dict[tuple[str, str], dict] = {}
+    for im in images:
+        k = (im["house"], im["sha"])
+        if k not in first or im["month"] < first[k]["month"]:
+            first[k] = im
+    pics = list(first.values())
+    if any(i.get("vec") is not None for i in pics):
+        pics = [i for i in pics if i.get("vec") is not None]
     early: dict[str, dict] = defaultdict(dict)
     late: dict[str, dict] = defaultdict(dict)
-    for im in images:
-        (early if im["month"] < split else late)[im["house"]].setdefault(im["sha"], im)
+    for im in pics:
+        (early if im["month"] < split else late)[im["house"]][im["sha"]] = im
     hs = sorted(h for h in early if len(early[h]) >= min_images and len(late.get(h, {})) >= min_images)
     if len(hs) < 3:
         return {"brands": len(hs), "note": "too few brands with images on both sides"}
@@ -301,7 +314,7 @@ def identity(images: list[dict], enc: Encoder, split: str = "2025-07", min_image
             ranks.append(order.index(h) + 1)
         return hits, round(float(np.mean(ranks)), 2)
     out["answers_hits"], out["answers_mean_rank"] = score(lambda a, b: enc.distance(E[a], L[b]))
-    if all(i["vec"] is not None for d in (early, late) for h in hs for i in d[h].values()):
+    if all(i.get("vec") is not None for d in (early, late) for h in hs for i in d[h].values()):
         CE = {h: np.vstack([i["vec"] for i in early[h].values()]).mean(axis=0) for h in hs}
         CL = {h: np.vstack([i["vec"] for i in late[h].values()]).mean(axis=0) for h in hs}
         dist = (lambda x, y: float(np.linalg.norm(x - y))) if euclid else _cos_dist
