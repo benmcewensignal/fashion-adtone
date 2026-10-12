@@ -1,4 +1,39 @@
 {
+  "ad_calls": {
+    "answered": 82,
+    "archive_calls": 82,
+    "asked": {
+      "LookupService/GetCreative": 34327,
+      "SearchService/": 1990
+    },
+    "calls": {
+      "LookupService/GetCreativeById": 34327,
+      "SearchService/SearchCreatives": 1981,
+      "SearchService/SearchDisapprovedCreatives": 8,
+      "SearchService/SearchSuggestions": 1
+    },
+    "captures": 36317,
+    "creatives_in_house_answers": 0,
+    "cut_short": null,
+    "houses_in_answers": [],
+    "houses_named": [],
+    "naming_a_house": 0,
+    "naming_an_advertiser": 0,
+    "opened": 80,
+    "opened_with_a_house": 0,
+    "opened_with_ads": 80,
+    "posted": 0,
+    "run": "gh38314805208",
+    "status_200": 36313,
+    "updated_at": "2026-10-12T22:14:08Z",
+    "years": {
+      "2022": 49,
+      "2023": 730,
+      "2024": 428,
+      "2025": 34253,
+      "2026": 857
+    }
+  },
   "ads": {
     "accounts_asked": 24,
     "advertiser_pages": 0,
