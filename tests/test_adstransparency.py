@@ -46,9 +46,11 @@ def test_only_company_names_are_kept():
     row = lambda i, d, v="VERIFIED": {"advertiser_id": i, "disclosed": d, "legal": d, "location": "FR",
                                       "verification": v, "ads": 3, "video": 1, "image": 1, "text": 1}
     kept, refused = A.sift(reg, [row("AR1", "Chloé SAS"), row("AR2", "Chloé Damien"), row("AR3", "Kering"),
-                                 row("AR4", "Chanel", "UNVERIFIED"), row("AR5", "Studio Razola Dior")])
+                                 row("AR4", "Chanel", "UNVERIFIED"), row("AR5", "Studio Razola Dior"),
+                                 row("AR6", "CHANEL SRL", "UNVERIFIED")])
     assert [(k["advertiser_id"], k["house"], k["group"], k["status"]) for k in kept] == [
-        ("AR4", "chanel", None, "doubt"), ("AR1", "chloe", None, "house"), ("AR3", None, "kering", "house")]
+        ("AR4", "chanel", None, "doubt"), ("AR6", "chanel", None, "doubt"), ("AR1", "chloe", None, "house"),
+        ("AR3", None, "kering", "house")]
     assert refused == {"chloe": 1, "dior": 1}
     assert "Chloé Damien" not in json.dumps(kept, ensure_ascii=False)
 
@@ -81,6 +83,28 @@ def test_an_ad_made_small():
     assert "status" not in A.compact(r, "dior", "house")
 
 
+def test_the_open_top_range_stays_open():
+    big = 9223372036854775807                                                    # INT64's maximum: "more than"
+    r = {"creative_id": "CR2", "advertiser_id": "AR1", "ad_format_type": "VIDEO",
+         "regions": [{"region_code": "FR", "first_shown": "2025-01-01", "last_shown": "2025-02-01", "lo": 10000000,
+                      "hi": big, "surfaces": [{"surface": "YOUTUBE", "lo": 10000000, "hi": big}]},
+                     {"region_code": "IT", "first_shown": "2025-01-01", "last_shown": "2025-02-01", "lo": 1000,
+                      "hi": 2000, "surfaces": [{"surface": "YOUTUBE", "lo": 1000, "hi": 2000}]},
+                     {"region_code": "ES", "first_shown": "2025-01-01", "last_shown": "2025-01-02", "lo": None,
+                      "hi": None, "surfaces": []}]}
+    ad = A.compact(r, "dior", "house")
+    assert (ad["lo"], ad["hi"]) == (10001000, None) and ad["on"]["YOUTUBE"] == [10001000, None]
+    assert ad["where"]["FR"][2:] == [10000000, None] and ad["where"]["ES"][2:] == [None, None]
+    none = A.compact({**r, "regions": r["regions"][2:]}, "dior", "house")
+    assert (none["lo"], none["hi"]) == (None, None) and "on" not in none
+
+
+def test_a_payer_is_named_only_as_a_company():
+    assert A.payer("OMD EMEA LIMITED") == "OMD EMEA LIMITED" and A.payer("Phd Copenhagen A/S") == "Phd Copenhagen A/S"
+    assert A.payer("iProspect Conseil France") == "iProspect Conseil France"
+    assert A.payer("Jeanne Dupont") == "another payer" and A.payer(None) is None
+
+
 def test_auto_discovers_when_the_rules_change_or_a_month_passes(tmp_data):
     assert A.due_discovery() == "the matching rules changed"
     t = A.paths()["table"]
@@ -102,17 +126,20 @@ def test_collect_needs_the_confirmed_list(tmp_path, monkeypatch):
     assert A.confirmed() == {}
     f = tmp_path / "google_advertisers.csv"
     f.write_text("house,advertiser_id,legal_name,status\nchanel,AR123,Chanel Limited,house\nchanel,AR9,,doubt\n"
-                 "dior,AR7,Christian Dior Couture SAS,\n", encoding="utf-8")
+                 "dior,AR7,Christian Dior Couture SAS,\nalaia,AR5,Alaïa SA,not\n", encoding="utf-8")
     monkeypatch.setattr(A, "CONFIRMED", f)
-    assert A.confirmed() == {"AR123": ("chanel", "house"), "AR9": ("chanel", "doubt"), "AR7": ("dior", "house")}
+    assert A.confirmed() == {"AR123": ("chanel", "house"), "AR9": ("chanel", "doubt"), "AR7": ("dior", "house"),
+                             "AR5": ("alaia", "not")}
 
 
 def test_the_checked_list_is_the_rules_own():
     """Every account in reference/google_advertisers.csv meets its house's rule; the list is read by eye, not
     widened by hand."""
-    for aid, (house, status) in A.confirmed().items():
-        assert status in ("house", "doubt"), aid
     import csv
     with A.CONFIRMED.open(encoding="utf-8", newline="") as f:
-        for r in csv.DictReader(f):
-            assert A.own_house(r["disclosed_name"], r["legal_name"]) == r["house"], r["advertiser_id"]
+        rows = list(csv.DictReader(f))
+    for r in rows:
+        assert r["status"] in ("house", "doubt", "not"), r["advertiser_id"]
+        assert A.own_house(r["disclosed_name"], r["legal_name"]) == r["house"], r["advertiser_id"]
+        assert r["status"] != "house" or r["verified"] == "yes", r["advertiser_id"]     # unverified is doubt at best
+        assert r["status"] == "house" or r["note"], r["advertiser_id"]                  # every exception says why

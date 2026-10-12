@@ -27,10 +27,13 @@ company form, by the rules in OWN) are kept, with their names; the rest, people 
 name ("defending" carries "fendi", and many people are called Chloé), are counted by house and never named.
 A group's own accounts (Kering, LVMH, OTB...) are kept as well, marked as the group's, since a house's ads
 may run through its group's.
-collect: for the accounts in reference/google_advertisers.csv (discover's, checked by eye; an account named
-only "Chanel" and never verified is marked doubt, not house), every ad: its format, first and last day shown,
+collect: for the accounts in reference/google_advertisers.csv (discover's, checked by eye against what their
+ads are about: house, doubt when Google has not verified the account, not when it is shown to be someone else,
+as Alaïa SA is a Swiss company whose ads are about Sports & Fitness), every ad: its format, Google's topic for it, first and last day shown,
 each country's days and impression range, the impressions summed over countries and by surface, and how its
-audience was chosen. Written by house and by the year the ad was first shown, a whole snapshot each time.
+audience was chosen. Google's top range is open ("more than 10 million"): a high of null beside a low means
+more than the low. A payer other than the advertiser is named only when the name is a company's. Written by
+house and by the year the ad was first shown, a whole snapshot each time.
 auto: discover when the matching rules changed or four weeks have passed, then collect.
 """
 from __future__ import annotations
@@ -52,7 +55,7 @@ CONFIRMED = config.ROOT / "reference" / "google_advertisers.csv"
 NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "fragrance", "cosmetic", "loreal", "coty", "esteelauder",
                  "interparfums", "shiseido", "outlet", "vintage", "resale", "secondhand", "preloved", "kering eyewear",
                  "eyewear", "optic", "optik", "lunett")
-MAX_GB = {"discover": 50.0, "collect": 150.0}     # the names query read 14.8 GB; the ads query about 62
+MAX_GB = {"discover": 50.0, "collect": 150.0}     # the names query read 14.8 GB, the ads query 113.8
 RULES_VERSION = 2
 REDISCOVER_DAYS = 28
 
@@ -60,7 +63,7 @@ REDISCOVER_DAYS = 28
 # perhaps a country or a known arm, and a company form. Hermès alone also needs its accent, or the legal name
 # Hermès Sellier (or Hermès of Paris): the parcel firm Hermes Germany carries the name without it.
 FORMS = (r"(sa|sas|s a|s a s|sarl|srl|s r l|spa|s p a|sl|s l|ltd|limited|inc|corp|corporation|gmbh|ges m b h|b v|bv|nv|"
-         r"ab|as|aps|oy|ag|kft|s r o|sp z o o|lda|unipessoal lda|pty ltd|pty limited|llc|co ltd|fzco|pte ltd|sdn bhd)")
+         r"ab|as|a s|aps|oy|ag|kft|s r o|sp z o o|lda|unipessoal lda|pty ltd|pty limited|llc|co ltd|fzco|pte ltd|sdn bhd)")
 OWN = {h: re.compile(p) for h, p in {
     "alaia": rf"^(azzedine )?alaia( {FORMS})?$",
     "balenciaga": rf"^(house of )?balenciaga( {FORMS})?$",
@@ -102,6 +105,9 @@ GROUPS = re.compile(rf"^(kering|lvmh|richemont|puig|otb|only the brave|capri hol
 GROUP_NAMES = ["kering", "lvmh", "richemont", "puig", "otbspa", "otbgroup", "onlythebrave", "capriholdings",
                "luxurygoods"]
 COUNTRY = re.compile(r"^[A-Z]{2}$")
+OPEN = 2 ** 62                                    # Google's open top range has INT64's maximum as its high
+AGENCY = ("agency", "media", "group", "conseil", "iprospect", "converteo", "omd", "phd", "wpp", "publicis", "havas",
+          "dentsu", "mindshare", "wavemaker", "zenith", "starcom", "carat", "essence", "merkle")
 
 
 def paths() -> dict[str, Path]:
@@ -175,11 +181,20 @@ def group_of(disclosed: str, legal: str) -> str | None:
 
 
 def status_of(disclosed: str, legal: str, verification: str | None) -> str:
-    """house: verified by Google, or named as a company; doubt: a bare name nobody verified (a Chanel or a Celine
-    may be a person)."""
-    if (verification or "").upper().startswith("VERIFIED"):
-        return "house"
-    return "house" if any(re.search(rf" {FORMS}$", plain(n)) for n in (disclosed, legal) if n) else "doubt"
+    """house when Google verified the account, else doubt: fourteen unverified accounts carrying the houses' names
+    (CHANEL SRL and DOLCE & GABBANA SRL among them, one Italian video each over the same days of February and March
+    2026) ran their ads under Google's topic Commercial, which the houses' verified accounts almost never use."""
+    return "house" if (verification or "").upper() == "VERIFIED" else "doubt"
+
+
+def payer(name: str | None) -> str | None:
+    """Who paid, when not the advertiser: kept when the name is a company's or an agency's, else not named."""
+    if not name:
+        return None
+    p = plain(name)
+    if re.search(rf"(^| ){FORMS}( |$)", p) or any(w in p.split() or p.startswith(w) for w in AGENCY):
+        return name
+    return "another payer"
 
 
 def sift(reg: registry.Registry, rows) -> tuple[list[dict], dict[str, int]]:
@@ -286,7 +301,8 @@ def discover(reg: registry.Registry, run: str, max_gb: float = MAX_GB["discover"
 
 
 def confirmed() -> dict[str, tuple[str, str]]:
-    """advertiser id -> (house, status), from the checked list; empty until it exists. status is house or doubt."""
+    """advertiser id -> (house, status), from the checked list; empty until it exists. status is house, doubt or
+    not (looked at and found to be someone else: listed so discover stops offering it)."""
     if not CONFIRMED.exists():
         return {}
     with CONFIRMED.open(encoding="utf-8", newline="") as f:
@@ -299,38 +315,66 @@ def compact(r: dict, house: str, status: str) -> dict:
     impressions summed over countries (an aggregate region such as EEA is kept in where but not added), the same
     by surface, and the audience approaches without their CRITERIA_ prefix."""
     where, firsts, lasts, since, till = {}, [], [], [], []
-    lo = hi = None
-    on: dict[str, list[int]] = {}
+    total, on = Range(), {}
     for g in r.get("regions") or []:
         code = g.get("region_code") or "?"
         f, l = _day(g.get("first_shown")), _day(g.get("last_shown"))
-        where[code] = [f, l, g.get("lo"), g.get("hi")]
+        lo, hi = bounds(g.get("lo"), g.get("hi"))
+        where[code] = [f, l, lo, hi]
         firsts += [f] if f else []
         lasts += [l] if l else []
         since += [_day(g["since"])] if g.get("since") else []
         till += [_day(g["till"])] if g.get("till") else []
         if COUNTRY.match(code):
-            if g.get("lo") is not None or g.get("hi") is not None:
-                lo, hi = (lo or 0) + (g.get("lo") or 0), (hi or 0) + (g.get("hi") or 0)
+            total.add(g.get("lo"), g.get("hi"))
             for s in g.get("surfaces") or []:
-                t = on.setdefault(s.get("surface") or "?", [0, 0])
-                t[0] += s.get("lo") or 0
-                t[1] += s.get("hi") or 0
+                on.setdefault(s.get("surface") or "?", Range()).add(s.get("lo"), s.get("hi"))
+    lo, hi = total.value()
     aud = {k: (v or "").removeprefix("CRITERIA_") for k, v in (r.get("aud") or {}).items() if v}
     ad = {"id": r["creative_id"], "adv": r["advertiser_id"], "house": house, "fmt": r.get("ad_format_type"),
           "first": min(firsts) if firsts else None, "last": max(lasts) if lasts else None, "lo": lo, "hi": hi,
           "since": min(since) if since else None, "till": max(till) if till else None, "where": where}
     if on:
-        ad["on"] = on
+        ad["on"] = {k: list(v.value()) for k, v in on.items()}
     if aud:
         ad["aud"] = aud
     if r.get("topic"):
         ad["topic"] = r["topic"]
     if r.get("ad_funded_by"):
-        ad["paid_by"] = r["ad_funded_by"]
+        ad["paid_by"] = payer(r["ad_funded_by"])
     if status != "house":
         ad["status"] = status
     return ad
+
+
+def bounds(lo, hi) -> tuple[int | None, int | None]:
+    """A region's range as Google gives it, with the open top range's high as None."""
+    return lo, (None if hi is not None and hi >= OPEN else hi)
+
+
+class Range:
+    """Impression ranges added up: the low is a sum of lows; the high a sum of highs, or None once any part is
+    open; both None when no part had a figure."""
+
+    def __init__(self):
+        self.lo = self.hi = 0
+        self.seen = self.open = False
+
+    def add(self, lo, hi):
+        if lo is None and hi is None:
+            return
+        lo, hi = bounds(lo, hi)
+        self.seen = True
+        self.lo += lo or 0
+        if hi is None:
+            self.open = True
+        else:
+            self.hi += hi
+
+    def value(self) -> tuple[int | None, int | None]:
+        if not self.seen:
+            return None, None
+        return self.lo, (None if self.open else self.hi)
 
 
 def shard(ad: dict) -> str:
@@ -340,7 +384,7 @@ def shard(ad: dict) -> str:
 def collect(reg: registry.Registry, run: str, max_gb: float = MAX_GB["collect"]) -> dict:
     bq, cl = client()
     P = paths()
-    listed = confirmed()
+    listed = {k: v for k, v in confirmed().items() if v[1] in ("house", "doubt")}
     if not listed:
         return {"run": run, "stopped": "no confirmed advertisers: reference/google_advertisers.csv is empty or missing"}
     p = [bq.ArrayQueryParameter("ids", "STRING", sorted(listed))]

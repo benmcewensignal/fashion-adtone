@@ -7,7 +7,7 @@ run-name: adstransparency ${{ inputs.stage || 'auto' }} ${{ github.event_name }}
 # refused above its ceiling. Waits, recording that it waited, until GCP_PROJECT_NUMBER and
 # GCP_SERVICE_ACCOUNT exist. auto: discover when the matching rules changed or four weeks have passed
 # (the names query reads about 15 GB), then collect the accounts in reference/google_advertisers.csv
-# (about 60 GB): some 300 GB a month, under BigQuery's free terabyte.
+# (about 115 GB): some 510 GB a month, under BigQuery's free terabyte.
 on:
   schedule:
     - cron: "20 6 * * 5"
