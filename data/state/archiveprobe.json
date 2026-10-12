@@ -34,6 +34,296 @@
       "2026": 857
     }
   },
+  "ad_pages": {
+    "ad_lists": 1981,
+    "ad_lists_by_chance_a_day_apart": 66,
+    "ad_lists_with_a_page_within_2_min": 375,
+    "advertisers_named": 7375,
+    "answered": 8,
+    "archive_calls": 10,
+    "asked": {
+      "pages": [
+        {
+          "rows": 50000,
+          "status": 200
+        },
+        {
+          "rows": 50000,
+          "status": 200
+        },
+        {
+          "rows": 50000,
+          "status": 200
+        },
+        {
+          "rows": 50000,
+          "status": 200
+        },
+        {
+          "rows": 50000,
+          "status": 200
+        },
+        {
+          "rows": 50000,
+          "status": 200
+        }
+      ],
+      "searches by website (domain first)": [
+        {
+          "rows": 595,
+          "status": 200
+        }
+      ],
+      "searches by website (filtered)": [
+        {
+          "rows": 619,
+          "status": 200
+        }
+      ]
+    },
+    "by_month": {
+      "202201": {
+        "ad pages": 2,
+        "single-ad lookups": 0
+      },
+      "202206": {
+        "ad pages": 6,
+        "single-ad lookups": 0
+      },
+      "202207": {
+        "ad pages": 55,
+        "single-ad lookups": 0
+      },
+      "202208": {
+        "ad pages": 8,
+        "single-ad lookups": 4
+      },
+      "202209": {
+        "ad pages": 15,
+        "single-ad lookups": 10
+      },
+      "202210": {
+        "ad pages": 91,
+        "single-ad lookups": 1
+      },
+      "202211": {
+        "ad pages": 63,
+        "single-ad lookups": 2
+      },
+      "202212": {
+        "ad pages": 115,
+        "single-ad lookups": 2
+      },
+      "202301": {
+        "ad pages": 59,
+        "single-ad lookups": 3
+      },
+      "202302": {
+        "ad pages": 209,
+        "single-ad lookups": 1
+      },
+      "202303": {
+        "ad pages": 178,
+        "single-ad lookups": 2
+      },
+      "202304": {
+        "ad pages": 18,
+        "single-ad lookups": 3
+      },
+      "202305": {
+        "ad pages": 111,
+        "single-ad lookups": 1
+      },
+      "202306": {
+        "ad pages": 103,
+        "single-ad lookups": 3
+      },
+      "202307": {
+        "ad pages": 0,
+        "single-ad lookups": 1
+      },
+      "202308": {
+        "ad pages": 1,
+        "single-ad lookups": 4
+      },
+      "202309": {
+        "ad pages": 155,
+        "single-ad lookups": 4
+      },
+      "202310": {
+        "ad pages": 115,
+        "single-ad lookups": 28
+      },
+      "202311": {
+        "ad pages": 12,
+        "single-ad lookups": 166
+      },
+      "202312": {
+        "ad pages": 3,
+        "single-ad lookups": 99
+      },
+      "202401": {
+        "ad pages": 9,
+        "single-ad lookups": 56
+      },
+      "202402": {
+        "ad pages": 216,
+        "single-ad lookups": 4
+      },
+      "202403": {
+        "ad pages": 54,
+        "single-ad lookups": 6
+      },
+      "202404": {
+        "ad pages": 142,
+        "single-ad lookups": 9
+      },
+      "202405": {
+        "ad pages": 601,
+        "single-ad lookups": 8
+      },
+      "202406": {
+        "ad pages": 35,
+        "single-ad lookups": 5
+      },
+      "202407": {
+        "ad pages": 42,
+        "single-ad lookups": 11
+      },
+      "202408": {
+        "ad pages": 215,
+        "single-ad lookups": 5
+      },
+      "202409": {
+        "ad pages": 151,
+        "single-ad lookups": 3
+      },
+      "202410": {
+        "ad pages": 54,
+        "single-ad lookups": 2
+      },
+      "202411": {
+        "ad pages": 50,
+        "single-ad lookups": 2
+      },
+      "202412": {
+        "ad pages": 251,
+        "single-ad lookups": 9
+      },
+      "202501": {
+        "ad pages": 122,
+        "single-ad lookups": 7
+      },
+      "202502": {
+        "ad pages": 62,
+        "single-ad lookups": 4
+      },
+      "202503": {
+        "ad pages": 217,
+        "single-ad lookups": 9
+      },
+      "202504": {
+        "ad pages": 41,
+        "single-ad lookups": 9
+      },
+      "202505": {
+        "ad pages": 158,
+        "single-ad lookups": 7
+      },
+      "202506": {
+        "ad pages": 12015,
+        "single-ad lookups": 1242
+      },
+      "202507": {
+        "ad pages": 17654,
+        "single-ad lookups": 4876
+      },
+      "202508": {
+        "ad pages": 15956,
+        "single-ad lookups": 2571
+      },
+      "202509": {
+        "ad pages": 21672,
+        "single-ad lookups": 6301
+      },
+      "202510": {
+        "ad pages": 24423,
+        "single-ad lookups": 7326
+      },
+      "202511": {
+        "ad pages": 50402,
+        "single-ad lookups": 3196
+      },
+      "202512": {
+        "ad pages": 62767,
+        "single-ad lookups": 7738
+      },
+      "202601": {
+        "ad pages": 32090,
+        "single-ad lookups": 118
+      },
+      "202602": {
+        "ad pages": 20151,
+        "single-ad lookups": 61
+      },
+      "202603": {
+        "ad pages": 9400,
+        "single-ad lookups": 44
+      },
+      "202604": {
+        "ad pages": 6184,
+        "single-ad lookups": 34
+      },
+      "202605": {
+        "ad pages": 2725,
+        "single-ad lookups": 49
+      },
+      "202606": {
+        "ad pages": 2551,
+        "single-ad lookups": 41
+      },
+      "202607": {
+        "ad pages": 2031,
+        "single-ad lookups": 53
+      },
+      "202608": {
+        "ad pages": 2883,
+        "single-ad lookups": 101
+      },
+      "202609": {
+        "ad pages": 2341,
+        "single-ad lookups": 54
+      },
+      "202610": {
+        "ad pages": 0,
+        "single-ad lookups": 32
+      }
+    },
+    "house_pages": 1,
+    "house_searches": 0,
+    "houses_found": [
+      "loro_piana"
+    ],
+    "kinds": {
+      "ad page, 200": 288848,
+      "ad page, copy of an earlier save": 2,
+      "ad page, redirect": 134,
+      "advertiser page, 200": 10848,
+      "advertiser page, copy of an earlier save": 5,
+      "advertiser page, other": 18,
+      "advertiser page, redirect": 118,
+      "other, 200": 18,
+      "other, other": 5,
+      "other, redirect": 4
+    },
+    "lookups": 34327,
+    "lookups_by_chance_a_day_apart": 9481,
+    "lookups_with_an_ad_page_within_2_min": 12879,
+    "page_captures": 300000,
+    "run": "gh38316553393",
+    "searches_by_website": 619,
+    "updated_at": "2026-10-12T22:31:07Z"
+  },
   "ads": {
     "accounts_asked": 24,
     "advertiser_pages": 0,
