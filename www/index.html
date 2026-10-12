@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Focal</title>
-<meta name="description" content="A house shows a collection. The homepage, the campaign and the advertising remake it, each for its own job. Focal reads what carried, and whether each stayed distinct, against the other twenty-seven.">
+<meta name="description" content="Focal is AI vision built for luxury fashion. It reads the pictures a house shows, from the runway to the advertising, with models tested before use and held fixed, and sets each house against the other twenty-seven.">
 <meta property="og:title" content="Focal">
-<meta property="og:description" content="A house shows a collection. The homepage, the campaign and the advertising remake it, each for its own job. Focal reads what carried, and whether each stayed distinct, against the other twenty-seven.">
+<meta property="og:description" content="Focal is AI vision built for luxury fashion. It reads the pictures a house shows, from the runway to the advertising, with models tested before use and held fixed, and sets each house against the other twenty-seven.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%233627be' stroke-width='2'/%3E%3C/svg%3E">
@@ -18,7 +18,7 @@
     --paper: #ffffff;
     --ink: #000000;
     --graphite: #6b6b6b;
-    --accent: #3627be;      /* the one colour, a deep Majorelle blue: the O in Focal, the current tab's dot and the favicon, nowhere else */
+    --accent: #3627be;      /* the one colour, a deep Majorelle blue: the O in Focal, the current tab's dot, the favicon, and the labels, joins and buttons set out at the end */
     --gutter: clamp(1.25rem, 4vw, 3rem);
     --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
     --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -455,6 +455,49 @@
   /* the season board's seven stages: one row on a wide screen; on a phone the last of an odd number spans the row */
   @media (min-width: 64rem) { .pv-stages { grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); } }
   @media (max-width: 39.99rem) { .pv-stages li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+
+  /* More of the blue of Focal's O: the small labels, the owners' names, the joins between the stages, the links'
+     underlines, the signs that open a section, the selected season and the buttons. Body text and the figures stay
+     in ink. */
+  a, .next .t { text-decoration-color: var(--accent); }
+  .triad .when, .stages .when, .qs-g, .next .k, .pv-head .k, .pv-lab, .groups .o, .axes .to { color: var(--accent); }
+  .stages li + li::before { background: var(--accent); }
+  summary::after { color: var(--accent); }
+  .pv-chip[aria-pressed="true"] { border-color: var(--accent); }
+  .pv-btn { background: var(--accent); border-color: var(--accent); }
+
+  /* The abridged Tom Ford report: a short form for anyone without a password, and the report once they have left
+     their details. It shows only when the store that keeps the details is connected, and not once the tab is open. */
+  .tf-gate { max-width: 36rem; margin: clamp(3.5rem, 9vw, 5rem) auto 0; padding-top: clamp(2.5rem, 7vw, 3.5rem); border-top: 1px solid var(--rule); text-align: center; }
+  #private:has(#pv-lock[hidden]) .tf-gate { display: none; }
+  .tf-gate > .k { display: block; margin: 0 0 0.35rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .tf-gate > h3 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.15; text-wrap: balance; }
+  .tf-gate > p { margin: 0.75rem auto 0; max-width: 30rem; font-size: 0.9375rem; text-wrap: pretty; }
+  .tf-form { position: relative; max-width: 22rem; margin: 1.75rem auto 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+  /* the password box and its button fit a 320-pixel screen: the lock's one column may shrink below the box's natural width */
+  .pv-lock { grid-template-columns: minmax(0, 1fr); }
+  .pv-entry { min-width: 0; }
+  .tf-form label { margin-top: 0.6rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+  .tf-form input { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: 0.65rem 0.75rem; border: 1px solid var(--graphite); border-radius: 0; background: var(--paper); color: var(--ink); }
+  .tf-form input:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+  .tf-form .pv-btn { justify-self: center; margin-top: 1.1rem; }
+  .tf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .tf-report { margin-top: 0.75rem; }
+  .tf-gate.open { max-width: none; }
+  .tf-gate.open > :not(.tf-report) { display: none; }
+  .tf-fig { max-width: 34rem; margin: 0 auto 3.25rem; }
+  .tf-bars { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.9rem; }
+  .tf-row { display: grid; grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) 5.5rem; column-gap: 0.75rem; align-items: center; text-align: left; }
+  .tf-lab { font-size: 0.875rem; line-height: 1.3; }
+  .tf-track { position: relative; height: 1.2rem; }
+  .tf-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: var(--track); border-radius: 1px; }
+  .tf-track i { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--paper); z-index: 1; }
+  .tf-track u { position: absolute; top: 50%; width: 2px; height: 14px; margin: -7px 0 0 -1px; background: var(--graphite); }
+  .tf-val { font-size: 0.875rem; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tf-val small { margin-left: 0.3rem; font-size: 0.8125rem; color: var(--graphite); }
+  .tf-fig figcaption { margin-top: 0.9rem; font-size: 0.8125rem; color: var(--graphite); text-align: center; text-wrap: pretty; }
+  .tf-more { margin-bottom: 2rem; }
+  @media (max-width: 30rem) { .tf-row { grid-template-columns: minmax(0, 1fr) 5.5rem; row-gap: 0.2rem; } .tf-lab { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
@@ -474,7 +517,7 @@
         </ul>
       </nav>
       <div class="lead">
-        <p class="statement">A house shows a collection. The homepage, the campaign and the advertising remake it, each for its own job. Focal reads what carried, and whether each stayed distinct, against the other <span class="nw">twenty-seven</span>.</p>
+        <p class="statement">Focal is AI vision built for luxury fashion. It reads the pictures a house shows, from the runway to the advertising, with models tested before use and held fixed, and sets each house against the other <span class="nw">twenty-seven</span>.</p>
       </div>
       </div>
       <div class="home" id="benchmark">
@@ -520,7 +563,7 @@
         <div class="body">
         <ol class="stages">
           <li><span class="when">The six months before</span><span class="t">The scene</span><span class="d">The ambassadors the brand appointed, kept as context.</span></li>
-          <li><span class="when">The days around it</span><span class="t">The show</span><span class="d">About twenty looks from the brand's own runway pages, translated into numbers; how far attention jumped against the other shows of its season; and how the press wrote about it.</span></li>
+          <li><span class="when">The days around it</span><span class="t">The show</span><span class="d">Up to twenty looks from the brand's own runway pages, translated into numbers; how far attention jumped against the other shows of its season; and how the press wrote about it.</span></li>
           <li><span class="when">The six months after</span><span class="t">The shop window</span><span class="d">What the brand put on its homepage.</span></li>
           <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season, and who shot it.</span></li>
           <li><span class="when">Around the show, then to the next one</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, then the campaign's until a week before its next show.</span></li>
@@ -531,13 +574,14 @@
       <div class="home" id="status">
         <div class="intro">
           <h2>Where it stands</h2>
-          <p>As of 11 October 2026.</p>
+          <p>As of 12 October 2026.</p>
         </div>
         <div class="body">
           <ul class="status">
             <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the <a href="#/private">Private tab</a>.</li>
-            <li><span class="t">Pictures</span>4,049 homepage pictures read for how they are made, and 5,280 for their clothes, 2,153 of them runway looks from 158 shows.</li>
-            <li><span class="t">Attention</span>Wikipedia page views, daily for all 28 brands in ten languages: a like-for-like measure of attention, not of sales. 506 main shows scored for the jump around them.</li>
+            <li><span class="t">Pictures</span>5,410 homepage pictures read for how they are made, and 5,280 for their clothes, 2,163 of them runway looks.</li>
+            <li><span class="t">Attention</span>Wikipedia page views, daily for all 28 brands, in ten languages wherever a brand has a page: a like-for-like measure of attention, not of sales. 506 main shows scored for the jump around them.</li>
+            <li><span class="t">Press</span>Daily volume and tone of the news about each brand, gathered so far for 12 of the 28; the rest are being gathered.</li>
             <li><span class="t">Advertising</span>Built, and waiting on Meta to clear the account for its Ad Library.</li>
           </ul>
           <p class="note">The clothes are provisional until people, one of them trained in fashion, have checked the questions.</p>
@@ -637,7 +681,7 @@
             <div class="fx-step"></div>
             <div class="fx-all"><p class="sec">Every answer for this picture</p><div class="fx-list"></div></div>
             <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 47 looks from three shows of 2019 to 2021, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025. Like every description of the clothes, they are provisional until people have checked them.</p>
-            <p class="note">The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 28 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
+            <p class="note">The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 29 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
           </div>
         </div>
         <!--FX-END-->
@@ -840,18 +884,18 @@
         <details open style="margin-top:2.5rem">
           <summary>Fourteen with new creative directors since 2025</summary>
           <ol class="order">
+            <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-06-27">June 2025</time></li>
             <li><span><span class="h">Celine</span><span class="d">Michael Rider</span></span><time datetime="2025-07-06">July 2025</time></li>
             <li><span><span class="h">Maison Margiela</span><span class="d">Glenn Martens</span></span><time datetime="2025-07-09">July 2025</time></li>
             <li><span><span class="h">Gucci</span><span class="d">Demna</span></span><time datetime="2025-09-23">September 2025</time></li>
             <li><span><span class="h">Jil Sander</span><span class="d">Simone Bellotti</span></span><time datetime="2025-09-24">September 2025</time></li>
             <li><span><span class="h">Bottega Veneta</span><span class="d">Louise Trotter</span></span><time datetime="2025-09-28">September 2025</time></li>
-            <li><span><span class="h">Dior</span><span class="d">Jonathan Anderson</span></span><time datetime="2025-10-01">October 2025</time></li>
             <li><span><span class="h">Loewe</span><span class="d">Jack McCollough and Lazaro Hernandez</span></span><time datetime="2025-10-03">October 2025</time></li>
             <li><span><span class="h">Balenciaga</span><span class="d">Pierpaolo Piccioli</span></span><time datetime="2025-10-04">October 2025</time></li>
             <li><span><span class="h">Chanel</span><span class="d">Matthieu Blazy</span></span><time datetime="2025-10-06">October 2025</time></li>
             <li><span><span class="h">Fendi</span><span class="d">Maria Grazia Chiuri</span></span><time datetime="2026-02-25">February 2026</time></li>
           </ol>
-          <p class="note">Months are first shows. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale; Pieter Mulier, in post since July 2026, shows first in February 2027.</p>
+          <p class="note">Months are first shows; Jonathan Anderson's first at Dior was for men, his first for women in October. Givenchy, Tom Ford and Dries Van Noten changed hands in March 2025. Versace showed one season by Dario Vitale; Pieter Mulier, in post since July 2026, shows first in February 2027, and Alaïa, which he left, is designed by its studio for now.</p>
         </details>
       </div>
       <div class="body wide" style="margin-top:4.5rem">
@@ -944,6 +988,26 @@
         </div>
         <p class="pv-msg" id="pv-msg" role="status" aria-live="polite"></p>
       </form>
+      <section class="tf-gate" id="tf-gate" aria-labelledby="tf-gate-h" hidden>
+        <span class="k">Without a password</span>
+        <h3 id="tf-gate-h">An abridged Tom Ford report</h3>
+        <p>Six findings from Focal's report on Tom Ford under Haider Ackermann, from his shows to the people behind the pictures. Leave your details to read it.</p>
+        <form class="tf-form" id="tf-form" novalidate>
+          <label for="tf-name">Name</label>
+          <input id="tf-name" name="name" autocomplete="name" maxlength="120" required>
+          <label for="tf-email">Work email</label>
+          <input id="tf-email" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" required>
+          <label for="tf-company">Company</label>
+          <input id="tf-company" name="company" autocomplete="organization" maxlength="160" required>
+          <label for="tf-role">Role, if you like</label>
+          <input id="tf-role" name="role" autocomplete="organization-title" maxlength="120">
+          <div class="tf-hp" aria-hidden="true"><label for="tf-site">Leave this empty</label><input id="tf-site" name="site" tabindex="-1" autocomplete="off"></div>
+          <button class="pv-btn" id="tf-go" type="submit">Read the report</button>
+          <p class="pv-msg" id="tf-msg" role="status" aria-live="polite"></p>
+          <p class="note">Your details are kept privately by Focal and used only to follow up on this report.</p>
+        </form>
+        <div class="tf-report" id="tf-report" hidden></div>
+      </section>
       <div id="pv-content" hidden>
         <div class="pv-tabs" id="pv-tabs" aria-label="Parts"></div>
         <div id="pv-parts"></div>
@@ -1091,6 +1155,49 @@
   }
   range.addEventListener("input", () => show(+range.value));
   show(+range.value);
+})();
+</script>
+<script>
+(() => {
+  // the abridged Tom Ford report: offered only once the store for the details answers, kept open for the session
+  const gate = document.getElementById("tf-gate"), panel = document.getElementById("private");
+  if (!gate || !panel) return;
+  const form = document.getElementById("tf-form"), msg = document.getElementById("tf-msg");
+  const out = document.getElementById("tf-report"), go = document.getElementById("tf-go");
+  const KEY = "focal-tf";
+  const open = html => { out.innerHTML = html; out.hidden = false; gate.classList.add("open"); gate.hidden = false; };
+  let saved = null; try { saved = sessionStorage.getItem(KEY); } catch (e) {}
+  if (saved) { open(saved); return; }
+  let asked = false;
+  const ask = () => {
+    if (asked || panel.hidden) return;
+    asked = true;
+    fetch("/api/lead", { cache: "no-store" }).then(r => r.ok ? r.json() : null)
+      .then(j => { if (j && j.ready) gate.hidden = false; }).catch(() => {});
+  };
+  new MutationObserver(ask).observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+  ask();
+  form.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const f = {};
+    for (const k of ["name", "email", "company", "role", "site"]) f[k] = (form.elements[k].value || "").trim();
+    if (!f.name || !f.company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) {
+      msg.textContent = "Please give your name, a work email and your company.";
+      return;
+    }
+    go.disabled = true; msg.textContent = "Opening the report.";
+    try {
+      const r = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f) });
+      const j = await r.json().catch(() => null);
+      if (!r.ok || !j || !j.html) throw new Error("failed");
+      try { sessionStorage.setItem(KEY, j.html); } catch (e) {}
+      msg.textContent = "";
+      open(j.html);
+      gate.scrollIntoView({ block: "start" });
+    } catch (e) {
+      msg.textContent = "It could not be opened just now. Try again in a moment.";
+    } finally { go.disabled = false; }
+  });
 })();
 </script>
 </body>
