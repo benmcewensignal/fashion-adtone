@@ -499,6 +499,9 @@
   .tf-more { margin-bottom: 2rem; }
   @media (max-width: 30rem) { .tf-row { grid-template-columns: minmax(0, 1fr) 5.5rem; row-gap: 0.2rem; } .tf-lab { grid-column: 1 / -1; } }
 </style>
+<!-- Vercel Web Analytics: cookieless page views. The site's pages are hash routes, so each page is sent by the router below. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js" data-disable-auto-track="1"></script>
 </head>
 <body>
 <div class="page">
@@ -1048,7 +1051,11 @@
     }
     const at = part && document.getElementById(part);
     if (at) at.scrollIntoView(); else window.scrollTo(0, 0);
+    // one page view per page opened, by the page's own name: /, /readings, /method, /brands, /private and its parts
+    const path = id === "overview" ? "/" : id === "private" && /^[a-z-]{1,24}$/.test(sub || "") ? `/private/${sub}` : `/${id}`;
+    if (path !== lastView) { lastView = path; window.va("pageview", { route: path, path }); }
   }
+  let lastView = null;
   if (/^#[a-z]+$/.test(location.hash)) history.replaceState(null, "", "#/" + location.hash.slice(1));
   addEventListener("hashchange", route);
   // a menu link to where the address already points still takes the reader there
