@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T12:06:23Z",
+ "generated_at": "2026-10-12T12:59:45Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ConnectionError"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "HTTP 504"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6239,6 +6239,19 @@
    "candidates": [],
    "errors": {
     "gucci.com": "ReadTimeout"
+   }
+  },
+  "hermes:2016-10-03:rtw": {
+   "house": "hermes",
+   "date": "2016-10-03",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2017-01-21:men": {
@@ -6291,13 +6304,10 @@
    "date": "2017-10-02",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ReadTimeout"
-   }
+   "pages": 2,
+   "candidates": []
   },
   "hermes:2018-01-20:men": {
    "house": "hermes",
@@ -7316,6 +7326,19 @@
    "pages": 0,
    "candidates": []
   },
+  "loewe:2016-03-04:rtw": {
+   "house": "loewe",
+   "date": "2016-03-04",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "loewe.com": "ConnectionError"
+   }
+  },
   "loewe:2016-06-25:men": {
    "house": "loewe",
    "date": "2016-06-25",
@@ -7334,13 +7357,16 @@
    "date": "2016-09-30",
    "season": "2017 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "loewe.com": "ReadTimeout"
-   }
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.loewe.com:80/us_en/ss17-runway.html",
+     "ts": "20161013072631",
+     "score": 4.94
+    }
+   ]
   },
   "loewe:2017-03-03:rtw": {
    "house": "loewe",
@@ -8084,19 +8110,55 @@
     "louisvuitton.com": "ReadTimeout"
    }
   },
+  "margiela:2015-01-23:men": {
+   "house": "margiela",
+   "date": "2015-01-23",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "margiela:2015-01-28:couture": {
+   "house": "margiela",
+   "date": "2015-01-28",
+   "season": "2015 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "margiela:2015-03-06:rtw": {
+   "house": "margiela",
+   "date": "2015-03-06",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "margiela:2015-06-26:men": {
+   "house": "margiela",
+   "date": "2015-06-26",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "margiela:2015-07-08:couture": {
    "house": "margiela",
    "date": "2015-07-08",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectTimeout"
-   }
+   "candidates": []
   },
   "margiela:2015-09-30:rtw": {
    "house": "margiela",
@@ -8532,6 +8594,96 @@
      "score": 3.62
     }
    ]
+  },
+  "max_mara:2017-02-23:rtw": {
+   "house": "max_mara",
+   "date": "2017-02-23",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2017-09-21:rtw": {
+   "house": "max_mara",
+   "date": "2017-09-21",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2018-02-22:rtw": {
+   "house": "max_mara",
+   "date": "2018-02-22",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2018-09-20:rtw": {
+   "house": "max_mara",
+   "date": "2018-09-20",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2019-02-21:rtw": {
+   "house": "max_mara",
+   "date": "2019-02-21",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2019-09-19:rtw": {
+   "house": "max_mara",
+   "date": "2019-09-19",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2020-02-20:rtw": {
+   "house": "max_mara",
+   "date": "2020-02-20",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2020-09-24:rtw": {
+   "house": "max_mara",
+   "date": "2020-09-24",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "max_mara:2021-02-25:rtw": {
+   "house": "max_mara",
+   "date": "2021-02-25",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
   },
   "max_mara:2021-09-23:rtw": {
    "house": "max_mara",
@@ -9449,6 +9601,29 @@
     }
    ]
   },
+  "tom_ford:2015-02-23:rtw": {
+   "house": "tom_ford",
+   "date": "2015-02-23",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "tomford.com": "ReadTimeout"
+   }
+  },
+  "tom_ford:2017-09-07:rtw": {
+   "house": "tom_ford",
+   "date": "2017-09-07",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
   "tom_ford:2018-02-09:rtw": {
    "house": "tom_ford",
    "date": "2018-02-09",
@@ -9530,13 +9705,10 @@
    "date": "2021-02-24",
    "season": "2021 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "tomford.com": "HTTP 504"
-   }
+   "candidates": []
   },
   "tom_ford:2021-09-13:rtw": {
    "house": "tom_ford",
@@ -9698,19 +9870,20 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
     "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/womens-fashion/"
    ],
-   "pages": 973
+   "pages": 1390
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 5009
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -9759,12 +9932,9 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/",
-    "www.hermes.com/fi/en/category/men/ready-wear/",
-    "www.hermes.com/fi/en/content/308227-tableware-collections/",
-    "www.hermes.com/fi/en/category/women/ready-wear/"
+    "www.hermes.com/us/en/content/"
    ],
-   "pages": 906
+   "pages": 0
   },
   "gucci": {
    "prefixes": [
@@ -9772,10 +9942,9 @@
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/link-to-love-collection/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/boy-collection-c-children-collections-boy/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/girl-collection-c-children-collections-girl/",
-    "www.gucci.com/us/en/st/capsule/gucci-pet-collection/"
+    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
+    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
+    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/"
    ],
    "pages": 865
   },
@@ -9784,10 +9953,9 @@
     "www.loewe.com/eur/en/stories-collection/",
     "www.loewe.com/eur/en/runway/",
     "www.loewe.com/usa/en/",
-    "www.loewe.com/eur/en/stories/runway/",
-    "www.loewe.com/eur/en/men/"
+    "www.loewe.com/eur/en/stories/runway/"
    ],
-   "pages": 42874
+   "pages": 22874
   },
   "loro_piana": {
    "prefixes": [
@@ -9803,10 +9971,9 @@
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/us/collections/look/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/",
-    "www.maisonmargiela.com/us/collection/hc-men_section/"
+    "www.maisonmargiela.com/us/collections/"
    ],
-   "pages": 1569
+   "pages": 921
   },
   "miu_miu": {
    "prefixes": [
@@ -9830,12 +9997,11 @@
   },
   "prada": {
    "prefixes": [
-    "www.prada.com/en/collections/advertising-campaign/",
-    "www.prada.com/en/collections/fashion-show/",
-    "www.prada.com/en/collections/",
-    "www.prada.com/us/en/men/sunglasses/"
+    "www.prada.com/fi/en/pradasphere/fashion-shows/2026/",
+    "www.prada.com/fi/en/womens/womens-collection/c/10525EU/",
+    "www.prada.com/fi/en/mens/mens-collection/c/10527EU/"
    ],
-   "pages": 1018
+   "pages": 9
   },
   "saint_laurent": {
    "prefixes": [
@@ -9852,12 +10018,12 @@
   },
   "tom_ford": {
    "prefixes": [
-    "www.tomford.com/eyewear/men/private-collection/",
     "www.tomford.com/watches/the-curated-collection/",
-    "www.tomford.com/eyewear/men/blue-block-collection/",
+    "www.tomford.com/eyewear/runway-eyewear/",
+    "www.tomford.com/eyewear/women/blue-block-collection/",
     "www.tomford.com/eyewear/magnetic-clip-on-collection/"
    ],
-   "pages": 1151
+   "pages": 1330
   },
   "valentino": {
    "prefixes": [
@@ -9870,9 +10036,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 349,
-   "index failed": 52,
-   "none": 160
+   "found": 350,
+   "index failed": 51,
+   "none": 177
   },
   "by_house": {
    "alaia": {
@@ -9932,7 +10098,7 @@
     "found": 12
    },
    "hermes": {
-    "shows": 36,
+    "shows": 37,
     "found": 31
    },
    "jil_sander": {
@@ -9940,8 +10106,8 @@
     "found": 13
    },
    "loewe": {
-    "shows": 32,
-    "found": 26
+    "shows": 33,
+    "found": 27
    },
    "loro_piana": {
     "shows": 3,
@@ -9952,11 +10118,11 @@
     "found": 0
    },
    "margiela": {
-    "shows": 29,
+    "shows": 33,
     "found": 15
    },
    "max_mara": {
-    "shows": 10,
+    "shows": 19,
     "found": 2
    },
    "miu_miu": {
@@ -9972,7 +10138,7 @@
     "found": 15
    },
    "tom_ford": {
-    "shows": 16,
+    "shows": 18,
     "found": 1
    },
    "valentino": {
@@ -9982,31 +10148,31 @@
   },
   "by_year": {
    "2015": {
-    "shows": 21,
+    "shows": 25,
     "found": 14
    },
    "2016": {
-    "shows": 47,
+    "shows": 49,
     "found": 34
    },
    "2017": {
-    "shows": 48,
-    "found": 30
+    "shows": 50,
+    "found": 31
    },
    "2018": {
-    "shows": 47,
+    "shows": 50,
     "found": 21
    },
    "2019": {
-    "shows": 55,
+    "shows": 57,
     "found": 29
    },
    "2020": {
-    "shows": 51,
+    "shows": 53,
     "found": 31
    },
    "2021": {
-    "shows": 36,
+    "shows": 38,
     "found": 27
    },
    "2022": {
