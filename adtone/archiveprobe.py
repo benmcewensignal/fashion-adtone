@@ -213,16 +213,24 @@ def call_of(url: str) -> dict:
     return {"call": m.group(1) if m else path.split("?")[0][:60], "posted": posted, "advertisers": sorted(set(ADVERTISER.findall(text)))}
 
 
+CALL_PREFIXES = ("adstransparency.google.com/anji/_/rpc/SearchService/", "adstransparency.google.com/anji/_/rpc/LookupService/GetCreative")
+
+
 def calls_probe(c: Crawler, open_max: int = 80) -> tuple[list[dict], dict]:
     """Every capture the archive holds of the Transparency Center's data calls, the questions behind the
     advertiser pages: which call, when, and whether it names one of the houses' accounts; then a sample of the
     stored answers opened, for the ads and advertisers each carries. Only counts and the houses' own ids are
     kept, never another advertiser's id and never an ad's words."""
     houses = house_accounts()
-    q = {"url": "adstransparency.google.com/anji/", "matchType": "prefix", "output": "json",
-         "fl": "timestamp,original,mimetype,statuscode,digest", "limit": "50000"}
-    r = fetch(c, CDX, q)
-    caps = [] if r is None else [x for x in _cdx_rows(r)[1:] if len(x) >= 5]
+    # the index sorts captures by address, so one query over all the calls fills up on the region and advertiser
+    # lookups before reaching the calls that list ads: each call that can carry ads is asked for on its own
+    caps, per_prefix = [], {}
+    for pre in CALL_PREFIXES:
+        q = {"url": pre, "matchType": "prefix", "output": "json", "fl": "timestamp,original,mimetype,statuscode,digest", "limit": "50000"}
+        r = fetch(c, CDX, q)
+        got = None if r is None else [x for x in _cdx_rows(r)[1:] if len(x) >= 5]
+        per_prefix[pre.split("/rpc/")[1]] = None if got is None else len(got)
+        caps += got or []
     rows, seen = [], set()
     for ts, url, mime, status, digest in caps:
         info = call_of(url)
@@ -258,7 +266,7 @@ def calls_probe(c: Crawler, open_max: int = 80) -> tuple[list[dict], dict]:
     for x in rows:
         x.pop("url", None)                     # the address can carry another advertiser's query: kept out
     calls = Counter(x["call"] for x in rows)
-    summary = {"captures": len(rows), "cut_short": cut, "calls": dict(calls.most_common(12)),
+    summary = {"captures": len(rows), "asked": per_prefix, "cut_short": cut, "calls": dict(calls.most_common(12)),
                "years": dict(sorted(Counter(x["timestamp"][:4] for x in rows).items())),
                "status_200": sum(1 for x in rows if x["status"] == "200"), "posted": sum(1 for x in rows if x["posted"]),
                "naming_an_advertiser": sum(1 for x in rows if x["names_advertiser"]),
@@ -285,15 +293,16 @@ def main(argv: list[str] | None = None) -> int:
         DEADLINE[0] = start + a.budget_min * 60
         try:
             rows, summary = calls_probe(c)
-            store.write_jsonl(config.DATA / "archiveprobe" / "calls.jsonl", rows)
+            store.write_jsonl(config.DATA / "archiveprobe" / "ad_calls.jsonl", rows)
         except Exception as e:
             summary = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
         state = json.loads(P["state"].read_text()) if P["state"].exists() else {}
         ts = sorted(TIMES)
-        state["data_calls"] = {**summary, "run": a.run, "archive_calls": c.calls, "answered": len(ts), "updated_at": store.utc_now()}
+        key = "ad_calls" if "data_calls" in state else "data_calls"
+        state[key] = {**summary, "run": a.run, "archive_calls": c.calls, "answered": len(ts), "updated_at": store.utc_now()}
         store.write_state(P["state"], state)
         store.append_jsonl(P["prov"], [{"run": a.run, "data_calls": summary}])
-        print(json.dumps(state["data_calls"], indent=1)[:4000])
+        print(json.dumps(state[key], indent=1)[:4000])
         return 0
     DEADLINE[0] = start + a.budget_min * 60 * 0.3              # the Google part gets under a third of the time
     out = {"run": a.run}
