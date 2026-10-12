@@ -18,6 +18,7 @@ import json
 import random
 import re
 import sys
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -50,20 +51,32 @@ class ArchiveDown(Exception):
     pass
 
 
+class OutOfTime(Exception):
+    pass
+
+
+DEADLINE = [float("inf")]        # the run's time budget: past it, each part stops and keeps what it has
+TIMES: list[float] = []          # seconds each answered call took
+
+
 def fetch(c: Crawler, url: str, params: dict | None = None, tries: int = 4):
     """The archive under load answers slowly or not at all: a timeout or a busy answer is retried after a longer
     pause, and after the last try the call is counted as failed rather than ending the probe."""
     if STREAK[0] >= 10:
         raise ArchiveDown("ten archive calls in a row went unanswered")
     for k in range(tries):
+        if time.monotonic() > DEADLINE[0]:
+            raise OutOfTime("the run's time budget ran out")
         c.calls += 1
         c.sleep(c.pause * (1 + 3 * k))
+        t0 = time.monotonic()
         try:
             r = c.s.get(url, params=params, timeout=90)
         except requests.RequestException:
             continue
         if r.status_code not in (429, 500, 502, 503, 504):
             STREAK[0] = 0
+            TIMES.append(time.monotonic() - t0)
             return r
     FAILED[url.split("/")[2]] += 1
     STREAK[0] += 1
@@ -90,26 +103,28 @@ def main_accounts() -> dict[str, str]:
 
 
 def ads_probe(c: Crawler) -> tuple[list[dict], dict]:
-    rows, house_caps = [], []
-    for house, aid in main_accounts().items():
-        caps = cdx(c, f"adstransparency.google.com/advertiser/{aid}")
-        if caps is None:
-            rows.append({"house": house, "advertiser_id": aid, "captures": None})
-            continue
-        house_caps += caps
-        rows.append({"house": house, "advertiser_id": aid, "captures": len(caps),
-                     "first": min((t for t, _ in caps), default=None), "last": max((t for t, _ in caps), default=None),
-                     "pages": len({u for _, u in caps})})
-    site = cdx(c, "adstransparency.google.com/", limit=2000) or []
-    rpc = cdx(c, "adstransparency.google.com/anji/", limit=500) or []
-    read, with_ads = [], 0
-    sample = (sorted(house_caps, reverse=True)[:3] + [(t, u) for t, u in site if "/advertiser/" in u][:3])[:4]
-    for t, u in sample:                                         # does a captured advertiser page carry any ad?
-        r = fetch(c, WAYBACK_RAW.format(ts=t, url=u))
-        n = len(set(CREATIVE.findall(r.text))) if r is not None and r.status_code == 200 else None
-        read.append({"timestamp": t, "status": None if r is None else r.status_code, "creative_ids": n})
-        with_ads += 1 if n else 0
-    summary = {"site_captures": len(site), "site_pages": len({u for _, u in site}),
+    rows, house_caps, site, rpc, read, with_ads, cut = [], [], [], [], [], 0, None
+    try:
+        site = cdx(c, "adstransparency.google.com/", limit=2000) or []
+        rpc = cdx(c, "adstransparency.google.com/anji/", limit=500) or []
+        for house, aid in main_accounts().items():
+            caps = cdx(c, f"adstransparency.google.com/advertiser/{aid}")
+            if caps is None:
+                rows.append({"house": house, "advertiser_id": aid, "captures": None})
+                continue
+            house_caps += caps
+            rows.append({"house": house, "advertiser_id": aid, "captures": len(caps),
+                         "first": min((t for t, _ in caps), default=None), "last": max((t for t, _ in caps), default=None),
+                         "pages": len({u for _, u in caps})})
+        sample = (sorted(house_caps, reverse=True)[:3] + [(t, u) for t, u in site if "/advertiser/" in u][:3])[:4]
+        for t, u in sample:                                     # does a captured advertiser page carry any ad?
+            r = fetch(c, WAYBACK_RAW.format(ts=t, url=u))
+            n = len(set(CREATIVE.findall(r.text))) if r is not None and r.status_code == 200 else None
+            read.append({"timestamp": t, "status": None if r is None else r.status_code, "creative_ids": n})
+            with_ads += 1 if n else 0
+    except (OutOfTime, ArchiveDown) as e:
+        cut = str(e)
+    summary = {"cut_short": cut, "accounts_asked": len(rows), "site_captures": len(site), "site_pages": len({u for _, u in site}),
                "site_years": dict(sorted(Counter(t[:4] for t, _ in site).items())),
                "advertiser_pages": len({u for _, u in site if "/advertiser/" in u}),
                "data_call_captures": len(rpc), "pages_read": read, "pages_read_with_ads": with_ads,
@@ -131,23 +146,28 @@ def films(per_house: int, seed: int = 12) -> list[dict]:
     return out
 
 
-def youtube_probe(c: Crawler, per_house: int, reads: int = 40) -> tuple[list[dict], dict]:
-    rows = []
-    for v in films(per_house):
-        caps = cdx(c, f"youtube.com/watch?v={v['video_id']}")
-        rows.append({**v, "captures": None if caps is None else sorted({t[:8] for t, _ in caps})})
-    read = 0
-    for v in sorted(rows, key=lambda r: -len(r["captures"] or [])):    # the views a capture shows, earliest capture first
-        if read >= reads or not v["captures"]:
-            continue
-        ts = v["captures"][0]
-        r = fetch(c, WAYBACK_RAW.format(ts=ts, url=f"https://www.youtube.com/watch?v={v['video_id']}"))
-        v["read"] = {"date": ts, "status": None if r is None else r.status_code,
-                     "views": views_in(r.text) if r is not None and r.status_code == 200 else None}
-        read += 1
+def youtube_probe(c: Crawler, per_house: int, reads: int = 30) -> tuple[list[dict], dict]:
+    rows, cut = [], None
+    try:
+        picks = films(per_house)
+        random.Random(3).shuffle(picks)                         # cut short, the films asked still spread across houses
+        for v in picks:
+            caps = cdx(c, f"youtube.com/watch?v={v['video_id']}")
+            rows.append({**v, "captures": None if caps is None else sorted({t[:8] for t, _ in caps})})
+        read = 0
+        for v in sorted(rows, key=lambda r: -len(r["captures"] or [])):    # the views a capture shows, earliest first
+            if read >= reads or not v["captures"]:
+                continue
+            ts = v["captures"][0]
+            r = fetch(c, WAYBACK_RAW.format(ts=ts, url=f"https://www.youtube.com/watch?v={v['video_id']}"))
+            v["read"] = {"date": ts, "status": None if r is None else r.status_code,
+                         "views": views_in(r.text) if r is not None and r.status_code == 200 else None}
+            read += 1
+    except (OutOfTime, ArchiveDown) as e:
+        cut = str(e)
     def share(xs, pred):
         return round(sum(1 for x in xs if pred(x)) / max(len(xs), 1), 3)
-    summary = {}
+    summary = {"cut_short": cut, "films_asked": len(rows)}
     summary["unanswered"] = sum(1 for r in rows if r["captures"] is None)
     for why in ("top", "random"):
         xs = [r for r in rows if r["why"] == why and r["captures"] is not None]
@@ -170,19 +190,28 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.archiveprobe")
     ap.add_argument("stage", choices=["run"])
     ap.add_argument("--run", default=config.run_id())
-    ap.add_argument("--films", type=int, default=8)
+    ap.add_argument("--films", type=int, default=4)
+    ap.add_argument("--budget-min", type=float, default=36)
     a = ap.parse_args(argv)
     P = paths()
     c = Crawler(pause=1.5)
+    start = time.monotonic()
+    DEADLINE[0] = start + a.budget_min * 60 * 0.3              # the Google part gets under a third of the time
     out = {"run": a.run}
     for name, fn in (("ads", lambda: ads_probe(c)), ("youtube", lambda: youtube_probe(c, a.films))):
+        STREAK[0] = 0
         try:
             rows, summary = fn()
             store.write_jsonl(P[name], rows)
             out[name] = summary
         except Exception as e:                                    # one part failing leaves the other's result
             out[name] = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
-    out.update({"archive_calls": c.calls, "failed_calls": dict(FAILED), "updated_at": store.utc_now()})
+        DEADLINE[0] = start + a.budget_min * 60                   # the films get the rest
+    ts = sorted(TIMES)
+    out.update({"archive_calls": c.calls, "answered": len(ts), "failed_calls": dict(FAILED),
+                "seconds_per_answer": {"median": round(ts[len(ts) // 2], 1) if ts else None,
+                                       "slowest": round(ts[-1], 1) if ts else None},
+                "updated_at": store.utc_now()})
     store.write_state(P["state"], out)
     store.append_jsonl(P["prov"], [out])
     print(json.dumps(out, indent=1)[:4000])
