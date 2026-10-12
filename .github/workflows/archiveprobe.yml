@@ -1,0 +1,39 @@
+name: archiveprobe
+run-name: archiveprobe ${{ github.event_name }}
+# What the Wayback Machine holds for two histories Focal lacks: the houses' pages on Google's Ads
+# Transparency Center (Google keeps an ad only a year after it was last shown) and the houses' YouTube films
+# (the Data API gives today's totals only). Counts captures and reads a few for the figures they carry;
+# stores counts, dates and view figures, never a page or a picture. Run by hand.
+on:
+  workflow_dispatch:
+  push:   # editing .github/kick/archiveprobe starts a run
+    branches: [main]
+    paths: [".github/kick/archiveprobe"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-archiveprobe
+  cancel-in-progress: false
+
+jobs:
+  archiveprobe:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt
+      - name: Probe the archive
+        continue-on-error: true
+        timeout-minutes: 45
+        run: python -m adtone.archiveprobe run --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh archiveprobe "archiveprobe ${{ github.event_name }}"

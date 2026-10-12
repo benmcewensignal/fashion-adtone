@@ -34,6 +34,7 @@ ALLOW = {
     "adstransparency": ["data/adstransparency/*.jsonl", "data/adstransparency/table.json",
                         "data/adstransparency/creatives/*.jsonl", "data/state/adstransparency.json",
                         "data/provenance/adstransparency.jsonl"],
+    "archiveprobe": ["data/archiveprobe/*.jsonl", "data/state/archiveprobe.json", "data/provenance/archiveprobe.jsonl"],
     "reader": ["data/state/reader.json", "data/provenance/reader.jsonl"],
     "statements": ["data/statements/*.jsonl", "data/state/statements.json", "data/provenance/statements.jsonl"],
     "bakeoff": ["data/bakeoff/*.json", "data/bakeoff/*.jsonl", "data/bakeoff/readings/*.jsonl",
