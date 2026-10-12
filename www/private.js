@@ -479,7 +479,7 @@
         });
       };
       const st = D.sticky;
-      const sp = el("p", "note", `A show's attention lasts no better than an equal jump on an ordinary day. Across ${st.n} shows since 2015, comparing each brand with itself, the attention that lasted rose ${st.slope.toFixed(2)} for each unit of surprise at the show, against ${st.placebo.toFixed(2)} on days away from any show (p ${st.p.toFixed(2)}).`);
+      const sp = el("p", "note", `A show's attention lasts no better, within chance, than an equal jump on an ordinary day. Across the ${st.n} shows whose surprise can be measured, comparing each brand with itself on attention in English, the attention that lasted rose ${st.slope.toFixed(2)} for each unit of surprise at the show, against ${st.placebo.toFixed(2)} on ordinary days away from the brand's main shows (p ${st.p.toFixed(2)}).`);
       sec.append(sp);
       for (const t of D.sticky_more || []) sec.append(el("p", "note", t));
     }
