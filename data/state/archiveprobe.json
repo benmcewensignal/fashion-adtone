@@ -19,6 +19,35 @@
   },
   "answered": 218,
   "archive_calls": 218,
+  "data_calls": {
+    "answered": 81,
+    "archive_calls": 81,
+    "calls": {
+      "GeoTargetService/GetLocationDataByCriterionIds": 33049,
+      "LookupService/GetAdvertiserById": 16951
+    },
+    "captures": 50000,
+    "creatives_in_house_answers": 0,
+    "cut_short": null,
+    "houses_in_answers": [],
+    "houses_named": [],
+    "naming_a_house": 0,
+    "naming_an_advertiser": 0,
+    "opened": 80,
+    "opened_with_a_house": 0,
+    "opened_with_ads": 0,
+    "posted": 0,
+    "run": "gh38314113780",
+    "status_200": 49551,
+    "updated_at": "2026-10-12T22:04:52Z",
+    "years": {
+      "2022": 41,
+      "2023": 367,
+      "2024": 296,
+      "2025": 48766,
+      "2026": 530
+    }
+  },
   "failed_calls": {},
   "run": "gh38301677822",
   "seconds_per_answer": {
