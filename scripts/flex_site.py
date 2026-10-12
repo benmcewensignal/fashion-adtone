@@ -184,7 +184,7 @@ def main():
               f"Dior's ready-to-wear under {hd['dior']['designer']}, {hd['dior']['looks']} looks from "
               f"{COUNT.get(hd['dior']['shows'], hd['dior']['shows'])} shows of {dy[0]} to {dy[1]}, and Balenciaga's under "
               f"{hd['balenciaga']['designer']}, {hd['balenciaga']['looks']} looks from {COUNT.get(hd['balenciaga']['shows'], hd['balenciaga']['shows'])} shows of "
-              f"{by[0]} to {by[1]}. Like every description of the clothes, they are provisional until people have checked them.")
+              f"{by[0]} to {by[1]}.")
     note_m = (f"The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its "
               f"own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the "
               f"reader saw the change in {met} of the {drawn} versions, and the one shown is the version whose answers moved "

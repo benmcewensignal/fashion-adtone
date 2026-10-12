@@ -63,11 +63,29 @@
     for (const x of list) { const d = el("div"); if (x.h) d.append(el("h4", null, x.h)); d.append(el("p", null, x.p)); f.append(d); }
     host.append(f);
   }
-  function notes(host, list, title) {
-    if (!list || !list.length) return;
-    const n = el("section", "pv-notes"); n.append(el("h4", null, title || "How it is read"));
-    const ul = el("ul"); for (const t of list) ul.append(el("li", null, t)); n.append(ul); host.append(n);
+  // every report opens with its finding: the report's name small, the finding as the headline, then its line
+  function lead(host, part, f, line) {
+    const h = el("header", "pv-head pv-lead");
+    if (part.title) h.append(el("span", "k", part.title));
+    h.append(el("h3", null, f.h));
+    if (line !== false && f.p) h.append(el("p", null, line || f.p));
+    host.append(h);
   }
+  // the rest of a report's reading sits under its table or chart, as the note
+  function note(host, list, intro) {
+    if ((!list || !list.length) && !intro) return;
+    const n = el("div", "pv-note");
+    if (intro) n.append(el("p", null, intro));
+    for (const x of list || []) { const d = el("div"); if (x.h) d.append(el("h4", null, x.h)); d.append(el("p", null, x.p)); n.append(d); }
+    host.append(n);
+  }
+  // how each reading is read is set out once, on its own page, and linked from every report
+  function methodLink(host) {
+    const p = el("p", "pv-how"); const a = el("a", null, "How it is read"); a.href = "#/private/method"; p.append(a); host.append(p);
+  }
+  const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+  const word = n => WORDS[n] || String(n);
   function cols(cls, names) {
     const c = el("div", "pv-cols pv-grid " + cls); c.setAttribute("aria-hidden", "true");
     for (const n of names) c.append(el("span", null, n));
@@ -106,11 +124,11 @@
     if (!s) return "Too few homepage pictures since November 2025 to say.";
     const r = Math.round(100 * s.recent_share), q = Math.round(100 * s.past_share);
     return {
-      itself: `Unmistakably, both ways: its recent pictures matched its own past, and its past its own recent pictures, in ${r} and ${q} of 100 resamples.`,
-      overtaken: `Its recent pictures still match its own past best (${r} of 100 resamples), but ${s.past_other}'s recent pictures now sit nearer its past than its own do (it held in ${q} of 100).`,
-      moved: `Its recent pictures now sit closest to ${s.recent_other}'s past (it matched its own in ${r} of 100 resamples).`,
-      neither: `Neither way: its recent pictures sit closest to ${s.recent_other}'s past, and its past nearer ${s.past_other}'s recent pictures (${r} and ${q} of 100 resamples).`,
-      close: `A close call: it matched itself in ${r} and ${q} of 100 resamples.`,
+      itself: `Itself, both ways: its recent pictures matched its own past, and its past its own recent pictures, in ${r} and ${q} of 100 draws.`,
+      overtaken: `Its recent pictures still match its own past best (${r} of 100 draws), but ${s.past_other}'s recent pictures now sit nearer its past than its own do (it held in ${q} of 100).`,
+      moved: `Its recent pictures now sit closest to ${s.recent_other}'s past (it matched its own in ${r} of 100 draws).`,
+      neither: `Neither way: its recent pictures sit closest to ${s.recent_other}'s past, and its past nearer ${s.past_other}'s recent pictures (${r} and ${q} of 100 draws).`,
+      close: `A close call: it matched itself in ${r} and ${q} of 100 draws.`,
     }[s.cat];
   }
   function drawScatter(svg, pts, wrap) {
@@ -119,9 +137,10 @@
     const side = Math.min(W - L - R, 460), H = T + side + B;
     const x = v => L + v / 100 * (W - L - R), y = v => T + (1 - v / 100) * side;
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    // no box: only the two lines at 50 cross the plot, with the places marked along the edges
+    svg.append(mk("line", { x1: x(50), x2: x(50), y1: T, y2: T + side, class: "sx-mid" }));
+    svg.append(mk("line", { x1: L, x2: W - R, y1: y(50), y2: y(50), class: "sx-mid" }));
     for (const v of [0, 25, 50, 75, 100]) {
-      svg.append(mk("line", { x1: x(v), x2: x(v), y1: T, y2: T + side, class: v === 50 ? "sx-mid" : "sx-grid" }));
-      svg.append(mk("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), class: v === 50 ? "sx-mid" : "sx-grid" }));
       if (v % 50 === 0 || W >= 460) {
         svg.append(mk("text", { x: x(v), y: T + side + 16, "text-anchor": "middle", class: "sx-tick" }, String(v)));
         svg.append(mk("text", { x: L - 7, y: y(v) + 4, "text-anchor": "end", class: "sx-tick" }, String(v)));
@@ -197,20 +216,39 @@
         + ` ${worn ? `${worn} outfit${worn === 1 ? "" : "s"}` : "no outfits"} in the shop window since, ${worn && worn >= 5 ? "and too few before to compare" : "too few to read"}.`);
       return ["The clothes", bits.join(" "), true];
     }
-    return ["The clothes", bits.join(" ") + " Provisional."];
+    return ["The clothes", bits.join(" ")];
+  }
+  // the headline finding's two figures: the houses showing a new designer (filled) against the rest (hollow)
+  function leadStats(L) {
+    const box = el("div", "pv-stats");
+    for (const [lab, a, b, p, d] of [["Jump at the show", L.new_jump, L.other_jump, L.p_jump, 3], ["Attention lasted", L.new_last, L.other_last, L.p_last, 2]]) {
+      const line = el("div", "pv-stat");
+      const t = el("span", "pv-track"); t.title = `${lab}: ${a} of 100 on average for the houses showing a new designer, ${b} for the rest`;
+      const lo = Math.min(a, b), hi = Math.max(a, b);
+      const span = el("b"); span.style.left = at(lo); span.style.width = `calc((100% - 10px) * ${(hi - lo) / 100})`;
+      const was = el("i", "was"); was.style.left = at(b);
+      const now = el("i"); now.style.left = at(a);
+      t.append(span, was, now);
+      line.append(el("span", "lab", lab), t, el("span", "val num", `${a} against ${b}`),
+        el("span", "p", `The gap is ${p < 0.05 ? "beyond" : "within"} chance (p ${p.toFixed(d)}).`));
+      box.append(line);
+    }
+    const key = el("p", "pv-key");
+    key.append(el("span", "dot"), ` The ${word(L.new)} houses showing a new designer in ${L.season_label.toLowerCase()}; `, el("span", "dot thin"),
+      ` the other ${L.shows - L.new}. Each placed from 0 to 100 among the season's shows, on average.`);
+    box.append(key);
+    return box;
   }
   function renderReshuffle(host, part) {
-    head(host, part);
-    findings(host, part.findings);
-    const fig = el("figure", "pv-fig");
-    fig.append(el("p", "pv-sec", part.scatter.title));
-    const svg = mk("svg", { role: "img", "aria-label": part.scatter.title }); svg.append(mk("title", {}, part.scatter.title));
-    fig.append(svg, el("figcaption", null, part.scatter.caption));
-    host.append(fig);
-    redraw.reshuffle = () => drawScatter(svg, part.points, fig);
+    const F = part.findings, first = F[0];
+    const still = F.find(x => x.h === "Who still looks like themselves");
+    const rest = F.filter(x => x !== first && x !== still);
+    // the finding, then the board, then the picture; the rest of the reading behind its own disclosure
+    lead(host, part, first, part.lead ? false : null);
+    if (part.lead) host.append(leadStats(part.lead));
     const wide = el("div", "pv-wide");
     wide.append(el("p", "pv-sec", "House by house"));
-    wide.append(el("p", "pv-key", "Each dot is the house's place among the brands of its season, from 0 at the left to 100 at the right. In the shop window, the small hollow dot is the last season before the change and the filled dot the latest since; a hollow filled dot means fewer than eight pictures. Open a house for the detail."));
+    wide.append(el("p", "pv-key", part.lede.split(". ")[0] + ". Each dot is the house's place among the brands of its season, from 0 to 100; in the shop window, hollow is the last season before the change and filled the latest since, a hollow filled dot fewer than eight pictures. Open a house for the detail."));
     wide.append(cols("c-score", ["House", "Jump at the first show", "Attention lasted", "Shop window, distinct", "Still itself"]));
     const rows = el("div", "pv-rows");
     for (const r of part.rows) {
@@ -244,7 +282,20 @@
       rows.append(d);
     }
     wide.append(rows); host.append(wide);
-    notes(host, part.notes);
+    if (still) { const s = el("p", "pv-lede"); s.append(el("b", null, "Who still looks like themselves. "), still.p); host.append(s); }
+    const fig = el("figure", "pv-fig");
+    fig.append(el("p", "pv-sec", part.scatter.title));
+    const svg = mk("svg", { role: "img", "aria-label": part.scatter.title }); svg.append(mk("title", {}, part.scatter.title));
+    fig.append(svg, el("figcaption", null, part.scatter.caption));
+    host.append(fig);
+    redraw.reshuffle = () => drawScatter(svg, part.points, fig);
+    if (rest.length) {
+      const more = el("details", "pv-more"); more.append(el("summary", null, `The rest of the reading, in ${word(rest.length)} findings`));
+      const f = el("div", "pv-find");
+      for (const x of rest) { const d = el("div"); d.append(el("h4", null, x.h), el("p", null, x.p)); f.append(d); }
+      more.append(f); host.append(more);
+    }
+    methodLink(host);
   }
 
   /* ---- who still looks like themselves ---- */
@@ -256,14 +307,22 @@
     const t = el("span", "pv-track");
     for (const v of [25, 80]) { const k = el("u"); k.style.left = at(v); t.append(k); }
     const dot = el("i", s >= 80 ? null : s <= 25 ? "other" : "thin"); dot.style.left = at(s); t.append(dot);
-    t.title = `Matched itself in ${s} of 100 resamples; nearest other brand: ${side.other_name}`;
+    t.title = `Matched itself in ${s} of 100 draws; nearest other brand: ${side.other_name}`;
     c.append(t, el("span", "val num", String(s)));
     c.append(el("span", "who-else", side.share >= 0.5 ? `then ${side.other_name}` : `nearer ${side.other_name}`));
     return c;
   }
+  // under each brand: where it stands, and the nearest other brand
+  const NEAREST = r => ({
+    itself: `Itself, both ways; next nearest ${r.recent.other_name}`,
+    close: `A close call; nearest other ${r.recent.other_name}`,
+    moved: `Moved toward ${r.recent.other_name}'s past`,
+    overtaken: `Overtaken by ${r.past.other_name}'s recent pictures`,
+    neither: `Itself neither way; nearest ${r.recent.other_name}'s past`,
+  })[r.cat];
   function renderThemselves(host, part) {
-    head(host, part);
-    findings(host, part.findings);
+    const [first, ...rest] = part.findings;
+    lead(host, part, first);
     const wide = el("div", "pv-wide");
     wide.append(el("p", "pv-sec", "Brand by brand"));
     wide.append(el("p", "pv-key", part.caption));
@@ -271,15 +330,16 @@
     const rows = el("div", "pv-rows");
     const sorted = part.rows.slice().sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat) || (b.recent.margin + b.past.margin) - (a.recent.margin + a.past.margin));
     for (const r of sorted) {
-      const line = el("div", "pv-line pv-grid c-sig");
-      const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.name), el("span", "pv-sub", `${CAT(r)}; ${r.n_past} pictures before, ${r.n_recent} since`));
+      const line = el("div", "pv-line pv-grid c-sig"); line.title = `${r.n_past} pictures before November 2025, ${r.n_recent} since`;
+      const who = el("span", "pv-who"); who.append(el("span", "pv-name", r.name), el("span", "pv-sub", NEAREST(r)));
       line.append(who, bar("Its recent pictures", r.recent), bar("Its past", r.past));
       rows.append(line);
     }
     wide.append(rows);
     const miss = el("p", "pv-key", part.missing); miss.style.marginTop = "0.9rem"; wide.append(miss);
     host.append(wide);
-    notes(host, part.notes);
+    note(host, rest, part.lede);
+    methodLink(host);
   }
 
   /* ---- one brand ---- */
@@ -310,21 +370,11 @@
     }
     wide.append(rows); host.append(wide);
     findings(host, [{ p: part.close }]);
+    methodLink(host);
   }
 
   /* ---- the season board ---- */
   const SORTS = [["dist", "Distinct"], ["move", "Moved"], ["clothes", "Clothes"], ["last", "Lasted"], ["heat", "Jump"], ["name", "Name"]];
-  const BOARD_NOTES = [
-    "Places run from 0 to 100 within the season, among the brands that have a value: 100 is the most distinct, the most moved, the attention that lasted best, the biggest jump.",
-    "Like for like: campaign pictures are ranked only against campaign pictures, and product only against product. A brand's place is the average of the two, weighted by its pictures.",
-    "The shop window is the brand's homepage as public web archives keep it, from the day after the show to the day before its next main show, six months at most. Archived pages for Chanel, Dior, Fendi, Louis Vuitton and Burberry are mostly blocked.",
-    "Attention is daily English Wikipedia page views: the jump from the day before the show to three days after, and the level from 30 to 120 days after, net of the median brand, each against the brand's usual level. Momentum is the change from four to five months before the show to two to three months before.",
-    "The clothes are described by an open vision model, Qwen3-VL-32B at fixed weights, with a fixed set of fifteen questions, from what the picture shows of clothing to its garments, accessories, colours, pattern, how much skin shows, hemline, layers, silhouette, construction, finishing, materials, formality and a street to couture scale. Every question has passed the model's own checks: its answers vary, and hold when the picture is cropped. None has yet been checked against people's labels, so every clothes figure is provisional. Labels will check each question, a trained eye's for those that need one; a question that fails is dropped and the figures computed again.",
-    "The questions describe what is worn at the level of garments, colours, shape and register, so two collections with the same kinds of clothes in the same colours read alike however different their design.",
-    "Clothes distinct sets the shop window's outfits, the pictures that show clothes worn, against each other brand's outfits in the same months, and moved against the brand's own previous window. The runway's looks are set against the season's other runways and the brand's own last runway. Each comparison is of the shares of each answer, net of the difference two random draws of the same pictures would show at those numbers: likeness is 1 when two sets cannot be told apart and 0 when they share nothing. A difference counts as told apart when random draws reach it less than one time in twenty. Places are given when four brands or more in the season have a value.",
-    "The shop window's likeness to its own runway is shown, not scored as transmission. A homepage does a different job from a show: it changes less from season to season, and its first months' pictures look no more like the show they follow than like the one before. Whether the advertising moves the way the runway moved is read on the advertising itself.",
-    "Still to come: the runway looks of most shows, still being collected from the archive; the campaign pictures, listed but not yet read; and the advertising, which waits on Meta.",
-  ];
   function renderBoard(host, part) {
     const D = part;
     head(host, part);
@@ -383,7 +433,7 @@
         let t = `${rw.looks} looks read from the brand's own runway pages for the show of ${rw.show}. ${rw.desc}`;
         if (rw.dist) t += rw.dist.p != null ? ` Distinct from the season's other runways: ${ordinal(rw.dist.p)} of 100.` : ` Told apart from ${rw.dist.apart} of the ${rw.dist.n} other runways read for the season.`;
         if (rw.move) t += ` Against its runway of ${rw.move.prev}: ${apartText(rw.move, "it")}${rw.move.p != null ? `, ${ordinal(rw.move.p)} of 100 for how far it moved` : ""}.`;
-        out.push(["The runway, translated", t + " Provisional."]);
+        out.push(["The runway, translated", t]);
       }
       if (!sw || !sw.read) out.push(["The clothes in the shop window", "No shop-window pictures read for their clothes.", true]);
       else if (!sw.desc) out.push(["The clothes in the shop window", `${sw.worn} of the ${sw.read} pictures read show an outfit worn, too few to read the clothes.`, true]);
@@ -395,7 +445,7 @@
           t += ` Against its own runway: ${apartText(sw.trans, "it")}, likeness ${Math.min(1, sw.trans.v).toFixed(2)}`;
           t += sw.recog ? `; closer to its own runway than to ${sw.recog.less} of the ${sw.recog.of} other runways read.` : ".";
         }
-        out.push(["The clothes in the shop window", t + " Provisional."]);
+        out.push(["The clothes in the shop window", t]);
       }
       return out;
     }
@@ -410,8 +460,8 @@
       meta.textContent = `Shown ${s.from} to ${s.to}${s.window_to ? `, with shop windows to ${s.window_to}` : ""}. ${s.rows.length} brands, each set against the others of the season.`;
       const c = s.counts, n = s.rows.length; stages.replaceChildren();
       for (const [nm, text, wait] of [["The show", `${c.show} of ${n} with a jump in attention`, false], ["Attention lasted", c.lasting ? `${c.lasting} of ${n}` : "read 120 days after the show", !c.lasting],
-        ["The shop window", `${c.distinctness} of ${n} placed`, false], ["The clothes", c.clothes_window ? `${c.clothes_window} of ${n} shop windows, provisional` : "no shop window read yet", !c.clothes_window],
-        ["The runway, translated", c.runway ? `${c.runway} of ${n} runways, provisional` : "no runway looks read yet", !c.runway],
+        ["The shop window", `${c.distinctness} of ${n} placed`, false], ["The clothes", c.clothes_window ? `${c.clothes_window} of ${n} shop windows` : "no shop window read yet", !c.clothes_window],
+        ["The runway, translated", c.runway ? `${c.runway} of ${n} runways` : "no runway looks read yet", !c.runway],
         ["The campaigns", `${c.campaigns} of ${n} listed`, false], ["The advertising", "waits on Meta", true]]) {
         const li = el("li"); li.append(el("span", "s", nm), el("span", "v" + (wait ? " wait" : ""), text)); stages.append(li);
       }
@@ -484,13 +534,13 @@
       for (const t of D.sticky_more || []) sec.append(el("p", "note", t));
     }
     host.append(sec);
-    notes(host, BOARD_NOTES.concat([`Updated ${D.generated}, from ${D.pictures.toLocaleString("en-GB")} homepage pictures and daily page views since 2015.`]));
+    methodLink(host);
   }
 
   /* ---- a reading: findings, then figures of two plain kinds, so a new reading needs only new content ---- */
   function renderReading(host, part) {
-    head(host, part);
-    findings(host, part.findings);
+    const [first, ...rest] = part.findings || [];
+    if (first) lead(host, part, first); else head(host, part);
     for (const f of part.figures || []) {
       const wide = el("div", "pv-wide");
       if (f.title) wide.append(el("p", "pv-sec", f.title));
@@ -523,16 +573,51 @@
       wide.append(rows);
       host.append(wide);
     }
-    notes(host, part.notes);
+    note(host, rest, part.lede);
+    methodLink(host);
+  }
+
+  /* ---- a report in its own frame: the Tom Ford report, as its own page, sized to its length ---- */
+  function renderDoc(host, part) {
+    const f = el("iframe", "pv-doc");
+    f.title = part.title || part.tab;
+    // the frame takes the height of the report's body, which does not grow with the frame, so the two cannot feed each other
+    const fit = () => {
+      try { const d = f.contentDocument, h = d && d.body ? Math.ceil(d.body.getBoundingClientRect().height) : 0; if (h > 0) f.style.height = h + "px"; } catch (e) {}
+    };
+    f.addEventListener("load", () => {
+      fit();
+      try {
+        const w = f.contentWindow, d = f.contentDocument;
+        if (w.ResizeObserver) new w.ResizeObserver(fit).observe(d.body);
+        if (d.fonts) d.fonts.ready.then(fit);
+      } catch (e) {}
+    });
+    f.srcdoc = part.html;
+    host.append(f);
+    redraw[part.key] = fit;
+  }
+
+  /* ---- how it is read: once, for every reading behind the password ---- */
+  function renderMethod(host, part) {
+    head(host, part);
+    const box = el("div", "pv-method");
+    for (const g of part.groups) {
+      const s = el("section"); s.append(el("h4", null, g.h));
+      const ul = el("ul"); for (const t of g.items) ul.append(el("li", null, t)); s.append(ul); box.append(s);
+    }
+    if (part.foot) box.append(el("p", "pv-key", part.foot));
+    host.append(box);
   }
 
   const RENDER = { reshuffle: renderReshuffle, themselves: renderThemselves, loewe: renderBrand, board: renderBoard };
+  const KIND = { reading: renderReading, doc: renderDoc, method: renderMethod };
 
   /* ---- lock, open, show ---- */
   const form = $("pv-lock"), input = $("pv-pass"), go = $("pv-go"), msg = $("pv-msg");
   function lockView() {
     form.hidden = false; $("pv-content").hidden = true;
-    $("pv-intro").textContent = "Selected analysis for clients. Enter the password to open it.";
+    $("pv-intro").textContent = "Selected analysis for clients.";
   }
   function build() {
     const tabs = $("pv-tabs"), host = $("pv-parts");
@@ -540,7 +625,7 @@
     for (const part of P.parts) {
       const a = el("a", null, part.tab); a.href = "#/private/" + part.key; a.dataset.key = part.key; tabs.append(a);
       const sec = el("div", "pv-part"); sec.dataset.key = part.key; sec.hidden = true;
-      try { (RENDER[part.key] || (part.kind === "reading" ? renderReading : () => {}))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
+      try { (RENDER[part.key] || KIND[part.kind] || (() => {}))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
       host.append(sec);
     }
   }
@@ -549,7 +634,8 @@
     const keys = P.parts.map(p => p.key);
     const key = keys.includes(sub) ? sub : keys[0];
     form.hidden = true; $("pv-content").hidden = false;
-    $("pv-intro").textContent = `Selected analysis, as of ${P.as_of}.`;
+    // the date once, on the first report
+    $("pv-intro").textContent = key === keys[0] ? `Selected analysis, as of ${P.as_of}.` : "Selected analysis.";
     for (const a of $("pv-tabs").children) a.setAttribute("aria-current", a.dataset.key === key ? "page" : "false");
     for (const s of $("pv-parts").children) s.hidden = s.dataset.key !== key;
     if (redraw[key]) redraw[key]();
@@ -569,6 +655,9 @@
     } finally { go.disabled = false; }
   }
   form.addEventListener("submit", e => { e.preventDefault(); attempt(input.value.trim()); });
+  // the abridged report comes first; a client with a password goes straight to it
+  const jump = $("pv-jump");
+  if (jump) jump.addEventListener("click", () => { input.scrollIntoView({ block: "center", behavior: "smooth" }); input.focus({ preventScroll: true }); });
   $("pv-close").addEventListener("click", () => {
     keep.clear(); P = null;
     $("pv-parts").replaceChildren(); $("pv-tabs").replaceChildren();

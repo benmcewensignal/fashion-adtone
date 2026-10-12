@@ -498,6 +498,70 @@
   .tf-fig figcaption { margin-top: 0.9rem; font-size: 0.8125rem; color: var(--graphite); text-align: center; text-wrap: pretty; }
   .tf-more { margin-bottom: 2rem; }
   @media (max-width: 30rem) { .tf-row { grid-template-columns: minmax(0, 1fr) 5.5rem; row-gap: 0.2rem; } .tf-lab { grid-column: 1 / -1; } }
+  /* the overview ends with the four measures and the fourteen; the rest is reference on Method */
+  .triad.solo { margin-top: 2rem; }
+  .triad.solo > div { max-width: 28rem; margin: 0 auto; text-align: center; }
+  @media (min-width: 48rem) { .triad.solo { grid-template-columns: minmax(0, 1fr); } }
+  .fourteen { max-width: 32rem; margin: 2.75rem auto 0; text-align: center; }
+  .note.more { margin: 1.25rem auto 0; max-width: 32rem; text-align: center; }
+  .ref-asof { margin: 0.25rem 0 1.25rem; text-align: center; }
+  .ref-lead { margin: 0.75rem auto 2rem; max-width: 30rem; text-align: center; }
+  .ref-monthly { max-width: 30rem; margin: 0.75rem auto 1.75rem; text-align: center; }
+  .ref-monthly h3 { margin: 0 0 0.6rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); line-height: 1.15; }
+  .ref-monthly > p { margin: 0; font-size: 0.9375rem; text-wrap: pretty; }
+  .ref-monthly .aud { margin-top: 1.5rem; }
+  details > .status { margin: 0 0 1rem; }
+  /* Readings: the slider first, with one sentence; the long notes and the eighteen questions behind disclosures */
+  /* the look and its slider fit the first screen: on a short screen the picture gives up width, the slider keeps the column */
+  #readings .intro { margin-bottom: clamp(1.75rem, 4vw, 2rem); }
+  .fx-pic { width: min(100%, max(13.5rem, calc((100vh - 20rem) * 2 / 3))); width: min(100%, max(13.5rem, calc((100svh - 20rem) * 2 / 3))); margin-inline: auto; }
+  @media (min-width: 44rem) { .fx-pic { width: min(100%, max(14rem, calc((100vh - 23rem) * 2 / 3))); width: min(100%, max(14rem, calc((100svh - 23rem) * 2 / 3))); } }
+  .fx-one { margin: 0.9rem auto 0; max-width: 24rem; font-size: 0.9375rem; line-height: 1.5; text-align: center; text-wrap: pretty; }
+  .fx-more { margin-top: 1.5rem; }
+  .fx-more summary { font-size: 1.0625rem; }
+  .four-ways { max-width: 34rem; margin: clamp(3.5rem, 9vw, 5rem) auto 0; text-align: center; }
+  .anat.solo { grid-template-columns: minmax(0, 1fr); max-width: 22rem; margin: 0 auto 1.75rem; }
+  .anat.solo figure { position: static; }
+  .qs-more { max-width: 44rem; margin: 0 auto; }
+  .qs-more .qs-groups { margin-top: 1rem; }
+  /* Private, locked: the abridged Tom Ford report is the offer; the password follows it */
+  .pv-have { margin: 0.6rem 0 0; font-size: 0.875rem; color: var(--graphite); }
+  #private:has(#pv-lock[hidden]) .pv-have, #private:has(#tf-gate[hidden]) .pv-have { display: none; }
+  .tf-gate { margin-top: 0; padding-top: 0; border-top: 0; }
+  .pv-gate { max-width: 64rem; margin: clamp(3.5rem, 9vw, 5rem) auto 0; padding-top: clamp(2.5rem, 7vw, 3.5rem); border-top: 1px solid var(--rule); text-align: center; }
+  .tf-gate[hidden] + .pv-gate { margin-top: 0; padding-top: 0; border-top: 0; }
+  .pv-gate > .k { display: block; margin: 0 0 0.35rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .pv-gate > h3 { margin: 0 0 1.75rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.25rem, 3vw, 1.5rem); line-height: 1.2; }
+  .pv-gate .pv-specimen { margin-bottom: 2rem; text-align: left; }
+  .pv-gate .pv-specimen figcaption { text-align: center; }
+  #private:has(#pv-lock[hidden]) .pv-gate { display: none; }
+  /* Private, open: each report opens with its finding, then the table or the chart, then the note; one method page */
+  .pv-lead { margin-bottom: 1.75rem; }
+  .pv-lead p { font-size: 0.9375rem; }
+  .pv-stats { max-width: 36rem; margin: 0 auto 2.75rem; display: grid; gap: 1rem; }
+  .pv-stat { display: grid; grid-template-columns: 8.75rem minmax(0, 1fr) 6.5rem; column-gap: 1rem; row-gap: 0.15rem; align-items: center; }
+  .pv-stat .lab { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); text-align: left; }
+  .pv-stat .val { font-size: 0.9375rem; text-align: right; white-space: nowrap; }
+  .pv-stat .p { grid-column: 2 / -1; font-size: 0.75rem; color: var(--graphite); text-align: left; }
+  .pv-stat .pv-track i { width: 12px; height: 12px; margin: -6px 0 0 -6px; }
+  .pv-stat .pv-track i.was { width: 10px; height: 10px; margin: -5px 0 0 -5px; }
+  .pv-stats .pv-key { margin: 0.25rem auto 0; max-width: 34rem; }
+  @media (max-width: 30rem) { .pv-stat { grid-template-columns: minmax(0, 1fr) auto; } .pv-stat .pv-track { grid-column: 1 / -1; grid-row: 2; } .pv-stat .p { grid-column: 1 / -1; } }
+  .pv-lede { max-width: 36rem; margin: 0 auto 1.5rem; font-size: 0.9375rem; text-align: center; text-wrap: pretty; }
+  .pv-lede b { font-weight: 500; }
+  .pv-more { max-width: 36rem; margin: 0 auto 3rem; border-top: 1px solid var(--rule); }
+  .pv-more > summary { font-size: 1.0625rem; }
+  .pv-more > .pv-find { margin: 1.25rem auto 0.5rem; }
+  .pv-note { max-width: 36rem; margin: 0 auto 2.5rem; display: grid; gap: 1.1rem; font-size: 0.875rem; color: var(--graphite); text-align: center; }
+  .pv-note h4 { margin: 0 0 0.2rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.0625rem; line-height: 1.25; color: var(--ink); text-wrap: balance; }
+  .pv-note p { margin: 0; text-wrap: pretty; }
+  .pv-how { margin: 2.5rem auto 0; text-align: center; font-size: 0.875rem; }
+  .pv-doc { display: block; width: 100%; max-width: 65rem; height: 80vh; margin: 0 auto; border: 0; background: var(--paper); }
+  .pv-method { max-width: 40rem; margin: 0 auto; display: grid; gap: 2rem; }
+  .pv-method h4 { margin: 0 0 0.6rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); font-weight: 500; text-align: center; }
+  .pv-method ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; font-size: 0.875rem; text-align: center; }
+  .pv-method li, .pv-method .pv-key { text-wrap: pretty; }
+  .pv-method .pv-key { margin: 0 auto; text-align: center; }
 </style>
 <!-- Vercel Web Analytics: cookieless page views. The site's pages are hash routes, so each page is sent by the router below. -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
@@ -527,11 +591,9 @@
         <div class="intro opening">
           <h2>The benchmark</h2>
           <p>A collection leaves the runway and passes through other hands: the shop window, the campaign, the photographers who also shoot its rivals, the advertising. By the season's end it may no longer be the collection that was shown. Focal describes each stage in the same terms, sets it against the same stage at the other <span class="nw">twenty-seven</span> houses, and says what carried and whether it stood apart.</p>
-          <p>When the runway moved, did the advertising move the same way. Did a show that stood apart become advertising that looks like the others. Has the image moved from the house's own past, or towards the brand of the moment. When a new creative director arrives, did the direction survive the machine already in place.</p>
-          <p><a href="#/brands">Fourteen of the <span class="nw">twenty-eight</span></a> have new directors since 2025. The reading is the same for each: transmission, distinctness, mix, movement. Not a sales forecast. A reading of what held.</p>
         </div>
-        <div class="body wide">
-          <div class="triad duo">
+        <div class="body">
+          <div class="triad solo">
             <div>
               <span class="when">Season benchmark</span>
               <h3>What carried, and what stayed distinct?</h3>
@@ -543,51 +605,9 @@
                 <li><span class="t">Movement</span>How far each stage has moved from the brand's own previous seasons. The advertising's movement is shown without a score, since staying recognisable is part of its job.</li>
               </ul>
             </div>
-            <div>
-              <span class="when">Monthly reading</span>
-              <h3>Is the image drifting?</h3>
-              <p>The brand's image read month by month, against its own past and its peers, each reading with its uncertainty.</p>
-              <ul class="four">
-                <li><span class="t">Character</span>Its imagery on eighteen questions, on the axes of luxury that pass the tests and in colour and light, with the cast of people who make it.</li>
-                <li><span class="t">Shift</span>How far the image has moved from its own past and against its peers, and whether it is drifting towards the brand of the moment.</li>
-                <li><span class="t">Contribution</span>The attention that follows, and in time the desire and revenue, beyond what the brand's own momentum and the reach it paid for would deliver. A brand can set it against its own sales.</li>
-                <li><span class="t">Alignment</span>Its advertising set against its show notes and campaign statements, question by question.</li>
-              </ul>
-            </div>
           </div>
-          <p class="note aud">For a brand's president or image director, the group that owns it, or an investor following it.</p>
-        </div>
-      </div>
-      <div class="home" id="end-to-end">
-        <div class="intro">
-          <h2>End to end</h2>
-          <p>Each brand's collection is followed from its show to its advertising, and every measure is set against the other <span class="nw">twenty-seven</span> brands in the same season, like for like.</p>
-        </div>
-        <div class="body">
-        <ol class="stages">
-          <li><span class="when">The six months before</span><span class="t">The scene</span><span class="d">The ambassadors the brand appointed, kept as context.</span></li>
-          <li><span class="when">The days around it</span><span class="t">The show</span><span class="d">Up to twenty looks from the brand's own runway pages, translated into numbers; how far attention jumped against the other shows of its season; and how the press wrote about it.</span></li>
-          <li><span class="when">The six months after</span><span class="t">The shop window</span><span class="d">What the brand put on its homepage.</span></li>
-          <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season, and who shot it.</span></li>
-          <li><span class="when">Around the show, then to the next one</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, then the campaign's until a week before its next show.</span></li>
-        </ol>
-          <p class="block" style="margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is the jump at the show against the rest of its season, and whether it lasts, beside how much the press wrote and in what tone; <a href="#/method">Method</a> sets out how each is judged. The question is which of the season benchmark's four measures go with attention that lasts.</p>
-        </div>
-      </div>
-      <div class="home" id="status">
-        <div class="intro">
-          <h2>Where it stands</h2>
-          <p>As of 12 October 2026.</p>
-        </div>
-        <div class="body">
-          <ul class="status">
-            <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the <a href="#/private">Private tab</a>.</li>
-            <li><span class="t">Pictures</span>5,628 homepage pictures read for how they are made, and 5,280 for their clothes, 2,163 of them runway looks.</li>
-            <li><span class="t">Attention</span>Wikipedia page views, daily for all 28 brands, in ten languages wherever a brand has a page: a like-for-like measure of attention, not of sales. 506 main shows scored for the jump around them.</li>
-            <li><span class="t">Press</span>Daily volume and tone of the news about each brand, gathered so far for 12 of the 28; the rest are being gathered.</li>
-            <li><span class="t">Advertising</span>Built, and waiting on Meta to clear the account for its Ad Library.</li>
-          </ul>
-          <p class="note">The clothes are provisional until people, one of them trained in fashion, have checked the questions.</p>
+          <p class="block fourteen"><a href="#/brands">Fourteen of the <span class="nw">twenty-eight</span></a> have new directors since 2025. The reading is the same for each: transmission, distinctness, mix, movement. Not a sales forecast. A reading of what held.</p>
+          <p class="note more">Also: <a href="#/monthly">the monthly reading</a>, <a href="#/end-to-end">each stage, end to end</a>, and <a href="#/status">where the data stands</a>.</p>
         </div>
       </div>
       <p class="next"><a href="#/readings"><span class="k">Next</span> <span class="t">What it reads</span></a></p>
@@ -607,14 +627,9 @@
       </header>
       <div class="intro">
         <h2 id="readings-h">What it reads</h2>
-        <p>Pictures are read four ways: fourteen questions on the clothes, eighteen on how a picture is made, its place on the axes of luxury, and its colour and light, measured from the pixels.</p>
       </div>
       <div class="body wide">
         <!--FX-->
-        <div class="narrow" id="fx-intro">
-          <p class="sub">The clothes</p>
-          <p class="block">The runway looks, and the homepage pictures that follow them, are read for their clothes, on fourteen questions from the garments to how formal they are. Here is one look, invented for the purpose and changed one thing at a time, following the answers on which two houses' runway looks differ most. Move it either way to see what the reader answers.</p>
-        </div>
         <div class="fx" id="fx">
           <figure>
             <div class="fx-pic" role="img" aria-label="A woman walks towards the camera on a pale stone runway against a plain off-white wall, in a plain mid-grey knee-length dress with long sleeves and black flat shoes.">
@@ -675,6 +690,7 @@
               <div class="fx-ends" aria-hidden="true"><span>More decorated</span><span>Plainer and darker</span></div>
               <p class="fx-now" aria-live="polite">As drawn</p>
             </div>
+            <p class="fx-one">One invented look, changed a step at a time along the answers on which Dior's and Balenciaga's runways differ most. Move it to see what the reader answers.</p>
             <figcaption>Generated with AI for illustration. Not a real person or collection.</figcaption>
           </figure>
           <div class="fx-side">
@@ -683,15 +699,19 @@
             <p class="fx-lab">Changed at this step</p>
             <div class="fx-step"></div>
             <div class="fx-all"><p class="sec">Every answer for this picture</p><div class="fx-list"></div></div>
-            <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 47 looks from three shows of 2019 to 2021, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025. Like every description of the clothes, they are provisional until people have checked them.</p>
-            <p class="note">The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 29 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
+            <details class="fx-more">
+              <summary>How the look was made</summary>
+              <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 47 looks from three shows of 2019 to 2021, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025.</p>
+              <p class="note">The pictures were made with open image models, Qwen-Image and Qwen-Image-Edit, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 29 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
+            </details>
           </div>
         </div>
         <!--FX-END-->
+        <p class="block four-ways">Each picture is read four ways: fourteen questions on the clothes, as above; eighteen on how it is made; its place on the axes of luxury; and its colour and light, measured from the pixels.</p>
         <div class="anatomy">
           <p class="sub" style="margin-top:4rem">How it is made</p>
           <p class="block">The homepage pictures are also read for how they are made, on eighteen questions. Here they are on one campaign image, generated for illustration, with its answer to each.</p>
-          <div class="anat">
+          <div class="anat solo">
           <figure>
             <svg viewBox="0 0 784 1168" role="img" aria-labelledby="anat-title">
               <title id="anat-title">A campaign image generated for illustration: a young man in an ivory tailored suit with peak lapels and an open-collared shirt stands against a plain pale grey backdrop, hands in his pockets, looking away to the side, with the wordmark MAISON in the lower left corner</title>
@@ -723,6 +743,9 @@
             </svg>
             <figcaption>Generated with AI for illustration. Not a real brand, campaign or model.</figcaption>
           </figure>
+          </div>
+          <details class="qs-more">
+          <summary>The eighteen questions, and this picture's answers</summary>
           <div class="qs-groups">
           <p class="qs-g">Light and colour</p>
           <ol class="qs">
@@ -755,8 +778,8 @@
           <li class="whole"><span class="n" aria-hidden="true">18</span><div><p class="q">Confidence</p><p class="a">how sure the reading is, from 0 to 1: <b>0.88</b></p></div></li>
           </ol>
           </div>
-          </div>
           <p class="note" style="text-align:center">Blue numbers point to a part of the picture. Hollow ones are read from the image as a whole.</p>
+          </details>
         </div>
         <div class="narrow">
           <p class="sub" style="margin-top:4rem">Read as luxury</p>
@@ -813,7 +836,45 @@
             <li><span class="t">Proven first</span>Each measure is run on simulated brands with known answers before it touches real ones.</li>
           </ul>
           <p class="block">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
-          <details open style="margin-top:3rem">
+          <p class="sub" style="margin-top:3.5rem">Reference</p>
+          <details id="status">
+            <summary>Where it stands</summary>
+            <p class="note ref-asof">As of 12 October 2026.</p>
+            <ul class="status">
+            <li><span class="t">Collections</span>548 followed so far. Every one since autumn-winter 2022 is placed against the other brands of its season in the <a href="#/private">Private tab</a>.</li>
+            <li><span class="t">Pictures</span>5,628 homepage pictures read for how they are made, and 5,280 for their clothes, 2,163 of them runway looks.</li>
+            <li><span class="t">Attention</span>Wikipedia page views, daily for all 28 brands, in ten languages wherever a brand has a page: a like-for-like measure of attention, not of sales. 506 main shows scored for the jump around them.</li>
+            <li><span class="t">Press</span>Daily volume and tone of the news about each brand, gathered so far for 12 of the 28; the rest are being gathered.</li>
+            <li><span class="t">Advertising</span>Built, and waiting on Meta to clear the account for its Ad Library.</li>
+          </ul>
+          </details>
+          <details id="end-to-end">
+            <summary>Each stage, end to end</summary>
+            <p class="block ref-lead">Each brand's collection is followed from its show to its advertising, and every measure is set against the other <span class="nw">twenty-seven</span> brands in the same season, like for like.</p>
+        <ol class="stages">
+          <li><span class="when">The six months before</span><span class="t">The scene</span><span class="d">The ambassadors the brand appointed, kept as context.</span></li>
+          <li><span class="when">The days around it</span><span class="t">The show</span><span class="d">Up to twenty looks from the brand's own runway pages, translated into numbers; how far attention jumped against the other shows of its season; and how the press wrote about it.</span></li>
+          <li><span class="when">The six months after</span><span class="t">The shop window</span><span class="d">What the brand put on its homepage.</span></li>
+          <li><span class="when">The season</span><span class="t">The campaigns</span><span class="d">What it published for the season, and who shot it.</span></li>
+          <li><span class="when">Around the show, then to the next one</span><span class="t">The advertising</span><span class="d">Its paid ads in the weeks around the show, then the campaign's until a week before its next show.</span></li>
+        </ol>
+          <p class="block" style="margin-top:3rem">The clothes are described in the same terms at every stage, the runway included, and the pictures also for how they are made; <a href="#/readings">Readings</a> shows both. Attention is the jump at the show against the rest of its season, and whether it lasts, beside how much the press wrote and in what tone; the sections below set out how each is judged. The question is which of the season benchmark's four measures go with attention that lasts.</p>
+          </details>
+          <details id="monthly">
+            <summary>The monthly reading</summary>
+            <div class="ref-monthly">
+              <h3>Is the image drifting?</h3>
+              <p>The brand's image read month by month, against its own past and its peers, each reading with its uncertainty.</p>
+              <ul class="four">
+                <li><span class="t">Character</span>Its imagery on eighteen questions, on the axes of luxury that pass the tests and in colour and light, with the cast of people who make it.</li>
+                <li><span class="t">Shift</span>How far the image has moved from its own past and against its peers, and whether it is drifting towards the brand of the moment.</li>
+                <li><span class="t">Contribution</span>The attention that follows, and in time the desire and revenue, beyond what the brand's own momentum and the reach it paid for would deliver. A brand can set it against its own sales.</li>
+                <li><span class="t">Alignment</span>Its advertising set against its show notes and campaign statements, question by question.</li>
+              </ul>
+              <p class="note aud">For a brand's president or image director, the group that owns it, or an investor following it.</p>
+            </div>
+          </details>
+          <details>
             <summary>How the stages are joined</summary>
             <dl class="pairs">
               <div><dt>The scene</dt><dd>Ambassador appointments in the 180 days before the show.</dd></div>
@@ -824,7 +885,7 @@
               <div><dt>Each against its kind</dt><dd>A runway is set against the season's other runways and an advertisement against other advertisements. The show and the advertising do different jobs; what they share is the clothes.</dd></div>
             </dl>
           </details>
-          <details open>
+          <details>
             <summary>How attention is judged</summary>
             <dl class="pairs">
               <div><dt>The jump</dt><dd>The peak of daily views from the day before a show to three days after, over the brand's level from 60 to 10 days before, set against the other shows of its season.</dd></div>
@@ -836,7 +897,7 @@
               <div><dt>Press</dt><dd>The volume and tone of news about the brand on the show day and the three days after, against its usual level.</dd></div>
             </dl>
           </details>
-          <details open>
+          <details>
             <summary>How movement is judged</summary>
             <dl class="pairs">
               <div><dt>Once</dt><dd>A picture counts once, in the month it was first shown, however long it stays up.</dd></div>
@@ -975,23 +1036,9 @@
       </header>
       <div class="intro">
         <h2 id="private-h">Private</h2>
-        <p id="pv-intro">Selected analysis for clients. Enter the password to open it.</p>
+        <p id="pv-intro">Selected analysis for clients.</p>
+        <p class="pv-have"><button type="button" class="pv-link" id="pv-jump">Have a password?</button></p>
       </div>
-      <figure class="pv-specimen">
-        <div role="img" aria-label="A specimen of one brand's row on the season board, its figures withheld">
-        <div class="pv-cols pv-grid c-season"><span>Brand</span><span>Distinct from peers</span><span>Moved from last season</span><span>Clothes distinct</span><span>Attention lasted</span><span>Jump at the show</span><span>Campaign pictures</span></div>
-        <div class="pv-rows"><div class="pv-line pv-grid c-season"><span class="pv-who"><span class="pv-name">Gucci</span><span class="pv-sub">27 February 2026</span></span><span class="pv-cell"><span class="lab">Distinct from peers</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Moved from last season</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Clothes distinct</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Attention lasted</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Jump at the show</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Campaign pictures</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span></div></div>
-        </div>
-        <figcaption>Behind the password, rows like this one are filled in for every collection since autumn-winter 2022, each set against the others of its season from the show to the shop window. With them: the fourteen brands that changed designer, followed from the show to the people who make their pictures; whether each brand still looks like itself; and one brand end to end.</figcaption>
-      </figure>
-      <form class="pv-lock" id="pv-lock" novalidate>
-        <label class="pv-lab" for="pv-pass">Password</label>
-        <div class="pv-entry">
-          <input id="pv-pass" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go">
-          <button class="pv-btn" id="pv-go" type="submit">Open</button>
-        </div>
-        <p class="pv-msg" id="pv-msg" role="status" aria-live="polite"></p>
-      </form>
       <section class="tf-gate" id="tf-gate" aria-labelledby="tf-gate-h" hidden>
         <span class="k">Without a password</span>
         <h3 id="tf-gate-h">An abridged Tom Ford report</h3>
@@ -1012,10 +1059,28 @@
         </form>
         <div class="tf-report" id="tf-report" hidden></div>
       </section>
+      <section class="pv-gate" aria-labelledby="pv-gate-h">
+        <span class="k">With a password</span>
+        <h3 id="pv-gate-h">The full analysis</h3>
+        <figure class="pv-specimen">
+          <div role="img" aria-label="A specimen of one brand's row on the season board, its figures withheld">
+          <div class="pv-cols pv-grid c-season"><span>Brand</span><span>Distinct from peers</span><span>Moved from last season</span><span>Clothes distinct</span><span>Attention lasted</span><span>Jump at the show</span><span>Campaign pictures</span></div>
+          <div class="pv-rows"><div class="pv-line pv-grid c-season"><span class="pv-who"><span class="pv-name">Gucci</span><span class="pv-sub">27 February 2026</span></span><span class="pv-cell"><span class="lab">Distinct from peers</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Moved from last season</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Clothes distinct</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Attention lasted</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Jump at the show</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span><span class="pv-cell"><span class="lab">Campaign pictures</span><span class="pv-track"></span><span class="val"><b class="rd"></b></span></span></div></div>
+          </div>
+          <figcaption>Behind the password: the full Tom Ford report and a shorter one on Loewe; rows like this one filled in for every collection since autumn-winter 2022, each set against the others of its season from the show to the shop window; the fourteen brands that changed designer, followed from the show to the people who make their pictures; and whether each brand still looks like itself.</figcaption>
+        </figure>
+        <form class="pv-lock" id="pv-lock" novalidate>
+          <label class="pv-lab" for="pv-pass">Password</label>
+          <div class="pv-entry">
+            <input id="pv-pass" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go">
+            <button class="pv-btn" id="pv-go" type="submit">Open</button>
+          </div>
+          <p class="pv-msg" id="pv-msg" role="status" aria-live="polite"></p>
+        </form>
+      </section>
       <div id="pv-content" hidden>
         <div class="pv-tabs" id="pv-tabs" aria-label="Parts"></div>
         <div id="pv-parts"></div>
-        <p class="next" id="pv-next" hidden><a href="#/private"><span class="k">Next</span> <span class="t"></span></a></p>
         <p class="note pv-foot">Open on this device until the tab is closed. <button type="button" class="pv-link" id="pv-close">Lock it now</button></p>
       </div>
     </section>
@@ -1030,7 +1095,7 @@
   const links = [...document.querySelectorAll("nav a")];
   // pages folded into others keep their addresses: each opens the page that now holds it, at its part
   const moved = { people: ["brands"], sources: ["overview"], offer: ["overview", "benchmark"], benchmark: ["overview", "benchmark"],
-                  "end-to-end": ["overview", "end-to-end"], status: ["overview", "status"] };
+                  "end-to-end": ["method", "end-to-end"], status: ["method", "status"], monthly: ["method", "monthly"] };
   function route() {
     const raw = location.hash.replace(/^#\/?/, "");
     const [head, sub] = raw.split("/");
@@ -1050,6 +1115,8 @@
       }
     }
     const at = part && document.getElementById(part);
+    const box = at && at.closest("details");
+    if (box) box.open = true;
     if (at) at.scrollIntoView(); else window.scrollTo(0, 0);
     // one page view per page opened, by the page's own name: /, /readings, /method, /brands, /private and its parts
     const path = id === "overview" ? "/" : id === "private" && /^[a-z-]{1,24}$/.test(sub || "") ? `/private/${sub}` : `/${id}`;
@@ -1061,22 +1128,6 @@
   // a menu link to where the address already points still takes the reader there
   links.forEach(a => a.addEventListener("click", () => { if (a.getAttribute("href") === location.hash) setTimeout(route); }));
   route();
-})();
-</script>
-<script>
-(() => {
-  // the Private tab's parts end with the next part, named as its link names it
-  const tabs = document.getElementById("pv-tabs"), box = document.getElementById("pv-next");
-  if (!tabs || !box) return;
-  const a = box.querySelector("a"), t = box.querySelector(".t");
-  const sync = () => {
-    const all = [...tabs.querySelectorAll("a")];
-    const i = all.findIndex(x => x.getAttribute("aria-current") === "page");
-    const n = i >= 0 ? all[i + 1] : null;
-    box.hidden = !n;
-    if (n) { a.setAttribute("href", n.getAttribute("href")); t.textContent = n.textContent; }
-  };
-  new MutationObserver(sync).observe(tabs, { childList: true, subtree: true, attributes: true, attributeFilter: ["aria-current"] });
 })();
 </script>
 <script>/*FX-JS*/
