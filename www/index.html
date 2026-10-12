@@ -422,6 +422,39 @@
     .fx figure { position: sticky; top: 1.5rem; }
   }
   /*FX-CSS-END*/
+
+  /* Centred throughout: every heading, paragraph, list and caption on the page's centre line. Only the tables of
+     figures keep their columns (the reader's answers beside each house's share, the Private tab's rows and the
+     coefficient table), since a column read downwards is the point of them. */
+  .landing nav, .lead { justify-self: center; text-align: center; }
+  .statement { margin-left: auto; margin-right: auto; }
+  @media (min-width: 48rem) {
+    .landing { grid-template-columns: minmax(auto, 1fr) minmax(0, 30rem) minmax(0, 1fr); }
+    .landing nav, .lead { grid-column: 2; justify-self: center; text-align: center; }
+  }
+  .top { flex-direction: column; align-items: center; row-gap: 0.25rem; }
+  .top nav { flex: none; width: 100%; }
+  .top .sections { justify-content: center; column-gap: clamp(0.625rem, 3.2vw, 2.25rem); }
+  .opening p, .triad.duo > div, .four li, .status li, .block, .note, .aud, .pv-specimen figcaption,
+  .axes .ax, .axes .ends, .axes + .note, .fx-key, .fx-side > .note, .pv-find, .pv-key, .pv-fig figcaption,
+  .pv-board-head, .pv-stages li, .pv-notes, .narrow > p, .pv-fig > p { text-align: center; }
+  .axes .ends p:first-child, .axes .ends p:last-child { text-align: center; }
+  .fx-key, .fx-side > .note, .pv-key { margin-left: auto; margin-right: auto; }
+  .fx { margin-top: 1.75rem; }
+  .qs-g { text-align: center; }
+  .qs li { display: flex; flex-direction: column; align-items: center; row-gap: 0.4rem; text-align: center; }
+  .qs .n { margin-top: 0; }
+  .qs .a { margin-left: auto; margin-right: auto; }
+  .order li { display: flex; flex-direction: column; align-items: center; row-gap: 0.1rem; text-align: center; }
+  .order li > span { display: flex; flex-direction: column; align-items: center; }
+  .pairs div, .pv-facts > div { grid-template-columns: minmax(0, 1fr); row-gap: 0.1rem; text-align: center; }
+  .pv-notes ul { list-style: none; padding: 0; }
+  .pv-controls, .pv-chips:not(.scroll) { justify-content: center; }
+  /* a centred paragraph keeps a reading measure, even inside the wide sections */
+  .anatomy > .sub, .anatomy > .block { max-width: 36rem; margin-left: auto; margin-right: auto; }
+  /* the season board's seven stages: one row on a wide screen; on a phone the last of an odd number spans the row */
+  @media (min-width: 64rem) { .pv-stages { grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); } }
+  @media (max-width: 39.99rem) { .pv-stages li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
@@ -830,11 +863,12 @@
           <p class="sub" style="margin-top:3rem">Shared hands</p>
           <p class="block">Some photographers shape several brands at once. David Sims has shot for nine of the <span class="nw">twenty-eight</span>, Steven Meisel for seven.</p>
           <details>
-            <summary>Seventeen photographers, <span class="nw">twenty-four</span> brands</summary>
+            <summary>Eighteen photographers, <span class="nw">twenty-four</span> brands</summary>
             <dl class="pairs">
               <div><dt>David Sims</dt><dd>Alaïa, Balenciaga, Chloé, Dior, Jil Sander, Loewe, Louis Vuitton, Prada, Saint Laurent</dd></div>
               <div><dt>Steven Meisel</dt><dd>Alaïa, Dolce&amp;Gabbana, Fendi, Louis Vuitton, Miu Miu, Prada, Versace</dd></div>
               <div><dt>Sam Rock</dt><dd>Burberry, Chloé, Gucci, Loro Piana</dd></div>
+              <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry, Tom Ford</dd></div>
               <div><dt>Glen Luchford</dt><dd>Burberry, Saint Laurent, Valentino</dd></div>
               <div><dt>Mario Sorrenti</dt><dd>Burberry, Jil Sander, Loro Piana</dd></div>
               <div><dt>Zoë Ghertner</dt><dd>Celine, Chloé, Miu Miu</dd></div>
@@ -842,15 +876,15 @@
               <div><dt>Carlijn Jacobs</dt><dd>Dries Van Noten, Loewe</dd></div>
               <div><dt>Collier Schorr</dt><dd>Balenciaga, Givenchy</dd></div>
               <div><dt>Craig McDean</dt><dd>Chanel, Max Mara</dd></div>
-              <div><dt>Drew Vickers</dt><dd>Bottega Veneta, Burberry</dd></div>
               <div><dt>Ethan James Green</dt><dd>Louis Vuitton, Max Mara</dd></div>
               <div><dt>Juergen Teller</dt><dd>Bottega Veneta, Givenchy</dd></div>
               <div><dt>Louise and Maria Thornfeldt</dt><dd>Bottega Veneta, Chanel</dd></div>
+              <div><dt>Mark Kean</dt><dd>Saint Laurent, Tom Ford</dd></div>
               <div><dt>Mert Alas and Marcus Piggott</dt><dd>Gucci, Versace</dd></div>
               <div><dt>Robin Galiegue</dt><dd>Balenciaga, Tom Ford</dd></div>
               <div><dt>Talia Chetrit</dt><dd>Loewe, Saint Laurent</dd></div>
             </dl>
-            <p class="note">Brunello Cucinelli, Hermès, Maison Margiela and Zegna stand apart. Credits compiled 6 and 7 October 2026.</p>
+            <p class="note">Brunello Cucinelli, Hermès, Maison Margiela and Zegna stand apart. Credits compiled 6 to 12 October 2026.</p>
           </details>
           <details open>
           <summary>When people move</summary>
