@@ -5,8 +5,9 @@ run-name: adstransparency ${{ inputs.stage || 'auto' }} ${{ github.event_name }}
 # roughly how often; no pictures. Signs in without a key, through Workload Identity Federation: GitHub's
 # own token is exchanged for the focal-ads service account's. Every query is measured before it runs and
 # refused above its ceiling. Waits, recording that it waited, until GCP_PROJECT_NUMBER and
-# GCP_SERVICE_ACCOUNT exist. auto: discover until reference/google_advertisers.csv lists the houses'
-# accounts, then collect.
+# GCP_SERVICE_ACCOUNT exist. auto: discover when the matching rules changed or four weeks have passed
+# (the names query reads about 15 GB), then collect the accounts in reference/google_advertisers.csv
+# (about 60 GB): some 300 GB a month, under BigQuery's free terabyte.
 on:
   schedule:
     - cron: "20 6 * * 5"
@@ -31,7 +32,7 @@ concurrency:
 jobs:
   adstransparency:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       PYTHONUNBUFFERED: "1"
       GCP_PROJECT_NUMBER: ${{ secrets.GCP_PROJECT_NUMBER }}
@@ -53,7 +54,7 @@ jobs:
       - name: Query
         id: query
         continue-on-error: true
-        timeout-minutes: 20
+        timeout-minutes: 30
         run: python -m adtone.adstransparency "$STAGE" --run "gh${GITHUB_RUN_ID}"
       - name: Probe
         continue-on-error: true
