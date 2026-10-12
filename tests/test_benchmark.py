@@ -209,3 +209,17 @@ def test_the_runway_is_translated_and_followed_into_the_shop_window():
     assert all("percentile" not in x["clothes"]["shop_window"]["own_runway"] for x in few["collections"])   # three are too few to place
     nothing = B.build(cols, pics, last_month="2026-06", clothes={"judge": {"status": "waiting on the reading of the test set", "use": []}})
     assert nothing["collections"][0]["clothes"] == {"status": "waiting on the reading of the test set"}
+
+
+def test_a_picture_is_dated_by_the_first_month_the_homepage_showed_it(tmp_path):
+    import json
+    obs, caps, vecs = tmp_path / "obs.jsonl", tmp_path / "captures", tmp_path / "vectors"
+    caps.mkdir(); vecs.mkdir()
+    # read first from the newest capture, as the archive is read newest month first
+    obs.write_text(json.dumps({"sha": "a1", "house_id": "h", "month": "2025-03", "status": "ok",
+                               "output": {"creative_type": "brand_image"}}) + "\n")
+    (caps / "h.jsonl").write_text("".join(json.dumps({"house_id": "h", "month": m, "status": "resolved",
+                                                      "images": [{"sha": "a1"}]}) + "\n" for m in ("2025-03", "2025-01", "2025-02")))
+    np.savez(vecs / "v.npz", shas=np.array(["a1"]), vecs=np.ones((1, 4)))
+    pics = B.load_pictures(obs_path=obs, larger=tmp_path / "none.jsonl", vectors=vecs, captures=caps)
+    assert [(p["sha"], p["month"], p["group"]) for p in pics] == [("a1", "2025-01", "image")]

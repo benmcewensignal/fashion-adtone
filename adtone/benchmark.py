@@ -79,11 +79,29 @@ def kind_group(creative_type: str | None) -> str:
     return GROUP_OF.get(creative_type or "", "other")
 
 
-def load_pictures(obs_path: Path | None = None, larger: Path | None = None, vectors: Path | None = None) -> list[dict]:
+def first_shown(captures: Path | None = None) -> dict[tuple[str, str], str]:
+    """(brand, picture) -> the first month an archived capture of the homepage shows it. A reading's own month is
+    the capture it was first read from, and the archive is read newest month first, so for a picture left up
+    for months that is usually the last month it was shown, not the first."""
+    first: dict[tuple[str, str], str] = {}
+    for p in sorted(Path(captures or HOMEPAGES / "captures").glob("*.jsonl")):
+        for row in store.read_jsonl(p):
+            if row.get("status") != "resolved":
+                continue
+            for im in row.get("images") or []:
+                k = (row["house_id"], im["sha"])
+                if k not in first or row["month"] < first[k]:
+                    first[k] = row["month"]
+    return first
+
+
+def load_pictures(obs_path: Path | None = None, larger: Path | None = None, vectors: Path | None = None,
+                  captures: Path | None = None) -> list[dict]:
     """Every homepage picture read: brand, the month it was first shown, its kind group and fingerprint."""
     obs_path = obs_path or HOMEPAGES / "obs" / "tone-v1.jsonl"
     larger = larger or LARGER_READER
     vectors = vectors or VECTORS
+    first = first_shown(captures)
     vec = {}
     for f in sorted(Path(vectors).glob("*.npz")):
         z = np.load(f, allow_pickle=True)
@@ -100,8 +118,8 @@ def load_pictures(obs_path: Path | None = None, larger: Path | None = None, vect
         if r.get("status") != "ok" or r.get("sha") not in vec:
             continue
         ct = big.get(r["sha"]) or (r.get("output") or {}).get("creative_type")
-        out.append({"sha": r["sha"], "house": r["house_id"], "month": r["month"], "kind": ct,
-                    "group": kind_group(ct), "vec": vec[r["sha"]]})
+        out.append({"sha": r["sha"], "house": r["house_id"], "month": first.get((r["house_id"], r["sha"]), r["month"]),
+                    "kind": ct, "group": kind_group(ct), "vec": vec[r["sha"]]})
     return out
 
 
