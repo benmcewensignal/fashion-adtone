@@ -21,6 +21,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+import requests
+
 from . import config, store
 from .backcat import CDX, WAYBACK_RAW, Crawler, _cdx_rows
 
@@ -40,11 +42,41 @@ def views_in(html: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def cdx(c: Crawler, url: str, prefix: bool = True, limit: int = 500) -> list[tuple[str, str]]:
+FAILED = Counter()
+STREAK = [0]                     # calls failed in a row: ten mean the archive is down, and the probe stops
+
+
+class ArchiveDown(Exception):
+    pass
+
+
+def fetch(c: Crawler, url: str, params: dict | None = None, tries: int = 4):
+    """The archive under load answers slowly or not at all: a timeout or a busy answer is retried after a longer
+    pause, and after the last try the call is counted as failed rather than ending the probe."""
+    if STREAK[0] >= 10:
+        raise ArchiveDown("ten archive calls in a row went unanswered")
+    for k in range(tries):
+        c.calls += 1
+        c.sleep(c.pause * (1 + 3 * k))
+        try:
+            r = c.s.get(url, params=params, timeout=90)
+        except requests.RequestException:
+            continue
+        if r.status_code not in (429, 500, 502, 503, 504):
+            STREAK[0] = 0
+            return r
+    FAILED[url.split("/")[2]] += 1
+    STREAK[0] += 1
+    return None
+
+
+def cdx(c: Crawler, url: str, prefix: bool = True, limit: int = 500) -> list[tuple[str, str]] | None:
+    """The archive's captures of a page (status 200) as (timestamp, url), or None when the index did not answer."""
     q = {"url": url, "output": "json", "fl": "timestamp,original", "filter": "statuscode:200", "limit": str(limit)}
     if prefix:
         q["matchType"] = "prefix"
-    return [(r[0], r[1]) for r in _cdx_rows(c.get(CDX, q))[1:] if len(r) >= 2]
+    r = fetch(c, CDX, q)
+    return None if r is None else [(x[0], x[1]) for x in _cdx_rows(r)[1:] if len(x) >= 2]
 
 
 def main_accounts() -> dict[str, str]:
@@ -61,29 +93,33 @@ def ads_probe(c: Crawler) -> tuple[list[dict], dict]:
     rows, house_caps = [], []
     for house, aid in main_accounts().items():
         caps = cdx(c, f"adstransparency.google.com/advertiser/{aid}")
+        if caps is None:
+            rows.append({"house": house, "advertiser_id": aid, "captures": None})
+            continue
         house_caps += caps
         rows.append({"house": house, "advertiser_id": aid, "captures": len(caps),
                      "first": min((t for t, _ in caps), default=None), "last": max((t for t, _ in caps), default=None),
                      "pages": len({u for _, u in caps})})
-    site = cdx(c, "adstransparency.google.com/", limit=5000)
-    rpc = cdx(c, "adstransparency.google.com/anji/", limit=500)
+    site = cdx(c, "adstransparency.google.com/", limit=2000) or []
+    rpc = cdx(c, "adstransparency.google.com/anji/", limit=500) or []
     read, with_ads = [], 0
     sample = (sorted(house_caps, reverse=True)[:3] + [(t, u) for t, u in site if "/advertiser/" in u][:3])[:4]
     for t, u in sample:                                         # does a captured advertiser page carry any ad?
-        r = c.get(WAYBACK_RAW.format(ts=t, url=u))
-        n = len(set(CREATIVE.findall(r.text))) if r.status_code == 200 else None
-        read.append({"timestamp": t, "status": r.status_code, "creative_ids": n})
+        r = fetch(c, WAYBACK_RAW.format(ts=t, url=u))
+        n = len(set(CREATIVE.findall(r.text))) if r is not None and r.status_code == 200 else None
+        read.append({"timestamp": t, "status": None if r is None else r.status_code, "creative_ids": n})
         with_ads += 1 if n else 0
     summary = {"site_captures": len(site), "site_pages": len({u for _, u in site}),
                "site_years": dict(sorted(Counter(t[:4] for t, _ in site).items())),
                "advertiser_pages": len({u for _, u in site if "/advertiser/" in u}),
                "data_call_captures": len(rpc), "pages_read": read, "pages_read_with_ads": with_ads,
-               "house_accounts_captured": sum(1 for r in rows if r["captures"])}
+               "house_accounts_captured": sum(1 for r in rows if r["captures"]),
+               "house_accounts_unanswered": sum(1 for r in rows if r["captures"] is None)}
     return rows, summary
 
 
 def films(per_house: int, seed: int = 12) -> list[dict]:
-    """Per house, its most viewed films published since 2023 and as many again chosen at random."""
+    """Per house, its most viewed films published from 2023 to August 2026, and half as many again at random."""
     out, rnd = [], random.Random(seed)
     for f in sorted((config.DATA / "youtube" / "videos").glob("*.jsonl")):
         vs = [v for v in store.read_jsonl(f) if "2023-01-01" <= (v.get("published") or "") <= "2026-08-31"]
@@ -99,20 +135,22 @@ def youtube_probe(c: Crawler, per_house: int, reads: int = 40) -> tuple[list[dic
     rows = []
     for v in films(per_house):
         caps = cdx(c, f"youtube.com/watch?v={v['video_id']}")
-        rows.append({**v, "captures": sorted({t[:8] for t, _ in caps})})
+        rows.append({**v, "captures": None if caps is None else sorted({t[:8] for t, _ in caps})})
     read = 0
-    for v in sorted(rows, key=lambda r: -len(r["captures"])):    # the views a capture shows, earliest capture first
+    for v in sorted(rows, key=lambda r: -len(r["captures"] or [])):    # the views a capture shows, earliest capture first
         if read >= reads or not v["captures"]:
             continue
         ts = v["captures"][0]
-        r = c.get(WAYBACK_RAW.format(ts=ts, url=f"https://www.youtube.com/watch?v={v['video_id']}"))
-        v["read"] = {"date": ts, "status": r.status_code, "views": views_in(r.text) if r.status_code == 200 else None}
+        r = fetch(c, WAYBACK_RAW.format(ts=ts, url=f"https://www.youtube.com/watch?v={v['video_id']}"))
+        v["read"] = {"date": ts, "status": None if r is None else r.status_code,
+                     "views": views_in(r.text) if r is not None and r.status_code == 200 else None}
         read += 1
     def share(xs, pred):
         return round(sum(1 for x in xs if pred(x)) / max(len(xs), 1), 3)
     summary = {}
+    summary["unanswered"] = sum(1 for r in rows if r["captures"] is None)
     for why in ("top", "random"):
-        xs = [r for r in rows if r["why"] == why]
+        xs = [r for r in rows if r["why"] == why and r["captures"] is not None]
         summary[why] = {"films": len(xs), "any_capture": share(xs, lambda r: r["captures"]),
                         "two_or_more_days": share(xs, lambda r: len(r["captures"]) >= 2),
                         "captured_in_first_30_days": share(xs, lambda r: any(
@@ -144,7 +182,7 @@ def main(argv: list[str] | None = None) -> int:
             out[name] = summary
         except Exception as e:                                    # one part failing leaves the other's result
             out[name] = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
-    out.update({"archive_calls": c.calls, "updated_at": store.utc_now()})
+    out.update({"archive_calls": c.calls, "failed_calls": dict(FAILED), "updated_at": store.utc_now()})
     store.write_state(P["state"], out)
     store.append_jsonl(P["prov"], [out])
     print(json.dumps(out, indent=1)[:4000])
