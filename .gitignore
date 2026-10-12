@@ -18,3 +18,5 @@ luxury_pictures/
 clothes_pictures/
 flex_pictures/
 *.sealed
+# Google sign-in credentials written by google-github-actions/auth on the runner: never committed
+gha-creds-*.json

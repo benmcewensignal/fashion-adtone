@@ -1,0 +1,66 @@
+name: adstransparency
+run-name: adstransparency ${{ inputs.stage || 'auto' }} ${{ github.event_name }}
+# Google's ads on YouTube, Search and Display, from the Ads Transparency Center's public BigQuery dataset
+# (ads shown in the EEA and Turkey, impressions from March 2023): which ads each house ran, when, and
+# roughly how often; no pictures. Signs in without a key, through Workload Identity Federation: GitHub's
+# own token is exchanged for the focal-ads service account's. Every query is measured before it runs and
+# refused above its ceiling. Waits, recording that it waited, until GCP_PROJECT_NUMBER and
+# GCP_SERVICE_ACCOUNT exist. auto: discover until reference/google_advertisers.csv lists the houses'
+# accounts, then collect.
+on:
+  schedule:
+    - cron: "20 6 * * 5"
+  workflow_dispatch:
+    inputs:
+      stage:
+        type: choice
+        default: auto
+        options: [auto, discover, collect]
+  push:   # editing .github/kick/adstransparency starts a run
+    branches: [main]
+    paths: [".github/kick/adstransparency"]
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: adtone-adstransparency
+  cancel-in-progress: false
+
+jobs:
+  adstransparency:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: "1"
+      GCP_PROJECT_NUMBER: ${{ secrets.GCP_PROJECT_NUMBER }}
+      GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      STAGE: ${{ inputs.stage || 'auto' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 5
+        run: pip install -r requirements.txt -r requirements-ads.txt
+      - name: Sign in to Google Cloud
+        if: env.GCP_PROJECT_NUMBER != '' && env.GCP_SERVICE_ACCOUNT != ''
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github/providers/fashion-adtone
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      - name: Query
+        id: query
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python -m adtone.adstransparency "$STAGE" --run "gh${GITHUB_RUN_ID}"
+      - name: Probe
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.adstransparency probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: |
+          rm -f gha-creds-*.json   # the sign-in's credentials file: never persisted
+          bash scripts/persist.sh adstransparency "adstransparency ${{ github.event_name }}"
