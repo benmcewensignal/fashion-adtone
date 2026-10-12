@@ -3,6 +3,8 @@ Center (Google keeps an ad only until a year after it was last shown, the minimu
 Article 39 asks) and the houses' YouTube films (the Data API gives today's totals only).
 
     python -m adtone.archiveprobe run --run <id> [--films 8]
+    python -m adtone.archiveprobe calls --run <id>
+
 
 A probe, run by hand. For the Transparency Center: how many captures the archive has of each house's main
 advertiser page and of the site's data calls, and whether a captured page carries any ad (a creative id). For
@@ -28,6 +30,7 @@ from . import config, store
 from .backcat import CDX, WAYBACK_RAW, Crawler, _cdx_rows
 
 CREATIVE = re.compile(r"CR\d{20}")
+ADVERTISER = re.compile(r"AR\d{20}")
 VIEWS = re.compile(r'"viewCount":"(\d+)"')
 
 
@@ -186,9 +189,91 @@ def _d(t: str):
     return date(int(t[:4]), int(t[4:6]), int(t[6:8]))
 
 
+def house_accounts() -> dict[str, str]:
+    """Every account the reference list gives to a house (as its own, or in doubt): advertiser id to house."""
+    with (config.ROOT / "reference" / "google_advertisers.csv").open(encoding="utf-8", newline="") as f:
+        return {r["advertiser_id"]: r["house"] for r in csv.DictReader(f) if r["status"] in ("house", "doubt")}
+
+
+def call_of(url: str) -> dict:
+    """What a captured data call was: the service and method in its address, whether the archive kept it as a
+    posted query (whose question then sits in the address it was filed under), and the advertisers it names."""
+    path = url.split("adstransparency.google.com", 1)[-1]
+    m = re.search(r"/rpc/([A-Za-z]+/[A-Za-z]+)", path)
+    posted = "__wb_post_data" in url or "__wb_method=post" in url
+    text = url
+    if posted:
+        import base64
+        from urllib.parse import parse_qs, urlsplit
+        for v in parse_qs(urlsplit(url).query).get("__wb_post_data", []):
+            try:
+                text += " " + base64.b64decode(v + "=" * (-len(v) % 4)).decode("utf-8", "ignore")
+            except Exception:
+                pass
+    return {"call": m.group(1) if m else path.split("?")[0][:60], "posted": posted, "advertisers": sorted(set(ADVERTISER.findall(text)))}
+
+
+def calls_probe(c: Crawler, open_max: int = 80) -> tuple[list[dict], dict]:
+    """Every capture the archive holds of the Transparency Center's data calls, the questions behind the
+    advertiser pages: which call, when, and whether it names one of the houses' accounts; then a sample of the
+    stored answers opened, for the ads and advertisers each carries. Only counts and the houses' own ids are
+    kept, never another advertiser's id and never an ad's words."""
+    houses = house_accounts()
+    q = {"url": "adstransparency.google.com/anji/", "matchType": "prefix", "output": "json",
+         "fl": "timestamp,original,mimetype,statuscode,digest", "limit": "50000"}
+    r = fetch(c, CDX, q)
+    caps = [] if r is None else [x for x in _cdx_rows(r)[1:] if len(x) >= 5]
+    rows, seen = [], set()
+    for ts, url, mime, status, digest in caps:
+        info = call_of(url)
+        rows.append({"timestamp": ts, "call": info["call"], "status": status, "posted": info["posted"],
+                     "names_advertiser": bool(info["advertisers"]),
+                     "house": sorted({houses[a] for a in info["advertisers"] if a in houses}) or None, "digest": digest, "url": url})
+    # open: first every capture that names a house, then distinct answers spread over calls and years
+    order = [x for x in rows if x["house"] and x["status"] == "200"]
+    rest = [x for x in rows if not x["house"] and x["status"] == "200"]
+    by = {}
+    for x in rest:
+        by.setdefault((x["call"], x["timestamp"][:4]), []).append(x)
+    while any(by.values()) and len(order) < open_max * 3:
+        for k in sorted(by):
+            if by[k]:
+                order.append(by[k].pop(0))
+    opened, cut = [], None
+    try:
+        for x in order:
+            if len(opened) >= open_max:
+                break
+            if x["digest"] in seen:
+                continue
+            seen.add(x["digest"])
+            resp = fetch(c, WAYBACK_RAW.format(ts=x["timestamp"], url=x["url"]))
+            body = resp.text if resp is not None and resp.status_code == 200 else ""
+            advs = set(ADVERTISER.findall(body))
+            x["opened"] = {"status": None if resp is None else resp.status_code, "creatives": len(set(CREATIVE.findall(body))),
+                           "advertisers": len(advs), "houses": sorted({houses[a] for a in advs if a in houses}) or None}
+            opened.append(x)
+    except (OutOfTime, ArchiveDown) as e:
+        cut = str(e)
+    for x in rows:
+        x.pop("url", None)                     # the address can carry another advertiser's query: kept out
+    calls = Counter(x["call"] for x in rows)
+    summary = {"captures": len(rows), "cut_short": cut, "calls": dict(calls.most_common(12)),
+               "years": dict(sorted(Counter(x["timestamp"][:4] for x in rows).items())),
+               "status_200": sum(1 for x in rows if x["status"] == "200"), "posted": sum(1 for x in rows if x["posted"]),
+               "naming_an_advertiser": sum(1 for x in rows if x["names_advertiser"]),
+               "naming_a_house": sum(1 for x in rows if x["house"]),
+               "houses_named": sorted({h for x in rows if x["house"] for h in x["house"]}),
+               "opened": len(opened), "opened_with_ads": sum(1 for x in opened if x["opened"]["creatives"]),
+               "opened_with_a_house": sum(1 for x in opened if x["opened"]["houses"]),
+               "houses_in_answers": sorted({h for x in opened if x["opened"]["houses"] for h in x["opened"]["houses"]}),
+               "creatives_in_house_answers": sum(x["opened"]["creatives"] for x in opened if x["opened"]["houses"])}
+    return rows, summary
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.archiveprobe")
-    ap.add_argument("stage", choices=["run"])
+    ap.add_argument("stage", choices=["run", "calls"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--films", type=int, default=4)
     ap.add_argument("--budget-min", type=float, default=36)
@@ -196,6 +281,20 @@ def main(argv: list[str] | None = None) -> int:
     P = paths()
     c = Crawler(pause=1.5)
     start = time.monotonic()
+    if a.stage == "calls":
+        DEADLINE[0] = start + a.budget_min * 60
+        try:
+            rows, summary = calls_probe(c)
+            store.write_jsonl(config.DATA / "archiveprobe" / "calls.jsonl", rows)
+        except Exception as e:
+            summary = {"stopped": f"{type(e).__name__}: {str(e)[:300]}"}
+        state = json.loads(P["state"].read_text()) if P["state"].exists() else {}
+        ts = sorted(TIMES)
+        state["data_calls"] = {**summary, "run": a.run, "archive_calls": c.calls, "answered": len(ts), "updated_at": store.utc_now()}
+        store.write_state(P["state"], state)
+        store.append_jsonl(P["prov"], [{"run": a.run, "data_calls": summary}])
+        print(json.dumps(state["data_calls"], indent=1)[:4000])
+        return 0
     DEADLINE[0] = start + a.budget_min * 60 * 0.3              # the Google part gets under a third of the time
     out = {"run": a.run}
     for name, fn in (("ads", lambda: ads_probe(c)), ("youtube", lambda: youtube_probe(c, a.films))):
