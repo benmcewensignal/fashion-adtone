@@ -283,7 +283,8 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400)
     table = store.ShardedTable(paths()["campaigns"], "campaign_id")
     found, read, skipped, errors, statuses = {}, 0, 0, {}, Counter()
     per_house = max(5, max_reads // max(1, len(reg.houses)))     # every house gets its share of the reading budget
-    for h in reg.houses:
+    order = {h: k for k, h in enumerate(config.first_then_rest([x.id for x in reg.houses]))}
+    for h in sorted(reg.houses, key=lambda x: order[x.id]):
         house_reads = 0
         try:
             slug = h.models_slug or slugify(h.name)

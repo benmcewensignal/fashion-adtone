@@ -443,7 +443,7 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
                 status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     with ThreadPoolExecutor(max(1, workers)) as ex:
-        list(ex.map(one, sorted(todo)))
+        list(ex.map(one, config.first_then_rest(sorted(todo))))
     summary = {"shows_collected": sum(1 for v in status.values() if v["status"] == "collected"),
                "shows_without_looks": sum(1 for v in status.values() if v["status"] == "no looks"),
                "looks": n_rows[0], "left": sum(1 for h in todo for sh in todo[h] if show_key(sh) not in status),

@@ -135,6 +135,29 @@ EXCLUDED_CATEGORIES = ("fragrance_beauty", "jewellery_watches", "eyewear", "home
 N_PERM = int(os.environ.get("ADTONE_N_PERM", "1999"))
 
 
+PRIORITY_FILE = ROOT / "reference" / "priority.txt"
+
+
+def priority_houses() -> list[str]:
+    """Houses the collectors take first, one id a line in reference/priority.txt ('#' starts a comment). Empty
+    or missing: no house goes first. Once a house's work is done, the collectors go on as usual."""
+    if not PRIORITY_FILE.exists():
+        return []
+    out = []
+    for line in PRIORITY_FILE.read_text(encoding="utf-8").splitlines():
+        h = line.split("#", 1)[0].strip()
+        if h and h not in out:
+            out.append(h)
+    return out
+
+
+def first_then_rest(houses, first: list[str] | None = None) -> list:
+    """The houses in order: the priority ones first, in the file's order, then the rest as they came."""
+    first = priority_houses() if first is None else first
+    hs = list(houses)
+    return [h for h in first if h in hs] + [h for h in hs if h not in first]
+
+
 def run_id() -> str:
     """GitHub run id in Actions, a UTC timestamp locally."""
     rid = os.environ.get("GITHUB_RUN_ID")

@@ -287,12 +287,21 @@ def _done(row: dict | None, n_cands: int) -> bool:
     return row.get("attempts", 0) >= min(limit, max(n_cands, 1))
 
 
-def plan(index: dict[str, dict[str, list]], rows: dict[str, dict]) -> list[tuple[str, str]]:
-    """(house, month) still to read: newest month first, every house before going further back."""
+def plan(index: dict[str, dict[str, list]], rows: dict[str, dict], first: list[str] | None = None) -> list[tuple[str, str]]:
+    """(house, month) still to read: the priority houses' months first (reference/priority.txt), newest first;
+    then newest month first, every house before going further back."""
+    first = [h for h in (config.priority_houses() if first is None else first) if h in index]
     months = sorted({m for per in index.values() for m in per}, reverse=True)
     out = []
+    for house in first:
+        for m in sorted(index[house], reverse=True):
+            cands = index[house].get(m)
+            if cands and not _done(rows.get(_key(house, m)), len(cands)):
+                out.append((house, m))
     for m in months:
         for house in sorted(index):
+            if house in first:
+                continue
             cands = index[house].get(m)
             if cands and not _done(rows.get(_key(house, m)), len(cands)):
                 out.append((house, m))

@@ -535,7 +535,7 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
         calls.append(cc.calls)
 
     with ThreadPoolExecutor(max_workers=1 if c is not None else workers) as ex:
-        list(ex.map(one, sorted(by_house)))
+        list(ex.map(one, config.first_then_rest(sorted(by_house))))
     out["shows"] = dict(sorted(out["shows"].items()))
     out["summary"] = _coverage_summary(out["shows"])
     _write_to(COVERAGE_OUT, out)
