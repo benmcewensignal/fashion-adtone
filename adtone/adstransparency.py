@@ -7,13 +7,17 @@ public BigQuery dataset (bigquery-public-data.google_ads_transparency_center).
     python -m adtone.adstransparency probe --run <id>
 
 What the dataset holds, from Google's README (storage.googleapis.com/ads-transparency-center/api-data/README.txt,
-read 12 October 2026) and the table's schema: every ad shown in the European Economic Area or Turkey, one row an
+read 12 October 2026) and the table's schema: the ads shown in the European Economic Area or Turkey, one row an
 ad: the advertiser (disclosed and legal names, location, verification), the ad's format (text, image or video),
 and for each region the first and last day it was shown and a range for how often, overall and by surface
 (Search, YouTube, Shopping, Maps, Play), counted from 1 March 2023; an ad first shown before then reports
 1 March 2023 as its first day. It holds no pictures, no video and no words: the creative is seen only on the ad's
 own page (adstransparency.google.com/advertiser/<advertiser id>/creative/<creative id>), which Focal does not
 harvest. So this source gives the advertising stage its clock and its weight in Europe, not what the ads look like.
+What the data shows besides: Google keeps an ad only while it has been shown within the past year (of the ads read
+on 12 October 2026, 99.6% were last shown on or after 12 October 2025, and 6 of the 15,963 begun before July 2025
+ran for less than a month, against 45% of those begun in 2026), so an earlier ad is there only if it kept
+running; and the impression ranges stop at 14 July 2026 for every ad, while the days shown run to the read.
 
 Access is keyless: the workflow signs in through Workload Identity Federation (GitHub's own token exchanged
 for the focal-ads service account's), and queries run in that account's project. BigQuery bills by the
@@ -29,11 +33,13 @@ A group's own accounts (Kering, LVMH, OTB...) are kept as well, marked as the gr
 may run through its group's.
 collect: for the accounts in reference/google_advertisers.csv (discover's, checked by eye against what their
 ads are about: house, doubt when Google has not verified the account, not when it is shown to be someone else,
-as Alaïa SA is a Swiss company whose ads are about Sports & Fitness), every ad: its format, Google's topic for it, first and last day shown,
-each country's days and impression range, the impressions summed over countries and by surface, and how its
-audience was chosen. Google's top range is open ("more than 10 million"): a high of null beside a low means
-more than the low. A payer other than the advertiser is named only when the name is a company's. Written by
-house and by the year the ad was first shown, a whole snapshot each time.
+as Alaïa SA is a Swiss company whose ads are about Sports & Fitness), every ad: its format, Google's topic for
+it, first and last day shown, each country's days and impression range, the impressions summed over countries
+and by surface, and how its audience was chosen. Google's top range is open ("more than 10 million"): a high of
+null beside a low means more than the low. A payer other than the advertiser is named only when the name is a
+company's. Written by house and by the year the ad was first shown. Since Google drops an ad a year after it was
+last shown, each run merges rather than replaces: an ad no longer in the dataset is kept as last seen ("seen" is
+the last day a run found it).
 auto: discover when the matching rules changed or four weeks have passed, then collect.
 """
 from __future__ import annotations
@@ -377,6 +383,24 @@ class Range:
         return self.lo, (None if self.open else self.hi)
 
 
+def merge(before: list[dict], current: dict[str, dict], listed: dict[str, tuple[str, str]],
+          last_run: str) -> tuple[list[dict], int]:
+    """This run's ads, and the ads earlier runs found that Google has since dropped, kept as last seen with their
+    house and status from today's list; an account no longer listed (or listed as not) takes its ads with it."""
+    out, kept = dict(current), 0
+    for x in before:
+        if x["id"] in out or listed.get(x.get("adv"), ("", "not"))[1] not in ("house", "doubt"):
+            continue
+        house, status = listed[x["adv"]]
+        x = {**x, "house": house, "seen": x.get("seen") or last_run}
+        x.pop("status", None)
+        if status != "house":
+            x["status"] = status
+        out[x["id"]] = x
+        kept += 1
+    return list(out.values()), kept
+
+
 def shard(ad: dict) -> str:
     return f"{ad['house']}-{(ad.get('first') or 'unknown')[:4]}"
 
@@ -393,10 +417,17 @@ def collect(reg: registry.Registry, run: str, max_gb: float = MAX_GB["collect"])
     if rows is None:
         out["stopped"] = f"the ads query would read {nbytes / 1e9:.1f} GB, above {max_gb:g}"
         return out
-    by: dict[str, list[dict]] = {}
+    today = store.utc_now()[:10]
+    current = {}
     for r in rows:
         house, status = listed[r["advertiser_id"]]
         ad = compact(dict(r.items()), house, status)
+        ad["seen"] = today
+        current[ad["id"]] = ad
+    before = [x for f in sorted(P["creatives"].glob("*.jsonl")) for x in store.read_jsonl(f)]
+    merged, kept = merge(before, current, listed, (store.read_state(P["state"]).get("updated_at") or today)[:10])
+    by: dict[str, list[dict]] = {}
+    for ad in merged:
         by.setdefault(shard(ad), []).append(ad)
     P["creatives"].mkdir(parents=True, exist_ok=True)
     written = set()
@@ -405,13 +436,13 @@ def collect(reg: registry.Registry, run: str, max_gb: float = MAX_GB["collect"])
         f = P["creatives"] / f"{name}.jsonl"
         store.write_jsonl(f, xs)
         written.add(f.name)
-    for f in P["creatives"].glob("*.jsonl"):                     # a whole snapshot: an account no longer listed goes
+    for f in P["creatives"].glob("*.jsonl"):                     # an account no longer listed goes
         if f.name not in written:
             f.unlink()
     ads = [a for xs in by.values() for a in xs]
     houses = Counter(a["house"] for a in ads)
     sizes = {f.name: f.stat().st_size for f in P["creatives"].glob("*.jsonl")}
-    out.update({"ads": len(ads), "houses": dict(sorted(houses.items())),
+    out.update({"ads": len(ads), "in_dataset": len(current), "kept_as_last_seen": kept, "houses": dict(sorted(houses.items())),
                 "doubt": dict(sorted(Counter(a["house"] for a in ads if a.get("status") == "doubt").items())),
                 "accounts_with_ads": len({a["adv"] for a in ads}), "accounts_listed": len(listed),
                 "files": len(sizes), "largest_file_mb": round(max(sizes.values(), default=0) / 2**20, 2),

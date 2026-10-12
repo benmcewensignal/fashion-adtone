@@ -143,3 +143,18 @@ def test_the_checked_list_is_the_rules_own():
         assert A.own_house(r["disclosed_name"], r["legal_name"]) == r["house"], r["advertiser_id"]
         assert r["status"] != "house" or r["verified"] == "yes", r["advertiser_id"]     # unverified is doubt at best
         assert r["status"] == "house" or r["note"], r["advertiser_id"]                  # every exception says why
+
+
+def test_an_ad_google_drops_is_kept_as_last_seen():
+    listed = {"AR1": ("dior", "house"), "AR2": ("chanel", "doubt"), "AR3": ("alaia", "not")}
+    before = [{"id": "CR1", "adv": "AR1", "house": "dior", "first": "2025-01-01", "seen": "2026-10-05"},   # dropped since
+              {"id": "CR2", "adv": "AR1", "house": "dior", "first": "2025-02-01"},                         # still there
+              {"id": "CR3", "adv": "AR2", "house": "chanel", "first": "2025-03-01"},                       # no seen yet
+              {"id": "CR4", "adv": "AR3", "house": "alaia", "first": "2025-03-01"},                        # now not
+              {"id": "CR5", "adv": "AR9", "house": "gucci", "first": "2025-03-01"}]                        # unlisted
+    current = {"CR2": {"id": "CR2", "adv": "AR1", "house": "dior", "first": "2025-02-01", "seen": "2026-10-12"}}
+    merged, kept = A.merge(before, current, listed, "2026-10-12")
+    by = {x["id"]: x for x in merged}
+    assert sorted(by) == ["CR1", "CR2", "CR3"] and kept == 2
+    assert by["CR1"]["seen"] == "2026-10-05" and by["CR2"]["seen"] == "2026-10-12"
+    assert by["CR3"]["seen"] == "2026-10-12" and by["CR3"]["status"] == "doubt" and "status" not in by["CR1"]
