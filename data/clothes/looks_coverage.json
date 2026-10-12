@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T20:22:17Z",
+ "generated_at": "2026-10-12T01:24:38Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectTimeout"
+    "dior.com": "HTTP 504"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 504"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "HTTP 504"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -9553,10 +9553,9 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1390
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
