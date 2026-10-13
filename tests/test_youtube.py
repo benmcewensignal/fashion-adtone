@@ -122,3 +122,25 @@ def test_durations_titles_and_letterboxes():
     out = youtube.unletterbox(img)
     assert out.size == (480, 270)
     assert youtube.unletterbox(Image.new("RGB", (480, 360), (200, 200, 200))).size == (480, 360)
+
+
+def test_every_thumbnail_gets_a_fingerprint_without_the_reader(tmp_data, monkeypatch, tmp_path):
+    _setup(tmp_data, monkeypatch, tmp_path)
+    films = {"UUgucci": _films("g", 70), "UUloewe": _films("l", 3)}
+    h, _ = _api(films, {"UCgucci": "GUCCI", "UCloewe": "LOEWE"})
+    sess = FakeSession(h)
+    youtube.collect(sess, _reg(GUCCI, LOEWE), "r1", "KEY", FakeEmbedder(), FakeScorer(load_rubric()), read_thumbs=5,
+                    today=date(2026, 10, 7), sleep=lambda s: None)
+    P = youtube.paths()
+    # a run cut short after its first batch keeps that batch
+    ticks = iter([0, 0, 10 ** 6, 10 ** 6, 10 ** 6])
+    out = youtube.print_thumbnails(sess, FakeEmbedder(), "p1", budget_s=1, clock=lambda: next(ticks), workers=2)
+    assert out["from_reader"] == 5 and out["printed"] == youtube.PRINT_BATCH and out["stopped"] == "budget"
+    idx = store.read_jsonl(P["dir"] / "prints.jsonl")
+    assert len(idx) == 5 + youtube.PRINT_BATCH and len({r["video_id"] for r in idx}) == len(idx)
+    # the next run finishes the rest, and every film's fingerprint is on file
+    out2 = youtube.print_thumbnails(sess, FakeEmbedder(), "p2", budget_s=10 ** 6, workers=2)
+    idx = store.read_jsonl(P["dir"] / "prints.jsonl")
+    assert out2["printed"] == 73 - 5 - youtube.PRINT_BATCH and out2["left"] == 0 and len(idx) == 73
+    vecs = VectorStore("fake", root=P["vectors"])
+    assert all(r["sha"] in vecs for r in idx) and {r["house_id"] for r in idx} == {"gucci", "loewe"}

@@ -31,6 +31,13 @@ class OpenClipEmbedder:
             v = self.model.encode_image(x).float().numpy()[0]
         return v / np.linalg.norm(v)
 
+    def embed_many(self, imgs: list[Image.Image]) -> np.ndarray:
+        """Several images in one pass of the model: the same vectors as embed, one row each."""
+        with self._torch.no_grad():
+            x = self._torch.stack([self.preprocess(i.convert("RGB")) for i in imgs])
+            v = self.model.encode_image(x).float().numpy()
+        return v / np.linalg.norm(v, axis=1, keepdims=True)
+
 
 class FakeEmbedder:
     """Deterministic stand-in for tests: a fixed projection of simple colour statistics."""
@@ -44,6 +51,9 @@ class FakeEmbedder:
         stats = np.concatenate([a.mean(axis=(0, 1)), a.std(axis=(0, 1)), np.percentile(a.mean(axis=2), [10, 50, 90])])
         v = stats @ self._proj
         return v / (np.linalg.norm(v) or 1.0)
+
+    def embed_many(self, imgs: list[Image.Image]) -> np.ndarray:
+        return np.vstack([self.embed(i) for i in imgs])
 
 
 class VectorStore:

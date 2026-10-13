@@ -3,7 +3,8 @@ run-name: youtube ${{ github.event_name }}
 # Every film on each house's own YouTube channel: views, likes, comments and the description where the
 # house credits its crew, refreshed weekly; films under 120 days old get a dated row of their counts;
 # new thumbnails (the image the house chose for the film) go through the reader. Waits, recording that
-# it waited, until the YOUTUBE_API_KEY secret exists.
+# it waited, until the YOUTUBE_API_KEY secret exists. A stage run by hand gives every thumbnail its
+# fingerprint alone, without the reader.
 on:
   schedule:
     - cron: "40 5 * * 3"
@@ -26,7 +27,7 @@ concurrency:
 jobs:
   youtube:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 90
+    timeout-minutes: 215
     env:
       PYTHONUNBUFFERED: "1"
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
@@ -53,8 +54,15 @@ jobs:
       - name: Collect films
         id: collect
         continue-on-error: true
-        timeout-minutes: 70
-        run: python -m adtone.youtube collect --run "gh${GITHUB_RUN_ID}" --budget-min 60 --read-thumbs "$THUMBS"
+        timeout-minutes: 185
+        # a kick whose last line names the fingerprints runs only that stage: every thumbnail's fingerprint,
+        # without the reader, for setting the films against the shop window
+        run: |
+          if tail -n 1 .github/kick/youtube | grep -qi "fingerprints"; then
+            python -m adtone.youtube prints --run "gh${GITHUB_RUN_ID}" --budget-min 170
+          else
+            python -m adtone.youtube collect --run "gh${GITHUB_RUN_ID}" --budget-min 60 --read-thumbs "$THUMBS"
+          fi
       - name: Probe
         if: env.YOUTUBE_API_KEY != ''
         continue-on-error: true

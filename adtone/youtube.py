@@ -3,6 +3,7 @@ the house chose to stand for it, read by the reader.
 
     python -m adtone.youtube collect --run <id> [--budget-min 60] [--read-thumbs 300]
     python -m adtone.youtube probe --run <id>
+    python -m adtone.youtube prints --run <id> [--budget-min 170]   # every thumbnail's fingerprint, no reader
 
 Needs YOUTUBE_API_KEY: a free key from Google Cloud (enable "YouTube Data API v3", create an API
 key). Without one the run records that it waited and stops. The API allows 10,000 units a day and
@@ -345,6 +346,90 @@ def read_thumbnails(sess, embedder, scorer, run: str, limit: int, budget_s: floa
     return counts
 
 
+PRINT_BATCH = 64
+
+
+def print_thumbnails(sess, embedder, run: str, budget_s: float, clock=time.monotonic, workers: int = 4) -> dict:
+    """The fingerprint alone of every film's thumbnail not yet fingerprinted, without the reader: the numerical
+    summary of the image the house chose for the film, in the same space as the homepage pictures', so the
+    films can be set against the shop window at no reader cost. Newest films first. A film the reader has
+    already seen keeps its fingerprint and only gains an index row. The index (prints.jsonl) holds the film,
+    its house, its date and the image's hash; the image is held in memory only. Saved every few hundred films,
+    so a run cut short keeps what it did."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    from .embed import VectorStore
+    P = paths()
+    idx_path = P["dir"] / "prints.jsonl"
+    done = {r["video_id"] for r in store.read_jsonl(idx_path)}
+    seen = {r["video_id"]: r["sha"] for p in sorted(P["obs"].glob("*.jsonl")) for r in store.read_jsonl(p) if r.get("sha")}
+    vectors = VectorStore(embedder.tag, root=P["vectors"])
+    films = [r for p in sorted(P["videos"].glob("*.jsonl")) for r in store.read_jsonl(p)
+             if r.get("thumb") and r["video_id"] not in done]
+    films.sort(key=lambda r: (r.get("published") or "", r["video_id"]), reverse=True)
+    t0, counts, rows = clock(), {"printed": 0, "from_reader": 0, "thumb_errors": 0}, []
+    row = lambda film, sha: {"video_id": film["video_id"], "house_id": film["house_id"], "published": film.get("published"),
+                             "sha": sha, "run_id": run}
+    todo = []
+    for film in films:
+        sha = seen.get(film["video_id"])
+        if sha and sha in vectors:
+            rows.append(row(film, sha))
+            counts["from_reader"] += 1
+        else:
+            todo.append(film)
+    local = threading.local()
+
+    def getter():
+        if not isinstance(sess, requests.Session):
+            return sess                              # a test's fake session
+        if not hasattr(local, "s"):
+            local.s = requests.Session()
+            local.s.headers.update(sess.headers)
+        return local.s
+
+    def fetch(film):
+        try:
+            r = getter().get(film["thumb"], timeout=30)
+            if r.status_code != 200:
+                return film, None
+            f = to_fetched(r.content)
+            img = unletterbox(f.image)
+            if img is not f.image:
+                f.image = img
+            return film, f
+        except (requests.RequestException, MediaError):
+            return film, None
+
+    def save():
+        store.append_jsonl(idx_path, rows)
+        rows.clear()
+        vectors.save()
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for i in range(0, len(todo), PRINT_BATCH):
+            if clock() - t0 > budget_s:
+                counts["stopped"] = "budget"
+                break
+            got = list(ex.map(fetch, todo[i:i + PRINT_BATCH]))
+            ok = [(film, f) for film, f in got if f is not None]
+            counts["thumb_errors"] += len(got) - len(ok)
+            new = {f.sha: (film, f) for film, f in ok if f.sha not in vectors}
+            if new:
+                V = embedder.embed_many([f.image for _, f in new.values()])
+                for (film, f), v in zip(new.values(), V):
+                    vectors.add(f.sha, v, (film.get("published") or "0000")[:4])
+            for film, f in ok:
+                rows.append(row(film, f.sha))
+                f.image.close()
+            counts["printed"] += len(ok)
+            if len(rows) >= 500:
+                save()
+    save()
+    counts["left"] = max(0, len(todo) - counts["printed"] - counts["thumb_errors"])
+    return counts
+
+
 def probe(run: str) -> list[str]:
     st = store.read_state(paths()["state"])
     if st.get("run") != run:
@@ -357,7 +442,7 @@ def probe(run: str) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.youtube")
-    ap.add_argument("stage", choices=["collect", "probe"])
+    ap.add_argument("stage", choices=["collect", "probe", "prints"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--read-thumbs", type=int, default=300)
@@ -366,6 +451,16 @@ def main(argv: list[str] | None = None) -> int:
         errs = probe(a.run)
         for e in errs:
             print(f"::warning::{e}")
+        return 0
+    if a.stage == "prints":
+        from .embed import OpenClipEmbedder
+        out = {"run": a.run, "stage": "prints", **print_thumbnails(session(), OpenClipEmbedder(), a.run, a.budget_min * 60),
+               "updated_at": store.utc_now()}
+        state = store.read_state(paths()["state"])
+        state["prints"] = out
+        store.write_state(paths()["state"], state)
+        store.append_jsonl(paths()["prov"], [out])
+        print(out)
         return 0
     key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     if not key:
