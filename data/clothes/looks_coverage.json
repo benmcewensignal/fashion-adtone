@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T11:54:38Z",
+ "generated_at": "2026-10-13T19:54:14Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectTimeout"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2314,7 +2314,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6238,7 +6238,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "HTTP 504"
    }
   },
   "hermes:2015-03-09:rtw": {
@@ -6264,7 +6264,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "HTTP 504"
+    "hermes.com": "ReadTimeout"
    }
   },
   "hermes:2015-10-05:rtw": {
@@ -9573,6 +9573,19 @@
     }
    ]
   },
+  "prada:2024-09-19:rtw": {
+   "house": "prada",
+   "date": "2024-09-19",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "prada.com": "HTTP 504"
+   }
+  },
   "prada:2025-01-19:men": {
    "house": "prada",
    "date": "2025-01-19",
@@ -9636,13 +9649,16 @@
    "date": "2026-01-18",
    "season": "2026 AW men",
    "category": "men",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "prada.com": "ReadTimeout"
-   }
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.prada.com/kr/ko/pradasphere/fashion-shows/2026/fw-menswear.html?utm_source=kakao&utm_medium=social_post&utm_campaign=prshowmenfw26&utm_term=cta",
+     "ts": "20260121021918",
+     "score": 11.0
+    }
+   ]
   },
   "prada:2026-02-26:rtw": {
    "house": "prada",
@@ -10634,9 +10650,9 @@
   },
   "burberry": {
    "prefixes": [
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "us.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 2
+   "pages": 1
   },
   "chanel": {
    "prefixes": [
@@ -10653,9 +10669,9 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1068
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -10725,11 +10741,10 @@
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/stories/runway/",
-    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
-    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/"
+    "www.gucci.com/us/en/article/",
+    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
    ],
-   "pages": 963
+   "pages": 921
   },
   "loewe": {
    "prefixes": [
@@ -10783,13 +10798,9 @@
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
-    "www.prada.com/us/en/pradasphere/fashion-shows/2022/ss-menswear.html",
-    "www.prada.com/en/collections/advertising-campaign/",
-    "www.prada.com/en/collections/fashion-show/",
-    "www.prada.com/en/collections/",
-    "www.prada.com/us/en/men/sunglasses/"
+    "www.prada.com/us/en/pradasphere/fashion-shows/2022/ss-menswear.html"
    ],
-   "pages": 1073
+   "pages": 55
   },
   "saint_laurent": {
    "prefixes": [
@@ -10842,7 +10853,7 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 381,
+   "found": 382,
    "index failed": 48,
    "none": 197
   },
@@ -10936,8 +10947,8 @@
     "found": 22
    },
    "prada": {
-    "shows": 13,
-    "found": 9
+    "shows": 14,
+    "found": 10
    },
    "saint_laurent": {
     "shows": 30,
@@ -11002,12 +11013,12 @@
     "found": 30
    },
    "2025": {
-    "shows": 39,
+    "shows": 40,
     "found": 22
    },
    "2026": {
     "shows": 59,
-    "found": 33
+    "found": 34
    },
    "2027": {
     "shows": 31,
