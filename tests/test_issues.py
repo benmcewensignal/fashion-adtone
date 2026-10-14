@@ -76,3 +76,6 @@ def test_each_house_is_drawn_once_for_each_seed_and_a_house_drawn_already_is_pas
     again = I.draw(plan, starter=st, put=vol.update, only=["gucci", "loewe", "dior"], seal_fn=seal)
     assert again["drawn_this_run"] == ["dior"] and len(again["rows"]) == 6
     assert len(st.calls) == 3
+    plan["seeds_for"] = {"gucci": [5, 6]}                                    # a new prompt, drawn on seeds of its own
+    third = I.draw(plan, starter=st, put=vol.update, only=["gucci", "loewe"], seal_fn=seal)
+    assert third["drawn_this_run"] == ["gucci"] and {r["name"] for r in third["rows"]} >= {"gucci-1", "gucci-5", "gucci-6"}

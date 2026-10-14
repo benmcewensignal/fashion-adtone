@@ -7,7 +7,8 @@ no text.
         on the runner: each house's prompt drawn once for each seed of the plan -> data/issues/run.json;
         the pictures to the private Modal volume and, sealed, to a branch of their own
 
-The plan (data/issues/plan.json) holds one prompt for each house, the seeds and the drawing settings. The
+The plan (data/issues/plan.json) holds one prompt for each house, the seeds (and, for a house drawn again with a
+new prompt, seeds of its own in seeds_for, so its earlier pictures stay as they were) and the drawing settings. The
 prompts never name a house and ask for no text, logo, monogram or house pattern; where a person is in the
 picture they are seen from behind, with no face. None of the pictures reaches the repository, which is
 public: the originals go to the private Modal volume, the copies to look at leave the runner only sealed to a
@@ -99,9 +100,10 @@ def draw(plan: dict | None = None, starter=None, put=None, only: list[str] | Non
     seal_fn = seal_fn or seal
     run = json.loads(RUN.read_text(encoding="utf-8")) if RUN.exists() else {}
     rows = {r["name"]: r for r in run.get("rows", [])}
+    seeds_of = lambda h: plan.get("seeds_for", {}).get(h, plan["seeds"])     # a house drawn again gets seeds of its own
     todo = [h for h in sorted(plan["houses"]) if (not only or h in only)]
     if not again:
-        todo = [h for h in todo if not all(f"{h}-{s}" in rows for s in plan["seeds"])]
+        todo = [h for h in todo if not all(f"{h}-{s}" in rows for s in seeds_of(h))]
     w, hgt = plan["draw_size"]
     style, neg = plan.get("style", ""), plan["negative"]
     t0, review, drawn = time.monotonic(), {}, []
@@ -111,16 +113,16 @@ def draw(plan: dict | None = None, starter=None, put=None, only: list[str] | Non
             break
         prompt = plan["houses"][h] + (" " + style if style else "")
         t1 = time.monotonic()
-        pngs = starter.make.remote(prompt, neg, plan["seeds"], w, hgt, plan["steps"], plan["cfg"])
+        pngs = starter.make.remote(prompt, neg, seeds_of(h), w, hgt, plan["steps"], plan["cfg"])
         secs = round(time.monotonic() - t1)
         files = {}
-        for seed, png in zip(plan["seeds"], pngs):
+        for seed, png in zip(seeds_of(h), pngs):
             name = f"{h}-{seed}"
             files[f"{VOL_DIR}/png/{name}.png"] = png
             jpg = review_copy(png)
             review[f"{name}.jpg"] = jpg
             rows[name] = {"name": name, "house": h, "seed": seed, "png_sha": F.sha_of(png), "jpg_sha": F.sha_of(jpg),
-                          "seconds": secs, "at": store.utc_now()}
+                          "prompt_sha": F.sha_of(prompt.encode())[:12], "seconds": secs, "at": store.utc_now()}
         put(files)
         drawn.append(h)
         print(f"drew {h}: {len(pngs)} pictures in {secs} s", flush=True)
