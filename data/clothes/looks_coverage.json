@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T18:03:50Z",
+ "generated_at": "2026-10-14T22:22:25Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectTimeout"
+    "dior.com": "ConnectionError"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6251,7 +6251,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ReadTimeout"
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2015-06-27:men": {
@@ -8288,7 +8288,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ReadTimeout"
+    "louisvuitton.com": "ConnectionError"
    }
   },
   "louis_vuitton:2026-10-06:rtw": {
@@ -8301,7 +8301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectTimeout"
+    "louisvuitton.com": "ConnectionError"
    }
   },
   "margiela:2015-01-23:men": {
@@ -9924,7 +9924,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ReadTimeout"
+    "prada.com": "ConnectionError"
    }
   },
   "prada:2024-09-19:rtw": {
@@ -9937,7 +9937,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ReadTimeout"
+    "prada.com": "ConnectionError"
    }
   },
   "prada:2025-01-19:men": {
@@ -10942,6 +10942,19 @@
     }
    ]
   },
+  "valentino:2020-09-27:rtw": {
+   "house": "valentino",
+   "date": "2020-09-27",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "valentino.com": "ConnectionError"
+   }
+  },
   "valentino:2021-01-29:couture": {
    "house": "valentino",
    "date": "2021-01-29",
@@ -11520,19 +11533,206 @@
     "versace.com": "ConnectionError"
    }
   },
+  "zegna:2015-01-17:men": {
+   "house": "zegna",
+   "date": "2015-01-17",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.zegna.com:80/us/ermenegildo-zegna/couture/aw15/fashion-show-stefano-pilati.html?",
+     "ts": "20150120001129",
+     "score": 7.81
+    },
+    {
+     "url": "http://www.zegna.com:80/us/z-zegna/aw15/milan-fashion-week-fw-15-preview.html",
+     "ts": "20150131092856",
+     "score": 0.81
+    }
+   ]
+  },
+  "zegna:2015-06-20:men": {
+   "house": "zegna",
+   "date": "2015-06-20",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.zegna.com:80/us/ermenegildo-zegna/couture/fashion-show-ss-16.html",
+     "ts": "20150627070719",
+     "score": 7.81
+    },
+    {
+     "url": "http://www.zegna.com:80/gb/z-zegna/presentation-ss16.html",
+     "ts": "20150627213229",
+     "score": 1.06
+    }
+   ]
+  },
+  "zegna:2016-01-16:men": {
+   "house": "zegna",
+   "date": "2016-01-16",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "zegna:2017-01-13:men": {
+   "house": "zegna",
+   "date": "2017-01-13",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.zegna.us/us-en/editorial/fashion-show/made-to-measure-aw-17-18/catwalk.html",
+     "ts": "20170404000820",
+     "score": 11.94
+    },
+    {
+     "url": "https://www.zegna.us/us-en/editorial/fashion-show/made-to-measure-fw-17-18/catwalk.html",
+     "ts": "20170327120855",
+     "score": 11.94
+    }
+   ]
+  },
+  "zegna:2017-06-16:men": {
+   "house": "zegna",
+   "date": "2017-06-16",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "zegna:2018-01-12:men": {
+   "house": "zegna",
+   "date": "2018-01-12",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "zegna:2018-06-15:men": {
+   "house": "zegna",
+   "date": "2018-06-15",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "zegna:2019-01-11:men": {
+   "house": "zegna",
+   "date": "2019-01-11",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "zegna:2019-06-14:men": {
+   "house": "zegna",
+   "date": "2019-06-14",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "zegna:2020-01-10:men": {
+   "house": "zegna",
+   "date": "2020-01-10",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "zegna:2021-01-15:men": {
+   "house": "zegna",
+   "date": "2021-01-15",
+   "season": "2021 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.zegna.com/us-en/winter-fashion-show/?utm_source=twitter&amp;utm_medium=&amp;utm_campaign=us_en_fsfw21&amp;utm_content=cm",
+     "ts": "20210116011555",
+     "score": 7.94
+    }
+   ]
+  },
+  "zegna:2021-06-18:men": {
+   "house": "zegna",
+   "date": "2021-06-18",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.zegna.com/us-en/?utm_source=twitter&utm_medium=&utm_campaign=us_en_fashionshowss22&utm_content=cm",
+     "ts": "20210618165011",
+     "score": 0.94
+    }
+   ]
+  },
+  "zegna:2022-01-14:men": {
+   "house": "zegna",
+   "date": "2022-01-14",
+   "season": "2022 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.zegna.com/us-en/winter-fashion-show/?utm_source=dbm&utm_medium=pros&utm_campaign=us_en_100122_fashionshowfw22&utm_content=300x600_news&utm_term=man&utm_id=326336656&dclid=CMrIrLG9vvUCFQkV-QAdZiMKtg",
+     "ts": "20220119205604",
+     "score": 9.94
+    }
+   ]
+  },
+  "zegna:2022-06-20:men": {
+   "house": "zegna",
+   "date": "2022-06-20",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
   "zegna:2023-01-16:men": {
    "house": "zegna",
    "date": "2023-01-16",
    "season": "2023 AW men",
    "category": "men",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "zegna.com": "ReadTimeout",
-    "ermenegildozegna.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": []
   },
   "zegna:2023-06-19:men": {
    "house": "zegna",
@@ -11677,19 +11877,21 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 1068
+   "pages": 1390
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/man/collection/",
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 6223
   },
   "dries_van_noten": {
    "prefixes": [
@@ -11739,11 +11941,10 @@
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/",
-    "www.hermes.com/fi/en/content/308227-tableware-collections/",
-    "www.hermes.com/fi/en/category/women/ready-wear/",
-    "www.hermes.com/fi/en/category/men/ready-wear/"
+    "www.hermes.com/us/en/men/ready-wear/",
+    "www.hermes.com/us/en/women/ready-wear/"
    ],
-   "pages": 906
+   "pages": 884
   },
   "gucci": {
    "prefixes": [
@@ -11751,12 +11952,11 @@
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/link-to-love-collection/",
-    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-homeware-c-lifestyle-pet-home-food/",
-    "www.gucci.com/us/en/st/capsule/caring-collection/",
-    "www.gucci.com/us/en/st/capsule/gucci-pet-collection/"
+    "www.gucci.com/us/en/st/stories/runway/",
+    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
+    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/"
    ],
-   "pages": 864
+   "pages": 959
   },
   "loewe": {
    "prefixes": [
@@ -11810,13 +12010,9 @@
     "www.prada.com/en/collections/fashion-show/",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
-    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2022/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2026/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2023/",
-    "www.prada.com/fi/en/womens/womens-collection/c/10525EU/"
+    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/"
    ],
-   "pages": 218
+   "pages": 0
   },
   "saint_laurent": {
    "prefixes": [
@@ -11857,10 +12053,10 @@
    "prefixes": [
     "www.zegna.us/us-en/xxx-couture/",
     "www.zegna.us/us-en/editorial/ermenegildo-zegna-couture/",
-    "www.zegna.us/us-en/ready-to-wear/",
-    "www.zegna.us/us-en/editorial/"
+    "www.zegna.us/us-en/editorial/",
+    "www.zegna.us/us-en/accessories/"
    ],
-   "pages": 138
+   "pages": 117
   },
   "versace": {
    "prefixes": [
@@ -11872,9 +12068,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 427,
+   "found": 433,
    "index failed": 49,
-   "none": 197
+   "none": 206
   },
   "by_house": {
    "alaia": {
@@ -11978,7 +12174,7 @@
     "found": 2
    },
    "valentino": {
-    "shows": 29,
+    "shows": 30,
     "found": 28
    },
    "versace": {
@@ -11986,45 +12182,45 @@
     "found": 2
    },
    "zegna": {
-    "shows": 8,
-    "found": 1
+    "shows": 22,
+    "found": 7
    }
   },
   "by_year": {
    "2015": {
-    "shows": 32,
-    "found": 20
+    "shows": 33,
+    "found": 21
    },
    "2016": {
-    "shows": 64,
-    "found": 46
+    "shows": 66,
+    "found": 47
    },
    "2017": {
-    "shows": 60,
-    "found": 43
+    "shows": 61,
+    "found": 44
    },
    "2018": {
-    "shows": 56,
+    "shows": 58,
     "found": 26
    },
    "2019": {
-    "shows": 65,
+    "shows": 67,
     "found": 35
    },
    "2020": {
-    "shows": 59,
+    "shows": 61,
     "found": 35
    },
    "2021": {
-    "shows": 40,
-    "found": 29
+    "shows": 42,
+    "found": 30
    },
    "2022": {
-    "shows": 56,
-    "found": 47
+    "shows": 58,
+    "found": 49
    },
    "2023": {
-    "shows": 52,
+    "shows": 53,
     "found": 40
    },
    "2024": {

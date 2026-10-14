@@ -81,3 +81,6 @@
 {"at":"2026-10-14T18:35:42Z","event":"looks coverage","requests":176,"summary":{"found":427,"index failed":49,"none":197}}
 {"at":"2026-10-14T19:01:07Z","event":"runway","left":10,"looks":2665,"out_of_time":true,"shows_collected":201,"shows_without_looks":216}
 {"at":"2026-10-14T19:04:16Z","by_set":{"runway":124},"event":"read","on_volumes":5607,"read_before":5483,"read_now":124,"rows":124,"seconds":180,"sent":124,"waiting":124}
+{"at":"2026-10-14T22:41:33Z","event":"looks coverage","requests":208,"summary":{"found":433,"index failed":49,"none":206}}
+{"at":"2026-10-14T22:56:30Z","event":"runway","left":0,"looks":2740,"out_of_time":false,"shows_collected":209,"shows_without_looks":224}
+{"at":"2026-10-14T22:56:36Z","by_set":{"runway":67},"event":"read","on_volumes":5674,"read_before":5607,"sent":0,"waiting":67}
