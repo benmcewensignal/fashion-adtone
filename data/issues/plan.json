@@ -15,7 +15,7 @@
  "steps": 40,
  "cfg": 4.0,
  "houses": {
-  "alaia": "A black stretch-knit dress with a fitted bodice, a wide black leather belt at the waist and a flared, fluted skirt edged with a band of small laser-cut circles, on a black tailor's dress form. The form stands before a warm off-white plaster wall with a shallow arched niche. Soft directional daylight from the left and a gentle shadow on the wall.",
+  "alaia": "A black stretch-knit dress with a fitted bodice, a wide black leather belt at the waist and a flared, fluted skirt edged with a band of small laser-cut circles, on a black tailor's dress form. The form stands before a warm off-white plaster wall with a shallow arched niche. Soft directional daylight from the left and a gentle shadow on the wall. The dress form stands low in the frame: its top is no higher than the middle of the picture, and the upper half of the frame is plain wall.",
   "balenciaga": "A single glossy black leather pump with a sharply pointed toe and a thin stiletto heel, seen exactly side-on, standing alone on a seamless pale grey studio backdrop that curves into the floor. Hard, clean light from above, one crisp shadow, nothing else in the frame.",
   "bottega_veneta": "A soft, slouchy hobo bag in smooth caramel-brown leather with a single knotted leather handle, resting on a seamless deep emerald-green backdrop. Soft studio light shows the grain and the folds of the leather. Plain smooth leather, no weave, no metal hardware.",
   "brunello_cucinelli": "An oatmeal cashmere jacket hanging on the back of a rustic wooden chair on a stone terrace above the rolling hills of Umbria in golden late-afternoon light, with cypress trees and a small medieval hill village far in the distance, and a folded ivory knit on the seat of the chair.",
@@ -23,7 +23,7 @@
   "celine": "Black-and-white photograph. A slim black tailored suit jacket over a crisp white shirt with a thin black tie, hanging on a plain black hanger against a bare white wall in a Parisian apartment, hard window light casting a sharp diagonal shadow. High contrast, rock-and-roll minimalism.",
   "chanel": "A cropped jacket in black-and-ivory boucle tweed with braided black trim and gold buttons, on a black tailor's dress form, with several long ropes of large pearls draped around its neck, against an ivory backdrop. Soft, even atelier light that shows the texture of the tweed.",
   "chloe": "A flowing cream maxi dress with tiers of soft ruffles and lace insets, hanging on a wooden hanger in the open window of a sunlit Mediterranean room, sheer white curtains lifting in the breeze, warm golden-hour light, a woven straw hat on a rattan chair below.",
-  "dior": "An ivory fitted jacket with a nipped-in waist and softly padded hips, over a full black pleated skirt reaching mid-calf, displayed on a dress form in a pale grey Parisian salon with white wall mouldings, a parquet floor and tall windows. Soft diffused daylight, quiet and formal.",
+  "dior": "An ivory fitted jacket with a nipped-in waist and softly padded hips, over a full black pleated skirt reaching mid-calf, displayed on a dress form in a pale grey Parisian salon with white wall mouldings, a parquet floor and tall windows. Soft diffused daylight, quiet and formal. The dress form stands further back and low in the frame: its top is no higher than the middle of the picture, and the upper half of the frame shows only the pale grey wall and the tops of the windows.",
   "dolce_gabbana": "A person seen from directly behind, facing away from the camera, no face visible, with long dark hair, wearing a long black lace evening gown, walking past a wall of hand-painted Sicilian majolica tiles in cobalt blue, yellow and white; a ceramic bowl of fresh lemons with leaves on the stone floor. Warm Mediterranean afternoon light.",
   "dries_van_noten": "A long oversized coat in a bold painterly print of large pink, orange and red flowers on a deep navy ground, hanging open on a tall standing tailor's dress form on a wooden stand, against a mustard-yellow backdrop. Rich, clashing colour and soft painterly light.",
   "fendi": "A person seen from directly behind, facing away from the camera, no face visible, standing upright and walking away, the whole figure in view from head to feet with both legs visible, wearing a knee-length honey-coloured fur coat, in a Roman colonnade of repeated travertine arches; warm late-afternoon light and long shadows across the pale stone floor.",
@@ -36,7 +36,7 @@
   "louis_vuitton": "Three vintage steamer trunks stacked on top of each other, covered in plain smooth brown leather with brass corner pieces, wooden slats and leather handles, in a softly lit cream-coloured room with a parquet floor. The trunks are plain, with no pattern and no lettering.",
   "margiela": "An oversized white cotton coat with exposed seams and raw edges on a dress form in an all-white room, beside a chair completely covered by a white dust sheet. Everything is painted white; soft diffuse light, quiet and ghostly.",
   "max_mara": "A person seen from directly behind, facing away from the camera, no face visible, with short dark hair, walking away along a pale stone colonnade, wearing a long double-faced camel wool wrap coat with a tied belt. Warm, soft morning light.",
-  "miu_miu": "Seen from directly above on a powder-pink floor: a navy pleated mini skirt laid flat, a pair of white knee socks and a pair of black satin ballet flats, neatly arranged. Soft even light, playful and precise.",
+  "miu_miu": "Seen from directly above on a powder-pink floor: a navy pleated mini skirt laid flat, a pair of white knee socks and a pair of black satin ballet flats, neatly arranged. Soft even light, playful and precise. The three things lie together in the lower half of the frame; the upper half is empty powder-pink floor.",
   "prada": "A black nylon bomber jacket over a grey wool A-line skirt on a dress form against a pale mint-green wall, with a small black nylon handbag on a white plinth beside it. Cool, even light; austere and intellectual.",
   "saint_laurent": "A person seen from directly behind, facing away from the camera, no face visible, with short slicked-back dark hair, standing on a Paris street at night under an old cast-iron street lamp, wearing a sharply cut black tuxedo with satin lapels. Wet cobblestones reflecting the warm glow of the lamp, cinematic darkness.",
   "tom_ford": "A burgundy velvet dinner jacket with black satin peak lapels on a dress form in a dimly lit chocolate-brown room with gold accents, a crystal tumbler on a black lacquered side table. Low, warm, glamorous light.",
@@ -51,6 +51,21 @@
    67
   ],
   "dries_van_noten": [
+   41,
+   53,
+   67
+  ],
+  "alaia": [
+   41,
+   53,
+   67
+  ],
+  "dior": [
+   41,
+   53,
+   67
+  ],
+  "miu_miu": [
    41,
    53,
    67
