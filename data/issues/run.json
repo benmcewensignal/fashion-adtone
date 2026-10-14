@@ -1,6 +1,6 @@
 {
  "version": 1,
- "at": "2026-10-14T13:28:28Z",
+ "at": "2026-10-14T13:42:40Z",
  "models": {
   "gen": {
    "model": "Qwen/Qwen-Image-2512",
@@ -331,6 +331,36 @@
    "at": "2026-10-14T13:05:28Z"
   },
   {
+   "name": "dries_van_noten-41",
+   "house": "dries_van_noten",
+   "seed": 41,
+   "png_sha": "f9030729c6c6570ea590091a035638507c22bd47cecf0731e25f2210764ea97d",
+   "jpg_sha": "1e3470fb32eb1f4af9847d27b947acf706f371d2f4b975b8a320b145bd54aa20",
+   "prompt_sha": "cbf17fd98795",
+   "seconds": 125,
+   "at": "2026-10-14T13:41:19Z"
+  },
+  {
+   "name": "dries_van_noten-53",
+   "house": "dries_van_noten",
+   "seed": 53,
+   "png_sha": "f4d75060fc5a045b63269d0714b35eb7bb61994a99f2ae761fb3a3c6be42de2f",
+   "jpg_sha": "1c31843f7e0b58bdb5a5239ef24a59f62932e536ef82c76590b579390f6d1924",
+   "prompt_sha": "cbf17fd98795",
+   "seconds": 125,
+   "at": "2026-10-14T13:41:19Z"
+  },
+  {
+   "name": "dries_van_noten-67",
+   "house": "dries_van_noten",
+   "seed": 67,
+   "png_sha": "89d2cbba32b285ec964bbb8422d44bde7483e4a00cb89b013ab79643a9e47215",
+   "jpg_sha": "bf7a86406ec0a6b4ea5d64b0487f055578f929494b428f11424824ab81d37170",
+   "prompt_sha": "cbf17fd98795",
+   "seconds": 125,
+   "at": "2026-10-14T13:41:19Z"
+  },
+  {
    "name": "fendi-11",
    "house": "fendi",
    "seed": 11,
@@ -356,6 +386,36 @@
    "jpg_sha": "5e7dfee6e893066e07751d66684d84bdd749660784961be5bcd8dd806849a16b",
    "seconds": 79,
    "at": "2026-10-14T13:06:50Z"
+  },
+  {
+   "name": "fendi-41",
+   "house": "fendi",
+   "seed": 41,
+   "png_sha": "747b1a2419091deb8cfab8e185f72902e6b538a8448965877d370a4340b7498d",
+   "jpg_sha": "21a6e647b3b0902916e3d388b9b7cf97939b334f486de9fc8e04e7e0e3d1d3c0",
+   "prompt_sha": "1dcf38cf7086",
+   "seconds": 76,
+   "at": "2026-10-14T13:42:38Z"
+  },
+  {
+   "name": "fendi-53",
+   "house": "fendi",
+   "seed": 53,
+   "png_sha": "a3bd823d9f278c68c8118ed45f40282022ba57ccecf797ffad0d8f75438c76bc",
+   "jpg_sha": "036784841d75df0dcc08653d26248a390c35619dc0d834f9f363a19cfbad8908",
+   "prompt_sha": "1dcf38cf7086",
+   "seconds": 76,
+   "at": "2026-10-14T13:42:38Z"
+  },
+  {
+   "name": "fendi-67",
+   "house": "fendi",
+   "seed": 67,
+   "png_sha": "56e6c1ab533ebe877e883a3f9bdae2947cc7fbc223463cb7797975fe57b19e7a",
+   "jpg_sha": "e933d158ad1c69d40f30bd89e74906f7d4c9d7f6d79ebd8f120d4e8985be33f9",
+   "prompt_sha": "1dcf38cf7086",
+   "seconds": 76,
+   "at": "2026-10-14T13:42:38Z"
   },
   {
    "name": "givenchy-11",
@@ -791,34 +851,8 @@
   }
  ],
  "drawn_this_run": [
-  "alaia",
-  "balenciaga",
-  "bottega_veneta",
-  "brunello_cucinelli",
-  "burberry",
-  "celine",
-  "chanel",
-  "chloe",
-  "dior",
-  "dolce_gabbana",
   "dries_van_noten",
-  "fendi",
-  "givenchy",
-  "gucci",
-  "hermes",
-  "jil_sander",
-  "loewe",
-  "loro_piana",
-  "louis_vuitton",
-  "margiela",
-  "max_mara",
-  "miu_miu",
-  "prada",
-  "saint_laurent",
-  "tom_ford",
-  "valentino",
-  "versace",
-  "zegna"
+  "fendi"
  ],
- "minutes": 38.8
+ "minutes": 3.4
 }
