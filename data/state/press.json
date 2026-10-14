@@ -1,10 +1,10 @@
 {
   "complete": [
-    "chloe",
-    "givenchy",
-    "versace"
+    "alaia",
+    "tom_ford"
   ],
   "covered": {
+    "alaia": "2026-10-13",
     "balenciaga": "2026-10-10",
     "bottega_veneta": "2026-10-10",
     "burberry": "2017-09-27",
@@ -26,10 +26,11 @@
     "miu_miu": "2017-03-31",
     "prada": "2026-10-10",
     "saint_laurent": "2026-10-10",
+    "tom_ford": "2026-10-13",
     "valentino": "2026-10-11",
     "versace": "2026-10-12"
   },
-  "end": "2026-10-12",
+  "end": "2026-10-13",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -63,7 +64,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh38486557474",
+  "run": "gh38515752987",
   "span": {},
-  "updated_at": "2026-10-14T00:21:23Z"
+  "updated_at": "2026-10-14T05:44:10Z"
 }
