@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:54:14Z",
+ "generated_at": "2026-10-14T01:16:48Z",
  "window_days": [
   -1,
   14
@@ -1177,7 +1177,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6238,7 +6238,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "HTTP 504"
+    "gucci.com": "ReadTimeout"
    }
   },
   "hermes:2015-03-09:rtw": {
@@ -8288,7 +8288,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectionError"
+    "louisvuitton.com": "ReadTimeout"
    }
   },
   "louis_vuitton:2026-10-06:rtw": {
@@ -8301,7 +8301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ReadTimeout"
+    "louisvuitton.com": "ConnectionError"
    }
   },
   "margiela:2015-01-23:men": {
@@ -9493,6 +9493,331 @@
     }
    ]
   },
+  "prada:2015-01-18:men": {
+   "house": "prada",
+   "date": "2015-01-18",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2015.html?video=video-pradamanfw15web",
+     "ts": "20150126051351",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2015.html?look=11",
+     "ts": "20150316095639",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015",
+     "ts": "20150510173103",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2015-02-26:rtw": {
+   "house": "prada",
+   "date": "2015-02-26",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2015.html?look=11",
+     "ts": "20150316095639",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015",
+     "ts": "20150510173103",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2015-06-21:men": {
+   "house": "prada",
+   "date": "2015-06-21",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-ss-2016.html",
+     "ts": "20150623000120",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2016.html",
+     "ts": "20150925182919",
+     "score": 7.62
+    }
+   ]
+  },
+  "prada:2015-09-24:rtw": {
+   "house": "prada",
+   "date": "2015-09-24",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2016.html",
+     "ts": "20150925182919",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/woman-ss-2016.html",
+     "ts": "20160113212831",
+     "score": 4.62
+    }
+   ]
+  },
+  "prada:2016-01-17:men": {
+   "house": "prada",
+   "date": "2016-01-17",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2016.html",
+     "ts": "20160118181632",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2016.html",
+     "ts": "20160227095230",
+     "score": 7.62
+    }
+   ]
+  },
+  "prada:2016-02-25:rtw": {
+   "house": "prada",
+   "date": "2016-02-25",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2016.html",
+     "ts": "20160227095230",
+     "score": 11.62
+    }
+   ]
+  },
+  "prada:2016-06-19:men": {
+   "house": "prada",
+   "date": "2016-06-19",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-ss-2017.html?video=video-pradamanss17final",
+     "ts": "20160820130855",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2017.html",
+     "ts": "20160926135648",
+     "score": 7.62
+    }
+   ]
+  },
+  "prada:2016-09-22:rtw": {
+   "house": "prada",
+   "date": "2016-09-22",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2017.html",
+     "ts": "20160926135648",
+     "score": 11.62
+    }
+   ]
+  },
+  "prada:2017-01-15:men": {
+   "house": "prada",
+   "date": "2017-01-15",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2017.html",
+     "ts": "20170118011624",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2017.html",
+     "ts": "20170226111845",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/nonconformists_FW2017.html",
+     "ts": "20170408230428",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2017-02-23:rtw": {
+   "house": "prada",
+   "date": "2017-02-23",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2017.html",
+     "ts": "20170226111845",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/city-of-women-fw17.html",
+     "ts": "20170609195101",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_campaign_fw17.html",
+     "ts": "20170614113535",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2017-06-18:men": {
+   "house": "prada",
+   "date": "2017-06-18",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-ss-2018.html",
+     "ts": "20170621021935",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2018.html",
+     "ts": "20170923180846",
+     "score": 7.62
+    }
+   ]
+  },
+  "prada:2017-09-21:rtw": {
+   "house": "prada",
+   "date": "2017-09-21",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2018.html?look=8",
+     "ts": "20180111015303",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com/en/collections/fashion-show/man-ss-2018.html?utm_source=hypebeast&utm_medium=branded_content&utm_campaign=2017-12-06_prss18_man_US",
+     "ts": "20171214162739",
+     "score": 6.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_ss18.html",
+     "ts": "20171110025207",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2018-01-14:men": {
+   "house": "prada",
+   "date": "2018-01-14",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2018.html",
+     "ts": "20180116002741",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com/en/collections/fashion-show/woman-fw-2018.html?video=video-pradawomanfw183",
+     "ts": "20180227143652",
+     "score": 7.62
+    }
+   ]
+  },
+  "prada:2018-02-22:rtw": {
+   "house": "prada",
+   "date": "2018-02-22",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.prada.com/en/collections/fashion-show/woman-fw-2018.html?video=video-pradawomanfw183",
+     "ts": "20180227143652",
+     "score": 11.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_fw18.html",
+     "ts": "20180615041657",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.prada.com:80/en/collections/advertising-campaign/prefall-2018.html",
+     "ts": "20180517164737",
+     "score": 2.62
+    }
+   ]
+  },
+  "prada:2018-06-17:men": {
+   "house": "prada",
+   "date": "2018-06-17",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.prada.com:80/en/collections/fashion-show/man-ss-2019.html",
+     "ts": "20180619121116",
+     "score": 11.62
+    }
+   ]
+  },
   "prada:2018-09-20:rtw": {
    "house": "prada",
    "date": "2018-09-20",
@@ -9573,6 +9898,19 @@
     }
    ]
   },
+  "prada:2024-06-16:men": {
+   "house": "prada",
+   "date": "2024-06-16",
+   "season": "2025 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "prada.com": "ConnectionError"
+   }
+  },
   "prada:2024-09-19:rtw": {
    "house": "prada",
    "date": "2024-09-19",
@@ -9583,7 +9921,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "HTTP 504"
+    "prada.com": "ReadTimeout"
    }
   },
   "prada:2025-01-19:men": {
@@ -10475,7 +10813,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "valentino.com": "ConnectionError"
+    "valentino.com": "HTTP 504"
    }
   },
   "versace:2016-06-18:men": {
@@ -10650,9 +10988,9 @@
   },
   "burberry": {
    "prefixes": [
-    "us.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 1
+   "pages": 2
   },
   "chanel": {
    "prefixes": [
@@ -10669,18 +11007,19 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/haute-couture/",
     "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1212
+   "pages": 1390
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 5009
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -10730,10 +11069,11 @@
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/fi/en/category/men/ready-wear/",
+    "www.hermes.com/fi/en/category/women/ready-wear/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/"
    ],
-   "pages": 884
+   "pages": 906
   },
   "gucci": {
    "prefixes": [
@@ -10798,9 +11138,13 @@
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
-    "www.prada.com/us/en/pradasphere/fashion-shows/2022/ss-menswear.html"
+    "www.prada.com/us/en/pradasphere/fashion-shows/2022/ss-menswear.html",
+    "www.prada.com/en/collections/advertising-campaign/",
+    "www.prada.com/en/collections/fashion-show/",
+    "www.prada.com/en/collections/",
+    "www.prada.com/us/en/men/sunglasses/"
    ],
-   "pages": 55
+   "pages": 1073
   },
   "saint_laurent": {
    "prefixes": [
@@ -10827,9 +11171,13 @@
   "valentino": {
    "prefixes": [
     "www.valentino.com/en-gb/experience/",
-    "www.valentino.com/en-us/experience/"
+    "www.valentino.com/en-us/experience/",
+    "www.valentino.com/en-fi/experience/",
+    "www.valentino.com/de-de/experience/",
+    "www.valentino.com/en-fi/collections/",
+    "www.valentino.com/en-fi/chez-maison-valentino/fashion-shows/"
    ],
-   "pages": 0
+   "pages": 1032
   },
   "zegna": {
    "prefixes": [
@@ -10843,18 +11191,19 @@
   "versace": {
    "prefixes": [
     "www.versace.com/us/en-us/women/features/",
-    "www.versace.com/us/en-us/home-collection/barocco/",
-    "www.versace.com/us/en-us/home-collection/",
-    "www.versace.com/us/en-us/home-collection/dining/glass-crystal/"
+    "www.versace.com/us/en-us/men/collections/icons/",
+    "www.versace.com/us/en-us/home-decor/tableware/alphabet-collection/",
+    "www.versace.com/us/en-us/women/collections/icons/",
+    "www.versace.com/us/en-us/men/collections/medusa-biggie-for-him/"
    ],
-   "pages": 3728
+   "pages": 166
   }
  },
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 382,
-   "index failed": 48,
+   "found": 397,
+   "index failed": 49,
    "none": 197
   },
   "by_house": {
@@ -10947,8 +11296,8 @@
     "found": 22
    },
    "prada": {
-    "shows": 14,
-    "found": 10
+    "shows": 30,
+    "found": 25
    },
    "saint_laurent": {
     "shows": 30,
@@ -10973,24 +11322,24 @@
   },
   "by_year": {
    "2015": {
-    "shows": 30,
-    "found": 18
+    "shows": 32,
+    "found": 20
    },
    "2016": {
-    "shows": 60,
-    "found": 42
+    "shows": 64,
+    "found": 46
    },
    "2017": {
-    "shows": 56,
-    "found": 39
+    "shows": 60,
+    "found": 43
    },
    "2018": {
-    "shows": 52,
-    "found": 22
+    "shows": 56,
+    "found": 26
    },
    "2019": {
-    "shows": 60,
-    "found": 30
+    "shows": 61,
+    "found": 31
    },
    "2020": {
     "shows": 57,
@@ -11013,7 +11362,7 @@
     "found": 30
    },
    "2025": {
-    "shows": 40,
+    "shows": 41,
     "found": 22
    },
    "2026": {
