@@ -7,8 +7,8 @@
 <meta name="description" content="Luxury fashion speaks in pictures. Focal reads them with AI vision and sets each house against itself and the other twenty-seven.">
 <meta property="og:title" content="Focal">
 <meta property="og:description" content="Luxury fashion speaks in pictures. Focal reads them with AI vision and sets each house against itself and the other twenty-seven.">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17150f" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Crect x='1' y='1' width='30' height='38' fill='none' stroke='%233627be' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -603,6 +603,125 @@
   .ic-cap .n { color: var(--graphite); font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
   .issues-note { max-width: 36rem; margin: 2.75rem auto 0; text-align: center; }
   .issues-note + .issues-note { margin-top: 1rem; }
+
+  /* Drawn from the investor deck: its cream paper and warm ink, its blue for the cover and for the way on to the next
+     page, the yellow of the O on its cover, its Bodoni at a larger scale, and a rule above each column. The blue bands
+     reach the window's edges by a border image drawn outside the box, which never makes the page scroll sideways. */
+  :root {
+    --paper: #faf8f3; --paper-2: #efebe3; --ink: #17150f; --ink-2: #4a463e; --graphite: #6b665c; --muted: #8a8478;
+    --rule: #d6d0c4; --rule-strong: #17150f; --track: #e6e1d6; --accent: #3627be; --wash: rgba(54, 39, 190, 0.06);
+    --blue: #3627be; --on-blue: #f4f0e8; --on-blue-2: #d9d5fb; --on-blue-rule: rgba(244, 240, 232, 0.3); --sun: #ffcc00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #17150f; --paper-2: #211e18; --ink: #f4f0e8; --ink-2: #d6d0c4; --graphite: #a8a29a; --muted: #8a8478;
+            --rule: #3a362e; --rule-strong: #f4f0e8; --track: #2c2922; --accent: #a49bf7; --wash: rgba(164, 155, 247, 0.12); }
+  }
+  body { font-weight: 400; font-size: 1.0625rem; line-height: 1.62; }
+
+  /* The landing is the deck's cover: the blue field, Focal in cream with its O in yellow, and the line it opens with */
+  .landing { background: var(--blue); color: var(--on-blue); border-image: linear-gradient(var(--blue), var(--blue)) 0 fill / / 100vmax 100vmax 0;
+             padding-bottom: clamp(2.5rem, 7vh, 4.5rem); }
+  .landing .o { color: var(--sun); }
+  .landing .sections a { color: var(--on-blue-2); }
+  .landing .sections a[aria-current="page"] { color: var(--on-blue); }
+  .landing .sections a[aria-current="page"]::before { background: var(--sun); }
+  @media (hover: hover) { .landing .sections a:hover { color: var(--on-blue); } }
+  .landing a:focus-visible { outline-color: var(--on-blue); }
+  .tagline { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.125rem, 4.4vw, 3.5rem);
+             line-height: 1.06; text-wrap: balance; }
+  .landing .statement { max-width: 27rem; margin-top: 1.25rem; color: var(--on-blue-2); font-size: clamp(1.0625rem, 1.5vw, 1.25rem); line-height: 1.5; }
+
+  /* Page heads at the deck's scale */
+  .top { margin-bottom: clamp(3.5rem, 10vw, 6.5rem); }
+  .intro { max-width: 46rem; }
+  .intro h2 { font-size: clamp(2.625rem, 6.4vw, 4.75rem); line-height: 1.02; }
+  .intro p { max-width: 34rem; font-size: clamp(1.0625rem, 1.5vw, 1.25rem); line-height: 1.5; color: var(--ink-2); }
+  #readings .intro p { font-size: clamp(1rem, 1.3vw, 1.125rem); }
+  .opening h2 + p { max-width: 36rem; }
+  .opening p + p { font-size: 1.0625rem; }
+  .sub { margin-bottom: 1.25rem; font-size: clamp(1.4375rem, 1.15rem + 1vw, 1.875rem); line-height: 1.12; }
+  .sub.big, .triad h3 { font-size: clamp(1.875rem, 1.35rem + 1.8vw, 2.75rem); line-height: 1.06; }
+  .triad .when, .stages .when, .next .k, .pv-head .k, .pv-lab, .tf-gate > .k, .pv-gate > .k, .qs-g { letter-spacing: 0.14em; }
+  .note { color: var(--graphite); }
+  summary { font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); }
+
+  /* Lists of named things read as the deck's rows: a rule above each, the name in the serif */
+  .status li { margin: 0; padding: 1.1rem 0 1.3rem; border-top: 1px solid var(--rule); color: var(--ink-2); }
+  .status li:first-child { border-top: 2px solid var(--rule-strong); }
+  .status .t { margin-bottom: 0.35rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.4375rem; line-height: 1.15; color: var(--ink); }
+
+  /* The benchmark's four measures as the deck's columns, under the big number of the reshuffle */
+  .home .body { max-width: 68rem; }
+  .triad.solo > div { max-width: none; }
+  .triad.solo h3, .triad.solo > div > p { max-width: 34rem; margin-left: auto; margin-right: auto; }
+  .four { margin-top: 2.75rem; gap: 2.25rem; }
+  @media (min-width: 40rem) { .four { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; } }
+  @media (min-width: 64rem) { .four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .four li { padding-top: 1.1rem; border-top: 2px solid var(--rule-strong); color: var(--ink-2); font-size: 0.9375rem; }
+  .four .t { margin-bottom: 0.5rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.75rem; line-height: 1.1; color: var(--ink); }
+  .bignum { margin: clamp(3.5rem, 9vw, 5.5rem) 0 0.25rem; font-family: var(--serif); font-style: italic; font-weight: 400;
+            font-size: clamp(4.5rem, 11vw, 7.5rem); line-height: 1; color: var(--accent); text-align: center; font-feature-settings: "lnum"; }
+  .bignum + .fourteen { margin-top: 0.75rem; font-size: 1.1875rem; line-height: 1.5; }
+
+  /* The calls made before the event sit in the deck's blue box */
+  .callout { margin: 3.5rem 0 0; padding: clamp(1.75rem, 5vw, 2.75rem) clamp(1.25rem, 5vw, 2.75rem); background: var(--blue); color: var(--on-blue); }
+  .callout .sub { margin-top: 0; color: var(--on-blue); }
+  .callout .status li { border-top-color: var(--on-blue-rule); color: var(--on-blue-2); }
+  .callout .status li:first-child { border-top: 2px solid var(--on-blue); }
+  .callout .status .t { color: var(--on-blue); }
+  .callout .block { margin-bottom: 0; color: var(--on-blue-2); }
+  .callout a { color: var(--on-blue); text-decoration-color: var(--sun); }
+  .callout a:focus-visible { outline-color: var(--on-blue); }
+
+  /* What clients buy, as the deck's columns */
+  .pv-ladder { max-width: 66rem; }
+  .pv-ladder .status { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 2rem; }
+  @media (min-width: 40rem) { .pv-ladder .status { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 64rem) { .pv-ladder .status { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .pv-ladder .status li, .pv-ladder .status li:first-child { padding: 1.1rem 0 1.6rem; border-top: 2px solid var(--rule-strong); }
+  .pv-ladder > .note { max-width: 34rem; margin-left: auto; margin-right: auto; }
+
+  /* Tables keep their columns, headed in the deck's blue */
+  .pv-rows, .fx-cols { border-color: var(--rule-strong); }
+  .pv-rows { border-top-width: 2px; }
+  .fx-cols { border-bottom-width: 2px; }
+  .pv-cols, .pv-coef th, .fx-cols { color: var(--accent); }
+  .fx-pic { background: var(--paper-2); }
+
+  /* The way on: each page ends on the deck's closing blue, the next page in large type, the footer beneath it */
+  .next { margin: clamp(4.5rem, 11vw, 7rem) 0 0; padding: clamp(3.25rem, 9vw, 5.5rem) 0 clamp(2.5rem, 7vw, 3.75rem);
+          background: var(--blue); color: var(--on-blue); border-image: linear-gradient(var(--blue), var(--blue)) 0 fill / / 0 100vmax; }
+  .next a { color: var(--on-blue); }
+  .next .k { color: var(--on-blue-2); }
+  .next .t { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.04; text-decoration-color: var(--sun); text-decoration-thickness: 2px; text-underline-offset: 0.16em; }
+  @media (hover: hover) { .next a:hover .t { text-decoration-thickness: 3px; } }
+  .next a:focus-visible { outline-color: var(--on-blue); }
+  footer { font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase; }
+  .page:has(> main > section:not([hidden]) > .next) > footer { margin-top: -1px; padding-top: calc(0.5rem + 1px); background: var(--blue);
+          color: var(--on-blue-2); border-image: linear-gradient(var(--blue), var(--blue)) 0 fill / / 0 100vmax 100vmax; }
+
+  /* The cover's picture: the 28 houses on the two axes of luxury, on the right of the landing when there is room */
+  .cover-map { display: none; margin: 0; }
+  @media (min-width: 64rem) {
+    .cover-map { display: block; grid-column: 3; grid-row: 1 / span 2; align-self: end; justify-self: end; width: min(100%, 25rem); }
+  }
+  .cover-map svg { display: block; width: 100%; height: auto; color: var(--on-blue); }
+  .cover-map figcaption { margin-top: 0.85rem; font-size: 0.8125rem; line-height: 1.4; color: var(--on-blue-2); text-align: center; text-wrap: balance; }
+
+  /* What clients buy: its heading clear of the columns */
+  .intro .pv-ladder > .sub { max-width: none; margin: 0 auto 1.6rem; font-size: clamp(1.4375rem, 1.15rem + 1vw, 1.875rem); line-height: 1.12; color: var(--ink); }
+  .intro .pv-ladder > .note { margin-top: 1.25rem; }
+  #private:has(#pv-lock[hidden]) .pv-ladder > .note { display: none; }
+
+  /* The fourteen designers, two to a row under a rule, as the deck sets its columns */
+  .order { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1rem, 4vw, 2rem); margin-top: 1.25rem; }
+  .order li { padding: 0.95rem 0 1.25rem; border-top: 2px solid var(--rule-strong); }
+  .order .h { font-style: italic; font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); line-height: 1.15; }
+  .order .d { margin-top: 0.3rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-2); }
+  .order time { margin-top: 0.15rem; }
+  /* and each move as a row */
+  .person { margin: 0; padding: 1.15rem 0 1.4rem; border-top: 1px solid var(--rule); }
+  .person:first-child { border-top: 2px solid var(--rule-strong); }
 </style>
 <!-- Vercel Web Analytics: cookieless page views. The site's pages are hash routes, so each page is sent by the router below. -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
@@ -626,8 +745,13 @@
         </ul>
       </nav>
       <div class="lead">
+        <p class="tagline">Numbers on what the eye sees.</p>
         <p class="statement">Luxury fashion speaks in pictures. Focal reads them with AI vision and sets each house against itself and the other <span class="nw">twenty-seven</span>.</p>
       </div>
+      <figure class="cover-map">
+        <svg viewBox="0 0 760 560" role="img" aria-label="The 28 houses as dots on two axes: remote to intimate across, restrained to provocative up"><g stroke="currentColor" stroke-width="2" stroke-opacity="0.3"><line x1="0" y1="284.6" x2="760" y2="284.6"/><line x1="452" y1="0" x2="452" y2="560"/></g><g fill="currentColor" fill-opacity="0.9"><circle cx="491.9" cy="129.6" r="11"/><circle cx="68.1" cy="443.3" r="11"/><circle cx="363.3" cy="445.9" r="11"/><circle cx="89.4" cy="432.5" r="11"/><circle cx="414.4" cy="389.4" r="11"/><circle cx="375.8" cy="438.0" r="11"/><circle cx="616.6" cy="155.5" r="11"/><circle cx="390.9" cy="287.6" r="11"/><circle cx="616.6" cy="191.3" r="11"/><circle cx="666.7" cy="53.1" r="11"/><circle cx="379.6" cy="297.3" r="11"/><circle cx="437.9" cy="295.8" r="11"/><circle cx="471.7" cy="244.3" r="11"/><circle cx="421.5" cy="359.4" r="11"/><circle cx="322.0" cy="339.3" r="11"/><circle cx="554.0" cy="298.0" r="11"/><circle cx="503.8" cy="250.2" r="11"/><circle cx="470.6" cy="344.7" r="11"/><circle cx="242.3" cy="321.9" r="11"/><circle cx="473.5" cy="253.4" r="11"/><circle cx="689.7" cy="213.9" r="11"/><circle cx="310.9" cy="449.8" r="11"/><circle cx="566.0" cy="308.6" r="11"/><circle cx="515.2" cy="169.6" r="11"/><circle cx="580.4" cy="99.0" r="11"/><circle cx="503.7" cy="195.6" r="11"/><circle cx="592.0" cy="133.1" r="11"/><circle cx="287.4" cy="508.2" r="11"/></g></svg>
+        <figcaption>The 28 houses on Focal’s two axes of luxury</figcaption>
+      </figure>
       </div>
       <div class="home" id="benchmark">
         <div class="intro opening">
@@ -649,6 +773,7 @@
               </ul>
             </div>
           </div>
+          <p class="bignum" aria-hidden="true">14 of 28</p>
           <p class="block fourteen"><a href="#/brands">Fourteen of the <span class="nw">twenty-eight</span></a> have new directors since 2025. The reading is the same for each: transmission, distinctness, mix, movement. Not a sales forecast. A reading of what held.</p>
           <p class="note more">Also: <a href="#/monthly">the monthly reading</a>, <a href="#/end-to-end">each stage, end to end</a>, and <a href="#/status">where the data stands</a>.</p>
         </div>
@@ -881,12 +1006,14 @@
             <li><span class="t">Proven first</span>Each measure is run on simulated brands with known answers before it touches real ones.</li>
           </ul>
           <p class="block">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
-          <p class="sub" style="margin-top:3.5rem" id="calls">Calls made before the event</p>
+          <div class="callout">
+          <p class="sub" id="calls">Calls made before the event</p>
           <ul class="status">
             <li><span class="t">Every new creative director</span>Frozen on 14 October 2026 for every new creative director whose first show comes later, read on the homepage pictures and the campaign credits, each call with the probability it was registered at: the house moves more, like for like, than nine in ten houses without a change (0.42); its new pictures pick out its own earlier ones less often than at nine in ten of them (0.25); none of the previous photographers stays (0.90); and, when the designer comes from a house Focal reads, its pictures move towards that house more than towards any other (0.30). Saint Laurent and Versace are the first.</li>
             <li><span class="t">Saint Laurent’s advertising</span>Three calls registered on 5 October 2026, before a successor to Anthony Vaccarello was named, on the house’s paid advertising after the next designer’s first show.</li>
           </ul>
           <p class="block">Each call is frozen by hash before the event and kept whether it hits or misses, and the record is scored on calibration as calls come due. <a href="https://github.com/benmcewensignal/fashion-adtone/blob/main/CLAIMS.md" target="_blank" rel="noopener">The ledger is public</a>, with the frozen designs beside it.</p>
+          </div>
           <p class="sub" style="margin-top:3.5rem">Reference</p>
           <details id="status">
             <summary>Where it stands</summary>
@@ -1822,6 +1949,16 @@
       msg.textContent = "It could not be opened just now. Try again in a moment.";
     } finally { go.disabled = false; }
   });
+})();
+</script>
+<script>
+(() => {
+  // the browser's bars take the landing's blue while it is at the top of the window, the paper's colour after
+  const land = document.querySelector(".landing"), bars = [...document.querySelectorAll('meta[name="theme-color"]')];
+  if (!land || !bars.length || !("IntersectionObserver" in window)) return;
+  bars.forEach(m => { m.dataset.paper = m.content; });
+  new IntersectionObserver(([e]) => { bars.forEach(m => { m.content = e.isIntersecting ? "#3627be" : m.dataset.paper; }); },
+    { rootMargin: "0px 0px -100% 0px" }).observe(land);
 })();
 </script>
 </body>
