@@ -44,6 +44,11 @@ jobs:
         if: env.MODE == 'analyse'
         timeout-minutes: 20
         run: python -m adtone.forward
+      - name: Events register (what each change is due; fails if a change escapes the forward calls)
+        if: env.MODE == 'analyse'
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python -m adtone.events
       - name: Calibrate the back catalogue
         if: env.MODE == 'analyse'
         timeout-minutes: 15

@@ -249,6 +249,13 @@ is frozen by hash with the design, so later changes to the analysis cannot chang
 `scripts/forward_base_rates.py` gives the probabilities: the same code on every earlier change whose
 windows had closed. A new appointment needs only its record under `designer_changes` in `events.yml`.
 
+`adtone.events` is the events register: creative leads, chief executives, ambassadors and owners from their
+hand-kept files, joined into one dated list (`data/results/events.json`, written by the analyse workflow)
+with what each change is due: the first campaign reading, readings at 12 and 24 months, and its
+adjudication. The test suite fails if an appointment in `reference/designers.csv` whose first show falls
+after 14 October 2026 has no record for the forward template, so no change escapes the calls; a departure
+with no successor named stays on its watch list.
+
 ## Beyond the 18
 
 `registry/houses.yml` has two tiers. The core tier is the frozen v1 panel of 19 houses, the only

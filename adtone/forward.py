@@ -162,12 +162,12 @@ def run_image_template(spec: dict, events: dict, today: date, out: Path) -> dict
             cache["d"] = (fi.load_pictures(), fi.load_credits(), fi.lead_months(events=records))
         return cache["d"]
 
-    results = {}
+    # a final result stays in the file even if its record is later changed; a record whose successor is named
+    # after a void (a new appointment) gets a key of its own, so it is evaluated as the new event it is
+    results = {k: v for k, v in before.items() if v.get("status") in IMAGE_FINAL}
     for e in records:
-        # stable from the predecessor's departure, so a record keeps its key when the successor is named
-        key = f"{e['house']}:{e.get('predecessor_left_announced') or e.get('announced')}"
-        if before.get(key, {}).get("status") in IMAGE_FINAL:
-            results[key] = before[key]
+        key = f"{e['house']}:{e.get('predecessor_left_announced') or ''}:{e.get('announced') or ''}"
+        if key in results:
             continue
         r = fi.evaluate(spec, e, today, load)
         r["probabilities"] = {**spec["probabilities"], **(e.get("probabilities") or {})}

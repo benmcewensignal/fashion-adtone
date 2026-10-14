@@ -169,12 +169,17 @@ def test_too_little_data_waits_then_is_recorded_as_no_result():
 
 def test_the_runner_keeps_a_final_result(tmp_data):
     out = config.RESULTS_DIR / "forward-designer-change-v1.json"
-    key = "sl:2026-10-09"
+    key = "sl:2026-10-09:"
     out.write_text(json.dumps({"events": {key: {"status": "void", "marker": "first"}}}))
     events = {"designer_changes": [{"house": "sl", "predecessor_left_announced": "2026-10-09", "first_show": None}]}
     doc = forward.run_image_template(spec(), events, date(2030, 1, 1), out)
     assert doc["events"][key]["marker"] == "first"
     assert json.loads(out.read_text())["events"][key]["marker"] == "first"
+    # a successor named after the void is a new event with a key of its own; the void stays on file
+    events["designer_changes"][0].update({"successor": "Ann Lee", "announced": "2029-11-01"})
+    doc = forward.run_image_template(spec(), events, date(2030, 1, 1), out)
+    assert doc["events"][key]["marker"] == "first"
+    assert doc["events"]["sl:2026-10-09:2029-11-01"]["status"] == "awaiting_event"
 
 
 def test_the_recorded_facts_parse():
