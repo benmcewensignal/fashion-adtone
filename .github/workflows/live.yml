@@ -1,0 +1,60 @@
+name: live
+run-name: live ${{ github.event_name }}
+# Focal's own record of each house's homepage, once a day from the house's own site (adtone/live.py):
+# robots.txt honoured for the page and every picture, a site that declines recorded and left, pictures
+# read and fingerprinted in memory and let go. Kept apart from the archive's history, never pooled with it.
+on:
+  schedule:
+    - cron: "40 5 * * *"
+  workflow_dispatch:
+  push:   # editing .github/kick/live starts a run
+    branches: [main]
+    paths: [".github/kick/live"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-live
+  cancel-in-progress: false
+
+jobs:
+  live:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 45
+    env:
+      PYTHONUNBUFFERED: "1"
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: pip install -r requirements.txt -r requirements-embed.txt
+      - name: Cache embedder weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Capture today's homepages
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 30
+        run: python -m adtone.live collect --run "gh${GITHUB_RUN_ID}"
+      - name: Completeness probe
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.live probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh live "live"
+      - name: Fail if capture crashed
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "::error::live capture crashed; see data/provenance/live.jsonl"
+          exit 1

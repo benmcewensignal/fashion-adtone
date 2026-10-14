@@ -27,6 +27,8 @@ ALLOW = {
     "press": ["data/press/*.jsonl", "data/state/press.json", "data/provenance/press.jsonl"],
     "homepages": ["data/homepages/captures/*.jsonl", "data/homepages/index/*.json", "data/homepages/obs/*.jsonl",
                   "data/homepages/vectors/*/*.npz", "data/state/homepages.json", "data/provenance/homepages.jsonl"],
+    "live": ["data/homepages/live/captures/*.jsonl", "data/homepages/live/obs/*.jsonl",
+             "data/homepages/live/vectors/*/*.npz", "data/state/live.json", "data/provenance/live.jsonl"],
     "youtube": ["data/youtube/*.jsonl", "data/youtube/videos/*.jsonl", "data/youtube/obs/*.jsonl",
                 "data/youtube/vectors/*/*.npz", "data/state/youtube.json", "data/provenance/youtube.jsonl"],
     "tiktok": ["data/tiktok/ads/*.jsonl", "data/tiktok/obs/*.jsonl", "data/tiktok/vectors/*/*.npz",

@@ -198,6 +198,16 @@ dated before any data) changed how campaign blocks are formed for that reason.
   repository. A private raw archive would remove that limit. That is a decision for later, not a
   default.
 
+## Focal's own record of the homepages
+
+The homepage history comes from the public web archive, whose captures of ten houses' sites thinned or
+stopped in 2026. `adtone.live` (workflow `live`, daily) keeps Focal's own record from 15 October 2026:
+each house's homepage as its site serves it to an identified visitor, robots.txt honoured for the page and
+for every picture, a site that declines recorded as declining and left there. Pictures are read and
+fingerprinted in memory and let go; the rows go to `data/homepages/live/`. It is a different sensor from
+the archive, so the two are never pooled in one comparison, and the forward template reads the archive
+only (a test holds it to that).
+
 ## Back catalogue
 
 The Meta repository forgets after a year, so older campaigns come from two other sources (the
