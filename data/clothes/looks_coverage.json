@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T06:14:43Z",
+ "generated_at": "2026-10-14T12:55:57Z",
  "window_days": [
   -1,
   14
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectTimeout"
+    "dior.com": "ConnectionError"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3171,7 +3171,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 502"
+    "dior.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2015-01-17:men": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -3640,7 +3640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6251,7 +6251,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ReadTimeout"
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2015-06-27:men": {
@@ -8288,7 +8288,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ReadTimeout"
+    "louisvuitton.com": "ConnectionError"
    }
   },
   "louis_vuitton:2026-10-06:rtw": {
@@ -9898,6 +9898,22 @@
     }
    ]
   },
+  "prada:2023-01-15:men": {
+   "house": "prada",
+   "date": "2023-01-15",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.prada.com/fi/en/pradasphere/fashion-shows/2023/fw-menswear.html?utm_source=twitter&utm_medium=social_post&utm_campaign=prada_fw23_menswear_show",
+     "ts": "20230117114020",
+     "score": 11.62
+    }
+   ]
+  },
   "prada:2024-06-16:men": {
    "house": "prada",
    "date": "2024-06-16",
@@ -9908,7 +9924,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ConnectTimeout"
+    "prada.com": "ReadTimeout"
    }
   },
   "prada:2024-09-19:rtw": {
@@ -10790,11 +10806,189 @@
    "pages": 0,
    "candidates": []
   },
-  "valentino:2026-03-12:rtw": {
+  "valentino:2019-01-16:men": {
    "house": "valentino",
-   "date": "2026-03-12",
-   "season": "2026 AW rtw",
+   "date": "2019-01-16",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/men/fall-winter-2019-20-section",
+     "ts": "20190402234826",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20-section",
+     "ts": "20190403005623",
+     "score": 0.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/pre-fall-2019-section",
+     "ts": "20190402234813",
+     "score": 0.62
+    }
+   ]
+  },
+  "valentino:2019-01-23:couture": {
+   "house": "valentino",
+   "date": "2019-01-23",
+   "season": "2019 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/men/spring-summer-2019-section",
+     "ts": "20190403060512",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/spring-summer-2019-section",
+     "ts": "20190404012800",
+     "score": 2.62
+    }
+   ]
+  },
+  "valentino:2019-03-03:rtw": {
+   "house": "valentino",
+   "date": "2019-03-03",
+   "season": "2019 AW rtw",
    "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20-section",
+     "ts": "20190403005623",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/pre-fall-2019-section",
+     "ts": "20190402234813",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/men/fall-winter-2019-20-section",
+     "ts": "20190402234826",
+     "score": 0.62
+    }
+   ]
+  },
+  "valentino:2019-06-19:men": {
+   "house": "valentino",
+   "date": "2019-06-19",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/men/spring-summer-2020",
+     "ts": "20190716163810",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/spring-summer-2020",
+     "ts": "20191006021846",
+     "score": 0.62
+    }
+   ]
+  },
+  "valentino:2019-07-03:couture": {
+   "house": "valentino",
+   "date": "2019-07-03",
+   "season": "2019 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/men/fall-winter-2019-20",
+     "ts": "20191006053843",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20",
+     "ts": "20190717145650",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/pre-fall-2019",
+     "ts": "20191006181106",
+     "score": 2.62
+    }
+   ]
+  },
+  "valentino:2019-09-29:rtw": {
+   "house": "valentino",
+   "date": "2019-09-29",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/women/spring-summer-2020",
+     "ts": "20191006021846",
+     "score": 4.62
+    }
+   ]
+  },
+  "valentino:2021-01-29:couture": {
+   "house": "valentino",
+   "date": "2021-01-29",
+   "season": "2021 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/spring-21-man-collection",
+     "ts": "20210304221411",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-us/experience/valentino-collezione-milano-woman?utm_campaign=f_mainss_21&utm_source=twitter&utm_medium=websitecard&utm_content=valentino_collezione_milano_woman",
+     "ts": "20210325175452",
+     "score": 0.88
+    }
+   ]
+  },
+  "valentino:2021-03-01:rtw": {
+   "house": "valentino",
+   "date": "2021-03-01",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/fall-21-men-collection",
+     "ts": "20210620145556",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-roman-palazzo-fall-21",
+     "ts": "20210601212248",
+     "score": 1.12
+    }
+   ]
+  },
+  "valentino:2022-01-26:couture": {
+   "house": "valentino",
+   "date": "2022-01-26",
+   "season": "2022 SS couture",
+   "category": "couture",
    "status": "index failed",
    "via": "window",
    "pages": 0,
@@ -10802,6 +10996,424 @@
    "errors": {
     "valentino.com": "ConnectionError"
    }
+  },
+  "valentino:2022-03-06:rtw": {
+   "house": "valentino",
+   "date": "2022-03-06",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-promenade-fall-2022-collection",
+     "ts": "20220701172847",
+     "score": 3.12
+    }
+   ]
+  },
+  "valentino:2022-07-07:couture": {
+   "house": "valentino",
+   "date": "2022-07-07",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-the-beginning-haute-couture-fall-winter-22-23?view=comparableLink",
+     "ts": "20220710002045",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection",
+     "ts": "20221005213418",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection-man",
+     "ts": "20220925203946",
+     "score": 2.12
+    }
+   ]
+  },
+  "valentino:2022-07-08:couture": {
+   "house": "valentino",
+   "date": "2022-07-08",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-the-beginning-haute-couture-fall-winter-22-23?view=comparableLink",
+     "ts": "20220710002045",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection",
+     "ts": "20221005213418",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection-man",
+     "ts": "20220925203946",
+     "score": 2.12
+    }
+   ]
+  },
+  "valentino:2022-10-02:rtw": {
+   "house": "valentino",
+   "date": "2022-10-02",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/unboxing-valentino-spring-summer-2023-show?view=comparableLink&utm_campaign=x_mainss_23&utm_source=instagram&utm_medium=social_organic&utm_content=runway_pap_ss_23_pre",
+     "ts": "20221001203958",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-ways-spring-2023-collection",
+     "ts": "20221204213447",
+     "score": 3.12
+    }
+   ]
+  },
+  "valentino:2023-01-25:couture": {
+   "house": "valentino",
+   "date": "2023-01-25",
+   "season": "2023 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-le-club-couture-haute-couture-spring-summer-2023",
+     "ts": "20230125180948",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-surfaces-spring-2023-collection",
+     "ts": "20230324131939",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/experience/valentino-ways-spring-2023-collection",
+     "ts": "20230202120806",
+     "score": 1.62
+    }
+   ]
+  },
+  "valentino:2023-03-05:rtw": {
+   "house": "valentino",
+   "date": "2023-03-05",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/sun-surf-x-valentino?utm_campaign=m_prefw_23&utm_source=twitter&utm_medium=social_organic&utm_content=sun_surf_x_valentino",
+     "ts": "20230611022101",
+     "score": 1.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/urban-riviera-fall-2023",
+     "ts": "20230609172134",
+     "score": 1.12
+    }
+   ]
+  },
+  "valentino:2023-06-16:men": {
+   "house": "valentino",
+   "date": "2023-06-16",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-the-narratives-spring-summer-2024-show-man",
+     "ts": "20230614225353",
+     "score": 7.62
+    }
+   ]
+  },
+  "valentino:2023-07-05:couture": {
+   "house": "valentino",
+   "date": "2023-07-05",
+   "season": "2023 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-un-chateau-haute-couture-fall-winter-23-24-show",
+     "ts": "20230717080003",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-black-tie-fall-winter-23-24-show",
+     "ts": "20230830013111",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/black-tie-fall-winter-23-24-collection?utm_campaign=f_mainfw_2324&utm_source=whowhatwear.com&utm_medium=branded_content&utm_content=valentino_black_tie",
+     "ts": "20231006213815",
+     "score": 2.12
+    }
+   ]
+  },
+  "valentino:2023-10-01:rtw": {
+   "house": "valentino",
+   "date": "2023-10-01",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-l-ecole-spring-summer-2024-show",
+     "ts": "20231031162604",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/spring-2024-collection",
+     "ts": "20231207093149",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/spring-2024-collection-man",
+     "ts": "20231211145945",
+     "score": 0.12
+    }
+   ]
+  },
+  "valentino:2024-01-20:men": {
+   "house": "valentino",
+   "date": "2024-01-20",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-le-ciel-fall-winter-2024-25-show-man",
+     "ts": "20240121133629",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/fall-2024-collection-man",
+     "ts": "20240518230539",
+     "score": 5.12
+    }
+   ]
+  },
+  "valentino:2024-01-24:couture": {
+   "house": "valentino",
+   "date": "2024-01-24",
+   "season": "2024 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-l-ecole-spring-summer-2024-collection",
+     "ts": "20240417104038",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-the-narratives-spring-summer-2024-collection-man",
+     "ts": "20240228030020",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/experience/spring-2024-collection",
+     "ts": "20240424063915",
+     "score": 1.62
+    }
+   ]
+  },
+  "valentino:2024-03-03:rtw": {
+   "house": "valentino",
+   "date": "2024-03-03",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/fall-2024-collection",
+     "ts": "20240619040842",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-fi/experience/valentino-garavani-escape-2024?utm_campaign=x_prefw_24&utm_source=twitter&utm_medium=social_organic&utm_content=escape_capsule_collection_launch",
+     "ts": "20240530070000",
+     "score": 0.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/fall-2024-collection-man",
+     "ts": "20240518230539",
+     "score": 0.12
+    }
+   ]
+  },
+  "valentino:2024-09-29:rtw": {
+   "house": "valentino",
+   "date": "2024-09-29",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/valentino-pavillon-des-folies-spring-summer-2025-show",
+     "ts": "20241001080923",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-avant-les-debuts-spring-2025-collection",
+     "ts": "20241108185425",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-us/experience/valentino-avant-les-debuts-spring-2025-collection-register",
+     "ts": "20241006065959",
+     "score": 2.88
+    }
+   ]
+  },
+  "valentino:2025-01-29:couture": {
+   "house": "valentino",
+   "date": "2025-01-29",
+   "season": "2025 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pavillon-des-folies-spring-summer-2025-collection",
+     "ts": "20250316001928",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pavillon-des-folies-spring-summer-2025-collection-man",
+     "ts": "20250315235825",
+     "score": 2.12
+    }
+   ]
+  },
+  "valentino:2025-03-09:rtw": {
+   "house": "valentino",
+   "date": "2025-03-09",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-fi/collections/le-meta-theatre-des-intimites-fall-winter-25-26-show/watch-the-show",
+     "ts": "20250313234148",
+     "score": 5.62
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-fall-2025-collection",
+     "ts": "20250422202301",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-fall-2025-collection-man",
+     "ts": "20250422202814",
+     "score": 0.12
+    }
+   ]
+  },
+  "valentino:2025-10-05:rtw": {
+   "house": "valentino",
+   "date": "2025-10-05",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
+     "ts": "20260128163157",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-26-holiday-collection?dclid=CI2Y9aqe7pADFR2HfAYdqKYW4A&gad_source=7&gad_campaignid=23205315523",
+     "ts": "20251126071344",
+     "score": 3.12
+    },
+    {
+     "url": "https://www.valentino.com/de-de/experience/valentino-spring-2026-collection%0A",
+     "ts": "20251210041842",
+     "score": 2.0
+    }
+   ]
+  },
+  "valentino:2026-01-28:couture": {
+   "house": "valentino",
+   "date": "2026-01-28",
+   "season": "2026 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection",
+     "ts": "20260307024345",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection-man",
+     "ts": "20260307052555",
+     "score": 2.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
+     "ts": "20260128163157",
+     "score": 2.12
+    }
+   ]
+  },
+  "valentino:2026-03-12:rtw": {
+   "house": "valentino",
+   "date": "2026-03-12",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/experience/valentino-pre-fall-2026-collection",
+     "ts": "20260422092443",
+     "score": 3.12
+    }
+   ]
   },
   "valentino:2026-10-04:rtw": {
    "house": "valentino",
@@ -10813,7 +11425,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "valentino.com": "HTTP 504"
+    "valentino.com": "ReadTimeout"
    }
   },
   "versace:2016-06-18:men": {
@@ -10863,7 +11475,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "versace.com": "ConnectionError"
+    "versace.com": "ReadTimeout"
    }
   },
   "versace:2025-09-26:rtw": {
@@ -10876,8 +11488,38 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "versace.com": "ReadTimeout"
+    "versace.com": "ConnectionError"
    }
+  },
+  "zegna:2023-01-16:men": {
+   "house": "zegna",
+   "date": "2023-01-16",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "zegna.com": "ReadTimeout",
+    "ermenegildozegna.com": "ConnectionError"
+   }
+  },
+  "zegna:2023-06-19:men": {
+   "house": "zegna",
+   "date": "2023-06-19",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.zegna.com/us-en/summer-fashion-show/?utm_content=ctas_2&utm_campaign=us_en_20062023_FashionShowSS24PostShowFW23&utm_source=FashionShowSS24PostShowFW23&utm_medium=eml&utm_term=&e_id=246c9a0c4d1d91212704fddaeecda2d7&deliveryName=DM125030",
+     "ts": "20230621174037",
+     "score": 7.94
+    }
+   ]
   },
   "zegna:2024-01-15:men": {
    "house": "zegna",
@@ -11006,19 +11648,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 1212
+   "pages": 973
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 5009
   },
   "dries_van_noten": {
    "prefixes": [
@@ -11067,23 +11709,18 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/us/en/content/"
    ],
-   "pages": 884
+   "pages": 241
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
-    "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
-    "www.gucci.com/us/en/st/stories/runway/",
-    "www.gucci.com/us/en/st/capsule/sylvie-collection/"
+    "www.gucci.com/us/en/lo/runway/women/"
    ],
-   "pages": 963
+   "pages": 850
   },
   "loewe": {
    "prefixes": [
@@ -11138,11 +11775,12 @@
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
-    "www.prada.com/en/collections/advertising-campaign/",
-    "www.prada.com/en/collections/",
-    "www.prada.com/us/en/men/sunglasses/"
+    "www.prada.com/fi/en/pradasphere/fashion-shows/2022/",
+    "www.prada.com/fi/en/pradasphere/fashion-shows/2026/",
+    "www.prada.com/fi/en/pradasphere/fashion-shows/2023/",
+    "www.prada.com/fi/en/womens/womens-collection/c/10525EU/"
    ],
-   "pages": 1071
+   "pages": 240
   },
   "saint_laurent": {
    "prefixes": [
@@ -11172,36 +11810,32 @@
     "www.valentino.com/en-us/experience/",
     "www.valentino.com/en-fi/experience/",
     "www.valentino.com/de-de/experience/",
-    "www.valentino.com/en-fi/collections/",
-    "www.valentino.com/en-fi/chez-maison-valentino/fashion-shows/"
+    "www.valentino.com/en-fi/chez-maison-valentino/fashion-shows/",
+    "www.valentino.com/en-fi/collections/"
    ],
    "pages": 1032
   },
   "zegna": {
    "prefixes": [
     "www.zegna.us/us-en/xxx-couture/",
+    "www.zegna.us/us-en/editorial/ermenegildo-zegna-couture/",
     "www.zegna.us/us-en/ready-to-wear/",
-    "www.zegna.us/us-en/editorial/",
-    "www.zegna.us/us-en/accessories/"
+    "www.zegna.us/us-en/editorial/"
    ],
-   "pages": 174
+   "pages": 138
   },
   "versace": {
    "prefixes": [
-    "www.versace.com/us/en-us/women/features/",
-    "www.versace.com/us/en-us/men/collections/icons/",
-    "www.versace.com/us/en-us/home-decor/tableware/alphabet-collection/",
-    "www.versace.com/us/en-us/women/collections/icons/",
-    "www.versace.com/us/en-us/men/collections/medusa-biggie-for-him/"
+    "www.versace.com/us/en-us/women/features/"
    ],
-   "pages": 166
+   "pages": 0
   }
  },
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 397,
-   "index failed": 49,
+   "found": 425,
+   "index failed": 50,
    "none": 197
   },
   "by_house": {
@@ -11294,8 +11928,8 @@
     "found": 22
    },
    "prada": {
-    "shows": 30,
-    "found": 25
+    "shows": 31,
+    "found": 26
    },
    "saint_laurent": {
     "shows": 30,
@@ -11306,16 +11940,16 @@
     "found": 2
    },
    "valentino": {
-    "shows": 2,
-    "found": 0
+    "shows": 28,
+    "found": 26
    },
    "versace": {
     "shows": 4,
     "found": 2
    },
    "zegna": {
-    "shows": 6,
-    "found": 0
+    "shows": 8,
+    "found": 1
    }
   },
   "by_year": {
@@ -11336,36 +11970,36 @@
     "found": 26
    },
    "2019": {
-    "shows": 61,
-    "found": 31
-   },
-   "2020": {
-    "shows": 57,
-    "found": 33
-   },
-   "2021": {
-    "shows": 38,
-    "found": 27
-   },
-   "2022": {
-    "shows": 51,
-    "found": 43
-   },
-   "2023": {
-    "shows": 46,
+    "shows": 65,
     "found": 35
    },
+   "2020": {
+    "shows": 59,
+    "found": 35
+   },
+   "2021": {
+    "shows": 40,
+    "found": 29
+   },
+   "2022": {
+    "shows": 55,
+    "found": 46
+   },
+   "2023": {
+    "shows": 52,
+    "found": 40
+   },
    "2024": {
-    "shows": 47,
-    "found": 30
+    "shows": 53,
+    "found": 36
    },
    "2025": {
-    "shows": 41,
-    "found": 22
+    "shows": 44,
+    "found": 25
    },
    "2026": {
-    "shows": 59,
-    "found": 34
+    "shows": 61,
+    "found": 37
    },
    "2027": {
     "shows": 31,
