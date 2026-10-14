@@ -1,6 +1,6 @@
 {
  "version": 1,
- "at": "2026-10-14T13:42:40Z",
+ "at": "2026-10-14T13:49:28Z",
  "models": {
   "gen": {
    "model": "Qwen/Qwen-Image-2512",
@@ -59,6 +59,36 @@
    "jpg_sha": "70b8f7b9035982c8ec067693265ce5ac81e500cd4757a14d4be692abd94c0068",
    "seconds": 136,
    "at": "2026-10-14T12:51:55Z"
+  },
+  {
+   "name": "alaia-41",
+   "house": "alaia",
+   "seed": 41,
+   "png_sha": "e1f6a8766460a907f3effbc90af497ed0462a3d50c2359078403eb4c5f68766a",
+   "jpg_sha": "8b7c67b12debb09a06ad41758918e0373a51e0c5b7a5b2b5f560c4b75a975409",
+   "prompt_sha": "6528049f5a27",
+   "seconds": 118,
+   "at": "2026-10-14T13:46:55Z"
+  },
+  {
+   "name": "alaia-53",
+   "house": "alaia",
+   "seed": 53,
+   "png_sha": "f1def58a93a0cac6fbbf1bfa6cf000808f2b91fe1b1874cd654434255e3d53bb",
+   "jpg_sha": "ce7f478557fe3c3f6e45b870255bb42f290658a0cc1cb9424c1d41540066843e",
+   "prompt_sha": "6528049f5a27",
+   "seconds": 118,
+   "at": "2026-10-14T13:46:55Z"
+  },
+  {
+   "name": "alaia-67",
+   "house": "alaia",
+   "seed": 67,
+   "png_sha": "5e0ccd4aed01c0dbee5e12ce9a0cb47764a271e84419ca48541bd036d552a6f6",
+   "jpg_sha": "3665de6e49cc2ce9e2c9c8bb103238bc5ffc36a4c189ffc1d71f7352f5ce1701",
+   "prompt_sha": "6528049f5a27",
+   "seconds": 118,
+   "at": "2026-10-14T13:46:55Z"
   },
   {
    "name": "balenciaga-11",
@@ -275,6 +305,36 @@
    "jpg_sha": "cd8a8d1db3970f54fcee4a9e52ae647697093da993257a1196ff33add4c95f0a",
    "seconds": 79,
    "at": "2026-10-14T13:02:44Z"
+  },
+  {
+   "name": "dior-41",
+   "house": "dior",
+   "seed": 41,
+   "png_sha": "e85343314714b4d745b6ae862abfdd1774ef1069a81e22feb485a253ee615a6d",
+   "jpg_sha": "7461d22b5dd09cabddca74967b75f83fb231bd107bb3617659902ee852c1c5d8",
+   "prompt_sha": "e343a28b4053",
+   "seconds": 73,
+   "at": "2026-10-14T13:48:11Z"
+  },
+  {
+   "name": "dior-53",
+   "house": "dior",
+   "seed": 53,
+   "png_sha": "0554572bfadc9b0ec9d7da5084fa0165e59be9034319bd3f34b26ecd59e937fb",
+   "jpg_sha": "56bf0b21dd8dae73541b02bd18e13d027c6bdcd4a15288981635cf57e88325d6",
+   "prompt_sha": "e343a28b4053",
+   "seconds": 73,
+   "at": "2026-10-14T13:48:11Z"
+  },
+  {
+   "name": "dior-67",
+   "house": "dior",
+   "seed": 67,
+   "png_sha": "396ba92e0fc80e9197e5118a87731fabb2684b02815eec2617b616fa9c48b920",
+   "jpg_sha": "7d3aa360137748537ff7703963e7eae1cf25c8dd7b01d1c7ff0cb0bd731f2851",
+   "prompt_sha": "e343a28b4053",
+   "seconds": 73,
+   "at": "2026-10-14T13:48:11Z"
   },
   {
    "name": "dolce_gabbana-11",
@@ -688,6 +748,36 @@
    "at": "2026-10-14T13:20:20Z"
   },
   {
+   "name": "miu_miu-41",
+   "house": "miu_miu",
+   "seed": 41,
+   "png_sha": "6c6e57ce4b17a58d30f071f12e23381e09f47d9ad7bad2a38315f770744f4537",
+   "jpg_sha": "e0f17f9fd87f47afd70b15c178ef0aa7052bdc93a6230f6b9042901ed2b94ad8",
+   "prompt_sha": "ff0929948120",
+   "seconds": 73,
+   "at": "2026-10-14T13:49:26Z"
+  },
+  {
+   "name": "miu_miu-53",
+   "house": "miu_miu",
+   "seed": 53,
+   "png_sha": "4e5802caa9011449e31180a0bc8c70cfb54d1db0b9cf264ef8db03900ca46178",
+   "jpg_sha": "97e2706ac90b243b2cab9888e8e09ea038e291b9a4f69251f1a5c4693c049294",
+   "prompt_sha": "ff0929948120",
+   "seconds": 73,
+   "at": "2026-10-14T13:49:26Z"
+  },
+  {
+   "name": "miu_miu-67",
+   "house": "miu_miu",
+   "seed": 67,
+   "png_sha": "d8ec03bfa7192db712d4728dd0c80dab171d32bf9635a62f3f40556d383052b9",
+   "jpg_sha": "dabf10b3cef2de10bf25bcf3f53067cf73d3df783943e5dffeadf0b08800b9f9",
+   "prompt_sha": "ff0929948120",
+   "seconds": 73,
+   "at": "2026-10-14T13:49:26Z"
+  },
+  {
    "name": "prada-11",
    "house": "prada",
    "seed": 11,
@@ -851,8 +941,9 @@
   }
  ],
  "drawn_this_run": [
-  "dries_van_noten",
-  "fendi"
+  "alaia",
+  "dior",
+  "miu_miu"
  ],
- "minutes": 3.4
+ "minutes": 4.5
 }
