@@ -479,8 +479,10 @@
   .pv-lock { grid-template-columns: minmax(0, 1fr); }
   .pv-entry { min-width: 0; }
   .tf-form label { margin-top: 0.6rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
-  .tf-form input { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: 0.65rem 0.75rem; border: 1px solid var(--graphite); border-radius: 0; background: var(--paper); color: var(--ink); }
-  .tf-form input:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+  .tf-form input, .tf-form select { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: 0.65rem 0.75rem; border: 1px solid var(--graphite); border-radius: 0; background: var(--paper); color: var(--ink); }
+  .tf-form input:focus-visible, .tf-form select:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+  .pv-ladder { max-width: 40rem; margin: 2.5rem auto 0; text-align: left; }
+  .pv-ladder .status li { padding-block: 0.7rem; }
   .tf-form .pv-btn { justify-self: center; margin-top: 1.1rem; }
   .tf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .tf-report { margin-top: 0.75rem; }
@@ -879,6 +881,12 @@
             <li><span class="t">Proven first</span>Each measure is run on simulated brands with known answers before it touches real ones.</li>
           </ul>
           <p class="block">Before a reader is used it is tested on 296 pictures from 23 brands: whether its answers vary from picture to picture, whether two crops of one picture get the same answer, whether it tells brands apart, and how often it picks the picture a person picked across 150 pairs judged by hand.</p>
+          <p class="sub" style="margin-top:3.5rem" id="calls">Calls made before the event</p>
+          <ul class="status">
+            <li><span class="t">Every new creative director</span>Frozen on 14 October 2026 for every new creative director whose first show comes later, read on the homepage pictures and the campaign credits, each call with the probability it was registered at: the house moves more, like for like, than nine in ten houses without a change (0.42); its new pictures pick out its own earlier ones less often than at nine in ten of them (0.25); none of the previous photographers stays (0.90); and, when the designer comes from a house Focal reads, its pictures move towards that house more than towards any other (0.30). Saint Laurent and Versace are the first.</li>
+            <li><span class="t">Saint Laurent’s advertising</span>Three calls registered on 5 October 2026, before a successor to Anthony Vaccarello was named, on the house’s paid advertising after the next designer’s first show.</li>
+          </ul>
+          <p class="block">Each call is frozen by hash before the event and kept whether it hits or misses, and the record is scored on calibration as calls come due. <a href="https://github.com/benmcewensignal/fashion-adtone/blob/main/CLAIMS.md" target="_blank" rel="noopener">The ledger is public</a>, with the frozen designs beside it.</p>
           <p class="sub" style="margin-top:3.5rem">Reference</p>
           <details id="status">
             <summary>Where it stands</summary>
@@ -1558,6 +1566,18 @@
         <h2 id="private-h">Private</h2>
         <p id="pv-intro">Selected analysis for clients.</p>
         <p class="pv-have"><button type="button" class="pv-link" id="pv-jump">Have a password?</button></p>
+        <div class="pv-ladder">
+          <p class="sub">What clients buy</p>
+          <ul class="status">
+            <li><span class="t">Industry reports</span>The field’s series: the reshuffle, who stands apart, all the same?, who makes the pictures, where the attention goes. For the groups, and the investors, agencies and licensees around them.</li>
+            <li><span class="t">House reports</span>One house end to end, from its shows to the people behind its pictures, set against the other twenty-seven. For a house’s president or image director, and its group.</li>
+            <li><span class="t">Event reports</span>A new creative director: the first campaign, then twelve and twenty-four months on, beside the calls made before the first show.</li>
+            <li><span class="t">Pre-release checks</span>A shoot’s finalists read before release: whether they read as the house, and where they sit among the twenty-eight. The pictures are read privately and deleted.</li>
+            <li><span class="t">Subscriptions</span>One house read month by month, every industry report, and the event readings for that house.</li>
+            <li><span class="t">Data feed</span>Every reading as a time series, kept as first published.</li>
+          </ul>
+          <p class="note">To ask about any of them, leave your details with the abridged Tom Ford report below and say which.</p>
+        </div>
       </div>
       <section class="tf-gate" id="tf-gate" aria-labelledby="tf-gate-h" hidden>
         <span class="k">Without a password</span>
@@ -1572,10 +1592,20 @@
           <input id="tf-company" name="company" autocomplete="organization" maxlength="160" required>
           <label for="tf-role">Role, if you like</label>
           <input id="tf-role" name="role" autocomplete="organization-title" maxlength="120">
+          <label for="tf-interest">Interested in, if you like</label>
+          <select id="tf-interest" name="interest">
+            <option value="">The report alone</option>
+            <option>Industry reports</option>
+            <option>A house report</option>
+            <option>An event report</option>
+            <option>A pre-release check</option>
+            <option>A subscription</option>
+            <option>The data feed</option>
+          </select>
           <div class="tf-hp" aria-hidden="true"><label for="tf-site">Leave this empty</label><input id="tf-site" name="site" tabindex="-1" autocomplete="off"></div>
           <button class="pv-btn" id="tf-go" type="submit">Read the report</button>
           <p class="pv-msg" id="tf-msg" role="status" aria-live="polite"></p>
-          <p class="note">Your details are kept privately by Focal and used only to follow up on this report.</p>
+          <p class="note">Your details are kept privately by Focal and used only to follow up on this report and what you ask about.</p>
         </form>
         <div class="tf-report" id="tf-report" hidden></div>
       </section>
@@ -1774,7 +1804,7 @@
   form.addEventListener("submit", async ev => {
     ev.preventDefault();
     const f = {};
-    for (const k of ["name", "email", "company", "role", "site"]) f[k] = (form.elements[k].value || "").trim();
+    for (const k of ["name", "email", "company", "role", "interest", "site"]) f[k] = (form.elements[k].value || "").trim();
     if (!f.name || !f.company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) {
       msg.textContent = "Please give your name, a work email and your company.";
       return;
