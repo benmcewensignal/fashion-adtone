@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -34,6 +35,8 @@ from .score import ScoreError, score_batch
 KEEP = homepages.KEEP_PER_CAPTURE
 CANDIDATES = homepages.IMAGE_CANDIDATES
 PAUSE_S = 2.0
+TIMEOUT_S = 20.0
+BUDGET_S = 20 * 60
 PICTURE_PAUSE_S = 0.5
 REFUSED = (401, 403, 405, 406, 429, 451)
 BATCH = homepages.BATCH
@@ -101,9 +104,23 @@ def read_page(c: Crawler, url: str) -> tuple[dict, list]:
     return {"status": "no_images", "page": page}, []
 
 
+class Timed:
+    """A session that gives a live site at most TIMEOUT_S to answer, so a site that stalls costs a run seconds."""
+
+    def __init__(self, s=None, timeout: float = None):
+        self.s = s or requests.Session()
+        self.timeout = timeout or TIMEOUT_S
+        self.headers = self.s.headers
+
+    def get(self, url, **kw):
+        kw["timeout"] = min(kw.get("timeout") or self.timeout, self.timeout)
+        return self.s.get(url, **kw)
+
+
 def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, today: str | None = None,
-            only: list[str] | None = None) -> dict:
-    """Every house once today. A house already captured today is not asked again."""
+            only: list[str] | None = None, budget_s: float = BUDGET_S, clock=time.monotonic) -> dict:
+    """Every house once today, each filed as soon as it is read, so a run cut short keeps what it did. A house
+    already captured today is not asked again. A reader failure stops the run before that house is filed."""
     from .embed import VectorStore
     P = paths()
     day = today or date.today().isoformat()
@@ -114,11 +131,14 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, toda
     known = {h.id for h in reg.houses}
     domains = {h: ds for h, ds in homepages.sites().items() if h in known and ds and (not only or h in only)}
     counts = {"houses": 0, "resolved": 0, "declined": 0, "no_images": 0, "error": 0, "images": 0, "read": 0, "invalid": 0}
-    pending, rows, declined = [], [], {}
+    declined, stopped, t0 = {}, None, clock()
     for house, ds in sorted(domains.items()):
         key = f"{house}:{day}"
         if table.get(key):
             continue
+        if clock() - t0 > budget_s:
+            stopped = "budget"
+            break
         url = homepage(ds[0])
         try:
             row, got = read_page(c, url)
@@ -126,47 +146,41 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, toda
             row, got = {"status": "error", "why": f"{e.__class__.__name__}: {str(e)[:160]}", "page": url}, []
         row.update({"key": key, "house_id": house, "date": day, "month": day[:7], "run": rid,
                     "images": [{"sha": f.sha, "phash": f.phash, "w": f.w, "h": f.h} for f in got]})
+        new = [f for f in got if (f.sha, scorer.instrument) not in scored]
+        obs = []
+        try:
+            for i in range(0, len(new), BATCH):
+                part = new[i:i + BATCH]
+                answers = score_batch(scorer, [jpeg_for_model(f.image) for f in part])
+                for f, ans in zip(part, answers):
+                    ob = {"sha": f.sha, "instrument": scorer.instrument, "rubric_version": scorer.rubric.version,
+                          "run_id": rid, "house_id": house, "month": day[:7], "date": day, "scored_at": store.utc_now()}
+                    if isinstance(ans, ScoreError):
+                        ob["status"], ob["error"] = "invalid", str(ans)[:300]
+                        counts["invalid"] += 1
+                    else:
+                        ob["output"], ob["status"] = ans, "ok"
+                        counts["read"] += 1
+                    obs.append(ob)
+        except ScoreError as e:
+            stopped = f"reader: {str(e)[:200]}"      # this house is not filed, so the next run reads it again
+            for f in got:
+                f.image.close()
+            break
         for f in got:
-            counts["images"] += 1
             if f.sha not in vectors:
                 vectors.add(f.sha, embedder.embed(f.image), day[:4])
-            if (f.sha, scorer.instrument) not in scored and all(f.sha != g.sha for g, _ in pending):
-                pending.append((f, {"sha": f.sha, "instrument": scorer.instrument, "rubric_version": scorer.rubric.version,
-                                    "run_id": rid, "house_id": house, "month": day[:7], "date": day}))
-            else:
-                f.image.close()
+            f.image.close()
+        scored.update((ob["sha"], scorer.instrument) for ob in obs)
         counts["houses"] += 1
+        counts["images"] += len(got)
         counts[row["status"]] += 1
         if row["status"] == "declined":
             declined[house] = row.get("why")
-        rows.append(row)
-    obs = []
-    stopped = None
-    try:
-        for i in range(0, len(pending), BATCH):
-            part = pending[i:i + BATCH]
-            answers = score_batch(scorer, [jpeg_for_model(f.image) for f, _ in part])
-            for (f, ob), ans in zip(part, answers):
-                ob["scored_at"] = store.utc_now()
-                if isinstance(ans, ScoreError):
-                    ob["status"], ob["error"] = "invalid", str(ans)[:300]
-                    counts["invalid"] += 1
-                else:
-                    ob["output"], ob["status"] = ans, "ok"
-                    counts["read"] += 1
-                obs.append(ob)
-    except ScoreError as e:
-        # the reader failed: the day's captures are not filed, so tomorrow's run reads them again
-        stopped = f"reader: {str(e)[:200]}"
-        obs, rows = [], []
-    finally:
-        for f, _ in pending:
-            f.image.close()
-    for row in rows:
-        table.upsert(row, shard=row["house_id"])
-    table.save()
-    store.append_jsonl(obs_path, obs)
-    vectors.save()
+        table.upsert(row, shard=house)
+        table.save()
+        store.append_jsonl(obs_path, obs)
+        vectors.save()
     out = {"run_id": rid, "date": day, "finished_at": store.utc_now(), **counts, "declined": declined,
            "stopped": stopped, "requests": c.calls}
     st = store.read_state(P["state"])
@@ -199,7 +213,7 @@ def main(argv: list[str] | None = None) -> int:
         for e in errs:
             print(f"::error::{e}")
         return 1 if errs else 0
-    c = Crawler(pause=PAUSE_S)
+    c = Crawler(Timed(), pause=PAUSE_S)
     try:
         from .embed import OpenClipEmbedder
         from .score import load_rubric, make_scorer

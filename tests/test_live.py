@@ -113,3 +113,27 @@ def test_the_guard_lets_the_live_workflow_write_only_its_own_files():
           "data/homepages/live/vectors/openclip-vitb32-laion2b/2026.npz", "data/state/live.json", "data/provenance/live.jsonl"]
     assert guard.violations("live", ok) == []
     assert guard.violations("live", ["data/homepages/captures/gucci.jsonl"])
+
+
+def test_a_run_out_of_time_keeps_the_houses_it_read(tmp_data, monkeypatch, tmp_path):
+    setup(tmp_path, monkeypatch, ("gucci", "loewe"))
+    ticks = iter([0, 0, 10_000, 10_000])
+    out = live.collect(Crawler(FakeSession(handler()), pause=0), reg("gucci", "loewe"), FakeEmbedder(),
+                       FakeScorer(load_rubric()), "r1", today="2026-10-15", budget_s=60, clock=lambda: next(ticks))
+    assert out["stopped"] == "budget" and out["houses"] == 1
+    assert [r["key"] for r in store.read_jsonl(live.paths()["captures"] / "gucci.jsonl")] == ["gucci:2026-10-15"]
+
+
+def test_a_stalled_site_is_given_seconds_not_minutes():
+    seen = []
+
+    class S:
+        headers = {}
+
+        def get(self, url, **kw):
+            seen.append(kw.get("timeout"))
+            return FakeResponse(404, text="")
+    t = live.Timed(S(), timeout=20)
+    t.get("https://www.gucci.com/", timeout=60)
+    t.get("https://www.gucci.com/a.jpg", timeout=45, stream=True)
+    assert seen == [20, 20]
