@@ -52,7 +52,7 @@ ALLOW = {
                 "data/results/calibration.json", "data/results/crews.json", "data/results/success.json",
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
                 "data/results/character.json", "data/results/alignment.json", "data/results/readings.json",
-                "data/provenance/analyse.jsonl",
+                "data/results/events.json", "data/provenance/analyse.jsonl",
                 "data/human_check/sample-*.csv"],
 }
 DENY_EXT = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff", ".heic", ".avif",
