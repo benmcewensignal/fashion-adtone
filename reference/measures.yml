@@ -1,0 +1,192 @@
+# The measure catalogue: every measure Focal publishes, defined once. The site's Method page, the reports,
+# the deck and any data feed name a measure by its id here and say nothing about it that this file does not.
+#
+# status, from least to most checked:
+#   draft        waits on data not yet collected
+#   provisional  computed, but its inputs are incomplete or not yet checked by people
+#   tested       its instruments passed their own checks (two crops of one picture agree beyond chance; the
+#                bake-off of 150 pairs of pictures judged by hand) and it is judged against controls or chance;
+#                not yet checked by people
+#   reviewed     people reading the same pictures, one of them trained in fashion, agree with it beyond chance
+#   outside      also checked against people outside the trade (a panel); none yet
+#   frozen       a forward call: its definition and code are frozen by hash before the outcome exists
+#
+# grain: what one value is about. minimum: what a value needs before it is shown.
+# code: where it is computed, in this repository or in the private one (benmcewensignal/focal-private).
+# shown: where it appears today.
+
+measures:
+  - id: distinctness
+    name: Distinct
+    question: How far does the house stand from the other houses?
+    definition: >-
+      The distance between the house's mean fingerprint and each other house's over the same months, on equal
+      numbers of pictures drawn again and again (a small sample looks more distinct than it is), as a
+      percentile among the houses read that year; the answers on which it differs most say what sets it apart.
+    grain: house and year, or house and season (the season benchmark)
+    minimum: 6 pictures in 2 months
+    instruments: [fingerprint openclip-vitb32-laion2b, reader tone-v1]
+    status: tested
+    code: [adtone/readings.py cross_brand, adtone/benchmark.py]
+    shown: [site Benchmark and Issues, Private tab Who stands apart, season board, deck slide 3]
+
+  - id: movement
+    name: Moving
+    question: How far, and which way, has the house moved from its own past?
+    definition: >-
+      Like for like (campaign pictures against campaign pictures, product on a model against product on a
+      model, the kinds weighed by the house's own mix) and net of the market (each kind's change less the same
+      kind's change at the other houses), scaled by its variance with the pictures of one month taken together,
+      against splits that move whole months between the windows.
+    grain: house and pair of windows (half-years, years, or around an event)
+    minimum: 6 pictures in 2 months on each side
+    instruments: [fingerprint openclip-vitb32-laion2b, reader tone-v1]
+    status: tested
+    code: [adtone/readings.py compare, adtone/benchmark.py]
+    shown: [Private tab Who moved, season board, house reports]
+
+  - id: recognition
+    name: Still itself
+    question: Do the house's pictures still pick it out, years later?
+    definition: >-
+      Six of the house's pictures from a later year set against six from an earlier year of every house with
+      enough pictures in both, each set drawn afresh 200 times; the share of draws in which the nearest earlier
+      set, by the cosine between mean fingerprints, is the house's own. Chance is one over the number of houses.
+      Reported by the gap in years: one or two, and five or more.
+    grain: house and pair of years
+    minimum: 6 pictures in each year, 6 houses in the pair of years
+    instruments: [fingerprint openclip-vitb32-laion2b]
+    status: tested
+    code: [adtone/measures.py recognition]
+    shown: [site Issues backs, deck slides 7 and 8, Private tab Who stands apart]
+
+  - id: mix
+    name: Mix
+    question: How much of what the house shows is campaign imagery, product on a model and product alone?
+    definition: The shares of the house's homepage pictures by the reader's creative type, each picture once.
+    grain: house and year, or house and season
+    minimum: 6 pictures
+    instruments: [reader tone-v1]
+    status: tested
+    code: [adtone/readings.py, adtone/benchmark.py]
+    shown: [site Benchmark, season board]
+
+  - id: convergence
+    name: All the same?
+    question: Are the houses drawing together?
+    definition: >-
+      The typical distance between two houses' mean fingerprints, net of the noise from their months, by year,
+      2014 to 2017 set to 100; campaign pictures apart from product, the trend within pairs of houses against a
+      permutation of the years.
+    grain: the field, by year
+    minimum: 3 months in a house-year
+    instruments: [fingerprint openclip-vitb32-laion2b]
+    status: tested
+    code: [focal-private converge/convlib.py and conv2.py to conv7.py]
+    shown: [deck slide 10, "Private tab All the same?"]
+
+  - id: cast
+    name: The cast
+    question: Who makes the house's pictures, and do they stay?
+    definition: >-
+      From campaign credits (crew only, never anyone in the pictures): the share of a year's photographers who
+      did not shoot for the house the year before, who arrives and leaves with a designer, and which
+      photographers work for several houses.
+    grain: house and year; house and change of designer
+    minimum: one dated credit on each side
+    instruments: [reference/credits.csv]
+    status: provisional
+    code: [adtone/credits.py, adtone/readings.py crew_turnover, focal-private crews/]
+    shown: [site Brands, deck slide 9, Private tab Who makes the pictures]
+
+  - id: attention_jump
+    name: The jump
+    question: How far did attention jump around the show?
+    definition: >-
+      The peak of daily page views from the day before a show to three days after, over the house's level from
+      60 to 10 days before, against the other shows of its season.
+    grain: show
+    minimum: a dated main show
+    instruments: [daily page views in ten languages]
+    status: tested
+    code: [adtone/thread.py, adtone/runway.py]
+    shown: [deck slide 12, season board]
+
+  - id: attention_kept
+    name: Lasting
+    question: Did the attention last?
+    definition: >-
+      The level from 30 to 120 days after the show over the same baseline, less the median house's change over
+      the same days; and whether it lasts better than an equal jump on an ordinary day.
+    grain: show
+    minimum: a dated main show and 120 days after
+    instruments: [daily page views in ten languages]
+    status: tested
+    code: [adtone/runway.py]
+    shown: [deck slide 12, Private tab Where the attention goes]
+
+  - id: clothes
+    name: The clothes
+    question: What is worn, its shape, colour, surface, material and register?
+    definition: The clothes rubric (rubric/clothes-v1.md), read on runway looks and homepage pictures alike.
+    grain: picture; house and season
+    minimum: as each comparison states
+    instruments: [reader clothes-v1]
+    status: provisional
+    code: [adtone/clothes.py]
+    shown: [site Readings, season board]
+
+  - id: transmission
+    name: Transmission
+    question: Does the advertising move the way the runway moved?
+    definition: "Amendment 3, a draft: each channel placed against its own kind, season to season."
+    grain: house and season
+    minimum: advertising on both sides of a show
+    instruments: [reader tone-v1, paid advertising]
+    status: draft
+    code: [PREREGISTRATION-AMENDMENT-3.md]
+    shown: [site Benchmark]
+
+  - id: forward_magnitude
+    name: Forward call, magnitude
+    question: After a new creative lead's first show, does the house move more than houses without a change?
+    definition: forward/designer-change-v1.md, call 1.
+    grain: change of creative lead
+    minimum: as the design states
+    instruments: [fingerprint openclip-vitb32-laion2b, reader tone-v1 for the kinds]
+    status: frozen
+    code: [adtone/forward_image.py]
+    shown: [CLAIMS.md]
+
+  - id: forward_itself
+    name: Forward call, still itself
+    question: After the first show, do the house's pictures pick out its own earlier pictures less often?
+    definition: forward/designer-change-v1.md, call 2.
+    grain: change of creative lead
+    minimum: as the design states
+    instruments: [fingerprint openclip-vitb32-laion2b]
+    status: frozen
+    code: [adtone/forward_image.py]
+    shown: [CLAIMS.md]
+
+  - id: forward_crew
+    name: Forward call, the crew
+    question: Does any photographer of the two years before stay?
+    definition: forward/designer-change-v1.md, call 3.
+    grain: change of creative lead
+    minimum: one photographer on each side
+    instruments: [reference/credits.csv]
+    status: frozen
+    code: [adtone/forward_image.py]
+    shown: [CLAIMS.md]
+
+  - id: forward_transfer
+    name: Forward call, transfer
+    question: Do the house's pictures move towards the new lead's previous house?
+    definition: forward/designer-change-v1.md, call 4.
+    grain: change of creative lead from a house Focal reads
+    minimum: as the design states
+    instruments: [fingerprint openclip-vitb32-laion2b]
+    status: frozen
+    code: [adtone/forward_image.py]
+    shown: [CLAIMS.md]
