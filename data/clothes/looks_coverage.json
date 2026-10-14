@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T12:55:57Z",
+ "generated_at": "2026-10-14T18:03:50Z",
  "window_days": [
   -1,
   14
@@ -1190,7 +1190,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2301,7 +2301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3158,7 +3158,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectionError"
+    "dior.com": "ConnectTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -3627,7 +3627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ConnectTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -6225,7 +6225,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ConnectTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -6251,7 +6251,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "ReadTimeout"
    }
   },
   "hermes:2015-06-27:men": {
@@ -8288,7 +8288,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectionError"
+    "louisvuitton.com": "ReadTimeout"
    }
   },
   "louis_vuitton:2026-10-06:rtw": {
@@ -8301,7 +8301,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectionError"
+    "louisvuitton.com": "ConnectTimeout"
    }
   },
   "margiela:2015-01-23:men": {
@@ -10984,18 +10984,34 @@
     }
    ]
   },
-  "valentino:2022-01-26:couture": {
+  "valentino:2021-10-01:rtw": {
    "house": "valentino",
-   "date": "2022-01-26",
-   "season": "2022 SS couture",
-   "category": "couture",
+   "date": "2021-10-01",
+   "season": "2022 SS rtw",
+   "category": "rtw",
    "status": "index failed",
    "via": "window",
    "pages": 0,
    "candidates": [],
    "errors": {
-    "valentino.com": "ConnectionError"
+    "valentino.com": "ReadTimeout"
    }
+  },
+  "valentino:2022-01-26:couture": {
+   "house": "valentino",
+   "date": "2022-01-26",
+   "season": "2022 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/de-de/collections/women/haute-couture-spring-summer?view=comparableLink&utm_campaign=hcss_22&utm_source=twitter&utm_medium=social_organic&utm_content=runway_hc_ss_22_post",
+     "ts": "20220128051518",
+     "score": 5.0
+    }
+   ]
   },
   "valentino:2022-03-06:rtw": {
    "house": "valentino",
@@ -11420,13 +11436,26 @@
    "date": "2026-10-04",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "valentino.com": "ReadTimeout"
-   }
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/en-gb/v-universe/fashion-shows/pret-a-porter/valentino-antibiblioteca-spring-summer-2027/watch-the-show",
+     "ts": "20261008162857",
+     "score": 17.12
+    },
+    {
+     "url": "https://www.valentino.com/en-gb/v-universe/fashion-shows/pret-a-porter/valentino-antibiblioteca-spring-summer-2027",
+     "ts": "20261004032253",
+     "score": 14.12
+    },
+    {
+     "url": "https://www.valentino.com/en-us/v-universe/fashion-shows/pret-a-porter/valentino-antibiblioteca-spring-summer-2027/celebrities",
+     "ts": "20261007211516",
+     "score": 13.88
+    }
+   ]
   },
   "versace:2016-06-18:men": {
    "house": "versace",
@@ -11648,19 +11677,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/haute-couture/",
+    "www.dior.com/en_us/womens-fashion/"
    ],
-   "pages": 973
+   "pages": 1068
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 5009
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -11709,18 +11738,25 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/"
+    "www.hermes.com/us/en/content/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/",
+    "www.hermes.com/fi/en/category/women/ready-wear/",
+    "www.hermes.com/fi/en/category/men/ready-wear/"
    ],
-   "pages": 241
+   "pages": 906
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
-    "www.gucci.com/us/en/lo/runway/women/"
+    "www.gucci.com/us/en/lo/runway/women/",
+    "www.gucci.com/us/en/st/link-to-love-collection/",
+    "www.gucci.com/us/en/ca/decor-lifestyle/gucci-pet-collection/pet-homeware-c-lifestyle-pet-home-food/",
+    "www.gucci.com/us/en/st/capsule/caring-collection/",
+    "www.gucci.com/us/en/st/capsule/gucci-pet-collection/"
    ],
-   "pages": 850
+   "pages": 864
   },
   "loewe": {
    "prefixes": [
@@ -11780,7 +11816,7 @@
     "www.prada.com/fi/en/pradasphere/fashion-shows/2023/",
     "www.prada.com/fi/en/womens/womens-collection/c/10525EU/"
    ],
-   "pages": 240
+   "pages": 218
   },
   "saint_laurent": {
    "prefixes": [
@@ -11807,13 +11843,15 @@
   "valentino": {
    "prefixes": [
     "www.valentino.com/en-gb/experience/",
-    "www.valentino.com/en-us/experience/",
+    "www.valentino.com/en-fi/collections/",
+    "www.valentino.com/en-fi/collections/men/",
+    "www.valentino.com/en-fi/collections/women/",
+    "www.valentino.com/de-de/collections/women/",
     "www.valentino.com/en-fi/experience/",
     "www.valentino.com/de-de/experience/",
-    "www.valentino.com/en-fi/chez-maison-valentino/fashion-shows/",
-    "www.valentino.com/en-fi/collections/"
+    "www.valentino.com/de-de/f\u00fcr-ihn/vltn-man-collection/"
    ],
-   "pages": 1032
+   "pages": 789
   },
   "zegna": {
    "prefixes": [
@@ -11834,8 +11872,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 425,
-   "index failed": 50,
+   "found": 427,
+   "index failed": 49,
    "none": 197
   },
   "by_house": {
@@ -11940,8 +11978,8 @@
     "found": 2
    },
    "valentino": {
-    "shows": 28,
-    "found": 26
+    "shows": 29,
+    "found": 28
    },
    "versace": {
     "shows": 4,
@@ -11982,8 +12020,8 @@
     "found": 29
    },
    "2022": {
-    "shows": 55,
-    "found": 46
+    "shows": 56,
+    "found": 47
    },
    "2023": {
     "shows": 52,
@@ -12003,7 +12041,7 @@
    },
    "2027": {
     "shows": 31,
-    "found": 7
+    "found": 8
    }
   }
  }
