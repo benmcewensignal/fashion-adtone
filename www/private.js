@@ -652,7 +652,7 @@
     for (const part of P.parts) {
       const a = el("a", null, part.tab); a.href = "#/private/" + part.key; a.dataset.key = part.key; tabs.append(a);
       const sec = el("div", "pv-part"); sec.dataset.key = part.key; sec.hidden = true;
-      try { (RENDER[part.key] || KIND[part.kind] || (() => {}))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
+      try { (part.kind === "doc" ? KIND.doc : (RENDER[part.key] || KIND[part.kind] || (() => {})))(sec, part); } catch (e) { console.error(e); sec.append(el("p", "note", "This part could not be drawn.")); }
       host.append(sec);
     }
   }
