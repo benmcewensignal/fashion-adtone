@@ -1,14 +1,21 @@
 name: issues
-run-name: issues ${{ inputs.only || 'all houses' }}
+run-name: issues ${{ inputs.mode || 'kick' }} ${{ inputs.only }}
 # Focal's house issues (adtone/issues.py): one picture for each house, its style as it is usually pictured,
 # drawn by the open image model the site's illustration already uses (bakeoff/modal_paint.py, Qwen-Image,
 # Apache 2.0, pinned in data/flex/models.json), once for each seed of data/issues/plan.json. The prompts never
 # name a house and ask for no text or marks. The originals go to the private Modal volume and the copies to look
 # at to a branch of their own, sealed to a key outside this repository. No picture is written to the
-# repository. Editing .github/kick/issues starts a run; a second word lists the only houses to draw, comma-separated.
+# repository. publish: the picture chosen for each house (data/issues/choices.json) made into the site's copy on
+# the volume (data/issues/web.json) and the read-only door the site's build fetches them through deployed
+# (bakeoff/modal_issues_web.py). Editing .github/kick/issues starts a run: its first word is the mode (start or
+# draw, publish), a second word lists the only houses to draw, comma-separated.
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        type: choice
+        default: draw
+        options: [draw, publish]
       only:
         description: "Only these houses, comma-separated (default: every house not yet drawn)"
         default: ""
@@ -41,19 +48,23 @@ jobs:
         run: git fetch -q --depth=1 origin main && git reset -q --hard FETCH_HEAD && git log --oneline -1
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
-      - name: Which houses
+      - name: Mode and houses
         id: w
         run: |
-          only="${{ inputs.only }}"
-          if [ -z "$only" ] && [ "${{ github.event_name }}" = push ]; then only=$(head -1 .github/kick/issues 2>/dev/null | awk '{print $2}'); fi
+          mode="${{ inputs.mode }}"; only="${{ inputs.only }}"
+          if [ "${{ github.event_name }}" = push ]; then
+            mode=$(head -1 .github/kick/issues 2>/dev/null | awk '{print $1}'); only=$(head -1 .github/kick/issues 2>/dev/null | awk '{print $2}')
+          fi
+          case "$mode" in publish) ;; *) mode=draw ;; esac
           case "$only" in *[!a-z_,]*) only="" ;; esac
-          echo "only=$only" >> "$GITHUB_OUTPUT"
-          echo "issues: ${only:-every house not yet drawn}" | tee -a /tmp/issues.log
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"; echo "only=$only" >> "$GITHUB_OUTPUT"
+          echo "issues: $mode ${only:-every house}" | tee -a /tmp/issues.log
       - name: Install
         timeout-minutes: 10
         run: pip install -q -r requirements.txt pynacl
       - name: Deploy the painter
         id: deploy
+        if: steps.w.outputs.mode == 'draw'
         timeout-minutes: 40
         continue-on-error: true
         run: |
@@ -62,12 +73,41 @@ jobs:
           edit=$(python -c "import json; d = json.load(open('data/flex/models.json'))['edit']; print(d['model'] + '@' + d['revision'])")
           PAINT_GEN="$gen" PAINT_EDIT="$edit" modal deploy bakeoff/modal_paint.py 2>&1 | tee -a /tmp/issues.log
       - name: Draw
-        if: steps.deploy.outcome == 'success'
+        if: steps.w.outputs.mode == 'draw' && steps.deploy.outcome == 'success'
         timeout-minutes: 160
         continue-on-error: true
         run: |
           set -o pipefail
           python -m adtone.issues draw --only "${{ steps.w.outputs.only }}" ${{ inputs.again == true && '--again' || '' }} --budget-min 150 2>&1 | tee -a /tmp/issues.log
+      - name: Publish the chosen pictures and the door to them
+        id: publish
+        if: steps.w.outputs.mode == 'publish'
+        timeout-minutes: 30
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python -m adtone.issues publish 2>&1 | tee -a /tmp/issues.log
+          modal deploy bakeoff/modal_issues_web.py 2>&1 | tee /tmp/web.log | tee -a /tmp/issues.log
+          url=$(grep -oE 'https://[A-Za-z0-9.-]+\.modal\.run' /tmp/web.log | head -1)
+          test -n "$url"
+          URL="$url" python - <<'PY'
+          import hashlib, json, os, pathlib, time, urllib.request
+          p = pathlib.Path("data/issues/web.json"); d = json.loads(p.read_text())
+          d["url"] = os.environ["URL"]
+          p.write_text(json.dumps(d, indent=1) + "\n")
+          bad = []
+          for h, r in sorted(d["pictures"].items()):
+              for attempt in range(4):
+                  try:
+                      data = urllib.request.urlopen(f"{d['url']}?name={r['name']}", timeout=60).read(); break
+                  except Exception as e:
+                      if attempt == 3: raise
+                      time.sleep(5)
+              if hashlib.sha1(data).hexdigest() != r["sha1"]:
+                  bad.append(h)
+          print(f"door at {d['url']}: {len(d['pictures']) - len(bad)} of {len(d['pictures'])} pictures read back whole")
+          assert not bad, bad
+          PY
       - name: Sealed pictures to look at, on a branch of their own
         # One file per run, sealed to a key that is not in this repository: it holds no readable picture.
         if: always() && hashFiles('issues_pictures/issues.tar.sealed') != ''
@@ -97,4 +137,4 @@ jobs:
       - name: Persist
         if: always()
         timeout-minutes: 5
-        run: bash scripts/persist.sh issues "issues drawn"
+        run: bash scripts/persist.sh issues "issues ${{ steps.w.outputs.mode }}"

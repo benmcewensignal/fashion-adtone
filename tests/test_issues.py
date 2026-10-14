@@ -79,3 +79,18 @@ def test_each_house_is_drawn_once_for_each_seed_and_a_house_drawn_already_is_pas
     plan["seeds_for"] = {"gucci": [5, 6]}                                    # a new prompt, drawn on seeds of its own
     third = I.draw(plan, starter=st, put=vol.update, only=["gucci", "loewe"], seal_fn=seal)
     assert third["drawn_this_run"] == ["gucci"] and {r["name"] for r in third["rows"]} >= {"gucci-1", "gucci-5", "gucci-6"}
+
+
+def test_the_chosen_pictures_become_the_sites_copies_named_by_their_hash(tmp_path, monkeypatch):
+    import hashlib
+    monkeypatch.setattr(I, "WEB", tmp_path / "web.json")
+    monkeypatch.setattr(I, "DIR", tmp_path)
+    monkeypatch.setattr(I, "PROV", tmp_path / "prov.jsonl")
+    vol = {f"{I.VOL_DIR}/png/gucci-23.png": _png(size=(1088, 1360)), f"{I.VOL_DIR}/png/loewe-11.png": _png((10, 20, 30), (1104, 1472))}
+    out = I.publish({"gucci": 23, "loewe": 11}, get=vol.__getitem__, put=vol.update)
+    g = out["pictures"]["gucci"]
+    data = vol[f"{I.VOL_DIR}/web/{g['name']}"]
+    assert Image.open(io.BytesIO(data)).size == I.WEB_SIZE and Image.open(io.BytesIO(data)).format == "WEBP"
+    assert g["sha1"] == hashlib.sha1(data).hexdigest() and g["name"] == f"gucci-{hashlib.sha256(data).hexdigest()[:12]}.webp"
+    assert Image.open(io.BytesIO(vol[f"{I.VOL_DIR}/web/{out['pictures']['loewe']['name']}"])).size == I.WEB_SIZE   # 3:4 cut to 4:5
+    assert json.loads((tmp_path / "web.json").read_text())["pictures"]["loewe"]["seed"] == 11

@@ -6,6 +6,10 @@ no text.
     python -m adtone.issues draw [--only a,b] [--again] [--budget-min 150]
         on the runner: each house's prompt drawn once for each seed of the plan -> data/issues/run.json;
         the pictures to the private Modal volume and, sealed, to a branch of their own
+    python -m adtone.issues publish
+        on the runner: the picture chosen for each house (data/issues/choices.json) made into the site's copy,
+        960 by 1200 WebP, onto the volume beside the originals -> data/issues/web.json, names and hashes; the
+        site's build fetches them through bakeoff/modal_issues_web.py and checks each hash
 
 The plan (data/issues/plan.json) holds one prompt for each house, the seeds (and, for a house drawn again with a
 new prompt, seeds of its own in seeds_for, so its earlier pictures stay as they were) and the drawing settings. The
@@ -31,6 +35,9 @@ from . import flex as F
 DIR = config.DATA / "issues"
 PLAN = DIR / "plan.json"
 RUN = DIR / "run.json"
+CHOICES = DIR / "choices.json"
+WEB = DIR / "web.json"
+WEB_SIZE = (960, 1200)
 PROV = config.PROV_DIR / "issues.jsonl"
 LOCAL = config.ROOT / "issues_pictures"        # ignored by git; on the runner only
 VOL_DIR = "/issues-v1"
@@ -138,6 +145,45 @@ def draw(plan: dict | None = None, starter=None, put=None, only: list[str] | Non
     return out
 
 
+def web_copy(png: bytes) -> bytes:
+    """the site's copy: cut to 4:5 about the middle if it is not already, 960 by 1200, WebP"""
+    from PIL import Image
+    img = Image.open(io.BytesIO(png)).convert("RGB")
+    w, h = img.size
+    if abs(w * 5 - h * 4) > 8:
+        if w * 5 > h * 4:
+            nw = h * 4 // 5
+            img = img.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
+        else:
+            nh = w * 5 // 4
+            img = img.crop((0, (h - nh) // 2, w, (h - nh) // 2 + nh))
+    img = img.resize(WEB_SIZE, Image.Resampling.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, format="WEBP", quality=80, method=6)
+    return buf.getvalue()
+
+
+def publish(choices: dict | None = None, get=None, put=None) -> dict:
+    """The chosen picture of each house as the site's copy, onto the volume; their names and hashes recorded."""
+    import hashlib
+    choices = choices or json.loads(CHOICES.read_text(encoding="utf-8"))
+    get = get or F.get_file
+    put = put or F.put_files
+    files, out = {}, {}
+    for h, seed in sorted(choices.items()):
+        webp = web_copy(get(f"{VOL_DIR}/png/{h}-{seed}.png"))
+        name = f"{h}-{hashlib.sha256(webp).hexdigest()[:12]}.webp"
+        files[f"{VOL_DIR}/web/{name}"] = webp
+        out[h] = {"seed": seed, "name": name, "sha1": hashlib.sha1(webp).hexdigest(), "size": len(webp)}
+    put(files)
+    old = json.loads(WEB.read_text(encoding="utf-8")) if WEB.exists() else {}
+    rec = {"at": store.utc_now(), "size": list(WEB_SIZE), "url": old.get("url", ""), "pictures": out}
+    DIR.mkdir(parents=True, exist_ok=True)
+    WEB.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+    _log("publish", pictures=len(out))
+    return rec
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m adtone.issues")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -145,10 +191,14 @@ def main(argv: list[str] | None = None) -> int:
     d.add_argument("--only", default="")
     d.add_argument("--again", action="store_true")
     d.add_argument("--budget-min", type=float, default=150)
+    sub.add_parser("publish")
     a = ap.parse_args(argv)
     if a.cmd == "draw":
         out = draw(only=[x for x in a.only.split(",") if x] or None, again=a.again, budget_min=a.budget_min)
         print(f"{len(out['drawn_this_run'])} houses drawn in {out['minutes']} min")
+    elif a.cmd == "publish":
+        out = publish()
+        print(f"{len(out['pictures'])} pictures published to the volume")
     return 0
 
 
