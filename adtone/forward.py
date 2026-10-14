@@ -144,6 +144,42 @@ def evaluate(spec: dict, events: dict, get_concepts: Callable[[], list[Concept]]
             "prediction_1_magnitude": p1, "prediction_2_timing": cp, "prediction_3_transfer": p3}
 
 
+IMAGE_FINAL = ("adjudicated", "void", "not_covered")
+
+
+def run_image_template(spec: dict, events: dict, today: date, out: Path) -> dict:
+    """A template on the image (forward/designer-change-v1.md): every event recorded under its key, each
+    evaluated by the frozen code, a final result never recomputed. The data are loaded only if some event
+    has reached its adjudication date."""
+    from . import forward_image as fi
+    check_frozen(config.ROOT / spec["code"], config.ROOT / spec["code_sha256"])
+    records = events.get(spec["events_key"]) or []
+    before = json.loads(out.read_text()).get("events", {}) if out.exists() else {}
+    cache: dict = {}
+
+    def load():
+        if "d" not in cache:
+            cache["d"] = (fi.load_pictures(), fi.load_credits(), fi.lead_months(events=records))
+        return cache["d"]
+
+    results = {}
+    for e in records:
+        # stable from the predecessor's departure, so a record keeps its key when the successor is named
+        key = f"{e['house']}:{e.get('predecessor_left_announced') or e.get('announced')}"
+        if before.get(key, {}).get("status") in IMAGE_FINAL:
+            results[key] = before[key]
+            continue
+        r = fi.evaluate(spec, e, today, load)
+        r["probabilities"] = {**spec["probabilities"], **(e.get("probabilities") or {})}
+        results[key] = r
+    doc = {"id": spec["id"], "evaluated_on": today.isoformat(), "events": results}
+    config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(doc, indent=2, default=str) + "\n")
+    for k, r in results.items():
+        print(f"{spec['id']} {k}: {r['status']}")
+    return doc
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.forward")
     ap.add_argument("--today", default=None)
@@ -165,6 +201,9 @@ def main(argv: list[str] | None = None) -> int:
         # designs only: <id>-v<n>.md; an addendum such as <id>-v1-addendum-1.md is frozen with an amendment
         spec = load_spec(path)
         out = config.RESULTS_DIR / f"forward-{spec['id']}.json"
+        if spec.get("kind") == "image-template":
+            run_image_template(spec, events, today, out)
+            continue
         if out.exists() and json.loads(out.read_text()).get("status") in FINAL:
             print(f"{spec['id']}: final result already recorded, not recomputed")
             continue

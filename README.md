@@ -240,6 +240,15 @@ nothing until its adjudication date and is never recomputed once recorded. The f
 unconfirmed and no successor had been named. Recording the successor and the date of their first show
 in `events.yml` is all it needs.
 
+`saint-laurent-v1` reads paid advertising, which waits on Meta. `designer-change-v1`, registered on
+14 October 2026, reads what is already collected: every change of creative lead whose first show falls
+after that date is tested on the homepage pictures and the campaign credits, with four calls each
+(magnitude, still itself, the crew, transfer), each registered with its probability so the ledger can
+be scored on calibration. Its code, `adtone/forward_image.py`, imports nothing else from the package and
+is frozen by hash with the design, so later changes to the analysis cannot change a registered call.
+`scripts/forward_base_rates.py` gives the probabilities: the same code on every earlier change whose
+windows had closed. A new appointment needs only its record under `designer_changes` in `events.yml`.
+
 ## Beyond the 18
 
 `registry/houses.yml` has two tiers. The core tier is the frozen v1 panel of 19 houses, the only

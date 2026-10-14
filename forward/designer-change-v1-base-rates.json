@@ -1,0 +1,2850 @@
+{
+ "made_by": "scripts/forward_base_rates.py",
+ "code_sha256": "5b706777b4d0c40db2f2310320cdc987e31a02513918f873e2f255b24096d730",
+ "data_commit": "9a63c3de653238d1cc1653aa7a6913561e11c3ac",
+ "last_closed_after_window": "2026-06",
+ "last_closed_crew_window": "2026-09",
+ "summary": {
+  "magnitude": {
+   "tested": 19,
+   "hits": 8
+  },
+  "itself": {
+   "tested": 20,
+   "hits": 5
+  },
+  "crew": {
+   "tested": 8,
+   "hits": 8
+  },
+  "transfer": {
+   "tested": 0,
+   "hits": 0
+  }
+ },
+ "events": [
+  {
+   "event": {
+    "house": "margiela",
+    "designer": "John Galliano",
+    "announced": "2014-10-06",
+    "first_show": "2015-01-12",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "margiela",
+   "first_show": "2015-01-12",
+   "pre": [
+    "2014-01",
+    "2014-12"
+   ],
+   "post": [
+    "2015-04",
+    "2016-03"
+   ],
+   "controls": [
+    "alaia",
+    "bottega_veneta",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "chanel",
+    "chloe",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "givenchy",
+    "loro_piana",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "gucci",
+    "designer": "Alessandro Michele",
+    "announced": "2015-01-21",
+    "first_show": "2015-02-25",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "gucci",
+   "first_show": "2015-02-25",
+   "pre": [
+    "2014-02",
+    "2015-01"
+   ],
+   "post": [
+    "2015-05",
+    "2016-04"
+   ],
+   "controls": [
+    "alaia",
+    "bottega_veneta",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "chanel",
+    "chloe",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "givenchy",
+    "loro_piana",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 2.4044,
+    "p": 0.001,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     21,
+     30
+    ],
+    "months": [
+     12,
+     12
+    ],
+    "controls": {
+     "bottega_veneta": 1.0536,
+     "celine": 0.5657,
+     "chanel": 0.7024,
+     "dolce_gabbana": 0.6923,
+     "fendi": 0.5942,
+     "givenchy": 0.627,
+     "zegna": 1.1005
+    },
+    "q90": 1.0724,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.195,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "bottega_veneta": 0.16,
+     "celine": 1.0,
+     "chanel": 0.47,
+     "dolce_gabbana": 0.995,
+     "fendi": 0.615,
+     "givenchy": 0.79,
+     "zegna": 0.82
+    },
+    "q10": 0.346,
+    "hit": true
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "balenciaga",
+    "designer": "Demna",
+    "announced": "2015-10-07",
+    "first_show": "2016-03-06",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "balenciaga",
+   "first_show": "2016-03-06",
+   "pre": [
+    "2015-03",
+    "2016-02"
+   ],
+   "post": [
+    "2016-06",
+    "2017-05"
+   ],
+   "controls": [
+    "bottega_veneta",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "chanel",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.9323,
+    "p": 0.001,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     26,
+     32
+    ],
+    "months": [
+     11,
+     9
+    ],
+    "controls": {
+     "bottega_veneta": 1.3599,
+     "celine": 0.9358,
+     "chanel": 0.8656,
+     "fendi": 1.1475,
+     "versace": 1.1971,
+     "zegna": 1.0282
+    },
+    "q90": 1.2785,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.55,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "bottega_veneta": 0.18,
+     "celine": 0.505,
+     "chanel": 0.595,
+     "fendi": 0.365,
+     "versace": 0.08,
+     "zegna": 0.96
+    },
+    "q10": 0.13,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "saint_laurent",
+    "designer": "Anthony Vaccarello",
+    "announced": "2016-04-04",
+    "first_show": "2016-09-27",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "saint_laurent",
+   "first_show": "2016-09-27",
+   "pre": [
+    "2015-09",
+    "2016-08"
+   ],
+   "post": [
+    "2016-12",
+    "2017-11"
+   ],
+   "controls": [
+    "bottega_veneta",
+    "brunello_cucinelli",
+    "burberry",
+    "chanel",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "rate": 0.81,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "bottega_veneta": 0.38,
+     "chanel": 0.535,
+     "dolce_gabbana": 0.405,
+     "fendi": 0.71,
+     "gucci": 0.98,
+     "loewe": 0.41,
+     "margiela": 0.44,
+     "versace": 0.15,
+     "zegna": 0.995
+    },
+    "q10": 0.334,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "dior",
+    "designer": "Maria Grazia Chiuri",
+    "announced": "2016-07-08",
+    "first_show": "2016-09-30",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "dior",
+   "first_show": "2016-09-30",
+   "pre": [
+    "2015-09",
+    "2016-08"
+   ],
+   "post": [
+    "2016-12",
+    "2017-11"
+   ],
+   "controls": [
+    "bottega_veneta",
+    "brunello_cucinelli",
+    "burberry",
+    "chanel",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.2639,
+    "p": 0.02,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign"
+    ],
+    "n": [
+     31,
+     36
+    ],
+    "months": [
+     10,
+     12
+    ],
+    "controls": {
+     "bottega_veneta": 1.0189,
+     "chanel": 0.7975,
+     "dolce_gabbana": 1.0452,
+     "fendi": 1.2854,
+     "gucci": 1.0099,
+     "loewe": 1.3607,
+     "margiela": 1.4005,
+     "versace": 1.8655,
+     "zegna": 1.2618
+    },
+    "q90": 1.4935,
+    "share_at_or_above": 0.444,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.875,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "bottega_veneta": 0.35,
+     "chanel": 0.555,
+     "dolce_gabbana": 0.515,
+     "fendi": 0.725,
+     "gucci": 0.985,
+     "loewe": 0.325,
+     "margiela": 0.48,
+     "versace": 0.145,
+     "zegna": 1.0
+    },
+    "q10": 0.289,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "valentino",
+    "designer": "Pierpaolo Piccioli",
+    "announced": "2016-07-07",
+    "first_show": "2016-10-02",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "valentino",
+   "first_show": "2016-10-02",
+   "pre": [
+    "2015-10",
+    "2016-09"
+   ],
+   "post": [
+    "2017-01",
+    "2017-12"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chanel",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "jil_sander",
+    "designer": "Luke and Lucie Meier",
+    "announced": null,
+    "first_show": "2017-09-23",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "jil_sander",
+   "first_show": "2017-09-23",
+   "pre": [
+    "2016-09",
+    "2017-08"
+   ],
+   "post": [
+    "2017-12",
+    "2018-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "chloe",
+    "designer": "Natacha Ramsay-Levi",
+    "announced": "2017-03-10",
+    "first_show": "2017-09-28",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "chloe",
+   "first_show": "2017-09-28",
+   "pre": [
+    "2016-09",
+    "2017-08"
+   ],
+   "post": [
+    "2017-12",
+    "2018-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.1375,
+    "p": 0.012,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     38,
+     36
+    ],
+    "months": [
+     12,
+     11
+    ],
+    "controls": {
+     "dries_van_noten": 0.6769,
+     "gucci": 1.1038,
+     "loewe": 1.0714,
+     "margiela": 0.4308,
+     "versace": 1.5451,
+     "zegna": 1.4205
+    },
+    "q90": 1.4828,
+    "share_at_or_above": 0.333,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.89,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "dries_van_noten": 0.995,
+     "gucci": 0.595,
+     "loewe": 0.515,
+     "margiela": 1.0,
+     "versace": 0.265,
+     "zegna": 0.605
+    },
+    "q10": 0.39,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "givenchy",
+    "designer": "Clare Waight Keller",
+    "announced": null,
+    "first_show": "2017-10-01",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "givenchy",
+   "first_show": "2017-10-01",
+   "pre": [
+    "2016-10",
+    "2017-09"
+   ],
+   "post": [
+    "2018-01",
+    "2018-12"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "tom_ford",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.0329,
+    "p": 0.041,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign"
+    ],
+    "n": [
+     8,
+     27
+    ],
+    "months": [
+     4,
+     12
+    ],
+    "controls": {
+     "dries_van_noten": 0.8897,
+     "gucci": 1.0301,
+     "loewe": 0.9994,
+     "margiela": 0.4562,
+     "versace": 1.7088,
+     "zegna": 1.5022
+    },
+    "q90": 1.6055,
+    "share_at_or_above": 0.333,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.0,
+    "chance": 0.067,
+    "candidates": 15,
+    "controls": {
+     "dries_van_noten": 0.955,
+     "gucci": 0.545,
+     "loewe": 0.665,
+     "margiela": 1.0,
+     "versace": 0.285,
+     "zegna": 0.585
+    },
+    "q10": 0.415,
+    "hit": true
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "burberry",
+    "designer": "Riccardo Tisci",
+    "announced": null,
+    "first_show": "2018-09-17",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "burberry",
+   "first_show": "2018-09-17",
+   "pre": [
+    "2017-09",
+    "2018-08"
+   ],
+   "post": [
+    "2018-12",
+    "2019-11"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.0,
+    "p": 0.0534,
+    "splits": 879,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     11,
+     11
+    ],
+    "months": [
+     8,
+     5
+    ],
+    "controls": {
+     "brunello_cucinelli": 0.6952,
+     "dior": 1.1516,
+     "dries_van_noten": 0.5796,
+     "hermes": 0.589,
+     "loewe": 1.1173,
+     "margiela": 1.1777,
+     "versace": 1.3032,
+     "zegna": 1.1317
+    },
+    "q90": 1.2153,
+    "share_at_or_above": 0.625,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.155,
+    "chance": 0.059,
+    "candidates": 17,
+    "controls": {
+     "brunello_cucinelli": 0.69,
+     "dior": 0.7,
+     "dries_van_noten": 1.0,
+     "hermes": 1.0,
+     "loewe": 0.575,
+     "margiela": 0.58,
+     "versace": 0.83,
+     "zegna": 0.745
+    },
+    "q10": 0.579,
+    "hit": true
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "celine",
+    "designer": "Hedi Slimane",
+    "announced": "2018-01-21",
+    "first_show": "2018-09-28",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "celine",
+   "first_show": "2018-09-28",
+   "pre": [
+    "2017-09",
+    "2018-08"
+   ],
+   "post": [
+    "2018-12",
+    "2019-11"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "bottega_veneta",
+    "designer": "Daniel Lee",
+    "announced": null,
+    "first_show": "2019-02-23",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "bottega_veneta",
+   "first_show": "2019-02-23",
+   "pre": [
+    "2018-02",
+    "2019-01"
+   ],
+   "post": [
+    "2019-05",
+    "2020-04"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 2.1641,
+    "p": 0.001,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     27,
+     19
+    ],
+    "months": [
+     11,
+     12
+    ],
+    "controls": {
+     "brunello_cucinelli": 0.2722,
+     "dior": 1.5327,
+     "dries_van_noten": 0.6648,
+     "hermes": 0.5429,
+     "loewe": 0.726,
+     "loro_piana": 1.2726,
+     "margiela": 0.9749,
+     "valentino": 0.6837,
+     "versace": 1.421,
+     "zegna": 1.424
+    },
+    "q90": 1.4349,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.09,
+    "chance": 0.053,
+    "candidates": 19,
+    "controls": {
+     "brunello_cucinelli": 0.72,
+     "dior": 0.815,
+     "dries_van_noten": 1.0,
+     "hermes": 1.0,
+     "loewe": 0.465,
+     "loro_piana": 0.0,
+     "margiela": 0.725,
+     "miu_miu": 0.0,
+     "valentino": 0.35,
+     "versace": 0.735,
+     "zegna": 0.35
+    },
+    "q10": 0.0,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "chanel",
+    "designer": "Virginie Viard",
+    "announced": "2019-02-19",
+    "first_show": "2019-05-03",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "chanel",
+   "first_show": "2019-05-03",
+   "pre": [
+    "2018-05",
+    "2019-04"
+   ],
+   "post": [
+    "2019-08",
+    "2020-07"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.828,
+    "p": 0.294,
+    "splits": 499,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     22,
+     22
+    ],
+    "months": [
+     11,
+     8
+    ],
+    "controls": {
+     "dior": 1.1525,
+     "dries_van_noten": 0.5779,
+     "hermes": 0.5629,
+     "loewe": 0.9657,
+     "loro_piana": 1.1359,
+     "margiela": 0.61,
+     "valentino": 0.8934,
+     "versace": 1.2973,
+     "zegna": 1.6055
+    },
+    "q90": 1.3589,
+    "share_at_or_above": 0.667,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.7,
+    "chance": 0.05,
+    "candidates": 20,
+    "controls": {
+     "dior": 0.86,
+     "dries_van_noten": 0.91,
+     "hermes": 1.0,
+     "loewe": 0.39,
+     "loro_piana": 0.215,
+     "margiela": 0.865,
+     "miu_miu": 0.0,
+     "valentino": 0.41,
+     "versace": 0.57,
+     "zegna": 0.155
+    },
+    "q10": 0.14,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "fendi",
+    "designer": "Silvia Venturini Fendi",
+    "announced": null,
+    "first_show": "2019-09-19",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "fendi",
+   "first_show": "2019-09-19",
+   "pre": [
+    "2018-09",
+    "2019-08"
+   ],
+   "post": [
+    "2019-12",
+    "2020-11"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "prada",
+    "designer": "Miuccia Prada and Raf Simons",
+    "announced": "2020-02-23",
+    "first_show": "2020-09-24",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "prada",
+   "first_show": "2020-09-24",
+   "pre": [
+    "2019-09",
+    "2020-08"
+   ],
+   "post": [
+    "2020-12",
+    "2021-11"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.4934,
+    "p": 0.002,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     29,
+     22
+    ],
+    "months": [
+     10,
+     7
+    ],
+    "controls": {
+     "brunello_cucinelli": 0.84,
+     "dior": 1.4346,
+     "dolce_gabbana": 1.0575,
+     "dries_van_noten": 1.0544,
+     "hermes": 0.5926,
+     "loewe": 2.1883,
+     "loro_piana": 0.6853,
+     "louis_vuitton": 0.8342,
+     "margiela": 1.1576,
+     "miu_miu": 1.2379,
+     "valentino": 1.2429,
+     "versace": 1.4059,
+     "zegna": 1.182
+    },
+    "q90": 1.4289,
+    "share_at_or_above": 0.077,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.01,
+    "chance": 0.048,
+    "candidates": 21,
+    "controls": {
+     "brunello_cucinelli": 0.95,
+     "burberry": 0.855,
+     "dior": 0.975,
+     "dolce_gabbana": 0.355,
+     "dries_van_noten": 0.61,
+     "hermes": 0.93,
+     "loewe": 0.37,
+     "loro_piana": 0.935,
+     "louis_vuitton": 0.555,
+     "margiela": 0.06,
+     "miu_miu": 0.94,
+     "valentino": 0.145,
+     "versace": 0.505,
+     "zegna": 0.265
+    },
+    "q10": 0.181,
+    "hit": true
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "givenchy",
+    "designer": "Matthew M. Williams",
+    "announced": null,
+    "first_show": "2020-10-04",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "givenchy",
+   "first_show": "2020-10-04",
+   "pre": [
+    "2019-10",
+    "2020-09"
+   ],
+   "post": [
+    "2021-01",
+    "2021-12"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "gucci",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.5803,
+    "p": 0.001,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     43,
+     30
+    ],
+    "months": [
+     12,
+     11
+    ],
+    "controls": {
+     "brunello_cucinelli": 0.8965,
+     "dior": 1.5404,
+     "dolce_gabbana": 1.1385,
+     "dries_van_noten": 0.9929,
+     "hermes": 0.7706,
+     "loewe": 1.9176,
+     "loro_piana": 0.6695,
+     "louis_vuitton": 0.8707,
+     "margiela": 1.1576,
+     "miu_miu": 1.1379,
+     "valentino": 1.0671,
+     "versace": 1.3188,
+     "zegna": 1.1687
+    },
+    "q90": 1.4961,
+    "share_at_or_above": 0.077,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.43,
+    "chance": 0.048,
+    "candidates": 21,
+    "controls": {
+     "brunello_cucinelli": 0.955,
+     "burberry": 0.925,
+     "dior": 0.995,
+     "dolce_gabbana": 0.285,
+     "dries_van_noten": 0.615,
+     "hermes": 0.92,
+     "loewe": 0.335,
+     "loro_piana": 0.94,
+     "louis_vuitton": 0.565,
+     "margiela": 0.05,
+     "miu_miu": 0.96,
+     "valentino": 0.175,
+     "versace": 0.64,
+     "zegna": 0.165
+    },
+    "q10": 0.168,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "chloe",
+    "designer": "Gabriela Hearst",
+    "announced": "2020-12-07",
+    "first_show": "2021-03-03",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "chloe",
+   "first_show": "2021-03-03",
+   "pre": [
+    "2020-03",
+    "2021-02"
+   ],
+   "post": [
+    "2021-06",
+    "2022-05"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "burberry",
+    "celine",
+    "chanel",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "alaia",
+    "designer": "Pieter Mulier",
+    "announced": "2021-02-05",
+    "first_show": "2021-07-04",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "alaia",
+   "first_show": "2021-07-04",
+   "pre": [
+    "2020-07",
+    "2021-06"
+   ],
+   "post": [
+    "2021-10",
+    "2022-09"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "celine",
+    "chanel",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "tom_ford",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.8225,
+    "p": 0.2121,
+    "splits": 924,
+    "exact": true,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     16,
+     12
+    ],
+    "months": [
+     6,
+     6
+    ],
+    "controls": {
+     "balenciaga": 0.939,
+     "brunello_cucinelli": 0.8939,
+     "chanel": 0.8151,
+     "dior": 1.7017,
+     "dolce_gabbana": 0.8772,
+     "fendi": 0.9667,
+     "hermes": 1.0034,
+     "loewe": 0.673,
+     "loro_piana": 1.1919,
+     "louis_vuitton": 1.5012,
+     "margiela": 0.4126,
+     "miu_miu": 1.734,
+     "saint_laurent": 0.78,
+     "valentino": 1.0123,
+     "versace": 0.8704,
+     "zegna": 1.3461
+    },
+    "q90": 1.6015,
+    "share_at_or_above": 0.75,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.13,
+    "chance": 0.045,
+    "candidates": 22,
+    "controls": {
+     "balenciaga": 0.225,
+     "brunello_cucinelli": 0.97,
+     "chanel": 0.74,
+     "dior": 0.17,
+     "dolce_gabbana": 0.595,
+     "fendi": 0.45,
+     "hermes": 0.975,
+     "loewe": 0.88,
+     "loro_piana": 0.465,
+     "louis_vuitton": 0.43,
+     "margiela": 0.94,
+     "miu_miu": 0.0,
+     "saint_laurent": 0.41,
+     "valentino": 0.17,
+     "versace": 0.725,
+     "zegna": 0.84
+    },
+    "q10": 0.17,
+    "hit": true
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "bottega_veneta",
+    "designer": "Matthieu Blazy",
+    "announced": null,
+    "first_show": "2022-02-26",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "bottega_veneta",
+   "first_show": "2022-02-26",
+   "pre": [
+    "2021-02",
+    "2022-01"
+   ],
+   "post": [
+    "2022-05",
+    "2023-04"
+   ],
+   "controls": [
+    "balenciaga",
+    "brunello_cucinelli",
+    "celine",
+    "chanel",
+    "dior",
+    "dolce_gabbana",
+    "dries_van_noten",
+    "fendi",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "saint_laurent",
+    "valentino",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.7531,
+    "p": 0.002,
+    "splits": 978,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     10,
+     38
+    ],
+    "months": [
+     8,
+     12
+    ],
+    "controls": {
+     "balenciaga": 1.3083,
+     "brunello_cucinelli": 0.5447,
+     "chanel": 0.7367,
+     "dior": 3.1363,
+     "dolce_gabbana": 0.7416,
+     "fendi": 0.8349,
+     "hermes": 1.1607,
+     "loewe": 1.1903,
+     "loro_piana": 1.1353,
+     "louis_vuitton": 1.0198,
+     "margiela": 0.7122,
+     "miu_miu": 2.2727,
+     "saint_laurent": 0.9845,
+     "valentino": 0.9151,
+     "versace": 1.6008,
+     "zegna": 1.1643
+    },
+    "q90": 1.9367,
+    "share_at_or_above": 0.125,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.195,
+    "chance": 0.043,
+    "candidates": 23,
+    "controls": {
+     "balenciaga": 0.51,
+     "brunello_cucinelli": 0.985,
+     "chanel": 0.75,
+     "dior": 0.02,
+     "dolce_gabbana": 0.375,
+     "fendi": 0.03,
+     "hermes": 0.83,
+     "loewe": 0.675,
+     "loro_piana": 0.725,
+     "louis_vuitton": 0.625,
+     "margiela": 0.49,
+     "miu_miu": 0.005,
+     "saint_laurent": 0.475,
+     "valentino": 0.545,
+     "versace": 0.175,
+     "zegna": 0.985
+    },
+    "q10": 0.025,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "burberry",
+    "designer": "Daniel Lee",
+    "announced": null,
+    "first_show": "2023-02-20",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "burberry",
+   "first_show": "2023-02-20",
+   "pre": [
+    "2022-02",
+    "2023-01"
+   ],
+   "post": [
+    "2023-05",
+    "2024-04"
+   ],
+   "controls": [
+    "alaia",
+    "balenciaga",
+    "brunello_cucinelli",
+    "celine",
+    "dior",
+    "dolce_gabbana",
+    "fendi",
+    "hermes",
+    "jil_sander",
+    "loewe",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "saint_laurent",
+    "versace",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "tom_ford",
+    "designer": "Peter Hawkings",
+    "announced": "2023-04-28",
+    "first_show": "2023-09-21",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "tom_ford",
+   "first_show": "2023-09-21",
+   "pre": [
+    "2022-09",
+    "2023-08"
+   ],
+   "post": [
+    "2023-12",
+    "2024-11"
+   ],
+   "controls": [
+    "alaia",
+    "brunello_cucinelli",
+    "celine",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "saint_laurent",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "itself": {
+    "status": "insufficient",
+    "reason": "too few pictures on one side"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 2
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "gucci",
+    "designer": "Sabato De Sarno",
+    "announced": "2023-01-28",
+    "first_show": "2023-09-22",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "gucci",
+   "first_show": "2023-09-22",
+   "pre": [
+    "2022-09",
+    "2023-08"
+   ],
+   "post": [
+    "2023-12",
+    "2024-11"
+   ],
+   "controls": [
+    "alaia",
+    "brunello_cucinelli",
+    "celine",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "margiela",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "saint_laurent",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.6469,
+    "p": 0.228,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     12,
+     19
+    ],
+    "months": [
+     5,
+     8
+    ],
+    "controls": {
+     "alaia": 0.5136,
+     "dolce_gabbana": 1.2109,
+     "hermes": 0.8036,
+     "loro_piana": 1.3834,
+     "louis_vuitton": 0.7455,
+     "margiela": 1.0547,
+     "miu_miu": 0.7441,
+     "prada": 1.0177,
+     "saint_laurent": 0.9652,
+     "zegna": 1.4212
+    },
+    "q90": 1.3872,
+    "share_at_or_above": 0.9,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.54,
+    "chance": 0.045,
+    "candidates": 22,
+    "controls": {
+     "alaia": 0.995,
+     "dolce_gabbana": 0.095,
+     "hermes": 0.675,
+     "loro_piana": 0.78,
+     "louis_vuitton": 0.63,
+     "margiela": 0.4,
+     "miu_miu": 0.895,
+     "prada": 0.15,
+     "saint_laurent": 0.44,
+     "zegna": 0.64
+    },
+    "q10": 0.144,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "chloe",
+    "designer": "Chemena Kamali",
+    "announced": "2023-10-09",
+    "first_show": "2024-02-29",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "chloe",
+   "first_show": "2024-02-29",
+   "pre": [
+    "2023-02",
+    "2024-01"
+   ],
+   "post": [
+    "2024-05",
+    "2025-04"
+   ],
+   "controls": [
+    "alaia",
+    "brunello_cucinelli",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "saint_laurent",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.9654,
+    "p": 0.073,
+    "splits": 972,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     14,
+     32
+    ],
+    "months": [
+     6,
+     10
+    ],
+    "controls": {
+     "alaia": 0.4584,
+     "dolce_gabbana": 0.5607,
+     "hermes": 0.8456,
+     "loro_piana": 1.6016,
+     "miu_miu": 0.5632,
+     "prada": 0.795,
+     "saint_laurent": 1.4814,
+     "zegna": 2.6104
+    },
+    "q90": 1.9042,
+    "share_at_or_above": 0.375,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.4,
+    "chance": 0.04,
+    "candidates": 25,
+    "controls": {
+     "alaia": 0.955,
+     "dolce_gabbana": 0.4,
+     "hermes": 0.7,
+     "loro_piana": 0.39,
+     "louis_vuitton": 0.15,
+     "miu_miu": 0.94,
+     "prada": 0.17,
+     "saint_laurent": 0.055,
+     "zegna": 0.405
+    },
+    "q10": 0.131,
+    "hit": false
+   },
+   "crew": {
+    "before": 1,
+    "after": 2,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "valentino",
+    "designer": "Alessandro Michele",
+    "announced": "2024-03-28",
+    "first_show": "2024-09-29",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "valentino",
+   "first_show": "2024-09-29",
+   "pre": [
+    "2023-09",
+    "2024-08"
+   ],
+   "post": [
+    "2024-12",
+    "2025-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "saint_laurent",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 2.4025,
+    "p": 0.001,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     32,
+     34
+    ],
+    "months": [
+     10,
+     10
+    ],
+    "controls": {
+     "dolce_gabbana": 0.3517,
+     "hermes": 1.0003,
+     "miu_miu": 1.9084,
+     "prada": 1.0426,
+     "saint_laurent": 1.2572,
+     "zegna": 1.2461
+    },
+    "q90": 1.5828,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.155,
+    "chance": 0.04,
+    "candidates": 25,
+    "controls": {
+     "dolce_gabbana": 0.315,
+     "hermes": 0.865,
+     "miu_miu": 0.845,
+     "prada": 0.25,
+     "saint_laurent": 0.06,
+     "zegna": 0.85
+    },
+    "q10": 0.155,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "fendi",
+    "designer": "Silvia Venturini Fendi",
+    "announced": null,
+    "first_show": "2025-02-26",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "fendi",
+   "first_show": "2025-02-26",
+   "pre": [
+    "2024-02",
+    "2025-01"
+   ],
+   "post": [
+    "2025-05",
+    "2026-04"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.9658,
+    "p": 0.066,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     27,
+     25
+    ],
+    "months": [
+     10,
+     7
+    ],
+    "controls": {
+     "dolce_gabbana": 0.5342,
+     "hermes": 0.6434,
+     "miu_miu": 1.5359,
+     "prada": 0.7739,
+     "zegna": 1.124
+    },
+    "q90": 1.3711,
+    "share_at_or_above": 0.4,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.575,
+    "chance": 0.038,
+    "candidates": 26,
+    "controls": {
+     "dolce_gabbana": 0.605,
+     "hermes": 0.565,
+     "miu_miu": 0.515,
+     "prada": 0.095,
+     "zegna": 0.37
+    },
+    "q10": 0.205,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 1
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "dries_van_noten",
+    "designer": "Julian Klausner",
+    "announced": "2024-12-09",
+    "first_show": "2025-03-05",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "dries_van_noten",
+   "first_show": "2025-03-05",
+   "pre": [
+    "2024-03",
+    "2025-02"
+   ],
+   "post": [
+    "2025-06",
+    "2026-05"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 0.8992,
+    "p": 0.0927,
+    "splits": 410,
+    "exact": true,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     7,
+     23
+    ],
+    "months": [
+     3,
+     12
+    ],
+    "controls": {
+     "dolce_gabbana": 0.5217,
+     "hermes": 0.707,
+     "miu_miu": 1.179,
+     "prada": 0.6169,
+     "zegna": 0.997
+    },
+    "q90": 1.1062,
+    "share_at_or_above": 0.4,
+    "hit": false
+   },
+   "itself": {
+    "rate": 0.305,
+    "chance": 0.038,
+    "candidates": 26,
+    "controls": {
+     "dolce_gabbana": 0.555,
+     "hermes": 0.47,
+     "miu_miu": 0.385,
+     "prada": 0.015,
+     "zegna": 0.285
+    },
+    "q10": 0.123,
+    "hit": false
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 1
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "tom_ford",
+    "designer": "Haider Ackermann",
+    "announced": "2024-09-04",
+    "first_show": "2025-03-05",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "tom_ford",
+   "first_show": "2025-03-05",
+   "pre": [
+    "2024-03",
+    "2025-02"
+   ],
+   "post": [
+    "2025-06",
+    "2026-05"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.3542,
+    "p": 0.0056,
+    "splits": 715,
+    "exact": true,
+    "kinds": [
+     "campaign"
+    ],
+    "n": [
+     26,
+     15
+    ],
+    "months": [
+     9,
+     4
+    ],
+    "controls": {
+     "dolce_gabbana": 0.5217,
+     "hermes": 0.707,
+     "miu_miu": 1.179,
+     "prada": 0.6169,
+     "zegna": 0.997
+    },
+    "q90": 1.1062,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.395,
+    "chance": 0.038,
+    "candidates": 26,
+    "controls": {
+     "dolce_gabbana": 0.58,
+     "hermes": 0.485,
+     "miu_miu": 0.365,
+     "prada": 0.015,
+     "zegna": 0.22
+    },
+    "q10": 0.097,
+    "hit": false
+   },
+   "crew": {
+    "before": 3,
+    "after": 2,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "givenchy",
+    "designer": "Sarah Burton",
+    "announced": null,
+    "first_show": "2025-03-07",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "givenchy",
+   "first_show": "2025-03-07",
+   "pre": [
+    "2024-03",
+    "2025-02"
+   ],
+   "post": [
+    "2025-06",
+    "2026-05"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "score": 1.802,
+    "p": 0.002,
+    "splits": 999,
+    "exact": false,
+    "kinds": [
+     "campaign",
+     "on_model"
+    ],
+    "n": [
+     29,
+     14
+    ],
+    "months": [
+     11,
+     9
+    ],
+    "controls": {
+     "dolce_gabbana": 0.5134,
+     "hermes": 0.7131,
+     "miu_miu": 1.1856,
+     "prada": 0.6169,
+     "zegna": 1.0084
+    },
+    "q90": 1.1147,
+    "share_at_or_above": 0.0,
+    "hit": true
+   },
+   "itself": {
+    "rate": 0.43,
+    "chance": 0.038,
+    "candidates": 26,
+    "controls": {
+     "dolce_gabbana": 0.585,
+     "hermes": 0.52,
+     "miu_miu": 0.355,
+     "prada": 0.01,
+     "zegna": 0.295
+    },
+    "q10": 0.124,
+    "hit": false
+   },
+   "crew": {
+    "before": 3,
+    "after": 2,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "not_applicable",
+    "reason": "the new lead does not come from a house Focal reads"
+   }
+  },
+  {
+   "event": {
+    "house": "celine",
+    "designer": "Michael Rider",
+    "announced": null,
+    "first_show": "2025-07-06",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "celine",
+   "first_show": "2025-07-06",
+   "pre": [
+    "2024-07",
+    "2025-06"
+   ],
+   "post": [
+    "2025-10",
+    "2026-09"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 0
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "margiela",
+    "designer": "Glenn Martens",
+    "announced": null,
+    "first_show": "2025-07-09",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "margiela",
+   "first_show": "2025-07-09",
+   "pre": [
+    "2024-07",
+    "2025-06"
+   ],
+   "post": [
+    "2025-10",
+    "2026-09"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 2,
+    "after": 0
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "gucci",
+    "designer": "Demna",
+    "announced": "2025-03-13",
+    "first_show": "2025-09-23",
+    "previous_house": "balenciaga",
+    "previous_left_announced": "2025-03-13"
+   },
+   "house": "gucci",
+   "first_show": "2025-09-23",
+   "pre": [
+    "2024-09",
+    "2025-08"
+   ],
+   "post": [
+    "2025-12",
+    "2026-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "before": 2,
+    "after": 10,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "jil_sander",
+    "designer": "Simone Bellotti",
+    "announced": null,
+    "first_show": "2025-09-24",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "jil_sander",
+   "first_show": "2025-09-24",
+   "pre": [
+    "2024-09",
+    "2025-08"
+   ],
+   "post": [
+    "2025-12",
+    "2026-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "before": 2,
+    "after": 1,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "versace",
+    "designer": "Dario Vitale",
+    "announced": "2025-03-13",
+    "first_show": "2025-09-26",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "versace",
+   "first_show": "2025-09-26",
+   "pre": [
+    "2024-09",
+    "2025-08"
+   ],
+   "post": [
+    "2025-12",
+    "2026-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "before": 2,
+    "after": 3,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "bottega_veneta",
+    "designer": "Louise Trotter",
+    "announced": "2024-12-12",
+    "first_show": "2025-09-27",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "bottega_veneta",
+   "first_show": "2025-09-27",
+   "pre": [
+    "2024-09",
+    "2025-08"
+   ],
+   "post": [
+    "2025-12",
+    "2026-11"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 3
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "dior",
+    "designer": "Jonathan Anderson",
+    "announced": "2025-06-02",
+    "first_show": "2025-10-01",
+    "previous_house": "loewe",
+    "previous_left_announced": "2025-03-17"
+   },
+   "house": "dior",
+   "first_show": "2025-10-01",
+   "pre": [
+    "2024-10",
+    "2025-09"
+   ],
+   "post": [
+    "2026-01",
+    "2026-12"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 2
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "loewe",
+    "designer": "Jack McCollough and Lazaro Hernandez",
+    "announced": "2025-03-24",
+    "first_show": "2025-10-03",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "loewe",
+   "first_show": "2025-10-03",
+   "pre": [
+    "2024-10",
+    "2025-09"
+   ],
+   "post": [
+    "2026-01",
+    "2026-12"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "before": 1,
+    "after": 1,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "balenciaga",
+    "designer": "Pierpaolo Piccioli",
+    "announced": "2025-05-19",
+    "first_show": "2025-10-04",
+    "previous_house": null,
+    "previous_left_announced": null
+   },
+   "house": "balenciaga",
+   "first_show": "2025-10-04",
+   "pre": [
+    "2024-10",
+    "2025-09"
+   ],
+   "post": [
+    "2026-01",
+    "2026-12"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "before": 1,
+    "after": 3,
+    "stayed": 0,
+    "hit": true
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  },
+  {
+   "event": {
+    "house": "chanel",
+    "designer": "Matthieu Blazy",
+    "announced": "2024-12-12",
+    "first_show": "2025-10-06",
+    "previous_house": "bottega_veneta",
+    "previous_left_announced": "2024-12-12"
+   },
+   "house": "chanel",
+   "first_show": "2025-10-06",
+   "pre": [
+    "2024-10",
+    "2025-09"
+   ],
+   "post": [
+    "2026-01",
+    "2026-12"
+   ],
+   "controls": [
+    "brunello_cucinelli",
+    "burberry",
+    "chloe",
+    "dolce_gabbana",
+    "hermes",
+    "loro_piana",
+    "louis_vuitton",
+    "max_mara",
+    "miu_miu",
+    "prada",
+    "zegna"
+   ],
+   "magnitude": {
+    "status": "window_open"
+   },
+   "itself": {
+    "status": "window_open"
+   },
+   "crew": {
+    "status": "insufficient",
+    "before": 0,
+    "after": 5
+   },
+   "transfer": {
+    "status": "window_open"
+   }
+  }
+ ]
+}
