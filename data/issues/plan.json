@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "why": "Focal's mock covers, one for each house: the house's style as it is usually pictured. Focal sets its masthead and findings over the picture afterwards.",
+ "style": "Editorial fashion photograph with a medium-format film look, soft natural grain, refined and quiet. Tall portrait frame. The subject sits in the centre and right of the frame, in its lower two thirds; the top quarter of the frame is plain, empty background, and so is the lower left corner. No text, no letters, no logos, no labels and no brand marks anywhere in the picture.",
+ "negative": "text, letters, words, numbers, typography, caption, logo, monogram, emblem, brand name, label, tag, watermark, signature, magazine masthead, border, frame, face, facial features, eyes, portrait, looking at camera, other people, crowd, cartoon, illustration, 3d render, CGI, lowres, blurry, oversaturated, deformed hands, extra fingers, distorted anatomy",
+ "seeds": [
+  11,
+  23,
+  37
+ ],
+ "draw_size": [
+  1088,
+  1360
+ ],
+ "steps": 40,
+ "cfg": 4.0,
+ "houses": {
+  "alaia": "A black stretch-knit dress with a fitted bodice, a wide black leather belt at the waist and a flared, fluted skirt edged with a band of small laser-cut circles, on a black tailor's dress form. The form stands before a warm off-white plaster wall with a shallow arched niche. Soft directional daylight from the left and a gentle shadow on the wall.",
+  "balenciaga": "A single glossy black leather pump with a sharply pointed toe and a thin stiletto heel, seen exactly side-on, standing alone on a seamless pale grey studio backdrop that curves into the floor. Hard, clean light from above, one crisp shadow, nothing else in the frame.",
+  "bottega_veneta": "A soft, slouchy hobo bag in smooth caramel-brown leather with a single knotted leather handle, resting on a seamless deep emerald-green backdrop. Soft studio light shows the grain and the folds of the leather. Plain smooth leather, no weave, no metal hardware.",
+  "brunello_cucinelli": "An oatmeal cashmere jacket hanging on the back of a rustic wooden chair on a stone terrace above the rolling hills of Umbria in golden late-afternoon light, with cypress trees and a small medieval hill village far in the distance, and a folded ivory knit on the seat of the chair.",
+  "burberry": "A person seen from directly behind, facing away from the camera, no face visible, walking away down a wet cobbled London street in the rain, wearing a long honey-beige belted trench coat and holding a large black umbrella that hides their head completely. Grey overcast light, falling rain, reflections on the wet stones, Georgian terraced houses softly out of focus.",
+  "celine": "Black-and-white photograph. A slim black tailored suit jacket over a crisp white shirt with a thin black tie, hanging on a plain black hanger against a bare white wall in a Parisian apartment, hard window light casting a sharp diagonal shadow. High contrast, rock-and-roll minimalism.",
+  "chanel": "A cropped jacket in black-and-ivory boucle tweed with braided black trim and gold buttons, on a black tailor's dress form, with several long ropes of large pearls draped around its neck, against an ivory backdrop. Soft, even atelier light that shows the texture of the tweed.",
+  "chloe": "A flowing cream maxi dress with tiers of soft ruffles and lace insets, hanging on a wooden hanger in the open window of a sunlit Mediterranean room, sheer white curtains lifting in the breeze, warm golden-hour light, a woven straw hat on a rattan chair below.",
+  "dior": "An ivory fitted jacket with a nipped-in waist and softly padded hips, over a full black pleated skirt reaching mid-calf, displayed on a dress form in a pale grey Parisian salon with white wall mouldings, a parquet floor and tall windows. Soft diffused daylight, quiet and formal.",
+  "dolce_gabbana": "A person seen from directly behind, facing away from the camera, no face visible, with long dark hair, wearing a long black lace evening gown, walking past a wall of hand-painted Sicilian majolica tiles in cobalt blue, yellow and white; a ceramic bowl of fresh lemons with leaves on the stone floor. Warm Mediterranean afternoon light.",
+  "dries_van_noten": "A long oversized coat in a bold painterly print of large pink, orange and red flowers on a deep navy ground, layered over wide trousers with narrow rust and cream stripes, on a dress form against a mustard-yellow backdrop. Rich, clashing colour and soft painterly light.",
+  "fendi": "A person seen from directly behind, facing away from the camera, no face visible, wearing a long honey-coloured fur coat, walking through a Roman colonnade of repeated travertine arches, warm late-afternoon light and long shadows across the pale stone floor.",
+  "givenchy": "A black strapless column evening gown with a sculpted bodice on a dress form, lit by a single narrow spotlight from above in a dark midnight-blue space; dramatic chiaroscuro, the sheen of the fabric catching the light.",
+  "gucci": "A pair of dark brown polished leather penny loafers placed on deep red crushed velvet, warm golden light, a gilded picture-frame edge blurred in the background, an opulent 1970s mood and rich textures. Plain loafers with a simple leather strap across the front and no metal hardware.",
+  "hermes": "A silk square scarf with a dense geometric rosette and border pattern in navy, burnt orange and cream, loosely folded on a bright orange leather surface beside a pair of tan leather riding gloves. Soft studio light and saturated warm colour.",
+  "jil_sander": "A single crisp white cotton shirt on a pale wooden hanger, hanging from a thin black rail against a smooth pale grey wall. Clean, soft, even light and one precise shadow; absolute minimalism and calm.",
+  "loewe": "A cream glazed ceramic jug with a looping handle on a white plaster plinth against a sun-washed terracotta wall, Spanish afternoon light with a sharp window shadow, a quiet craft still life.",
+  "loro_piana": "A neat stack of folded cashmere sweaters in camel, soft grey, oatmeal and ivory on a pale oak table by a large window; through the window, snow-dusted Andean mountains under a clear sky. Soft daylight, quiet luxury.",
+  "louis_vuitton": "Three vintage steamer trunks stacked on top of each other, covered in plain smooth brown leather with brass corner pieces, wooden slats and leather handles, in a softly lit cream-coloured room with a parquet floor. The trunks are plain, with no pattern and no lettering.",
+  "margiela": "An oversized white cotton coat with exposed seams and raw edges on a dress form in an all-white room, beside a chair completely covered by a white dust sheet. Everything is painted white; soft diffuse light, quiet and ghostly.",
+  "max_mara": "A person seen from directly behind, facing away from the camera, no face visible, with short dark hair, walking away along a pale stone colonnade, wearing a long double-faced camel wool wrap coat with a tied belt. Warm, soft morning light.",
+  "miu_miu": "Seen from directly above on a powder-pink floor: a navy pleated mini skirt laid flat, a pair of white knee socks and a pair of black satin ballet flats, neatly arranged. Soft even light, playful and precise.",
+  "prada": "A black nylon bomber jacket over a grey wool A-line skirt on a dress form against a pale mint-green wall, with a small black nylon handbag on a white plinth beside it. Cool, even light; austere and intellectual.",
+  "saint_laurent": "A person seen from directly behind, facing away from the camera, no face visible, with short slicked-back dark hair, standing on a Paris street at night under an old cast-iron street lamp, wearing a sharply cut black tuxedo with satin lapels. Wet cobblestones reflecting the warm glow of the lamp, cinematic darkness.",
+  "tom_ford": "A burgundy velvet dinner jacket with black satin peak lapels on a dress form in a dimly lit chocolate-brown room with gold accents, a crystal tumbler on a black lacquered side table. Low, warm, glamorous light.",
+  "valentino": "A person seen from directly behind, facing away from the camera, no face visible, with dark hair in a low bun, walking down a blush-pink Roman palazzo corridor in a red silk evening gown with a large sculptural bow at the back and a long train spreading across the marble floor. Soft daylight from tall windows.",
+  "versace": "A person seen from directly behind, facing away from the camera, no face visible, with long dark hair, standing on a white terrace by the sea at sunset in a short gold chain-mail mini dress, palm trees silhouetted against a cobalt and hot-pink sky, glamorous warm light.",
+  "zegna": "A person seen from directly behind, facing away from the camera, no face visible, with short hair, walking up an alpine meadow path in a soft beige wool overshirt and trousers, pine forests and snow-capped peaks ahead under a crisp blue sky."
+ }
+}

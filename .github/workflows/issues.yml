@@ -1,0 +1,100 @@
+name: issues
+run-name: issues ${{ inputs.only || 'all houses' }}
+# Focal's house issues (adtone/issues.py): one picture for each house, its style as it is usually pictured,
+# drawn by the open image model the site's illustration already uses (bakeoff/modal_paint.py, Qwen-Image,
+# Apache 2.0, pinned in data/flex/models.json), once for each seed of data/issues/plan.json. The prompts never
+# name a house and ask for no text or marks. The originals go to the private Modal volume and the copies to look
+# at to a branch of their own, sealed to a key outside this repository. No picture is written to the
+# repository. Editing .github/kick/issues starts a run; a second word lists the only houses to draw, comma-separated.
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Only these houses, comma-separated (default: every house not yet drawn)"
+        default: ""
+      again:
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: [".github/kick/issues"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-issues
+  cancel-in-progress: false
+
+jobs:
+  issues:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
+    timeout-minutes: 200
+    env:
+      PYTHONUNBUFFERED: "1"
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start from the latest main
+        run: git fetch -q --depth=1 origin main && git reset -q --hard FETCH_HEAD && git log --oneline -1
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Which houses
+        id: w
+        run: |
+          only="${{ inputs.only }}"
+          if [ -z "$only" ] && [ "${{ github.event_name }}" = push ]; then only=$(head -1 .github/kick/issues 2>/dev/null | awk '{print $2}'); fi
+          case "$only" in *[!a-z_,]*) only="" ;; esac
+          echo "only=$only" >> "$GITHUB_OUTPUT"
+          echo "issues: ${only:-every house not yet drawn}" | tee -a /tmp/issues.log
+      - name: Install
+        timeout-minutes: 10
+        run: pip install -q -r requirements.txt pynacl
+      - name: Deploy the painter
+        id: deploy
+        timeout-minutes: 40
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          gen=$(python -c "import json; d = json.load(open('data/flex/models.json'))['gen']; print(d['model'] + '@' + d['revision'])")
+          edit=$(python -c "import json; d = json.load(open('data/flex/models.json'))['edit']; print(d['model'] + '@' + d['revision'])")
+          PAINT_GEN="$gen" PAINT_EDIT="$edit" modal deploy bakeoff/modal_paint.py 2>&1 | tee -a /tmp/issues.log
+      - name: Draw
+        if: steps.deploy.outcome == 'success'
+        timeout-minutes: 160
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python -m adtone.issues draw --only "${{ steps.w.outputs.only }}" ${{ inputs.again == true && '--again' || '' }} --budget-min 150 2>&1 | tee -a /tmp/issues.log
+      - name: Sealed pictures to look at, on a branch of their own
+        # One file per run, sealed to a key that is not in this repository: it holds no readable picture.
+        if: always() && hashFiles('issues_pictures/issues.tar.sealed') != ''
+        timeout-minutes: 5
+        run: |
+          tmp=$(mktemp -d)
+          if git ls-remote --exit-code --heads origin issues-sealed >/dev/null 2>&1; then
+            git clone -q --depth 1 --branch issues-sealed "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$tmp/b"
+          else
+            mkdir "$tmp/b" && git -C "$tmp/b" init -q && git -C "$tmp/b" checkout -q -b issues-sealed
+          fi
+          cp issues_pictures/issues.tar.sealed "$tmp/b/issues-${GITHUB_RUN_ID}.tar.sealed"
+          cd "$tmp/b" && git add "issues-${GITHUB_RUN_ID}.tar.sealed"
+          git -c user.name=adtone-issues-bot -c user.email=actions@users.noreply.github.com commit -q -m "sealed pictures of the house issues, run ${GITHUB_RUN_ID}"
+          git push -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:issues-sealed
+      - name: Keep the end of the log
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib, datetime
+          p = pathlib.Path("/tmp/issues.log")
+          lines = p.read_text(errors="replace").splitlines()[-300:] if p.exists() else []
+          out = pathlib.Path("data/issues/runlog.json")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps({"at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "lines": lines}, indent=0) + "\n")
+          PY
+      - name: Persist
+        if: always()
+        timeout-minutes: 5
+        run: bash scripts/persist.sh issues "issues drawn"
