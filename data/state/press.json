@@ -1,6 +1,8 @@
 {
   "complete": [
-    "chloe"
+    "chloe",
+    "givenchy",
+    "versace"
   ],
   "covered": {
     "balenciaga": "2026-10-10",
@@ -13,6 +15,7 @@
     "dolce_gabbana": "2018-03-26",
     "dries_van_noten": "2017-03-31",
     "fendi": "2017-03-31",
+    "givenchy": "2026-10-12",
     "gucci": "2026-10-10",
     "hermes": "2017-06-29",
     "jil_sander": "2017-03-31",
@@ -23,7 +26,8 @@
     "miu_miu": "2017-03-31",
     "prada": "2026-10-10",
     "saint_laurent": "2026-10-10",
-    "valentino": "2026-10-11"
+    "valentino": "2026-10-11",
+    "versace": "2026-10-12"
   },
   "end": "2026-10-12",
   "failed": {},
@@ -59,7 +63,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh38455157302",
+  "run": "gh38486557474",
   "span": {},
-  "updated_at": "2026-10-13T19:54:57Z"
+  "updated_at": "2026-10-14T00:21:23Z"
 }
