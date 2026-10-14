@@ -134,8 +134,8 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, toda
     declined, stopped, t0 = {}, None, clock()
     for house, ds in sorted(domains.items()):
         key = f"{house}:{day}"
-        if table.get(key):
-            continue
+        if (table.get(key) or {}).get("status") in ("resolved", "declined", "no_images"):
+            continue                  # an error (a timeout, a dropped connection) is tried again the same day
         if clock() - t0 > budget_s:
             stopped = "budget"
             break
