@@ -565,13 +565,18 @@
   .pv-method .pv-key { margin: 0 auto; text-align: center; }
   /* The house issues: each cover a card that turns over; on its back, on a ground drawn from the cover, the figure that sets the house's homepage pictures apart */
   .body.issues-body { max-width: none; }
-  .issues-grid { --cols: 1; list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
-  @media (max-width: 39.99rem) { .issues-grid { max-width: 26rem; row-gap: 2rem; } }
-  @media (min-width: 40rem) { .issues-grid { --cols: 2; } }
+  .issues-grid { --cols: 2; list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
+  /* on a phone the covers sit two abreast; a cover turned over is lifted over the page at a size its back can be read at, its place in the grid held */
+  @media (max-width: 39.99rem) {
+    .issues-grid { gap: 1.5rem 0.875rem; }
+    .ic.on { padding-top: 125%; }
+    .ic.on::before { content: ""; position: fixed; inset: 0; z-index: 59; background: rgba(23, 21, 15, 0.6); }
+    .ic.on .ic-card { position: fixed; z-index: 60; top: 50%; left: 50%; width: min(88vw, 26rem); transform: translate(-50%, -50%); }
+  }
   @media (min-width: 60rem) { .issues-grid { --cols: 3; } .issues-grid > .ic:last-child:nth-child(3n + 1) { grid-column: 2; } }
   @media (min-width: 80rem) { .issues-grid { --cols: 4; } .issues-grid > .ic:last-child:nth-child(3n + 1) { grid-column: auto; } }
-  .ic { position: relative; min-width: 0; margin: 0; container-type: inline-size; }
-  .ic-card { position: relative; aspect-ratio: 4 / 5; max-width: 100%; perspective: 1600px; }
+  .ic { position: relative; min-width: 0; margin: 0; }
+  .ic-card { position: relative; aspect-ratio: 4 / 5; max-width: 100%; perspective: 1600px; container-type: inline-size; }
   .ic-flip { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.3, 0.7, 0.2, 1); }
   .ic.on .ic-flip { transform: rotateY(180deg); }
   .ic-face { position: absolute; inset: 0; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 12px 28px rgba(0, 0, 0, 0.12); }
@@ -1105,9 +1110,9 @@
                 <div class="ic-face ic-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Focal, the Balenciaga issue: a single black pointed stiletto pump on a pale grey studio floor"><defs><linearGradient id="balenciaga-vt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.00"/><stop offset=".62" stop-color="#ffffff" stop-opacity="0.00"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient><linearGradient id="balenciaga-vb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset=".45" stop-color="#000000" stop-opacity="0.49"/><stop offset="1" stop-color="#000000" stop-opacity="0.82"/></linearGradient></defs><image data-href="/issues/balenciaga-ea3a5806e7f9.webp" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidYMid slice"/><rect x="0" y="312" width="400" height="188" fill="url(#balenciaga-vb)"/><text x="200" y="68" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="66" font-weight="300" fill="#111111" style="font-variation-settings:'wdth' 125;letter-spacing:7px">F<tspan fill="#111111">O</tspan>CAL</text><text x="200" y="86" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.4" font-weight="600" fill="#111111" style="letter-spacing:2.4px">THE HOUSE ISSUES &#183; NO. 02 &#183; OCTOBER 2026</text><text x="25" y="382.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">The</text><text x="22" y="433.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="50" fill="#fbf8f2" style="letter-spacing:-0.6px">Balenciaga</text><text x="25" y="455.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">issue</text></svg></div>
                 <div class="ic-face ic-back" id="ic-balenciaga">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;02 &middot; Balenciaga</p>
-                  <p class="ic-stat"><span class="ic-big ic-long">46 of 46</span> <span class="ic-t">homepage pictures since 2024 show shoes, and no other product</span></p>
-                  <ul class="ic-l"><li>All 46 are shot in a plain studio, in high-key light, with nobody in them.</li><li>The most distinct shop window of all, three years running.</li><li>Five years or more on, its pictures pick it out from the other houses 3 times in 100, against 26 for the typical house.</li></ul>
-                  <p class="ic-f">Focal’s reading of 46 homepage pictures, 2024 to 2026.</p>
+                  <p class="ic-stat"><span class="ic-big ic-long">40 of 40</span> <span class="ic-t">homepage pictures since 2024 show shoes, and no other product</span></p>
+                  <ul class="ic-l"><li>All 40 are shot in a plain studio, in high-key light, with nobody in them.</li><li>The most distinct shop window of all, three years running.</li><li>Five years or more on, its pictures pick it out from the other houses 3 times in 100, against 26 for the typical house.</li></ul>
+                  <p class="ic-f">Focal’s reading of 40 homepage pictures, 2024 to 2026.</p>
                 </div>
               </div>
             </div>
@@ -1530,7 +1535,7 @@
           </li>
         </ul>
         <p class="note issues-note">The pictures are made by Focal&rsquo;s image model from descriptions that never name the house. They hold no house&rsquo;s pictures, logos, monograms or patterns, and no one&rsquo;s face. In the reports behind the password, each cover carries two of Focal&rsquo;s findings about its house.</p>
-        <p class="note issues-note">On the backs, the median house is the middle of the other houses Focal read that year. A shop window is distinct when its pictures sit far from every other house&rsquo;s, as Focal&rsquo;s model reads them, and its nearest is the house whose pictures sit closest.</p>
+        <p class="note issues-note">On the backs, a house&rsquo;s homepage pictures are those Focal&rsquo;s model reads as campaign pictures or as product on a model, each counted once in a year. The median house is the middle of the other houses Focal read that year. A shop window is distinct when its pictures sit far from every other house&rsquo;s, as Focal&rsquo;s model reads them, and its nearest is the house whose pictures sit closest.</p>
       </div>
       <p class="next"><a href="#/private"><span class="k">Next</span> <span class="t">Private</span></a></p>
     </section>
@@ -1646,12 +1651,17 @@
   addEventListener("hashchange", route);
   // a menu link to where the address already points still takes the reader there
   links.forEach(a => a.addEventListener("click", () => { if (a.getAttribute("href") === location.hash) setTimeout(route); }));
-  // the house issues: a cover turns over to its figure, and back again
-  document.getElementById("issues").addEventListener("click", ev => {
+  // the house issues: a cover turns over to its figure, and back again; on a phone the turned cover is lifted
+  // over the page, and a tap beside it, Escape or leaving the page puts it back
+  const issues = document.getElementById("issues"), lifted = matchMedia("(max-width: 39.99rem)");
+  const putBack = () => issues.querySelectorAll(".ic.on").forEach(c => { c.classList.remove("on"); c.querySelector(".ic-btn").setAttribute("aria-pressed", "false"); });
+  issues.addEventListener("click", ev => {
     const b = ev.target.closest(".ic-btn");
-    if (!b) return;
+    if (!b) { if (lifted.matches) putBack(); return; }
     b.setAttribute("aria-pressed", String(b.closest(".ic").classList.toggle("on")));
   });
+  addEventListener("keydown", ev => { if (ev.key === "Escape" && lifted.matches) putBack(); });
+  addEventListener("hashchange", putBack);
   route();
 })();
 </script>
