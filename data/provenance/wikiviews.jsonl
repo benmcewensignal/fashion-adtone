@@ -4,3 +4,4 @@
 {"articles_scanned":29,"end":"2026-10-10","failed":0,"run":"gh38133901034","series_written":252,"stopped_on_budget":false,"unresolved":[],"updated_at":"2026-10-11T11:46:03Z","workers":6}
 {"articles_scanned":0,"end":"2026-10-11","failed":0,"run":"gh38245556254","series_written":252,"stopped_on_budget":false,"unresolved":[],"updated_at":"2026-10-12T12:31:02Z","workers":6}
 {"crashed":"RuntimeError: title lookup failed with HTTP 429","run":"gh38657471501","updated_at":"2026-10-15T00:03:42Z"}
+{"articles_scanned":60,"end":"2026-10-14","failed":0,"run":"gh38658521545","series_written":239,"stopped_on_budget":true,"unresolved":[],"updated_at":"2026-10-15T01:13:02Z","workers":6}

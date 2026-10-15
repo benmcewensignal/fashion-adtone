@@ -3,6 +3,34 @@
     "item": "Q2553832",
     "label": "Azzedine Alaïa"
   },
+  "armani": {
+    "director": [
+      {
+        "rank": "normal",
+        "value": "job vacancy"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Giorgio Armani"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Milan"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1975-01-01"
+      }
+    ],
+    "item": "Q635484",
+    "label": "Giorgio Armani"
+  },
   "balenciaga": {
     "founded_by": [
       {
@@ -42,6 +70,34 @@
       {
         "rank": "normal",
         "value": "Kering"
+      }
+    ]
+  },
+  "balmain": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Pierre Balmain"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1945-00-00"
+      }
+    ],
+    "item": "Q1385309",
+    "label": "Balmain",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Mayhoola for Investments"
       }
     ]
   },
@@ -254,6 +310,28 @@
       }
     ]
   },
+  "comme_des_garcons": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Rei Kawakubo"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Tokyo"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1969-00-00"
+      }
+    ],
+    "item": "Q1115170",
+    "label": "Comme des Garçons"
+  },
   "dior": {
     "founded_by": [
       {
@@ -340,6 +418,49 @@
       {
         "rank": "normal",
         "value": "LVMH"
+      }
+    ]
+  },
+  "ferragamo": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Salvatore Ferragamo"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Florence"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1927-00-00"
+      }
+    ],
+    "item": "Q3946053",
+    "label": "Salvatore Ferragamo",
+    "significant_person": [
+      {
+        "rank": "normal",
+        "role": [
+          "designer",
+          "founder"
+        ],
+        "value": "Salvatore Ferragamo"
+      },
+      {
+        "rank": "normal",
+        "role": [
+          "designer"
+        ],
+        "value": "Fiamma Ferragamo"
+      },
+      {
+        "rank": "normal",
+        "value": "Ferruccio Ferragamo"
       }
     ]
   },
@@ -460,6 +581,14 @@
       }
     ]
   },
+  "issey_miyake": {
+    "item": "Q469027",
+    "label": "Issey Miyake"
+  },
+  "jacquemus": {
+    "item": "Q21030814",
+    "label": "Simon Porte Jacquemus"
+  },
   "jil_sander": {
     "founded_by": [
       {
@@ -486,6 +615,34 @@
         "rank": "normal",
         "start": "2021-00-00",
         "value": "OTB Group"
+      }
+    ]
+  },
+  "lanvin": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Jeanne Lanvin"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1889-00-00"
+      }
+    ],
+    "item": "Q866899",
+    "label": "Lanvin",
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Fosun International Limited"
       }
     ]
   },
@@ -661,6 +818,60 @@
       }
     ]
   },
+  "mcqueen": {
+    "director": [
+      {
+        "end": "2016-00-00",
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "2004-00-00",
+        "value": "Jonathan Akeroyd"
+      },
+      {
+        "end": "2022-00-00",
+        "rank": "normal",
+        "role": [
+          "chief executive officer"
+        ],
+        "start": "2016-00-00",
+        "value": "Emmanuel Gintzburger"
+      }
+    ],
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Alexander McQueen"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "London"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1992-01-01"
+      }
+    ],
+    "item": "Q13882231",
+    "label": "Alexander McQueen",
+    "owned_by": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ],
+    "parent": [
+      {
+        "rank": "normal",
+        "value": "Kering"
+      }
+    ]
+  },
   "miu_miu": {
     "founded_by": [
       {
@@ -694,6 +905,22 @@
         "value": "Prada"
       }
     ]
+  },
+  "moncler": {
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Palazzo Moncler"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1952-01-01"
+      }
+    ],
+    "item": "Q1548951",
+    "label": "Moncler"
   },
   "prada": {
     "director": [
@@ -772,6 +999,64 @@
         "value": "Anthony Vaccarello"
       }
     ]
+  },
+  "schiaparelli": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Elsa Schiaparelli"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "Paris"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "1927-00-00"
+      }
+    ],
+    "item": "Q107835110",
+    "label": "House of Schiaparelli",
+    "significant_person": [
+      {
+        "rank": "normal",
+        "role": [
+          "creative director"
+        ],
+        "start": "2019-00-00",
+        "value": "Daniel Roseberry"
+      }
+    ]
+  },
+  "stella_mccartney": {
+    "item": "Q232812",
+    "label": "Stella McCartney"
+  },
+  "the_row": {
+    "founded_by": [
+      {
+        "rank": "normal",
+        "value": "Ashley Olsen"
+      }
+    ],
+    "headquarters": [
+      {
+        "rank": "normal",
+        "value": "New York City"
+      }
+    ],
+    "inception": [
+      {
+        "rank": "normal",
+        "value": "2006-00-00"
+      }
+    ],
+    "item": "Q25351941",
+    "label": "The Row"
   },
   "tom_ford": {
     "founded_by": [
