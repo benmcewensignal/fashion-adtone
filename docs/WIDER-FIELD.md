@@ -42,6 +42,10 @@ Identifiers
       checked on 15 October 2026 by name, place and Google's verification (the ad archive's pages show nothing
       to a fetcher, so their topics are first seen by the next collect): 18 are the houses' own companies
       (house), and Moncler S.P.A, not verified by Google, is entered as doubt.
+- [ ] Moncler's own advertising account: the only one found has two ads. The Moncler brand is licensed to its
+      sub-holding Industries S.p.A. (Moncler annual report 2024), a name the discovery rules do not look for;
+      adding it is a change to the rules in `adtone/adstransparency.py`, not a join. The Armani accounts are the
+      group's companies, so their ads may include Emporio Armani and Armani Exchange (noted on each row).
 - [x] Owners. No completion date is public for any of the three deals, so the announcements stand in:
       Lanvin's earlier owner, Shaw-Lan Wang, until Fosun said it had acquired a majority (2018-02-22); at
       Balmain, the Hivelin family until the sale to Mayhoola was announced (2016-06-21, not the 22nd, which
