@@ -1,4 +1,4 @@
-"""The house issues: one picture for each of the 28 houses, its style as it is usually pictured, drawn by the
+"""The house issues: one picture for each house, its style as it is usually pictured, drawn by the
 open image model the site's illustration already uses (bakeoff/modal_paint.py: Qwen-Image, Apache 2.0), for
 Focal's mock covers. Focal sets its own masthead and findings over the picture afterwards; the picture holds
 no text.
@@ -101,8 +101,9 @@ def draw(plan: dict | None = None, starter=None, put=None, only: list[str] | Non
     plan = plan or json.loads(PLAN.read_text(encoding="utf-8"))
     reg = registry.load()
     houses = {h.id: h.name for h in reg.houses}
-    # the wider field of 15 October 2026 has no issues yet; its names still may not appear in any prompt
-    problems = check_plan(plan, houses, issued=[h.id for h in reg.houses if h.tier != "wider"])
+    # a house of the wider field (15 October 2026) has an issue once its prompt is in the plan; no house's name
+    # may appear in any prompt
+    problems = check_plan(plan, houses, issued=[h.id for h in reg.houses if h.tier != "wider" or h.id in plan["houses"]])
     if problems:
         raise SystemExit("the plan is not fit to draw: " + "; ".join(problems))
     starter = starter or F._painter("Starter")
