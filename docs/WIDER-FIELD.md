@@ -21,6 +21,7 @@ here in the same commit.
 | `data/thread/shows.jsonl` (show listings) | 223 | ferragamo, issey_miyake |
 | `reference/ambassadors.csv` | 18 | the_row, comme_des_garcons, issey_miyake (not yet searched) |
 | `reference/credits.csv` | 197, crew only | the_row, comme_des_garcons |
+| `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
 | `reference/revenue.csv` | 49 | all but moncler and ferragamo (2019 only) |
 
 ## Still to gather
@@ -29,7 +30,7 @@ Identifiers
 - [ ] Show listings: the full markdown listings for ferragamo, issey_miyake, and the earlier entries the
       brand pages cut off for armani (main line before 2020), balmain, schiaparelli, lanvin, mcqueen and
       comme_des_garcons; merged with `python -m adtone.thread ingest` (titles, dates and links only).
-- [ ] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
+- [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [ ] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
       by hand in `reference/google_advertisers.csv`, as the file's notes do.
