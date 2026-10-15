@@ -1,6 +1,6 @@
 {
  "version": 1,
- "at": "2026-10-14T13:49:28Z",
+ "at": "2026-10-15T02:17:50Z",
  "models": {
   "gen": {
    "model": "Qwen/Qwen-Image-2512",
@@ -91,6 +91,36 @@
    "at": "2026-10-14T13:46:55Z"
   },
   {
+   "name": "armani-11",
+   "house": "armani",
+   "seed": 11,
+   "png_sha": "dc713cd311071953d1bb2e98edec4a057792bd7e91264b0720abdb920e7ce825",
+   "jpg_sha": "4e615e099949d23958faec11600f01cbb38ff312f3d3dd88b0cbaee8b9135274",
+   "prompt_sha": "6efdb751465e",
+   "seconds": 1034,
+   "at": "2026-10-15T02:03:35Z"
+  },
+  {
+   "name": "armani-23",
+   "house": "armani",
+   "seed": 23,
+   "png_sha": "90d639d6a4c9502baef5611c78bce78345f18953f901361161ef98ec3f9553ee",
+   "jpg_sha": "308152aeaad6c5fc87d6470e31cbdb3b5202ab320e1d441558afab9904ee5bdd",
+   "prompt_sha": "6efdb751465e",
+   "seconds": 1034,
+   "at": "2026-10-15T02:03:35Z"
+  },
+  {
+   "name": "armani-37",
+   "house": "armani",
+   "seed": 37,
+   "png_sha": "cbbcb679b44aaf15233687cce01ab92d13b6866cac02aa80ea10c6535f94cb4b",
+   "jpg_sha": "b27a400b3c280bdd460e64e77bc2c18ac90e6163763d4911b34282b70a2e9b1d",
+   "prompt_sha": "6efdb751465e",
+   "seconds": 1034,
+   "at": "2026-10-15T02:03:35Z"
+  },
+  {
    "name": "balenciaga-11",
    "house": "balenciaga",
    "seed": 11,
@@ -116,6 +146,36 @@
    "jpg_sha": "4776772ae1950ec17267f8a6abb074ff8e2f5fcb5834506124974173ccb6cc2e",
    "seconds": 79,
    "at": "2026-10-14T12:53:15Z"
+  },
+  {
+   "name": "balmain-11",
+   "house": "balmain",
+   "seed": 11,
+   "png_sha": "ef6b912c4932154ba4597d171acbda8336b1a3b7688639531aaa926ad846ce66",
+   "jpg_sha": "5395c113dc20f83f7d9ba9cddf602dfd63fbfa95bfb3bf40a11e80e613913997",
+   "prompt_sha": "50d6c6e3b416",
+   "seconds": 75,
+   "at": "2026-10-15T02:04:52Z"
+  },
+  {
+   "name": "balmain-23",
+   "house": "balmain",
+   "seed": 23,
+   "png_sha": "764f72ca88a1aa665b816cf7c88b330d3cc1c5d2eef4acb317ebb3e8502345aa",
+   "jpg_sha": "d82e24ef45e6e97c42a16e60aed1d9a50f2a272a79bfd35b5c6cc87c090495aa",
+   "prompt_sha": "50d6c6e3b416",
+   "seconds": 75,
+   "at": "2026-10-15T02:04:52Z"
+  },
+  {
+   "name": "balmain-37",
+   "house": "balmain",
+   "seed": 37,
+   "png_sha": "f8bd04ee1ab4e4687206bcb2fd55df3ad4bc10c9f46564ffb9c95dcf23de055c",
+   "jpg_sha": "2e8150294fd045cc28b9afc02678e49a9f9b416c9186e01b616b87d0da485fc6",
+   "prompt_sha": "50d6c6e3b416",
+   "seconds": 75,
+   "at": "2026-10-15T02:04:52Z"
   },
   {
    "name": "bottega_veneta-11",
@@ -278,6 +338,36 @@
    "jpg_sha": "2f7c091a3e53e1a9aae64a00dad13c5effae6b8664e378212ca434c4a605c83a",
    "seconds": 79,
    "at": "2026-10-14T13:01:23Z"
+  },
+  {
+   "name": "comme_des_garcons-11",
+   "house": "comme_des_garcons",
+   "seed": 11,
+   "png_sha": "63dac2636d77ecee1a598500e51531d4b2013cfb65c401ada7e03bc220e59733",
+   "jpg_sha": "29e0ee6b54c63db4d72906ea13080274d378a3354e7f993b97b57faeae29fdb9",
+   "prompt_sha": "acba09df20bd",
+   "seconds": 75,
+   "at": "2026-10-15T02:06:09Z"
+  },
+  {
+   "name": "comme_des_garcons-23",
+   "house": "comme_des_garcons",
+   "seed": 23,
+   "png_sha": "e82b6ea1fcc60d38f68c9f9078c4c15a18235f28a1630db71d7a574f009335a0",
+   "jpg_sha": "8bed3f23312eeb4e07bfe1d194035d562bacd5dab31d4bdec66232016598eabf",
+   "prompt_sha": "acba09df20bd",
+   "seconds": 75,
+   "at": "2026-10-15T02:06:09Z"
+  },
+  {
+   "name": "comme_des_garcons-37",
+   "house": "comme_des_garcons",
+   "seed": 37,
+   "png_sha": "e8cfe535eaf95c98b5ada8a10b7cdf70d58a7abbeb5b93b61aad8dd57b66604c",
+   "jpg_sha": "ce66318f8639ea6cff786a4c2334c1e42a182d962ba888c9c00944cad069d350",
+   "prompt_sha": "acba09df20bd",
+   "seconds": 75,
+   "at": "2026-10-15T02:06:09Z"
   },
   {
    "name": "dior-11",
@@ -478,6 +568,36 @@
    "at": "2026-10-14T13:42:38Z"
   },
   {
+   "name": "ferragamo-11",
+   "house": "ferragamo",
+   "seed": 11,
+   "png_sha": "e18617978069e174576b897e5c7dfb44cfa4e26a173a2646aa41f7e656a33beb",
+   "jpg_sha": "c345e6fb4e4bb24af1096c2a9f8d164f7c226627b3f6bcae86a9d628cdd68211",
+   "prompt_sha": "4fdbdf15650d",
+   "seconds": 75,
+   "at": "2026-10-15T02:07:27Z"
+  },
+  {
+   "name": "ferragamo-23",
+   "house": "ferragamo",
+   "seed": 23,
+   "png_sha": "1f35f748bad98043a95cdf4e8b8655672dc22f586cfd5366ee58db6fcbd58d9b",
+   "jpg_sha": "2bd99a6870a5c262ea34cb3e6b0e3fd2fc4a7c579ce94f8e004a315b542fbad6",
+   "prompt_sha": "4fdbdf15650d",
+   "seconds": 75,
+   "at": "2026-10-15T02:07:27Z"
+  },
+  {
+   "name": "ferragamo-37",
+   "house": "ferragamo",
+   "seed": 37,
+   "png_sha": "8208af994b00465273fb95d231b4b10ea56ec4154105aab668256d63ec3fee70",
+   "jpg_sha": "b67f62b909eb79ec76f9979c7bcc4edefefd79bfcba0ce38304799fe0aa5da79",
+   "prompt_sha": "4fdbdf15650d",
+   "seconds": 75,
+   "at": "2026-10-15T02:07:27Z"
+  },
+  {
    "name": "givenchy-11",
    "house": "givenchy",
    "seed": 11,
@@ -559,6 +679,66 @@
    "at": "2026-10-14T13:10:53Z"
   },
   {
+   "name": "issey_miyake-11",
+   "house": "issey_miyake",
+   "seed": 11,
+   "png_sha": "46cc722f63f029e892a77313c041181c38229650c67cba7e8573c8e3a85b859b",
+   "jpg_sha": "d42813ecec11d4a673db6775d10f8a89f6f90086e706666df3ee7ab686485948",
+   "prompt_sha": "e5712e30434b",
+   "seconds": 75,
+   "at": "2026-10-15T02:08:44Z"
+  },
+  {
+   "name": "issey_miyake-23",
+   "house": "issey_miyake",
+   "seed": 23,
+   "png_sha": "9459ad52552c15e1dc374f6ee0134ac4dd91d46026a0645616b17f67da44493b",
+   "jpg_sha": "19283c6a69687104589f0028f9f5343152f1be74605323fd1e1045f2126d853a",
+   "prompt_sha": "e5712e30434b",
+   "seconds": 75,
+   "at": "2026-10-15T02:08:44Z"
+  },
+  {
+   "name": "issey_miyake-37",
+   "house": "issey_miyake",
+   "seed": 37,
+   "png_sha": "1b2b63e4fe4800475ac53cfd354ab8f47092d8e32b04b63f2c2dd64007142085",
+   "jpg_sha": "857e7f13eeffab8fe0a5006cf909e7201fe3ff56925dad7c81bd637e8869fafc",
+   "prompt_sha": "e5712e30434b",
+   "seconds": 75,
+   "at": "2026-10-15T02:08:44Z"
+  },
+  {
+   "name": "jacquemus-11",
+   "house": "jacquemus",
+   "seed": 11,
+   "png_sha": "9c320d418158ea7f6b76eaae1945718494a4f5dd235dcd13aa5e8fd15a399705",
+   "jpg_sha": "5b84c059d7444bccd0c8f3be1ead9455937c05da09f2c04f6ca27581b80bdfbf",
+   "prompt_sha": "667a89c4ffa8",
+   "seconds": 75,
+   "at": "2026-10-15T02:10:03Z"
+  },
+  {
+   "name": "jacquemus-23",
+   "house": "jacquemus",
+   "seed": 23,
+   "png_sha": "90c92d6db063d48752d625dc0b91eb0469eac4525a9ba001cadde7f54f1da035",
+   "jpg_sha": "a44bb89fc28ed3e8ccc0c79fee772d56916cfbe3a269a128b33145371b336d71",
+   "prompt_sha": "667a89c4ffa8",
+   "seconds": 75,
+   "at": "2026-10-15T02:10:03Z"
+  },
+  {
+   "name": "jacquemus-37",
+   "house": "jacquemus",
+   "seed": 37,
+   "png_sha": "6af12ec1f5f23872cc89dba89c916b09712fe34a770ba0009afb57050d475292",
+   "jpg_sha": "b37bf4a0851cf44ebaefc02c8918ee8cd948e2f35cb81dea5949a22a9b1b6773",
+   "prompt_sha": "667a89c4ffa8",
+   "seconds": 75,
+   "at": "2026-10-15T02:10:03Z"
+  },
+  {
    "name": "jil_sander-11",
    "house": "jil_sander",
    "seed": 11,
@@ -584,6 +764,36 @@
    "jpg_sha": "8843b2ef62755145a7a8eb2882e344d3acfe84ee14487bae3bea964638bd4c80",
    "seconds": 79,
    "at": "2026-10-14T13:12:14Z"
+  },
+  {
+   "name": "lanvin-11",
+   "house": "lanvin",
+   "seed": 11,
+   "png_sha": "dc161eccdaf87d6bfa7763c0dc763f5ab8115ba0e3423203d5e763c22f468cde",
+   "jpg_sha": "ef6abda32f7264cdfe09d1ca7f0fa7a4f98cb08710f9b5a9dc57d754cdfc563b",
+   "prompt_sha": "4111897ab393",
+   "seconds": 75,
+   "at": "2026-10-15T02:11:20Z"
+  },
+  {
+   "name": "lanvin-23",
+   "house": "lanvin",
+   "seed": 23,
+   "png_sha": "af430218dab63e25a8851c9369d8d7b5a7c7cff92730b1105f9517da5b8e6f6b",
+   "jpg_sha": "4e5f8039c6b5bba1d119e5963949a2647f90602d674e56ed2d81890c890a898e",
+   "prompt_sha": "4111897ab393",
+   "seconds": 75,
+   "at": "2026-10-15T02:11:20Z"
+  },
+  {
+   "name": "lanvin-37",
+   "house": "lanvin",
+   "seed": 37,
+   "png_sha": "9c068de6447b6d3b65f2f846d0832efd13e60fbba76456e166831ce32f197724",
+   "jpg_sha": "0bccfc274bffe49542a9ca2b12e984558abcee91e4cb3b69bcd96da19f942f52",
+   "prompt_sha": "4111897ab393",
+   "seconds": 75,
+   "at": "2026-10-15T02:11:20Z"
   },
   {
    "name": "loewe-11",
@@ -721,6 +931,36 @@
    "at": "2026-10-14T13:18:59Z"
   },
   {
+   "name": "mcqueen-11",
+   "house": "mcqueen",
+   "seed": 11,
+   "png_sha": "d2fc7a428e148ce99e454b2d061c8a729c522194091264ea98a56ab75b868402",
+   "jpg_sha": "b6f5813f3cd3478f3c8f924e32f1249328124bf2d0cc3645aeac838e72e94bbf",
+   "prompt_sha": "94cdc9b4b69a",
+   "seconds": 75,
+   "at": "2026-10-15T02:12:38Z"
+  },
+  {
+   "name": "mcqueen-23",
+   "house": "mcqueen",
+   "seed": 23,
+   "png_sha": "ad5c47a7f02392736e1cb847140df7ce4a736dd05d5ebb06b266ae8ac75c7c13",
+   "jpg_sha": "f516e538725d20ec7741c1cf8584c9bc9f1e28b56aaac4dfb329ca04f83f1cd5",
+   "prompt_sha": "94cdc9b4b69a",
+   "seconds": 75,
+   "at": "2026-10-15T02:12:38Z"
+  },
+  {
+   "name": "mcqueen-37",
+   "house": "mcqueen",
+   "seed": 37,
+   "png_sha": "afbbb594fa805c44cd3d215c7044098523f007079f19da4b7eb16b89bca975e0",
+   "jpg_sha": "80008a31e0735e60afdc496f15cba31f3acce052c950a3a46a9c11d3bbd9fe75",
+   "prompt_sha": "94cdc9b4b69a",
+   "seconds": 75,
+   "at": "2026-10-15T02:12:38Z"
+  },
+  {
    "name": "miu_miu-11",
    "house": "miu_miu",
    "seed": 11,
@@ -778,6 +1018,36 @@
    "at": "2026-10-14T13:49:26Z"
   },
   {
+   "name": "moncler-11",
+   "house": "moncler",
+   "seed": 11,
+   "png_sha": "7fd74ebca751fe62b4d7e0f1743b6bb974adc345ad2d151f97f09fa899c76717",
+   "jpg_sha": "3c0f8ca1a2d937646a6043f8bbcb6a92ceeefad5182849100283c0e157db313c",
+   "prompt_sha": "30dd1c5ddb06",
+   "seconds": 75,
+   "at": "2026-10-15T02:13:55Z"
+  },
+  {
+   "name": "moncler-23",
+   "house": "moncler",
+   "seed": 23,
+   "png_sha": "83321a3e1e6c76855904dbe33595899e4c2be6761c972365f373cb3b06d20283",
+   "jpg_sha": "6923b1125f16a90ea639506e83870626551784a13e3fcdde48d89b69f89a922a",
+   "prompt_sha": "30dd1c5ddb06",
+   "seconds": 75,
+   "at": "2026-10-15T02:13:55Z"
+  },
+  {
+   "name": "moncler-37",
+   "house": "moncler",
+   "seed": 37,
+   "png_sha": "e42d9b93c75072375677088ccb7a28d5ca88101ab1b576925357514020e93f23",
+   "jpg_sha": "ca14bdf42d7bbe2de17c364f7fb078a7224f453a61de34ccb604402bd7d9b052",
+   "prompt_sha": "30dd1c5ddb06",
+   "seconds": 75,
+   "at": "2026-10-15T02:13:55Z"
+  },
+  {
    "name": "prada-11",
    "house": "prada",
    "seed": 11,
@@ -830,6 +1100,96 @@
    "jpg_sha": "13dc7d1e3c052f048185c4d2ec6eec7e4d510d726dc62ef374b06e3d7a5a1001",
    "seconds": 78,
    "at": "2026-10-14T13:23:02Z"
+  },
+  {
+   "name": "schiaparelli-11",
+   "house": "schiaparelli",
+   "seed": 11,
+   "png_sha": "97c6250c6c6f447d5d6c9316caa7281270e28d547282a35b9d4af70f6a6ba82a",
+   "jpg_sha": "4c58de8170f5f7cb2962f8e05d78091daee21380539e3c96864ec44a6b0c2c00",
+   "prompt_sha": "86ab7b941279",
+   "seconds": 75,
+   "at": "2026-10-15T02:15:13Z"
+  },
+  {
+   "name": "schiaparelli-23",
+   "house": "schiaparelli",
+   "seed": 23,
+   "png_sha": "5320cbf9a6030f5269362b3975118e5f787db22693d052c4972a4b84bcf11729",
+   "jpg_sha": "801d6d35c7868b44a68234ab82dfeaf38d5bcd44a78188c02f07edd915a5a7cb",
+   "prompt_sha": "86ab7b941279",
+   "seconds": 75,
+   "at": "2026-10-15T02:15:13Z"
+  },
+  {
+   "name": "schiaparelli-37",
+   "house": "schiaparelli",
+   "seed": 37,
+   "png_sha": "406dec72b83a95a870ab392fae5ef884f924af487cd7bfd891512353757e8fca",
+   "jpg_sha": "33ff88ab00b0c8e557433f2c2b8e4f82a8a85f60b79cbd605d3c2c99b130fb58",
+   "prompt_sha": "86ab7b941279",
+   "seconds": 75,
+   "at": "2026-10-15T02:15:13Z"
+  },
+  {
+   "name": "stella_mccartney-11",
+   "house": "stella_mccartney",
+   "seed": 11,
+   "png_sha": "9db012a196c1a770801cb2b9d3e7171ada916f2793443e5166f47e2ad91b9cc2",
+   "jpg_sha": "7705c7c495d66f89106d8ff62458f0dec4de808a3e8cd312fc184510447fa8c2",
+   "prompt_sha": "6ec58fe65fc9",
+   "seconds": 75,
+   "at": "2026-10-15T02:16:31Z"
+  },
+  {
+   "name": "stella_mccartney-23",
+   "house": "stella_mccartney",
+   "seed": 23,
+   "png_sha": "3d93baa32d42f0f392935bdf0423d34224c20388c21652efd6aa72a3f2c77644",
+   "jpg_sha": "2586c76af2dd0db6a4d75f9616a5755d21e92ecfc335d80066a988f62634a711",
+   "prompt_sha": "6ec58fe65fc9",
+   "seconds": 75,
+   "at": "2026-10-15T02:16:31Z"
+  },
+  {
+   "name": "stella_mccartney-37",
+   "house": "stella_mccartney",
+   "seed": 37,
+   "png_sha": "cb12460465283f65dd5cc51d70918d6bcf1701f707c59c247c948f35f37fd2b4",
+   "jpg_sha": "9f7675f615a7fff0719e1adf7a0c51a9a6cd0c9434e505261884a05d55164359",
+   "prompt_sha": "6ec58fe65fc9",
+   "seconds": 75,
+   "at": "2026-10-15T02:16:31Z"
+  },
+  {
+   "name": "the_row-11",
+   "house": "the_row",
+   "seed": 11,
+   "png_sha": "8030399c22a015405b730a901324e9e79865861bd0ce6bfacee1ef4e02de2263",
+   "jpg_sha": "e2c0946da554c53fc55c854292ee7fef35715a26f819ef6f99a1673985768079",
+   "prompt_sha": "6d049b5c15ea",
+   "seconds": 75,
+   "at": "2026-10-15T02:17:48Z"
+  },
+  {
+   "name": "the_row-23",
+   "house": "the_row",
+   "seed": 23,
+   "png_sha": "3172067c442693e150e4f9d55d44da4202289d41629f20264c845712333effb2",
+   "jpg_sha": "5ce899f72ce73617083a46285ccee1a69640fd488d92e0f7a716299bf0c78cf6",
+   "prompt_sha": "6d049b5c15ea",
+   "seconds": 75,
+   "at": "2026-10-15T02:17:48Z"
+  },
+  {
+   "name": "the_row-37",
+   "house": "the_row",
+   "seed": 37,
+   "png_sha": "03ee8369cdbbe118f692c2187ce0de71c137a5c4c07e07d6023432b6618f638d",
+   "jpg_sha": "ff6e071b948fea4a714297005adb925e43cfd23022d1acf7a35c61b67bdef5d2",
+   "prompt_sha": "6d049b5c15ea",
+   "seconds": 75,
+   "at": "2026-10-15T02:17:48Z"
   },
   {
    "name": "tom_ford-11",
@@ -941,9 +1301,18 @@
   }
  ],
  "drawn_this_run": [
-  "alaia",
-  "dior",
-  "miu_miu"
+  "armani",
+  "balmain",
+  "comme_des_garcons",
+  "ferragamo",
+  "issey_miyake",
+  "jacquemus",
+  "lanvin",
+  "mcqueen",
+  "moncler",
+  "schiaparelli",
+  "stella_mccartney",
+  "the_row"
  ],
- "minutes": 4.5
+ "minutes": 31.5
 }
