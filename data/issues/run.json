@@ -1,6 +1,6 @@
 {
  "version": 1,
- "at": "2026-10-15T02:39:29Z",
+ "at": "2026-10-15T02:44:57Z",
  "models": {
   "gen": {
    "model": "Qwen/Qwen-Image-2512",
@@ -1192,6 +1192,36 @@
    "at": "2026-10-15T02:38:09Z"
   },
   {
+   "name": "schiaparelli-71",
+   "house": "schiaparelli",
+   "seed": 71,
+   "png_sha": "8c61066c135b919fff62b2131a3a8f958b98a86e6d4b11cb1903a82bf6957f96",
+   "jpg_sha": "49160388d793950810b426b0e7ddd4f576cddc0f51c73a71e663915aaf31fc7f",
+   "prompt_sha": "5f4432f0c96c",
+   "seconds": 147,
+   "at": "2026-10-15T02:44:56Z"
+  },
+  {
+   "name": "schiaparelli-83",
+   "house": "schiaparelli",
+   "seed": 83,
+   "png_sha": "256781b64098015652cb44f454b6eaf707167661d4661cf9dbba91c1abf1c734",
+   "jpg_sha": "2a57ca190b194aeae0b05fe8e947b928f4a2e7fa0b05e38d0d553c21f40788e4",
+   "prompt_sha": "5f4432f0c96c",
+   "seconds": 147,
+   "at": "2026-10-15T02:44:56Z"
+  },
+  {
+   "name": "schiaparelli-97",
+   "house": "schiaparelli",
+   "seed": 97,
+   "png_sha": "aa557f186a8a23b834667b7bd74e1608a23b31f8d51649f0377d028cc8f110d6",
+   "jpg_sha": "b54bdfbca4a9f02590ce3a96eb11bc4f3b2e6c86321a050d4d9bae254d8199e6",
+   "prompt_sha": "5f4432f0c96c",
+   "seconds": 147,
+   "at": "2026-10-15T02:44:56Z"
+  },
+  {
    "name": "stella_mccartney-11",
    "house": "stella_mccartney",
    "seed": 11,
@@ -1391,9 +1421,7 @@
   }
  ],
  "drawn_this_run": [
-  "balmain",
-  "schiaparelli",
-  "the_row"
+  "schiaparelli"
  ],
- "minutes": 4.5
+ "minutes": 2.5
 }
