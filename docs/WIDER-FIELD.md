@@ -97,8 +97,9 @@ Revenue (`reference/revenue.csv`, published figures only)
 Later
 - [ ] Moncler's own advertising account: the only one found has two ads. The Moncler brand is licensed to its
       sub-holding Industries S.p.A. (Moncler annual report 2024), a name the discovery rules do not look for;
-      adding it is a change to the rules in `adtone/adstransparency.py`, not a join, so it waits for Ben. The Armani accounts are the
-      group's companies, so their ads may include Emporio Armani and Armani Exchange (noted on each row).
+      adding it is a change to the rules in `adtone/adstransparency.py`, not a join, so it waits for Ben. The
+      Armani accounts are the group's companies, so their ads may include Emporio Armani and Armani Exchange
+      (noted on each row).
 - [ ] Show statements (`reference/statements.csv`) for the twelve houses' shows of 2025 and 2026.
 - [x] Issue covers for the twelve: drawn on 15 October 2026 and checked by eye, the chosen picture of each
       house in `data/issues/choices.json`. The Row, Balmain and Schiaparelli were drawn again (`seeds_for` in
