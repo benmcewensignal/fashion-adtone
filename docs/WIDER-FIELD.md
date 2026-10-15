@@ -64,5 +64,9 @@ Revenue (`reference/revenue.csv`, published figures only)
 
 Later
 - [ ] Show statements (`reference/statements.csv`) for the twelve houses' shows of 2025 and 2026.
-- [ ] Issue covers for the twelve: prompts in the issues plan, drawn by the image model and checked by eye
-      before any cover is shown.
+- [x] Issue covers for the twelve: drawn on 15 October 2026 and checked by eye, the chosen picture of each
+      house in `data/issues/choices.json`. The Row, Balmain and Schiaparelli were drawn again (`seeds_for` in
+      the plan) because their first pictures ran into the masthead; Schiaparelli's is now seen from above.
+- [ ] The twelve covers on the site's Issues page, once each house has readings for the back of its cover:
+      `python -m adtone.issues publish`, then the covers' markup, checking that the 28 pictures already on the
+      site keep their names.
