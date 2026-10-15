@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T22:22:25Z",
+ "generated_at": "2026-10-15T05:57:09Z",
  "window_days": [
   -1,
   14
@@ -9937,7 +9937,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "prada.com": "ConnectionError"
+    "prada.com": "ReadTimeout"
    }
   },
   "prada:2025-01-19:men": {
@@ -10952,7 +10952,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "valentino.com": "ConnectionError"
+    "valentino.com": "ReadTimeout"
    }
   },
   "valentino:2021-01-29:couture": {
@@ -11517,7 +11517,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "versace.com": "ReadTimeout"
+    "versace.com": "ConnectionError"
    }
   },
   "versace:2025-09-26:rtw": {
@@ -11877,21 +11877,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/haute-couture/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1390
+   "pages": 973
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/",
     "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 6223
+   "pages": 5009
   },
   "dries_van_noten": {
    "prefixes": [
@@ -11940,11 +11938,9 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/us/en/content/"
    ],
-   "pages": 884
+   "pages": 180
   },
   "gucci": {
    "prefixes": [
@@ -11952,9 +11948,9 @@
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/stories/runway/",
     "www.gucci.com/us/en/st/capsule/sylvie-collection/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/"
+    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/",
+    "www.gucci.com/us/en/st/stories/runway/"
    ],
    "pages": 959
   },
@@ -12012,7 +12008,7 @@
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/"
    ],
-   "pages": 0
+   "pages": 219
   },
   "saint_laurent": {
    "prefixes": [
@@ -12041,13 +12037,9 @@
     "www.valentino.com/en-gb/experience/",
     "www.valentino.com/en-fi/collections/",
     "www.valentino.com/en-fi/collections/men/",
-    "www.valentino.com/en-fi/collections/women/",
-    "www.valentino.com/de-de/collections/women/",
-    "www.valentino.com/en-fi/experience/",
-    "www.valentino.com/de-de/experience/",
-    "www.valentino.com/de-de/f\u00fcr-ihn/vltn-man-collection/"
+    "www.valentino.com/en-fi/collections/women/"
    ],
-   "pages": 789
+   "pages": 21
   },
   "zegna": {
    "prefixes": [
