@@ -94,18 +94,28 @@ def session() -> requests.Session:
     return s
 
 
+TITLES_PER_QUERY = 40   # the API takes at most 50 titles a request and refuses the lot beyond that
+
+
 def resolve(sess, wanted: dict[str, list[str]]) -> dict[str, str | None]:
     """House id -> the canonical title of its first existing, non-disambiguation candidate."""
     titles = sorted({t for ts in wanted.values() for t in ts})
-    r = sess.get(API, params={"action": "query", "format": "json", "formatversion": "2", "redirects": "1",
-                              "prop": "pageprops", "ppprop": "disambiguation", "titles": "|".join(titles)}, timeout=30)
-    if r.status_code != 200:
-        raise RuntimeError(f"title lookup failed with HTTP {r.status_code}")
-    q = r.json().get("query", {})
-    hop = {n["from"]: n["to"] for n in q.get("normalized", [])}
-    hop.update({n["from"]: n["to"] for n in q.get("redirects", [])})
-    good = {p["title"] for p in q.get("pages", []) if not p.get("missing") and not p.get("invalid")
-            and "disambiguation" not in (p.get("pageprops") or {})}
+    hop: dict[str, str] = {}
+    good: set[str] = set()
+    for i in range(0, len(titles), TITLES_PER_QUERY):
+        chunk = titles[i:i + TITLES_PER_QUERY]
+        r = sess.get(API, params={"action": "query", "format": "json", "formatversion": "2", "redirects": "1",
+                                  "prop": "pageprops", "ppprop": "disambiguation", "titles": "|".join(chunk)}, timeout=30)
+        if r.status_code != 200:
+            raise RuntimeError(f"title lookup failed with HTTP {r.status_code}")
+        body = r.json()
+        if "error" in body:
+            raise RuntimeError(f"title lookup refused: {body['error'].get('code')}: {body['error'].get('info')}")
+        q = body.get("query", {})
+        hop.update({n["from"]: n["to"] for n in q.get("normalized", [])})
+        hop.update({n["from"]: n["to"] for n in q.get("redirects", [])})
+        good |= {p["title"] for p in q.get("pages", []) if not p.get("missing") and not p.get("invalid")
+                 and "disambiguation" not in (p.get("pageprops") or {})}
     out: dict[str, str | None] = {}
     for house, cands in wanted.items():
         out[house] = None
