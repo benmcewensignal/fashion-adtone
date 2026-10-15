@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T05:57:09Z",
+ "generated_at": "2026-10-15T12:42:51Z",
  "window_days": [
   -1,
   14
@@ -31,6 +31,32 @@
    "status": "none",
    "pages": 0,
    "candidates": []
+  },
+  "armani:2026-07-07:couture": {
+   "house": "armani",
+   "date": "2026-07-07",
+   "season": "2026 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "HTTP 504"
+   }
+  },
+  "armani:2026-09-27:rtw": {
+   "house": "armani",
+   "date": "2026-09-27",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "HTTP 502"
+   }
   },
   "balenciaga:2015-03-06:rtw": {
    "house": "balenciaga",
@@ -583,6 +609,32 @@
      "score": 0.62
     }
    ]
+  },
+  "balmain:2026-03-04:rtw": {
+   "house": "balmain",
+   "date": "2026-03-04",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ConnectionError"
+   }
+  },
+  "balmain:2026-09-30:rtw": {
+   "house": "balmain",
+   "date": "2026-09-30",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "HTTP 504"
+   }
   },
   "bottega_veneta:2015-01-18:men": {
    "house": "bottega_veneta",
@@ -2712,6 +2764,286 @@
   "chloe:2026-10-01:rtw": {
    "house": "chloe",
    "date": "2026-10-01",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2018-06-22:men": {
+   "house": "comme_des_garcons",
+   "date": "2018-06-22",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2018-09-29:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2018-09-29",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2019-01-18:men": {
+   "house": "comme_des_garcons",
+   "date": "2019-01-18",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2019-03-02:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2019-03-02",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2019-06-21:men": {
+   "house": "comme_des_garcons",
+   "date": "2019-06-21",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2019-09-28:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2019-09-28",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2020-01-28:men": {
+   "house": "comme_des_garcons",
+   "date": "2020-01-28",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2020-02-29:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2020-02-29",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2021-01-21:men": {
+   "house": "comme_des_garcons",
+   "date": "2021-01-21",
+   "season": "2021 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2021-07-12:men": {
+   "house": "comme_des_garcons",
+   "date": "2021-07-12",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2022-03-22:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2022-03-22",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2022-06-24:men": {
+   "house": "comme_des_garcons",
+   "date": "2022-06-24",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2022-10-01:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2022-10-01",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2023-01-20:men": {
+   "house": "comme_des_garcons",
+   "date": "2023-01-20",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2023-03-04:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2023-03-04",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2023-09-30:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2023-09-30",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2024-01-19:men": {
+   "house": "comme_des_garcons",
+   "date": "2024-01-19",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2024-03-02:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2024-03-02",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2024-06-21:men": {
+   "house": "comme_des_garcons",
+   "date": "2024-06-21",
+   "season": "2025 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2024-09-28:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2024-09-28",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2025-01-24:men": {
+   "house": "comme_des_garcons",
+   "date": "2025-01-24",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2025-03-08:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2025-03-08",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2025-06-27:men": {
+   "house": "comme_des_garcons",
+   "date": "2025-06-27",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2025-10-04:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2025-10-04",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2026-01-23:men": {
+   "house": "comme_des_garcons",
+   "date": "2026-01-23",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2026-03-07:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2026-03-07",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2026-06-26:men": {
+   "house": "comme_des_garcons",
+   "date": "2026-06-26",
+   "season": "2027 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2026-10-03:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2026-10-03",
    "season": "2027 SS rtw",
    "category": "rtw",
    "status": "none",
@@ -5225,6 +5557,400 @@
    "pages": 0,
    "candidates": []
   },
+  "ferragamo:2015-01-18:men": {
+   "house": "ferragamo",
+   "date": "2015-01-18",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2015-03-01:rtw": {
+   "house": "ferragamo",
+   "date": "2015-03-01",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 4,
+   "candidates": []
+  },
+  "ferragamo:2015-06-21:men": {
+   "house": "ferragamo",
+   "date": "2015-06-21",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/ss-16/look/look1",
+     "ts": "20150905215811",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/ss-16/look/look10",
+     "ts": "20150906004400",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/ss-16/look/look11",
+     "ts": "20150906004445",
+     "score": 10.88
+    }
+   ]
+  },
+  "ferragamo:2015-09-27:rtw": {
+   "house": "ferragamo",
+   "date": "2015-09-27",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/ss-16/look/look1",
+     "ts": "20151112012053",
+     "score": 9.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/ss-16/look/look36",
+     "ts": "20151113120700",
+     "score": 9.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/ss-16/look/look37",
+     "ts": "20151212134806",
+     "score": 9.88
+    }
+   ]
+  },
+  "ferragamo:2016-01-17:men": {
+   "house": "ferragamo",
+   "date": "2016-01-17",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/fw-16-17/look/look15",
+     "ts": "20160506051342",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/fw-16-17/look/look2",
+     "ts": "20160505104658",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/men/fw-16-17/look/look23",
+     "ts": "20160506054410",
+     "score": 10.88
+    }
+   ]
+  },
+  "ferragamo:2016-02-28:rtw": {
+   "house": "ferragamo",
+   "date": "2016-02-28",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/women/fw-16-17/look/look14",
+     "ts": "20160504225036",
+     "score": 9.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/women/fw-16-17/look/look15",
+     "ts": "20160410075809",
+     "score": 9.88
+    },
+    {
+     "url": "http://www.ferragamo.com/runway/en/usa/women/fw-16-17/look/look16",
+     "ts": "20160505164532",
+     "score": 9.88
+    }
+   ]
+  },
+  "ferragamo:2016-06-19:men": {
+   "house": "ferragamo",
+   "date": "2016-06-19",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/men/ss-17/look/look5",
+     "ts": "20161010042825",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/men/ss-17/look/look6",
+     "ts": "20160623135623",
+     "score": 10.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/men/ss-17",
+     "ts": "20160619210414",
+     "score": 7.88
+    }
+   ]
+  },
+  "ferragamo:2016-09-25:rtw": {
+   "house": "ferragamo",
+   "date": "2016-09-25",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/ss-17",
+     "ts": "20161001091830",
+     "score": 6.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/men/ss-17/look/look5",
+     "ts": "20161010042825",
+     "score": 5.88
+    }
+   ]
+  },
+  "ferragamo:2017-01-15:men": {
+   "house": "ferragamo",
+   "date": "2017-01-15",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/men/fw-17-18",
+     "ts": "20170117194856",
+     "score": 7.88
+    },
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/fw-17-18",
+     "ts": "20170226090555",
+     "score": 2.88
+    }
+   ]
+  },
+  "ferragamo:2017-02-26:rtw": {
+   "house": "ferragamo",
+   "date": "2017-02-26",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.ferragamo.com:80/runway/en/usa/women/fw-17-18",
+     "ts": "20170226090555",
+     "score": 6.88
+    }
+   ]
+  },
+  "ferragamo:2017-06-18:men": {
+   "house": "ferragamo",
+   "date": "2017-06-18",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2017-09-23:rtw": {
+   "house": "ferragamo",
+   "date": "2017-09-23",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2018-02-24:rtw": {
+   "house": "ferragamo",
+   "date": "2018-02-24",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2018-09-22:rtw": {
+   "house": "ferragamo",
+   "date": "2018-09-22",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2019-02-20:rtw": {
+   "house": "ferragamo",
+   "date": "2019-02-20",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2019-09-21:rtw": {
+   "house": "ferragamo",
+   "date": "2019-09-21",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2020-01-12:men": {
+   "house": "ferragamo",
+   "date": "2020-01-12",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2020-02-22:rtw": {
+   "house": "ferragamo",
+   "date": "2020-02-22",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2020-09-26:rtw": {
+   "house": "ferragamo",
+   "date": "2020-09-26",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "ferragamo:2021-02-27:rtw": {
+   "house": "ferragamo",
+   "date": "2021-02-27",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 5,
+   "candidates": []
+  },
+  "ferragamo:2021-09-25:rtw": {
+   "house": "ferragamo",
+   "date": "2021-09-25",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "ferragamo:2022-09-24:rtw": {
+   "house": "ferragamo",
+   "date": "2022-09-24",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 2,
+   "candidates": []
+  },
+  "ferragamo:2024-02-24:rtw": {
+   "house": "ferragamo",
+   "date": "2024-02-24",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ferragamo.com/en-us/collections/fw24-show",
+     "ts": "20240306124820",
+     "score": 5.88
+    }
+   ]
+  },
+  "ferragamo:2024-09-21:rtw": {
+   "house": "ferragamo",
+   "date": "2024-09-21",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 3,
+   "candidates": []
+  },
+  "ferragamo:2025-03-01:rtw": {
+   "house": "ferragamo",
+   "date": "2025-03-01",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 7,
+   "candidates": []
+  },
+  "ferragamo:2025-09-27:rtw": {
+   "house": "ferragamo",
+   "date": "2025-09-27",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 7,
+   "candidates": []
+  },
+  "ferragamo:2026-02-28:rtw": {
+   "house": "ferragamo",
+   "date": "2026-02-28",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 7,
+   "candidates": []
+  },
+  "ferragamo:2026-09-26:rtw": {
+   "house": "ferragamo",
+   "date": "2026-09-26",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
   "givenchy:2015-01-23:men": {
    "house": "givenchy",
    "date": "2015-01-23",
@@ -6978,6 +7704,158 @@
    "pages": 0,
    "candidates": []
   },
+  "jacquemus:2015-03-03:rtw": {
+   "house": "jacquemus",
+   "date": "2015-03-03",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2015-09-29:rtw": {
+   "house": "jacquemus",
+   "date": "2015-09-29",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2016-03-01:rtw": {
+   "house": "jacquemus",
+   "date": "2016-03-01",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2016-09-27:rtw": {
+   "house": "jacquemus",
+   "date": "2016-09-27",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2017-02-28:rtw": {
+   "house": "jacquemus",
+   "date": "2017-02-28",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2017-09-25:rtw": {
+   "house": "jacquemus",
+   "date": "2017-09-25",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2018-02-26:rtw": {
+   "house": "jacquemus",
+   "date": "2018-02-26",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2018-09-24:rtw": {
+   "house": "jacquemus",
+   "date": "2018-09-24",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.jacquemus.com/collection/ss19-le-gadjo/?_=1539000814755",
+     "ts": "20181008121352",
+     "score": 2.0
+    }
+   ]
+  },
+  "jacquemus:2019-02-25:rtw": {
+   "house": "jacquemus",
+   "date": "2019-02-25",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2019-09-26:rtw": {
+   "house": "jacquemus",
+   "date": "2019-09-26",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2020-01-18:men": {
+   "house": "jacquemus",
+   "date": "2020-01-18",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2023-03-07:rtw": {
+   "house": "jacquemus",
+   "date": "2023-03-07",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2025-06-29:men": {
+   "house": "jacquemus",
+   "date": "2025-06-29",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "jacquemus:2026-01-25:men": {
+   "house": "jacquemus",
+   "date": "2026-01-25",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.jacquemus.com/en_gb/fw26/lepalmier.html",
+     "ts": "20260129153509",
+     "score": 1.12
+    }
+   ]
+  },
   "jil_sander:2015-01-17:men": {
    "house": "jil_sander",
    "date": "2015-01-17",
@@ -7435,6 +8313,327 @@
    "via": "window",
    "pages": 0,
    "candidates": []
+  },
+  "lanvin:2017-09-27:rtw": {
+   "house": "lanvin",
+   "date": "2017-09-27",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2018-01-21:men": {
+   "house": "lanvin",
+   "date": "2018-01-21",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2018-02-28:rtw": {
+   "house": "lanvin",
+   "date": "2018-02-28",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2018-06-24:men": {
+   "house": "lanvin",
+   "date": "2018-06-24",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2019-02-27:rtw": {
+   "house": "lanvin",
+   "date": "2019-02-27",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2019-06-23:men": {
+   "house": "lanvin",
+   "date": "2019-06-23",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/news/mens-spring-summer-2020-show-gb/",
+     "ts": "20190718005008",
+     "score": 6.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/womens-spring-summer-2020-show-lookS/",
+     "ts": "20191021151008",
+     "score": 5.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/womens-spring-summer-2020-show/",
+     "ts": "20191021154344",
+     "score": 2.06
+    }
+   ]
+  },
+  "lanvin:2019-09-25:rtw": {
+   "house": "lanvin",
+   "date": "2019-09-25",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/news/womens-spring-summer-2020-show-lookS/",
+     "ts": "20191021151008",
+     "score": 9.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/video/defile-femme-printemps-ete-ss20/",
+     "ts": "20191120164659",
+     "score": 6.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/womens-spring-summer-2020-show/",
+     "ts": "20191021154344",
+     "score": 6.06
+    }
+   ]
+  },
+  "lanvin:2020-01-19:men": {
+   "house": "lanvin",
+   "date": "2020-01-19",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/news/mens-fall-winter-2020-show-looks-men/",
+     "ts": "20200503075345",
+     "score": 10.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/mens-fall-winter-2020-show-looks-men/page/2/",
+     "ts": "20200503174906",
+     "score": 10.06
+    },
+    {
+     "url": "https://www.lanvin.com/gb/news/mens-fall-winter-2020-show-looks/",
+     "ts": "20200503040511",
+     "score": 9.06
+    }
+   ]
+  },
+  "lanvin:2020-02-26:rtw": {
+   "house": "lanvin",
+   "date": "2020-02-26",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/news/mens-fall-winter-2020-show/page/2/",
+     "ts": "20200309044206",
+     "score": 1.06
+    },
+    {
+     "url": "https://www.lanvin.com/fr/news/defile-homme-automne-hiver-2020/page/2/",
+     "ts": "20200309044208",
+     "score": 1.0
+    },
+    {
+     "url": "https://www.lanvin.com/us/news/mens-fall-winter-2020-show/page/3/",
+     "ts": "20200309124733",
+     "score": 0.81
+    }
+   ]
+  },
+  "lanvin:2021-03-08:rtw": {
+   "house": "lanvin",
+   "date": "2021-03-08",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/fall-winter-2021-fashion-show",
+     "ts": "20210308123904",
+     "score": 8.06
+    },
+    {
+     "url": "https://www.lanvin.com/fr/defile-automne-hiver-2021",
+     "ts": "20210309075610",
+     "score": 4.0
+    }
+   ]
+  },
+  "lanvin:2021-06-22:men": {
+   "house": "lanvin",
+   "date": "2021-06-22",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "lanvin:2021-10-03:rtw": {
+   "house": "lanvin",
+   "date": "2021-10-03",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/maison-lanvin/shows/spring-summer-2022-show.html",
+     "ts": "20211211024005",
+     "score": 7.06
+    }
+   ]
+  },
+  "lanvin:2022-03-05:rtw": {
+   "house": "lanvin",
+   "date": "2022-03-05",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/maison-lanvin/shows/fall-winter-2022-show.html",
+     "ts": "20220518101715",
+     "score": 7.06
+    }
+   ]
+  },
+  "lanvin:2023-03-05:rtw": {
+   "house": "lanvin",
+   "date": "2023-03-05",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/maison-lanvin/shows/fall-winter-2023-show.html",
+     "ts": "20230312002841",
+     "score": 7.06
+    },
+    {
+     "url": "https://us.lanvin.com/pages/fall-winter-2023-looks",
+     "ts": "20230310191620",
+     "score": 3.0
+    },
+    {
+     "url": "https://us.lanvin.com/pages/fall-winter-2023-show",
+     "ts": "20230310191615",
+     "score": 3.0
+    }
+   ]
+  },
+  "lanvin:2025-01-26:men": {
+   "house": "lanvin",
+   "date": "2025-01-26",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://us.lanvin.com/pages/autumn-winter-2025-looks",
+     "ts": "20250130155329",
+     "score": 3.0
+    },
+    {
+     "url": "https://us.lanvin.com/pages/autumn-winter-2025-show",
+     "ts": "20250209090709",
+     "score": 3.0
+    }
+   ]
+  },
+  "lanvin:2025-09-30:rtw": {
+   "house": "lanvin",
+   "date": "2025-09-30",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 5,
+   "candidates": [
+    {
+     "url": "https://us.lanvin.com/pages/summer-2026-looks",
+     "ts": "20251012180254",
+     "score": 3.0
+    },
+    {
+     "url": "https://us.lanvin.com/pages/summer-2026-show",
+     "ts": "20251012181937",
+     "score": 3.0
+    }
+   ]
+  },
+  "lanvin:2026-01-24:men": {
+   "house": "lanvin",
+   "date": "2026-01-24",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2026-03-06:rtw": {
+   "house": "lanvin",
+   "date": "2026-03-06",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2026-10-02:rtw": {
+   "house": "lanvin",
+   "date": "2026-10-02",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/en-us/spring-summer-2027-show",
+     "ts": "20261009074719",
+     "score": 3.88
+    }
+   ]
   },
   "loewe:2015-03-06:rtw": {
    "house": "loewe",
@@ -9031,6 +10230,406 @@
    "pages": 0,
    "candidates": []
   },
+  "mcqueen:2015-10-04:rtw": {
+   "house": "mcqueen",
+   "date": "2015-10-04",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2016-01-10:men": {
+   "house": "mcqueen",
+   "date": "2016-01-10",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2016-02-21:rtw": {
+   "house": "mcqueen",
+   "date": "2016-02-21",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "mcqueen:2016-10-03:rtw": {
+   "house": "mcqueen",
+   "date": "2016-10-03",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 13,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/us/ss17-womens-show/?",
+     "ts": "20161008115125",
+     "score": 5.75
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/ss17-womens-show/",
+     "ts": "20161006133302",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/gb/alexandermcqueen/online/women/pre-springsummer-2017-collection",
+     "ts": "20161015011113",
+     "score": 5.06
+    }
+   ]
+  },
+  "mcqueen:2017-03-06:rtw": {
+   "house": "mcqueen",
+   "date": "2017-03-06",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/us/aw17-womens-show/?",
+     "ts": "20170310043221",
+     "score": 5.75
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/aw17-womens-show/",
+     "ts": "20170308061654",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/ru/aw17-womens-show/?",
+     "ts": "20170309020631",
+     "score": 5.0
+    }
+   ]
+  },
+  "mcqueen:2017-06-25:men": {
+   "house": "mcqueen",
+   "date": "2017-06-25",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/us/ss18-mens-show/?",
+     "ts": "20170629072821",
+     "score": 5.75
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/ss18-mens-show/",
+     "ts": "20170629043056",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/ru/ss18-mens-show/?",
+     "ts": "20170629072951",
+     "score": 5.0
+    }
+   ]
+  },
+  "mcqueen:2017-10-02:rtw": {
+   "house": "mcqueen",
+   "date": "2017-10-02",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 15,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/us/womens-spring-summer-2018-show/?",
+     "ts": "20171004104854",
+     "score": 5.75
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/womens-spring-summer-2018-show/",
+     "ts": "20171003032410",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/cn/womens-spring-summer-2018-show/",
+     "ts": "20171007031048",
+     "score": 5.0
+    }
+   ]
+  },
+  "mcqueen:2018-01-19:men": {
+   "house": "mcqueen",
+   "date": "2018-01-19",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/mens-autumn-winter-2018-show/",
+     "ts": "20180127072252",
+     "score": 5.62
+    }
+   ]
+  },
+  "mcqueen:2018-03-05:rtw": {
+   "house": "mcqueen",
+   "date": "2018-03-05",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 22,
+   "candidates": [
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/us/womens-autumn-winter-2018-show/",
+     "ts": "20180310103703",
+     "score": 5.75
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/en/womens-autumn-winter-2018-show/",
+     "ts": "20180308015235",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.alexandermcqueen.com:80/experience/cn/womens-autumn-winter-2018-show/",
+     "ts": "20180313055815",
+     "score": 5.0
+    }
+   ]
+  },
+  "mcqueen:2018-06-22:men": {
+   "house": "mcqueen",
+   "date": "2018-06-22",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2018-10-01:rtw": {
+   "house": "mcqueen",
+   "date": "2018-10-01",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2019-03-04:rtw": {
+   "house": "mcqueen",
+   "date": "2019-03-04",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2019-09-30:rtw": {
+   "house": "mcqueen",
+   "date": "2019-09-30",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2020-03-02:rtw": {
+   "house": "mcqueen",
+   "date": "2020-03-02",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2021-09-09:rtw": {
+   "house": "mcqueen",
+   "date": "2021-09-09",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/ss22-collection",
+     "ts": "20211222184350",
+     "score": 2.62
+    }
+   ]
+  },
+  "mcqueen:2022-03-15:rtw": {
+   "house": "mcqueen",
+   "date": "2022-03-15",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/women/collections/aw22-pre-collection",
+     "ts": "20220614152407",
+     "score": 6.62
+    },
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/aw22-collection?utm_source=twitter&utm_medium=social&utm_campaign=aw22menswear_organic",
+     "ts": "20220708075759",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/aw22-pre-collection",
+     "ts": "20220407232119",
+     "score": 2.62
+    }
+   ]
+  },
+  "mcqueen:2023-03-04:rtw": {
+   "house": "mcqueen",
+   "date": "2023-03-04",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-collection",
+     "ts": "20230629090532",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-pre-collection",
+     "ts": "20230428144110",
+     "score": 2.62
+    }
+   ]
+  },
+  "mcqueen:2023-09-30:rtw": {
+   "house": "mcqueen",
+   "date": "2023-09-30",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-se/ss24-show",
+     "ts": "20231013125233",
+     "score": 3.62
+    },
+    {
+     "url": "https://www.alexandermcqueen.com/en-us/ss24-mens-lookbook",
+     "ts": "20231003202809",
+     "score": 0.88
+    }
+   ]
+  },
+  "mcqueen:2024-03-02:rtw": {
+   "house": "mcqueen",
+   "date": "2024-03-02",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-us/collections/aw24/runway",
+     "ts": "20240308060358",
+     "score": 6.88
+    }
+   ]
+  },
+  "mcqueen:2024-09-28:rtw": {
+   "house": "mcqueen",
+   "date": "2024-09-28",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-gb/collections/ss25/runway",
+     "ts": "20241008134039",
+     "score": 7.12
+    }
+   ]
+  },
+  "mcqueen:2025-03-08:rtw": {
+   "house": "mcqueen",
+   "date": "2025-03-08",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-us/collections/aw25/runway",
+     "ts": "20250320181923",
+     "score": 6.88
+    }
+   ]
+  },
+  "mcqueen:2025-10-05:rtw": {
+   "house": "mcqueen",
+   "date": "2025-10-05",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "mcqueen:2026-03-08:rtw": {
+   "house": "mcqueen",
+   "date": "2026-03-08",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fr/cp/autumn-winter-2026-show",
+     "ts": "20260309092537",
+     "score": 3.62
+    }
+   ]
+  },
+  "mcqueen:2026-09-20:rtw": {
+   "house": "mcqueen",
+   "date": "2026-09-20",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-us/cp/spring-summer-2027-show",
+     "ts": "20260922093030",
+     "score": 3.88
+    }
+   ]
+  },
   "miu_miu:2015-03-11:rtw": {
    "house": "miu_miu",
    "date": "2015-03-11",
@@ -9492,6 +11091,258 @@
      "score": 14.94
     }
    ]
+  },
+  "moncler:2015-01-18:men": {
+   "house": "moncler",
+   "date": "2015-01-18",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://eng.moncler.com:80/news/behind-the-scenes-at-the-moncler-gamme-bleu-fw15-show/",
+     "ts": "20150123013725",
+     "score": 3.0
+    }
+   ]
+  },
+  "moncler:2015-02-15:rtw": {
+   "house": "moncler",
+   "date": "2015-02-15",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "moncler.com": "ReadTimeout"
+   }
+  },
+  "moncler:2015-03-11:rtw": {
+   "house": "moncler",
+   "date": "2015-03-11",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://eng.moncler.com/news/behind-the-scenes-at-the-moncler-gamme-bleu-fw15-show/",
+     "ts": "20150319143016",
+     "score": 3.0
+    }
+   ]
+  },
+  "moncler:2015-06-21:men": {
+   "house": "moncler",
+   "date": "2015-06-21",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/gb/news/moncler-gamme-bleu-ss16-show/",
+     "ts": "20150627213613",
+     "score": 4.06
+    }
+   ]
+  },
+  "moncler:2015-10-07:rtw": {
+   "house": "moncler",
+   "date": "2015-10-07",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/jp/news/moncler-gamme-rouge-spring-summer-2016-show/",
+     "ts": "20151017025306",
+     "score": 3.0
+    }
+   ]
+  },
+  "moncler:2016-01-17:men": {
+   "house": "moncler",
+   "date": "2016-01-17",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2016-02-14:rtw": {
+   "house": "moncler",
+   "date": "2016-02-14",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2016-03-09:rtw": {
+   "house": "moncler",
+   "date": "2016-03-09",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2016-06-19:men": {
+   "house": "moncler",
+   "date": "2016-06-19",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/gb/news/moncler-gamme-bleu-spring-summer-2017-show/",
+     "ts": "20160623124637",
+     "score": 4.06
+    }
+   ]
+  },
+  "moncler:2016-10-05:rtw": {
+   "house": "moncler",
+   "date": "2016-10-05",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show",
+     "ts": "20161010132918",
+     "score": 3.0
+    },
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show/photo_atmosphere",
+     "ts": "20161010144529",
+     "score": 3.0
+    },
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show/photo_backstage",
+     "ts": "20161010144534",
+     "score": 3.0
+    }
+   ]
+  },
+  "moncler:2017-01-15:men": {
+   "house": "moncler",
+   "date": "2017-01-15",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/gb/news/moncler-gamme-bleu-fall-winter-2017/?",
+     "ts": "20170119041931",
+     "score": 1.06
+    },
+    {
+     "url": "http://www.moncler.com:80/gb/news/moncler-gamme-bleu-fw17-backstage/",
+     "ts": "20170120042512",
+     "score": 1.06
+    }
+   ]
+  },
+  "moncler:2017-02-15:rtw": {
+   "house": "moncler",
+   "date": "2017-02-15",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show/photo_images_looks",
+     "ts": "20170224110145",
+     "score": 6.0
+    },
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show",
+     "ts": "20170225132136",
+     "score": 3.0
+    },
+    {
+     "url": "http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show/pdf_about-moncler-grenoble",
+     "ts": "20170225065451",
+     "score": 3.0
+    }
+   ]
+  },
+  "moncler:2017-03-07:rtw": {
+   "house": "moncler",
+   "date": "2017-03-07",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/gb/news/moncler-gamme-bleu-fall-winter-2017/",
+     "ts": "20170308223556",
+     "score": 1.06
+    }
+   ]
+  },
+  "moncler:2017-06-18:men": {
+   "house": "moncler",
+   "date": "2017-06-18",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2017-10-03:rtw": {
+   "house": "moncler",
+   "date": "2017-10-03",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2020-02-19:rtw": {
+   "house": "moncler",
+   "date": "2020-02-19",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "moncler:2022-09-24:rtw": {
+   "house": "moncler",
+   "date": "2022-09-24",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
   },
   "prada:2015-01-18:men": {
    "house": "prada",
@@ -10611,6 +12462,816 @@
      "url": "https://www.ysl.com/ja-jp/collections/la-maison-women-summer-27-show?utm_source=twitter&utm_medium=social&utm_campaign=27w_summer_show&utm_objective=consideration_collection&utm_content=vip4",
      "ts": "20261006064644",
      "score": 7.0
+    }
+   ]
+  },
+  "schiaparelli:2015-01-26:couture": {
+   "house": "schiaparelli",
+   "date": "2015-01-26",
+   "season": "2015 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2015-les-looks/",
+     "ts": "20150201085140",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2015-the-looks/",
+     "ts": "20150130061450",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2015",
+     "ts": "20150220004831",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2015-07-06:couture": {
+   "house": "schiaparelli",
+   "date": "2015-07-06",
+   "season": "2015 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/51",
+     "ts": "20150711133203",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/52",
+     "ts": "20150711050819",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/53",
+     "ts": "20150711133026",
+     "score": 7.62
+    }
+   ]
+  },
+  "schiaparelli:2016-01-25:couture": {
+   "house": "schiaparelli",
+   "date": "2016-01-25",
+   "season": "2016 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2016-le-defile/shiap_hc_2016_montage_final_va",
+     "ts": "20160305004755",
+     "score": 8.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2016-the-looks/6",
+     "ts": "20160303203244",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2016-the-show/shiap_hc_2016_montage_final02_va",
+     "ts": "20160303203318",
+     "score": 7.62
+    }
+   ]
+  },
+  "schiaparelli:2016-07-04:couture": {
+   "house": "schiaparelli",
+   "date": "2016-07-04",
+   "season": "2016 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com/en/collections/haute-couture-fall-winter-2016-17/the-video/",
+     "ts": "20160907022244",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2016-17/",
+     "ts": "20160710003849",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/pret-a-couture-fall-winter-2016-17/the-sweaters/",
+     "ts": "20161024231910",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2017-01-23:couture": {
+   "house": "schiaparelli",
+   "date": "2017-01-23",
+   "season": "2017 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com/en/collections/haute-couture-spring-summer-2017/the-video/",
+     "ts": "20170209135229",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2017/",
+     "ts": "20170131082934",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2017/the-ambiance/",
+     "ts": "20170505073148",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2017-07-03:couture": {
+   "house": "schiaparelli",
+   "date": "2017-07-03",
+   "season": "2017 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/402_52/",
+     "ts": "20170722214755",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/403_52/",
+     "ts": "20170722214307",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/404_52/",
+     "ts": "20170722214315",
+     "score": 7.62
+    }
+   ]
+  },
+  "schiaparelli:2018-01-22:couture": {
+   "house": "schiaparelli",
+   "date": "2018-01-22",
+   "season": "2018 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-looks-detail/468_54/",
+     "ts": "20180313075250",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-looks/54/",
+     "ts": "20180201073701",
+     "score": 7.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-1/",
+     "ts": "20180128195520",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2018-07-02:couture": {
+   "house": "schiaparelli",
+   "date": "2018-07-02",
+   "season": "2018 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19-1/the-video/",
+     "ts": "20180706093905",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19/",
+     "ts": "20180706093703",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19/interview-with-bertrand-guyon/",
+     "ts": "20180708044521",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2019-01-21:couture": {
+   "house": "schiaparelli",
+   "date": "2019-01-21",
+   "season": "2019 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "schiaparelli:2019-07-01:couture": {
+   "house": "schiaparelli",
+   "date": "2019-07-01",
+   "season": "2019 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-1/",
+     "ts": "20191014133234",
+     "score": 8.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-10/",
+     "ts": "20191014132754",
+     "score": 8.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-11/",
+     "ts": "20191014133030",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2020-01-20:couture": {
+   "house": "schiaparelli",
+   "date": "2020-01-20",
+   "season": "2020 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "schiaparelli:2021-01-25:couture": {
+   "house": "schiaparelli",
+   "date": "2021-01-25",
+   "season": "2021 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2021-1/looks/look-1/",
+     "ts": "20210208084002",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2021-1/looks/look-10/",
+     "ts": "20210302131203",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2021-1/looks/look-11/",
+     "ts": "20210305074011",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2021-03-08:rtw": {
+   "house": "schiaparelli",
+   "date": "2021-03-08",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/collections/ready-to-wear-fall-winter-2021-22-1/lookbook/look-1",
+     "ts": "20210419224748",
+     "score": 10.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/collections/ready-to-wear-fall-winter-2021-22-1/lookbook/look-10",
+     "ts": "20210419222114",
+     "score": 10.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/collections/ready-to-wear-fall-winter-2021-22-1/lookbook/look-11",
+     "ts": "20210419222035",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2021-07-05:couture": {
+   "house": "schiaparelli",
+   "date": "2021-07-05",
+   "season": "2021 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/haute-couture-fall-winter-2021-22/looks/look-1",
+     "ts": "20210713174136",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/haute-couture-fall-winter-2021-22/looks/look-11",
+     "ts": "20210712172102",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/haute-couture-fall-winter-2021-22/looks/look-17",
+     "ts": "20211011093649",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2022-01-24:couture": {
+   "house": "schiaparelli",
+   "date": "2022-01-24",
+   "season": "2022 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2022/looks/look-1",
+     "ts": "20220519015152",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2022/looks/look-10",
+     "ts": "20220516074355",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2022/looks/look-11",
+     "ts": "20220516074259",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2022-07-04:couture": {
+   "house": "schiaparelli",
+   "date": "2022-07-04",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2022-23/looks/look-",
+     "ts": "20220705113116",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2022-23/looks/look-1",
+     "ts": "20220705112938",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2022-23/looks/look-10",
+     "ts": "20220705113129",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2023-01-23:couture": {
+   "house": "schiaparelli",
+   "date": "2023-01-23",
+   "season": "2023 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2023-1/looks/look-10",
+     "ts": "20230124221432",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2023-1/looks/look-11",
+     "ts": "20230201201602",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2023-1/looks/look-12",
+     "ts": "20230201194407",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2023-03-02:rtw": {
+   "house": "schiaparelli",
+   "date": "2023-03-02",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2023-24/lookbook/look-1",
+     "ts": "20230328051506",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2023-24/lookbook/look-10",
+     "ts": "20230328055244",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2023-24/lookbook/look-11",
+     "ts": "20230328053129",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2023-07-03:couture": {
+   "house": "schiaparelli",
+   "date": "2023-07-03",
+   "season": "2023 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2023-24/looks/look-1",
+     "ts": "20230923213510",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2023-24/looks/look-10",
+     "ts": "20230923212854",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2023-24/looks/look-11",
+     "ts": "20230923210641",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2023-09-28:rtw": {
+   "house": "schiaparelli",
+   "date": "2023-09-28",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2024-1/lookbook/look-1",
+     "ts": "20231207012310",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2024-1/lookbook/look-10",
+     "ts": "20231206234924",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2024-1/lookbook/look-11",
+     "ts": "20231207001152",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2024-01-22:couture": {
+   "house": "schiaparelli",
+   "date": "2024-01-22",
+   "season": "2024 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2024-1/looks/look-1",
+     "ts": "20240128080154",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2024-1/looks/look-10",
+     "ts": "20240223225449",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2024-1/looks/look-11",
+     "ts": "20240223222433",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2024-02-29:rtw": {
+   "house": "schiaparelli",
+   "date": "2024-02-29",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2024-25/lookbook/look-1",
+     "ts": "20240416013921",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2024-25/lookbook/look-10",
+     "ts": "20240416022621",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2024-25/lookbook/look-11",
+     "ts": "20240416015707",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2024-06-24:couture": {
+   "house": "schiaparelli",
+   "date": "2024-06-24",
+   "season": "2024 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2024-25-1/looks/look-1",
+     "ts": "20240627230433",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2024-25-1/looks/look-10",
+     "ts": "20240725064731",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2024-25-1/looks/look-11",
+     "ts": "20240725071954",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2024-09-26:rtw": {
+   "house": "schiaparelli",
+   "date": "2024-09-26",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2025-1/lookbook/look-1",
+     "ts": "20241003100947",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2025-1/lookbook/look-10",
+     "ts": "20241003104346",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2025-1/lookbook/look-11",
+     "ts": "20241003110224",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2025-01-27:couture": {
+   "house": "schiaparelli",
+   "date": "2025-01-27",
+   "season": "2025 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2025-1/looks/look-1",
+     "ts": "20250214134331",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2025-1/looks/look-10",
+     "ts": "20250214142756",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-spring-summer-2025-1/looks/look-11",
+     "ts": "20250214135917",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2025-03-06:rtw": {
+   "house": "schiaparelli",
+   "date": "2025-03-06",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2025-26/lookbook/look-1",
+     "ts": "20250326013909",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2025-26/lookbook/look-10",
+     "ts": "20250326021032",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-fall-winter-2025-26/lookbook/look-11",
+     "ts": "20250326014731",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2025-10-02:rtw": {
+   "house": "schiaparelli",
+   "date": "2025-10-02",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2026/lookbook/look-1",
+     "ts": "20251007211849",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2026/lookbook/look-10",
+     "ts": "20251007211125",
+     "score": 10.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/collections/ready-to-wear-spring-summer-2026/lookbook/look-11",
+     "ts": "20251007210346",
+     "score": 10.62
+    }
+   ]
+  },
+  "schiaparelli:2026-01-26:couture": {
+   "house": "schiaparelli",
+   "date": "2026-01-26",
+   "season": "2026 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 4,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+     "ts": "20260129192029",
+     "score": 5.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+     "ts": "20260128173650",
+     "score": 5.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
+     "ts": "20260209233119",
+     "score": 4.62
+    }
+   ]
+  },
+  "schiaparelli:2026-03-05:rtw": {
+   "house": "schiaparelli",
+   "date": "2026-03-05",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "schiaparelli:2026-07-06:couture": {
+   "house": "schiaparelli",
+   "date": "2026-07-06",
+   "season": "2026 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 8,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/haute-couture-automne-hiver-2026-27-look-1",
+     "ts": "20260714060830",
+     "score": 8.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/haute-couture-automne-hiver-2026-27-look-2",
+     "ts": "20260714060831",
+     "score": 8.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/haute-couture-automne-hiver-2026-27-look-3",
+     "ts": "20260714060831",
+     "score": 8.62
+    }
+   ]
+  },
+  "schiaparelli:2026-10-01:rtw": {
+   "house": "schiaparelli",
+   "date": "2026-10-01",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/pages/pret-a-porter-printemps-ete-2027",
+     "ts": "20261002232220",
+     "score": 2.62
+    }
+   ]
+  },
+  "stella_mccartney:2026-03-04:rtw": {
+   "house": "stella_mccartney",
+   "date": "2026-03-04",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ConnectionError"
+   }
+  },
+  "stella_mccartney:2026-09-30:rtw": {
+   "house": "stella_mccartney",
+   "date": "2026-09-30",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ReadTimeout"
+   }
+  },
+  "the_row:2016-02-15:rtw": {
+   "house": "the_row",
+   "date": "2016-02-15",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "the_row:2017-02-13:rtw": {
+   "house": "the_row",
+   "date": "2017-02-13",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "the_row:2019-09-09:rtw": {
+   "house": "the_row",
+   "date": "2019-09-09",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/us/collections/women-039-s-spring-2020_grd51",
+     "ts": "20191112182849",
+     "score": 4.81
     }
    ]
   },
@@ -12055,23 +14716,121 @@
     "www.versace.com/us/en-us/women/features/"
    ],
    "pages": 0
+  },
+  "ferragamo": {
+   "prefixes": [
+    "www.ferragamo.com/runway/en/usa/women/",
+    "www.ferragamo.com/runway/en/usa/men/",
+    "www.ferragamo.com/en-us/collections/"
+   ],
+   "pages": 216
+  },
+  "jacquemus": {
+   "prefixes": [
+    "www.jacquemus.com/nl_nl/la-croisiere/",
+    "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
+    "www.jacquemus.com/nl_nl/collections/"
+   ],
+   "pages": 4
+  },
+  "moncler": {
+   "prefixes": [
+    "www.moncler.com/en-ch/genius-collection-asap-rocky/",
+    "www.moncler.com/en-ch/genius/collections/moncler-x-edward-enninful/",
+    "www.moncler.com/en-ch/genius/collections/moncler-x-mercedes-benz-by-nigo/",
+    "www.moncler.com/en-ch/genius/collections/moncler-x-asap-rocky/"
+   ],
+   "pages": 50
+  },
+  "the_row": {
+   "prefixes": [
+    "www.therow.com/en-at/collections/",
+    "www.therow.com/fi/collections/",
+    "www.therow.com/us/collections/",
+    "www.therow.com/us/collections/women-039-s-resort-2020_grd38/"
+   ],
+   "pages": 740
+  },
+  "mcqueen": {
+   "prefixes": [
+    "www.alexandermcqueen.com/en-fi/men/collections/",
+    "www.alexandermcqueen.com/en-fi/women/collections/",
+    "www.alexandermcqueen.com/en-fi/lookbooks/",
+    "www.alexandermcqueen.com/en-fi/shows/"
+   ],
+   "pages": 21
+  },
+  "armani": {
+   "prefixes": [
+    "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
+    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+   ],
+   "pages": 7
+  },
+  "balmain": {
+   "prefixes": [
+    "www.balmain.com/en_us/lookbook/collections/index/men/",
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/show/"
+   ],
+   "pages": 23
+  },
+  "schiaparelli": {
+   "prefixes": [
+    "www.schiaparelli.com/en/haute-couture/",
+    "www.schiaparelli.com/en/collections/",
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-secret/",
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-bijoux-buttons/"
+   ],
+   "pages": 3294
+  },
+  "lanvin": {
+   "prefixes": [
+    "www.lanvin.com/gb/maison-lanvin/shows/",
+    "www.lanvin.com/gb/news/"
+   ],
+   "pages": 150
+  },
+  "comme_des_garcons": {
+   "prefixes": [],
+   "pages": 0
+  },
+  "stella_mccartney": {
+   "prefixes": [
+    "www.stellamccartney.com/fi/en/collections/",
+    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
+    "www.stellamccartney.com/fi/en/women/",
+    "www.stellamccartney.com/ru/fashion-show/kids_section/"
+   ],
+   "pages": 1348
   }
  },
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 433,
-   "index failed": 49,
-   "none": 206
+   "found": 508,
+   "index failed": 56,
+   "none": 294
   },
   "by_house": {
    "alaia": {
     "shows": 3,
     "found": 0
    },
+   "armani": {
+    "shows": 2,
+    "found": 0
+   },
    "balenciaga": {
     "shows": 31,
     "found": 22
+   },
+   "balmain": {
+    "shows": 2,
+    "found": 0
    },
    "bottega_veneta": {
     "shows": 21,
@@ -12097,6 +14856,10 @@
     "shows": 24,
     "found": 17
    },
+   "comme_des_garcons": {
+    "shows": 28,
+    "found": 0
+   },
    "dior": {
     "shows": 22,
     "found": 18
@@ -12113,6 +14876,10 @@
     "shows": 54,
     "found": 39
    },
+   "ferragamo": {
+    "shows": 28,
+    "found": 9
+   },
    "givenchy": {
     "shows": 40,
     "found": 28
@@ -12125,9 +14892,17 @@
     "shows": 43,
     "found": 36
    },
+   "jacquemus": {
+    "shows": 14,
+    "found": 2
+   },
    "jil_sander": {
     "shows": 32,
     "found": 13
+   },
+   "lanvin": {
+    "shows": 19,
+    "found": 11
    },
    "loewe": {
     "shows": 36,
@@ -12149,9 +14924,17 @@
     "shows": 23,
     "found": 2
    },
+   "mcqueen": {
+    "shows": 24,
+    "found": 15
+   },
    "miu_miu": {
     "shows": 23,
     "found": 22
+   },
+   "moncler": {
+    "shows": 17,
+    "found": 9
    },
    "prada": {
     "shows": 31,
@@ -12160,6 +14943,18 @@
    "saint_laurent": {
     "shows": 30,
     "found": 24
+   },
+   "schiaparelli": {
+    "shows": 31,
+    "found": 28
+   },
+   "stella_mccartney": {
+    "shows": 2,
+    "found": 0
+   },
+   "the_row": {
+    "shows": 3,
+    "found": 1
    },
    "tom_ford": {
     "shows": 18,
@@ -12180,56 +14975,56 @@
   },
   "by_year": {
    "2015": {
-    "shows": 33,
-    "found": 21
-   },
-   "2016": {
-    "shows": 66,
-    "found": 47
-   },
-   "2017": {
-    "shows": 61,
-    "found": 44
-   },
-   "2018": {
-    "shows": 58,
-    "found": 26
-   },
-   "2019": {
-    "shows": 67,
-    "found": 35
-   },
-   "2020": {
-    "shows": 61,
-    "found": 35
-   },
-   "2021": {
-    "shows": 42,
-    "found": 30
-   },
-   "2022": {
-    "shows": 58,
-    "found": 49
-   },
-   "2023": {
-    "shows": 53,
-    "found": 40
-   },
-   "2024": {
-    "shows": 53,
-    "found": 36
-   },
-   "2025": {
-    "shows": 44,
+    "shows": 41,
     "found": 25
    },
-   "2026": {
-    "shows": 61,
+   "2016": {
+    "shows": 83,
+    "found": 55
+   },
+   "2017": {
+    "shows": 77,
+    "found": 57
+   },
+   "2018": {
+    "shows": 74,
+    "found": 32
+   },
+   "2019": {
+    "shows": 82,
     "found": 37
    },
+   "2020": {
+    "shows": 79,
+    "found": 40
+   },
+   "2021": {
+    "shows": 49,
+    "found": 34
+   },
+   "2022": {
+    "shows": 68,
+    "found": 55
+   },
+   "2023": {
+    "shows": 65,
+    "found": 45
+   },
+   "2024": {
+    "shows": 63,
+    "found": 43
+   },
+   "2025": {
+    "shows": 56,
+    "found": 31
+   },
+   "2026": {
+    "shows": 81,
+    "found": 43
+   },
    "2027": {
-    "shows": 31,
-    "found": 8
+    "shows": 40,
+    "found": 11
    }
   }
  }
