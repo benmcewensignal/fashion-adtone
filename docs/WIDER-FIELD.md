@@ -21,7 +21,7 @@ ticked here in the same commit.
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
-| `reference/google_advertisers.csv` | 19 accounts, 18 house and 1 doubt | the_row, schiaparelli, comme_des_garcons (none found) |
+| `reference/google_advertisers.csv` | 20 accounts, 19 house and 1 doubt | the_row, schiaparelli, comme_des_garcons (none found) |
 | `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
 | `reference/revenue.csv` | 93 | all but moncler, ferragamo, armani and lanvin |
 
@@ -95,11 +95,12 @@ Revenue (`reference/revenue.csv`, published figures only)
       for Balmain; Comme des Garçons and Issey Miyake were not searched.
 
 Later
-- [ ] Moncler's own advertising account: the only one found had two ads. The Moncler brand is licensed to its
-      sub-holding Industries S.p.A. (Moncler annual report 2024), so the matching rules (version 4, 15 October
-      2026) now look for that exact company as Moncler's. Once discovery lists it, confirm it by hand in
-      `reference/google_advertisers.csv` like the others. The Armani accounts are the group's companies, so
-      their ads may include Emporio Armani and Armani Exchange (noted on each row).
+- [x] Moncler's own advertising account: the brand is licensed to the group's sub-holding Industries S.p.A.
+      (Moncler annual report 2024), so the matching rules (version 4, 15 October 2026) look for that exact
+      company as Moncler's. The discovery run that day found it: INDUSTRIES S.P.A., Italy, verified, 2,714 ads,
+      now confirmed in `reference/google_advertisers.csv`; the next collect gathers its ads. The Armani
+      accounts are the group's companies, so their ads may include Emporio Armani and Armani Exchange (noted
+      on each row).
 - [ ] Show statements (`reference/statements.csv`) for the twelve houses' shows of 2025 and 2026.
 - [x] Issue covers for the twelve: drawn on 15 October 2026 and checked by eye, the chosen picture of each
       house in `data/issues/choices.json`. The Row, Balmain and Schiaparelli were drawn again (`seeds_for` in
