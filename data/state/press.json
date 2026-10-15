@@ -1,10 +1,13 @@
 {
   "complete": [
+    "armani",
     "brunello_cucinelli",
+    "moncler",
     "zegna"
   ],
   "covered": {
     "alaia": "2026-10-13",
+    "armani": "2026-10-14",
     "balenciaga": "2026-10-10",
     "bottega_veneta": "2026-10-10",
     "brunello_cucinelli": "2026-10-14",
@@ -26,6 +29,7 @@
     "margiela": "2026-10-10",
     "max_mara": "2026-10-13",
     "miu_miu": "2017-03-31",
+    "moncler": "2026-10-14",
     "prada": "2026-10-10",
     "saint_laurent": "2026-10-10",
     "tom_ford": "2026-10-13",
@@ -79,7 +83,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh38684784186",
+  "run": "gh38744447040",
   "span": {},
-  "updated_at": "2026-10-15T05:37:05Z"
+  "updated_at": "2026-10-15T14:17:52Z"
 }
