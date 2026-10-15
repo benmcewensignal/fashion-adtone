@@ -183,3 +183,38 @@ houses:
   - {id: max_mara, name: Max Mara, group: control, tier: extension, owner: Max Mara Fashion Group, search_terms: ["Max Mara"], page_ids: [], events: []}
   - {id: brunello_cucinelli, name: Brunello Cucinelli, group: control, tier: extension, owner: Brunello Cucinelli, search_terms: ["Brunello Cucinelli"], page_ids: [], events: []}
   - {id: zegna, name: Zegna, group: control, tier: extension, owner: Zegna Group, search_terms: ["ZEGNA", "Zegna"], page_ids: [], events: []}
+
+  # Wider field, added 15 October 2026 so the benchmark reaches further across luxury. Every collector reads
+  # these houses (homepages, Focal's own daily captures, attention, press, the show calendar, the back
+  # catalogue, advertising); no registered test does: each is a watch house outside the core panel and outside
+  # Amendment 2. Their designer histories are in reference/designers.csv, since a watch house carries no events
+  # here. Owners as of 15 October 2026; earlier owners only where the day control changed is on file.
+  # Giorgio Armani: independent; since the founder's death on 4 September 2025 the Fondazione Giorgio Armani and
+  # Leo Dell'Orco hold the votes, and his will provides for selling stakes (Reuters, 12 September 2025).
+  - {id: armani, name: Giorgio Armani, group: watch, tier: wider, owner: Giorgio Armani, search_terms: ["Giorgio Armani"], page_ids: [], events: []}
+  - {id: moncler, name: Moncler, group: watch, tier: wider, owner: Moncler, search_terms: ["Moncler"], page_ids: [], events: []}
+  - {id: ferragamo, name: Ferragamo, group: watch, tier: wider, owner: Ferragamo, search_terms: ["Ferragamo", "Salvatore Ferragamo"], page_ids: [], events: []}
+  - {id: jacquemus, name: Jacquemus, group: watch, tier: wider, owner: Jacquemus, search_terms: ["Jacquemus"], page_ids: [], events: []}
+  - {id: the_row, name: The Row, group: watch, tier: wider, owner: The Row, search_terms: ["The Row"], page_ids: [], events: []}
+  - {id: mcqueen, name: Alexander McQueen, group: watch, tier: wider, owner: Kering, search_terms: ["Alexander McQueen", "McQueen"], page_ids: [], events: []}
+  # Balmain: Mayhoola's purchase reported completed on 22 June 2016 (reported; to check against the announcement)
+  - id: balmain
+    name: Balmain
+    group: watch
+    tier: wider
+    owner: Mayhoola
+    earlier_owners:
+      - {owner: Hivelin family, until: 2016-06-22}
+    search_terms: ["Balmain"]
+    page_ids: []
+    events: []
+  # Schiaparelli belongs to Diego Della Valle himself, not to Tod's Group
+  - {id: schiaparelli, name: Schiaparelli, group: watch, tier: wider, owner: Diego Della Valle, search_terms: ["Schiaparelli"], page_ids: [], events: []}
+  # Lanvin: Shaw-Lan Wang's control ended when Fosun (now Lanvin Group) took a majority in 2018; the day is to be
+  # confirmed before an earlier owner is entered
+  - {id: lanvin, name: Lanvin, group: watch, tier: wider, owner: Lanvin Group, search_terms: ["Lanvin"], page_ids: [], events: []}
+  # Stella McCartney: a joint venture with Kering until 2018, then the designer's own, with an LVMH minority from
+  # July 2019; the day the joint venture ended is to be confirmed before an earlier owner is entered
+  - {id: stella_mccartney, name: Stella McCartney, group: watch, tier: wider, owner: Stella McCartney, search_terms: ["Stella McCartney"], page_ids: [], events: []}
+  - {id: comme_des_garcons, name: Comme des Garçons, group: watch, tier: wider, owner: Comme des Garçons, search_terms: ["Comme des Garçons", "COMME des GARÇONS"], page_ids: [], events: []}
+  - {id: issey_miyake, name: Issey Miyake, group: watch, tier: wider, owner: Issey Miyake, search_terms: ["Issey Miyake", "ISSEY MIYAKE"], page_ids: [], events: []}

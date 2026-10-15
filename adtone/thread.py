@@ -80,7 +80,14 @@ SLUGS = {
     "givenchy": ["givenchy"], "tom_ford": ["tom-ford"], "dries_van_noten": ["dries-van-noten"],
     "alaia": ["alaia", "azzedine-alaia"], "dolce_gabbana": ["dolce-gabbana", "dolce-and-gabbana"],
     "max_mara": ["max-mara"], "brunello_cucinelli": ["brunello-cucinelli"], "zegna": ["zegna", "ermenegildo-zegna"],
+    # the wider field, 15 October 2026
+    "armani": ["giorgio-armani"], "moncler": ["moncler"], "ferragamo": ["ferragamo", "salvatore-ferragamo"],
+    "jacquemus": ["jacquemus"], "the_row": ["the-row"], "mcqueen": ["alexander-mcqueen", "mcqueen"],
+    "balmain": ["balmain"], "schiaparelli": ["schiaparelli"], "lanvin": ["lanvin"],
+    "stella_mccartney": ["stella-mccartney"], "comme_des_garcons": ["comme-des-garcons"], "issey_miyake": ["issey-miyake"],
 }
+# a line of the house that the site lists on a brand page of its own, read as well as the house's page
+ALSO = {"armani": ["giorgio-armani-prive"]}
 CATEGORIES = [("ready to wear", "rtw"), ("men women", "rtw"), ("couture", "couture"), ("menswear", "men"),
               ("pre fall", "prefall"), ("resort", "resort"), ("cruise", "resort")]   # a co-ed show counts as ready-to-wear
 SEASONS = [("spring summer", "SS"), ("fall winter", "AW"), ("autumn winter", "AW"), ("pre fall", "PF"),
@@ -234,7 +241,22 @@ def calendar(sess=None, sleep=time.sleep, houses: list[str] | None = None) -> di
             per[h.id] = {"slug": None, "listed": 0}
             continue
         slug, entries = found
-        per[h.id] = {"slug": slug, "listed": len(entries), "possibly_cut": len(entries) == LISTING_CAP}
+        cut = len(entries) == LISTING_CAP
+        for extra in ALSO.get(h.id, []):     # a line listed on a page of its own: its shows join the house's
+            r, err = _get(sess, f"{SITE}/brand/{extra}.md", sleep)
+            sleep(PAUSE)
+            more = parse_listing(r.text) if r is not None and r.status_code == 200 else []
+            if not more:     # without the line's page the house's rows on file are kept whole, not cut short
+                notes.append(f"{h.id}: {extra}: {err or 'no listing'}; the rows on file are kept")
+                found = None
+                break
+            seen = {e["url"] for e in entries}
+            entries = entries + [e for e in more if e["url"] not in seen]
+            cut = cut or len(more) == LISTING_CAP
+        if not found:
+            per[h.id] = {"slug": None, "listed": 0}
+            continue
+        per[h.id] = {"slug": slug, "listed": len(entries), "possibly_cut": cut}
         new[h.id] = _rows(h.id, entries, store.utc_now()[:10])
     rows = _merge(new)
     check = check_calendar(rows)

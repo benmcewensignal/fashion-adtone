@@ -62,7 +62,7 @@ NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "fragrance", "cosmetic", "loreal"
                  "interparfums", "shiseido", "outlet", "vintage", "resale", "secondhand", "preloved", "kering eyewear",
                  "eyewear", "optic", "optik", "lunett")
 MAX_GB = {"discover": 50.0, "collect": 150.0}     # the names query read 14.8 GB, the ads query 113.8
-RULES_VERSION = 2
+RULES_VERSION = 3          # 3: the wider field of 15 October 2026
 REDISCOVER_DAYS = 28
 
 # The houses' own companies, on names lower-cased with accents and punctuation dropped: the house's name,
@@ -102,6 +102,19 @@ OWN = {h: re.compile(p) for h, p in {
     "valentino": rf"^valentino( {FORMS})$",          # Mario Valentino, the shoemaker, is another house
     "versace": rf"^(gianni versace( {FORMS})?|versace us( {FORMS})?)$",
     "zegna": rf"^(ermenegildo )?zegna( (group|holditalia|usa|uk))?( {FORMS})?$",
+    # the wider field, 15 October 2026
+    "armani": rf"^giorgio armani( (retail|corporation|france|uk|japan|deutschland|espana|italia|hong kong))?( {FORMS})?$",
+    "moncler": rf"^moncler( (usa|uk|france|deutschland|espana|italia|japan|asia pacific))?( {FORMS})?$",
+    "ferragamo": rf"^(salvatore )?ferragamo( (usa|uk|france|deutschland|espana|italia|japan|retail))?( {FORMS})?$",
+    "jacquemus": rf"^(simon porte )?jacquemus( {FORMS})?$",
+    "the_row": rf"^the row( (paris|europe|uk))?( {FORMS})$",     # a common phrase: only a company of that name
+    "mcqueen": rf"^(alexander )?mcqueen( (trading|italia|france|usa))?( {FORMS})?$",
+    "balmain": rf"^(pierre )?balmain( (paris|usa|uk|italia))?( {FORMS})?$",
+    "schiaparelli": rf"^(elsa )?schiaparelli( {FORMS})?$",
+    "lanvin": rf"^(jeanne )?lanvin( (usa|uk|japan|italia))?( {FORMS})?$",
+    "stella_mccartney": rf"^stella mccartney( (retail|usa|france|italia))?( {FORMS})?$",
+    "comme_des_garcons": rf"^comme des garcons( (international|paris|uk|usa))?( {FORMS})?$",
+    "issey_miyake": rf"^issey miyake( (europe|usa|uk))?( {FORMS})?$",
 }.items()}
 NOT_FASHION = ("parfum", "perfume", "beaut", "fondazione", "fundacion", "foundation", "fondation")
 EXTRA_NAMES = {"margiela": ["margiela"]}          # the company may drop the "Maison"

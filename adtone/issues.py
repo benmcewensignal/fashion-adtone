@@ -48,11 +48,12 @@ def _log(event: str, **kw) -> None:
     store.append_jsonl(PROV, [{"at": store.utc_now(), "event": event, **kw}])
 
 
-def check_plan(plan: dict, houses: dict[str, str]) -> list[str]:
-    """What is wrong with the plan: a house without a prompt, or a prompt that names a house or asks for a mark."""
+def check_plan(plan: dict, houses: dict[str, str], issued: list[str] | None = None) -> list[str]:
+    """What is wrong with the plan: a house with an issue but no prompt, or a prompt that names any house or asks
+    for a mark. Every house has an issue unless `issued` names the ones that do."""
     bad = []
     prompts = plan.get("houses", {})
-    for hid in houses:
+    for hid in (houses if issued is None else issued):
         if not prompts.get(hid):
             bad.append(f"{hid}: no prompt")
     names = {n.lower() for n in houses.values()} | {n.lower().split()[0] for n in houses.values() if len(n.split()[0]) > 4}
@@ -98,8 +99,10 @@ def draw(plan: dict | None = None, starter=None, put=None, only: list[str] | Non
     """Each house's prompt drawn once for each seed; a house already drawn is passed over unless again."""
     from . import registry
     plan = plan or json.loads(PLAN.read_text(encoding="utf-8"))
-    houses = {h.id: h.name for h in registry.load().houses}
-    problems = check_plan(plan, houses)
+    reg = registry.load()
+    houses = {h.id: h.name for h in reg.houses}
+    # the wider field of 15 October 2026 has no issues yet; its names still may not appear in any prompt
+    problems = check_plan(plan, houses, issued=[h.id for h in reg.houses if h.tier != "wider"])
     if problems:
         raise SystemExit("the plan is not fit to draw: " + "; ".join(problems))
     starter = starter or F._painter("Starter")

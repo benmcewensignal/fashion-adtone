@@ -49,6 +49,11 @@ QUERIES = {   # houses whose names mean something else too
     "brunello_cucinelli": '"Cucinelli"',
     "margiela": '"Margiela"',
     "dior": '(Dior OR "Christian Dior")',     # a quoted four-letter phrase is too short for GDELT
+    "the_row": '"The Row" Olsen',              # the wider field from here: a common phrase, and its founders' name
+    "balmain": f'"Balmain" {CONTEXT}',          # also a Sydney suburb
+    "schiaparelli": f'"Schiaparelli" {CONTEXT}',  # also a Mars lander and craters
+    "lanvin": f'"Lanvin" {CONTEXT}',            # also the actor Gerard Lanvin
+    "comme_des_garcons": '"Comme des Garcons"',
 }
 
 

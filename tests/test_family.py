@@ -108,6 +108,22 @@ def test_the_frozen_tests_read_only_the_core_panel():
     assert r.by_id("versace").debut.designer == "Dario Vitale"   # Mulier has not shown yet (February 2027)
 
 
+def test_the_wider_field_is_collected_but_never_tested():
+    r = registry.load()
+    wider = r.tier("wider")
+    assert len(wider) == 12 and all(h.group == "watch" and not h.events for h in wider)
+    assert not {h.id for h in wider} & {h.id for h in r.core().houses}
+    # the frozen tests read the core panel; Amendment 2 and the crews leave watch houses out
+    assert {h.id for h in wider} <= {h.id for h in r.group("watch")}
+
+
+def test_a_wider_house_must_be_a_watch_house(tmp_path):
+    p = tmp_path / "houses.yml"
+    p.write_text("version: 1\nstatus: DRAFT\nhouses:\n  - {id: x, name: X, group: control, tier: wider, search_terms: [X], page_ids: [], events: []}\n")
+    with pytest.raises(ValueError, match="watch"):
+        registry.load(p)
+
+
 def test_an_unknown_tier_is_refused(tmp_path):
     p = tmp_path / "houses.yml"
     p.write_text("version: 1\nstatus: DRAFT\nhouses:\n  - {id: x, name: X, group: control, tier: maybe, search_terms: [X], page_ids: [], events: []}\n")

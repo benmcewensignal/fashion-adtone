@@ -28,7 +28,8 @@ class House:
     page_ids: list[str]
     events: list[Event] = field(default_factory=list)
     models_slug: str | None = None   # models.com client slug, when it is not the slugified name
-    tier: str = "core"               # core: the frozen v1 panel; extension: added by Amendment 2
+    tier: str = "core"               # core: the frozen v1 panel; extension: added by Amendment 2; wider: the
+                                     # wider field of 15 October 2026, collected for the benchmark, never tested
     earlier_owners: list[tuple[date, str]] = field(default_factory=list)   # (owned until, owner), oldest first
 
     def owner_on(self, d: date) -> str:
@@ -101,8 +102,10 @@ def load(path: Path = REGISTRY_FILE) -> Registry:
         if h["group"] == "treated" and not any(e.kind == "designer_debut" for e in events):
             raise ValueError(f"{h['id']}: a treated house needs a designer_debut event")
         tier = h.get("tier", "core")
-        if tier not in ("core", "extension"):
-            raise ValueError(f"{h['id']}: tier must be core or extension")
+        if tier not in ("core", "extension", "wider"):
+            raise ValueError(f"{h['id']}: tier must be core, extension or wider")
+        if tier == "wider" and h["group"] != "watch":
+            raise ValueError(f"{h['id']}: a house of the wider field is a watch house, outside every registered test")
         if h["group"] in ("control", "watch") and events:
             raise ValueError(f"{h['id']}: a {h['group']} house has no events by definition")
         houses.append(House(

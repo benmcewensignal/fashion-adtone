@@ -11,6 +11,7 @@ from adtone import issues as I
 from adtone import registry
 
 HOUSES = {h.id: h.name for h in registry.load().houses}
+ISSUED = [h.id for h in registry.load().houses if h.tier != "wider"]   # the wider field has no issues yet
 
 
 def _png(colour=(120, 90, 60), size=(40, 50)):
@@ -36,8 +37,9 @@ class _Starter:
 
 def test_the_plan_has_a_prompt_for_every_house_and_names_none():
     plan = json.loads(I.PLAN.read_text())
-    assert set(plan["houses"]) == set(HOUSES)
-    assert I.check_plan(plan, HOUSES) == []
+    assert set(plan["houses"]) == set(ISSUED)
+    assert I.check_plan(plan, HOUSES, ISSUED) == []
+    assert any(p.endswith("no prompt") for p in I.check_plan(plan, HOUSES))   # every house, unless told otherwise
 
 
 def test_a_prompt_that_names_a_house_or_asks_for_a_mark_is_refused():

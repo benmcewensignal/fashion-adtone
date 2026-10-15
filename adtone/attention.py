@@ -65,6 +65,21 @@ ARTICLES = {
     "brunello_cucinelli": ["Brunello Cucinelli (company)", "Brunello Cucinelli"],
     "zegna": ["Zegna (company)", "Ermenegildo Zegna"],
     "chloe": ["Chloé"],
+    # the wider field, 15 October 2026. Jacquemus, Stella McCartney and Issey Miyake have no article of their own
+    # as brands, so their founder's article stands in, as Dries Van Noten's does; McQueen's never falls back to
+    # the designer's own article, which is about a man who died in 2010.
+    "armani": ["Armani", "Giorgio Armani S.p.A."],
+    "moncler": ["Moncler"],
+    "ferragamo": ["Salvatore Ferragamo S.p.A.", "Salvatore Ferragamo (company)", "Ferragamo"],
+    "jacquemus": ["Jacquemus (brand)", "Jacquemus (fashion house)", "Simon Porte Jacquemus"],
+    "the_row": ["The Row (fashion label)"],
+    "mcqueen": ["Alexander McQueen (fashion house)", "Alexander McQueen (brand)"],
+    "balmain": ["Balmain (fashion house)"],
+    "schiaparelli": ["Schiaparelli (fashion house)"],
+    "lanvin": ["Lanvin"],
+    "stella_mccartney": ["Stella McCartney (brand)", "Stella McCartney (company)", "Stella McCartney"],
+    "comme_des_garcons": ["Comme des Garçons"],
+    "issey_miyake": ["Issey Miyake Inc.", "Issey Miyake (brand)", "Issey Miyake"],
 }
 
 

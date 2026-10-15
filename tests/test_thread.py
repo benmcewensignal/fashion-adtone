@@ -77,6 +77,25 @@ def test_the_calendar_tries_each_name_and_checks_itself_against_the_verified_sho
     assert c == {"verified_shows": 3, "same_day": 1, "one_day_apart": 1, "further": 0, "not_listed": 1}
 
 
+def test_a_line_listed_on_its_own_page_joins_the_house_and_a_missing_page_keeps_the_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
+    ref = tmp_path / "shows.csv"
+    ref.write_text("house,date,season,city,kind,note,verified,source\n")
+    monkeypatch.setattr(T, "SHOWS_REF", ref)
+    rtw = "- [Giorgio Armani Ready To Wear Fall Winter 2026 Milan](/giorgio-armani-ready-to-wear-fall-winter-2026-milan.md) — 2026-03-01\n"
+    prive = "- [Giorgio Armani Prive Couture Spring Summer 2026 Paris](/giorgio-armani-prive-couture-spring-summer-2026-paris.md) — 2026-01-27\n"
+    sess = Sess({f"{T.SITE}/brand/giorgio-armani.md": Resp(200, rtw), f"{T.SITE}/brand/giorgio-armani-prive.md": Resp(200, prive)})
+    out = T.calendar(sess, sleep=lambda s: None, houses=["armani"])
+    assert out["per_house"]["armani"] == {"slug": "giorgio-armani", "listed": 2, "possibly_cut": False}
+    rows = [json.loads(x) for x in (tmp_path / "thread" / "shows.jsonl").read_text().splitlines()]
+    assert {r["category"] for r in rows} == {"rtw", "couture"}
+    # the couture page unread: the house's rows on file stay as they were rather than lose the couture shows
+    out = T.calendar(Sess({f"{T.SITE}/brand/giorgio-armani.md": Resp(200, rtw)}), sleep=lambda s: None, houses=["armani"])
+    assert out["per_house"]["armani"]["listed"] == 0
+    assert len((tmp_path / "thread" / "shows.jsonl").read_text().splitlines()) == 2
+
+
 def test_main_category_is_what_a_house_shows_most():
     rows = [{"house": "a", "date": "2018-01-01", "category": c} for c in ("rtw", "rtw", "couture", "men")] + \
            [{"house": "z", "date": "2018-01-01", "category": "men"}, {"house": "z", "date": "2014-01-01", "category": "rtw"}]

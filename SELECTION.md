@@ -89,3 +89,24 @@ Chloé's advertising from before the move, which can only be archived in advance
 fashion-position froze twenty houses for its runway tracks. This panel is separate because the design
 is event-driven: it needs houses with a dated change inside the window and controls without one. The
 two lists can be reconciled when the repos merge.
+
+## Wider field, 15 October 2026
+
+Twelve houses added so the benchmark reaches further across luxury: Giorgio Armani, Moncler, Ferragamo,
+Jacquemus, The Row, Alexander McQueen, Balmain, Schiaparelli, Lanvin, Stella McCartney, Comme des Garçons and
+Issey Miyake. They are watch houses in a tier of their own (`tier: wider`): every collector reads them and no
+registered test does, so H1 to H3 and Amendment 2 are unchanged. The forward template already admits them by its
+own words, since its events and controls are the houses whose homepages Focal reads: once their pictures are on
+file, a new creative lead at one of them is an event and a house without one is a control. The issue covers stay
+at the 28 until these houses have prompts, and figures published before this date are on the 28.
+
+The order of gathering puts what is lost by waiting first:
+
+1. Focal's own daily homepage captures (a day not captured is gone) and the advertising archives, which keep
+   an ad for a year (Google's from the next discovery; Meta's when access comes).
+2. The homepage history from the web archive, the twelve first in `reference/priority.txt`, the recent years of
+   all twelve before anyone's older ones.
+3. Attention, Wikidata, press and the show calendar, which keep their history and can wait a week.
+4. The hand-built joins (designers, executives, shows, ambassadors, credits, revenue), compiled by agents with a
+   source on every row and checked before they are merged; the reader and the tests are not theirs to touch.
+5. YouTube and TikTok, when their keys exist.
