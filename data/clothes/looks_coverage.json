@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T12:42:51Z",
+ "generated_at": "2026-10-15T17:48:48Z",
  "window_days": [
   -1,
   14
@@ -42,7 +42,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -55,7 +55,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 502"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -610,31 +610,287 @@
     }
    ]
   },
+  "balmain:2018-03-02:rtw": {
+   "house": "balmain",
+   "date": "2018-03-02",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2018-06-24:men": {
+   "house": "balmain",
+   "date": "2018-06-24",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2018-09-28:rtw": {
+   "house": "balmain",
+   "date": "2018-09-28",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2019-01-18:men": {
+   "house": "balmain",
+   "date": "2019-01-18",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2019-01-23:couture": {
+   "house": "balmain",
+   "date": "2019-01-23",
+   "season": "2019 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2019-03-01:rtw": {
+   "house": "balmain",
+   "date": "2019-03-01",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2019-06-21:men": {
+   "house": "balmain",
+   "date": "2019-06-21",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2019-09-27:rtw": {
+   "house": "balmain",
+   "date": "2019-09-27",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2020-01-17:men": {
+   "house": "balmain",
+   "date": "2020-01-17",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2020-02-28:rtw": {
+   "house": "balmain",
+   "date": "2020-02-28",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2020-09-30:rtw": {
+   "house": "balmain",
+   "date": "2020-09-30",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2021-03-08:rtw": {
+   "house": "balmain",
+   "date": "2021-03-08",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2021-09-29:rtw": {
+   "house": "balmain",
+   "date": "2021-09-29",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2022-03-02:rtw": {
+   "house": "balmain",
+   "date": "2022-03-02",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2022-09-28:rtw": {
+   "house": "balmain",
+   "date": "2022-09-28",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2023-03-01:rtw": {
+   "house": "balmain",
+   "date": "2023-03-01",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://us.balmain.com/en/experience/balmain-fall-2023-fashion-show",
+     "ts": "20230301192803",
+     "score": 7.62
+    }
+   ]
+  },
+  "balmain:2023-09-27:rtw": {
+   "house": "balmain",
+   "date": "2023-09-27",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 57,
+   "candidates": [
+    {
+     "url": "https://us.balmain.com/en/experience-ss24/balmain-spring-summer-2024-fashion-show",
+     "ts": "20230929171718",
+     "score": 7.62
+    }
+   ]
+  },
+  "balmain:2024-01-20:men": {
+   "house": "balmain",
+   "date": "2024-01-20",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://fr.balmain.com/fr/experience/show-men-FW24",
+     "ts": "20240121154245",
+     "score": 6.0
+    }
+   ]
+  },
+  "balmain:2024-02-28:rtw": {
+   "house": "balmain",
+   "date": "2024-02-28",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "balmain:2024-09-25:rtw": {
+   "house": "balmain",
+   "date": "2024-09-25",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://gb.balmain.com/gb/experience/show-women-SS25",
+     "ts": "20241003145623",
+     "score": 6.06
+    }
+   ]
+  },
+  "balmain:2025-03-05:rtw": {
+   "house": "balmain",
+   "date": "2025-03-05",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://be.balmain.com/en/experience/show-women-FW25",
+     "ts": "20250319201614",
+     "score": 5.62
+    }
+   ]
+  },
+  "balmain:2025-10-01:rtw": {
+   "house": "balmain",
+   "date": "2025-10-01",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://us.balmain.com/us/experience/show-women-SS26?utm_source=igfb&utm_medium=social&utm_campaign=SS26show_Oct25&utm_content=SS26show_vv_int_USUKFRIT_guest_RBM_video",
+     "ts": "20251007042951",
+     "score": 5.81
+    }
+   ]
+  },
   "balmain:2026-03-04:rtw": {
    "house": "balmain",
    "date": "2026-03-04",
    "season": "2026 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balmain.com": "ConnectionError"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://gb.balmain.com/en/experience/balmain-fall-winter-2026-womens-runway",
+     "ts": "20260309133806",
+     "score": 6.62
+    }
+   ]
   },
   "balmain:2026-09-30:rtw": {
    "house": "balmain",
    "date": "2026-09-30",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balmain.com": "HTTP 504"
-   }
+   "candidates": []
   },
   "bottega_veneta:2015-01-18:men": {
    "house": "bottega_veneta",
@@ -1242,7 +1498,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2366,7 +2622,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -2765,6 +3021,146 @@
    "house": "chloe",
    "date": "2026-10-01",
    "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2015-01-23:men": {
+   "house": "comme_des_garcons",
+   "date": "2015-01-23",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2015-03-07:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2015-03-07",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2015-06-26:men": {
+   "house": "comme_des_garcons",
+   "date": "2015-06-26",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2015-10-03:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2015-10-03",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2016-01-22:men": {
+   "house": "comme_des_garcons",
+   "date": "2016-01-22",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2016-03-05:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2016-03-05",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2016-06-24:men": {
+   "house": "comme_des_garcons",
+   "date": "2016-06-24",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2016-10-01:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2016-10-01",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2017-01-20:men": {
+   "house": "comme_des_garcons",
+   "date": "2017-01-20",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2017-03-04:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2017-03-04",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2017-06-23:men": {
+   "house": "comme_des_garcons",
+   "date": "2017-06-23",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2017-09-30:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2017-09-30",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2018-01-19:men": {
+   "house": "comme_des_garcons",
+   "date": "2018-01-19",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2018-03-03:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2018-03-03",
+   "season": "2018 AW rtw",
    "category": "rtw",
    "status": "none",
    "via": "window",
@@ -7704,6 +8100,583 @@
    "pages": 0,
    "candidates": []
   },
+  "issey_miyake:2015-01-22:men": {
+   "house": "issey_miyake",
+   "date": "2015-01-22",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_autumn_winter_2015_collection.html",
+     "ts": "20150205030030",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2015_collection.html",
+     "ts": "20150320075204",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2015-03-06:rtw": {
+   "house": "issey_miyake",
+   "date": "2015-03-06",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2015_collection.html",
+     "ts": "20150320075204",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2015-06-25:men": {
+   "house": "issey_miyake",
+   "date": "2015-06-25",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2016_collection.html",
+     "ts": "20150703094146",
+     "score": 5.62
+    }
+   ]
+  },
+  "issey_miyake:2015-10-02:rtw": {
+   "house": "issey_miyake",
+   "date": "2015-10-02",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/pleats_please_issey_miyake_spring_summer_2016.html",
+     "ts": "20160122012058",
+     "score": 0.62
+    }
+   ]
+  },
+  "issey_miyake:2016-01-21:men": {
+   "house": "issey_miyake",
+   "date": "2016-01-21",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2016_collection.html",
+     "ts": "20160330163920",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2016-03-04:rtw": {
+   "house": "issey_miyake",
+   "date": "2016-03-04",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2016_collection.html",
+     "ts": "20160330163920",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2016-06-23:men": {
+   "house": "issey_miyake",
+   "date": "2016-06-23",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2017_collection.html",
+     "ts": "20160711090326",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_collection.html",
+     "ts": "20161006025536",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2016-09-30:rtw": {
+   "house": "issey_miyake",
+   "date": "2016-09-30",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_collection.html",
+     "ts": "20161006025536",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_image_video.html",
+     "ts": "20170124123333",
+     "score": 0.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/pleats_please_issey_miyake_spring_summer_2017.html",
+     "ts": "20170104083816",
+     "score": 0.62
+    }
+   ]
+  },
+  "issey_miyake:2017-01-19:men": {
+   "house": "issey_miyake",
+   "date": "2017-01-19",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://isseymiyake.com:80/en/news/brands/issey_miyake_men_autumn_winter_2017_collection.html",
+     "ts": "20170128204313",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2017_collection.html",
+     "ts": "20170312142936",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2017-03-03:rtw": {
+   "house": "issey_miyake",
+   "date": "2017-03-03",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2017_collection.html",
+     "ts": "20170312142936",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2017-06-22:men": {
+   "house": "issey_miyake",
+   "date": "2017-06-22",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2018_collection.html",
+     "ts": "20170626024653",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2018_collection.html",
+     "ts": "20171007125243",
+     "score": 2.62
+    }
+   ]
+  },
+  "issey_miyake:2017-09-29:rtw": {
+   "house": "issey_miyake",
+   "date": "2017-09-29",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2018_collection.html",
+     "ts": "20171007125243",
+     "score": 2.62
+    },
+    {
+     "url": "http://isseymiyake.com:80/news/brand/issey_miyake_spring_summer_2018_collection.html",
+     "ts": "20171006174540",
+     "score": 2.0
+    }
+   ]
+  },
+  "issey_miyake:2018-01-18:men": {
+   "house": "issey_miyake",
+   "date": "2018-01-18",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2018-03-02:rtw": {
+   "house": "issey_miyake",
+   "date": "2018-03-02",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2018-06-21:men": {
+   "house": "issey_miyake",
+   "date": "2018-06-21",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2018-09-28:rtw": {
+   "house": "issey_miyake",
+   "date": "2018-09-28",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2019-01-17:men": {
+   "house": "issey_miyake",
+   "date": "2019-01-17",
+   "season": "2019 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2019-03-01:rtw": {
+   "house": "issey_miyake",
+   "date": "2019-03-01",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2019-06-20:men": {
+   "house": "issey_miyake",
+   "date": "2019-06-20",
+   "season": "2020 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2019-09-27:rtw": {
+   "house": "issey_miyake",
+   "date": "2019-09-27",
+   "season": "2020 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2020-01-16:men": {
+   "house": "issey_miyake",
+   "date": "2020-01-16",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2020-03-01:rtw": {
+   "house": "issey_miyake",
+   "date": "2020-03-01",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2020-10-02:rtw": {
+   "house": "issey_miyake",
+   "date": "2020-10-02",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2021-01-16:men": {
+   "house": "issey_miyake",
+   "date": "2021-01-16",
+   "season": "2021 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2021-03-05:rtw": {
+   "house": "issey_miyake",
+   "date": "2021-03-05",
+   "season": "2021 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2021-06-24:men": {
+   "house": "issey_miyake",
+   "date": "2021-06-24",
+   "season": "2022 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2021-10-01:rtw": {
+   "house": "issey_miyake",
+   "date": "2021-10-01",
+   "season": "2022 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2022-03-04:rtw": {
+   "house": "issey_miyake",
+   "date": "2022-03-04",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2022-06-23:men": {
+   "house": "issey_miyake",
+   "date": "2022-06-23",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2022-09-30:rtw": {
+   "house": "issey_miyake",
+   "date": "2022-09-30",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2023-01-19:men": {
+   "house": "issey_miyake",
+   "date": "2023-01-19",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2023-03-03:rtw": {
+   "house": "issey_miyake",
+   "date": "2023-03-03",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2023-06-22:men": {
+   "house": "issey_miyake",
+   "date": "2023-06-22",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2023-09-29:rtw": {
+   "house": "issey_miyake",
+   "date": "2023-09-29",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 2,
+   "candidates": []
+  },
+  "issey_miyake:2024-01-18:men": {
+   "house": "issey_miyake",
+   "date": "2024-01-18",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2024-03-01:rtw": {
+   "house": "issey_miyake",
+   "date": "2024-03-01",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2024-06-20:men": {
+   "house": "issey_miyake",
+   "date": "2024-06-20",
+   "season": "2025 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2024-09-27:rtw": {
+   "house": "issey_miyake",
+   "date": "2024-09-27",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2025-01-23:men": {
+   "house": "issey_miyake",
+   "date": "2025-01-23",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2025-03-07:rtw": {
+   "house": "issey_miyake",
+   "date": "2025-03-07",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 9,
+   "candidates": []
+  },
+  "issey_miyake:2025-06-22:men": {
+   "house": "issey_miyake",
+   "date": "2025-06-22",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2025-06-26:men": {
+   "house": "issey_miyake",
+   "date": "2025-06-26",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2025-10-03:rtw": {
+   "house": "issey_miyake",
+   "date": "2025-10-03",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2026-01-22:men": {
+   "house": "issey_miyake",
+   "date": "2026-01-22",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2026-03-06:rtw": {
+   "house": "issey_miyake",
+   "date": "2026-03-06",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "issey_miyake:2026-06-25:men": {
+   "house": "issey_miyake",
+   "date": "2026-06-25",
+   "season": "2027 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "issey_miyake:2026-10-02:rtw": {
+   "house": "issey_miyake",
+   "date": "2026-10-02",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "jacquemus:2015-03-03:rtw": {
    "house": "jacquemus",
    "date": "2015-03-03",
@@ -8309,6 +9282,132 @@
    "date": "2026-09-23",
    "season": "2027 SS rtw",
    "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2015-01-25:men": {
+   "house": "lanvin",
+   "date": "2015-01-25",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2015-03-05:rtw": {
+   "house": "lanvin",
+   "date": "2015-03-05",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2015-06-28:men": {
+   "house": "lanvin",
+   "date": "2015-06-28",
+   "season": "2016 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2015-10-01:rtw": {
+   "house": "lanvin",
+   "date": "2015-10-01",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2016-01-24:men": {
+   "house": "lanvin",
+   "date": "2016-01-24",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2016-03-03:rtw": {
+   "house": "lanvin",
+   "date": "2016-03-03",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2016-06-26:men": {
+   "house": "lanvin",
+   "date": "2016-06-26",
+   "season": "2017 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2016-09-28:rtw": {
+   "house": "lanvin",
+   "date": "2016-09-28",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://store.lanvin.com:80/gb/women/ss17-capsule-collection/secondary",
+     "ts": "20161002162539",
+     "score": 5.06
+    },
+    {
+     "url": "http://store.lanvin.com:80/mc/femme/collection-capsule-ss17/secondary",
+     "ts": "20161005155524",
+     "score": 3.0
+    },
+    {
+     "url": "http://store.lanvin.com:80/va/donna/ss17-capsule-collection/secondary",
+     "ts": "20161005161902",
+     "score": 3.0
+    }
+   ]
+  },
+  "lanvin:2017-01-22:men": {
+   "house": "lanvin",
+   "date": "2017-01-22",
+   "season": "2017 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2017-03-01:rtw": {
+   "house": "lanvin",
+   "date": "2017-03-01",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "lanvin:2017-06-25:men": {
+   "house": "lanvin",
+   "date": "2017-06-25",
+   "season": "2018 SS men",
+   "category": "men",
    "status": "none",
    "via": "window",
    "pages": 0,
@@ -11113,13 +12212,16 @@
    "date": "2015-02-15",
    "season": "2015 AW rtw",
    "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "moncler.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://www.moncler.com:80/gb/news/behind-the-scenes-at-the-moncler-gamme-bleu-fw15-show/",
+     "ts": "20150526032507",
+     "score": 4.06
+    }
+   ]
   },
   "moncler:2015-03-11:rtw": {
    "house": "moncler",
@@ -13223,7 +14325,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectionError"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -13236,7 +14338,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -14735,12 +15837,15 @@
   },
   "moncler": {
    "prefixes": [
+    "www.moncler.com/gb/news/",
+    "www.moncler.com/jp/news/",
+    "pressoffice.moncler.com/moncler/c/",
+    "www.moncler.com/en-ch/genius/collections/moncler-x-gilga-farm-designed-by-donald-glover/",
     "www.moncler.com/en-ch/genius-collection-asap-rocky/",
-    "www.moncler.com/en-ch/genius/collections/moncler-x-edward-enninful/",
     "www.moncler.com/en-ch/genius/collections/moncler-x-mercedes-benz-by-nigo/",
-    "www.moncler.com/en-ch/genius/collections/moncler-x-asap-rocky/"
+    "www.moncler.com/en-ch/genius/collections/"
    ],
-   "pages": 50
+   "pages": 444
   },
   "the_row": {
    "prefixes": [
@@ -14771,10 +15876,10 @@
   },
   "balmain": {
    "prefixes": [
-    "www.balmain.com/en_us/lookbook/collections/index/men/",
     "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/show/",
     "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
-    "www.balmain.com/en_us/show/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
    "pages": 23
   },
@@ -14789,10 +15894,13 @@
   },
   "lanvin": {
    "prefixes": [
+    "www.lanvin.com/gb/news/",
     "www.lanvin.com/gb/maison-lanvin/shows/",
-    "www.lanvin.com/gb/news/"
+    "www.lanvin.com/nl/maison-lanvin/shows/",
+    "www.lanvin.com/us/news/",
+    "www.lanvin.com/nl/maison-lanvin/projects/"
    ],
-   "pages": 150
+   "pages": 401
   },
   "comme_des_garcons": {
    "prefixes": [],
@@ -14806,14 +15914,20 @@
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
    "pages": 1348
+  },
+  "issey_miyake": {
+   "prefixes": [
+    "www.isseymiyake.com/en/news/brands/"
+   ],
+   "pages": 563
   }
  },
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 508,
-   "index failed": 56,
-   "none": 294
+   "found": 529,
+   "index failed": 53,
+   "none": 370
   },
   "by_house": {
    "alaia": {
@@ -14829,8 +15943,8 @@
     "found": 22
    },
    "balmain": {
-    "shows": 2,
-    "found": 0
+    "shows": 24,
+    "found": 7
    },
    "bottega_veneta": {
     "shows": 21,
@@ -14857,7 +15971,7 @@
     "found": 17
    },
    "comme_des_garcons": {
-    "shows": 28,
+    "shows": 42,
     "found": 0
    },
    "dior": {
@@ -14892,6 +16006,10 @@
     "shows": 43,
     "found": 36
    },
+   "issey_miyake": {
+    "shows": 47,
+    "found": 12
+   },
    "jacquemus": {
     "shows": 14,
     "found": 2
@@ -14901,8 +16019,8 @@
     "found": 13
    },
    "lanvin": {
-    "shows": 19,
-    "found": 11
+    "shows": 30,
+    "found": 12
    },
    "loewe": {
     "shows": 36,
@@ -14934,7 +16052,7 @@
    },
    "moncler": {
     "shows": 17,
-    "found": 9
+    "found": 10
    },
    "prada": {
     "shows": 31,
@@ -14975,55 +16093,55 @@
   },
   "by_year": {
    "2015": {
-    "shows": 41,
-    "found": 25
+    "shows": 47,
+    "found": 28
    },
    "2016": {
-    "shows": 83,
-    "found": 55
+    "shows": 95,
+    "found": 59
    },
    "2017": {
-    "shows": 77,
-    "found": 57
+    "shows": 89,
+    "found": 62
    },
    "2018": {
-    "shows": 74,
-    "found": 32
+    "shows": 84,
+    "found": 34
    },
    "2019": {
-    "shows": 82,
+    "shows": 91,
     "found": 37
    },
    "2020": {
-    "shows": 79,
+    "shows": 87,
     "found": 40
    },
    "2021": {
-    "shows": 49,
+    "shows": 54,
     "found": 34
    },
    "2022": {
-    "shows": 68,
+    "shows": 73,
     "found": 55
    },
    "2023": {
-    "shows": 65,
-    "found": 45
+    "shows": 71,
+    "found": 46
    },
    "2024": {
-    "shows": 63,
-    "found": 43
+    "shows": 70,
+    "found": 45
    },
    "2025": {
-    "shows": 56,
-    "found": 31
+    "shows": 62,
+    "found": 33
    },
    "2026": {
-    "shows": 81,
-    "found": 43
+    "shows": 87,
+    "found": 45
    },
    "2027": {
-    "shows": 40,
+    "shows": 42,
     "found": 11
    }
   }
