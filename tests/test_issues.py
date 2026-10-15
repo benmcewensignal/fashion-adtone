@@ -98,3 +98,20 @@ def test_the_chosen_pictures_become_the_sites_copies_named_by_their_hash(tmp_pat
     assert g["sha1"] == hashlib.sha1(data).hexdigest() and g["name"] == f"gucci-{hashlib.sha256(data).hexdigest()[:12]}.webp"
     assert Image.open(io.BytesIO(vol[f"{I.VOL_DIR}/web/{out['pictures']['loewe']['name']}"])).size == I.WEB_SIZE   # 3:4 cut to 4:5
     assert json.loads((tmp_path / "web.json").read_text())["pictures"]["loewe"]["seed"] == 11
+
+
+def test_a_house_published_before_keeps_its_name(tmp_path, monkeypatch):
+    monkeypatch.setattr(I, "WEB", tmp_path / "web.json")
+    monkeypatch.setattr(I, "DIR", tmp_path)
+    monkeypatch.setattr(I, "PROV", tmp_path / "prov.jsonl")
+    vol = {f"{I.VOL_DIR}/png/gucci-23.png": _png(size=(1088, 1360)), f"{I.VOL_DIR}/png/loewe-11.png": _png((10, 20, 30), (1088, 1360)),
+           f"{I.VOL_DIR}/png/loewe-37.png": _png((200, 10, 10), (1088, 1360)), f"{I.VOL_DIR}/png/dior-5.png": _png((5, 5, 5), (1088, 1360))}
+    first = I.publish({"gucci": 23, "loewe": 11}, get=vol.__getitem__, put=vol.update)
+    gucci, loewe = dict(first["pictures"]["gucci"]), dict(first["pictures"]["loewe"])
+    made = []
+    monkeypatch.setattr(I, "web_copy", lambda png, f=I.web_copy: made.append(1) or f(png) + b"\0")   # as if the encoder changed
+    again = I.publish({"gucci": 23, "loewe": 37, "dior": 5}, get=vol.__getitem__, put=vol.update)
+    assert again["pictures"]["gucci"] == gucci and len(made) == 2                 # kept as it was; only loewe and dior made
+    assert again["pictures"]["loewe"]["seed"] == 37 and again["pictures"]["loewe"]["name"] != loewe["name"]
+    assert f"{I.VOL_DIR}/web/{again['pictures']['dior']['name']}" in vol and f"{I.VOL_DIR}/web/{gucci['name']}" in vol
+    assert I.publish({"gucci": 23}, get=vol.__getitem__, put=lambda files: 1 / 0)["pictures"] == {"gucci": gucci}   # nothing to put

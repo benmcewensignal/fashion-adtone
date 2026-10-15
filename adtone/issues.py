@@ -168,23 +168,30 @@ def web_copy(png: bytes) -> bytes:
 
 
 def publish(choices: dict | None = None, get=None, put=None) -> dict:
-    """The chosen picture of each house as the site's copy, onto the volume; their names and hashes recorded."""
+    """The chosen picture of each house as the site's copy, onto the volume; their names and hashes recorded. A house
+    published before with the same picture keeps its copy and name, so the covers already on the site keep working
+    whatever a newer image library would encode; only new or changed choices are made again."""
     import hashlib
     choices = choices or json.loads(CHOICES.read_text(encoding="utf-8"))
     get = get or F.get_file
     put = put or F.put_files
+    old = json.loads(WEB.read_text(encoding="utf-8")) if WEB.exists() else {}
+    before = old.get("pictures", {})
     files, out = {}, {}
     for h, seed in sorted(choices.items()):
+        if before.get(h, {}).get("seed") == seed:
+            out[h] = before[h]
+            continue
         webp = web_copy(get(f"{VOL_DIR}/png/{h}-{seed}.png"))
         name = f"{h}-{hashlib.sha256(webp).hexdigest()[:12]}.webp"
         files[f"{VOL_DIR}/web/{name}"] = webp
         out[h] = {"seed": seed, "name": name, "sha1": hashlib.sha1(webp).hexdigest(), "size": len(webp)}
-    put(files)
-    old = json.loads(WEB.read_text(encoding="utf-8")) if WEB.exists() else {}
+    if files:
+        put(files)
     rec = {"at": store.utc_now(), "size": list(WEB_SIZE), "url": old.get("url", ""), "pictures": out}
     DIR.mkdir(parents=True, exist_ok=True)
     WEB.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
-    _log("publish", pictures=len(out))
+    _log("publish", pictures=len(out), made=len(files))
     return rec
 
 
