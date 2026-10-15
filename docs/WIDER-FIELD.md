@@ -106,5 +106,6 @@ Later
       house in `data/issues/choices.json`. The Row, Balmain and Schiaparelli were drawn again (`seeds_for` in
       the plan) because their first pictures ran into the masthead; Schiaparelli's is now seen from above.
 - [ ] The twelve covers on the site's Issues page, once each house has readings for the back of its cover:
-      `python -m adtone.issues publish`, then the covers' markup, checking that the 28 pictures already on the
-      site keep their names.
+      the covers' markup. Their pictures were published on 15 October 2026 (`python -m adtone.issues publish`,
+      which now makes only new or changed pictures, so the 28 already on the site kept their names) and are in
+      `data/issues/web.json`, so the site's build already fetches them.
