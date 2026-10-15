@@ -18,7 +18,7 @@ ticked here in the same commit.
 | `reference/designers.csv` | 37 | none |
 | `reference/executives.csv` | 40 | none |
 | `reference/shows.csv` | 152, February 2022 on | none |
-| `data/thread/shows.jsonl` (show listings) | 223 | ferragamo, issey_miyake |
+| `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
 | `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
@@ -30,6 +30,9 @@ Identifiers
 - [ ] Show listings: the full markdown listings for ferragamo, issey_miyake, and the earlier entries the
       brand pages cut off for armani (main line before 2020), balmain, schiaparelli, lanvin, mcqueen and
       comme_des_garcons; merged with `python -m adtone.thread ingest` (titles, dates and links only).
+      Merged on 15 October 2026 for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and
+      comme_des_garcons. Still to do: mcqueen (its listing would not load) and armani, whose Privé page now
+      links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [ ] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
