@@ -1,5 +1,5 @@
 {
- "at": "2026-10-14T13:56:54Z",
+ "at": "2026-10-15T12:24:59Z",
  "size": [
   960,
   1200
@@ -12,11 +12,23 @@
    "sha1": "f9bd5584a24c8a3ed190f0b2d4049af8a1e2e6fc",
    "size": 27854
   },
+  "armani": {
+   "seed": 37,
+   "name": "armani-f379538362fc.webp",
+   "sha1": "2e6e1bfcfc33b0108dfc088f85ac7b013ea415d9",
+   "size": 39342
+  },
   "balenciaga": {
    "seed": 37,
    "name": "balenciaga-ea3a5806e7f9.webp",
    "sha1": "11a2c515ba91ca6c2411862938f2b678b2baa44d",
    "size": 16000
+  },
+  "balmain": {
+   "seed": 41,
+   "name": "balmain-50831a8c82b3.webp",
+   "sha1": "94b2c9e3a6e56f6c0803507f8afafe7f68b6a628",
+   "size": 46362
   },
   "bottega_veneta": {
    "seed": 23,
@@ -54,6 +66,12 @@
    "sha1": "26a959a7a9b852d459caa0e6fe2ed0de3e29ba0a",
    "size": 83498
   },
+  "comme_des_garcons": {
+   "seed": 37,
+   "name": "comme_des_garcons-d501950c88ed.webp",
+   "sha1": "35de2c7c86d077146a9efdc895ae37aa5e679fff",
+   "size": 37158
+  },
   "dior": {
    "seed": 53,
    "name": "dior-dbd37f2d172c.webp",
@@ -78,6 +96,12 @@
    "sha1": "eeea32543c306b43b9ffd1ae61f785c3bdc05ab6",
    "size": 67174
   },
+  "ferragamo": {
+   "seed": 11,
+   "name": "ferragamo-54e03d5fa662.webp",
+   "sha1": "cc778b5e06bea0226ba3d66b41f0d5fc9e73ebf3",
+   "size": 46718
+  },
   "givenchy": {
    "seed": 23,
    "name": "givenchy-f07581379696.webp",
@@ -96,11 +120,29 @@
    "sha1": "81441f9183bc815935fcad60626335279110897a",
    "size": 106118
   },
+  "issey_miyake": {
+   "seed": 11,
+   "name": "issey_miyake-5052fe9a6f75.webp",
+   "sha1": "1d88beaaac0886e95b7100896d6cc03cf18482ac",
+   "size": 58024
+  },
+  "jacquemus": {
+   "seed": 23,
+   "name": "jacquemus-d013a2515db5.webp",
+   "sha1": "949db09d5a73e6cbd64172f8d199859b087909ca",
+   "size": 108954
+  },
   "jil_sander": {
    "seed": 37,
    "name": "jil_sander-b775846bf736.webp",
    "sha1": "0f0119df6c844efccb7fa4ab31681a5453ab7882",
    "size": 16938
+  },
+  "lanvin": {
+   "seed": 11,
+   "name": "lanvin-33c1463c6668.webp",
+   "sha1": "7a399458edfe00129920dc4df7423f4c0abda86a",
+   "size": 60498
   },
   "loewe": {
    "seed": 23,
@@ -132,11 +174,23 @@
    "sha1": "b628f4357450c3f1f1ff23511665e715a5d9f44b",
    "size": 45330
   },
+  "mcqueen": {
+   "seed": 11,
+   "name": "mcqueen-0b0dcc5d33e3.webp",
+   "sha1": "19bf8af56435f9ca48c19e58814acf6bc1dced46",
+   "size": 43378
+  },
   "miu_miu": {
    "seed": 41,
    "name": "miu_miu-64fc27d9859c.webp",
    "sha1": "1fc0a2fe0d1e28728c9452edd93aba53e36b4ef1",
    "size": 23626
+  },
+  "moncler": {
+   "seed": 23,
+   "name": "moncler-7f13d3463bf7.webp",
+   "sha1": "bc305532c988df0f3f05ea810029973cba9e4f72",
+   "size": 74370
   },
   "prada": {
    "seed": 23,
@@ -149,6 +203,24 @@
    "name": "saint_laurent-27abb8f2d119.webp",
    "sha1": "f4975e3513fed0cbacf1f2c3c73cd1ba4b474b50",
    "size": 56710
+  },
+  "schiaparelli": {
+   "seed": 83,
+   "name": "schiaparelli-2cf326ab7077.webp",
+   "sha1": "509fc727560496b356c080695590c8438fa409b5",
+   "size": 35572
+  },
+  "stella_mccartney": {
+   "seed": 23,
+   "name": "stella_mccartney-576c96e0fd78.webp",
+   "sha1": "1a98f83735de4d31474002867265fbb1e3a71b99",
+   "size": 111608
+  },
+  "the_row": {
+   "seed": 67,
+   "name": "the_row-fd91b653d492.webp",
+   "sha1": "944bb893f455ef0d3a9f309f7bf26ad216560da6",
+   "size": 28020
   },
   "tom_ford": {
    "seed": 23,
