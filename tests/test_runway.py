@@ -58,6 +58,12 @@ def test_spike_and_lasting_are_read_from_the_right_windows():
     assert sp == pytest.approx(2.0) and la == pytest.approx(0.5 * 91 / 91, rel=0.02)
 
 
+def test_the_wider_field_stays_out_of_the_registered_show_tests():
+    reg = registry.load()
+    ids = runway.registered_houses(reg)
+    assert len(ids) == 28 and not set(ids) & {h.id for h in reg.tier("wider")}
+
+
 def test_shipped_show_dates_are_verified_and_belong_to_registry_houses():
     shows = runway.load_shows()
     ids = {h.id for h in registry.load().houses}

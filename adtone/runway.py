@@ -582,16 +582,23 @@ def calendar_shows() -> tuple[dict[str, list[date]], str]:
     return by_house, "verified dates in reference/shows.csv"
 
 
+def registered_houses(reg: registry.Registry) -> list[str]:
+    """The houses Amendment 2, sections 13 and 13b, were set on and their results seen with: the wider field of
+    15 October 2026 came after, so its shows and its attention stay out of these tests and out of their median."""
+    return [h.id for h in reg.houses if h.tier != "wider"]
+
+
 def main(argv: list[str] | None = None) -> int:
     from .analysis import load_concepts
     from .wikiviews import load_series
     reg = registry.load()
-    houses = [h.id for h in reg.houses]
+    houses = registered_houses(reg)
     # English views with a renamed article's earlier titles joined: six houses' articles moved, and the
     # current title alone would start their series years after July 2015
     all_series = {h: logged(load_series(h, "en")) for h in houses}
     panel = Panel({h: s for h, s in all_series.items() if s})
     by_house, source = calendar_shows()
+    by_house = {h: ds for h, ds in by_house.items() if h in houses}
     from .press import load_series as press_series
     press = PressPanel(panel, {h: press_series(h) for h in panel.houses})
     scene = Scene(load_appointments())
