@@ -197,24 +197,37 @@ houses:
   - {id: jacquemus, name: Jacquemus, group: watch, tier: wider, owner: Jacquemus, search_terms: ["Jacquemus"], page_ids: [], events: []}
   - {id: the_row, name: The Row, group: watch, tier: wider, owner: The Row, search_terms: ["The Row"], page_ids: [], events: []}
   - {id: mcqueen, name: Alexander McQueen, group: watch, tier: wider, owner: Kering, search_terms: ["Alexander McQueen", "McQueen"], page_ids: [], events: []}
-  # Balmain: Mayhoola's purchase reported completed on 22 June 2016 (reported; to check against the announcement)
+  # Balmain: the sale of all of it to Mayhoola, by Alain Hivelin's heirs (about 70%) and management (about 30%), was
+  # announced on 21 June 2016 (AFP via FashionNetwork, 2016-06-22); no completion date is public, so the
+  # announcement stands in
   - id: balmain
     name: Balmain
     group: watch
     tier: wider
     owner: Mayhoola
     earlier_owners:
-      - {owner: Hivelin family, until: 2016-06-22}
+      - {owner: Hivelin family, until: 2016-06-21}
     search_terms: ["Balmain"]
     page_ids: []
     events: []
   # Schiaparelli belongs to Diego Della Valle himself, not to Tod's Group
   - {id: schiaparelli, name: Schiaparelli, group: watch, tier: wider, owner: Diego Della Valle, search_terms: ["Schiaparelli"], page_ids: [], events: []}
-  # Lanvin: Shaw-Lan Wang's control ended when Fosun (now Lanvin Group) took a majority in 2018; the day is to be
-  # confirmed before an earlier owner is entered
-  - {id: lanvin, name: Lanvin, group: watch, tier: wider, owner: Lanvin Group, search_terms: ["Lanvin"], page_ids: [], events: []}
-  # Stella McCartney: a joint venture with Kering until 2018, then the designer's own, with an LVMH minority from
-  # July 2019; the day the joint venture ended is to be confirmed before an earlier owner is entered
+  # Lanvin: Fosun (its fashion arm is now Lanvin Group) said on 22 February 2018 that it had acquired a majority from
+  # Shaw-Lan Wang, majority owner since 2001 (The Industry, The Fashion Law, SCMP); no completion date is public
+  - id: lanvin
+    name: Lanvin
+    group: watch
+    tier: wider
+    owner: Lanvin Group
+    earlier_owners:
+      - {owner: Shaw-Lan Wang, until: 2018-02-22}
+    search_terms: ["Lanvin"]
+    page_ids: []
+    events: []
+  # Stella McCartney: a 50/50 joint venture with Kering from 2001. The designer's purchase of Kering's half was
+  # announced on 28 March 2018, but Kering still carried the stake at 30 June 2018 and no completion date is public,
+  # so no earlier owner is entered. LVMH's minority (announced 15 July 2019) never gave it control and was bought
+  # back on 27 January 2025 (FashionUnited, The Impression)
   - {id: stella_mccartney, name: Stella McCartney, group: watch, tier: wider, owner: Stella McCartney, search_terms: ["Stella McCartney"], page_ids: [], events: []}
   - {id: comme_des_garcons, name: Comme des Garçons, group: watch, tier: wider, owner: Comme des Garçons, search_terms: ["Comme des Garçons", "COMME des GARÇONS"], page_ids: [], events: []}
   - {id: issey_miyake, name: Issey Miyake, group: watch, tier: wider, owner: Issey Miyake, search_terms: ["Issey Miyake", "ISSEY MIYAKE"], page_ids: [], events: []}
