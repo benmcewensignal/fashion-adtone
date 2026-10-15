@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T17:48:48Z",
+ "generated_at": "2026-10-15T22:27:01Z",
  "window_days": [
   -1,
   14
@@ -42,7 +42,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "ConnectionError"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -609,6 +609,42 @@
      "score": 0.62
     }
    ]
+  },
+  "balmain:2017-06-24:men": {
+   "house": "balmain",
+   "date": "2017-06-24",
+   "season": "2018 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ConnectionError"
+   }
+  },
+  "balmain:2017-09-28:rtw": {
+   "house": "balmain",
+   "date": "2017-09-28",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   }
+  },
+  "balmain:2018-01-20:men": {
+   "house": "balmain",
+   "date": "2018-01-20",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
   },
   "balmain:2018-03-02:rtw": {
    "house": "balmain",
@@ -1485,7 +1521,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ReadTimeout"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -1498,7 +1534,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2609,7 +2645,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "HTTP 504"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2622,7 +2658,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -7360,7 +7396,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectionError"
    }
   },
   "hermes:2015-03-09:rtw": {
@@ -7386,7 +7422,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ReadTimeout"
+    "hermes.com": "ConnectionError"
    }
   },
   "hermes:2015-10-05:rtw": {
@@ -14315,6 +14351,148 @@
     }
    ]
   },
+  "stella_mccartney:2022-03-07:rtw": {
+   "house": "stella_mccartney",
+   "date": "2022-03-07",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/autumn-2022-collection",
+     "ts": "20220619090256",
+     "score": 4.62
+    }
+   ]
+  },
+  "stella_mccartney:2022-10-03:rtw": {
+   "house": "stella_mccartney",
+   "date": "2022-10-03",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/collections/lookbook-summer-2023-collection.html",
+     "ts": "20221219112323",
+     "score": 7.62
+    }
+   ]
+  },
+  "stella_mccartney:2023-10-02:rtw": {
+   "house": "stella_mccartney",
+   "date": "2023-10-02",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/collections/lookbook-summer-2024-runway-collection.html",
+     "ts": "20231028205754",
+     "score": 11.62
+    }
+   ]
+  },
+  "stella_mccartney:2024-03-04:rtw": {
+   "house": "stella_mccartney",
+   "date": "2024-03-04",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/winter-2024-runway-show-edit",
+     "ts": "20240410122419",
+     "score": 9.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/winter-2024-runway-show-edit/lurex-rib-knit-midi-dress-6K06673S24611069.html",
+     "ts": "20240414194802",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/winter-2024-runway-show-edit/stella-iconics-fine-knit-cardigan-6K04233S24156016.html",
+     "ts": "20240522235224",
+     "score": 7.62
+    }
+   ]
+  },
+  "stella_mccartney:2024-09-30:rtw": {
+   "house": "stella_mccartney",
+   "date": "2024-09-30",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2025-collection",
+     "ts": "20241206112659",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2025-collection/falabella-fold-over-enamel-tote-bag-234387WP04557745.html",
+     "ts": "20241211064045",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2025-collection/falabella-tri-fold-wallet-521371WP03014200.html",
+     "ts": "20250115013810",
+     "score": 2.62
+    }
+   ]
+  },
+  "stella_mccartney:2025-03-05:rtw": {
+   "house": "stella_mccartney",
+   "date": "2025-03-05",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/autumn-2025",
+     "ts": "20250517063741",
+     "score": 2.62
+    }
+   ]
+  },
+  "stella_mccartney:2025-09-30:rtw": {
+   "house": "stella_mccartney",
+   "date": "2025-09-30",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2026-collection?sz=48&cgid=spring-2026-collection-plp&page=2&start=48",
+     "ts": "20251210130446",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2026-collection/falabella-bi-fold-wallet-7P0085WP04452521.html",
+     "ts": "20251213022138",
+     "score": 2.62
+    },
+    {
+     "url": "https://www.stellamccartney.com/fi/en/women/spring-2026-collection/falabella-tri-fold-wallet-7P0084W91321236.html",
+     "ts": "20251213022132",
+     "score": 2.62
+    }
+   ]
+  },
   "stella_mccartney:2026-03-04:rtw": {
    "house": "stella_mccartney",
    "date": "2026-03-04",
@@ -14325,7 +14503,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ConnectionError"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -14338,7 +14516,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -14705,18 +14883,35 @@
     }
    ]
   },
+  "valentino:2020-01-22:couture": {
+   "house": "valentino",
+   "date": "2020-01-22",
+   "season": "2020 SS couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "valentino:2020-03-01:rtw": {
+   "house": "valentino",
+   "date": "2020-03-01",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "valentino:2020-09-27:rtw": {
    "house": "valentino",
    "date": "2020-09-27",
    "season": "2021 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "valentino.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "valentino:2021-01-29:couture": {
    "house": "valentino",
@@ -14765,13 +14960,10 @@
    "date": "2021-10-01",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": [],
-   "errors": {
-    "valentino.com": "ReadTimeout"
-   }
+   "candidates": []
   },
   "valentino:2022-01-26:couture": {
    "house": "valentino",
@@ -15638,21 +15830,21 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/ready-to-wear-shows/",
     "www.dior.com/en_us/mens-fashion/",
-    "www.dior.com/en_us/mens-fashion/collections-shows/",
-    "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/mens-fashion/collections-shows/"
    ],
-   "pages": 973
+   "pages": 319
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/en-fi/fashion/women/collection/",
+    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
+    "www.dolcegabbana.com/en/dg-essentials-collection/",
+    "www.dolcegabbana.com/en/fashion/women/shoes/rainbow-lace-collection/"
    ],
-   "pages": 5009
+   "pages": 3645
   },
   "dries_van_noten": {
    "prefixes": [
@@ -15703,19 +15895,16 @@
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/"
    ],
-   "pages": 180
+   "pages": 0
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
-    "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/st/capsule/sylvie-collection/",
-    "www.gucci.com/us/en/lo/children/childrens-collections/baby-collection-c-children-collections-baby/",
-    "www.gucci.com/us/en/st/stories/runway/"
+    "www.gucci.com/us/en/lo/runway/women/"
    ],
-   "pages": 959
+   "pages": 0
   },
   "loewe": {
    "prefixes": [
@@ -15769,9 +15958,12 @@
     "www.prada.com/en/collections/fashion-show/",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
-    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/"
+    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
+    "www.prada.com/en/collections/advertising-campaign/",
+    "www.prada.com/en/collections/",
+    "www.prada.com/us/en/men/sunglasses/"
    ],
-   "pages": 219
+   "pages": 1071
   },
   "saint_laurent": {
    "prefixes": [
@@ -15800,9 +15992,13 @@
     "www.valentino.com/en-gb/experience/",
     "www.valentino.com/en-fi/collections/",
     "www.valentino.com/en-fi/collections/men/",
-    "www.valentino.com/en-fi/collections/women/"
+    "www.valentino.com/en-fi/collections/women/",
+    "www.valentino.com/de-de/collections/women/",
+    "www.valentino.com/en-fi/experience/",
+    "www.valentino.com/de-de/experience/",
+    "www.valentino.com/de-de/collections/men/"
    ],
-   "pages": 21
+   "pages": 795
   },
   "zegna": {
    "prefixes": [
@@ -15876,12 +16072,16 @@
   },
   "balmain": {
    "prefixes": [
-    "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/show/",
+    "us.balmain.com/en/experience/",
+    "fr.balmain.com/fr/experience/",
+    "gb.balmain.com/gb/experience/",
+    "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/"
+    "www.balmain.com/en_us/show/",
+    "www.balmain.com/en_us/lookbook/collections/index/men/",
+    "www.balmain.com/en_us/lookbook/collections/index/women/"
    ],
-   "pages": 23
+   "pages": 357
   },
   "schiaparelli": {
    "prefixes": [
@@ -15925,9 +16125,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 529,
+   "found": 536,
    "index failed": 53,
-   "none": 370
+   "none": 375
   },
   "by_house": {
    "alaia": {
@@ -15943,7 +16143,7 @@
     "found": 22
    },
    "balmain": {
-    "shows": 24,
+    "shows": 27,
     "found": 7
    },
    "bottega_veneta": {
@@ -16067,8 +16267,8 @@
     "found": 28
    },
    "stella_mccartney": {
-    "shows": 2,
-    "found": 0
+    "shows": 9,
+    "found": 7
    },
    "the_row": {
     "shows": 3,
@@ -16079,7 +16279,7 @@
     "found": 2
    },
    "valentino": {
-    "shows": 30,
+    "shows": 32,
     "found": 28
    },
    "versace": {
@@ -16105,7 +16305,7 @@
     "found": 62
    },
    "2018": {
-    "shows": 84,
+    "shows": 87,
     "found": 34
    },
    "2019": {
@@ -16113,7 +16313,7 @@
     "found": 37
    },
    "2020": {
-    "shows": 87,
+    "shows": 89,
     "found": 40
    },
    "2021": {
@@ -16121,24 +16321,24 @@
     "found": 34
    },
    "2022": {
-    "shows": 73,
-    "found": 55
+    "shows": 74,
+    "found": 56
    },
    "2023": {
-    "shows": 71,
-    "found": 46
+    "shows": 72,
+    "found": 47
    },
    "2024": {
-    "shows": 70,
-    "found": 45
+    "shows": 72,
+    "found": 47
    },
    "2025": {
-    "shows": 62,
-    "found": 33
+    "shows": 64,
+    "found": 35
    },
    "2026": {
-    "shows": 87,
-    "found": 45
+    "shows": 88,
+    "found": 46
    },
    "2027": {
     "shows": 42,
