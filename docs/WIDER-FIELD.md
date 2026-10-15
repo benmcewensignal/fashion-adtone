@@ -22,7 +22,7 @@ ticked here in the same commit.
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
 | `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
-| `reference/revenue.csv` | 92 | all but moncler, ferragamo, armani and lanvin |
+| `reference/revenue.csv` | 93 | all but moncler, ferragamo, armani and lanvin |
 
 ## Still to gather
 
@@ -77,8 +77,8 @@ People
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
       2025 (2021 from the group's own release, the other years from press reports and unverified); the
-      Lanvin brand's revenue from Lanvin Group's results, 2021H1 to FY2025.
-- [ ] Still open: Lanvin 2026H1; the Armani Group's own releases for the six years now taken from press.
+      Lanvin brand's revenue from Lanvin Group's results, 2021H1 to 2026H1.
+- [ ] Still open: the Armani Group's own releases for the six years now taken from press.
 - [ ] Companies House: the filed accounts could not be opened. Stella McCartney Ltd (04169969) files full
       accounts for the one company, not group accounts, so its turnover (from press: £32.5m in 2021, £40.1m
       in 2022, £21.9m in 2023, £16m in 2024) is not the house's worldwide revenue and is not entered.
