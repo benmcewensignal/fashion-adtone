@@ -21,6 +21,7 @@ ticked here in the same commit.
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
+| `reference/google_advertisers.csv` | 19 accounts, 18 house and 1 doubt | the_row, schiaparelli, comme_des_garcons (none found) |
 | `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
 | `reference/revenue.csv` | 93 | all but moncler, ferragamo, armani and lanvin |
 
@@ -35,8 +36,12 @@ Identifiers
       links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
-- [ ] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
-      by hand in `reference/google_advertisers.csv`, as the file's notes do.
+- [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
+      by hand in `reference/google_advertisers.csv`, as the file's notes do. The run of 15 October 2026 found
+      19 accounts for nine of the houses and none for the_row, schiaparelli or comme_des_garcons. All 19 were
+      checked on 15 October 2026 by name, place and Google's verification (the ad archive's pages show nothing
+      to a fetcher, so their topics are first seen by the next collect): 18 are the houses' own companies
+      (house), and Moncler S.P.A, not verified by Google, is entered as doubt.
 - [x] Owners. No completion date is public for any of the three deals, so the announcements stand in:
       Lanvin's earlier owner, Shaw-Lan Wang, until Fosun said it had acquired a majority (2018-02-22); at
       Balmain, the Hivelin family until the sale to Mayhoola was announced (2016-06-21, not the 22nd, which
