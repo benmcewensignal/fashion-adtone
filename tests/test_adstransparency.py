@@ -37,6 +37,9 @@ def test_own_accounts_are_the_houses_companies():
     assert A.own_house("Margiela SAS", "") == "margiela" and A.own_house("Maison Margiela", "") == "margiela"
     assert A.own_house("Louis Vuitton Österreich Ges.m.b.h.", "") == "louis_vuitton"
     assert A.own_house("Chloé Damien", "Chloé Damien") is None                      # a person
+    assert A.own_house("Industries S.p.A.", "Industries S.p.A.") == "moncler"       # the brand's licensee
+    assert A.own_house("INDUSTRIES SPA", "") == "moncler"
+    assert A.own_house("Fila Industries S.p.A.", "") is None and A.own_house("Industries", "") is None
     assert A.group_of("Kering SA", "") == "kering" and A.group_of("Kering Eyewear SpA", "") is None
     assert A.group_of("Puig Ferrer Juan", "") is None
 
@@ -59,7 +62,10 @@ def test_the_pattern_is_plain_lower_case_names():
     pat = A.name_pattern(registry.load())
     alts = pat.split("|")
     assert "hermes" in alts and "dolcegabbana" in alts and "margiela" in alts and "kering" in alts
+    assert "industriesspa" in alts                       # Moncler's licensee, searched for by its own name
     assert pat == pat.lower()
+    # but only the house's names count when discover tallies what it refused
+    assert A.match(registry.load(), "Fila Industries S.p.A.", "Fila Industries S.p.A.") == (None, "no house's name")
 
 
 def test_an_ad_made_small():

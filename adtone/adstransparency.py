@@ -62,7 +62,7 @@ NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "fragrance", "cosmetic", "loreal"
                  "interparfums", "shiseido", "outlet", "vintage", "resale", "secondhand", "preloved", "kering eyewear",
                  "eyewear", "optic", "optik", "lunett")
 MAX_GB = {"discover": 50.0, "collect": 150.0}     # the names query read 14.8 GB, the ads query 113.8
-RULES_VERSION = 3          # 3: the wider field of 15 October 2026
+RULES_VERSION = 4          # 3: the wider field of 15 October 2026; 4: Moncler's licensee, Industries S.p.A.
 REDISCOVER_DAYS = 28
 
 # The houses' own companies, on names lower-cased with accents and punctuation dropped: the house's name,
@@ -104,7 +104,10 @@ OWN = {h: re.compile(p) for h, p in {
     "zegna": rf"^(ermenegildo )?zegna( (group|holditalia|usa|uk))?( {FORMS})?$",
     # the wider field, 15 October 2026
     "armani": rf"^giorgio armani( (retail|corporation|france|uk|japan|deutschland|espana|italia|hong kong))?( {FORMS})?$",
-    "moncler": rf"^moncler( (usa|uk|france|deutschland|espana|italia|japan|asia pacific))?( {FORMS})?$",
+    # Moncler's brand is licensed to its sub-holding Industries S.p.A. (Moncler annual report 2024), whose name
+    # carries no house's; only that exact company is Moncler's, never another firm's "... Industries S.p.A."
+    "moncler": rf"^(moncler( (usa|uk|france|deutschland|espana|italia|japan|asia pacific))?( {FORMS})?|"
+               r"industries (spa|s p a))$",
     "ferragamo": rf"^(salvatore )?ferragamo( (usa|uk|france|deutschland|espana|italia|japan|retail))?( {FORMS})?$",
     "jacquemus": rf"^(simon porte )?jacquemus( {FORMS})?$",
     "the_row": rf"^the row( (paris|europe|uk))?( {FORMS})$",     # a common phrase: only a company of that name
@@ -118,6 +121,9 @@ OWN = {h: re.compile(p) for h, p in {
 }.items()}
 NOT_FASHION = ("parfum", "perfume", "beaut", "fondazione", "fundacion", "foundation", "fondation")
 EXTRA_NAMES = {"margiela": ["margiela"]}          # the company may drop the "Maison"
+# Companies of a house whose names carry none of its names, searched for as they are but never counted as the
+# house's name in what discover refused (so "Fila Industries S.p.A." is not a refused Moncler account)
+COMPANY_NAMES = {"moncler": ["Industries S.p.A."]}
 GROUPS = re.compile(rf"^(kering|lvmh|richemont|puig|otb|only the brave|capri holdings|luxury goods (italia|international))"
                     rf"( (group|italia|france|deutschland|germany|espana|uk|international|europe|benelux|nordics|suisse|"
                     rf"schweiz|austria|polska|fashion group|moet hennessy louis vuitton))?( {FORMS})?$")
@@ -153,8 +159,10 @@ def house_names(h: registry.House) -> list[str]:
 
 
 def name_pattern(reg: registry.Registry) -> str:
-    """One regular expression over lower-cased, accent-stripped names, for BigQuery's REGEXP_CONTAINS."""
-    alts = sorted({n for h in reg.houses for n in house_names(h)} | set(GROUP_NAMES))
+    """One regular expression over lower-cased, accent-stripped names, for BigQuery's REGEXP_CONTAINS: the houses'
+    names, the groups' and the houses' companies named otherwise."""
+    alts = sorted({n for h in reg.houses for n in house_names(h)} | set(GROUP_NAMES)
+                  | {norm(n) for names in COMPANY_NAMES.values() for n in names})
     return "|".join(re.escape(a) for a in alts)
 
 
