@@ -38,6 +38,10 @@ def test_own_accounts_are_the_houses_companies():
     assert A.own_house("Louis Vuitton Österreich Ges.m.b.h.", "") == "louis_vuitton"
     assert A.own_house("Chloé Damien", "Chloé Damien") is None                      # a person
     assert A.own_house("Industries S.p.A.", "Industries S.p.A.") == "moncler"       # the brand's licensee
+    # a two-letter form written with stops, as the listed Dutch holding is; SASU, plc and K.K. too
+    assert A.own_house("Ermenegildo Zegna N.V.", "") == "zegna" and A.own_house("Schiaparelli SASU", "") == "schiaparelli"
+    assert A.own_house("Comme des Garçons K.K.", "") == "comme_des_garcons" and A.own_house("Burberry plc", "") == "burberry"
+    assert A.own_house("Zegna Baruffa Lane Borgosesia S.p.A.", "") is None          # another firm
     assert A.own_house("INDUSTRIES SPA", "") == "moncler"
     assert A.own_house("Fila Industries S.p.A.", "") is None and A.own_house("Industries", "") is None
     assert A.group_of("Kering SA", "") == "kering" and A.group_of("Kering Eyewear SpA", "") is None

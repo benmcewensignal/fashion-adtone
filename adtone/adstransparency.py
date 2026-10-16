@@ -62,13 +62,14 @@ NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "fragrance", "cosmetic", "loreal"
                  "interparfums", "shiseido", "outlet", "vintage", "resale", "secondhand", "preloved", "kering eyewear",
                  "eyewear", "optic", "optik", "lunett")
 MAX_GB = {"discover": 50.0, "collect": 150.0}     # the names query read 14.8 GB, the ads query 113.8
-RULES_VERSION = 4          # 3: the wider field of 15 October 2026; 4: Moncler's licensee, Industries S.p.A.
+RULES_VERSION = 5          # 3: the wider field of 15 October 2026; 4: Moncler's licensee, Industries S.p.A.;
+                           # 5: company forms N.V. as two letters (Ermenegildo Zegna N.V.), SASU, plc and K.K.
 REDISCOVER_DAYS = 28
 
 # The houses' own companies, on names lower-cased with accents and punctuation dropped: the house's name,
 # perhaps a country or a known arm, and a company form. Hermès alone also needs its accent, or the legal name
 # Hermès Sellier (or Hermès of Paris): the parcel firm Hermes Germany carries the name without it.
-FORMS = (r"(sa|sas|s a|s a s|sarl|srl|s r l|spa|s p a|sl|s l|ltd|limited|inc|corp|corporation|gmbh|ges m b h|b v|bv|nv|"
+FORMS = (r"(sa|sas|s a|s a s|sasu|s a s u|sarl|srl|s r l|spa|s p a|sl|s l|ltd|limited|inc|corp|corporation|gmbh|ges m b h|b v|bv|nv|n v|plc|kk|k k|"
          r"ab|as|a s|aps|oy|ag|kft|s r o|sp z o o|lda|unipessoal lda|pty ltd|pty limited|llc|co ltd|fzco|pte ltd|sdn bhd)")
 OWN = {h: re.compile(p) for h, p in {
     "alaia": rf"^(azzedine )?alaia( {FORMS})?$",
