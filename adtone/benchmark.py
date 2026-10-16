@@ -24,7 +24,11 @@ For every main collection in data/thread/collections.jsonl:
       mix           the shares of campaign pictures, product and everything else, and how far they moved
                     from the previous window (total variation distance);
   the campaigns     what the brand published for the season, as the Thread joins it;
-  the advertising   none until Meta's archive opens;
+  the advertising   the ads first shown around the show (a week before to three weeks after) and in the
+                    campaign window, as the Thread counts them: the search and video ads, by format and how many
+                    advertise beauty, wherever their record covers the window (it keeps an ad for a year after
+                    it last ran, so earlier windows hold only the ads that kept running), and the paid social
+                    archive's once it is on file;
   the clothes       the runway looks and the shop window's pictures of an outfit worn, described with the
                     frozen clothes rubric (rubric/clothes-v1.md) on the questions that stand: for the runway
                     and for the shop window, distinctness against the season's other brands and movement
@@ -80,6 +84,25 @@ BOOT = 2000
 
 
 # ---------- the pictures ----------
+
+def advertising(adv: dict) -> dict:
+    """The Thread's advertising stage for one collection: the paid social archive's ads (none on file while its
+    collector is refused) and the search and video ads with how much of each window their record covers."""
+    sv = adv.get("search_video") or {}
+    return {"paid_social": {"show_period": adv.get("show_period", 0), "campaign_period": adv.get("campaign_period", 0)},
+            "search_video": {p: sv.get(p) or {"record": "not read"} for p in ("show_period", "campaign_period")}}
+
+
+def advertised(row: dict) -> bool:
+    """Ads on file for either window: the paid social archive's, or search and video ads on a window their record
+    covers whole."""
+    a = row.get("advertising") or {}
+    paid = a.get("paid_social") or {}
+    sv = a.get("search_video") or {}
+    return bool(paid.get("show_period") or paid.get("campaign_period")) or any(
+        (sv.get(p) or {}).get("record") == "complete" and (sv.get(p) or {}).get("ads", 0) > 0
+        for p in ("show_period", "campaign_period"))
+
 
 def kind_group(creative_type: str | None) -> str:
     return GROUP_OF.get(creative_type or "", "other")
@@ -460,9 +483,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                                                        "movement": movement(mine_early, prev_early) if prev_early else {}}},
                    "campaigns": {"entries": c.get("campaign", {}).get("entries", 0),
                                  "by_line": c.get("campaign", {}).get("by_line", {})},
-                   "advertising": {"status": "waiting on Meta's archive",
-                                   "show_period": c.get("advertising", {}).get("show_period", 0),
-                                   "campaign_period": c.get("advertising", {}).get("campaign_period", 0)},
+                   "advertising": advertising(c.get("advertising") or {}),
                    "clothes": {"status": "waiting on the reading of the clothes"}}
             rows.append(row)
             if mine:
@@ -508,6 +529,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                       "distinctness": sum("value" in r["shop_window"]["distinctness"] for r in rs),
                       "movement": sum("value" in r["shop_window"]["movement"] for r in rs),
                       "campaigns": sum(bool(r["campaigns"]["entries"]) for r in rs),
+                      "advertising": sum(advertised(r) for r in rs),
                       "scene": sum(bool((r["scene"] or {}).get("covered")) for r in rs),
                       "runway": sum(bool((r["clothes"].get("runway") or {}).get("profile")) for r in rs),
                       "clothes_window": sum(bool((r["clothes"].get("shop_window") or {}).get("profile")) for r in rs),
@@ -573,7 +595,8 @@ def write_table(rows: list[dict], path: Path = TABLE) -> None:
               "distinctness", "distinctness_percentile", "movement", "movement_percentile", "campaigns",
               "runway_looks", "runway_distinctness", "runway_distinctness_percentile", "runway_movement",
               "runway_movement_percentile", "shop_window_worn", "own_runway", "own_runway_percentile",
-              "recognisable", "clothes_status"]
+              "recognisable", "clothes_status", "search_ads_show", "search_ads_campaign", "search_record_show",
+              "search_record_campaign", "paid_social_show", "paid_social_campaign"]
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -583,6 +606,8 @@ def write_table(rows: list[dict], path: Path = TABLE) -> None:
             m = sw["mix"] or {}
             cr = r["clothes"].get("runway") or {}
             cs = r["clothes"].get("shop_window") or {}
+            sv = (r.get("advertising") or {}).get("search_video") or {}
+            paid = (r.get("advertising") or {}).get("paid_social") or {}
             w.writerow({"house": r["house"], "season": r["season"], "date": r["date"], "category": r["category"],
                         "heat": sh.get("heat"), "heat_z": sh.get("heat_z"), "lasting": sh.get("lasting"),
                         "lasting_z": sh.get("lasting_z"), "momentum": sh.get("momentum"), "press": sh.get("press"),
@@ -602,7 +627,12 @@ def write_table(rows: list[dict], path: Path = TABLE) -> None:
                         "own_runway": (cs.get("own_runway") or {}).get("value"),
                         "own_runway_percentile": (cs.get("own_runway") or {}).get("percentile"),
                         "recognisable": (cs.get("recognisable") or {}).get("value"),
-                        "clothes_status": r["clothes"].get("status")})
+                        "clothes_status": r["clothes"].get("status"),
+                        "search_ads_show": (sv.get("show_period") or {}).get("ads"),
+                        "search_ads_campaign": (sv.get("campaign_period") or {}).get("ads"),
+                        "search_record_show": (sv.get("show_period") or {}).get("record"),
+                        "search_record_campaign": (sv.get("campaign_period") or {}).get("record"),
+                        "paid_social_show": paid.get("show_period"), "paid_social_campaign": paid.get("campaign_period")})
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -498,6 +498,52 @@ CAMPAIGN_USUAL_END = {"AW": 203, "SS": 147}
 AMBASSADORS_FROM = date(2019, 1, 1)     # where reference/ambassadors.csv starts
 SHOP_FULL = 4                           # months with homepage readings, of the six or seven after a show
 OFFERING_DAYS = 183                     # a campaign naming no season joins the house's last main show this close
+# The search and video ads (adtone/adstransparency.py) join the advertising stage beside the paid social archive's.
+# Their dataset starts on 1 March 2023, and an ad first shown before then is dated to that day, so such an ad has no
+# day of its own and is left out of every window. It keeps an ad only while the ad has run within the past year: from
+# a year before the first read the record holds every ad first shown, and before that only those that kept running
+# into that year, the survivors.
+SEARCH_ADS = config.DATA / "adstransparency" / "creatives"
+SEARCH_PROV = config.PROV_DIR / "adstransparency.jsonl"
+SEARCH_FLOOR = date(2023, 3, 1)
+SEARCH_KEEP_DAYS = 365
+BEAUTY_TOPICS = {"Beauty & Personal Care", "Health & Beauty"}
+
+
+def search_record(prov=None) -> dict:
+    """The days the search and video ads were first and last read, from the collector's provenance."""
+    days = []
+    for r in store.read_jsonl(prov or SEARCH_PROV) if (prov or SEARCH_PROV).exists() else []:
+        if "collect" in (r.get("stage") or "") and len(r.get("updated_at") or "") >= 10:
+            days.append(r["updated_at"][:10])
+    return {"first_read": min(days), "last_read": max(days)} if days else {}
+
+
+def advertised(adv: dict, period: str) -> bool:
+    """Ads on file for a collection's window: the paid social archive's, or search and video ads where their record
+    covers the whole window."""
+    s = (adv.get("search_video") or {}).get(period) or {}
+    return bool(adv.get(period)) or (s.get("record") == "complete" and s.get("ads", 0) > 0)
+
+
+def search_window(ads: list[tuple], d0: date, d1: date, record: dict) -> dict:
+    """The search and video ads first shown from d0 to d1, by format and how many advertise beauty, and how much of
+    the window the record covers: complete from a year before the first read, survivors only before that, partly
+    survivors across it; an open window runs on past the last read."""
+    if not record.get("first_read"):
+        return {"record": "not read"}
+    if d1 <= SEARCH_FLOOR:
+        return {"record": "before the dataset"}
+    from datetime import timedelta
+    keep_from = max(date.fromisoformat(record["first_read"]) - timedelta(days=SEARCH_KEEP_DAYS),
+                    SEARCH_FLOOR + timedelta(days=1))
+    rows = [(fmt, topic) for d, fmt, topic in ads if d0 <= d <= d1]
+    out = {"ads": len(rows), "video": sum(f == "VIDEO" for f, _ in rows), "image": sum(f == "IMAGE" for f, _ in rows),
+           "text": sum(f == "TEXT" for f, _ in rows), "beauty": sum(t in BEAUTY_TOPICS for _, t in rows),
+           "record": "complete" if d0 >= keep_from else "survivors" if d1 < keep_from else "partly survivors"}
+    if record.get("last_read") and d1 > date.fromisoformat(record["last_read"]):
+        out["open"] = True
+    return out
 
 
 def campaign_window(show: date, next_main: date | None = None, half: str | None = None) -> tuple[int, int]:
@@ -628,7 +674,12 @@ def _load_sources() -> dict:
     ads = []
     for p in sorted(config.ADS_DIR.glob("*.jsonl")) if config.ADS_DIR.exists() else []:
         ads += [{"house_id": r.get("house_id"), "start": (r.get("start") or "")[:10]} for r in store.read_jsonl(p)]
-    return {"ambassadors": amb, "homepages": hp, "campaigns": camps, "campaigns_read": read, "ads": ads}
+    search = []
+    for p in sorted(SEARCH_ADS.glob("*.jsonl")) if SEARCH_ADS.exists() else []:
+        search += [{"house_id": r.get("house"), "first": r.get("first"), "fmt": r.get("fmt"), "topic": r.get("topic")}
+                   for r in store.read_jsonl(p)]
+    return {"ambassadors": amb, "homepages": hp, "campaigns": camps, "campaigns_read": read, "ads": ads,
+            "search_ads": search, "search_record": search_record()}
 
 
 def collections(rows: list[dict], main: dict[str, str], sources: dict | None = None) -> dict:
@@ -677,6 +728,12 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         if r.get("house_id") and len(r.get("start") or "") == 10:
             ads[r["house_id"]].append(date.fromisoformat(r["start"]))
     have_ads = any(ads.values())
+    record = src.get("search_record") or {}
+    search = defaultdict(list)
+    for r in src.get("search_ads", []):
+        f = r.get("first") or ""
+        if r.get("house_id") and len(f) == 10 and f > SEARCH_FLOOR.isoformat():   # dated to the floor: no day of its own
+            search[r["house_id"]].append((date.fromisoformat(f), r.get("fmt"), r.get("topic")))
 
     for c in col.values():
         h = c["house"]
@@ -689,8 +746,12 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
                             "pictures_read": sum(hp[h].get(m, 0) for m in months)}
         p0, p1 = window(c, "show_period_ads")
         q0, q1 = window(c, "campaign_ads")
+        # show_period and campaign_period are the paid social archive's ads, as before; the search and video ads
+        # are counted beside them on the same windows, with how much of each window their record covers
         c["advertising"] = {"show_period": sum(1 for d in ads.get(h, []) if p0 <= d <= p1),
-                            "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1)}
+                            "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1),
+                            "search_video": {"show_period": search_window(search.get(h, []), p0, p1, record),
+                                             "campaign_period": search_window(search.get(h, []), q0, q1, record)}}
         c["campaign"] = {"entries": 0, "pictures_read": 0, "by_kind": Counter(), "by_line": Counter(),
                          "joined_by": Counter(), "ids": []}
 
@@ -735,8 +796,9 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
                          else "part" if sh["heat"] is not None or sh["press"] is not None else "none"),
                 "shop_window": ("full" if shop["months_read"] >= SHOP_FULL else "part" if shop["months_read"] else "none"),
                 "campaign": ("full" if camp["pictures_read"] else "part" if camp["entries"] else "none"),
-                "advertising": ("full" if adv["show_period"] and adv["campaign_period"]
-                                else "part" if adv["show_period"] or adv["campaign_period"] else "none")}
+                "advertising": ("full" if advertised(adv, "show_period") and advertised(adv, "campaign_period")
+                                else "part" if advertised(adv, "show_period") or advertised(adv, "campaign_period")
+                                else "none")}
 
     records = []
     for c in sorted(col.values(), key=lambda c: (c["house"], c["date"])):
@@ -768,7 +830,12 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
     return {"collections": len(records), "main": len(mains), "windows": windows,
             "filled_main": by_stage, "full_by_year": dict(sorted(by_year.items())),
             "complete_chains": sum(all(c["fill"][s] == "full" for s in stages) for c in mains),
-            "advertising": "waiting on Meta" if not have_ads else "on file",
+            "advertising": {"paid_social": "on file" if have_ads else "waiting on the paid social archive",
+                            "search_video": {**record, "ads_dated": sum(len(v) for v in search.values()),
+                                             "floor": SEARCH_FLOOR.isoformat(), "keep_days": SEARCH_KEEP_DAYS,
+                                             "main_with_both_windows_complete": sum(
+                                                 all((c["advertising"]["search_video"][p].get("record") == "complete")
+                                                     for p in ("show_period", "campaign_period")) for c in mains)}},
             "campaigns_unjoined": dict(unjoined),
             "campaign_lag_after_show": lag_summary,
             "note": ("each stage is filled with its own measures; the shared description of the clothes that "

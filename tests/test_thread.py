@@ -353,13 +353,61 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     assert h0["shop_window"]["months_read"] == 4 and h0["shop_window"]["pictures_read"] == 5
     assert h0["campaign"]["entries"] == 2 and h0["campaign"]["joined_by"] == {"season": 1, "date": 1}
     assert h0["campaign"]["by_line"] == {"collection": 1, "accessories": 1} and h0["campaign"]["pictures_read"] == 1
-    assert h0["advertising"] == {"show_period": 1, "campaign_period": 1}
+    assert h0["advertising"] == {"show_period": 1, "campaign_period": 1,
+                                 "search_video": {"show_period": {"record": "not read"}, "campaign_period": {"record": "not read"}}}
     assert h0["fill"] == {"scene": "full", "show": "part", "shop_window": "full", "campaign": "full", "advertising": "full"}
     assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" in recs["h1"]["show"]
     s = out["collections"]
     assert s["complete_chains"] == 0                                  # no press on file, so no show is full
     assert s["campaigns_unjoined"] == {"collection": 1}
     assert s["campaign_lag_after_show"]["AW"]["median_days"] == (date(2023, 7, 20) - show_day).days
+
+
+def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_path, monkeypatch):
+    record = {"first_read": "2026-10-12", "last_read": "2026-10-16"}        # complete from 2025-10-12
+    ads = [(date(2026, 3, 4), "VIDEO", "Apparel"), (date(2026, 3, 6), "TEXT", "Beauty & Personal Care"),
+           (date(2026, 5, 1), "IMAGE", "Apparel"), (date(2024, 3, 1), "IMAGE", "Apparel")]
+    show = T.search_window(ads, date(2026, 2, 24), date(2026, 3, 24), record)
+    assert show == {"ads": 2, "video": 1, "image": 0, "text": 1, "beauty": 1, "record": "complete"}
+    assert T.search_window(ads, date(2024, 2, 20), date(2024, 3, 20), record)["record"] == "survivors"
+    assert T.search_window(ads, date(2025, 10, 1), date(2025, 10, 30), record)["record"] == "partly survivors"
+    assert T.search_window(ads, date(2022, 9, 1), date(2022, 10, 1), record) == {"record": "before the dataset"}
+    assert T.search_window(ads, date(2026, 10, 1), date(2026, 10, 30), record)["open"] is True
+    assert T.search_window(ads, date(2026, 2, 24), date(2026, 3, 24), {}) == {"record": "not read"}
+    prov = tmp_path / "prov.jsonl"
+    prov.write_text("\n".join(json.dumps(r) for r in [{"updated_at": "2026-10-12T17:51:51Z"},
+                                                      {"updated_at": "2026-10-12T18:32:58Z", "stage": "discover+collect"},
+                                                      {"updated_at": "2026-10-16T11:39:29Z", "stage": "collect"}]))
+    assert T.search_record(prov) == record
+    # in a build: an ad dated to the dataset's first day has no day of its own and is left out; the stage is filled
+    # by search and video ads only on windows their record covers whole
+    start = date(2025, 1, 1)
+    att = {f"h{h}": {start + timedelta(days=k): 1000 for k in range(700)} for h in range(5)}
+    show_day = date(2026, 3, 2)
+    shows = [{"house": f"h{h}", "date": show_day.isoformat(), "category": "rtw", "season": "AW", "year": 2026, "city": "Paris"}
+             for h in range(5)] + [{"house": "h1", "date": "2024-02-26", "category": "rtw", "season": "AW", "year": 2024,
+                                    "city": "Milan"}]
+    sources = {"ambassadors": [], "homepages": [], "campaigns": [], "campaigns_read": set(), "ads": [],
+               "search_record": record,
+               "search_ads": [{"house_id": "h0", "first": "2026-03-04", "fmt": "VIDEO", "topic": "Apparel"},
+                              {"house_id": "h0", "first": "2026-05-20", "fmt": "IMAGE", "topic": "Apparel"},
+                              {"house_id": "h0", "first": "2023-03-01", "fmt": "TEXT", "topic": "Apparel"},
+                              {"house_id": "h1", "first": "2026-03-03", "fmt": "TEXT", "topic": "Apparel"},
+                              {"house_id": "h1", "first": "2024-02-27", "fmt": "VIDEO", "topic": "Apparel"}]}
+    monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
+    monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    out = T.build(shows, att, {}, sources=sources)
+    recs = {(c["house"], c["date"]): c for c in map(json.loads, (tmp_path / "thread" / "collections.jsonl").read_text().splitlines())}
+    h0 = recs[("h0", "2026-03-02")]
+    assert h0["advertising"]["search_video"]["show_period"]["ads"] == 1                # the floored ad is not counted
+    assert h0["advertising"]["search_video"]["campaign_period"]["ads"] == 1
+    assert h0["fill"]["advertising"] == "full" and recs[("h1", "2026-03-02")]["fill"]["advertising"] == "part"
+    old = recs[("h1", "2024-02-26")]
+    assert old["advertising"]["search_video"]["show_period"] == {"ads": 1, "video": 1, "image": 0, "text": 0,
+                                                                  "beauty": 0, "record": "survivors"}
+    assert old["fill"]["advertising"] == "none"                                       # survivors do not fill the stage
+    summary = out["collections"]["advertising"]
+    assert summary["paid_social"] == "waiting on the paid social archive" and summary["search_video"]["ads_dated"] == 4
 
 
 def test_the_campaign_window_runs_to_a_week_before_the_next_main_show():
