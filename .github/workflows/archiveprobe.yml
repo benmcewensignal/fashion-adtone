@@ -44,6 +44,8 @@ jobs:
             python -m adtone.archiveprobe pages --run "gh${GITHUB_RUN_ID}" --budget-min 30
           elif tail -n 1 .github/kick/archiveprobe | grep -qi "house accounts"; then
             python -m adtone.archiveprobe accounts --run "gh${GITHUB_RUN_ID}" --budget-min 40
+          elif tail -n 1 .github/kick/archiveprobe | grep -qi "country homepages"; then
+            python -m adtone.archiveprobe homepages --run "gh${GITHUB_RUN_ID}" --budget-min 40
           else
             python -m adtone.archiveprobe run --run "gh${GITHUB_RUN_ID}"
           fi

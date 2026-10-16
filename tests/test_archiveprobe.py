@@ -51,3 +51,34 @@ def test_each_saved_call_is_matched_to_one_page_at_most():
     assert P.paired(calls, pages) == 1                                  # one page, one call
     assert P.paired(calls, pages + ["20250901125930"]) == 2             # 30 seconds before the third call
     assert P.paired(calls, pages, shift_s=86400) == 0                   # a day apart, nothing
+
+
+def test_a_country_homepage_is_counted_by_the_pictures_the_archive_kept(monkeypatch):
+    from adtone.backcat import CDX, Crawler
+    from adtone.synth import FakeResponse, FakeSession
+
+    class Img(FakeResponse):
+        headers = {"content-type": "image/jpeg"}
+    page = '<html><head><meta property="og:image" content="https://uk.burberry.com/img/hero.jpg"></head><body></body></html>'
+    wall = "<html><title>Access Denied</title></html>"
+
+    def h(url, params):
+        if url == CDX and params["url"] == "uk.burberry.com/":
+            return FakeResponse(200, payload=[["timestamp", "original", "statuscode"],
+                                              ["20250105000000", "https://uk.burberry.com/", "200"],
+                                              ["20260105000000", "https://uk.burberry.com/", "200"]])
+        if url == CDX:
+            return FakeResponse(200, payload=[["timestamp", "original", "statuscode"]])
+        if "id_/https://uk.burberry.com/" in url:
+            return FakeResponse(200, text=page if "2026" in url else wall)
+        if "im_/" in url:
+            return Img(200, content=b"x")
+        return FakeResponse(404, text="")
+    monkeypatch.setattr(P, "HOME_DOORS", {"burberry": ["uk.burberry.com/", "us.burberry.com/"]})
+    monkeypatch.setattr(P, "DEADLINE", [float("inf")])
+    monkeypatch.setattr(P, "STREAK", [0])
+    rows, summary = P.homepages_probe(Crawler(FakeSession(h), pause=0))
+    uk = rows[0]
+    assert uk["months"] == 2 and uk["first"] == "202501" and uk["last"] == "202601"
+    assert [o.get("wall") for o in uk["opened"]] == [True, False] and uk["opened"][1]["kept_of_two"] == 1
+    assert rows[1]["months"] == 0 and summary["by_house"] == {"burberry": ["uk.burberry.com/"]}

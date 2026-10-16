@@ -1,4 +1,4 @@
-"""What the Wayback Machine holds for two histories Focal lacks: the houses' pages on Google's Ads Transparency
+"""What the Wayback Machine holds for histories Focal lacks: the houses' pages on Google's Ads Transparency
 Center (Google keeps an ad only until a year after it was last shown, the minimum the Digital Services Act's
 Article 39 asks) and the houses' YouTube films (the Data API gives today's totals only).
 
@@ -6,6 +6,7 @@ Article 39 asks) and the houses' YouTube films (the Data API gives today's total
     python -m adtone.archiveprobe calls --run <id>
     python -m adtone.archiveprobe pages --run <id>
     python -m adtone.archiveprobe accounts --run <id>
+    python -m adtone.archiveprobe homepages --run <id>     # the country homepages of the houses whose history thins
 
 
 A probe, run by hand. For the Transparency Center: how many captures the archive has of each house's main
@@ -489,9 +490,75 @@ def accounts_probe(c: Crawler, open_max: int = 60, within: int = 120) -> tuple[l
     return pages, summary
 
 
+# ---------- the houses' other front doors ----------
+#
+# Seven houses' homepage histories stop or thin out where the archive's copy of the bare domain holds a bot wall,
+# a country chooser or a page drawn by scripts with no picture in it. Their country homepages are other ways in.
+# For each candidate this asks the archive for one capture a month since July 2024, opens three of them and counts
+# the pictures the homepage reader would find there, and whether the archive kept the first two of them.
+
+HOME_FROM = "202407"
+HOME_DOORS = {
+    "louis_vuitton": ["uk.louisvuitton.com/eng-gb/homepage", "us.louisvuitton.com/eng-us/homepage",
+                      "en.louisvuitton.com/eng-nl/homepage", "eu.louisvuitton.com/eng-e1/homepage",
+                      "fr.louisvuitton.com/fra-fr/homepage", "www.louisvuitton.com/eng-gb/homepage"],
+    "chanel": ["www.chanel.com/gb/", "www.chanel.com/us/", "www.chanel.com/fr/", "www.chanel.com/gb/fashion/",
+               "www.chanel.com/us/fashion/"],
+    "burberry": ["uk.burberry.com/", "us.burberry.com/", "fr.burberry.com/", "it.burberry.com/"],
+    "fendi": ["www.fendi.com/gb-en/", "www.fendi.com/us-en/", "www.fendi.com/it-it/", "www.fendi.com/fr-fr/"],
+    "loro_piana": ["uk.loropiana.com/en/", "us.loropiana.com/en/", "de.loropiana.com/en/", "it.loropiana.com/it/",
+                   "www.loropiana.com/en/"],
+    "max_mara": ["us.maxmara.com/", "world.maxmara.com/", "gb.maxmara.com/", "uk.maxmara.com/", "it.maxmara.com/"],
+    "tom_ford": ["www.tomfordfashion.com/", "www.tomford.com/"],
+}
+WALL = re.compile(r"access denied|request unsuccessful|captcha|are you a robot|pardon our interruption|"
+                  r"incapsula|perimeterx|just a moment", re.I)
+
+
+def homepages_probe(c: Crawler) -> tuple[list[dict], dict]:
+    from .homepages import page_images
+    rows, cut = [], None
+    try:
+        for house, doors in HOME_DOORS.items():
+            for door in doors:
+                r = fetch(c, CDX, {"url": door, "output": "json", "fl": "timestamp,original,statuscode",
+                                   "from": HOME_FROM, "filter": "statuscode:200", "collapse": "timestamp:6"})
+                if r is None:
+                    rows.append({"house": house, "door": door, "months": None})
+                    continue
+                caps = [x for x in _cdx_rows(r)[1:] if len(x) >= 2]
+                row = {"house": house, "door": door, "months": len(caps),
+                       "first": caps[0][0][:6] if caps else None, "last": caps[-1][0][:6] if caps else None,
+                       "by_year": dict(Counter(x[0][:4] for x in caps)), "opened": []}
+                for x in [caps[i] for i in sorted({0, len(caps) // 2, len(caps) - 1})] if caps else []:
+                    ts, original = x[0], x[1]
+                    page = fetch(c, WAYBACK_RAW.format(ts=ts, url=original))
+                    o = {"timestamp": ts, "status": None if page is None else page.status_code}
+                    if page is not None and page.status_code == 200:
+                        html = page.text or ""
+                        imgs = page_images(html, original, ts)
+                        o.update({"bytes": len(html), "wall": bool(WALL.search(html[:20000])), "pictures": len(imgs)})
+                        kept = 0
+                        for u in imgs[:2]:
+                            im = fetch(c, u, tries=2)
+                            kept += int(im is not None and im.status_code == 200
+                                        and (im.headers.get("content-type") or "").startswith("image/"))
+                        o["kept_of_two"] = kept
+                    row["opened"].append(o)
+                rows.append(row)
+    except (OutOfTime, ArchiveDown) as e:
+        cut = str(e)
+    usable = [r for r in rows if any(o.get("pictures") and not o.get("wall") and o.get("kept_of_two")
+                                     for o in r.get("opened") or [])]
+    summary = {"cut_short": cut, "doors_asked": len(rows), "doors_with_captures": sum(1 for r in rows if r.get("months")),
+               "doors_with_pictures_kept": len(usable),
+               "by_house": {h: [r["door"] for r in usable if r["house"] == h] for h in HOME_DOORS}}
+    return rows, summary
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.archiveprobe")
-    ap.add_argument("stage", choices=["run", "calls", "pages", "accounts"])
+    ap.add_argument("stage", choices=["run", "calls", "pages", "accounts", "homepages"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--films", type=int, default=4)
     ap.add_argument("--budget-min", type=float, default=36)
@@ -499,10 +566,10 @@ def main(argv: list[str] | None = None) -> int:
     P = paths()
     c = Crawler(pause=1.5)
     start = time.monotonic()
-    if a.stage in ("calls", "pages", "accounts"):
+    if a.stage in ("calls", "pages", "accounts", "homepages"):
         DEADLINE[0] = start + a.budget_min * 60
-        name = {"calls": "ad_calls", "pages": "ad_pages", "accounts": "house_pages"}[a.stage]
-        fn = {"calls": calls_probe, "pages": pages_probe, "accounts": accounts_probe}[a.stage]
+        name = {"calls": "ad_calls", "pages": "ad_pages", "accounts": "house_pages", "homepages": "home_doors"}[a.stage]
+        fn = {"calls": calls_probe, "pages": pages_probe, "accounts": accounts_probe, "homepages": homepages_probe}[a.stage]
         try:
             rows, summary = fn(c)
             store.write_jsonl(config.DATA / "archiveprobe" / f"{name}.jsonl", rows)
