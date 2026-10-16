@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T17:31:13Z",
+ "generated_at": "2026-10-16T22:08:09Z",
  "window_days": [
   -1,
   14
@@ -95,7 +95,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "HTTP 504"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -108,7 +108,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 504"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -673,7 +673,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 504"
    }
   },
   "balmain:2016-09-29:rtw": {
@@ -686,7 +686,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 504"
    }
   },
   "balmain:2017-01-21:men": {
@@ -1627,7 +1627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2751,7 +2751,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -14630,7 +14630,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -14643,7 +14643,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -16036,7 +16036,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 62
+   "pages": 2006
   },
   "dior": {
    "prefixes": [
@@ -16281,8 +16281,7 @@
     "www.armani.com/en-us/experience/giorgio-armani/",
     "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
    ],
    "pages": 358
   },
@@ -16292,10 +16291,10 @@
     "fr.balmain.com/fr/experience/",
     "gb.balmain.com/gb/experience/",
     "be.balmain.com/en/experience/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
     "www.balmain.com/en_us/lookbook/collections/index/women/",
     "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
+    "www.balmain.com/en_us/show/"
    ],
    "pages": 357
   },
