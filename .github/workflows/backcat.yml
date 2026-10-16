@@ -55,7 +55,7 @@ jobs:
         id: discover
         continue-on-error: true
         timeout-minutes: 60
-        run: python -m adtone.backcat discover --run "gh${GITHUB_RUN_ID}" --max "$MAX"
+        run: python -m adtone.backcat discover --run "gh${GITHUB_RUN_ID}" --max "$MAX" --budget-min 50   # stops itself before the step's hour
       - name: Fetch archived images
         if: env.STAGE != 'discover'
         id: images

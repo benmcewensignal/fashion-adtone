@@ -396,6 +396,7 @@ def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_pat
                               {"house_id": "h1", "first": "2024-02-27", "fmt": "VIDEO", "topic": "Apparel"}]}
     monkeypatch.setattr(T, "RESULTS", tmp_path / "thread.json")
     monkeypatch.setattr(T, "DIR", tmp_path / "thread")
+    monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
     out = T.build(shows, att, {}, sources=sources)
     recs = {(c["house"], c["date"]): c for c in map(json.loads, (tmp_path / "thread" / "collections.jsonl").read_text().splitlines())}
     h0 = recs[("h0", "2026-03-02")]

@@ -276,15 +276,32 @@ def archived_work(c: Crawler, url: str, limit: int = 3) -> dict | None:
     return None
 
 
-def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400) -> dict:
+REPAIR_SHARE = 0.4      # of a run's time, kept for repairing campaigns read before archived copies were used
+
+
+def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400, budget_s: float | None = None,
+             start: str | None = None, clock=time.monotonic) -> dict:
     """Each house on its own: a failure is noted against that house and the stage moves on, and every
-    house's campaigns are saved before the next is read, so a run cut short keeps what it found."""
+    house's campaigns are saved before the next is read, so a run cut short keeps what it found.
+    With a time budget the houses are read in turn from `start` (where the last run stopped) until
+    the house part of the budget is spent, and the rest goes to repairs; the house to start from next
+    time is returned, so every house is reached however slow the archive is."""
     from collections import Counter
     table = store.ShardedTable(paths()["campaigns"], "campaign_id")
     found, read, skipped, errors, statuses = {}, 0, 0, {}, Counter()
     per_house = max(5, max_reads // max(1, len(reg.houses)))     # every house gets its share of the reading budget
-    order = {h: k for k, h in enumerate(config.first_then_rest([x.id for x in reg.houses]))}
-    for h in sorted(reg.houses, key=lambda x: order[x.id]):
+    ids = config.first_then_rest([x.id for x in reg.houses])
+    if start in ids:                                               # carry on from where the last run stopped
+        ids = ids[ids.index(start):] + ids[:ids.index(start)]
+    t0 = clock()
+    house_until = None if budget_s is None else t0 + budget_s * (1 - REPAIR_SHARE)
+    by_id = {h.id: h for h in reg.houses}
+    next_house, done = None, []
+    for hid in ids:
+        h = by_id[hid]
+        if house_until is not None and clock() > house_until:
+            next_house = hid
+            break
         house_reads = 0
         try:
             slug = h.models_slug or slugify(h.name)
@@ -303,6 +320,8 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400)
             found[h.id] = len(urls)
             for u in urls:
                 if read >= max_reads or house_reads >= per_house:
+                    break
+                if house_until is not None and clock() > house_until:
                     break
                 if not c.allowed(u):
                     skipped += 1
@@ -325,10 +344,17 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400)
         except (requests.RequestException, ValueError, KeyError, AttributeError) as e:
             errors[h.id] = f"{e.__class__.__name__}: {str(e)[:160]}"
         table.save()
+        done.append(hid)
+    if next_house is None and done and len(done) < len(ids):
+        next_house = ids[len(done)]
     repaired = 0
-    for row in list(table.rows.values()):      # campaigns read before archived copies were used
+    # campaigns read before archived copies were used, oldest first: a page from before the login wall is likelier
+    # to have been saved for an older campaign
+    for row in sorted(table.rows.values(), key=lambda r: r.get("published") or "9999"):
         if repaired >= max_reads or row.get("source_url") or row.get("archive_checked"):
             continue
+        if budget_s is not None and clock() - t0 > budget_s:
+            break
         try:
             old_copy = archived_work(c, row["url"])
         except (requests.RequestException, ValueError) as e:
@@ -342,7 +368,10 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400)
             table.save()
     table.save()
     return {"new_urls": found, "pages_read": read, "robots_skipped": skipped, "campaigns_on_file": len(table.rows),
-            "statuses": dict(statuses), "errors": errors, "repaired": repaired}
+            "statuses": dict(statuses), "errors": errors, "repaired": repaired, "houses_read": len(done),
+            "next_house": next_house,
+            "with_source": sum(1 for r in table.rows.values() if r.get("source_url")),
+            "archive_checked": sum(1 for r in table.rows.values() if r.get("archive_checked"))}
 
 
 def images(c: Crawler, embedder, scorer, rid: str, max_campaigns: int = 150, budget_s: float = 5400,
@@ -355,8 +384,12 @@ def images(c: Crawler, embedder, scorer, rid: str, max_campaigns: int = 150, bud
     obs_path = P["obs"] / f"{scorer.rubric.version}.jsonl"
     scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(obs_path)}
     month = date.today().strftime("%Y-%m")
-    todo = [r for r in table.rows.values() if r.get("kind") == "campaign" and r.get("published")
-            and (r["campaign_id"] not in media or media.get(r["campaign_id"])["status"] == "error")]
+    def due(r):
+        if r["campaign_id"] not in media:
+            return True
+        st = media.get(r["campaign_id"])["status"]
+        return st == "error" or (st == "no_source" and bool(r.get("source_url")))     # repaired since
+    todo = [r for r in table.rows.values() if r.get("kind") == "campaign" and r.get("published") and due(r)]
     todo.sort(key=lambda r: r["published"], reverse=True)   # the overlap year first, so calibration can start
     counts = {"campaigns": 0, "resolved": 0, "no_pixel_venue": 0, "no_source": 0, "no_capture": 0, "no_images": 0,
               "error": 0, "images": 0, "scored_ok": 0}
@@ -465,7 +498,8 @@ def main(argv: list[str] | None = None) -> int:
     crashed = None
     try:
         if a.stage == "discover":
-            out = discover(c, reg, rid, max_reads=a.max * 3)
+            out = discover(c, reg, rid, max_reads=a.max * 3, budget_s=a.budget_min * 60,
+                           start=store.read_state(paths()["state"]).get("next_house"))
         else:
             from .embed import OpenClipEmbedder
             from .score import load_rubric, make_scorer
@@ -477,6 +511,8 @@ def main(argv: list[str] | None = None) -> int:
     store.append_jsonl(paths()["prov"], [out])
     st = store.read_state(paths()["state"])
     st[f"last_{a.stage}"] = out["finished_at"]
+    if a.stage == "discover" and "next_house" in out:
+        st["next_house"] = out["next_house"]
     store.write_state(paths()["state"], st)
     print({k: v for k, v in out.items() if k != "new_urls"})
     if crashed:

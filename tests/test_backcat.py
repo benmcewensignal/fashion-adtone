@@ -251,3 +251,46 @@ def test_campaigns_read_before_the_fix_are_repaired_once(tmp_data):
     assert d["repaired"] == 1 and row["source_url"].startswith("http") and row["archive_checked"] == "r2"
     again = backcat.discover(backcat.Crawler(FakeSession(h), pause=0), reg, "r3")
     assert again["repaired"] == 0      # checked once, never again
+
+
+def test_a_slow_archive_stops_discovery_on_time_and_the_next_run_starts_where_it_stopped(tmp_data):
+    many = [House(f"h{i}", f"House {i}", "control", "G", [f"House {i}"], [], []) for i in range(6)]
+    pages = {f"https://models.com/client/house-{i}": f'<a href="/work/house-{i}-house-{i}-c0">c</a>' for i in range(6)}
+    now = [0.0]
+
+    def h(url, params):
+        now[0] += 10                                        # every request takes ten seconds
+        if url.endswith("/robots.txt"):
+            return FakeResponse(200, text="")
+        if url in pages:
+            return FakeResponse(200, text=pages[url])
+        if url == backcat.CDX:
+            return FakeResponse(200, payload=[["original"]])
+        if "/work/" in url:
+            return FakeResponse(200, text=WORK)
+        return FakeResponse(404, text="")
+    reg = Registry(1, "DRAFT", many)
+    c = backcat.Crawler(FakeSession(h), pause=0)
+    first = backcat.discover(c, reg, "r1", budget_s=150, clock=lambda: now[0])
+    assert 0 < first["houses_read"] < 6 and first["next_house"] == f"h{first['houses_read']}"
+    second = backcat.discover(c, reg, "r2", budget_s=150, start=first["next_house"], clock=lambda: now[0])
+    seen = {r["house_id"] for r in store.ShardedTable(backcat.paths()["campaigns"], "campaign_id").rows.values()}
+    assert {"h0", first["next_house"]} <= seen               # the second run began where the first stopped
+    assert backcat.discover(c, reg, "r3")["next_house"] is None   # with no budget every house is read
+
+
+def test_a_campaign_with_no_source_is_taken_again_once_repaired(tmp_data):
+    table = store.ShardedTable(backcat.paths()["campaigns"], "campaign_id")
+    row = {"campaign_id": "bottega-veneta-bottega-veneta-winter-25-campaign", "house_id": "bottega_veneta", "kind": "campaign",
+           "published": "2025-09-01", "source_domain": "bottegaveneta.com",
+           "url": "https://models.com/work/bottega-veneta-bottega-veneta-winter-25-campaign"}
+    table.upsert(row, shard="bottega_veneta")
+    table.save()
+    c = backcat.Crawler(FakeSession(_handler()), pause=0)
+    scorer = FakeScorer(load_rubric())
+    assert backcat.images(c, FakeEmbedder(), scorer, "r1")["no_source"] == 1
+    assert backcat.images(c, FakeEmbedder(), scorer, "r2")["campaigns"] == 0          # nothing new to try
+    table = store.ShardedTable(backcat.paths()["campaigns"], "campaign_id")
+    table.upsert({**row, "source_url": "https://www.bottegaveneta.com/en-gb/stories/winter-25"}, shard="bottega_veneta")
+    table.save()
+    assert backcat.images(c, FakeEmbedder(), scorer, "r3")["resolved"] == 1
