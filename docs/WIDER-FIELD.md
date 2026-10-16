@@ -17,7 +17,7 @@ ticked here in the same commit.
 |---|---|---|
 | `reference/designers.csv` | 37 | none |
 | `reference/executives.csv` | 40 | none |
-| `reference/shows.csv` | 152, February 2022 on | none |
+| `reference/shows.csv` | 153, February 2022 on | none |
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
@@ -34,6 +34,8 @@ Identifiers
       Merged on 15 October 2026 for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and
       comme_des_garcons. Still to do: mcqueen (its listing would not load) and armani, whose Privé page now
       links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
+      On 16 October 2026 the fetcher could not open nowfashion.com at all (its permission request went
+      unanswered in a scheduled run), so nothing was read.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -58,8 +60,11 @@ Shows (`reference/shows.csv`)
 - [x] Ferragamo (AW22 was a presentation), Jacquemus's four shows, Moncler's Re/Icons presentation in Paris
       (5 October 2026; no 2025 show beyond Courchevel was found) and McQueen SS27 in London (20 September 2026).
 - [ ] Still open on shows: the days of Comme des Garçons' two Tokyo shows of AW22 (men's and women's, no
-      source gives them, so they have no row); whether Schiaparelli showed ready-to-wear for SS23; the 2022
-      rows checked against the FHCM's own calendars once they can be reached.
+      source gives them, so they have no row; on 16 October 2026 Fashionsnap and WWDJAPAN still gave only the
+      Aoyama head office and their publication days, 17 January and 8 March 2022); the 2022 rows checked
+      against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
+      presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
+      16 October 2026.
 
 People
 - [x] Designers: the founder rows for Simon Porte Jacquemus and Rei Kawakubo, now sourced; first and last
