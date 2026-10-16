@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T11:02:00Z",
+ "generated_at": "2026-10-16T19:37:29Z",
  "catalogue": "reference/measures.yml",
  "recognition": {
   "k": 6,
@@ -27,22 +27,22 @@
     "gap": 1,
     "houses": 17,
     "rates": {
-     "armani": 0.21,
-     "balenciaga": 0.715,
-     "balmain": 0.995,
-     "bottega_veneta": 0.76,
+     "armani": 0.165,
+     "balenciaga": 0.72,
+     "balmain": 0.99,
+     "bottega_veneta": 0.745,
      "celine": 1.0,
-     "chanel": 0.87,
+     "chanel": 0.86,
      "dior": 0.435,
      "dolce_gabbana": 0.985,
-     "fendi": 0.695,
+     "fendi": 0.71,
      "ferragamo": 0.65,
-     "gucci": 0.445,
-     "loewe": 0.275,
+     "gucci": 0.44,
+     "loewe": 0.285,
      "moncler": 1.0,
-     "saint_laurent": 0.975,
-     "stella_mccartney": 0.715,
-     "the_row": 0.85,
+     "saint_laurent": 0.96,
+     "stella_mccartney": 0.565,
+     "the_row": 0.855,
      "zegna": 0.975
     }
    },
@@ -52,22 +52,22 @@
     "gap": 2,
     "houses": 16,
     "rates": {
-     "armani": 0.59,
-     "balenciaga": 0.425,
-     "balmain": 0.99,
-     "bottega_veneta": 0.47,
+     "armani": 0.545,
+     "balenciaga": 0.43,
+     "balmain": 0.965,
+     "bottega_veneta": 0.485,
      "celine": 0.925,
-     "chanel": 0.685,
+     "chanel": 0.68,
      "dior": 0.125,
-     "dolce_gabbana": 0.995,
-     "fendi": 0.12,
+     "dolce_gabbana": 0.99,
+     "fendi": 0.115,
      "ferragamo": 0.47,
      "gucci": 0.0,
      "loewe": 0.04,
      "moncler": 0.96,
-     "stella_mccartney": 0.5,
+     "stella_mccartney": 0.425,
      "the_row": 0.165,
-     "zegna": 0.8
+     "zegna": 0.805
     }
    },
    {
@@ -76,24 +76,24 @@
     "gap": 3,
     "houses": 18,
     "rates": {
-     "armani": 0.23,
-     "balenciaga": 0.215,
-     "balmain": 0.67,
+     "armani": 0.17,
+     "balenciaga": 0.23,
+     "balmain": 0.745,
      "bottega_veneta": 0.73,
      "celine": 1.0,
-     "chanel": 0.7,
-     "dior": 0.19,
-     "dolce_gabbana": 0.475,
+     "chanel": 0.725,
+     "dior": 0.185,
+     "dolce_gabbana": 0.535,
      "fendi": 0.005,
-     "ferragamo": 0.285,
-     "givenchy": 0.22,
+     "ferragamo": 0.205,
+     "givenchy": 0.23,
      "gucci": 0.0,
-     "loewe": 0.39,
-     "moncler": 1.0,
+     "loewe": 0.385,
+     "moncler": 0.995,
      "saint_laurent": 0.97,
-     "stella_mccartney": 0.505,
+     "stella_mccartney": 0.55,
      "the_row": 1.0,
-     "zegna": 0.57
+     "zegna": 0.575
     }
    },
    {
@@ -104,20 +104,20 @@
     "rates": {
      "balmain": 0.125,
      "bottega_veneta": 0.55,
-     "burberry": 0.13,
+     "burberry": 0.125,
      "chanel": 0.46,
      "dior": 0.245,
      "ferragamo": 0.425,
      "givenchy": 0.005,
      "gucci": 0.0,
-     "jil_sander": 0.73,
+     "jil_sander": 0.725,
      "loewe": 0.23,
-     "moncler": 0.99,
+     "moncler": 0.995,
      "saint_laurent": 1.0,
-     "stella_mccartney": 0.455,
+     "stella_mccartney": 0.465,
      "the_row": 0.48,
      "valentino": 0.45,
-     "zegna": 0.6
+     "zegna": 0.605
     }
    },
    {
@@ -126,7 +126,7 @@
     "gap": 5,
     "houses": 15,
     "rates": {
-     "armani": 0.24,
+     "armani": 0.25,
      "balmain": 0.87,
      "bottega_veneta": 0.015,
      "burberry": 0.085,
@@ -137,7 +137,7 @@
      "givenchy": 0.015,
      "loewe": 0.035,
      "moncler": 0.97,
-     "stella_mccartney": 0.59,
+     "stella_mccartney": 0.55,
      "the_row": 0.65,
      "valentino": 0.12,
      "zegna": 0.78
@@ -149,7 +149,7 @@
     "gap": 6,
     "houses": 17,
     "rates": {
-     "armani": 0.025,
+     "armani": 0.02,
      "balmain": 0.005,
      "bottega_veneta": 0.08,
      "burberry": 0.075,
@@ -162,7 +162,7 @@
      "loewe": 0.035,
      "moncler": 0.965,
      "saint_laurent": 1.0,
-     "stella_mccartney": 0.31,
+     "stella_mccartney": 0.29,
      "the_row": 0.275,
      "valentino": 0.035,
      "zegna": 0.475
@@ -174,8 +174,8 @@
     "gap": 7,
     "houses": 17,
     "rates": {
-     "armani": 0.105,
-     "balenciaga": 0.02,
+     "armani": 0.085,
+     "balenciaga": 0.01,
      "balmain": 0.265,
      "bottega_veneta": 0.14,
      "burberry": 0.025,
@@ -186,11 +186,11 @@
      "givenchy": 0.05,
      "loewe": 0.0,
      "moncler": 1.0,
-     "saint_laurent": 0.635,
-     "stella_mccartney": 0.57,
-     "the_row": 0.95,
+     "saint_laurent": 0.64,
+     "stella_mccartney": 0.42,
+     "the_row": 0.72,
      "valentino": 0.065,
-     "zegna": 0.93
+     "zegna": 0.915
     }
    },
    {
@@ -199,7 +199,7 @@
     "gap": 8,
     "houses": 19,
     "rates": {
-     "armani": 0.485,
+     "armani": 0.35,
      "balenciaga": 0.05,
      "balmain": 0.03,
      "bottega_veneta": 0.005,
@@ -214,7 +214,7 @@
      "loewe": 0.005,
      "moncler": 0.925,
      "saint_laurent": 0.61,
-     "stella_mccartney": 0.4,
+     "stella_mccartney": 0.37,
      "the_row": 0.28,
      "valentino": 0.07,
      "zegna": 0.405
@@ -226,7 +226,7 @@
     "gap": 9,
     "houses": 19,
     "rates": {
-     "armani": 0.385,
+     "armani": 0.235,
      "balenciaga": 0.075,
      "balmain": 0.215,
      "bottega_veneta": 0.0,
@@ -241,7 +241,7 @@
      "loewe": 0.02,
      "moncler": 0.975,
      "saint_laurent": 0.0,
-     "stella_mccartney": 0.045,
+     "stella_mccartney": 0.025,
      "the_row": 0.115,
      "valentino": 0.16,
      "zegna": 0.29
@@ -253,7 +253,7 @@
     "gap": 10,
     "houses": 19,
     "rates": {
-     "armani": 0.105,
+     "armani": 0.09,
      "balenciaga": 0.0,
      "balmain": 0.0,
      "bottega_veneta": 0.0,
@@ -268,7 +268,7 @@
      "loewe": 0.045,
      "moncler": 0.99,
      "saint_laurent": 0.24,
-     "stella_mccartney": 0.11,
+     "stella_mccartney": 0.055,
      "the_row": 0.025,
      "valentino": 0.075,
      "zegna": 0.115
@@ -280,7 +280,7 @@
     "gap": 11,
     "houses": 20,
     "rates": {
-     "armani": 0.48,
+     "armani": 0.355,
      "balenciaga": 0.0,
      "balmain": 0.19,
      "bottega_veneta": 0.005,
@@ -296,7 +296,7 @@
      "loewe": 0.105,
      "moncler": 0.935,
      "saint_laurent": 0.23,
-     "stella_mccartney": 0.025,
+     "stella_mccartney": 0.015,
      "the_row": 0.355,
      "valentino": 0.02,
      "zegna": 0.04
@@ -308,7 +308,7 @@
     "gap": 12,
     "houses": 16,
     "rates": {
-     "armani": 0.255,
+     "armani": 0.155,
      "balenciaga": 0.0,
      "balmain": 0.0,
      "bottega_veneta": 0.015,
@@ -320,7 +320,7 @@
      "loewe": 0.055,
      "moncler": 0.585,
      "saint_laurent": 0.0,
-     "stella_mccartney": 0.3,
+     "stella_mccartney": 0.225,
      "the_row": 0.095,
      "valentino": 0.21,
      "zegna": 0.48
@@ -332,23 +332,23 @@
     "gap": 1,
     "houses": 19,
     "rates": {
-     "armani": 0.595,
+     "armani": 0.635,
      "balenciaga": 0.73,
-     "balmain": 0.88,
-     "bottega_veneta": 0.4,
+     "balmain": 0.925,
+     "bottega_veneta": 0.395,
      "celine": 0.94,
-     "chanel": 0.635,
+     "chanel": 0.63,
      "chloe": 0.98,
      "dior": 0.89,
      "dolce_gabbana": 1.0,
      "fendi": 0.405,
-     "ferragamo": 0.67,
-     "gucci": 0.17,
+     "ferragamo": 0.665,
+     "gucci": 0.18,
      "loewe": 0.575,
      "margiela": 0.995,
-     "moncler": 0.785,
+     "moncler": 0.895,
      "stella_mccartney": 0.7,
-     "the_row": 0.245,
+     "the_row": 0.24,
      "versace": 0.0,
      "zegna": 0.86
     }
@@ -359,25 +359,25 @@
     "gap": 2,
     "houses": 20,
     "rates": {
-     "armani": 0.325,
-     "balenciaga": 0.485,
-     "balmain": 0.71,
+     "armani": 0.35,
+     "balenciaga": 0.495,
+     "balmain": 0.785,
      "bottega_veneta": 0.625,
      "celine": 1.0,
-     "chanel": 0.68,
+     "chanel": 0.685,
      "chloe": 0.845,
      "dior": 0.545,
-     "dolce_gabbana": 0.595,
+     "dolce_gabbana": 0.62,
      "fendi": 0.26,
-     "ferragamo": 0.13,
+     "ferragamo": 0.115,
      "gucci": 0.055,
      "loewe": 0.78,
      "margiela": 0.615,
-     "moncler": 0.87,
+     "moncler": 0.835,
      "saint_laurent": 0.99,
-     "stella_mccartney": 0.565,
+     "stella_mccartney": 0.635,
      "the_row": 1.0,
-     "versace": 0.035,
+     "versace": 0.03,
      "zegna": 0.705
     }
    },
@@ -387,8 +387,8 @@
     "gap": 3,
     "houses": 16,
     "rates": {
-     "balmain": 0.21,
-     "bottega_veneta": 0.355,
+     "balmain": 0.2,
+     "bottega_veneta": 0.35,
      "burberry": 0.34,
      "chanel": 0.475,
      "chloe": 0.825,
@@ -397,12 +397,12 @@
      "gucci": 0.045,
      "loewe": 0.605,
      "margiela": 0.92,
-     "moncler": 0.685,
+     "moncler": 0.77,
      "saint_laurent": 0.805,
-     "stella_mccartney": 0.48,
+     "stella_mccartney": 0.445,
      "the_row": 0.585,
      "versace": 0.0,
-     "zegna": 0.54
+     "zegna": 0.535
     }
    },
    {
@@ -411,8 +411,8 @@
     "gap": 4,
     "houses": 16,
     "rates": {
-     "armani": 0.32,
-     "balmain": 0.83,
+     "armani": 0.35,
+     "balmain": 0.845,
      "bottega_veneta": 0.005,
      "burberry": 0.385,
      "celine": 0.405,
@@ -422,8 +422,8 @@
      "ferragamo": 0.43,
      "loewe": 0.65,
      "margiela": 0.03,
-     "moncler": 0.8,
-     "stella_mccartney": 0.705,
+     "moncler": 0.88,
+     "stella_mccartney": 0.675,
      "the_row": 0.845,
      "versace": 0.025,
      "zegna": 0.85
@@ -435,8 +435,8 @@
     "gap": 5,
     "houses": 18,
     "rates": {
-     "armani": 0.015,
-     "balmain": 0.17,
+     "armani": 0.02,
+     "balmain": 0.145,
      "bottega_veneta": 0.065,
      "burberry": 0.805,
      "chanel": 0.845,
@@ -447,9 +447,9 @@
      "ferragamo": 0.31,
      "loewe": 0.33,
      "margiela": 0.42,
-     "moncler": 0.72,
+     "moncler": 0.8,
      "saint_laurent": 0.78,
-     "stella_mccartney": 0.19,
+     "stella_mccartney": 0.165,
      "the_row": 0.585,
      "versace": 0.24,
      "zegna": 0.66
@@ -461,9 +461,9 @@
     "gap": 6,
     "houses": 18,
     "rates": {
-     "armani": 0.065,
-     "balenciaga": 0.01,
-     "balmain": 0.435,
+     "armani": 0.085,
+     "balenciaga": 0.0,
+     "balmain": 0.56,
      "bottega_veneta": 0.055,
      "burberry": 0.2,
      "chanel": 0.865,
@@ -474,11 +474,11 @@
      "loewe": 0.025,
      "margiela": 0.26,
      "moncler": 0.865,
-     "saint_laurent": 0.465,
-     "stella_mccartney": 0.39,
-     "the_row": 0.83,
+     "saint_laurent": 0.47,
+     "stella_mccartney": 0.405,
+     "the_row": 0.595,
      "versace": 0.25,
-     "zegna": 0.975
+     "zegna": 0.95
     }
    },
    {
@@ -487,9 +487,9 @@
     "gap": 7,
     "houses": 19,
     "rates": {
-     "armani": 0.425,
+     "armani": 0.35,
      "balenciaga": 0.14,
-     "balmain": 0.045,
+     "balmain": 0.115,
      "bottega_veneta": 0.0,
      "burberry": 0.7,
      "celine": 0.0,
@@ -500,9 +500,9 @@
      "fendi": 0.0,
      "loewe": 0.3,
      "margiela": 0.01,
-     "moncler": 0.67,
+     "moncler": 0.73,
      "saint_laurent": 0.77,
-     "stella_mccartney": 0.195,
+     "stella_mccartney": 0.23,
      "the_row": 0.54,
      "versace": 0.035,
      "zegna": 0.645
@@ -514,9 +514,9 @@
     "gap": 8,
     "houses": 19,
     "rates": {
-     "armani": 0.36,
+     "armani": 0.345,
      "balenciaga": 0.01,
-     "balmain": 0.29,
+     "balmain": 0.305,
      "bottega_veneta": 0.0,
      "chanel": 0.575,
      "chloe": 0.065,
@@ -529,7 +529,7 @@
      "margiela": 0.07,
      "moncler": 0.955,
      "saint_laurent": 0.04,
-     "stella_mccartney": 0.015,
+     "stella_mccartney": 0.01,
      "the_row": 0.115,
      "versace": 0.325,
      "zegna": 0.265
@@ -541,7 +541,7 @@
     "gap": 9,
     "houses": 19,
     "rates": {
-     "armani": 0.265,
+     "armani": 0.215,
      "balenciaga": 0.0,
      "balmain": 0.0,
      "bottega_veneta": 0.0,
@@ -554,9 +554,9 @@
      "gucci": 0.275,
      "loewe": 0.085,
      "margiela": 0.16,
-     "moncler": 0.98,
+     "moncler": 0.995,
      "saint_laurent": 0.205,
-     "stella_mccartney": 0.175,
+     "stella_mccartney": 0.18,
      "the_row": 0.02,
      "versace": 0.005,
      "zegna": 0.125
@@ -568,9 +568,9 @@
     "gap": 10,
     "houses": 19,
     "rates": {
-     "armani": 0.615,
+     "armani": 0.655,
      "balenciaga": 0.0,
-     "balmain": 0.415,
+     "balmain": 0.38,
      "bottega_veneta": 0.0,
      "burberry": 0.0,
      "celine": 0.0,
@@ -582,9 +582,9 @@
      "gucci": 0.295,
      "loewe": 0.195,
      "margiela": 0.125,
-     "moncler": 0.945,
+     "moncler": 0.9,
      "saint_laurent": 0.125,
-     "stella_mccartney": 0.025,
+     "stella_mccartney": 0.02,
      "the_row": 0.09,
      "zegna": 0.055
     }
@@ -595,21 +595,21 @@
     "gap": 11,
     "houses": 16,
     "rates": {
-     "armani": 0.305,
+     "armani": 0.345,
      "balenciaga": 0.0,
-     "balmain": 0.025,
+     "balmain": 0.015,
      "bottega_veneta": 0.005,
-     "celine": 0.76,
+     "celine": 0.755,
      "chloe": 0.41,
-     "dolce_gabbana": 0.3,
+     "dolce_gabbana": 0.265,
      "ferragamo": 0.665,
      "loewe": 0.12,
      "margiela": 0.035,
-     "moncler": 0.525,
+     "moncler": 0.59,
      "saint_laurent": 0.0,
-     "stella_mccartney": 0.245,
+     "stella_mccartney": 0.15,
      "the_row": 0.175,
-     "versace": 0.09,
+     "versace": 0.2,
      "zegna": 0.125
     }
    },
@@ -619,26 +619,26 @@
     "gap": 1,
     "houses": 20,
     "rates": {
-     "armani": 0.205,
-     "balenciaga": 0.685,
-     "balmain": 0.72,
-     "bottega_veneta": 0.75,
+     "armani": 0.185,
+     "balenciaga": 0.695,
+     "balmain": 0.825,
+     "bottega_veneta": 0.73,
      "celine": 0.625,
-     "chanel": 0.8,
-     "chloe": 0.86,
-     "dior": 0.82,
-     "dolce_gabbana": 0.855,
+     "chanel": 0.785,
+     "chloe": 0.855,
+     "dior": 0.83,
+     "dolce_gabbana": 0.845,
      "fendi": 0.475,
-     "ferragamo": 0.075,
+     "ferragamo": 0.07,
      "gucci": 0.975,
      "loewe": 0.64,
      "margiela": 0.79,
-     "mcqueen": 0.56,
-     "moncler": 0.905,
-     "stella_mccartney": 0.65,
+     "mcqueen": 0.615,
+     "moncler": 0.94,
+     "stella_mccartney": 0.655,
      "the_row": 0.92,
-     "versace": 0.39,
-     "zegna": 0.52
+     "versace": 0.405,
+     "zegna": 0.53
     }
    },
    {
@@ -653,15 +653,15 @@
      "chloe": 0.91,
      "dior": 0.74,
      "ferragamo": 0.3,
-     "gucci": 0.44,
+     "gucci": 0.445,
      "loewe": 0.265,
      "margiela": 0.98,
-     "mcqueen": 0.5,
-     "moncler": 0.69,
-     "stella_mccartney": 0.28,
+     "mcqueen": 0.495,
+     "moncler": 0.635,
+     "stella_mccartney": 0.275,
      "the_row": 0.0,
      "versace": 0.135,
-     "zegna": 0.27
+     "zegna": 0.26
     }
    },
    {
@@ -671,7 +671,7 @@
     "houses": 17,
     "rates": {
      "armani": 0.345,
-     "balmain": 0.74,
+     "balmain": 0.77,
      "bottega_veneta": 0.01,
      "celine": 0.01,
      "chanel": 0.545,
@@ -696,7 +696,7 @@
     "houses": 18,
     "rates": {
      "armani": 0.155,
-     "balmain": 0.205,
+     "balmain": 0.115,
      "bottega_veneta": 0.26,
      "chanel": 0.91,
      "chloe": 0.6,
@@ -723,22 +723,22 @@
     "rates": {
      "armani": 0.405,
      "balenciaga": 0.0,
-     "balmain": 0.64,
-     "bottega_veneta": 0.15,
+     "balmain": 0.63,
+     "bottega_veneta": 0.145,
      "chanel": 0.91,
-     "chloe": 0.28,
+     "chloe": 0.29,
      "dior": 0.645,
      "dolce_gabbana": 0.125,
      "fendi": 0.02,
      "loewe": 0.04,
      "margiela": 0.285,
-     "mcqueen": 0.365,
+     "mcqueen": 0.37,
      "miu_miu": 0.0,
-     "moncler": 0.365,
+     "moncler": 0.37,
      "stella_mccartney": 0.55,
-     "the_row": 0.175,
+     "the_row": 0.215,
      "versace": 0.16,
-     "zegna": 0.93
+     "zegna": 0.92
     }
    },
    {
@@ -749,7 +749,7 @@
     "rates": {
      "armani": 0.84,
      "balenciaga": 0.03,
-     "balmain": 0.1,
+     "balmain": 0.11,
      "bottega_veneta": 0.0,
      "celine": 0.0,
      "chanel": 0.775,
@@ -776,7 +776,7 @@
     "rates": {
      "armani": 0.86,
      "balenciaga": 0.005,
-     "balmain": 0.26,
+     "balmain": 0.195,
      "bottega_veneta": 0.0,
      "chanel": 0.63,
      "chloe": 0.17,
@@ -832,7 +832,7 @@
     "rates": {
      "armani": 0.82,
      "balenciaga": 0.0,
-     "balmain": 0.285,
+     "balmain": 0.31,
      "bottega_veneta": 0.005,
      "celine": 0.0,
      "chloe": 0.035,
@@ -860,20 +860,20 @@
     "rates": {
      "armani": 0.545,
      "balenciaga": 0.0,
-     "balmain": 0.01,
+     "balmain": 0.0,
      "bottega_veneta": 0.0,
      "celine": 0.15,
      "chloe": 0.32,
      "dolce_gabbana": 0.13,
-     "ferragamo": 0.59,
+     "ferragamo": 0.575,
      "loewe": 0.135,
      "margiela": 0.015,
      "mcqueen": 0.0,
      "miu_miu": 0.0,
-     "moncler": 0.525,
-     "stella_mccartney": 0.175,
+     "moncler": 0.535,
+     "stella_mccartney": 0.16,
      "the_row": 0.0,
-     "versace": 0.22,
+     "versace": 0.29,
      "zegna": 0.25
     }
    },
@@ -883,23 +883,23 @@
     "gap": 1,
     "houses": 18,
     "rates": {
-     "balmain": 0.765,
+     "balmain": 0.655,
      "bottega_veneta": 0.46,
      "chanel": 0.62,
      "chloe": 0.935,
      "dior": 0.77,
      "dries_van_noten": 0.99,
-     "ferragamo": 0.415,
+     "ferragamo": 0.335,
      "givenchy": 0.3,
      "gucci": 0.425,
-     "loewe": 0.5,
+     "loewe": 0.495,
      "margiela": 0.905,
-     "mcqueen": 0.47,
-     "moncler": 0.87,
+     "mcqueen": 0.46,
+     "moncler": 0.885,
      "saint_laurent": 0.985,
-     "stella_mccartney": 0.46,
+     "stella_mccartney": 0.465,
      "the_row": 0.35,
-     "versace": 0.4,
+     "versace": 0.395,
      "zegna": 0.73
     }
    },
@@ -910,18 +910,18 @@
     "houses": 17,
     "rates": {
      "armani": 0.515,
-     "balmain": 0.985,
+     "balmain": 0.955,
      "bottega_veneta": 0.015,
      "celine": 0.015,
      "chanel": 0.52,
      "chloe": 0.105,
      "dior": 0.54,
-     "ferragamo": 0.465,
+     "ferragamo": 0.35,
      "givenchy": 0.035,
      "loewe": 0.555,
      "margiela": 0.07,
      "mcqueen": 0.89,
-     "moncler": 0.475,
+     "moncler": 0.445,
      "stella_mccartney": 0.65,
      "the_row": 0.92,
      "versace": 0.095,
@@ -935,7 +935,7 @@
     "houses": 20,
     "rates": {
      "armani": 0.25,
-     "balmain": 0.145,
+     "balmain": 0.11,
      "bottega_veneta": 0.22,
      "chanel": 0.71,
      "chloe": 0.685,
@@ -943,12 +943,12 @@
      "dolce_gabbana": 0.13,
      "dries_van_noten": 0.755,
      "fendi": 0.0,
-     "ferragamo": 0.26,
+     "ferragamo": 0.27,
      "givenchy": 0.13,
      "loewe": 0.17,
      "margiela": 0.395,
-     "mcqueen": 0.21,
-     "moncler": 0.715,
+     "mcqueen": 0.245,
+     "moncler": 0.66,
      "saint_laurent": 1.0,
      "stella_mccartney": 0.22,
      "the_row": 0.53,
@@ -964,8 +964,8 @@
     "rates": {
      "armani": 0.2,
      "balenciaga": 0.0,
-     "balmain": 0.46,
-     "bottega_veneta": 0.21,
+     "balmain": 0.505,
+     "bottega_veneta": 0.215,
      "chanel": 0.865,
      "chloe": 0.23,
      "dior": 0.3,
@@ -974,12 +974,12 @@
      "fendi": 0.02,
      "givenchy": 0.005,
      "loewe": 0.015,
-     "margiela": 0.295,
-     "mcqueen": 0.145,
-     "moncler": 0.665,
+     "margiela": 0.3,
+     "mcqueen": 0.105,
+     "moncler": 0.67,
      "saint_laurent": 0.345,
      "stella_mccartney": 0.385,
-     "the_row": 0.975,
+     "the_row": 0.945,
      "versace": 0.33,
      "zegna": 0.945
     }
@@ -992,7 +992,7 @@
     "rates": {
      "armani": 0.65,
      "balenciaga": 0.03,
-     "balmain": 0.045,
+     "balmain": 0.05,
      "bottega_veneta": 0.0,
      "celine": 0.0,
      "chanel": 0.67,
@@ -1003,8 +1003,8 @@
      "givenchy": 0.0,
      "loewe": 0.13,
      "margiela": 0.0,
-     "mcqueen": 0.01,
-     "moncler": 0.49,
+     "mcqueen": 0.03,
+     "moncler": 0.47,
      "saint_laurent": 0.835,
      "stella_mccartney": 0.565,
      "the_row": 0.735,
@@ -1020,20 +1020,20 @@
     "rates": {
      "armani": 0.605,
      "balenciaga": 0.005,
-     "balmain": 0.105,
+     "balmain": 0.06,
      "bottega_veneta": 0.0,
      "chanel": 0.66,
      "chloe": 0.09,
      "dior": 0.37,
      "dolce_gabbana": 0.01,
      "fendi": 0.045,
-     "ferragamo": 0.015,
+     "ferragamo": 0.0,
      "givenchy": 0.035,
      "gucci": 0.4,
      "loewe": 0.26,
      "margiela": 0.02,
-     "mcqueen": 0.015,
-     "moncler": 0.49,
+     "mcqueen": 0.035,
+     "moncler": 0.46,
      "saint_laurent": 0.0,
      "stella_mccartney": 0.045,
      "the_row": 0.115,
@@ -1049,19 +1049,19 @@
     "rates": {
      "armani": 0.18,
      "balenciaga": 0.0,
-     "balmain": 0.01,
+     "balmain": 0.005,
      "bottega_veneta": 0.0,
      "chloe": 0.075,
      "dior": 0.65,
      "dolce_gabbana": 0.145,
      "fendi": 0.585,
-     "ferragamo": 0.185,
+     "ferragamo": 0.125,
      "givenchy": 0.03,
      "gucci": 0.19,
      "loewe": 0.35,
      "margiela": 0.265,
-     "mcqueen": 0.035,
-     "moncler": 0.69,
+     "mcqueen": 0.05,
+     "moncler": 0.78,
      "saint_laurent": 0.325,
      "stella_mccartney": 0.055,
      "the_row": 0.025,
@@ -1077,7 +1077,7 @@
     "rates": {
      "armani": 0.76,
      "balenciaga": 0.0,
-     "balmain": 0.33,
+     "balmain": 0.365,
      "bottega_veneta": 0.005,
      "celine": 0.28,
      "chloe": 0.055,
@@ -1085,13 +1085,13 @@
      "dolce_gabbana": 0.335,
      "dries_van_noten": 0.185,
      "fendi": 0.275,
-     "ferragamo": 0.005,
+     "ferragamo": 0.0,
      "givenchy": 0.005,
      "gucci": 0.32,
      "loewe": 0.115,
      "margiela": 0.115,
-     "mcqueen": 0.23,
-     "moncler": 0.56,
+     "mcqueen": 0.255,
+     "moncler": 0.62,
      "saint_laurent": 0.17,
      "stella_mccartney": 0.005,
      "the_row": 0.135,
@@ -1106,22 +1106,22 @@
     "rates": {
      "armani": 0.765,
      "balenciaga": 0.0,
-     "balmain": 0.0,
+     "balmain": 0.005,
      "bottega_veneta": 0.0,
      "celine": 0.215,
-     "chloe": 0.33,
-     "dolce_gabbana": 0.125,
+     "chloe": 0.315,
+     "dolce_gabbana": 0.11,
      "dries_van_noten": 0.595,
-     "ferragamo": 0.05,
+     "ferragamo": 0.035,
      "givenchy": 0.0,
-     "loewe": 0.025,
+     "loewe": 0.03,
      "margiela": 0.06,
-     "mcqueen": 0.055,
-     "moncler": 0.37,
+     "mcqueen": 0.065,
+     "moncler": 0.395,
      "saint_laurent": 0.025,
      "stella_mccartney": 0.125,
      "the_row": 0.065,
-     "versace": 0.16,
+     "versace": 0.22,
      "zegna": 0.29
     }
    },
@@ -1133,23 +1133,23 @@
     "rates": {
      "balmain": 0.995,
      "bottega_veneta": 0.02,
-     "burberry": 0.085,
-     "chanel": 0.69,
+     "burberry": 0.1,
+     "chanel": 0.685,
      "chloe": 0.225,
      "dior": 0.545,
      "ferragamo": 0.54,
-     "givenchy": 0.39,
+     "givenchy": 0.41,
      "issey_miyake": 1.0,
-     "jacquemus": 0.425,
-     "lanvin": 0.255,
-     "loewe": 0.6,
+     "jacquemus": 0.415,
+     "lanvin": 0.335,
+     "loewe": 0.605,
      "margiela": 0.035,
      "mcqueen": 0.945,
-     "moncler": 0.645,
-     "stella_mccartney": 0.66,
-     "the_row": 0.625,
-     "valentino": 0.52,
-     "versace": 0.67,
+     "moncler": 0.6,
+     "stella_mccartney": 0.635,
+     "the_row": 0.585,
+     "valentino": 0.515,
+     "versace": 0.675,
      "zegna": 0.96
     }
    },
@@ -1174,7 +1174,7 @@
      "loewe": 0.34,
      "margiela": 0.345,
      "mcqueen": 0.77,
-     "moncler": 0.75,
+     "moncler": 0.705,
      "saint_laurent": 0.905,
      "stella_mccartney": 0.435,
      "the_row": 0.41,
@@ -1198,14 +1198,14 @@
      "dries_van_noten": 0.02,
      "givenchy": 0.065,
      "jacquemus": 0.205,
-     "lanvin": 0.17,
+     "lanvin": 0.165,
      "loewe": 0.0,
      "margiela": 0.54,
      "mcqueen": 0.345,
-     "moncler": 0.72,
+     "moncler": 0.7,
      "saint_laurent": 0.625,
      "stella_mccartney": 0.41,
-     "the_row": 0.335,
+     "the_row": 0.205,
      "valentino": 0.435,
      "versace": 0.295,
      "zegna": 0.98
@@ -1231,7 +1231,7 @@
      "loewe": 0.045,
      "margiela": 0.0,
      "mcqueen": 0.58,
-     "moncler": 0.64,
+     "moncler": 0.67,
      "saint_laurent": 0.725,
      "stella_mccartney": 0.46,
      "the_row": 0.35,
@@ -1291,7 +1291,7 @@
      "loewe": 0.305,
      "margiela": 0.255,
      "mcqueen": 0.22,
-     "moncler": 0.86,
+     "moncler": 0.805,
      "saint_laurent": 0.36,
      "stella_mccartney": 0.035,
      "the_row": 0.265,
@@ -1321,7 +1321,7 @@
      "loewe": 0.16,
      "margiela": 0.035,
      "mcqueen": 0.335,
-     "moncler": 0.795,
+     "moncler": 0.805,
      "saint_laurent": 0.385,
      "stella_mccartney": 0.015,
      "the_row": 0.815,
@@ -1344,16 +1344,16 @@
      "issey_miyake": 0.295,
      "jil_sander": 0.01,
      "lanvin": 0.065,
-     "loewe": 0.125,
+     "loewe": 0.135,
      "margiela": 0.005,
-     "mcqueen": 0.065,
-     "moncler": 0.65,
-     "saint_laurent": 0.285,
-     "stella_mccartney": 0.14,
+     "mcqueen": 0.07,
+     "moncler": 0.535,
+     "saint_laurent": 0.24,
+     "stella_mccartney": 0.135,
      "the_row": 0.015,
      "valentino": 0.185,
-     "versace": 0.21,
-     "zegna": 0.335
+     "versace": 0.195,
+     "zegna": 0.33
     }
    },
    {
@@ -1376,7 +1376,7 @@
      "hermes": 1.0,
      "issey_miyake": 1.0,
      "jacquemus": 0.545,
-     "lanvin": 0.23,
+     "lanvin": 0.215,
      "loewe": 0.36,
      "loro_piana": 0.445,
      "louis_vuitton": 0.265,
@@ -1398,19 +1398,19 @@
     "gap": 2,
     "houses": 26,
     "rates": {
-     "alaia": 0.25,
+     "alaia": 0.245,
      "armani": 0.11,
      "balmain": 0.905,
-     "bottega_veneta": 0.45,
-     "brunello_cucinelli": 0.395,
+     "bottega_veneta": 0.46,
+     "brunello_cucinelli": 0.39,
      "burberry": 0.485,
      "chanel": 0.905,
      "chloe": 0.83,
      "dior": 0.43,
      "givenchy": 0.06,
      "hermes": 0.99,
-     "jacquemus": 0.64,
-     "lanvin": 0.16,
+     "jacquemus": 0.63,
+     "lanvin": 0.115,
      "loewe": 0.0,
      "loro_piana": 0.7,
      "louis_vuitton": 0.18,
@@ -1420,7 +1420,7 @@
      "moncler": 0.99,
      "prada": 0.02,
      "stella_mccartney": 0.275,
-     "the_row": 0.98,
+     "the_row": 0.97,
      "valentino": 0.075,
      "versace": 0.63,
      "zegna": 0.985
@@ -1446,7 +1446,7 @@
      "hermes": 0.96,
      "issey_miyake": 0.98,
      "jacquemus": 0.615,
-     "lanvin": 0.045,
+     "lanvin": 0.02,
      "loewe": 0.045,
      "loro_piana": 0.05,
      "louis_vuitton": 0.17,
@@ -1481,7 +1481,7 @@
      "hermes": 0.985,
      "issey_miyake": 0.165,
      "jacquemus": 0.45,
-     "lanvin": 0.06,
+     "lanvin": 0.065,
      "loewe": 0.255,
      "loro_piana": 0.095,
      "louis_vuitton": 0.1,
@@ -1572,22 +1572,22 @@
      "armani": 0.45,
      "balmain": 0.135,
      "bottega_veneta": 0.0,
-     "celine": 0.87,
-     "chloe": 0.255,
-     "ferragamo": 0.37,
-     "givenchy": 0.025,
+     "celine": 0.865,
+     "chloe": 0.25,
+     "ferragamo": 0.375,
+     "givenchy": 0.03,
      "issey_miyake": 0.26,
-     "lanvin": 0.07,
-     "loewe": 0.155,
+     "lanvin": 0.095,
+     "loewe": 0.15,
      "margiela": 0.085,
-     "mcqueen": 0.04,
+     "mcqueen": 0.035,
      "miu_miu": 0.155,
      "moncler": 0.4,
      "prada": 0.01,
      "stella_mccartney": 0.125,
      "the_row": 0.175,
-     "valentino": 0.07,
-     "versace": 0.36,
+     "valentino": 0.075,
+     "versace": 0.505,
      "zegna": 0.345
     }
    },
@@ -1597,10 +1597,10 @@
     "gap": 1,
     "houses": 30,
     "rates": {
-     "alaia": 0.59,
+     "alaia": 0.56,
      "armani": 0.715,
      "balmain": 0.905,
-     "bottega_veneta": 0.555,
+     "bottega_veneta": 0.545,
      "brunello_cucinelli": 0.97,
      "burberry": 0.96,
      "chanel": 0.965,
@@ -1611,22 +1611,22 @@
      "fendi": 0.41,
      "givenchy": 0.08,
      "hermes": 0.995,
-     "jacquemus": 0.46,
+     "jacquemus": 0.505,
      "lanvin": 0.295,
      "loewe": 0.345,
-     "loro_piana": 0.955,
+     "loro_piana": 0.96,
      "louis_vuitton": 0.555,
-     "margiela": 0.455,
-     "mcqueen": 0.735,
+     "margiela": 0.49,
+     "mcqueen": 0.795,
      "miu_miu": 0.955,
      "moncler": 0.97,
      "prada": 0.0,
      "saint_laurent": 0.53,
      "stella_mccartney": 0.415,
-     "the_row": 0.895,
-     "valentino": 0.205,
+     "the_row": 0.855,
+     "valentino": 0.2,
      "versace": 0.74,
-     "zegna": 0.905
+     "zegna": 0.9
     }
    },
    {
@@ -1785,26 +1785,26 @@
     "rates": {
      "alaia": 0.34,
      "armani": 0.11,
-     "balmain": 0.07,
+     "balmain": 0.08,
      "bottega_veneta": 0.0,
      "chloe": 0.07,
-     "dolce_gabbana": 0.005,
-     "dries_van_noten": 0.61,
-     "ferragamo": 0.155,
+     "dolce_gabbana": 0.0,
+     "dries_van_noten": 0.6,
+     "ferragamo": 0.15,
      "givenchy": 0.015,
-     "issey_miyake": 0.16,
-     "lanvin": 0.095,
-     "loewe": 0.17,
+     "issey_miyake": 0.15,
+     "lanvin": 0.085,
+     "loewe": 0.175,
      "margiela": 0.23,
      "mcqueen": 0.035,
      "miu_miu": 0.225,
-     "moncler": 0.27,
-     "prada": 0.075,
-     "saint_laurent": 0.055,
-     "stella_mccartney": 0.24,
+     "moncler": 0.275,
+     "prada": 0.08,
+     "saint_laurent": 0.035,
+     "stella_mccartney": 0.235,
      "the_row": 0.29,
      "valentino": 0.07,
-     "versace": 0.215,
+     "versace": 0.35,
      "zegna": 0.125
     }
    },
@@ -1841,7 +1841,7 @@
      "saint_laurent": 0.525,
      "schiaparelli": 0.585,
      "stella_mccartney": 0.6,
-     "the_row": 0.42,
+     "the_row": 0.415,
      "valentino": 0.325,
      "versace": 0.325,
      "zegna": 0.925
@@ -1879,7 +1879,7 @@
      "saint_laurent": 0.04,
      "schiaparelli": 0.035,
      "stella_mccartney": 0.09,
-     "the_row": 0.66,
+     "the_row": 0.675,
      "valentino": 0.09,
      "versace": 0.22,
      "zegna": 0.755
@@ -1916,7 +1916,7 @@
      "saint_laurent": 0.135,
      "schiaparelli": 0.16,
      "stella_mccartney": 0.055,
-     "the_row": 0.345,
+     "the_row": 0.29,
      "valentino": 0.13,
      "versace": 0.105,
      "zegna": 0.105
@@ -1951,7 +1951,7 @@
      "saint_laurent": 0.2,
      "schiaparelli": 0.125,
      "stella_mccartney": 0.115,
-     "the_row": 0.43,
+     "the_row": 0.375,
      "valentino": 0.04,
      "zegna": 0.04
     }
@@ -1968,22 +1968,22 @@
      "balmain": 0.095,
      "bottega_veneta": 0.0,
      "chloe": 0.04,
-     "dolce_gabbana": 0.08,
+     "dolce_gabbana": 0.07,
      "dries_van_noten": 0.165,
      "givenchy": 0.12,
-     "lanvin": 0.05,
+     "lanvin": 0.06,
      "loewe": 0.195,
      "margiela": 0.055,
      "mcqueen": 0.01,
      "miu_miu": 0.29,
-     "moncler": 0.61,
+     "moncler": 0.6,
      "prada": 0.085,
-     "saint_laurent": 0.1,
+     "saint_laurent": 0.09,
      "schiaparelli": 0.0,
-     "stella_mccartney": 0.25,
-     "the_row": 0.515,
+     "stella_mccartney": 0.26,
+     "the_row": 0.455,
      "valentino": 0.135,
-     "versace": 0.475,
+     "versace": 0.485,
      "zegna": 0.215
     }
    },
@@ -2109,29 +2109,29 @@
     "houses": 25,
     "rates": {
      "alaia": 0.325,
-     "armani": 0.79,
-     "balenciaga": 0.04,
+     "armani": 0.775,
+     "balenciaga": 0.035,
      "balmain": 0.145,
      "bottega_veneta": 0.705,
      "celine": 0.485,
      "chloe": 0.14,
-     "dolce_gabbana": 0.155,
+     "dolce_gabbana": 0.15,
      "givenchy": 0.035,
      "issey_miyake": 0.105,
      "jil_sander": 0.02,
      "lanvin": 0.005,
-     "loewe": 0.115,
+     "loewe": 0.12,
      "margiela": 0.13,
      "mcqueen": 0.01,
      "miu_miu": 0.0,
-     "moncler": 0.345,
+     "moncler": 0.35,
      "prada": 0.14,
      "saint_laurent": 0.03,
      "schiaparelli": 0.005,
-     "stella_mccartney": 0.16,
+     "stella_mccartney": 0.165,
      "the_row": 0.15,
-     "valentino": 0.225,
-     "versace": 0.125,
+     "valentino": 0.22,
+     "versace": 0.195,
      "zegna": 0.02
     }
    },
@@ -2217,15 +2217,15 @@
     "gap": 3,
     "houses": 25,
     "rates": {
-     "alaia": 0.04,
+     "alaia": 0.035,
      "armani": 0.905,
      "balenciaga": 0.655,
      "balmain": 0.135,
      "bottega_veneta": 0.885,
      "chloe": 0.0,
-     "dolce_gabbana": 0.24,
+     "dolce_gabbana": 0.23,
      "ferragamo": 0.075,
-     "givenchy": 0.24,
+     "givenchy": 0.235,
      "issey_miyake": 0.955,
      "jil_sander": 0.1,
      "lanvin": 0.185,
@@ -2237,10 +2237,10 @@
      "prada": 0.07,
      "saint_laurent": 0.31,
      "schiaparelli": 0.025,
-     "stella_mccartney": 0.21,
+     "stella_mccartney": 0.195,
      "the_row": 0.975,
-     "valentino": 0.11,
-     "versace": 0.135,
+     "valentino": 0.105,
+     "versace": 0.19,
      "zegna": 0.095
     }
    },
@@ -2294,13 +2294,13 @@
      "bottega_veneta": 0.695,
      "chloe": 0.09,
      "dolce_gabbana": 0.35,
-     "ferragamo": 0.05,
-     "givenchy": 0.12,
+     "ferragamo": 0.055,
+     "givenchy": 0.115,
      "issey_miyake": 0.96,
      "jil_sander": 0.005,
-     "lanvin": 0.13,
+     "lanvin": 0.125,
      "loewe": 0.185,
-     "margiela": 0.07,
+     "margiela": 0.075,
      "mcqueen": 0.055,
      "miu_miu": 0.445,
      "moncler": 0.405,
@@ -2309,8 +2309,8 @@
      "schiaparelli": 0.045,
      "stella_mccartney": 0.285,
      "the_row": 0.675,
-     "valentino": 0.06,
-     "versace": 0.105,
+     "valentino": 0.065,
+     "versace": 0.085,
      "zegna": 0.14
     }
    },
@@ -2349,24 +2349,24 @@
    }
   ],
   "one_or_two_years": {
-   "typical_per_100": 49.3,
+   "typical_per_100": 49.2,
    "chance_per_100": 4.1,
    "pairs_of_years": 23,
    "houses": {
     "armani": {
-     "per_100": 50.9,
+     "per_100": 50.7,
      "pairs_of_years": 19
     },
     "balenciaga": {
-     "per_100": 51.8,
+     "per_100": 52.0,
      "pairs_of_years": 13
     },
     "balmain": {
-     "per_100": 57.2,
+     "per_100": 57.4,
      "pairs_of_years": 23
     },
     "bottega_veneta": {
-     "per_100": 49.7,
+     "per_100": 49.6,
      "pairs_of_years": 23
     },
     "celine": {
@@ -2374,11 +2374,11 @@
      "pairs_of_years": 7
     },
     "chanel": {
-     "per_100": 78.7,
+     "per_100": 78.5,
      "pairs_of_years": 17
     },
     "dior": {
-     "per_100": 57.5,
+     "per_100": 57.6,
      "pairs_of_years": 21
     },
     "dolce_gabbana": {
@@ -2386,35 +2386,35 @@
      "pairs_of_years": 16
     },
     "fendi": {
-     "per_100": 36.5,
+     "per_100": 36.6,
      "pairs_of_years": 14
     },
     "ferragamo": {
-     "per_100": 27.2,
+     "per_100": 25.9,
      "pairs_of_years": 16
     },
     "gucci": {
-     "per_100": 48.8,
+     "per_100": 48.9,
      "pairs_of_years": 10
     },
     "loewe": {
-     "per_100": 42.8,
+     "per_100": 42.9,
      "pairs_of_years": 23
     },
     "moncler": {
-     "per_100": 83.4,
+     "per_100": 83.2,
      "pairs_of_years": 23
     },
     "saint_laurent": {
-     "per_100": 50.3,
+     "per_100": 50.2,
      "pairs_of_years": 15
     },
     "stella_mccartney": {
-     "per_100": 40.3,
+     "per_100": 39.5,
      "pairs_of_years": 23
     },
     "the_row": {
-     "per_100": 58.3,
+     "per_100": 57.9,
      "pairs_of_years": 23
     },
     "zegna": {
@@ -2422,11 +2422,11 @@
      "pairs_of_years": 23
     },
     "givenchy": {
-     "per_100": 21.5,
+     "per_100": 21.6,
      "pairs_of_years": 17
     },
     "burberry": {
-     "per_100": 56.1,
+     "per_100": 56.3,
      "pairs_of_years": 9
     },
     "jil_sander": {
@@ -2434,23 +2434,23 @@
      "pairs_of_years": 7
     },
     "valentino": {
-     "per_100": 22.0,
+     "per_100": 21.9,
      "pairs_of_years": 15
     },
     "chloe": {
-     "per_100": 43.7,
+     "per_100": 43.6,
      "pairs_of_years": 21
     },
     "margiela": {
-     "per_100": 48.5,
+     "per_100": 48.7,
      "pairs_of_years": 21
     },
     "versace": {
-     "per_100": 34.6,
+     "per_100": 34.5,
      "pairs_of_years": 18
     },
     "mcqueen": {
-     "per_100": 50.2,
+     "per_100": 50.7,
      "pairs_of_years": 19
     },
     "miu_miu": {
@@ -2470,19 +2470,19 @@
      "pairs_of_years": 11
     },
     "jacquemus": {
-     "per_100": 34.2,
+     "per_100": 34.4,
      "pairs_of_years": 13
     },
     "lanvin": {
-     "per_100": 12.0,
+     "per_100": 12.2,
      "pairs_of_years": 12
     },
     "alaia": {
-     "per_100": 43.7,
+     "per_100": 43.4,
      "pairs_of_years": 13
     },
     "brunello_cucinelli": {
-     "per_100": 87.5,
+     "per_100": 87.4,
      "pairs_of_years": 7
     },
     "hermes": {
@@ -2508,20 +2508,20 @@
    }
   },
   "five_years_or_more": {
-   "typical_per_100": 23.2,
+   "typical_per_100": 23.0,
    "chance_per_100": 5.1,
    "pairs_of_years": 36,
    "houses": {
     "armani": {
-     "per_100": 38.9,
+     "per_100": 37.1,
      "pairs_of_years": 32
     },
     "balenciaga": {
-     "per_100": 1.6,
+     "per_100": 1.5,
      "pairs_of_years": 24
     },
     "balmain": {
-     "per_100": 16.9,
+     "per_100": 17.2,
      "pairs_of_years": 36
     },
     "bottega_veneta": {
@@ -2529,7 +2529,7 @@
      "pairs_of_years": 36
     },
     "celine": {
-     "per_100": 23.6,
+     "per_100": 23.5,
      "pairs_of_years": 15
     },
     "chanel": {
@@ -2541,7 +2541,7 @@
      "pairs_of_years": 28
     },
     "dolce_gabbana": {
-     "per_100": 16.2,
+     "per_100": 16.0,
      "pairs_of_years": 28
     },
     "fendi": {
@@ -2549,7 +2549,7 @@
      "pairs_of_years": 22
     },
     "ferragamo": {
-     "per_100": 21.6,
+     "per_100": 21.2,
      "pairs_of_years": 28
     },
     "gucci": {
@@ -2557,27 +2557,27 @@
      "pairs_of_years": 15
     },
     "loewe": {
-     "per_100": 16.1,
+     "per_100": 16.2,
      "pairs_of_years": 36
     },
     "moncler": {
-     "per_100": 71.2,
+     "per_100": 71.6,
      "pairs_of_years": 36
     },
     "saint_laurent": {
-     "per_100": 30.1,
+     "per_100": 29.9,
      "pairs_of_years": 26
     },
     "stella_mccartney": {
-     "per_100": 18.2,
+     "per_100": 16.9,
      "pairs_of_years": 36
     },
     "the_row": {
-     "per_100": 25.3,
+     "per_100": 24.0,
      "pairs_of_years": 36
     },
     "zegna": {
-     "per_100": 35.2,
+     "per_100": 35.1,
      "pairs_of_years": 36
     },
     "givenchy": {
@@ -2605,11 +2605,11 @@
      "pairs_of_years": 28
     },
     "versace": {
-     "per_100": 23.7,
+     "per_100": 26.0,
      "pairs_of_years": 22
     },
     "mcqueen": {
-     "per_100": 14.2,
+     "per_100": 14.6,
      "pairs_of_years": 21
     },
     "miu_miu": {
@@ -2621,11 +2621,11 @@
      "pairs_of_years": 2
     },
     "dries_van_noten": {
-     "per_100": 45.9,
+     "per_100": 45.8,
      "pairs_of_years": 7
     },
     "issey_miyake": {
-     "per_100": 17.5,
+     "per_100": 17.4,
      "pairs_of_years": 9
     },
     "jacquemus": {
@@ -2633,7 +2633,7 @@
      "pairs_of_years": 6
     },
     "lanvin": {
-     "per_100": 5.3,
+     "per_100": 5.6,
      "pairs_of_years": 7
     },
     "alaia": {
@@ -2653,7 +2653,7 @@
      "pairs_of_years": 1
     },
     "prada": {
-     "per_100": 11.1,
+     "per_100": 11.2,
      "pairs_of_years": 6
     },
     "schiaparelli": {
