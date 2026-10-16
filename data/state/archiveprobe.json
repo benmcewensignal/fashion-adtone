@@ -374,6 +374,45 @@
     }
   },
   "failed_calls": {},
+  "home_doors": {
+    "answered": 164,
+    "archive_calls": 230,
+    "by_house": {
+      "burberry": [
+        "fr.burberry.com/",
+        "it.burberry.com/"
+      ],
+      "chanel": [
+        "www.chanel.com/gb/",
+        "www.chanel.com/us/",
+        "www.chanel.com/fr/",
+        "www.chanel.com/gb/fashion/"
+      ],
+      "fendi": [
+        "www.fendi.com/gb-en/",
+        "www.fendi.com/us-en/"
+      ],
+      "loro_piana": [
+        "us.loropiana.com/en/",
+        "it.loropiana.com/it/"
+      ],
+      "louis_vuitton": [],
+      "max_mara": [
+        "us.maxmara.com/",
+        "it.maxmara.com/"
+      ],
+      "tom_ford": [
+        "www.tomfordfashion.com/",
+        "www.tomford.com/"
+      ]
+    },
+    "cut_short": null,
+    "doors_asked": 31,
+    "doors_with_captures": 16,
+    "doors_with_pictures_kept": 14,
+    "run": "gh38962770799",
+    "updated_at": "2026-10-16T21:04:42Z"
+  },
   "house_pages": {
     "accounts": 157,
     "accounts_answered": 157,
