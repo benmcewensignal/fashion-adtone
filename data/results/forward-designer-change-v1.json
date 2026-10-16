@@ -1,0 +1,42 @@
+{
+  "id": "designer-change-v1",
+  "evaluated_on": "2026-10-16",
+  "events": {
+    "saint_laurent:2026-10-09:": {
+      "status": "awaiting_event",
+      "probabilities": {
+        "magnitude": 0.42,
+        "itself": 0.25,
+        "crew": 0.9,
+        "transfer": 0.3
+      }
+    },
+    "alaia:2026-01-30:": {
+      "status": "awaiting_event",
+      "probabilities": {
+        "magnitude": 0.42,
+        "itself": 0.25,
+        "crew": 0.9,
+        "transfer": 0.3
+      }
+    },
+    "versace:2025-12-04:2026-02-05": {
+      "status": "awaiting_event",
+      "probabilities": {
+        "magnitude": 0.42,
+        "itself": 0.25,
+        "crew": 0.9,
+        "transfer": 0.3
+      }
+    },
+    "mcqueen:2026-10-15:": {
+      "status": "awaiting_event",
+      "probabilities": {
+        "magnitude": 0.42,
+        "itself": 0.25,
+        "crew": 0.9,
+        "transfer": 0.3
+      }
+    }
+  }
+}
