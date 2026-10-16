@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T12:31:23Z",
+ "generated_at": "2026-10-16T17:31:13Z",
  "window_days": [
   -1,
   14
@@ -95,7 +95,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -673,7 +673,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ConnectTimeout"
+    "balmain.com": "ReadTimeout"
    }
   },
   "balmain:2016-09-29:rtw": {
@@ -2738,7 +2738,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -4015,7 +4015,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectTimeout"
+    "dior.com": "ReadTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -4484,7 +4484,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "ConnectTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -7476,7 +7476,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectTimeout"
+    "gucci.com": "ReadTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -14630,7 +14630,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectTimeout"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16036,7 +16036,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2006
+   "pages": 62
   },
   "dior": {
    "prefixes": [
@@ -16045,19 +16045,20 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 1068
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
+    "www.dolcegabbana.com/en-fi/fashion/women/collection/"
    ],
-   "pages": 4840
+   "pages": 3634
   },
   "dries_van_noten": {
    "prefixes": [
@@ -16277,10 +16278,11 @@
   },
   "armani": {
    "prefixes": [
-    "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/en-us/experience/giorgio-armani/",
     "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/en-us/experience/giorgio-armani/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
    "pages": 358
   },
@@ -16291,8 +16293,8 @@
     "gb.balmain.com/gb/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/show/",
     "www.balmain.com/en_us/lookbook/collections/index/men/",
+    "www.balmain.com/en_us/show/",
     "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
    "pages": 357
