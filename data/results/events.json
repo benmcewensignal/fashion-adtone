@@ -263,6 +263,15 @@
    "date": "2013-03-02"
   },
   {
+   "house": "hermes",
+   "who": "Axel Dumas",
+   "role": "Co-Chief Executive Officer (co-gérant) of Hermès International",
+   "kind": "chief executive appointed",
+   "date": "2013-06-04",
+   "verified": true,
+   "source": "https://echanges.dila.gouv.fr/OPENDATA/AMF/CNS/2013/06/FCCNS118184_20130604.pdf"
+  },
+  {
    "house": "zegna",
    "who": "Stefano Pilati",
    "scope": "menswear",
@@ -1537,6 +1546,15 @@
    "source": "https://fashionunited.uk/news/people/chloe-names-riccardo-bellini-as-its-new-chief-executive-officer/2019103146000"
   },
   {
+   "house": "dries_van_noten",
+   "who": "Matteo De Rosa",
+   "role": "president",
+   "kind": "chief executive appointed",
+   "date": "2020-01-23",
+   "verified": true,
+   "source": "https://www.modaes.com/empresa/puig-renueva-la-cupula-de-dries-van-noten-con-un-nuevo-presidente"
+  },
+  {
    "house": "issey_miyake",
    "who": "design studio",
    "scope": "menswear",
@@ -2143,6 +2161,15 @@
    "date": "2021-12-07",
    "verified": true,
    "source": "https://sa.fashionnetwork.com/news/Lanvin-siddhartha-shukla-succeeds-arnaud-bazin-as-deputy-general-manager,1359646.html"
+  },
+  {
+   "house": "dries_van_noten",
+   "who": "Axel Keller",
+   "role": "president",
+   "kind": "chief executive appointed",
+   "date": "2021-12-10",
+   "verified": true,
+   "source": "https://www.theindustry.fashion/dries-van-noten-appoints-former-jil-sander-ceo-axel-keller-as-president/"
   },
   {
    "house": "chanel",
@@ -5848,7 +5875,7 @@
  ],
  "counts": {
   "ambassador named": 219,
-  "chief executive appointed": 65,
+  "chief executive appointed": 68,
   "creative lead appointed": 66,
   "creative lead leaving": 71,
   "first show": 85,

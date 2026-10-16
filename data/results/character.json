@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-16T19:38:20Z",
+ "generated_at": "2026-10-16T22:24:10Z",
  "source": "homepages",
  "period": "half",
  "types": [
   "brand_image",
   "product_on_model"
  ],
- "images": 11819,
+ "images": 11820,
  "identity": {
   "brands": 31,
   "split": "2025-07",
@@ -49768,7 +49768,7 @@
      "street_couture": 3.0
     },
     "2016H1": {
-     "n": 2,
+     "n": 3,
      "light": {
       "high_key": 1.0
      },
@@ -49779,8 +49779,9 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_set": 0.5,
-      "urban_exterior": 0.5
+      "studio_plain": 0.333,
+      "studio_set": 0.333,
+      "urban_exterior": 0.333
      },
      "people": {
       "one": 1.0
@@ -49795,13 +49796,15 @@
       "posed_static": 1.0
      },
      "framing": {
-      "medium": 1.0
+      "medium": 0.667,
+      "full_length": 0.333
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "casual": 1.0
+      "formal_tailored": 0.333,
+      "casual": 0.667
      },
      "production": {
       "polished_commercial": 1.0
@@ -49810,10 +49813,11 @@
       "none": 1.0
      },
      "mood": {
-      "serene": 0.5,
+      "serene": 0.333,
       "intimate": 1.0,
       "sensual": 1.0,
-      "playful": 0.5
+      "playful": 0.333,
+      "opulent": 0.333
      },
      "street_couture": 3.0
     },

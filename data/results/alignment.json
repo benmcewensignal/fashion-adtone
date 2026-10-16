@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T19:47:27Z",
+ "generated_at": "2026-10-16T22:30:02Z",
  "status": "exploratory: descriptive, not in the pre-registration",
  "images": "homepages, every creative type",
  "window_months": 6,
@@ -558,6 +558,664 @@
    "spoken": 0,
    "months": "2026-10 to 2027-03",
    "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "jacquemus",
+   "show_date": "2025-06-29",
+   "season": "SS26 men",
+   "key": "jacquemus:2025-06-29:b3b0370fe414",
+   "spoken": 2,
+   "months": "2025-06 to 2025-11",
+   "questions": [
+    {
+     "question": "colour_temperature",
+     "stated": "neutral",
+     "house": 1.0,
+     "peers": 0.921,
+     "lift": 0.079
+    },
+    {
+     "question": "setting",
+     "stated": "landscape_nature",
+     "house": 0.0,
+     "peers": 0.077,
+     "lift": -0.077
+    }
+   ],
+   "n_house": 7,
+   "n_peers": 493,
+   "agreement": 0.001,
+   "p_two_sided": 1.0
+  },
+  {
+   "house": "burberry",
+   "show_date": "2025-09-22",
+   "season": "SS26",
+   "key": "burberry:2025-09-22:17175c4a0f19",
+   "spoken": 0,
+   "months": "2025-09 to 2026-02",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "versace",
+   "show_date": "2025-09-26",
+   "season": "SS26",
+   "key": "versace:2025-09-26:b05f5ef2f89a",
+   "spoken": 0,
+   "months": "2025-09 to 2026-02",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "dolce_gabbana",
+   "show_date": "2025-09-27",
+   "season": "SS26",
+   "key": "dolce_gabbana:2025-09-27:7b53146219cd",
+   "spoken": 1,
+   "months": "2025-09 to 2026-02",
+   "questions": [
+    {
+     "question": "primary_subject",
+     "stated": "garment",
+     "house": 1.0,
+     "peers": 0.784,
+     "lift": 0.216
+    }
+   ],
+   "n_house": 13,
+   "n_peers": 505,
+   "agreement": 0.216,
+   "p_two_sided": 0.071
+  },
+  {
+   "house": "dries_van_noten",
+   "show_date": "2025-09-30",
+   "season": "SS26",
+   "key": "dries_van_noten:2025-09-30:273e9575e2ea",
+   "spoken": 1,
+   "months": "2025-09 to 2026-02",
+   "questions": [
+    {
+     "question": "setting",
+     "stated": "water_beach",
+     "house": 0.0,
+     "peers": 0.0,
+     "lift": 0.0
+    }
+   ],
+   "n_house": 20,
+   "n_peers": 498,
+   "agreement": 0.0,
+   "p_two_sided": 1.0
+  },
+  {
+   "house": "lanvin",
+   "show_date": "2025-09-30",
+   "season": "SS26",
+   "key": "lanvin:2025-09-30:a29d3a35b7d6",
+   "spoken": 3,
+   "months": "2025-09 to 2026-02",
+   "note": "5 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "stella_mccartney",
+   "show_date": "2025-09-30",
+   "season": "SS26",
+   "key": "stella_mccartney:2025-09-30:3307edf191e0",
+   "spoken": 4,
+   "months": "2025-09 to 2026-02",
+   "questions": [
+    {
+     "question": "colour_temperature",
+     "stated": "neutral",
+     "house": 1.0,
+     "peers": 0.906,
+     "lift": 0.094
+    },
+    {
+     "question": "expression",
+     "stated": "neutral",
+     "house": 0.824,
+     "peers": 0.643,
+     "lift": 0.181
+    },
+    {
+     "question": "primary_subject",
+     "stated": "garment",
+     "house": 0.941,
+     "peers": 0.784,
+     "lift": 0.157
+    },
+    {
+     "question": "street_couture_axis",
+     "stated": 3,
+     "house": 3.0,
+     "peers": 3.064,
+     "lift": -0.064
+    }
+   ],
+   "n_house": 17,
+   "n_peers": 501,
+   "agreement": 0.144,
+   "p_two_sided": 0.02
+  },
+  {
+   "house": "balmain",
+   "show_date": "2025-10-01",
+   "season": "SS26",
+   "key": "balmain:2025-10-01:a50373932aad",
+   "spoken": 0,
+   "months": "2025-10 to 2026-03",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "tom_ford",
+   "show_date": "2025-10-01",
+   "season": "SS26",
+   "key": "tom_ford:2025-10-01:d7787e401d64",
+   "spoken": 1,
+   "months": "2025-10 to 2026-03",
+   "questions": [
+    {
+     "question": "gaze",
+     "stated": "to_camera",
+     "house": 0.857,
+     "peers": 0.457,
+     "lift": 0.4
+    }
+   ],
+   "n_house": 14,
+   "n_peers": 499,
+   "agreement": 0.4,
+   "p_two_sided": 0.003
+  },
+  {
+   "house": "givenchy",
+   "show_date": "2025-10-03",
+   "season": "SS26",
+   "key": "givenchy:2025-10-03:14f2e71e7f4f",
+   "spoken": 0,
+   "months": "2025-10 to 2026-03",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "issey_miyake",
+   "show_date": "2025-10-03",
+   "season": "SS26",
+   "key": "issey_miyake:2025-10-03:fbfdc7396270",
+   "spoken": 0,
+   "months": "2025-10 to 2026-03",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "comme_des_garcons",
+   "show_date": "2025-10-04",
+   "season": "SS26",
+   "key": "comme_des_garcons:2025-10-04:d356a69a859d",
+   "spoken": 0,
+   "months": "2025-10 to 2026-03",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "mcqueen",
+   "show_date": "2025-10-05",
+   "season": "SS26",
+   "key": "mcqueen:2025-10-05:1bb437753e6a",
+   "spoken": 0,
+   "months": "2025-10 to 2026-03",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "jacquemus",
+   "show_date": "2026-01-25",
+   "season": "AW26 men",
+   "key": "jacquemus:2026-01-25:343b43fb3b22",
+   "spoken": 1,
+   "months": "2026-01 to 2026-06",
+   "questions": [
+    {
+     "question": "street_couture_axis",
+     "stated": 3,
+     "house": 3.0,
+     "peers": 3.084,
+     "lift": -0.084
+    }
+   ],
+   "n_house": 7,
+   "n_peers": 476
+  },
+  {
+   "house": "schiaparelli",
+   "show_date": "2026-01-26",
+   "season": "SS26 couture",
+   "key": "schiaparelli:2026-01-26:52ccdc8bc5e8",
+   "spoken": 2,
+   "months": "2026-01 to 2026-06",
+   "questions": [
+    {
+     "question": "styling_register",
+     "stated": "formal_tailored",
+     "house": 0.111,
+     "peers": 0.462,
+     "lift": -0.351
+    },
+    {
+     "question": "street_couture_axis",
+     "stated": 5,
+     "house": 4.444,
+     "peers": 3.03,
+     "lift": 1.414
+    }
+   ],
+   "n_house": 18,
+   "n_peers": 465,
+   "agreement": -0.351,
+   "p_two_sided": 0.004
+  },
+  {
+   "house": "armani",
+   "show_date": "2026-01-27",
+   "season": "SS26 couture",
+   "key": "armani:2026-01-27:3c8c69adbb50",
+   "spoken": 2,
+   "months": "2026-01 to 2026-06",
+   "questions": [
+    {
+     "question": "gaze",
+     "stated": "to_camera",
+     "house": 0.842,
+     "peers": 0.485,
+     "lift": 0.357
+    },
+    {
+     "question": "people",
+     "stated": "one",
+     "house": 0.421,
+     "peers": 0.483,
+     "lift": -0.062
+    }
+   ],
+   "n_house": 19,
+   "n_peers": 464,
+   "agreement": 0.148,
+   "p_two_sided": 0.224
+  },
+  {
+   "house": "moncler",
+   "show_date": "2026-01-31",
+   "season": "AW26",
+   "key": "moncler:2026-01-31:431b3ed9074f",
+   "spoken": 0,
+   "months": "2026-01 to 2026-06",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "burberry",
+   "show_date": "2026-02-23",
+   "season": "AW26",
+   "key": "burberry:2026-02-23:49969f3642ab",
+   "spoken": 0,
+   "months": "2026-02 to 2026-07",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "max_mara",
+   "show_date": "2026-02-26",
+   "season": "AW26",
+   "key": "max_mara:2026-02-26:1f1607466bcf",
+   "spoken": 0,
+   "months": "2026-02 to 2026-07",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "dolce_gabbana",
+   "show_date": "2026-02-28",
+   "season": "AW26",
+   "key": "dolce_gabbana:2026-02-28:a7ea293fcd39",
+   "spoken": 0,
+   "months": "2026-02 to 2026-07",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "armani",
+   "show_date": "2026-03-01",
+   "season": "AW26",
+   "key": "armani:2026-03-01:c5f18b18b5b0",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "dries_van_noten",
+   "show_date": "2026-03-04",
+   "season": "AW26",
+   "key": "dries_van_noten:2026-03-04:60a1a9abb36f",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "stella_mccartney",
+   "show_date": "2026-03-04",
+   "season": "AW26",
+   "key": "stella_mccartney:2026-03-04:9ec238ae8269",
+   "spoken": 9,
+   "months": "2026-03 to 2026-08",
+   "questions": [
+    {
+     "question": "colour_temperature",
+     "stated": "neutral",
+     "house": 0.571,
+     "peers": 0.912,
+     "lift": -0.341
+    },
+    {
+     "question": "expression",
+     "stated": "neutral",
+     "house": 0.714,
+     "peers": 0.67,
+     "lift": 0.045
+    },
+    {
+     "question": "framing",
+     "stated": "full_length",
+     "house": 0.071,
+     "peers": 0.249,
+     "lift": -0.178
+    },
+    {
+     "question": "people",
+     "stated": "one",
+     "house": 0.643,
+     "peers": 0.479,
+     "lift": 0.164
+    },
+    {
+     "question": "pose",
+     "stated": "posed_static",
+     "house": 0.714,
+     "peers": 0.802,
+     "lift": -0.088
+    },
+    {
+     "question": "primary_subject",
+     "stated": "garment",
+     "house": 0.714,
+     "peers": 0.73,
+     "lift": -0.016
+    },
+    {
+     "question": "production",
+     "stated": "polished_commercial",
+     "house": 1.0,
+     "peers": 0.953,
+     "lift": 0.047
+    },
+    {
+     "question": "styling_register",
+     "stated": "formal_tailored",
+     "house": 0.143,
+     "peers": 0.461,
+     "lift": -0.318
+    },
+    {
+     "question": "street_couture_axis",
+     "stated": 3,
+     "house": 3.0,
+     "peers": 3.094,
+     "lift": -0.094
+    }
+   ],
+   "n_house": 14,
+   "n_peers": 445,
+   "agreement": -0.086,
+   "p_two_sided": 0.196
+  },
+  {
+   "house": "tom_ford",
+   "show_date": "2026-03-04",
+   "season": "AW26",
+   "key": "tom_ford:2026-03-04:509256d465e5",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "givenchy",
+   "show_date": "2026-03-06",
+   "season": "AW26",
+   "key": "givenchy:2026-03-06:8121c49da71c",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "issey_miyake",
+   "show_date": "2026-03-06",
+   "season": "AW26",
+   "key": "issey_miyake:2026-03-06:0639e873799c",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "lanvin",
+   "show_date": "2026-03-06",
+   "season": "AW26",
+   "key": "lanvin:2026-03-06:7eec26b28619",
+   "spoken": 8,
+   "months": "2026-03 to 2026-08",
+   "questions": [
+    {
+     "question": "colour_temperature",
+     "stated": "neutral",
+     "house": 1.0,
+     "peers": 0.899,
+     "lift": 0.101
+    },
+    {
+     "question": "expression",
+     "stated": "neutral",
+     "house": 0.8,
+     "peers": 0.667,
+     "lift": 0.133
+    },
+    {
+     "question": "framing",
+     "stated": "full_length",
+     "house": 0.2,
+     "peers": 0.245,
+     "lift": -0.045
+    },
+    {
+     "question": "pose",
+     "stated": "posed_static",
+     "house": 1.0,
+     "peers": 0.793,
+     "lift": 0.207
+    },
+    {
+     "question": "primary_subject",
+     "stated": "garment",
+     "house": 0.733,
+     "peers": 0.73,
+     "lift": 0.004
+    },
+    {
+     "question": "production",
+     "stated": "polished_commercial",
+     "house": 1.0,
+     "peers": 0.953,
+     "lift": 0.047
+    },
+    {
+     "question": "styling_register",
+     "stated": "formal_tailored",
+     "house": 0.333,
+     "peers": 0.455,
+     "lift": -0.122
+    },
+    {
+     "question": "street_couture_axis",
+     "stated": 3,
+     "house": 3.133,
+     "peers": 3.09,
+     "lift": 0.043
+    }
+   ],
+   "n_house": 15,
+   "n_peers": 444,
+   "agreement": 0.047,
+   "p_two_sided": 0.45
+  },
+  {
+   "house": "comme_des_garcons",
+   "show_date": "2026-03-07",
+   "season": "AW26",
+   "key": "comme_des_garcons:2026-03-07:b20898e1956e",
+   "spoken": 1,
+   "months": "2026-03 to 2026-08",
+   "questions": [
+    {
+     "question": "colour_temperature",
+     "stated": "neutral",
+     "house": 1.0,
+     "peers": 0.899,
+     "lift": 0.101
+    }
+   ],
+   "n_house": 12,
+   "n_peers": 447,
+   "agreement": 0.101,
+   "p_two_sided": 0.364
+  },
+  {
+   "house": "mcqueen",
+   "show_date": "2026-03-08",
+   "season": "AW26",
+   "key": "mcqueen:2026-03-08:fa3a6e9c1132",
+   "spoken": 0,
+   "months": "2026-03 to 2026-08",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "schiaparelli",
+   "show_date": "2026-07-06",
+   "season": "AW26 couture",
+   "key": "schiaparelli:2026-07-06:57531aecb48a",
+   "spoken": 0,
+   "months": "2026-07 to 2026-12",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "armani",
+   "show_date": "2026-07-07",
+   "season": "AW26 couture",
+   "key": "armani:2026-07-07:4f9dd3a7dacd",
+   "spoken": 1,
+   "months": "2026-07 to 2026-12",
+   "questions": [
+    {
+     "question": "people",
+     "stated": "one",
+     "house": 0.357,
+     "peers": 0.478,
+     "lift": -0.121
+    }
+   ],
+   "n_house": 14,
+   "n_peers": 270,
+   "agreement": -0.121,
+   "p_two_sided": 0.418
+  },
+  {
+   "house": "mcqueen",
+   "show_date": "2026-09-20",
+   "season": "SS27",
+   "key": "mcqueen:2026-09-20:e1bc12069caa",
+   "spoken": 0,
+   "months": "2026-09 to 2027-02",
+   "note": "the text speaks to none of the questions"
+  },
+  {
+   "house": "burberry",
+   "show_date": "2026-09-21",
+   "season": "SS27",
+   "key": "burberry:2026-09-21:fdce9d7e028f",
+   "spoken": 0,
+   "months": "2026-09 to 2027-02",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "dolce_gabbana",
+   "show_date": "2026-09-26",
+   "season": "SS27",
+   "key": "dolce_gabbana:2026-09-26:d7bdd01c2b61",
+   "spoken": 14,
+   "months": "2026-09 to 2027-02",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "ferragamo",
+   "show_date": "2026-09-26",
+   "season": "SS27",
+   "key": "ferragamo:2026-09-26:77b5df1599fc",
+   "spoken": 2,
+   "months": "2026-09 to 2027-02",
+   "note": "3 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "dries_van_noten",
+   "show_date": "2026-09-30",
+   "season": "SS27",
+   "key": "dries_van_noten:2026-09-30:1007052c18dd",
+   "spoken": 0,
+   "months": "2026-09 to 2027-02",
+   "note": "4 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "stella_mccartney",
+   "show_date": "2026-09-30",
+   "season": "SS27",
+   "key": "stella_mccartney:2026-09-30:176b53ee8637",
+   "spoken": 0,
+   "months": "2026-09 to 2027-02",
+   "note": "4 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "tom_ford",
+   "show_date": "2026-09-30",
+   "season": "SS27",
+   "key": "tom_ford:2026-09-30:e7da6c05778f",
+   "spoken": 0,
+   "months": "2026-09 to 2027-02",
+   "note": "4 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "givenchy",
+   "show_date": "2026-10-02",
+   "season": "SS27",
+   "key": "givenchy:2026-10-02:3451c8051d20",
+   "spoken": 11,
+   "months": "2026-10 to 2027-03",
+   "note": "0 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "lanvin",
+   "show_date": "2026-10-02",
+   "season": "SS27",
+   "key": "lanvin:2026-10-02:2a7855fa4e65",
+   "spoken": 14,
+   "months": "2026-10 to 2027-03",
+   "note": "4 homepage images in the window; at least 6 needed"
+  },
+  {
+   "house": "comme_des_garcons",
+   "show_date": "2026-10-03",
+   "season": "SS27",
+   "key": "comme_des_garcons:2026-10-03:f265c5b7a30b",
+   "spoken": 0,
+   "months": "2026-10 to 2027-03",
+   "note": "4 homepage images in the window; at least 6 needed"
   }
  ]
 }
