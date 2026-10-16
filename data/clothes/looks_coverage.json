@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T22:27:01Z",
+ "generated_at": "2026-10-16T05:55:58Z",
  "window_days": [
   -1,
   14
@@ -1521,7 +1521,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    }
   },
   "burberry:2026-09-21:rtw": {
@@ -2645,7 +2645,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ConnectionError"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -7396,21 +7396,55 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "ReadTimeout"
    }
+  },
+  "hermes:2015-01-24:men": {
+   "house": "hermes",
+   "date": "2015-01-24",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/homme-ah15/en/",
+     "ts": "20150207072455",
+     "score": 2.62
+    },
+    {
+     "url": "http://defile.hermes.com:80/homme-ah15/fr/",
+     "ts": "20150125235215",
+     "score": 2.0
+    }
+   ]
   },
   "hermes:2015-03-09:rtw": {
    "house": "hermes",
    "date": "2015-03-09",
    "season": "2015 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ConnectionError"
-   }
+   "pages": 150,
+   "candidates": [
+    {
+     "url": "http://defile.hermes.com:80/femme-ah15/en/collection/1/",
+     "ts": "20150313035416",
+     "score": 3.62
+    },
+    {
+     "url": "http://defile.hermes.com:80/femme-ah15/en/collection/10/",
+     "ts": "20150313040453",
+     "score": 3.62
+    },
+    {
+     "url": "http://defile.hermes.com:80/femme-ah15/en/collection/11/",
+     "ts": "20150313035700",
+     "score": 3.62
+    }
+   ]
   },
   "hermes:2015-06-27:men": {
    "house": "hermes",
@@ -7422,7 +7456,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "ReadTimeout"
    }
   },
   "hermes:2015-10-05:rtw": {
@@ -10635,7 +10669,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "louisvuitton.com": "ConnectionError"
+    "louisvuitton.com": "ReadTimeout"
    }
   },
   "margiela:2015-01-23:men": {
@@ -14516,7 +14550,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -14747,6 +14781,82 @@
    "pages": 0,
    "candidates": []
   },
+  "valentino:2018-01-17:men": {
+   "house": "valentino",
+   "date": "2018-01-17",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "valentino:2018-01-24:couture": {
+   "house": "valentino",
+   "date": "2018-01-24",
+   "season": "2018 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "window",
+   "pages": 9,
+   "candidates": [
+    {
+     "url": "https://www.valentino.com/experience/us/news/spring-summer-2018-collection/",
+     "ts": "20180202161120",
+     "score": 1.75
+    },
+    {
+     "url": "https://www.valentino.com/experience/en/news/spring-summer-2018-collection/",
+     "ts": "20180202161030",
+     "score": 1.62
+    },
+    {
+     "url": "https://www.valentino.com/experience/cn/news/spring-summer-2018-collection/",
+     "ts": "20180202160922",
+     "score": 1.0
+    }
+   ]
+  },
+  "valentino:2018-03-04:rtw": {
+   "house": "valentino",
+   "date": "2018-03-04",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 7,
+   "candidates": []
+  },
+  "valentino:2018-06-20:men": {
+   "house": "valentino",
+   "date": "2018-06-20",
+   "season": "2019 SS men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "valentino:2018-07-04:couture": {
+   "house": "valentino",
+   "date": "2018-07-04",
+   "season": "2018 AW couture",
+   "category": "couture",
+   "status": "none",
+   "via": "window",
+   "pages": 8,
+   "candidates": []
+  },
+  "valentino:2018-09-30:rtw": {
+   "house": "valentino",
+   "date": "2018-09-30",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "valentino:2019-01-16:men": {
    "house": "valentino",
    "date": "2019-01-16",
@@ -14882,6 +14992,16 @@
      "score": 4.62
     }
    ]
+  },
+  "valentino:2020-01-15:men": {
+   "house": "valentino",
+   "date": "2020-01-15",
+   "season": "2020 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
   },
   "valentino:2020-01-22:couture": {
    "house": "valentino",
@@ -15485,7 +15605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "versace.com": "ConnectionError"
+    "versace.com": "ReadTimeout"
    }
   },
   "zegna:2015-01-17:men": {
@@ -15832,7 +15952,7 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/"
    ],
-   "pages": 319
+   "pages": 1
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -15840,11 +15960,9 @@
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
     "www.dolcegabbana.com/en-fi/fashion/women/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
-    "www.dolcegabbana.com/en/dg-essentials-collection/",
-    "www.dolcegabbana.com/en/fashion/women/shoes/rainbow-lace-collection/"
+    "www.dolcegabbana.com/en-fi/fashion/men/collection/"
    ],
-   "pages": 3645
+   "pages": 3634
   },
   "dries_van_noten": {
    "prefixes": [
@@ -15893,9 +16011,11 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/"
+    "www.hermes.com/us/en/content/",
+    "www.hermes.com/us/en/men/ready-wear/",
+    "www.hermes.com/us/en/women/ready-wear/"
    ],
-   "pages": 0
+   "pages": 884
   },
   "gucci": {
    "prefixes": [
@@ -15904,7 +16024,7 @@
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/"
    ],
-   "pages": 0
+   "pages": 850
   },
   "loewe": {
    "prefixes": [
@@ -15958,12 +16078,9 @@
     "www.prada.com/en/collections/fashion-show/",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
     "www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html",
-    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/",
-    "www.prada.com/en/collections/advertising-campaign/",
-    "www.prada.com/en/collections/",
-    "www.prada.com/us/en/men/sunglasses/"
+    "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/"
    ],
-   "pages": 1071
+   "pages": 219
   },
   "saint_laurent": {
    "prefixes": [
@@ -15996,9 +16113,9 @@
     "www.valentino.com/de-de/collections/women/",
     "www.valentino.com/en-fi/experience/",
     "www.valentino.com/de-de/experience/",
-    "www.valentino.com/de-de/collections/men/"
+    "www.valentino.com/de-de/f\u00fcr-ihn/vltn-man-collection/"
    ],
-   "pages": 795
+   "pages": 789
   },
   "zegna": {
    "prefixes": [
@@ -16013,7 +16130,7 @@
    "prefixes": [
     "www.versace.com/us/en-us/women/features/"
    ],
-   "pages": 0
+   "pages": 136
   },
   "ferragamo": {
    "prefixes": [
@@ -16066,7 +16183,7 @@
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
    "pages": 7
   },
@@ -16076,10 +16193,10 @@
     "fr.balmain.com/fr/experience/",
     "gb.balmain.com/gb/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
-    "www.balmain.com/en_us/show/",
     "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/"
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/show/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
    "pages": 357
   },
@@ -16108,9 +16225,9 @@
   },
   "stella_mccartney": {
    "prefixes": [
+    "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
    "pages": 1348
@@ -16125,9 +16242,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 536,
-   "index failed": 53,
-   "none": 375
+   "found": 539,
+   "index failed": 52,
+   "none": 381
   },
   "by_house": {
    "alaia": {
@@ -16203,8 +16320,8 @@
     "found": 12
    },
    "hermes": {
-    "shows": 43,
-    "found": 36
+    "shows": 44,
+    "found": 38
    },
    "issey_miyake": {
     "shows": 47,
@@ -16279,8 +16396,8 @@
     "found": 2
    },
    "valentino": {
-    "shows": 32,
-    "found": 28
+    "shows": 39,
+    "found": 29
    },
    "versace": {
     "shows": 4,
@@ -16293,8 +16410,8 @@
   },
   "by_year": {
    "2015": {
-    "shows": 47,
-    "found": 28
+    "shows": 48,
+    "found": 30
    },
    "2016": {
     "shows": 95,
@@ -16305,15 +16422,15 @@
     "found": 62
    },
    "2018": {
-    "shows": 87,
-    "found": 34
+    "shows": 91,
+    "found": 35
    },
    "2019": {
-    "shows": 91,
+    "shows": 93,
     "found": 37
    },
    "2020": {
-    "shows": 89,
+    "shows": 90,
     "found": 40
    },
    "2021": {
