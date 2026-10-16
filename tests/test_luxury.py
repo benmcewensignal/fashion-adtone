@@ -139,6 +139,18 @@ def test_the_design_and_the_check_set(tmp_path, monkeypatch):
     assert set(by) == {"h0", "h1", "h2", "h3"} and all(v >= 1 for v in by.values())
     assert all(len(c["pairs"][ax]) == len(d["reader"][ax]) // L.CHECK_PAIRS for ax in d["reader"])
     assert L.check_set() == c                   # the same set every time
+    # pictures fetched later join the design: six comparisons each on every axis, the old ones kept
+    rows = store.read_jsonl(L.DIR / "pictures.jsonl")
+    later = [r["sha"] for r in rows if not r["found"]]
+    store.write_jsonl(L.DIR / "pictures.jsonl", [{**r, "found": True} for r in rows])
+    assert L.design() == d                      # not unless asked
+    e = L.design(extend=True)
+    for ax in d["reader"]:
+        old = {tuple(x) for x in d["reader"][ax]}
+        now = {tuple(x) for x in e["reader"][ax]}
+        assert old <= now and len(now - old) == B.DEGREE * len(later)
+        assert all(sum(x in pair for pair in now - old) >= B.DEGREE for x in later)
+    assert e["extensions"][0]["pictures"] == len(later) and L.design(extend=True) == e
 
 
 def test_reading_on_modal_resumes_and_keeps_what_came_back(tmp_path, monkeypatch):

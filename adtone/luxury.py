@@ -168,12 +168,40 @@ def found() -> dict[str, dict]:
             if r.get("found") and r["sha"] in c}
 
 
-def design(write: bool = True) -> dict:
+def design(write: bool = True, extend: bool = False) -> dict:
     """On each axis every picture against six others, as in the bake-off: a circulant design on a random
-    order of the pictures. Made once, from the pictures fetched by then, and kept."""
+    order of the pictures. Made once, from the pictures fetched by then, and kept. With extend, pictures
+    fetched after it was made join it rather than starting it again: each new picture against six others
+    on each axis, drawn at random from every picture in it, so the comparisons already read keep their
+    place; each extension is recorded in the design."""
     path = DIR / "pairs.json"
     if path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
+        d = json.loads(path.read_text(encoding="utf-8"))
+        if not extend:
+            return d
+        have = {x for es in d["reader"].values() for e in es for x in e}
+        new = sorted(set(found()) - have)
+        if not new:
+            return d
+        rng = random.Random(SEED + 1 + len(d.get("extensions", [])))
+        every = sorted(have | set(new))
+        for ax in sorted(d["reader"]):
+            edges = {frozenset(e) for e in d["reader"][ax]}
+            for x in new:
+                k = tries = 0
+                while k < bakeoff.DEGREE and tries < 50 * bakeoff.DEGREE:
+                    tries += 1
+                    e = frozenset((x, rng.choice(every)))
+                    if len(e) == 2 and e not in edges:
+                        edges.add(e)
+                        k += 1
+            d["reader"][ax] = sorted(sorted(e) for e in edges)
+        d.setdefault("extensions", []).append({"at": store.utc_now(), "pictures": len(new)})
+        d["pictures"] = len(every)
+        if write:
+            path.write_text(json.dumps(d, indent=0) + "\n", encoding="utf-8")
+        _log("design_extended", pictures=len(new), comparisons={k: len(v) for k, v in d["reader"].items()})
+        return d
     pics = [{"sha": s, "house": p["house"]} for s, p in sorted(found().items())]
     d = bakeoff.design(pics, [], bakeoff._pairs_rubric()["axes"], seed=SEED, human_per_axis=0, human_within=0)
     out = {"seed": SEED, "degree": bakeoff.DEGREE, "pictures": len(pics), "reader": d["reader"]}
@@ -288,7 +316,7 @@ def read(reader: str, what: str, budget_min: float = 280, v: str = "v1") -> dict
     pics = found()
     result = {}
     if what == "probs":
-        pairs = {ax: es for ax, es in design()["reader"].items() if ax in kept}
+        pairs = {ax: es for ax, es in design(extend=True)["reader"].items() if ax in kept}
         out = out_dir / f"{reader}-probs{_suffix(pairs_v)}.jsonl"
         have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("p_first") is not None else None)
         todo = [j for j in _both_orders(pairs) if j not in have]
@@ -317,7 +345,7 @@ def read(reader: str, what: str, budget_min: float = 280, v: str = "v1") -> dict
             n = len(todo)
         result["tone"] = {"asked": len(todo), "rows": n}
     if what in ("pairs", "check"):
-        pairs = design()["reader"] if what == "pairs" else check_set()["pairs"]
+        pairs = design(extend=True)["reader"] if what == "pairs" else check_set()["pairs"]
         pairs = {ax: es for ax, es in pairs.items() if ax in kept}
         out = out_dir / f"{reader}-pairs{_suffix(pairs_v)}.jsonl"
         have = _done(out, lambda r: (r["axis"], r["first"], r["second"]) if r.get("answer") else None)
