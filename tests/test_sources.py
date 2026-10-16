@@ -418,3 +418,36 @@ def test_a_connection_dropped_mid_answer_leaves_the_month_for_later_rather_than_
     row, images = homepages.read_month(c, "gucci", "2024-01", [["20240110000000", "https://www.gucci.com/", "200"]], None, "r1")
     assert row["status"] == "error" and row["transient"] == 1 and row["attempts"] == 0 and images == []
     assert "ProtocolError" in row["error"]
+
+
+def test_a_month_the_bare_domain_cannot_give_is_read_through_a_country_homepage(tmp_data, monkeypatch, tmp_path):
+    sites = tmp_path / "sites.csv"
+    sites.write_text("house,domains,doors,note\ngucci,gucci.com,www.gucci.com/uk/en_gb/,\n", encoding="utf-8")
+    monkeypatch.setattr(homepages, "SITES_FILE", sites)
+    door = "https://www.gucci.com/uk/en_gb/"
+    pages = {"https://web.archive.org/web/20240102000000/": FakeResponse(403, text="blocked"),   # walls, captured
+             "https://web.archive.org/web/20240120000000/": FakeResponse(403, text="blocked"),
+             f"https://web.archive.org/web/20240115000000/{door}": FakeResponse(200, text=HOME),
+             f"https://web.archive.org/web/20231210000000/{door}": FakeResponse(200, text=HOME)}
+    cdx_rows = {"gucci.com": [["20240102000000", "https://www.gucci.com/", "200"],
+                              ["20240120000000", "https://www.gucci.com/", "200"]],
+                "www.gucci.com/uk/en_gb/": [["20231210000000", door, "200"], ["20240115000000", door, "200"]]}
+    imgs, cdx_calls = {}, []
+    c = homepages.Crawler(FakeSession(_hp_handler(imgs, pages, cdx_rows, cdx_calls)), pause=0)
+    monkeypatch.setattr(homepages, "download", _fake_download(c))
+    scorer = FakeScorer(load_rubric())
+    first = homepages.collect(c, _reg(GUCCI), FakeEmbedder(), scorer, "r1")
+    P = homepages.paths()
+    rows = {r["key"]: r for r in store.read_jsonl(P["captures"] / "gucci.jsonl")}
+    assert rows["gucci:2024-01"]["status"] == "error" and rows["gucci:2024-01"]["attempts"] == 2   # both walls
+    assert rows["gucci:2023-12"]["status"] == "resolved" and rows["gucci:2023-12"]["door"] == door  # only a door has it
+    assert first["through_doors"] == 1 and first["door_months"] == {"gucci": 2} and first["remaining_doors"] == 1
+    assert json.loads((P["index"] / "gucci.doors.json").read_text())["2024-01"][0][0] == "20240115000000"
+    second = homepages.collect(c, _reg(GUCCI), FakeEmbedder(), scorer, "r2")
+    rows = {r["key"]: r for r in store.read_jsonl(P["captures"] / "gucci.jsonl")}
+    jan = rows["gucci:2024-01"]
+    assert jan["status"] == "resolved" and jan["door"] == door and jan["capture"] == "20240115000000"
+    assert jan["attempts"] == 2 and jan["door_attempts"] == 1 and "error" not in jan
+    assert second["through_doors"] == 1 and second["remaining_doors"] == 0
+    third = homepages.collect(c, _reg(GUCCI), FakeEmbedder(), scorer, "r3")
+    assert third["captures"] == 0                                    # nothing is read twice

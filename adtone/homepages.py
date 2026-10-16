@@ -27,6 +27,12 @@ What the first run taught:
     image twice is left: the archive did not keep the pictures.
   - Fetching was most of the time. It now runs in a few parallel workers, and the reader takes the
     images in batches.
+  - For some houses the archive's copies of the bare domain hold a bot wall, a splash page or a page
+    drawn by scripts for years at a time, while its copies of a country homepage hold the pictures
+    (data/archiveprobe/home_doors.jsonl). Those country homepages are the house's doors
+    (reference/brand_sites.csv): a month the bare domain could not give is read again through them, on
+    captures of their own (data/homepages/index/<house>.doors.json), and keeps its result and how
+    often the doors were tried in the same row.
 """
 from __future__ import annotations
 
@@ -90,6 +96,14 @@ def paths() -> dict[str, Path]:
 def sites(path: Path | None = None) -> dict[str, list[str]]:
     with (path or SITES_FILE).open(encoding="utf-8") as f:
         return {r["house"]: [d.strip() for d in r["domains"].split(";") if d.strip()] for r in csv.DictReader(f)}
+
+
+def doors(path: Path | None = None) -> dict[str, list[str]]:
+    """Each house's country homepages, in the order they are tried, for the months the bare domain could not
+    give; none for most houses."""
+    with (path or SITES_FILE).open(encoding="utf-8") as f:
+        return {r["house"]: [d.strip() for d in (r.get("doors") or "").split(";") if d.strip()]
+                for r in csv.DictReader(f)}
 
 
 def unrewrite(html: str) -> str:
@@ -220,6 +234,21 @@ def save_index(house: str, idx: dict[str, list[list[str]]]) -> None:
     p.write_text(json.dumps({m: idx[m] for m in sorted(idx)}, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
+def _doors_path(house: str) -> Path:
+    return paths()["index"] / f"{house}.doors.json"
+
+
+def load_doors_index(house: str) -> dict[str, list[list[str]]]:
+    p = _doors_path(house)
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
+def save_doors_index(house: str, idx: dict[str, list[list[str]]]) -> None:
+    p = _doors_path(house)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({m: idx[m] for m in sorted(idx)}, separators=(",", ":")) + "\n", encoding="utf-8")
+
+
 def _cdx(r) -> list | None:
     """The index rows, [] when the archive has none, None when it did not answer properly (it was
     offline, or sent a page instead of JSON): a failed query is not an empty history."""
@@ -285,6 +314,34 @@ def _done(row: dict | None, n_cands: int) -> bool:
         return True
     limit = NO_IMAGE_ATTEMPTS if row.get("status") == "no_images" else MAX_ATTEMPTS
     return row.get("attempts", 0) >= min(limit, max(n_cands, 1))
+
+
+def door_done(row: dict | None, n_cands: int) -> bool:
+    """A month's doors are spent: it was resolved, or its door captures were tried as often as a month's own are."""
+    row = row or {}
+    if row.get("status") == "resolved" or row.get("door_transient", 0) >= MAX_TRANSIENT:
+        return True
+    limit = NO_IMAGE_ATTEMPTS if row.get("door_status") == "no_images" else MAX_ATTEMPTS
+    return row.get("door_attempts", 0) >= min(limit, max(n_cands, 1))
+
+
+def plan_doors(dindex: dict[str, dict[str, list]], index: dict[str, dict[str, list]],
+               rows: dict[str, dict]) -> list[tuple[str, str, str]]:
+    """(house, month, "door") to read through a country homepage: months the bare domain has no capture for, or
+    has given up on unresolved, newest first across every house."""
+    out = []
+    for m in sorted({m for per in dindex.values() for m in per}, reverse=True):
+        for house in sorted(dindex):
+            dc = dindex[house].get(m)
+            if not dc:
+                continue
+            row = rows.get(_key(house, m))
+            mc = index.get(house, {}).get(m)
+            if mc and not _done(row, len(mc)):
+                continue                      # the bare domain is still being tried
+            if not door_done(row, len(dc)):
+                out.append((house, m, "door"))
+    return out
 
 
 def plan(index: dict[str, dict[str, list]], rows: dict[str, dict], first: list[str] | None = None) -> list[tuple[str, str]]:
@@ -458,6 +515,50 @@ def read_month(c: Crawler, house: str, month: str, cands: list, prev: dict | Non
     return row, images
 
 
+def read_door(c: Crawler, house: str, month: str, cands: list, prev: dict | None, rid: str) -> tuple[dict, list]:
+    """A month the bare domain could not give, read through the house's country homepage: its next untried door
+    capture, and one more if that fails. A month resolved this way says which door; one that is not keeps the
+    bare domain's result and records the door's beside it."""
+    prev = dict(prev or {})
+    attempts, transient = prev.get("door_attempts", 0), prev.get("door_transient", 0)
+    tried = list(prev.get("door_tried") or [])
+    row = {**prev, "key": _key(house, month), "house_id": house, "month": month, "run": rid}
+    res: dict = {"status": "error", "error": "no door capture left", "images": []}
+    ts = url = None
+    tries = 0
+    while attempts < min(len(cands), MAX_ATTEMPTS) and tries < TRIES_PER_RUN:
+        ts, url = cands[attempts][0], cands[attempts][1]
+        tries += 1
+        try:
+            res = read_capture(c, ts, url)
+        except (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError,
+                urllib3.exceptions.HTTPError, http.client.HTTPException) as e:
+            res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:160]}", "transient": True, "images": []}
+        except (requests.RequestException, MediaError, ValueError) as e:
+            res = {"status": "error", "error": f"{e.__class__.__name__}: {str(e)[:200]}", "images": []}
+        if res.pop("transient", False):
+            transient += 1
+            break
+        attempts += 1
+        tried.append(ts)
+        if res["status"] == "resolved" or (res["status"] == "no_images" and attempts >= NO_IMAGE_ATTEMPTS):
+            break
+    images = res.pop("images")
+    row.update({"door_attempts": attempts, "door_tried": tried})
+    if transient:
+        row["door_transient"] = transient
+    if images:
+        for k in ("error", "seen", "followed"):
+            row.pop(k, None)
+        row.update({**res, "status": "resolved", "capture": ts, "url": url, "door": url})
+    else:
+        row.update({"door_status": res.get("status"), "door_error": res.get("error")})
+        row.setdefault("status", res.get("status") or "error")      # a month only the doors have captures for
+        row.setdefault("attempts", 0)
+    row["_whole"] = True          # the whole row, filed in place of the old one so a cleared field stays cleared
+    return row, images
+
+
 # ---------- the run ----------
 
 def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_captures: int = 600,
@@ -472,7 +573,7 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
     domains = {h: ds for h, ds in sites().items() if h in known}
     t0 = clock()
     counts = {"captures": 0, "resolved": 0, "no_images": 0, "error": 0, "images": 0, "new_images": 0, "scored_ok": 0,
-              "invalid": 0, "later_capture": 0, "stepped": 0, "reader_calls": 0}
+              "invalid": 0, "later_capture": 0, "stepped": 0, "reader_calls": 0, "through_doors": 0}
     index_errors: dict[str, str] = {}
     index_diag: dict[str, dict] = {}
 
@@ -487,13 +588,24 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
         except (requests.RequestException, ValueError) as e:
             index_errors[house] = f"{e.__class__.__name__}: {str(e)[:160]}"
         index[house] = idx
+    dindex: dict[str, dict[str, list]] = {}
+    for house, ds in sorted(doors().items()):
+        if house not in known or not ds:
+            continue
+        didx = load_doors_index(house)
+        try:
+            didx, _ = refresh_index(c, ds, didx)
+            save_doors_index(house, didx)
+        except (requests.RequestException, ValueError) as e:
+            index_errors[f"{house} doors"] = f"{e.__class__.__name__}: {str(e)[:160]}"
+        dindex[house] = didx
     for row in list(table.rows.values()):      # months the first runs gave up on when the archive did not answer
         if row.get("status") == "error" and "transient" not in row and \
                 str(row.get("error", "")).startswith(("ConnectionError", "ConnectTimeout", "ReadTimeout", "HTTP 50", "HTTP 429")):
             fixed = {**row, "attempts": max(0, row.get("attempts", 1) - 1), "transient": 1,
                      "tried": (row.get("tried") or [])[:-1]}
             table.upsert(fixed, shard=row["house_id"], merge=lambda old, new: new)
-    todo = plan(index, table.rows)[:max_captures]
+    todo = (plan(index, table.rows) + plan_doors(dindex, index, table.rows))[:max_captures]
 
     made: list[Crawler] = []
     local = threading.local()
@@ -509,7 +621,9 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
         return local.c
 
     def work(item):
-        house, month = item
+        house, month = item[0], item[1]
+        if len(item) > 2:
+            return read_door(crawler(), house, month, dindex[house][month], table.get(_key(house, month)), rid)
         return read_month(crawler(), house, month, index[house][month], table.get(_key(house, month)), rid)
 
     new_obs: list[dict] = []
@@ -567,9 +681,12 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
                 counts["later_capture"] += 1
             if row.get("via"):
                 counts["stepped"] += 1
+            if row.get("door") and row["status"] == "resolved" and row.get("run") == rid:
+                counts["through_doors"] += 1
             counts[row["status"]] += 1
             counts["captures"] += 1
-            table.upsert(row, shard=row["house_id"])
+            whole = row.pop("_whole", False)
+            table.upsert(row, shard=row["house_id"], merge=(lambda old, new: new) if whole else None)
         held.clear()
         pending.clear()
         queued.clear()
@@ -617,7 +734,8 @@ def collect(c: Crawler, reg: registry.Registry, embedder, scorer, rid: str, max_
     vectors.save()
     months_known = {h: len(v) for h, v in index.items()}
     out = {"run_id": rid, "finished_at": store.utc_now(), **counts,
-           "remaining": len(plan(index, table.rows)), "months_in_archive": months_known,
+           "remaining": len(plan(index, table.rows)), "remaining_doors": len(plan_doors(dindex, index, table.rows)),
+           "months_in_archive": months_known, "door_months": {h: len(v) for h, v in dindex.items()},
            "index_errors": index_errors, "index_diag": index_diag, "stopped": stopped,
            "requests": c.calls + sum(m.calls for m in made), "workers": workers}
     st = store.read_state(P["state"])
