@@ -312,12 +312,11 @@
     "ALL"
   ],
   "form": "library",
-  "problems": {
-    "chanel": "ads: RuntimeError: Apify HTTP 400: {\n  \"error\": {\n    \"type\": \"schema-validation\",\n    \"message\": \"Invalid value provided in options: memoryMbytes needs to be a power of two, like 512, 1024, 2048, 4096, etc. Received 15"
-  },
-  "requests": 44,
-  "run": "gh39026512965",
+  "problems": {},
+  "requests": 27,
+  "run": "gh39033401884",
   "searched": {
+    "chanel": "2026-10-17",
     "gucci": "2026-10-17"
   },
   "shape": {
@@ -584,13 +583,18 @@
     "violation_types": []
   },
   "stopped": "budget",
-  "updated_at": "2026-10-17T12:08:22Z",
-  "vendor_errors": [],
+  "updated_at": "2026-10-17T13:57:14Z",
+  "vendor_errors": [
+    {
+      "error": "You must provide atleast 1 input URL per 512MB of RAM memory. (You've assignd 2GB memory, but provided only 3 input URLs. You can either reduce the memory to 1.5GB or provide 4 input URLs to scrape)",
+      "house": "chanel"
+    }
+  ],
   "vendor_runs": [
     {
-      "id": "4pep5kxe5LJXP1suu",
+      "id": "MZXb6YErlQUclKChP",
       "input": {
-        "limitPerSource": 300,
+        "limitPerSource": 2000,
         "scrapeAdDetails": true,
         "scrapePageAds": {
           "activeStatus": "all",
@@ -600,35 +604,21 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Chanel&search_type=keyword_unordered"
-          }
-        ]
-      },
-      "status": "SUCCEEDED",
-      "usd": 0.24305
-    },
-    {
-      "id": "EuOkcfg0s7VJxuv3P",
-      "input": {
-        "limitPerSource": 300,
-        "scrapeAdDetails": true,
-        "scrapePageAds": {
-          "activeStatus": "all",
-          "countryCode": "ALL",
-          "period": "",
-          "sortBy": "most_recent"
-        },
-        "urls": [
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=10109514234"
+          },
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Dior&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=908096722655850"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=726432077387960"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.2303
+      "usd": 0.0008500000000000001
     },
     {
-      "id": "mUNSy53KSe9eQCWIa",
+      "id": "1CJvxv156TTvedjCm",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -645,7 +635,7 @@
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.5218
+      "usd": 1.52255
     }
   ]
 }
