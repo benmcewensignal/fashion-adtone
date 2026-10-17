@@ -643,74 +643,13 @@
   },
   "date_form": "year",
   "names_answered": {
-    "alaia": [
-      "Alaia"
-    ],
-    "armani": [
-      "Armani"
-    ],
-    "balenciaga": [
-      "Balenciaga"
-    ],
-    "bottega_veneta": [
-      "Bottega Veneta"
-    ],
-    "burberry": [
-      "Burberry"
-    ],
-    "celine": [
-      "Celine"
-    ],
-    "chanel": [
-      "Chanel"
-    ],
-    "chloe": [
-      "Chloé",
-      "Chloe"
-    ],
-    "dolce_gabbana": [
-      "Dolce&Gabbana"
-    ],
-    "fendi": [
-      "Fendi"
-    ],
-    "givenchy": [
-      "Givenchy"
-    ],
-    "gucci": [
-      "Gucci"
-    ],
-    "hermes": [
-      "Hermès",
-      "Hermes"
-    ],
-    "loewe": [
-      "Loewe"
-    ],
-    "louis_vuitton": [
-      "Louis Vuitton"
-    ],
-    "miu_miu": [
-      "Prada spa"
-    ],
-    "moncler": [
-      "Moncler"
-    ],
-    "prada": [
-      "Prada"
-    ],
-    "valentino": [
-      "Valentino"
-    ],
-    "versace": [
-      "Versace"
+    "dior": [
+      "Dior"
     ]
   },
-  "problems": {
-    "dior": "ads: ReadTimeout: HTTPSConnectionPool(host='adsapi.snapchat.com', port=443): Read timed out. (read timeout=60)"
-  },
-  "requests": 550,
-  "run": "gh39048809641",
+  "problems": {},
+  "requests": 125,
+  "run": "gh39074610936",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -789,7 +728,8 @@
           }
         }
       ],
-      "should_loop": "bool"
+      "should_loop": "bool",
+      "title_headline": "str"
     },
     "creative_type": "str",
     "deep_link_properties": {
@@ -835,7 +775,8 @@
     ],
     "lens_preview": {
       "icon_url": "str",
-      "preview_image_url": "str"
+      "preview_image_url": "str",
+      "preview_video_url": "str"
     },
     "name": "str",
     "name_searched": "str",
@@ -867,7 +808,8 @@
         {
           "carrier_id": [],
           "marketing_name": [],
-          "model": []
+          "model": [],
+          "operation": "str"
         }
       ],
       "regulated_content": "bool"
@@ -879,6 +821,6 @@
       "url": "str"
     }
   },
-  "stopped": "budget",
-  "updated_at": "2026-10-17T17:24:23Z"
+  "stopped": null,
+  "updated_at": "2026-10-17T22:58:08Z"
 }
