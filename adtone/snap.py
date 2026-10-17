@@ -276,11 +276,15 @@ class Source:
                 "line": thread.ad_line(texts) if texts else None,
                 "last_run": run}
 
-    def media_for(self, item: dict) -> list[dict]:
+    def media_urls(self, item: dict) -> tuple[list[str], dict]:
         # the download address first, then any image, then video stills; at most five pictures and two videos
         urls = [(k, u) for k, u in urls_in(item) if not any(w in _norm(k) for w in ("profile", "logo", "icon", "avatar"))]
         ordered = sorted(urls, key=lambda kv: (0 if "download" in _norm(kv[0]) else 1 if any(w in _norm(kv[0]) for w in ("image", "thumbnail", "preview")) else 2))
-        return adlibs.fetch_media(self.s, [u for _, u in ordered], max_video_bytes=MAX_VIDEO_BYTES)
+        return [u for _, u in ordered], {"max_video_bytes": MAX_VIDEO_BYTES}
+
+    def media_for(self, item: dict) -> list[dict]:
+        urls, kw = self.media_urls(item)
+        return adlibs.fetch_media(self.s, urls, **kw)
 
 
 def main(argv: list[str] | None = None) -> int:

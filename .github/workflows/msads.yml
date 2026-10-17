@@ -13,9 +13,14 @@ on:
         description: "comma-separated house ids for a trial run (empty: all)"
         default: ""
       no_reader:
-        description: "ads only, no pictures read"
+        description: "ads only; the pictures' addresses are kept for a later run with stage read"
         type: boolean
         default: false
+      stage:
+        description: "collect (the library) or read (the pictures kept aside by runs without the reader)"
+        type: choice
+        options: [collect, read]
+        default: collect
       fresh:
         description: "search every house again, even one searched to the end this week"
         type: boolean
@@ -64,7 +69,8 @@ jobs:
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
-          python -m adtone.msads collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}" $EXTRA
+          STAGE="${{ github.event.inputs.stage || 'collect' }}"
+          python -m adtone.msads "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         continue-on-error: true
         timeout-minutes: 3

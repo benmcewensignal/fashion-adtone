@@ -25,7 +25,6 @@ from datetime import date
 import requests
 
 from . import adlibs, registry
-from .media import MediaError, to_fetched
 from .snap import _norm, is_house
 
 BASE = "https://adlibrary.api.bingads.microsoft.com/api/v1"
@@ -167,16 +166,12 @@ class Source:
                 "domain": re.sub(r"^https?://(www\.)?", "", dest).split("/")[0] if dest else None,
                 "has_image": bool(_image_urls(item)), "last_run": run}
 
+    def media_urls(self, item: dict) -> tuple[list[str], dict]:
+        return _image_urls(item)[:3], {"max_images": 3, "max_videos": 0}
+
     def media_for(self, item: dict) -> list[dict]:
-        got = []
-        for u in _image_urls(item)[:3]:
-            r = self.s.get(u, timeout=60)
-            if r.status_code == 200 and r.content:
-                try:
-                    got.append({"kind": "image", "fetched": to_fetched(r.content)})
-                except MediaError:
-                    continue
-        return got
+        urls, kw = self.media_urls(item)
+        return adlibs.fetch_media(self.s, urls, **kw)
 
 
 def _image_urls(item: dict) -> list[str]:

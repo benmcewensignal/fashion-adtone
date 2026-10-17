@@ -212,14 +212,18 @@ class Source:
                 "has_video": bool(pin.get("video_link")), "copy": copyfeat.features(texts) if texts else None,
                 "line": thread.ad_line(texts) if texts else None, "last_run": run}
 
-    def media_for(self, item: dict) -> list[dict]:
+    def media_urls(self, item: dict) -> tuple[list[str], dict]:
         d = item.get("ad_details") or {}
         pin = d.get("pin_data") or {}
         urls = [u for u in (pin.get("image_link"), d.get("image_link"), pin.get("video_link")) if isinstance(u, str) and u.startswith("http")]
         dyn = d.get("dynamic_images")
         if isinstance(dyn, list):
             urls += [u for u in dyn if isinstance(u, str) and u.startswith("http")][:4]
-        return adlibs.fetch_media(self.s, urls, max_images=5, max_videos=1)
+        return urls, {"max_images": 5, "max_videos": 1}
+
+    def media_for(self, item: dict) -> list[dict]:
+        urls, kw = self.media_urls(item)
+        return adlibs.fetch_media(self.s, urls, **kw)
 
 
 def main(argv: list[str] | None = None) -> int:

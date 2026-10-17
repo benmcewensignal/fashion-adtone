@@ -191,6 +191,12 @@ key exists:
 Two repositories need no key at all: Snapchat's Ads Gallery (`adtone.snap`, Snap's open API) and Pinterest's
 Ads Repository (`adtone.pinterest`, read as its own public page reads it), both weekly.
 
+Every ad-library workflow takes a `stage`: `collect` (the default) searches the library and reads each new
+ad's pictures as it goes; with `no_reader` it keeps the pictures' addresses aside instead, under
+`data/<source>/pending/`, and a later run with stage `read` fetches and reads them in its own budget, so a
+backfill of forty houses can be gathered in a few hours and read over the days after. The reader on Modal
+runs up to `ADTONE_READER_CONTAINERS` containers (four) when a caller sends several batches at once.
+
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and
 `ADTONE_RESOLVER` (auto, static or browser).

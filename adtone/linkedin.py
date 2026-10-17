@@ -159,9 +159,13 @@ class Source:
                 "copy": copyfeat.features(texts) if texts else None, "line": thread.ad_line(texts) if texts else None,
                 "last_run": run}
 
-    def media_for(self, item: dict) -> list[dict]:
+    def media_urls(self, item: dict) -> tuple[list[str], dict]:
         urls = [u for k, u in urls_in(item) if any(w in _norm(k) for w in ("image", "media", "thumbnail", "video", "creative"))]
-        return adlibs.fetch_media(self.s, urls, max_images=4, max_videos=1)
+        return urls, {"max_images": 4, "max_videos": 1}
+
+    def media_for(self, item: dict) -> list[dict]:
+        urls, kw = self.media_urls(item)
+        return adlibs.fetch_media(self.s, urls, **kw)
 
 
 def main(argv: list[str] | None = None) -> int:

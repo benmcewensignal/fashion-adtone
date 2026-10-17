@@ -257,3 +257,34 @@ def test_pinterest_reads_the_repository_a_month_and_a_country_at_a_time_and_keep
     assert "The new collection" not in json.dumps(list(rows.values())) and rows["9001"]["copy"]
     windows = sorted({(c[2], c[3]) for c in calls})
     assert windows[-1] == ("2026-09-17", "2026-10-17") and windows[0] == ("2025-10-18", "2025-11-10") and len(windows) == 12
+
+
+def test_without_the_reader_the_pictures_wait_and_the_read_stage_takes_them_later(tmp_data):
+    calls = []
+    sess = _snap_session(calls)
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", today=date(2026, 10, 17))
+    assert out["new_ads"] == 3 and out["deferred"] == 3 and out["pictures"] == 0
+    assert not [u for u, b in calls if u.endswith(".jpg")]          # nothing fetched: no reader to read it
+    rows = store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")
+    assert all(r["media"] == [] and r["media_pending"] for r in rows)
+    pend = store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")
+    assert {p["ad_id"] for p in pend} == {"snap-0", "snap-2", "snap-3"} and all(p["urls"] for p in pend)
+    assert "La nouvelle" not in json.dumps(pend)
+    # the read stage, within a budget that lets two ads through
+    clock = iter([0, 0, 0, 1, 9999, 9999, 9999])
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
+                              sess=sess, today=date(2026, 10, 17), clock=lambda: next(clock))
+    assert out["ads_read"] == 2 and out["ads_left"] == 1 and out["stopped"] == "budget" and out["pictures"] >= 1
+    rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")}
+    done = [r for r in rows.values() if "media_pending" not in r]
+    assert len(done) == 2 and any(r["media"] for r in done)
+    left = store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")
+    assert len(left) == 1 and rows[left[0]["ad_id"]]["media_pending"]
+    obs = store.read_jsonl(adlibs.paths("snap")["obs"] / f"{load_rubric().version}.jsonl")
+    assert len(obs) >= 1 and all(o["status"] == "ok" for o in obs)
+    # the rest on the next run
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r3", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
+                              sess=sess, today=date(2026, 10, 17))
+    assert out["ads_read"] == 1 and out["ads_left"] == 0 and out["stopped"] is None
+    assert not store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")

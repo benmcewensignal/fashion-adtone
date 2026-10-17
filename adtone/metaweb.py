@@ -227,7 +227,7 @@ class Source:
         row["first_shown"], row["last_shown"] = row["start"], row["stop"]
         return {k: v for k, v in row.items() if v is not None}
 
-    def media_for(self, item: dict) -> list[dict]:
+    def media_urls(self, item: dict) -> tuple[list[str], dict]:
         urls = []
         for key, u in urls_in(item):
             k = _norm(key)
@@ -243,7 +243,11 @@ class Source:
         if any(rank == 0 for rank, _ in urls):   # the full-size pictures are there: the resized copies are not fetched
             urls = [(rank, u) for rank, u in urls if rank == 0 or "preview" in u]
         urls.sort(key=lambda t: t[0])
-        return adlibs.fetch_media(self.s, list(dict.fromkeys(u for _, u in urls)))
+        return list(dict.fromkeys(u for _, u in urls)), {}
+
+    def media_for(self, item: dict) -> list[dict]:
+        urls, kw = self.media_urls(item)
+        return adlibs.fetch_media(self.s, urls, **kw)
 
 
 def _reach(breakdown: list) -> dict:
