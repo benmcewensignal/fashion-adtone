@@ -37,6 +37,9 @@ jobs:
       PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
+        # the branch as it stands when the job starts, not the commit the run was queued at:
+        # a run waiting behind another must see the outputs that one persisted
+        with: { ref: "${{ github.ref_name }}" }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - name: Mode
