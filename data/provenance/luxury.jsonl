@@ -282,3 +282,20 @@
 {"at":"2026-10-16T20:14:59Z","brands":40,"event":"corpus","pages":3460,"pictures":9677}
 {"at":"2026-10-16T22:02:11Z","event":"fetch","found":9540,"out_of_time":false,"pages":2489,"pictures":9677,"this_run":6595}
 {"at":"2026-10-16T22:07:29Z","event":"to_volume","files":6595}
+{"at":"2026-10-16T22:39:17Z","event":"read","instrument":"v2","reader":"qwen3","seconds":1763,"tone":{"asked":7501,"rows":7501},"what":"tone"}
+{"at":"2026-10-16T22:39:19Z","comparisons":{"contemporary":28620,"intimate":28620,"opulent":28620,"provocative":28620,"staged":28620},"event":"design","pictures":9540}
+{"at":"2026-10-16T23:22:44Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:22:49Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:24:43Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:24:43Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:25:40Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:26:00Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:49:00Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:49:02Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:49:51Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:49:51Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:50:18Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:50:26Z","error":"RuntimeError: EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.","event":"batch_failed","method":"compare_probs_from","reader":"qwen3"}
+{"at":"2026-10-16T23:53:24Z","event":"read","instrument":"v2","probs":{"asked":114461,"rows":114461},"reader":"qwen3","seconds":4446,"what":"probs"}
+{"at":"2026-10-16T23:53:25Z","axes":{"intimate":{"first_bias":-1.588,"judgements":69404,"pictures":9540},"provocative":{"first_bias":-1.54,"judgements":69249,"pictures":9540}},"event":"positions","instrument":"v2","reader":"qwen3"}
+{"asked":7501,"at":"2026-10-17T00:23:58Z","errors":0,"event":"composition","measured":3100,"seconds":1832}
