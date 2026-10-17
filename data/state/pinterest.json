@@ -919,10 +919,31 @@
           "name": "valentinos"
         }
       ]
+    },
+    "versace": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "VERSACE",
+          "name": "VERSACE"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Versace905",
+          "name": "Versace905"
+        }
+      ]
     }
   },
   "country_form": null,
   "notes": [
+    "Louis Vuitton Official DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton Official IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Miu Miu FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Miu Miu DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Miu Miu IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "SAINT LAURENT FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
@@ -931,42 +952,35 @@
     "Burberry FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Burberry DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Burberry IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino S.p.A. FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino S.p.A. DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Valentino S.p.A. IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Loro Piana FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Loro Piana DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Loro Piana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chloe FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chloe DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chloe IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Burberry Limited FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Burberry Limited DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Burberry Limited IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "VERSACE FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "VERSACE DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "VERSACE IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
-  "problems": {
-    "burberry": "ads: ScoreError: API: Modal InvalidError",
-    "fendi": "ads: ScoreError: API: Modal InvalidError",
-    "hermes": "ads: ScoreError: API: Modal InvalidError",
-    "louis_vuitton": "ads: ScoreError: API: Modal InvalidError",
-    "miu_miu": "ads: ScoreError: API: Modal InvalidError",
-    "prada": "ads: ScoreError: API: Modal InvalidError",
-    "saint_laurent": "ads: ScoreError: API: Modal InvalidError"
-  },
-  "requests": 592,
-  "run": "gh39063524385",
+  "problems": {},
+  "requests": 566,
+  "run": "gh39069327672",
   "searched": {
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
+    "burberry": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
     "chloe": "2026-10-17",
     "dior": "2026-10-17",
+    "fendi": "2026-10-17",
     "gucci": "2026-10-17",
+    "hermes": "2026-10-17",
     "jil_sander": "2026-10-17",
     "loewe": "2026-10-17",
     "loro_piana": "2026-10-17",
+    "louis_vuitton": "2026-10-17",
     "margiela": "2026-10-17",
+    "miu_miu": "2026-10-17",
+    "prada": "2026-10-17",
+    "saint_laurent": "2026-10-17",
     "valentino": "2026-10-17"
   },
   "shape": {
@@ -1022,6 +1036,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": "reader: API: Modal InvalidError",
-  "updated_at": "2026-10-17T21:02:53Z"
+  "stopped": "budget; reader tone-v1 stopped after repeated failures: API: Modal InvalidError: You can't `iter(Function.starmap())` from an async function. Use `async for ... in Function.starmap.aio()` instead.",
+  "updated_at": "2026-10-17T22:25:26Z"
 }
