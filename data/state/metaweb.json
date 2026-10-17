@@ -1,6 +1,234 @@
 {
   "actor": "curious_coder~facebook-ads-library-scraper",
   "advertisers": {
+    "alaia": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 17,
+          "categories": [
+            "UNKNOWN",
+            "Surfing Spot",
+            "Surfing spot"
+          ],
+          "id": "2105855419435263",
+          "name": "Alaïa Bay"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Real Estate"
+          ],
+          "id": "100406686255164",
+          "name": "Alaia"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Women's clothing store",
+            "Women's clothes shop"
+          ],
+          "id": "417013171504421",
+          "name": "Alaia Muse"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "142870372943454",
+          "name": "Alaia Moda"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 132,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (brand)",
+            "Clothing (Brand)"
+          ],
+          "id": "2065953210084784",
+          "name": "Maison Alaïa"
+        },
+        {
+          "ads": 28,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)",
+            "Clothing (brand)"
+          ],
+          "id": "93588242329",
+          "name": "Mytheresa"
+        },
+        {
+          "ads": 15,
+          "categories": [
+            "UNKNOWN",
+            "Museum"
+          ],
+          "id": "110686115659861",
+          "name": "Museo del Tessuto"
+        },
+        {
+          "ads": 12,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "45415668089",
+          "name": "NET-A-PORTER"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "59335895677",
+          "name": "Selfridges"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "160632553984079",
+          "name": "Eau Thermale Avène"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Department Store"
+          ],
+          "id": "188213917457",
+          "name": "Harrods"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Vacation Home Rental"
+          ],
+          "id": "600820533106144",
+          "name": "Villa Alaia"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "162232000508571",
+          "name": "Babyboo Fashion"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "100107181860518",
+          "name": "Alaia Cosmetic"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Furniture"
+          ],
+          "id": "249385285141923",
+          "name": "Fantastic Furniture"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Department Store"
+          ],
+          "id": "51624954766",
+          "name": "Galeries Lafayette"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Lingerie & Underwear Store",
+            "Lingerie and underwear shop"
+          ],
+          "id": "118738841201",
+          "name": "Marie Jo Lingerie"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "E-commerce website"
+          ],
+          "id": "103977338192177",
+          "name": "Mytheresa.com"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "1795295134126288",
+          "name": "Eau Thermale Avène"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "108560845395458",
+          "name": "AlaiaStudiohn"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Health & wellness website"
+          ],
+          "id": "193430484029941",
+          "name": "Etselquemenges"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "194057573953220",
+          "name": "Monti Boutique"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "233069173485349",
+          "name": "Eau Thermale Avène"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Education"
+          ],
+          "id": "104937022081633",
+          "name": "ALAÏA Academy"
+        }
+      ]
+    },
     "balenciaga": {
       "checked": "2026-10-17",
       "keep": [
@@ -671,6 +899,202 @@
         }
       ]
     },
+    "chloe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 60,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "50497990122",
+          "name": "Chloé"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 24,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 8,
+          "categories": [
+            "POLITICAL",
+            "Retail company"
+          ],
+          "id": "159616034235",
+          "name": "Walmart"
+        },
+        {
+          "ads": 8,
+          "categories": [
+            "UNKNOWN",
+            "Fan page"
+          ],
+          "id": "893261650536117",
+          "name": "Violet Matthew Chloe"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "21631697312",
+          "name": "LOOKFANTASTIC"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "154957981209974",
+          "name": "The Fragrance Shop"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "45415668089",
+          "name": "NET-A-PORTER"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "116846151311567",
+          "name": "Emsphere at EM District"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "125373900875887",
+          "name": "Notino"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Website"
+          ],
+          "id": "100636666241578",
+          "name": "Apps4Style"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Gift Shop"
+          ],
+          "id": "527959753729818",
+          "name": "My Story Tale Books"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "124586587415333",
+          "name": "Aramic Fragrance"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "School"
+          ],
+          "id": "129095903829368",
+          "name": "Harvard Summer School"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health & wellness website"
+          ],
+          "id": "106748815864861",
+          "name": "Voy"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Shopping Service"
+          ],
+          "id": "163997340343740",
+          "name": "EVKUR"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Entertainment website"
+          ],
+          "id": "101039196037152",
+          "name": "TikTok - EU"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "24902886692",
+          "name": "Coach"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Blinds & Curtains Store"
+          ],
+          "id": "406516122548741",
+          "name": "Guard Blinds"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Movie/television studio"
+          ],
+          "id": "178852628792954",
+          "name": "Universal Pictures"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "CREDIT",
+            "Financial service"
+          ],
+          "id": "432976350193820",
+          "name": "ClearScore"
+        }
+      ]
+    },
     "dior": {
       "checked": "2026-10-17",
       "keep": [
@@ -780,6 +1204,202 @@
           "ads": 2,
           "id": "2046779158899878",
           "name": "The Voice of Fashion"
+        }
+      ]
+    },
+    "dries_van_noten": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 117,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "409724172486718",
+          "name": "Dries Van Noten"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 79,
+          "categories": [
+            "UNKNOWN",
+            "Museum"
+          ],
+          "id": "71950471736",
+          "name": "MoMu - Fashion Museum Antwerp"
+        },
+        {
+          "ads": 7,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "283647210389",
+          "name": "BRAUN Hamburg"
+        },
+        {
+          "ads": 7,
+          "categories": [
+            "UNKNOWN",
+            "Clothing Company"
+          ],
+          "id": "110347163690934",
+          "name": "M1 LAB"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "45415668089",
+          "name": "NET-A-PORTER"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Department Store"
+          ],
+          "id": "51624954766",
+          "name": "Galeries Lafayette"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Women's clothing store"
+          ],
+          "id": "117127335022717",
+          "name": "La Garçonne"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Investing Service"
+          ],
+          "id": "1338135846210950",
+          "name": "CapitalatWork Foyer Group S.A."
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Men's clothing store"
+          ],
+          "id": "112066392160743",
+          "name": "END."
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Boutique Store"
+          ],
+          "id": "265198813505094",
+          "name": "Di Vincenzo Boutique"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "34888244242",
+          "name": "SSENSE"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "184277188098302",
+          "name": "Stoy"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "311004108954309",
+          "name": "Camelot Fashion"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Visual Arts"
+          ],
+          "id": "57053467740",
+          "name": "Art Basel"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Reel creator"
+          ],
+          "id": "332144133784710",
+          "name": "Views"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Design & fashion"
+          ],
+          "id": "554508301250324",
+          "name": "Boutique Roma"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Fashion Stylist"
+          ],
+          "id": "104854485091069",
+          "name": "Valentinessembl"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Apparel & clothing"
+          ],
+          "id": "233236680623316",
+          "name": "吾亦紅Ware Mo Kou"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "595312827186717",
+          "name": "Equipe Boutique"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "107837778497347",
+          "name": "Club21 Global"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Designer"
+          ],
+          "id": "570890446115616",
+          "name": "Voyeur Voyeur UK"
         }
       ]
     },
@@ -897,6 +1517,205 @@
           "ads": 2,
           "id": "113099241160544",
           "name": "Rendichicas Smart Card Business"
+        }
+      ]
+    },
+    "givenchy": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 49,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)",
+            "Clothing (brand)"
+          ],
+          "id": "192989290715208",
+          "name": "Givenchy"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 66,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "39253099575",
+          "name": "Givenchy Fragrances & Beauty"
+        },
+        {
+          "ads": 24,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "12358620618",
+          "name": "FragranceX.com"
+        },
+        {
+          "ads": 15,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "757805324355247",
+          "name": "Givenchy Fragrances & Beauty"
+        },
+        {
+          "ads": 11,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "123473227724694",
+          "name": "Givenchy Fragrances & Beauty"
+        },
+        {
+          "ads": 11,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "630325643683358",
+          "name": "Givenchy Fragrances & Beauty"
+        },
+        {
+          "ads": 7,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "236145597103476",
+          "name": "Givenchy Fragrances & Beauty"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Clothing shop",
+            "Clothing store"
+          ],
+          "id": "147134875303311",
+          "name": "FLANNELS"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "258046660733358",
+          "name": "Rafa Parfum"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Hotel resort"
+          ],
+          "id": "112651933872984",
+          "name": "NUSTAR Resort"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "137917343831",
+          "name": "Boots UK"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "125373900875887",
+          "name": "Notino"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "216565628451130",
+          "name": "SEPHORA"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics shop",
+            "Cosmetics store"
+          ],
+          "id": "168412706551334",
+          "name": "Notino"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Website"
+          ],
+          "id": "7248739415",
+          "name": "YOOX"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "141727802539968",
+          "name": "Amazon.de"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Profile"
+          ],
+          "id": "101975219529073",
+          "name": "desertbluesoutlet"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "1613499538876422",
+          "name": "KrasneVune.cz"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "101556655989",
+          "name": "Notino"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Sunglasses & Eyewear Store"
+          ],
+          "id": "520790788008846",
+          "name": "Adrialece.hr"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "195105430532295",
+          "name": "Givenchy Fragrances & Beauty"
         }
       ]
     },
@@ -1431,6 +2250,206 @@
           "ads": 2,
           "id": "1533545236928771",
           "name": "Secretlab"
+        }
+      ]
+    },
+    "loro_piana": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 254,
+          "categories": [
+            "UNKNOWN",
+            "Company"
+          ],
+          "id": "159783104120941",
+          "name": "Loro Piana"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)",
+            "Clothing (brand)"
+          ],
+          "id": "1411430642445699",
+          "name": "SIR Tailor"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Shopping centre",
+            "Shopping Mall"
+          ],
+          "id": "189315008277",
+          "name": "Westfield UTC"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Department Store",
+            "Department store"
+          ],
+          "id": "188213917457",
+          "name": "Harrods"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Product/service"
+          ],
+          "id": "105745671244177",
+          "name": "Білий Ведмідь"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Food & beverage company"
+          ],
+          "id": "286606168094069",
+          "name": "Maxibon Italia"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Department Store"
+          ],
+          "id": "51624954766",
+          "name": "Galeries Lafayette"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "385918524777808",
+          "name": "Torry Milano"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Magazine"
+          ],
+          "id": "488489791011079",
+          "name": "Luksa parfumo"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)",
+            "Clothing (brand)"
+          ],
+          "id": "93588242329",
+          "name": "Mytheresa"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "News & media website"
+          ],
+          "id": "202178683128898",
+          "name": "HTSI, Financial Times"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Women's clothing store"
+          ],
+          "id": "343496742482138",
+          "name": "Iaforte Boutique"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Men's clothing store"
+          ],
+          "id": "1185216061497751",
+          "name": "Giglio Milano"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "240799392440838",
+          "name": "POUR VOUS"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Writer"
+          ],
+          "id": "44794302653",
+          "name": "GQ Italia"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Business consultant"
+          ],
+          "id": "818191698049303",
+          "name": "AnnexStrategy"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Magazine"
+          ],
+          "id": "173622156499669",
+          "name": "Abruzzo Explorer"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Magazine"
+          ],
+          "id": "120751201421002",
+          "name": "cap74024.com"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Footwear store"
+          ],
+          "id": "182583161771372",
+          "name": "Italian Shoe Factory"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Producer"
+          ],
+          "id": "442405792534183",
+          "name": "Agricola Conforti"
+        },
+        {
+          "ads": 1,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "108318661707497",
+          "name": "Washida PARK"
         }
       ]
     },
@@ -2415,6 +3434,597 @@
           "name": "notino.bg"
         }
       ]
+    },
+    "tom_ford": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 19,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (Brand)"
+          ],
+          "id": "109068429178457",
+          "name": "TOM FORD"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 168,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "894084207443007",
+          "name": "TOM FORD BEAUTY"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "1651784498372756",
+          "name": "SEPHORA"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "E-commerce website"
+          ],
+          "id": "135913003544880",
+          "name": "TATA CLiQ Luxury"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "16453004404",
+          "name": "Sephora"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "100615564841361",
+          "name": "Fussy"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "21631697312",
+          "name": "LOOKFANTASTIC"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "258046660733358",
+          "name": "Rafa Parfum"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "167595049958235",
+          "name": "Breuninger"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "137917343831",
+          "name": "Boots UK"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Education",
+            "POLITICAL"
+          ],
+          "id": "2034633383471807",
+          "name": "MEA Wisdom"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Perfumery"
+          ],
+          "id": "511918325342558",
+          "name": "Duppe Scents"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "216565628451130",
+          "name": "SEPHORA"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "139005589501199",
+          "name": "Beymen"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "1030751040121197",
+          "name": "Arthritis Support Community"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Home decor"
+          ],
+          "id": "109338960987754",
+          "name": "Art by Maudsch"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Product/service"
+          ],
+          "id": "2216272798648227",
+          "name": "Narciso Lopez Italia"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "396984170175160",
+          "name": "Parfumul Tau"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "1215167851881184",
+          "name": "KALYA Profumerie"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "45415668089",
+          "name": "NET-A-PORTER"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "E-commerce website"
+          ],
+          "id": "109909094477869",
+          "name": "PerfumeShark"
+        }
+      ]
+    },
+    "valentino": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 33,
+          "categories": [
+            "UNKNOWN",
+            "Company"
+          ],
+          "id": "177503626130",
+          "name": "Valentino"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 146,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "104418517760907",
+          "name": "Valentino Beauty"
+        },
+        {
+          "ads": 34,
+          "categories": [
+            "UNKNOWN",
+            "Website"
+          ],
+          "id": "88573992939",
+          "name": "FARFETCH"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Sports & recreation",
+            "Sport and recreation"
+          ],
+          "id": "11768835826",
+          "name": "Monster Energy"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Airport"
+          ],
+          "id": "339804826445617",
+          "name": "Club Avolta"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Brand"
+          ],
+          "id": "659297180768949",
+          "name": "Ferrero Rocher"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Candy Store"
+          ],
+          "id": "23227209544",
+          "name": "Lindt"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Retail company"
+          ],
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Sunglasses & Eyewear Store"
+          ],
+          "id": "84788432580",
+          "name": "Salmoiraghi & Viganò"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "113108173932431",
+          "name": "Luxury Beauty Cosmetics"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Food and drink company",
+            "Food & beverage company"
+          ],
+          "id": "100824474221",
+          "name": "Gocciole"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "425299024482030",
+          "name": "Notino"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "202468699617033",
+          "name": "Magiczne Perfumy"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Business service"
+          ],
+          "id": "110723081780755",
+          "name": "Sylvie Jewels"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "1509351865944389",
+          "name": "BESTSECRET"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Shopping Mall"
+          ],
+          "id": "1483454928554062",
+          "name": "Emporium Emquartier"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Science & Tech"
+          ],
+          "id": "616148004918000",
+          "name": "ChatGPT"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Brand"
+          ],
+          "id": "441953099151645",
+          "name": "Raffaello"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Product/service"
+          ],
+          "id": "40984860847",
+          "name": "LEGAMI"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "125373900875887",
+          "name": "Notino"
+        }
+      ]
+    },
+    "versace": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 115,
+          "categories": [
+            "UNKNOWN",
+            "Design & fashion"
+          ],
+          "id": "260751060175",
+          "name": "Versace"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 17,
+          "categories": [
+            "UNKNOWN",
+            "Cosmetics store"
+          ],
+          "id": "475182892589757",
+          "name": "Scentbird"
+        },
+        {
+          "ads": 11,
+          "categories": [
+            "UNKNOWN",
+            "Hotel"
+          ],
+          "id": "806510309463778",
+          "name": "Palazzo Versace Dubai"
+        },
+        {
+          "ads": 8,
+          "categories": [
+            "UNKNOWN",
+            "Department Store"
+          ],
+          "id": "334308412570",
+          "name": "Coppel"
+        },
+        {
+          "ads": 7,
+          "categories": [
+            "UNKNOWN",
+            "Shopping & retail"
+          ],
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Company"
+          ],
+          "id": "267148025570",
+          "name": "City Club"
+        },
+        {
+          "ads": 6,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "137917343831",
+          "name": "Boots UK"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "Sunglasses & Eyewear Store"
+          ],
+          "id": "84788432580",
+          "name": "Salmoiraghi & Viganò"
+        },
+        {
+          "ads": 5,
+          "categories": [
+            "UNKNOWN",
+            "College & university"
+          ],
+          "id": "1435484759820774",
+          "name": "Istituto Marangoni"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Jewelry & Watches Company"
+          ],
+          "id": "705844622603523",
+          "name": "L&M Luxury Timepiece"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Hotel resort"
+          ],
+          "id": "112651933872984",
+          "name": "NUSTAR Resort"
+        },
+        {
+          "ads": 4,
+          "categories": [
+            "UNKNOWN",
+            "Jewelry/watches"
+          ],
+          "id": "138287859569770",
+          "name": "Saat & Saat"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Health/beauty"
+          ],
+          "id": "833675566743651",
+          "name": "Francuskie Perfumy"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Clothing store"
+          ],
+          "id": "147134875303311",
+          "name": "FLANNELS"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "POLITICAL",
+            "Website"
+          ],
+          "id": "2046779158899878",
+          "name": "The Voice of Fashion"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "HOUSING",
+            "Real Estate Developer"
+          ],
+          "id": "148842098307130",
+          "name": "Peace Homes Development"
+        },
+        {
+          "ads": 3,
+          "categories": [
+            "UNKNOWN",
+            "Beauty, cosmetic & personal care"
+          ],
+          "id": "202468699617033",
+          "name": "Magiczne Perfumy"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Baby & children's clothing store"
+          ],
+          "id": "209905849067545",
+          "name": "Les Petits"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Jewelry/watches"
+          ],
+          "id": "134320859972206",
+          "name": "Just Watches"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "E-commerce website"
+          ],
+          "id": "113797517021749",
+          "name": "Mercado Libre"
+        },
+        {
+          "ads": 2,
+          "categories": [
+            "UNKNOWN",
+            "Restaurant"
+          ],
+          "id": "105045494591561",
+          "name": "Vanitas, Palazzo Versace Dubai"
+        }
+      ]
     }
   },
   "countries": [
@@ -2423,25 +4033,33 @@
   "form": "library",
   "period": "",
   "problems": {},
-  "requests": 196,
-  "run": "gh39045725930",
+  "requests": 197,
+  "run": "gh39049870043",
   "searched": {
+    "alaia": "2026-10-17",
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
     "burberry": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
+    "chloe": "2026-10-17",
     "dior": "2026-10-17",
+    "dries_van_noten": "2026-10-17",
     "fendi": "2026-10-17",
+    "givenchy": "2026-10-17",
     "gucci": "2026-10-17",
     "hermes": "2026-10-17",
     "jil_sander": "2026-10-17",
     "loewe": "2026-10-17",
+    "loro_piana": "2026-10-17",
     "louis_vuitton": "2026-10-17",
     "margiela": "2026-10-17",
     "miu_miu": "2026-10-17",
     "prada": "2026-10-17",
-    "saint_laurent": "2026-10-17"
+    "saint_laurent": "2026-10-17",
+    "tom_ford": "2026-10-17",
+    "valentino": "2026-10-17",
+    "versace": "2026-10-17"
   },
   "shape": {
     "aaa_info": {
@@ -2566,12 +4184,7 @@
       "body": {
         "text": "str"
       },
-      "branded_content": {
-        "page_id": "str",
-        "page_is_deleted": "bool",
-        "page_name": "str",
-        "page_profile_uri": "str"
-      },
+      "branded_content": "NoneType",
       "brazil_tax_id": "NoneType",
       "byline": "NoneType",
       "caption": "str",
@@ -2602,11 +4215,31 @@
       "display_format": "str",
       "ec_certificates": [],
       "event": "NoneType",
-      "extra_images": [],
-      "extra_links": [],
+      "extra_images": [
+        {
+          "image_crops": [],
+          "original_image_url": "str",
+          "resized_image_url": "str"
+        }
+      ],
+      "extra_links": [
+        "str"
+      ],
       "extra_texts": [],
-      "extra_videos": [],
-      "images": [],
+      "extra_videos": [
+        {
+          "video_hd_handle": "str",
+          "video_sd_handle": "str"
+        }
+      ],
+      "images": [
+        {
+          "image_crops": [],
+          "original_image_url": "str",
+          "resized_image_url": "str",
+          "watermarked_resized_image_url": "str"
+        }
+      ],
       "is_reshared": "bool",
       "link_description": "str",
       "link_url": "str",
@@ -2637,7 +4270,7 @@
     "state_media_run_label": "NoneType",
     "targeted_or_reached_countries": [],
     "total": "int",
-    "total_active_time": "int",
+    "total_active_time": "NoneType",
     "transparency_by_location": {
       "br_transparency": "NoneType",
       "eu_transparency": {
@@ -2705,11 +4338,11 @@
     "violation_types": []
   },
   "stopped": "budget: the vendor's run was aborted",
-  "updated_at": "2026-10-17T16:31:52Z",
+  "updated_at": "2026-10-17T17:29:02Z",
   "vendor_errors": [],
   "vendor_runs": [
     {
-      "id": "k87Q4CFGmKZLsoLVr",
+      "id": "O6gRbukWOJHgTNXMH",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2721,15 +4354,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Maison Margiela&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Valentino&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.2213
+      "usd": 0.2243
     },
     {
-      "id": "5luKMbcnOuK7QqKVY",
+      "id": "pJP7rJjlZKoLSqwje",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2741,15 +4374,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=92588673784"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=177503626130"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.33755
+      "usd": 1.5030500000000002
     },
     {
-      "id": "eUJ3QCTCicZxbeYYa",
+      "id": "fvqCDK2r02MI3Ch0r",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2761,7 +4394,7 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Hermès&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Loro Piana&search_type=keyword_unordered"
           }
         ]
       },
@@ -2769,7 +4402,7 @@
       "usd": 0.21755
     },
     {
-      "id": "x5S3gfxMRAhbImfBy",
+      "id": "u9gSEJitgDuMrK3yc",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2781,24 +4414,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=104907696213843"
-          },
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=447850575390345"
-          },
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=107649017867507"
-          },
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=635785887051399"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=159783104120941"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.7071
+      "usd": 1.4948000000000001
     },
     {
-      "id": "0lqDuqbZKa1SljtQi",
+      "id": "YiabkIR7CYhapbvkQ",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2810,15 +4434,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Louis Vuitton&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Chloé&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.2468
+      "usd": 0.22055
     },
     {
-      "id": "zbU6TK1EwgKh6XoQB",
+      "id": "XEBhgzQFGlMOtK3dg",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2830,15 +4454,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=215138065124"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=50497990122"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.4565500000000002
+      "usd": 1.5075500000000002
     },
     {
-      "id": "7ZCgXlufIl0qatlYk",
+      "id": "7kC7u9HwPTP1zagXD",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2850,15 +4474,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Prada&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Versace&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.2168
+      "usd": 0.2393
     },
     {
-      "id": "mS7JSVITa4o4pGp3A",
+      "id": "CehGkUXahxkIZsfK5",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2870,15 +4494,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=164637176974573"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=260751060175"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.5203000000000002
+      "usd": 1.3830500000000001
     },
     {
-      "id": "pl5ciVawj81kh7Cin",
+      "id": "UFP26XaQC8UiyMjeX",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2890,15 +4514,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Miu Miu&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Givenchy&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.2228
+      "usd": 0.2453
     },
     {
-      "id": "xoUdsbGUErbt3ywil",
+      "id": "Z7JL8zFARshPyxhBh",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2910,15 +4534,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=141657192616725"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=192989290715208"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.5135500000000002
+      "usd": 0.7673
     },
     {
-      "id": "PvAqKPyaKgQU2hQc5",
+      "id": "jDsbF7hrvVndxApEl",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2930,7 +4554,7 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Saint Laurent&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Tom Ford&search_type=keyword_unordered"
           }
         ]
       },
@@ -2938,7 +4562,7 @@
       "usd": 0.24755
     },
     {
-      "id": "EUVB3WtQwKSRsHIkY",
+      "id": "ee5vuyYt6k2h2toew",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2950,15 +4574,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=106537403849"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=109068429178457"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.4648
+      "usd": 0.24004999999999999
     },
     {
-      "id": "9UtBD82lKvRwzJCtx",
+      "id": "hKPbZGviQ7RgrFtqj",
       "input": {
         "limitPerSource": 300,
         "scrapeAdDetails": true,
@@ -2970,15 +4594,15 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Burberry&search_type=keyword_unordered"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Dries Van Noten&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.24004999999999999
+      "usd": 0.21755
     },
     {
-      "id": "4NWhFRLg4R0SifBti",
+      "id": "amALVqZd5zzheuLbs",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -2990,12 +4614,61 @@
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=122792026424"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=409724172486718"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 1.0110500000000002
+      "usd": 0.3518
+    },
+    {
+      "id": "dOpmGbLz4NNTbLFmE",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Alaïa&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.24155
+    },
+    {
+      "id": "0ELdDAamyz7Vthmzq",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=2105855419435263"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=100406686255164"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=417013171504421"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=142870372943454"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.7276
     }
   ]
 }
