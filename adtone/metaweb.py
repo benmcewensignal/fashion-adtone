@@ -75,10 +75,11 @@ class Source:
         self.max_ads = max_ads or int(os.environ.get("META_MAX_ADS", "2000"))
         self.form = os.environ.get("META_INPUT_FORM", "library").strip() or "library"
         self.sleep, self.clock, self.t0, self.budget_s = sleep, clock, clock(), budget_s
-        self.requests, self.runs, self.cost_usd = 0, [], 0.0
+        self.requests, self.runs, self.cost_usd, self.errors = 0, [], 0.0, []
 
     def state_extra(self) -> dict:
-        return {"actor": self.actor, "countries": self.countries, "form": self.form, "vendor_runs": self.runs[-40:]}
+        return {"actor": self.actor, "countries": self.countries, "form": self.form, "vendor_runs": self.runs[-40:],
+                "vendor_errors": self.errors[-20:]}
 
     def _call(self, method: str, path: str, **kw) -> dict:
         self.requests += 1
@@ -174,6 +175,9 @@ class Source:
         if not ids:
             return
         for item in self.run_actor(self._input(page_ids=ids)):
+            if "error" in item and len(item) <= 3:      # the actor's own report of a failure, not an ad: kept to be read
+                self.errors.append({"house": house.id, **{k: str(v)[:300] for k, v in item.items()}})
+                continue
             yield item
 
     def is_houses(self, item: dict, house: registry.House, keep: list[dict]) -> bool:
