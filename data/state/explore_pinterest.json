@@ -1,8 +1,11 @@
 {
+  "action_errors": [
+    "click:[aria-label=Next page]: Error: Page.click: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': '[aria-label=Next page]' is not a valid selector.\n    at query (<anonymous>:5817:41"
+  ],
   "api_mentions": [
     "the API documentation -> https://developers.pinterest.com/docs/api/v4/#tag/ads_repository"
   ],
-  "at": "2026-10-17T09:14:00Z",
+  "at": "2026-10-17T09:16:30Z",
   "block_words": [],
   "body_chars": 14798,
   "calls": [
@@ -21,11 +24,32 @@
       "type": "stylesheet"
     },
     {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Regular-708c49dd.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/polyfills-c553f004bae058a3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
       "content_type": "text/css",
       "key": "GET https://s.pinimg.com/webapp/sterling/_client-54c3c73994ab8ba9.css",
       "query_keys": [],
       "status": 200,
       "type": "stylesheet"
+    },
+    {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Medium-704a4f34.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
     },
     {
       "content_type": "text/css",
@@ -36,21 +60,7 @@
     },
     {
       "content_type": "font/woff2",
-      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Regular-708c49dd.woff2",
-      "query_keys": [],
-      "status": 200,
-      "type": "font"
-    },
-    {
-      "content_type": "font/woff2",
       "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Bold-ce475d98.woff2",
-      "query_keys": [],
-      "status": 200,
-      "type": "font"
-    },
-    {
-      "content_type": "font/woff2",
-      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Medium-704a4f34.woff2",
       "query_keys": [],
       "status": 200,
       "type": "font"
@@ -64,119 +74,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/polyfills-c553f004bae058a3.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/runtime.en_GB-7bbcd6102ea8c4ea.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/25667-d9831e01c79022bf.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/51323-03887acc5cf1d709.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-LocaleDataLoader-cfc132080745cfd1.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/10297.en_GB-81410a5e6626ab1b.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/10339.en_GB-e5ec059a492cba3a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/21125.en_GB-aa62e2d740552654.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/13031-90411defe7594720.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/vendor-react-9324cf244efc150a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/1068-8dcd0732d1f50d38.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/32123-2d92638a31a21857.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/13686.en_GB-63e8aceb01a8053a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/24266-0b480fef3e44021b.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/21869-8bfdb11854c3b7f5.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/27730.en_GB-e09e182a1ca97a47.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/32390.en_GB-33e1d369f81ff43c.mjs",
+      "key": "GET https://s.pinimg.com/webapp/14157-e513b36f89b4156d.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -190,7 +88,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/27940.en_GB-35650c0c00bf0b96.mjs",
+      "key": "GET https://s.pinimg.com/webapp/17545-a1fe8781838ae865.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -204,14 +102,14 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17962.en_GB-cf80a4944888d1e8.mjs",
+      "key": "GET https://s.pinimg.com/webapp/13031-90411defe7594720.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/16013.en_GB-fe5dcf5d1714ffbf.mjs",
+      "key": "GET https://s.pinimg.com/webapp/1068-8dcd0732d1f50d38.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -225,42 +123,28 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/39195.en_GB-5cae09cb9f0cd3e3.mjs",
+      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-LocaleDataLoader-cfc132080745cfd1.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/28236-f61666ad4ca82e1e.mjs",
+      "key": "GET https://s.pinimg.com/webapp/32123-2d92638a31a21857.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/30791.en_GB-8146f7c9aae6d0ae.mjs",
+      "key": "GET https://s.pinimg.com/webapp/21869-8bfdb11854c3b7f5.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/43713-f88064a3f293b89f.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/44175-fa362a588feaf0b7.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/41130-8f0f852c667c5130.mjs",
+      "key": "GET https://s.pinimg.com/webapp/24266-0b480fef3e44021b.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -274,63 +158,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17545-a1fe8781838ae865.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/14157-e513b36f89b4156d.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/34481-5b59931d42e72355.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17603.en_GB-89f911be93d6befb.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/44442-b33eb5b4b0c5d7c7.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/55344.en_GB-eaa2eedbf473b882.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/40264-b1360ce0af2a8202.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/92264.en_GB-93936ba4622ffbc9.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/566-441a98eedb907231.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -344,14 +172,21 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository.en_GB-6c9cd228035fe96e.mjs",
+      "key": "GET https://s.pinimg.com/webapp/566-441a98eedb907231.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/58693.en_GB-3bb4dd8e53f21868.mjs",
+      "key": "GET https://s.pinimg.com/webapp/34481-5b59931d42e72355.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/10297.en_GB-81410a5e6626ab1b.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -365,7 +200,126 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/28236-f61666ad4ca82e1e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/16013.en_GB-fe5dcf5d1714ffbf.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/43713-f88064a3f293b89f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/41130-8f0f852c667c5130.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/runtime.en_GB-7bbcd6102ea8c4ea.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44442-b33eb5b4b0c5d7c7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21125.en_GB-aa62e2d740552654.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/13686.en_GB-63e8aceb01a8053a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/27940.en_GB-35650c0c00bf0b96.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/32390.en_GB-33e1d369f81ff43c.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44175-fa362a588feaf0b7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/30791.en_GB-8146f7c9aae6d0ae.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/55344.en_GB-eaa2eedbf473b882.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/39195.en_GB-5cae09cb9f0cd3e3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/58693.en_GB-3bb4dd8e53f21868.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/27730.en_GB-e09e182a1ca97a47.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/60589-f5e871521ab570b8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/50365.en_GB-375981faae66f927.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -386,6 +340,13 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17603.en_GB-89f911be93d6befb.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/64423.en_GB-f0fca8911143c01e.mjs",
       "query_keys": [],
       "status": 200,
@@ -400,7 +361,28 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/50365.en_GB-375981faae66f927.mjs",
+      "key": "GET https://s.pinimg.com/webapp/17962.en_GB-cf80a4944888d1e8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/10339.en_GB-e5ec059a492cba3a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/35330-97ed3a1883bceb74.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/65633-76cb56bd8efa1e37.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -415,34 +397,6 @@
     {
       "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/70075.en_GB-858632fb6dd6950d.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/65966.en_GB-d5b5b28c2998444f.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/62820.en_GB-ac745d8534f3527a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/65633-76cb56bd8efa1e37.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/74407-f8e3cc2186acc94f.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -470,7 +424,21 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/65966.en_GB-d5b5b28c2998444f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/76262.en_GB-359fa0583e187372.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/74407-f8e3cc2186acc94f.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -491,13 +459,6 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/78293.en_GB-37a3d504553eb128.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/76300.en_GB-f167cb53b60bd5bd.mjs",
       "query_keys": [],
       "status": 200,
@@ -505,7 +466,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/96150.en_GB-68446bf0b60c6b02.mjs",
+      "key": "GET https://s.pinimg.com/webapp/78293.en_GB-37a3d504553eb128.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -568,21 +529,14 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/84269-fe802395dc0710e2.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/93668.en_GB-b86f08bf90f912c3.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/35330-97ed3a1883bceb74.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/96092.en_GB-120cb06187337ae3.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -596,7 +550,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/84269-fe802395dc0710e2.mjs",
+      "key": "GET https://s.pinimg.com/webapp/96092.en_GB-120cb06187337ae3.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -604,13 +558,6 @@
     {
       "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/99414.en_GB-70a32999911baff9.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/gestalt-2bdabd81191c5484.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -630,6 +577,62 @@
       "type": "script"
     },
     {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/gestalt-2bdabd81191c5484.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/51323-03887acc5cf1d709.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/92264.en_GB-93936ba4622ffbc9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/96150.en_GB-68446bf0b60c6b02.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository.en_GB-6c9cd228035fe96e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/25667-d9831e01c79022bf.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/vendor-react-9324cf244efc150a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/62820.en_GB-ac745d8534f3527a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
       "content_type": "",
       "key": "POST https://ads.pinterest.com/_/_/csp_report/",
       "post_json_shape": {
@@ -639,20 +642,19 @@
           "disposition": "str",
           "document-uri": "str",
           "effective-directive": "str",
+          "is-metatag": "bool",
           "line-number": "int",
           "original-policy": "str",
           "referrer": "str",
-          "script-sample": "str",
+          "sample": "str",
           "source-file": "str",
           "status-code": "int",
           "violated-directive": "str"
         }
       },
-      "query_keys": [
-        "rid"
-      ],
+      "query_keys": [],
       "status": 204,
-      "type": "other"
+      "type": "fetch"
     },
     {
       "content_type": "",
@@ -678,6 +680,13 @@
       "type": "script"
     },
     {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/79657-3b5a50d12e940145.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
       "content_type": "text/css",
       "key": "GET https://s.pinimg.com/webapp/94687-ebad536e260561b9.css",
       "query_keys": [],
@@ -693,24 +702,17 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/79657-3b5a50d12e940145.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/93457-6388ae7410b3a440.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
-      "content_type": "application/json",
-      "key": "GET https://ads.pinterest.com/secure/arkose_data_exchange/",
+      "content_type": "",
+      "key": "GET https://www.pinterest.com/_/_/ping/",
       "query_keys": [],
-      "status": 403,
-      "type": "fetch"
+      "status": 200,
+      "type": "xhr"
     },
     {
       "content_type": "application/json",
@@ -734,6 +736,13 @@
       "type": "xhr"
     },
     {
+      "content_type": "application/json",
+      "key": "GET https://ads.pinterest.com/secure/arkose_data_exchange/",
+      "query_keys": [],
+      "status": 403,
+      "type": "fetch"
+    },
+    {
       "content_type": "application/javascript",
       "key": "GET https://accounts.google.com/gsi/client",
       "query_keys": [
@@ -748,13 +757,6 @@
       "query_keys": [],
       "status": 200,
       "type": "stylesheet"
-    },
-    {
-      "content_type": "",
-      "key": "GET https://www.pinterest.com/_/_/ping/",
-      "query_keys": [],
-      "status": 200,
-      "type": "xhr"
     },
     {
       "content_type": "application/json",
@@ -778,6 +780,13 @@
     },
     {
       "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/3b/51/a7/3b51a7e305a0439261e4c49d7d37348b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
       "key": "GET https://i.pinimg.com/474x/a6/34/1a/a6341ab76bbb6af00fb96a8deb4040fd.jpg",
       "query_keys": [],
       "status": 200,
@@ -785,14 +794,7 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/fa/26/d1/fa26d116845cae77656bab4b1dab7a17.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/22/34/d7/2234d7d78afd65bfd1c11099ddc0c645.jpg",
+      "key": "GET https://i.pinimg.com/474x/50/6e/a0/506ea09c7a2ea1845ec3fde03ce5533b.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -813,105 +815,7 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/e3/90/15/e390152d99de305cdcd0299fd2d86702.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/0e/06/55/0e06559d2712d174ead6212c73922405.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/63/f0/0c/63f00cbe62b9e4bf51acb798d6fcbdb9.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/14/40/ae/1440ae5b0e971de76dcd34623983a5a6.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/1e/f1/82/1ef18208cbd6fbaec7278a7efe7ef1ee.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/83/5a/ae/835aaef5c14ba78fb67363b330dbd662.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/1f/a0/0a/1fa00a77d0ac587c9e02d4b2c7f36625.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/24/19/30/241930e874520bff43b9b4f438f4933e.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/4d/dd/1d/4ddd1d72f01a004d36677efba491186b.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/b8/b3/1b/b8b31b5361cddae33d279b57bc9346f5.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/32/7b/71/327b711d382c72aa9a3bbdc0adba8f8e.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/3b/51/a7/3b51a7e305a0439261e4c49d7d37348b.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/50/6e/a0/506ea09c7a2ea1845ec3fde03ce5533b.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/bf/e9/9e/bfe99ee6301b3758c9528e2a04807a62.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/18/e9/da/18e9da6e28f7fe45c7224ae999647ea7.jpg",
+      "key": "GET https://i.pinimg.com/474x/30/45/d2/3045d269fcd1b77cbcd0c793b5dcf584.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -925,7 +829,49 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/8e/82/6c/8e826c1d41d720ddcb27aca8dacb350a.jpg",
+      "key": "GET https://i.pinimg.com/474x/14/40/ae/1440ae5b0e971de76dcd34623983a5a6.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/0e/06/55/0e06559d2712d174ead6212c73922405.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/83/5a/ae/835aaef5c14ba78fb67363b330dbd662.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/bf/e9/9e/bfe99ee6301b3758c9528e2a04807a62.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/b8/b3/1b/b8b31b5361cddae33d279b57bc9346f5.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/22/34/d7/2234d7d78afd65bfd1c11099ddc0c645.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/18/e9/da/18e9da6e28f7fe45c7224ae999647ea7.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -939,7 +885,63 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/30/45/d2/3045d269fcd1b77cbcd0c793b5dcf584.jpg",
+      "key": "GET https://i.pinimg.com/474x/32/7b/71/327b711d382c72aa9a3bbdc0adba8f8e.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/e3/90/15/e390152d99de305cdcd0299fd2d86702.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1e/f1/82/1ef18208cbd6fbaec7278a7efe7ef1ee.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/4d/dd/1d/4ddd1d72f01a004d36677efba491186b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1f/a0/0a/1fa00a77d0ac587c9e02d4b2c7f36625.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/fa/26/d1/fa26d116845cae77656bab4b1dab7a17.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/24/19/30/241930e874520bff43b9b4f438f4933e.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/8e/82/6c/8e826c1d41d720ddcb27aca8dacb350a.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/63/f0/0c/63f00cbe62b9e4bf51acb798d6fcbdb9.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -1199,6 +1201,1157 @@
   "embedded": [
     {
       "id": "__PWS_INITIAL_PROPS__",
+      "shape": {
+        "inContextTranslation": "bool",
+        "initialReduxState": {
+          "access": {
+            "error": "str",
+            "showToast": "bool"
+          },
+          "adminUser": "NoneType",
+          "adsGuidance": {
+            "notificationsLastOpened": "NoneType"
+          },
+          "advertiser": {},
+          "advertiserDefinedEvents": {
+            "events": [],
+            "isLoaded": "bool",
+            "isLoading": "bool"
+          },
+          "articles": {},
+          "automaticBiddingAdoption": {
+            "adGroupBudgets": [],
+            "adGroups": [],
+            "campaigns": [],
+            "isBudgetLoaded": "bool",
+            "isFetching": "bool",
+            "isLoaded": "bool"
+          },
+          "billing": {
+            "autoFillQPBillingChecked": "bool",
+            "billingInformationForm": {},
+            "businessInformationForm": {},
+            "promoCode": "str"
+          },
+          "boardSectionPinsRefresh": {},
+          "boards": {},
+          "boardsections": {},
+          "businessAccess": {
+            "actingUser": {
+              "data": "NoneType",
+              "error": "NoneType",
+              "loading": "bool"
+            },
+            "adAccounts": {
+              "businessIdsAssociatedWithAoaas": [],
+              "data": {},
+              "fetchedOwnerIds": {},
+              "loading": "bool",
+              "rmnAdAccountsToRmnPartnerLoading": "bool",
+              "rmnPartnerByPartnerId": {},
+              "viewerMemberPermissionsLoading": "bool"
+            },
+            "aoaaRequests": {
+              "loading": "bool",
+              "requests": {}
+            },
+            "apps": {
+              "data": [],
+              "loading": "bool",
+              "refreshToken": {
+                "loading": "bool"
+              }
+            },
+            "assetGroups": {
+              "adAccountsLoading": "bool",
+              "adAccountsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "assetGroups": {},
+              "catalogsLoading": "bool",
+              "catalogsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "employeesLoading": "bool",
+              "employeesTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "loading": "bool",
+              "owners": {
+                "adAccountOwners": [],
+                "aoaaIds": [],
+                "profileOwners": []
+              },
+              "ownersLoading": "bool",
+              "partnersLoading": "bool",
+              "partnersTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "profilesLoading": "bool",
+              "profilesTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "systemUsersLoading": "bool",
+              "systemUsersTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              }
+            },
+            "audienceSharing": {
+              "audiences": {
+                "error": "NoneType",
+                "inheritedAudiences": [],
+                "inheritedAudiencesLoading": "bool",
+                "ownedAudiences": [],
+                "ownedAudiencesLoading": "bool",
+                "receivedAudiences": [],
+                "receivedAudiencesLoading": "bool",
+                "sharedAudiences": [],
+                "sharedAudiencesLoading": "bool"
+              },
+              "sharedAccounts": {
+                "accounts": {},
+                "error": "NoneType",
+                "loading": "bool"
+              }
+            },
+            "businessHierarchy": {
+              "adAccounts": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "assetGroups": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "businessHierarchyBusinessMembers": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "catalogs": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "employees": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "partners": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              },
+              "pending": {
+                "childBusinesses": {
+                  "data": [],
+                  "table": {
+                    "limit": "...",
+                    "page": "...",
+                    "searchTerm": "...",
+                    "sortDirection": "...",
+                    "startIndex": "...",
+                    "totalCount": "..."
+                  }
+                },
+                "loading": "bool",
+                "organizationManagers": {
+                  "data": [],
+                  "table": {
+                    "limit": "...",
+                    "page": "...",
+                    "searchTerm": "...",
+                    "sortDirection": "...",
+                    "startIndex": "...",
+                    "totalCount": "..."
+                  }
+                }
+              },
+              "profiles": {
+                "data": [],
+                "loading": "bool",
+                "table": {
+                  "limit": "int",
+                  "page": "int",
+                  "searchTerm": "str",
+                  "sortDirection": "str",
+                  "startIndex": "int",
+                  "totalCount": "int"
+                }
+              }
+            },
+            "businessMetrics": {
+              "data": {},
+              "loading": "bool"
+            },
+            "catalogs": {
+              "catalogOwners": {},
+              "catalogOwnersLoading": "bool",
+              "data": {},
+              "employeesLoading": "bool",
+              "employeesTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "inheritedData": {},
+              "invites": {},
+              "loading": "bool",
+              "loadingInherited": "bool",
+              "partnerCatalogsByPartnerId": {},
+              "partnerCatalogsLoadingByPartnerId": {},
+              "partnersLoading": "bool",
+              "partnersTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "sharedData": {},
+              "unassignedCatalogs": [],
+              "unassignedCatalogsLoading": "bool"
+            },
+            "contracts": {
+              "acceptLoading": "bool",
+              "brandsContractStatusLoading": "bool",
+              "data": [],
+              "loading": "bool",
+              "pdfLoading": "bool",
+              "rmnBillingContracts": [],
+              "rmnBillingContractsLoading": "bool"
+            },
+            "conversionSegments": {
+              "adAccountLoading": "bool",
+              "adAccounts": [],
+              "catalogFilteredItemCount": "NoneType",
+              "catalogFilteredItemCountConversionId": "str",
+              "catalogFilteredItemCountInflightConversionId": "str",
+              "catalogFilteredItemCountLoading": "bool",
+              "conversionTypeLoading": "bool",
+              "conversionTypes": [],
+              "data": [],
+              "inheritedData": [],
+              "loading": "bool",
+              "loadingInherited": "bool",
+              "mainPanelLoading": "bool",
+              "selectedConversionId": "str",
+              "sharedData": [],
+              "table": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              }
+            },
+            "employees": {
+              "adAccountsLoading": "bool",
+              "adAccountsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "assetGroupsLoading": "bool",
+              "assetGroupsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "assetRolesLoading": "bool",
+              "catalogsLoading": "bool",
+              "catalogsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "employees": {},
+              "invites": {},
+              "invitesLoading": "bool",
+              "loading": "bool",
+              "profilesLoading": "bool",
+              "profilesTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              }
+            },
+            "employers": {
+              "error": "NoneType",
+              "isLoading": "bool",
+              "list": "NoneType"
+            },
+            "history": {
+              "data": {},
+              "dateRange": {
+                "endDate": "str",
+                "startDate": "str"
+              },
+              "error": "NoneType",
+              "loading": "bool"
+            },
+            "inviteOrRequestData": {
+              "invites": {},
+              "loading": "bool",
+              "requests": {}
+            },
+            "invitesOrRequests": {
+              "invites": {
+                "partner": {},
+                "people": {}
+              },
+              "loading": "bool",
+              "requests": {
+                "partner": {}
+              },
+              "type": "str"
+            },
+            "invoiceManagement": {
+              "data": {},
+              "error": "NoneType",
+              "invoiceTabVisibility": "str",
+              "loading": "bool"
+            },
+            "navigation": {
+              "accounts": {
+                "collapse": "bool"
+              },
+              "isLoading": "bool",
+              "users": {
+                "collapse": "bool"
+              }
+            },
+            "newRelationshipAssetAssignmentFlow": {
+              "invites": {
+                "businessRole": "str",
+                "businesses": []
+              },
+              "loading": "bool",
+              "requestedAssets": {
+                "adAccounts": {
+                  "resourceIdToRoles": {}
+                },
+                "catalogs": {
+                  "resourceIdToRoles": {}
+                },
+                "profiles": {
+                  "resourceIdToRoles": {}
+                }
+              },
+              "selectedApps": {
+                "resourceIdToRoles": {},
+                "roleToNumberOfAssets": {}
+              },
+              "selectedAssets": {
+                "adAccounts": {
+                  "resourceIdToRoles": {},
+                  "roleToNumberOfAssets": {}
+                },
+                "catalogs": {
+                  "resourceIdToRoles": {},
+                  "roleToNumberOfAssets": {}
+                },
+                "profiles": {
+                  "resourceIdToRoles": {},
+                  "roleToNumberOfAssets": {}
+                }
+              },
+              "selectedPartners": {
+                "searchValue": "str",
+                "selectedCountries": [],
+                "selectedPartnerBusinessIds": [],
+                "totalSelected": "int"
+              },
+              "selectedRmnAssets": {
+                "audiences": {
+                  "resourceIdToNames": {},
+                  "resourceIdToRoles": {}
+                },
+                "catalogs": {
+                  "resourceIdToNames": {},
+                  "resourceIdToRoles": {}
+                },
+                "conversionSegments": {
+                  "resourceIdToNames": {},
+                  "resourceIdToRoles": {}
+                }
+              }
+            },
+            "partners": {
+              "data": {},
+              "isPartnerAssociatedWithAoaaLoading": "bool",
+              "isSelectedPartnerAssociatedWithAoaa": "bool",
+              "loading": "bool"
+            },
+            "pending": {
+              "assets": {},
+              "loading": "bool",
+              "partner": {},
+              "people": {},
+              "type": [
+                "str"
+              ]
+            },
+            "people": {
+              "data": {},
+              "loading": "bool"
+            },
+            "profiles": {
+              "data": {},
+              "error": "NoneType",
+              "loading": "bool"
+            },
+            "rmnHub": {
+              "partnerOverviewMetrics": {
+                "data": {
+                  "count": "int",
+                  "rows": "NoneType",
+                  "summary": []
+                },
+                "error": "NoneType",
+                "isLoading": "bool"
+              },
+              "partners": {
+                "data": {},
+                "error": "NoneType",
+                "loading": "bool",
+                "totalCount": "int"
+              },
+              "topRiserDecliners": {
+                "data": [
+                  {
+                    "metric": "...",
+                    "topDecliners": "...",
+                    "topRisers": "..."
+                  }
+                ],
+                "error": "NoneType",
+                "isLoading": "bool"
+              }
+            },
+            "systemUsers": {
+              "adAccountLoading": "bool",
+              "adAccountTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "adAccounts": [],
+              "appsLoading": "bool",
+              "appsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "assetGroups": [],
+              "assetGroupsLoading": "bool",
+              "assetGroupsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "catalogs": [],
+              "catalogsLoading": "bool",
+              "catalogsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "data": [],
+              "loading": "bool",
+              "profiles": [],
+              "profilesLoading": "bool",
+              "profilesTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "selectedSystemId": "str",
+              "systemApps": [],
+              "systemUsers": {},
+              "table": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortBy": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              }
+            },
+            "table": {
+              "limit": "int",
+              "page": "int",
+              "searchTerm": "str",
+              "sortDirection": "str",
+              "totalCount": "int",
+              "visibleData": []
+            },
+            "tags": {
+              "adAccountsLoading": "bool",
+              "adAccountsTable": {
+                "limit": "int",
+                "page": "int",
+                "searchTerm": "str",
+                "sortDirection": "str",
+                "startIndex": "int",
+                "totalCount": "int"
+              },
+              "loading": "bool",
+              "overlayOpen": "bool",
+              "selectedAdAccounts": [],
+              "tags": {}
+            },
+            "updatePermissions": {
+              "loading": "bool"
+            },
+            "viewerBusinessHierarchyInvites": {
+              "data": [],
+              "error": "NoneType",
+              "loading": "bool"
+            },
+            "viewerInvites": {
+              "data": [],
+              "loading": "bool"
+            },
+            "viewerIsProfileOwnerOrProfileManager": {}
+          },
+          "businessNux": {
+            "accountType": "str",
+            "advertisingIntent": "NoneType",
+            "agencyClients": "str",
+            "agencyContent": "str",
+            "agencyRole": "str",
+            "agencyService": "str",
+            "agencyServiceOther": "str",
+            "businessGoals": [],
+            "businessName": "str",
+            "businessSettingsUtmsEnabled": "bool",
+            "businessVertical": "str",
+            "calendlyUpsellEligible": "bool",
+            "country": "str",
+            "countryCode": "str",
+            "currentStep": {
+              "canProceed": "bool",
+              "index": "int"
+            },
+            "email": "str",
+            "firstName": "str",
+            "fullName": "str",
+            "hasWebsite": "str",
+            "lastName": "str",
+            "leadId": "str",
+            "locale": "str",
+            "numberEmployees": "str",
+            "phoneNumber": "str",
+            "shouldShowCalendlyModal": "bool",
+            "website": "str",
+            "whatsAppConsent": "bool",
+            "worksWithAgency": "NoneType"
+          },
+          "changeBoardFromToast": {
+            "shouldOpenModal": "bool"
+          },
+          "columnPreferences": {
+            "activeColumns": []
+          },
+          "contactRequests": {},
+          "createFlow": {
+            "apiData": {
+              "advertiserSettings": {},
+              "ages": {},
+              "audiences": {},
+              "automaticBiddingEnabled": {},
+              "catalogs": {},
+              "catalogsFeeds": {},
+              "catalogsProductGroupAvailabilityInfo": {},
+              "catalogsProductGroupCount": {},
+              "countries": {},
+              "countryRegionMetros": {},
+              "dailyBudgetWarningThreshold": {},
+              "devices": {},
+              "dimensionCatalogsProductGroupCounts": {},
+              "exchangeRates": {},
+              "genders": {},
+              "insertionOrders": {},
+              "interests": {},
+              "languages": {},
+              "locations": {},
+              "ocpmEligibleTags": {},
+              "orderLines": {},
+              "pageVisitTags": {},
+              "previewAdEnabled": {},
+              "sharedAudiences": {},
+              "sharedOcpmEligibleTags": {},
+              "sharedTags": {},
+              "tags": {},
+              "users": {}
+            },
+            "experimentEligibility": {},
+            "forms": {
+              "adGroups": {},
+              "campaigns": {},
+              "pinPromotions": {},
+              "productGroups": {},
+              "schedules": {}
+            },
+            "inlineCampaignRecommendations": {
+              "isFirstCampaignRecommendationsEligible": "bool"
+            },
+            "lastDraft": {
+              "forms": {
+                "adGroups": {},
+                "campaigns": {},
+                "pinPromotions": {}
+              }
+            },
+            "performancePlusCreativePreference": {
+              "isDcoGenAiTermsAcknowledged": "bool",
+              "isLoaded": "bool"
+            },
+            "performancePlusPreference": {
+              "hasAutoToggledPerformancePlusPreference": "bool",
+              "isLoaded": "bool"
+            },
+            "validationErrors": {}
+          },
+          "creativeReporting": {
+            "adGroupId": "int",
+            "adGroupName": "str",
+            "data": {},
+            "hasDynamicTitleLoadingError": "bool",
+            "hasLoadingError": "bool",
+            "isDynamicTitleEnabled": "NoneType",
+            "isDynamicTitleLoading": "bool",
+            "isDynamicTitleRequireManualApproval": "NoneType",
+            "isGenAIBackgroundEnabled": "NoneType",
+            "isLoading": "bool",
+            "isPanelOpen": "bool",
+            "skipRegenerationModal": "NoneType"
+          },
+          "currentUserTracker": {
+            "channel": "str",
+            "clickthroughPins": [],
+            "closeupPins": [],
+            "closeupWashClickAttemptCountDweb": "int",
+            "completedSearches": [],
+            "country": "str",
+            "currentPageViewType": "int",
+            "daysSinceLastRevisitation": "int",
+            "deviceType": "str",
+            "downloadLimitReached": "bool",
+            "downloadedPinsCount": "int",
+            "dwebPinImageClickCount": "int",
+            "iab": "str",
+            "isAuthenticated": "int",
+            "isIAB": "bool",
+            "isQUS": "int",
+            "landingPage": {
+              "objectId": "NoneType",
+              "viewType": "int"
+            },
+            "pinCloseupClicks": [],
+            "referrer": "str",
+            "region": "str",
+            "relatedBoardClicks": [],
+            "relatedInterestClicks": [],
+            "relatedSearchClicks": [],
+            "revisitationCount": "int",
+            "revisitationState": {
+              "sessionTimestamps": [
+                "int"
+              ],
+              "ts": "int"
+            },
+            "saveAttemptCountDweb": "int",
+            "saveAttemptCountMweb": "int",
+            "savedPins": [],
+            "searchAttemptCountDweb": "int",
+            "searchAttemptCountMweb": "int",
+            "storageAccessAllowed": "int",
+            "timedPairCloseups": [],
+            "unauthId": "str",
+            "upsellSessionStamp": "NoneType",
+            "userAgent": {
+              "browserName": "str",
+              "browserType": "NoneType",
+              "browserVersion": "str",
+              "canUseNativeApp": "bool",
+              "isMobile": "bool",
+              "isTablet": "bool",
+              "osName": "NoneType",
+              "platform": "str",
+              "platformVersion": [
+                "int"
+              ],
+              "raw": "str"
+            },
+            "visitedUnauthPages": [],
+            "visualSearchClicks": []
+          },
+          "dateRange": {},
+          "desktopStories": {},
+          "didItData": {},
+          "experiences": {},
+          "experiencesManager": {
+            "phase": {
+              "state": "str"
+            },
+            "placements": {}
+          },
+          "experiencesMulti": {},
+          "exportTable": {
+            "exportStatus": "NoneType",
+            "shouldExportVisibleMetadata": "NoneType"
+          },
+          "feeds": {},
+          "filters": {
+            "activeAdgroup": {
+              "activeEntitiesCount": "int"
+            },
+            "activeCampaign": {
+              "activeEntitiesCount": "int"
+            },
+            "activePinPromotion": {
+              "activeEntitiesCount": "int"
+            },
+            "adGroupNegativeKeyword": {
+              "filteredIds": "NoneType",
+              "selectedIds": [],
+              "status": "NoneType"
+            },
+            "adGroupPositiveKeyword": {
+              "filteredIds": "NoneType",
+              "selectedIds": [],
+              "status": "NoneType"
+            },
+            "adGroupSearchQuery": {
+              "filteredIds": "NoneType",
+              "selectedIds": [],
+              "status": "NoneType"
+            },
+            "adgroup": {
+              "filteredIds": "NoneType",
+              "isStatusUpdated": "bool",
+              "searchIds": "NoneType",
+              "selectedIds": []
+            },
+            "campaign": {
+              "brandLabel": "NoneType",
+              "customLabel": "NoneType",
+              "filteredIds": "NoneType",
+              "isObjectiveTypesUpdated": "bool",
+              "isStatusUpdated": "bool",
+              "name": "NoneType",
+              "objectiveType": "NoneType",
+              "objectiveTypes": [],
+              "searchIds": "NoneType",
+              "selectedIds": []
+            },
+            "campaignNegativeKeyword": {
+              "filteredIds": "NoneType",
+              "selectedIds": [],
+              "status": "NoneType"
+            },
+            "campaignSearchQuery": {
+              "filteredIds": "NoneType",
+              "selectedIds": [],
+              "status": "NoneType"
+            },
+            "customFilters": [],
+            "dataFilters": [],
+            "entityType": "str",
+            "filterError": "NoneType",
+            "pinPromotion": {
+              "filteredIds": "NoneType",
+              "isAdditionalAdFormatFiltersUpdated": "bool",
+              "isCreativeTypesUpdated": "bool",
+              "isStatusUpdated": "bool",
+              "searchIds": "NoneType",
+              "selectedIds": []
+            },
+            "productGroup": {
+              "filteredIds": "NoneType",
+              "isStatusUpdated": "bool",
+              "selectedIds": []
+            },
+            "productItem": {
+              "filteredIds": "NoneType",
+              "selectedIds": []
+            },
+            "selectedRows": [],
+            "useFilteredIds": "bool"
+          },
+          "flashlight": {},
+          "form": {},
+          "guidance": {
+            "activeFilters": [],
+            "adsNotifications": {
+              "data": [],
+              "error": "NoneType",
+              "isLoaded": "bool",
+              "isLoading": "bool",
+              "lastCallParams": "NoneType"
+            }
+          },
+          "homefeedTabUI": {
+            "activeTabBoardId": "str",
+            "activeTabIndex": "int"
+          },
+          "inbox": {},
+          "invites": {},
+          "lastReduxFormSubmission": {
+            "didSubmissionSucceed": "bool",
+            "formName": "str",
+            "submissionWasLastAction": "bool"
+          },
+          "locale": "str",
+          "marketingPlan": {
+            "canProceed": "bool",
+            "dailyAdsBudget": "str",
+            "defaultCatalogId": "NoneType",
+            "defaultFeedProfileId": "NoneType",
+            "hasFeed": "bool",
+            "isCalendlyModalOpen": "bool",
+            "isSurveyOpen": "bool",
+            "marketingPlanName": "str",
+            "marketingPlanSuggestion": [],
+            "shouldShowGoalsStep": "bool",
+            "showCustomBudgetField": "bool",
+            "showCustomBudgetFieldError": "bool",
+            "topBusinessGoal": "str",
+            "weeklyAddToCarts": "int",
+            "weeklyCheckouts": "int",
+            "weeklyLeads": "int"
+          },
+          "modules": {},
+          "mostRecentBoard": "NoneType",
+          "notifications": {},
+          "pinNavContext": "NoneType",
+          "pinbuilder": {
+            "assets": [],
+            "batchDraftCreationIds": [],
+            "batchEditModeFields": {
+              "board": "NoneType",
+              "description": "str",
+              "descriptionError": "NoneType",
+              "dirtyFields": [],
+              "link": "str",
+              "linkError": "NoneType",
+              "title": "str",
+              "titleError": "NoneType"
+            },
+            "createdPinIds": [],
+            "entryPoint": "NoneType",
+            "fonts": [],
+            "isBatchEditMode": "bool",
+            "layoutMode": "int",
+            "pinDraftIdUploadStatusMap": {},
+            "pinDraftIds": [],
+            "pinDrafts": {},
+            "pinEditorPinDraft": "NoneType",
+            "pinItems": {},
+            "pinTags": {},
+            "publishedPinIsShoppingRecAllowedByPinId": {},
+            "selectedPinDraftIds": [],
+            "showFeedbackModal": "bool",
+            "storyPinItemBlocks": {},
+            "storyPinItems": {},
+            "taggedObjects": {}
+          },
+          "pinbuilderMobile": {},
+          "pins": {},
+          "recentlyViewedPins": [],
+          "resources": {},
+          "scheduledPins": [],
+          "search": {
+            "currentSearch": {
+              "query": "str",
+              "scope": "str"
+            },
+            "pins": {},
+            "productFilters": {},
+            "queries": {},
+            "recentPersonalSearches": [],
+            "recentSearches": [],
+            "recommendedSearches": [],
+            "skinToneQueryUses": {
+              "lastQuery": "str",
+              "numQueryUses": "int"
+            },
+            "tabs": [],
+            "trendingQueries": [],
+            "typeaheadCache": {},
+            "visualSearches": {}
+          },
+          "seeMorePinInjection": {
+            "animatedHostIds": {},
+            "injectedPinIdByHost": {},
+            "injectionsByTarget": {}
+          },
+          "session": {},
+          "stories": {},
+          "storyPinData": {},
+          "todayarticles": {},
+          "topics": {},
+          "triedits": {},
+          "ui": {
+            "featureIntroductions": {
+              "currentFeatureIndex": "NoneType",
+              "features": []
+            },
+            "mainComponent": {
+              "current": "NoneType",
+              "locationToErrorMap": {}
+            },
+            "nuxProgress": {
+              "step": "str"
+            },
+            "nuxSelectedInterestImages": {
+              "images": []
+            },
+            "nuxSelectedPinImages": {
+              "images": []
+            },
+            "postRepinMoreIdeasUpsell": {
+              "recentSaves": [],
+              "recentUpsell": {}
+            },
+            "preferencesReady": "bool",
+            "queryStringBindReady": "bool"
+          },
+          "underageConfirmation": {
+            "isUnderageConfirmationModalVisible": "bool"
+          },
+          "upsell": {
+            "appUpsells": {
+              "appUpsellDismissCount": "int",
+              "floatingUpsell": {
+                "isDismissed": "bool",
+                "shouldShow": "bool"
+              },
+              "iabAppUpsell": {
+                "appUpsellType": "str",
+                "isBlocking": "bool",
+                "isShown": "bool"
+              },
+              "learningUpsell": {
+                "isShown": "bool"
+              }
+            },
+            "attributionLabel": "str",
+            "clickCloseUp": "bool",
+            "clickCloseUpContextMenuSaveButton": "bool",
+            "clickCommentComposerUpsell": "bool",
+            "clickContextMenuDownloadButton": "bool",
+            "clickContextMenuSaveButton": "bool",
+            "clickFollowButton": "bool",
+            "clickFollowersButton": "bool",
+            "clickFollowingButton": "bool",
+            "clickPinLinkCount": "int",
+            "clickPinLinkUpsell": "bool",
+            "clickRelatedPinOpenLinkUpsell": "bool",
+            "dwebOnLandDecisionMade": "bool",
+            "engagementScore": {
+              "NUS": "int",
+              "PES": "int",
+              "conversionIntentLevel": "str",
+              "lastCalculated": "int"
+            },
+            "followIsIdeaPin": "bool",
+            "gradientUpsell": {
+              "pageKey": "NoneType",
+              "shouldShowGradientUpsell": "bool"
+            },
+            "isGoldenSetBrowsing": "bool",
+            "latestL1Vertical": "NoneType",
+            "mWeb": {
+              "pinSaveCount": "int",
+              "pinViewCount": "int"
+            },
+            "mWebSignupModal": {
+              "isUnauthSharingModalsShown": "bool",
+              "lastShownTime": "NoneType",
+              "modal": {
+                "isShown": "bool"
+              },
+              "modalHasShown": "bool",
+              "scrollControllerHasDisplayed": "bool",
+              "timesShownForSessionCount": "int",
+              "upsellEligibleNavigationCount": "int"
+            },
+            "modal": {
+              "isShown": "bool"
+            },
+            "mwebOnLandDecisionMade": "bool",
+            "navigationalContainerPage": "str",
+            "navigationalPagesUpsellSeen": "bool",
+            "pinClickRelatedPinsCount": "int",
+            "pinId": "str",
+            "pinSaveCount": "int",
+            "pinViewCount": "int",
+            "relatedPinsGradientUpsellEverShown": "bool",
+            "showBanner": "bool",
+            "showRelatedPinsGradientUpsell": "bool",
+            "showSaveModal": "bool",
+            "showScrollDownUpsell": "bool",
+            "socialPinLandingContainerPage": "str",
+            "socialPinLandingInviter": "NoneType",
+            "socialPinLandingModalDismissed": "bool",
+            "socialPinLandingModalShown": "bool",
+            "uniqueNavigationalPagesSeen": [],
+            "upsellDismissCount": "int",
+            "upsellReason": "str"
+          },
+          "users": {
+            "": {
+              "id": "str",
+              "ip_country": "str",
+              "ip_region": "str",
+              "unauth_id": "str"
+            }
+          },
+          "verifiedMerchants": {
+            "vmpBannerLastDismissedAt": {},
+            "vmpCelebrationBannerDismissed": {},
+            "vmpWelcomeBannerDismissCount": {}
+          }
+        },
+        "isAppShell": "NoneType",
+        "otaData": {
+          "deltas": {
+            "Advertiser against all of {{marketName}} (category) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleExternalCategory": "str",
+            "Advertiser against all of {{marketName}} (vertical) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleExternalVertical": "str",
+            "Advertiser against all {{count}} account in {{marketName}} (category) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleCategory _one": "str",
+            "Advertiser against all {{count}} account in {{marketName}} (category) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleCategory _other": "str",
+            "Advertiser against all {{count}} account in {{marketName}} (vertical) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleVertical _one": "str",
+            "Advertiser against all {{count}} account in {{marketName}} (vertical) --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.subtitleVertical _other": "str",
+            "Information about External mode --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.banner.iconAccessibilityLabel": "str",
+            "Loading leaderboard --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.loading": "str",
+            "Rank by: {{metric}} --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.rankByButton": "str",
+            "The leaderboard could not be loaded. --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.error": "str",
+            "The {{topAccountsLabel}} figure is the average of its accounts’ shares. --- pinnacle.insights.sovRanking.metricTooltip.externalAverageExplanation": "str",
+            "To view the details of the competitors, toggle External mode: ON to OFF. External mode: OFF is for internal use only. <a id=\\\"guidelinesLink\\\">More details on data sharing guidelines</a> --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.banner.message": "str",
+            "You can exclude up to 5 inventory sources from a CTV campaign. --- m10n": "str",
+            "– --- pncl_external.insights.strategySignals.shareOfVoice.leaderboard.notRanked": "str"
+          }
+        }
+      },
       "top_keys": [
         "otaData",
         "inContextTranslation",
@@ -1209,6 +2362,175 @@
     },
     {
       "id": "__PWS_DATA__",
+      "shape": {
+        "adsAPIDomain": "str",
+        "appVersion": "str",
+        "context": {
+          "analysis_ua": {
+            "app_type": "int",
+            "app_version": "str",
+            "browser_name": "str",
+            "browser_version": "str",
+            "device": "str",
+            "device_type": "NoneType",
+            "os_name": "str",
+            "os_version": "str"
+          },
+          "app_type_detailed": "int",
+          "app_version": "str",
+          "autologin": "NoneType",
+          "browser_name": "str",
+          "browser_type": "int",
+          "browser_version": "str",
+          "country": "str",
+          "country_from_hostname": "str",
+          "country_from_ip": "str",
+          "csp_nonce": "str",
+          "current_url": "str",
+          "debug": "bool",
+          "deep_link": "str",
+          "enabled_advertiser_countries": [
+            "str"
+          ],
+          "facebook_token": "NoneType",
+          "full_path": "str",
+          "gestalt_theme": "str",
+          "has_dcip": "bool",
+          "has_geo_is_anon": "bool",
+          "has_sterling_access": "bool",
+          "http_referrer": "str",
+          "impersonator_user_id": "NoneType",
+          "invite_code": "str",
+          "invite_sender_id": "str",
+          "is_authenticated": "bool",
+          "is_bot": "str",
+          "is_full_page": "bool",
+          "is_hosting": "bool",
+          "is_mobile_agent": "bool",
+          "is_perf_metrics_bot": "bool",
+          "is_proxy": "bool",
+          "is_sterling_on_steroids": "bool",
+          "is_tablet_agent": "bool",
+          "is_tor": "bool",
+          "is_unauth_botspam_asn": "bool",
+          "is_vpn": "bool",
+          "language": "str",
+          "locale": "str",
+          "origin": "str",
+          "path": "str",
+          "placed_experiences": "NoneType",
+          "referrer": "NoneType",
+          "region_from_ip": "str",
+          "request_host": "str",
+          "request_identifier": "str",
+          "seo_debug": "bool",
+          "social_bot": "str",
+          "stage": "str",
+          "sterling_on_steroids_ldap": "NoneType",
+          "sterling_on_steroids_user_type": "NoneType",
+          "theme": "str",
+          "unauth_id": "str",
+          "user": {
+            "ip_country": "str",
+            "ip_region": "str",
+            "unauth_id": "str"
+          },
+          "user_agent": "str",
+          "user_agent_can_use_native_app": "bool",
+          "user_agent_platform": "str",
+          "user_agent_platform_version": "NoneType",
+          "utm_campaign": "NoneType",
+          "visible_url": "str"
+        },
+        "enableAdaptiveStatsLoggingFlush": "bool",
+        "experiments": {
+          "active": {},
+          "triggerable": {
+            "account_context_agent_aic_integration": "str",
+            "ace_ad_preview_safe_zone": "str",
+            "ace_shareable_ad_preview": "str",
+            "ace_shareable_ad_preview_routes": "str",
+            "ads_wpo_infra_hf": "str",
+            "ai_companion_full_page": "str",
+            "anticlimax_unauth_support": "str",
+            "ce_dweb_unauth_pin_card_overflow": "str",
+            "ce_mweb_blp_blocking_upsell": "str",
+            "ce_mweb_unauth_related_pins_limit_parent": "str",
+            "commerce_intergration_multisite": "str",
+            "commerce_intergration_nuvemshop_connect_page_upgrade": "str",
+            "concierge_cc_integration": "str",
+            "delivery_metrics_migration": "str",
+            "dweb_code76_rescue_email_modal": "str",
+            "dweb_download_in_context_menus_v3": "str",
+            "dweb_finetune_disable_autologin_behavior": "str",
+            "dweb_finetune_disable_autologin_behavior_v2": "str",
+            "dweb_google_button_visual_refresh": "str",
+            "dweb_google_user_no_password_inline_error": "str",
+            "dweb_unauth_cookie_consent": "str",
+            "dweb_unauth_cookie_consent_modal": "str",
+            "dweb_unauth_dynamic_search_placeholder": "str",
+            "dweb_unauth_login_modal_redesign": "str",
+            "dweb_unauth_login_page_housecleaning": "str",
+            "dweb_unauth_qr_code_expanded_on_login_modal": "str",
+            "dweb_unauth_qr_code_logo": "str",
+            "dweb_unauth_qr_code_refresh": "str",
+            "dweb_unauth_signup_modal_expanded_form": "str",
+            "dweb_unauth_signup_modal_redesign": "str",
+            "guidebook_advertiser_alert_settings": "str",
+            "guidebook_settings_in_pinnacle_header": "str",
+            "identity_password_reset_search_ui_updates": "str",
+            "identity_recaptcha_autologin_smartlock": "str",
+            "identity_smartlock_autologin_safety_refactor": "str",
+            "legal_webapp_unified_intake_dsa_removal": "str",
+            "legal_webapp_unified_intake_india": "str",
+            "legal_webapp_unified_intake_japan_idpa": "str",
+            "legal_webapp_unified_intake_turkey_removal": "str",
+            "legal_webapp_unified_intake_uk_osa": "str",
+            "log_graphql_error_body_enabled": "str",
+            "lop_eoq_lever_nav_dweb": "str",
+            "lop_unauth_lockdown_answers_klp": "str",
+            "lop_unauth_lockdown_board": "str",
+            "lop_unauth_lockdown_closeup": "str",
+            "lop_unauth_lockdown_ideas_klp": "str",
+            "lop_unauth_lockdown_main": "str",
+            "lop_unauth_lockdown_profile": "str",
+            "lop_unauth_lockdown_search": "str",
+            "lop_unauth_lockdown_shopping_klp": "str",
+            "lop_unauth_lockdown_today": "str",
+            "lop_unauth_lockdown_visual_search": "str",
+            "lop_unauth_personalization_search_history_mweb": "str",
+            "lop_unauth_personalization_search_recs_mweb": "str",
+            "lop_unauth_to_auth_exp_decache": "str",
+            "lop_web_should_block_unauth_request": "str",
+            "mh_aic_pilot": "str",
+            "mh_aic_tools": "str",
+            "mweb_closeup_unauth_asr_module_img_signature": "str",
+            "mweb_closeup_unauth_asr_module_killswitch": "str"
+          }
+        },
+        "initialHandlerId": "str",
+        "isPrefetch": "bool",
+        "renderMode": "str",
+        "routeTree": [
+          {
+            "children": [
+              {
+                "handle": {
+                  "handlerId": "str"
+                },
+                "id": "str",
+                "lazy": {
+                  "entry": "str"
+                },
+                "path": "str"
+              }
+            ],
+            "id": "str",
+            "path": "str"
+          }
+        ],
+        "site": "str"
+      },
       "top_keys": [
         "adsAPIDomain",
         "appVersion",
@@ -1225,6 +2547,308 @@
     },
     {
       "id": "__PWS_ROUTES__",
+      "shape": {
+        "ad-preview/[aId]/key/[key].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "ad-preview/[key].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "add-account.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "admin.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "admin/[entityId].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "admin/access_request.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "admin/billing_profile_history/[advertiserId].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "ads-repository.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "ads-repository/[id].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "ads/admin_bai.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "ads/assistant/chat/mobile.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/access_denied.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ad-preview/[key].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/ai-create.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/bulk_edit.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/campaign_mode.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/create.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/duplicate.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/edit.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/ads/edit_draft.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/audience/edit.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/audience_debug.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/audiences.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/automated/ads/create.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/automated/ads/edit.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/automated/campaign_generator.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/[id].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/documents.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/history.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/order_lines.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/payment_settings.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/prepaid_campaign_spend_summary.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/prepaid_spend_campaign_breakdown.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/promotions.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/shopify_billing.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/billing/tax_documents.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/bulk_editor.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/bulk_editor/[page].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/conversions.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/conversions/[page].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/conversions/integrations/adobe-analytics/setup.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/conversions/integrations/google-analytics/link-creation/login.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/conversions/integrations/google-analytics/link-creation/setup.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments/ab-test/create.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments/ab-test/edit_draft.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments/create.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments/manage.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/experiments/manage/[abtestId].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/history.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/manage_products.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/media_planner.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/media_planner/plan.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/media_planner/plan/[planId].js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/msot-optimizer.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/pin-builder.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/recommendations.js": {
+          "dependencies": [
+            "str"
+          ]
+        },
+        "advertiser/[advertiserId]/report-center/builder.js": {
+          "dependencies": [
+            "str"
+          ]
+        }
+      },
       "top_keys": [
         "ad-preview/[aId]/key/[key].js",
         "ad-preview/[key].js",
@@ -1467,153 +3091,171 @@
       "resource_response": {
         "code": "int",
         "data": {
-          "affiliate_link": "NoneType",
-          "ai_disclosures": [],
-          "attribution": "NoneType",
+          "access": [],
+          "affiliate_disclosure": "NoneType",
+          "alt_text": "NoneType",
           "buyable_product_availability": "NoneType",
-          "can_delete_did_it_and_comments": "bool",
-          "carousel_data": "NoneType",
-          "closeup_attribution": {
-            "ads_only_profile_site": "NoneType",
-            "blocked_by_me": "bool",
-            "domain_url": "NoneType",
-            "domain_verified": "bool",
-            "explicitly_followed_by_me": "bool",
-            "first_name": "str",
-            "followed_by_me": "bool",
-            "follower_count": "int",
-            "full_name": "str",
-            "id": "str",
-            "image_medium_url": "str",
-            "image_small_url": "str",
-            "indexed": "bool",
-            "instagram_data": "NoneType",
-            "is_ads_only_profile": "bool",
-            "is_default_image": "bool",
-            "is_verified_merchant": "bool",
-            "node_id": "str",
-            "type": "str",
-            "username": "str",
-            "verified_identity": {}
-          },
-          "closeup_description": "NoneType",
-          "closeup_unified_attribution": {
-            "ads_only_profile_site": "NoneType",
-            "blocked_by_me": "bool",
-            "domain_url": "NoneType",
-            "domain_verified": "bool",
-            "explicitly_followed_by_me": "bool",
-            "first_name": "str",
-            "followed_by_me": "bool",
-            "follower_count": "int",
-            "full_name": "str",
-            "id": "str",
-            "image_medium_url": "str",
-            "image_small_url": "str",
-            "indexed": "bool",
-            "instagram_data": "NoneType",
-            "is_ads_only_profile": "bool",
-            "is_default_image": "bool",
-            "is_verified_merchant": "bool",
-            "node_id": "str",
-            "type": "str",
-            "username": "str",
-            "verified_identity": {}
-          },
+          "category": "str",
+          "closeup_description": "str",
           "closeup_unified_description": "str",
-          "comment_count": "int",
-          "description": "str",
+          "collection_pin": "NoneType",
+          "content_sensitivity": {},
+          "creator_analytics": "NoneType",
+          "creator_class_instance": "NoneType",
           "description_html": "str",
           "did_it_disabled": "bool",
-          "digital_media_source_type": "NoneType",
-          "domain": "str",
           "dominant_color": "str",
-          "done_by_me": "bool",
-          "embed": "NoneType",
-          "formatted_description": {},
+          "formatted_description": {
+            "components": [
+              {
+                "content": "str",
+                "description_links": [],
+                "type": "str"
+              }
+            ]
+          },
+          "grid_title": "str",
           "has_been_boost_promoted": "bool",
-          "has_required_attribution_provider": "bool",
           "hashtags": [],
+          "highlighted_aggregated_comments": [],
           "id": "str",
-          "image_medium_url": "str",
-          "image_signature": "str",
+          "images": {
+            "136x136": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "170x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "236x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "474x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "564x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "600x315": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "60x60": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "736x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "orig": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            }
+          },
+          "is_eligible_for_aggregated_comments": "bool",
+          "is_eligible_for_brand_catalog": "bool",
+          "is_eligible_for_image_download": "bool",
           "is_eligible_for_pdp": "bool",
-          "is_eligible_for_related_products": "bool",
-          "is_hidden": "bool",
-          "is_native": "bool",
-          "is_quick_promotable_by_pinner": "bool",
+          "is_go_linkless": "bool",
+          "is_oos_product": "bool",
+          "is_playable": "bool",
+          "is_product_tagging_enabled_standard_pin": "bool",
+          "is_quick_promotable": "bool",
+          "is_stale_product": "bool",
           "is_whitelisted_for_tried_it": "bool",
+          "link": "str",
           "link_domain": "NoneType",
           "link_utm_applicable_and_replaced": "int",
+          "method": "str",
           "mobile_link": "NoneType",
-          "node_id": "str",
-          "pin_additional_note": "NoneType",
-          "pin_join": {
-            "annotations_with_links": {
-              "Knitwear": {
-                "name": "str",
-                "url": "str"
-              },
-              "Modern Knitwear": {
-                "name": "str",
-                "url": "str"
-              },
-              "Party Accessories": {
-                "name": "str",
-                "url": "str"
-              },
-              "Shawl": {
-                "name": "str",
-                "url": "str"
-              },
-              "Shoe Jewelry": {
-                "name": "str",
-                "url": "str"
-              },
-              "Soft Textures": {
-                "name": "str",
-                "url": "str"
-              },
-              "Sweater Outfits": {
-                "name": "str",
-                "url": "str"
-              },
-              "Sweaters & Cardigans": {
-                "name": "str",
-                "url": "str"
-              },
-              "Texture": {
-                "name": "str",
-                "url": "str"
-              }
+          "native_creator": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "str",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
             },
-            "canonical_pin": "NoneType",
-            "shopping_klp_urls": "NoneType",
-            "visual_annotation": [
-              "str"
-            ]
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
+          },
+          "node_id": "str",
+          "origin_pinner": "NoneType",
+          "pinner": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "str",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
+            },
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
           },
           "price_currency": "str",
           "price_value": "int",
+          "privacy": "str",
           "product_pin_data": "NoneType",
           "promoter": "NoneType",
-          "reaction_counts": {},
-          "repin_count": "int",
-          "section": "NoneType",
           "seo_description": "str",
+          "seo_noindex_reason": "NoneType",
+          "seo_title": "str",
           "ships_to_user_country": "bool",
-          "shopping_rec_disabled": "bool",
           "should_open_in_stream": "bool",
           "shuffle": "NoneType",
-          "sponsorship": "NoneType",
-          "story_pin_data": "NoneType",
-          "story_pin_data_id": "NoneType",
+          "shuffle_asset": "NoneType",
+          "third_party_pin_owner": "NoneType",
+          "tracked_link": "str",
           "type": "str",
           "unified_user_note": "str",
-          "utm_link": "str",
           "via_pinner": "NoneType",
           "video_status": "NoneType",
-          "video_status_message": "NoneType",
           "videos": "NoneType"
         },
         "endpoint_name": "str",
@@ -2070,8 +3712,8 @@
   ],
   "login_wall": false,
   "name": "pinterest",
-  "run": "gh39020268277",
-  "seconds": 25.1,
+  "run": "gh39020430294",
+  "seconds": 25.9,
   "text_tail": "ins, perfect for balls, dinners, weddings, and bridesmaid occasions. We provide full custom sizing, colour adjustment and reliable global delivery with strict quality control. Got enquiries about sizing, fabric swatches, order changes or after-sales issues? Contact our dedicated team at service@miabel.co.uk.\nDetails\n; Opens a new tab\nTemu.France\nTemu | Coque de téléphone : Coque de téléphone portrait d'art pour iPhone 17 16 15 14 13 12 11 Pro Max 12 13 Mini Xs Xr X 8 7 Plus+ absorption des chocs -rayures en TPU transparent | Cadeau d'\nProfitez de la livraison et du retour gratuits pour les nouveaux utilisateurs\nDetails\n; Opens a new tab\n1\nFor API access, please consult the API documentation.",
   "title": "Pinterest Ads",
   "url": "https://ads.pinterest.com/ads-repository/"
