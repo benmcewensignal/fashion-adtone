@@ -214,9 +214,9 @@ class Source:
         if not ids:
             return
         for item in self.run_actor(self._input(page_ids=ids)):
-            if "error" in item and len(item) <= 3:      # the actor's own report of a failure, not an ad: kept to be read
+            if "error" in item and len(item) <= 3:      # the actor's own report of a failure, not an ad: the house is not searched
                 self.errors.append({"house": house.id, **{k: str(v)[:300] for k, v in item.items()}})
-                continue
+                raise RuntimeError(f"Apify actor: {str(item.get('error'))[:200]}")
             yield item
 
     def is_houses(self, item: dict, house: registry.House, keep: list[dict]) -> bool:
