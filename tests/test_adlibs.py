@@ -408,3 +408,73 @@ def test_the_runway_looks_get_the_same_fingerprint_as_every_other_picture(tmp_da
     with np.load(d / "vectors" / f"{fe.tag}.npz", allow_pickle=False) as z:
         assert sorted(str(s) for s in z["shas"]) == ["s0", "s1", "s2", "s3"] and z["vecs"].shape[0] == 4
     assert clothes.fingerprint(embedder=fe, read_copy=copies, batch=2)["done"] == 0      # resumed: nothing made again
+
+
+class InvalidError(Exception):
+    """Modal's name for a call the service refuses (gRPC INVALID_ARGUMENT)."""
+
+
+def _fake_remote(bad: bytes | None = None, down: bool = False, calls: list | None = None):
+    """The reader's remote call: a valid reply per picture, refusing any batch holding `bad`, or every call."""
+    from PIL import Image
+    import io
+    rub = load_rubric()
+    fake = FakeScorer(rub)
+
+    def remote(jpegs, prompt, schema, grammar):
+        if calls is not None:
+            calls.append(len(jpegs))
+        if down or (bad is not None and bad in jpegs):
+            raise InvalidError("the service refused the call")
+        return [json.dumps(fake.score_image(Image.open(io.BytesIO(j)))) for j in jpegs]
+    return remote
+
+
+def test_a_picture_the_service_refuses_costs_only_itself():
+    from adtone.score import ModalScorer, ScoreError
+    good = [jpeg_bytes(toned_image(0.2 + 0.1 * i, seed=i)) for i in range(4)]
+    bad = jpeg_bytes(toned_image(0.9, seed=99))
+    calls = []
+    sc = ModalScorer(load_rubric(), remote=_fake_remote(bad=bad, calls=calls), revision="abc123")
+    got = sc.score_batches([[good[0], good[1], bad, good[2]], [good[3]]])
+    first, second = got
+    assert [isinstance(a, dict) for a in first] == [True, True, False, True] and isinstance(second[0], dict)
+    assert isinstance(first[2], ScoreError) and str(first[2]).startswith("refused by the reader")
+    assert len(calls) <= 8                     # the batch halved, not read picture by picture
+    # a service that refuses everything: every answer is its error, to be read later
+    down = ModalScorer(load_rubric(), remote=_fake_remote(down=True), revision="abc123")
+    got = down.score_batches([good[:3]])[0]
+    assert all(isinstance(a, ScoreError) and str(a).startswith("API:") for a in got)
+
+
+def test_a_failing_reader_leaves_the_pictures_for_the_read_stage_and_the_run_goes_on(tmp_data):
+    from adtone.score import ModalScorer
+    sess = _snap_session([])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    down = ModalScorer(load_rubric(), remote=_fake_remote(down=True), revision="abc123")
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), down, today=date(2026, 10, 17))
+    assert out["new_ads"] == 3 and out["problems"] == {} and out["read_ok"] == 0 and out["unread_tone-v1"] >= 2
+    assert "left unread" in out["stopped"] and "refused the call" in out["stopped"]
+    assert not store.read_jsonl(adlibs.paths("snap")["obs"] / "tone-v1.jsonl")      # nothing recorded as read
+    rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")}
+    pend = {p["ad_id"] for p in store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")}
+    assert pend and all(rows[a]["media_pending"] for a in pend)
+    # the read stage, with the reader back, reads them
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=sess, today=date(2026, 10, 17))
+    assert out["ads_read"] == len(pend) and out["ads_left"] == 0 and out["read_ok"] >= 2 and out["stopped"] is None
+    rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")}
+    assert not any(r.get("media_pending") for r in rows.values())
+
+
+def test_the_read_stage_keeps_an_ad_pending_when_the_service_fails_on_it(tmp_data):
+    from adtone.score import ModalScorer
+    sess = _snap_session([])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", today=date(2026, 10, 17))           # deferred: no reader
+    before = {p["ad_id"] for p in store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")}
+    down = ModalScorer(load_rubric(), remote=_fake_remote(down=True), revision="abc123")
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), down, sess=sess, today=date(2026, 10, 17))
+    after = {p["ad_id"] for p in store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")}
+    # the ads whose pictures came are kept pending; snap-2's video is not a video and it has no picture to read
+    assert {"snap-0", "snap-3"} <= after <= before and out["read_ok"] == 0 and "left unread" in out["stopped"]

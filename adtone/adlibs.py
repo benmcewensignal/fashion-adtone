@@ -117,12 +117,17 @@ def fetch_media(sess, urls: list[str], max_images: int = 5, max_videos: int = 2,
 class _Reading:
     """One rubric's reader: its observations file, what it has read, and the pictures queued for it."""
 
+    DOWN_AFTER = 2          # flushes in a row in which the service read nothing: the reading stops for the run
+
     def __init__(self, scorer, P: dict):
         self.scorer = scorer
         self.obs_path = P["obs"] / f"{scorer.rubric.version}.jsonl"
         self.scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(self.obs_path)}
         self.pending: list[tuple] = []
         self.new_obs: list[dict] = []
+        self.down = 0           # flushes in a row with nothing read
+        self.off = False
+        self.last_error = ""
 
 
 class Taker:
@@ -138,6 +143,7 @@ class Taker:
         scorers = [] if scorer is None else (list(scorer) if isinstance(scorer, (list, tuple)) else [scorer])
         self.readings = [_Reading(sc, P) for sc in scorers]
         self.holds: dict[str, int] = {}      # sha -> readers still to take the picture, before it is closed
+        self.dropped: set[str] = set()       # ads with a picture the service failed to read: to be read later
 
     @property
     def scorer(self):
@@ -155,6 +161,9 @@ class Taker:
             queued = 0
             for rd in self.readings:
                 sc = rd.scorer
+                if rd.off:
+                    self.dropped.add(row["ad_id"])
+                    continue
                 if (f.sha, sc.instrument) in rd.scored or any(f.sha == g.sha for g, _ in rd.pending):
                     continue
                 rd.pending.append((f, {"sha": f.sha, "instrument": sc.instrument, "ad_id": row["ad_id"],
@@ -170,15 +179,54 @@ class Taker:
                 f.image.close()
 
     def unread(self, row: dict) -> bool:
-        """Whether any picture of the row still lacks a reading by one of the readers."""
-        return any((m["sha"], rd.scorer.instrument) not in rd.scored for m in (row.get("media") or []) for rd in self.readings)
+        """Whether any picture of the row still lacks a reading by one of the readers working this run."""
+        return any((m["sha"], rd.scorer.instrument) not in rd.scored
+                   for m in (row.get("media") or []) for rd in self.readings if not rd.off)
+
+    @property
+    def all_off(self) -> bool:
+        return bool(self.readings) and all(rd.off for rd in self.readings)
+
+    def status(self) -> str | None:
+        """What the readers' failures come to, for the run's record; None when every reading went through."""
+        out = []
+        for rd in self.readings:
+            v = rd.scorer.rubric.version
+            if rd.off:
+                out.append(f"reader {v} stopped after repeated failures: {rd.last_error[:160]}")
+            elif rd.last_error:
+                out.append(f"reader {v}: {self.counts.get('unread_' + v, 0)} pictures left unread: {rd.last_error[:160]}")
+        return "; ".join(out) or None
+
+    def _release(self, f) -> None:
+        left = self.holds.get(f.sha, 1) - 1
+        if left <= 0:
+            self.holds.pop(f.sha, None)
+            f.image.close()
+        else:
+            self.holds[f.sha] = left
 
     def _flush(self, rd: _Reading) -> None:
+        """The reader's queue read in parallel batches. A picture the reader answers is recorded, valid or not;
+        one the service failed on ("API: ...") is left unread and its ad noted, so that a later run reads it;
+        a service that reads nothing in DOWN_AFTER flushes in a row is not asked again this run."""
         if not rd.pending:
             return
         jpegs = [jpeg_for_model(f.image) for f, _ in rd.pending]
-        answers = score_batches(rd.scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
+        try:
+            answers = score_batches(rd.scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
+        except ScoreError as e:
+            if not str(e).startswith("API:"):
+                raise
+            answers = [e] * len(rd.pending)
+        failed = 0
         for (f, ob), ans in zip(rd.pending, answers):
+            if isinstance(ans, ScoreError) and str(ans).startswith("API:"):
+                failed += 1
+                rd.last_error = str(ans)
+                self.dropped.add(ob["ad_id"])
+                self._release(f)
+                continue
             ob["scored_at"] = store.utc_now()
             if isinstance(ans, ScoreError):
                 ob["status"], ob["error"] = "invalid", str(ans)[:300]
@@ -190,12 +238,13 @@ class Taker:
                 self.counts[k] = self.counts.get(k, 0) + 1
             rd.new_obs.append(ob)
             rd.scored.add((f.sha, rd.scorer.instrument))
-            left = self.holds.get(f.sha, 1) - 1
-            if left <= 0:
-                self.holds.pop(f.sha, None)
-                f.image.close()
-            else:
-                self.holds[f.sha] = left
+            self._release(f)
+        if failed:
+            k = f"unread_{rd.scorer.rubric.version}"
+            self.counts[k] = self.counts.get(k, 0) + failed
+        rd.down = rd.down + 1 if failed == len(rd.pending) else 0
+        if rd.down >= rd.DOWN_AFTER:
+            rd.off = True
         rd.pending.clear()
 
     def flush(self) -> None:
@@ -261,7 +310,9 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                     counts["dropped"] = counts.get("dropped", 0) + before - len(ads)
                     store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]), reverse=True))
             pend_path = P["pending"] / f"{h.id}.jsonl"
-            pend = {r["ad_id"]: r for r in store.read_jsonl(pend_path)} if defer else {}
+            pend = {r["ad_id"]: r for r in store.read_jsonl(pend_path)}
+            n_pend = len(pend)
+            urls_of: dict[str, tuple] = {}       # this run's new ads' picture addresses, for any the reader fails on
             try:
                 for item in src.search_ads(h, keep, today - timedelta(days=src.lookback_days), today):
                     if clock() - t0 > budget_s:
@@ -301,6 +352,11 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                                                   "first_shown": row.get("first_shown"), "found": row["found"]}
                             counts["deferred"] += 1
                     else:
+                        if hasattr(src, "media_urls"):
+                            try:
+                                urls_of[row["ad_id"]] = src.media_urls(item)
+                            except Exception:
+                                pass
                         try:
                             media = src.media_for(item)
                         except (requests.RequestException, MediaError, OSError, ValueError) as e:
@@ -315,9 +371,18 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             except Exception as e:
                 problems[h.id] = f"ads: {e.__class__.__name__}: {str(e)[:200]}"
             finally:
+                if not defer:
+                    flush()                       # this house's pictures read before its rows are written
+                    for ad_id in sorted(taker.dropped & set(urls_of)):
+                        urls, kw = urls_of[ad_id]
+                        if urls and ad_id in ads:     # the service failed on it: kept for the read stage
+                            pend[ad_id] = {"ad_id": ad_id, "house_id": h.id, "urls": list(urls), "kw": dict(kw),
+                                           "first_shown": ads[ad_id].get("first_shown"), "found": ads[ad_id].get("found")}
+                            ads[ad_id]["media_pending"] = True
+                    taker.dropped.clear()             # an older ad read again and failed is read again next run
                 store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]),
                                                reverse=True))
-                if pend:
+                if pend or n_pend:
                     store.write_jsonl(pend_path, sorted(pend.values(), key=lambda r: r["ad_id"]))
             counts["houses"] += 1
         flush()
@@ -336,6 +401,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             except Exception:
                 pass
     taker.save()
+    if taker.status():
+        stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
     st.update({"run": run, "updated_at": store.utc_now(), "problems": problems, "stopped": stopped,
                "requests": getattr(src, "requests", None), "shape": sample_shape, **getattr(src, "state_extra", lambda: {})()})
     store.write_state(P["state"], st)
@@ -385,6 +452,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     if clock() - t0 > budget_s:
                         stopped = "budget"
                         break
+                    if taker.all_off:
+                        break
                     row = ads.get(ad_id)
                     if row is None:          # the ad's row is gone: nothing to complete
                         done.append(ad_id)
@@ -400,6 +469,12 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     done.append(ad_id)
             finally:
                 taker.flush()
+                for ad_id in [a for a in done if a in taker.dropped]:      # the service failed on it: read again later
+                    done.remove(ad_id)
+                    if ad_id in ads:
+                        ads[ad_id]["media_pending"] = True
+                counts["ads_read"] -= len(taker.dropped & set(pend))
+                taker.dropped.clear()
                 store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]),
                                                reverse=True))
                 for ad_id in done:
@@ -411,6 +486,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     except ScoreError as e:
         stopped = f"reader: {str(e)[:200]}"
     taker.save()
+    if taker.status():
+        stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
     out = {"run": run, "stage": "read", "updated_at": store.utc_now(), **counts, "stopped": stopped}
     store.append_jsonl(P["prov"], [out])
     return out

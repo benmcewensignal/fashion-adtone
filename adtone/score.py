@@ -248,11 +248,46 @@ class ModalScorer:
                 out.append(e)
         return out
 
+    def _split(self, b: list[bytes]) -> list[dict | ScoreError]:
+        """A batch the service refused, halved until the picture it cannot take is found: that picture's
+        answer is the refusal (an invalid reading, kept as such), and the rest are read."""
+        if not b:
+            return []
+        try:
+            return self.score_many(b)
+        except ScoreError as e:
+            if not str(e).startswith("API:"):
+                raise
+            if len(b) == 1:
+                return [ScoreError(f"refused by the reader: {str(e)[4:].strip()[:200]}")]
+        half = len(b) // 2
+        return self._split(b[:half]) + self._split(b[half:])
+
+    def _one_batch(self, b: list[bytes]) -> list[dict | ScoreError]:
+        """A batch read on its own. Refused whole, its first picture is tried alone: refused too, the service
+        is taken to be failing and every picture's answer is the service's error (left unread, to be read on a
+        later run); read, the rest are halved until the picture the service cannot take is found."""
+        try:
+            return self.score_many(b)
+        except ScoreError as e:
+            if not str(e).startswith("API:"):
+                raise
+            whole = e
+        if len(b) == 1:
+            return [whole]
+        try:
+            first = self.score_many(b[:1])
+        except ScoreError as e:
+            if not str(e).startswith("API:"):
+                raise
+            return [whole] * len(b)
+        return first + self._split(b[1:])
+
     def score_batches(self, batches: list[list[bytes]]) -> list[list[dict | ScoreError]]:
-        """Several batches at once, each on its own container; a batch the service fails is tried once more
-        on its own, and raised if it fails again."""
+        """Several batches at once, each on its own container. A batch the service fails is read again on its
+        own (see _one_batch); a picture whose answer is a service error ("API: ...") is left unread."""
         if self.fn is None or len(batches) < 2:
-            return [self.score_many(b) for b in batches]
+            return [self._one_batch(b) for b in batches]
         self.calls += len(batches)
         args = [(b, self.rubric.prompt, self.schema, self.grammar) for b in batches]
         try:
@@ -262,7 +297,7 @@ class ModalScorer:
         out = []
         for b, res in zip(batches, results):
             if isinstance(res, BaseException):
-                out.append(self.score_many(b))
+                out.append(self._one_batch(b))
                 continue
             got = []
             for text in res:
