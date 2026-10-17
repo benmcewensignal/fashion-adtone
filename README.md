@@ -184,7 +184,8 @@ key exists:
   Ads Repository for each house's EU report (advertiser, funding entity, targeting, impressions, reach,
   and an address for each ad but not its content), by the accounts in `reference/x_accounts.csv`.
 
-Snapchat's Ads Gallery needs no key at all: `adtone.snap` reads it weekly through Snap's open API.
+Two repositories need no key at all: Snapchat's Ads Gallery (`adtone.snap`, Snap's open API) and Pinterest's
+Ads Repository (`adtone.pinterest`, read as its own public page reads it), both weekly.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and

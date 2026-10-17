@@ -194,3 +194,54 @@ def test_meta_through_the_vendor_finds_the_houses_pages_then_their_ads_in_our_ro
     assert r["beneficiary_payers"] == [{"payer": "Gucci", "beneficiary": "Gucci"}] and r["target_locations"][0]["name"] == "France"
     assert r["line"] in ("collection", "other", "season") and "copy" in r and "Shop now" not in json.dumps(rows)
     assert len(r["media"]) == 1   # the original and the resized picture are one picture
+
+
+def _pin_item(i, names, country="FR"):
+    return {"pin_id": f"9{i:03d}", "ad_details": {"advertiser_names": names, "age_buckets": ["25-34"], "content_commercial": True,
+                                                "countries": [country], "devices": [], "end_date": "2026-10-10", "genders": ["female"],
+                                                "image_link": f"https://i.pinimg.example/originals/{i}.jpg", "interests": ["fashion"],
+                                                "keywords_used": False, "pin_data": {"title": "The new collection", "details": "Shop now.",
+                                                                                     "image_link": f"https://i.pinimg.example/originals/{i}.jpg", "video_link": None},
+                                                "pinner_list_types": [], "start_date": "2026-09-20", "user_count_by_country": {"France": "0 - 10000"},
+                                                "user_count_eu": "0 - 10000", "review_status": None}}
+
+
+def _pinterest_session(calls):
+    def get(url, params):
+        if url == "https://ads.pinterest.com/resource/ApiResource/get/":
+            opts = json.loads(params["data"])["options"]
+            calls.append(opts)
+            if opts["url"].endswith("advertiser_names"):
+                return FakeResponse(200, payload={"resource_response": {"status": "success", "data": {"advertiser_names": ["Gucci", "Gucci Beauty", "Gucci Outlet"]}}})
+            d = opts["data"]
+            assert d["advertiser_name"] == "Gucci" and d["page_size"] == 50 and d["country"] in ("FR", "DE")
+            if d["country"] == "FR" and d["end_date"] == "2026-10-17":
+                if "bookmark" not in d:
+                    return FakeResponse(200, payload={"resource_response": {"status": "success", "bookmark": "B1",
+                                                                            "data": {"pin_ids_with_metadata": [_pin_item(1, ["Gucci"]), _pin_item(2, ["Gucci"])]}}})
+                return FakeResponse(200, payload={"resource_response": {"status": "success", "bookmark": "-end-",
+                                                                        "data": {"pin_ids_with_metadata": [_pin_item(3, ["Gucci"])]}}})
+            if d["country"] == "DE" and d["end_date"] == "2026-10-17":
+                return FakeResponse(200, payload={"resource_response": {"status": "success", "data": {"pin_ids_with_metadata": [_pin_item(1, ["Gucci"], "DE")]}}})
+            return FakeResponse(200, payload={"resource_response": {"status": "success", "data": {"pin_ids_with_metadata": []}}})
+        if url.endswith(".jpg"):
+            n = int(url.rsplit("/", 1)[-1].split(".")[0])
+            return FakeResponse(200, content=jpeg_bytes(toned_image(0.35 + 0.05 * n, seed=200 + n)))
+        return FakeResponse(404)
+    return FakeSession(get)
+
+
+def test_pinterest_reads_the_repository_a_month_and_a_country_at_a_time_and_keeps_each_ad_once(tmp_data):
+    from adtone import pinterest
+    calls = []
+    src = pinterest.Source(_pinterest_session(calls), sleep=lambda s: None, pace_s=0, countries=("FR", "DE"))
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()), today=date(2026, 10, 17))
+    assert out["problems"] == {} and out["new_ads"] == 3 and out["pictures"] == 3
+    st = store.read_state(adlibs.paths("pinterest")["state"])
+    assert [a["name"] for a in st["advertisers"]["gucci"]["keep"]] == ["Gucci"] and st["country_form"] == "code"
+    rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("pinterest")["ads"] / "gucci.jsonl")}
+    assert set(rows) == {"9001", "9002", "9003"} and rows["9001"]["user_count_eu"] == "0 - 10000"
+    assert rows["9001"]["first_shown"] == "2026-09-20" and rows["9001"]["countries"] == ["FR"] and rows["9001"]["genders"] == ["female"]
+    assert "The new collection" not in json.dumps(list(rows.values())) and rows["9001"]["copy"]
+    windows = sorted({(c["data"]["start_date"], c["data"]["end_date"]) for c in calls if c["url"].endswith("ad_library")})
+    assert windows[-1] == ("2026-09-17", "2026-10-17") and windows[0] == ("2025-10-18", "2025-11-10") and len(windows) == 12
