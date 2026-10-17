@@ -41,15 +41,15 @@ def paths(name: str) -> dict[str, Path]:
             "state": config.STATE_DIR / f"{name}.json", "prov": config.PROV_DIR / f"{name}.jsonl"}
 
 
-def shape(obj, depth: int = 0):
+def shape(obj, depth: int = 0, max_depth: int = 6):
     """The keys and types of a record, without its values: what a library actually returns, kept in the
     state after the first live run so the row can be tuned to it without storing any ad's text."""
-    if depth > 6:
+    if depth > max_depth:
         return "..."
     if isinstance(obj, dict):
-        return {str(k): shape(v, depth + 1) for k, v in list(obj.items())[:60]}
+        return {str(k): shape(v, depth + 1, max_depth) for k, v in list(obj.items())[:60]}
     if isinstance(obj, list):
-        return [shape(obj[0], depth + 1)] if obj else []
+        return [shape(obj[0], depth + 1, max_depth)] if obj else []
     return type(obj).__name__
 
 

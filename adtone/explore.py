@@ -178,7 +178,8 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
                     obj = json.loads(t)
                 except ValueError:
                     continue
-                item = {"id": sc.get("id"), "type": sc.get("type"), "top_keys": list(obj.keys())[:40] if isinstance(obj, dict) else "list"}
+                item = {"id": sc.get("id"), "type": sc.get("type"), "top_keys": list(obj.keys())[:40] if isinstance(obj, dict) else "list",
+                        "shape": adlibs.shape(obj) if len(t) < 300000 else "too large"}
                 rr = None
                 stack = [obj]
                 while stack and rr is None:
