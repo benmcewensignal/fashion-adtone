@@ -239,7 +239,7 @@ class ModalScorer:
         try:
             texts = self.remote(jpegs, self.rubric.prompt, self.schema, self.grammar)
         except Exception as e:   # Modal client errors vary by version; any failure here is the service's
-            raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
+            raise ScoreError(f"API: Modal {e.__class__.__name__}: {str(e)[:160]}") from None
         out: list[dict | ScoreError] = []
         for text in texts:
             try:
@@ -258,7 +258,7 @@ class ModalScorer:
         try:
             results = list(self.fn.starmap(args, return_exceptions=True))
         except Exception as e:
-            raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
+            raise ScoreError(f"API: Modal {e.__class__.__name__}: {str(e)[:160]}") from None
         out = []
         for b, res in zip(batches, results):
             if isinstance(res, BaseException):
