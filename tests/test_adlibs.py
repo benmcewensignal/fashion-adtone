@@ -201,7 +201,9 @@ def test_meta_through_the_vendor_finds_the_houses_pages_then_their_ads_in_our_ro
     cc = metaweb.Source(_apify_session({}), token="t", actor="curious_coder~facebook-ads-library-scraper", countries="FR", sleep=lambda s: None)
     inp = cc._input(page_ids=["100"], max_results=120)
     assert inp["urls"][0]["url"].endswith("country=FR&search_type=page&view_all_page_id=100") and inp["scrapeAdDetails"] is True
-    assert inp["limitPerSource"] == 120 and inp["scrapePageAds"]["countryCode"] == "FR"
+    assert inp["limitPerSource"] == 120 and inp["scrapePageAds"]["countryCode"] == "FR" and inp["scrapePageAds"]["period"] == ""
+    cc.period = "last30d"     # the weekly top-up asks for the last thirty days only
+    assert cc._input(page_ids=["100"])["scrapePageAds"]["period"] == "last30d"
 
 
 def _pin_item(i, names, country="FR"):

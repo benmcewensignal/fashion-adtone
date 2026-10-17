@@ -28,6 +28,9 @@ on:
         description: "search every house again, even one searched to the end this week"
         type: boolean
         default: false
+      period:
+        description: "the vendor's period: empty for the whole library, last30d for a top-up"
+        default: ""
       countries:
         description: "the library's country filter for this run (empty: the META_COUNTRIES variable, default ALL)"
         default: ""
@@ -62,6 +65,8 @@ jobs:
       META_COUNTRIES: ${{ github.event.inputs.countries || vars.META_COUNTRIES || 'ALL' }}
       META_MAX_ADS: ${{ github.event.inputs.max_ads || vars.META_MAX_ADS || '2000' }}
       META_INPUT_FORM: ${{ github.event.inputs.form || vars.META_INPUT_FORM || 'library' }}
+      # the weekly run asks the vendor for the last thirty days only; a dispatched run takes the period given, or the whole library
+      META_PERIOD: ${{ github.event_name == 'schedule' && (vars.META_PERIOD || 'last30d') || github.event.inputs.period || '' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}

@@ -89,11 +89,12 @@ class Source:
         self.countries = [c.strip().upper() for c in (countries or os.environ.get("META_COUNTRIES", "ALL")).split(",") if c.strip()]
         self.max_ads = max_ads or int(os.environ.get("META_MAX_ADS", "2000"))
         self.form = os.environ.get("META_INPUT_FORM", "library").strip() or "library"
+        self.period = os.environ.get("META_PERIOD", "").strip()      # "" for the whole library, last30d for the weekly top-up
         self.sleep, self.clock, self.t0, self.budget_s = sleep, clock, clock(), budget_s
         self.requests, self.runs, self.cost_usd, self.errors = 0, [], 0.0, []
 
     def state_extra(self) -> dict:
-        return {"actor": self.actor, "countries": self.countries, "form": self.form, "vendor_runs": self.runs[-40:],
+        return {"actor": self.actor, "countries": self.countries, "form": self.form, "period": self.period, "vendor_runs": self.runs[-40:],
                 "vendor_errors": self.errors[-20:]}
 
     def _call(self, method: str, path: str, **kw) -> dict:
@@ -160,7 +161,7 @@ class Source:
             urls = [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&search_type=page&view_all_page_id={p}" for p in page_ids or []]
             urls += [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&q={t}&search_type=keyword_unordered" for t in terms or []]
             return {"urls": [{"url": u} for u in urls], "scrapeAdDetails": True, "limitPerSource": n,
-                    "scrapePageAds": {"period": "", "activeStatus": "all", "sortBy": "most_recent", "countryCode": country}}
+                    "scrapePageAds": {"period": self.period, "activeStatus": "all", "sortBy": "most_recent", "countryCode": country}}
         if self.actor.startswith("apify~"):
             country = self.countries[0] if self.countries else "ALL"
             if self.form == "page":   # the page's own address, which the actor's issue tracker shows answered with the EU block
