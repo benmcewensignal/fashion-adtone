@@ -3,9 +3,12 @@ run-name: metaweb ${{ github.event_name }}
 # Meta's Ad Library as a data vendor reads it: an Apify actor's API, paid per ad. Each house's Facebook pages
 # are found once by name and kept in the state for checking; their ads for the past year follow, in the row
 # shape the official API's ads take. Weekly. Waits, recording that it waited, until APIFY_TOKEN exists.
+# Hourly as well while the first year is incomplete: the houses never searched to the end, then the made
+# pictures still waiting to be read (scripts/backfill_left.py); an hour with nothing left does nothing.
 on:
   schedule:
     - cron: "15 8 * * 4"
+    - cron: "50 * * * *"
   workflow_dispatch:
     inputs:
       houses:
@@ -69,8 +72,9 @@ jobs:
       META_COUNTRIES: ${{ github.event.inputs.countries || vars.META_COUNTRIES || 'ALL' }}
       META_MAX_ADS: ${{ github.event.inputs.max_ads || vars.META_MAX_ADS || '2000' }}
       META_INPUT_FORM: ${{ github.event.inputs.form || vars.META_INPUT_FORM || 'library' }}
-      # the weekly run asks the vendor for the last thirty days only; a dispatched run takes the period given, or the whole library
-      META_PERIOD: ${{ github.event_name == 'schedule' && (vars.META_PERIOD || 'last30d') || github.event.inputs.period || '' }}
+      # the weekly run asks the vendor for the last thirty days only (a house never searched to the end gets its whole
+      # year whatever the period); the hourly backfill and a dispatched run without a period, the whole library
+      META_PERIOD: ${{ github.event.schedule == '15 8 * * 4' && (vars.META_PERIOD || 'last30d') || github.event.inputs.period || '' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
@@ -78,22 +82,47 @@ jobs:
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
     steps:
       - uses: actions/checkout@v4
+      - name: What the first year still lacks
+        id: left
+        run: |
+          if [ "${{ github.event.schedule }}" = "50 * * * *" ]; then
+            python3 scripts/backfill_left.py metaweb >> "$GITHUB_OUTPUT"
+            echo "hourly=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-python@v5
+        if: steps.left.outputs.go == 'yes'
         with: { python-version: "3.12", cache: pip }
       - name: Install
+        if: steps.left.outputs.go == 'yes'
         timeout-minutes: 15
         run: |
           if [ -n "$APIFY_TOKEN" ]; then pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt; else pip install -r requirements.txt; fi
       - name: Cache embedder weights
-        if: env.APIFY_TOKEN != ''
+        if: env.APIFY_TOKEN != '' && steps.left.outputs.go == 'yes'
         uses: actions/cache@v4
         with:
           path: ~/.cache/huggingface
           key: hf-openclip-vitb32-laion2b-v1
       - name: Collect ads
+        if: steps.left.outputs.go == 'yes'
         continue-on-error: true
         timeout-minutes: 90
         run: |
+          if [ "${{ steps.left.outputs.hourly }}" = "yes" ]; then
+            # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
+            NC=""; if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then NC="--no-clothes"; fi
+            start=$SECONDS
+            if [ "${{ steps.left.outputs.collect }}" = "yes" ]; then
+              python -m adtone.metaweb collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --no-reader --houses "${{ steps.left.outputs.houses }}" || true
+            fi
+            left=$(( 75 - (SECONDS - start) / 60 ))
+            if [ "$left" -gt 5 ]; then
+              python -m adtone.metaweb read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --skip-dynamic $NC || true
+            fi
+            exit 0
+          fi
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
@@ -104,10 +133,11 @@ jobs:
           if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
           python -m adtone.metaweb "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
-        if: env.APIFY_TOKEN != ''
+        if: env.APIFY_TOKEN != '' && steps.left.outputs.go == 'yes'
         continue-on-error: true
         timeout-minutes: 3
         run: python -m adtone.metaweb probe --run "gh${GITHUB_RUN_ID}"
       - name: Persist
+        if: steps.left.outputs.go == 'yes'
         timeout-minutes: 10
         run: bash scripts/persist.sh metaweb "metaweb ${{ github.event_name }}"

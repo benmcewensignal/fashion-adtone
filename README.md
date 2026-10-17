@@ -194,11 +194,20 @@ Ads Repository (`adtone.pinterest`, read as its own public page reads it), both 
 Every ad-library workflow takes a `stage`: `collect` (the default) searches the library and reads each new
 ad's pictures as it goes; with `no_reader` it keeps the pictures' addresses aside instead, under
 `data/<source>/pending/`, and a later run with stage `read` fetches and reads them in its own budget, so a
-backfill of forty houses can be gathered in a few hours and read over the days after. Each picture is read
-twice: the eighteen questions by the pinned reader, and the clothes rubric by the larger reader the runway
-looks and homepage pictures were read with (`--no-clothes` leaves the second out), each to its own file under
-`data/<source>/obs/`, beside the fingerprint. The reader on Modal runs up to `ADTONE_READER_CONTAINERS`
-containers (four) when a caller sends several batches at once.
+backfill of forty houses can be gathered in a few hours and read over the days after. The houses share the
+read stage's budget, the house whose addresses lapse first going first; within a house the addresses that
+lapse first are read first (Meta's lapse a few days after the search), then an order fixed by the ad's id and
+blind to its date, so that a read cut short is a fair sample of the year. An ad whose addresses have lapsed is
+not fetched: its row says `media_lapsed` and it waits for the next collection, which renews them. While a
+library's first year is incomplete, its workflow also runs hourly (`scripts/backfill_left.py`): the houses
+never searched to the end, then the pictures waiting; an hour with nothing left does nothing. A house never
+searched to the end is searched for its whole year, whatever period the run asks for.
+
+Each picture is read by the pinned reader with the eighteen questions, to `data/<source>/obs/`, beside the
+fingerprint. The clothes rubric, read by the larger reader the runway looks and homepage pictures were read
+with, is not read on advertisements until Amendment 3 is frozen: the workflows leave it out unless the
+repository variable `ADS_CLOTHES` is `yes` (`--no-clothes` on the command line). The reader on Modal runs up
+to `ADTONE_READER_CONTAINERS` containers (four) when a caller sends several batches at once.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and

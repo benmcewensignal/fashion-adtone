@@ -2,9 +2,12 @@ name: pinterest
 run-name: pinterest ${{ github.event_name }}
 # Pinterest's Ads Repository (its ad library for the EU under the DSA), through its own public page in a
 # headless browser: no account, no key, from the runner as it is. Weekly; the repository holds a year, so the history grows forward.
+# Hourly as well while the first year is incomplete: the houses never searched to the end, then any pictures
+# kept aside for the read stage (scripts/backfill_left.py); an hour with nothing left does nothing.
 on:
   schedule:
     - cron: "5 8 * * 4"
+    - cron: "35 * * * *"
   workflow_dispatch:
     inputs:
       houses:
@@ -51,20 +54,46 @@ jobs:
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
     steps:
       - uses: actions/checkout@v4
+      - name: What the first year still lacks
+        id: left
+        run: |
+          if [ "${{ github.event.schedule }}" = "35 * * * *" ]; then
+            python3 scripts/backfill_left.py pinterest >> "$GITHUB_OUTPUT"
+            echo "hourly=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-python@v5
+        if: steps.left.outputs.go == 'yes'
         with: { python-version: "3.12", cache: pip }
       - name: Install
+        if: steps.left.outputs.go == 'yes'
         timeout-minutes: 15
         run: pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt playwright && python -m playwright install --with-deps chromium
       - name: Cache embedder weights
+        if: steps.left.outputs.go == 'yes'
         uses: actions/cache@v4
         with:
           path: ~/.cache/huggingface
           key: hf-openclip-vitb32-laion2b-v1
       - name: Collect ads
+        if: steps.left.outputs.go == 'yes'
         continue-on-error: true
         timeout-minutes: 85
         run: |
+          if [ "${{ steps.left.outputs.hourly }}" = "yes" ]; then
+            # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
+            NC=""; if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then NC="--no-clothes"; fi
+            start=$SECONDS
+            if [ "${{ steps.left.outputs.collect }}" = "yes" ]; then
+              python -m adtone.pinterest collect --run "gh${GITHUB_RUN_ID}" --budget-min 70 --houses "${{ steps.left.outputs.houses }}" $NC || true
+            fi
+            left=$(( 75 - (SECONDS - start) / 60 ))
+            if [ "${{ steps.left.outputs.read }}" = "yes" ] && [ "$left" -gt 5 ]; then
+              python -m adtone.pinterest read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" $NC || true
+            fi
+            exit 0
+          fi
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
@@ -74,9 +103,11 @@ jobs:
           if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
           python -m adtone.pinterest "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
+        if: steps.left.outputs.go == 'yes'
         continue-on-error: true
         timeout-minutes: 3
         run: python -m adtone.pinterest probe --run "gh${GITHUB_RUN_ID}"
       - name: Persist
+        if: steps.left.outputs.go == 'yes'
         timeout-minutes: 10
         run: bash scripts/persist.sh pinterest "pinterest ${{ github.event_name }}"

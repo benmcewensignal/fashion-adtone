@@ -28,6 +28,8 @@ reads them later, in its own budget, and the row gets its pictures as if they ha
 """
 from __future__ import annotations
 
+import hashlib
+import re
 import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -287,6 +289,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             done = st["searched"].get(h.id)
             if done and (today - date.fromisoformat(done)).days < skip_days:
                 continue                  # searched to the end this week already: a run cut short picks up the rest
+            if hasattr(src, "first_search"):     # a house never searched to the end gets its whole year, whatever the run's period
+                src.first_search = done is None
             rec = st["advertisers"].get(h.id) or {}
             if not rec.get("checked") or (today - date.fromisoformat(rec["checked"])).days >= src.advertiser_refresh_days:
                 try:
@@ -331,6 +335,18 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                         kept = {**ads[row["ad_id"]], **{k: v for k, v in row.items() if v is not None}}
                         ads[row["ad_id"]] = kept
                         counts["updated_ads"] += 1
+                        if kept.get("media_pending") and hasattr(src, "media_urls"):
+                            # the addresses kept aside lapse (Meta's within days of the search): this search's replace them
+                            try:
+                                urls, kw = src.media_urls(item)
+                            except Exception:
+                                urls, kw = (), {}
+                            if urls:
+                                pend[row["ad_id"]] = {**pend.get(row["ad_id"], {}), "ad_id": row["ad_id"], "house_id": h.id,
+                                                      "urls": list(urls), "kw": dict(kw), "first_shown": kept.get("first_shown"),
+                                                      "found": kept.get("found")}
+                                kept.pop("media_lapsed", None)
+                                counts["addresses_renewed"] = counts.get("addresses_renewed", 0) + 1
                         if not defer and kept.get("media") and taker.unread(kept):
                             # a picture read before a reader was added: fetched again and read by the readers it lacks
                             try:
@@ -418,16 +434,38 @@ DYNAMIC = ("DCO", "DPA")     # Meta's dynamic-creative and catalogue units: prod
 FETCH_WORKERS = int(os.environ.get("ADTONE_FETCH_WORKERS") or 8)    # ads whose pictures are fetched at once
 CHUNK_ADS = 12                                                        # ads fetched together, then taken in order
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+NO_LAPSE = 1 << 62
+_OE = re.compile(r"[?&]oe=([0-9A-Fa-f]{6,12})(?=&|$)")
+LAPSE_MARGIN_S = 600         # an address lapsing within ten minutes is not worth the fetch
+
+
+def lapses(pr: dict) -> int:
+    """When the first of a waiting ad's picture addresses lapses, in seconds since 1970, as the address itself
+    says (Meta's carry the time in hex, as oe=, a few days after the search); NO_LAPSE when none says."""
+    ts = [int(m.group(1), 16) for m in (_OE.search(u) for u in pr.get("urls") or []) if m]
+    return min(ts) if ts else NO_LAPSE
+
+
+def read_order(item: tuple[str, dict]) -> tuple:
+    """The order a house's waiting ads are read in: the addresses that lapse first, six hours at a time, then an
+    order fixed by the ad's id and blind to its date, so that what a run cut short has read is a fair sample
+    of the house's year rather than its latest weeks."""
+    ad_id, pr = item
+    return (lapses(pr) // 21600, hashlib.sha1(ad_id.encode()).hexdigest())
 
 
 def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, budget_s: float = 60 * 60,
                  sess=None, today: date | None = None, clock=time.monotonic, skip_dynamic: bool = False,
-                 fetch_workers: int = FETCH_WORKERS, chunk_ads: int = CHUNK_ADS) -> dict:
-    """The pictures kept aside by runs without the reader: fetched, fingerprinted and read, house by house,
-    each ad's row completed as it goes; what the budget leaves waits for the next run. With skip_dynamic,
-    the dynamic and catalogue units are left for later and the made pictures read first. The pictures of a
-    few ads are fetched at once (most of the stage's time was the downloads, one after another), and taken
-    into the rows in the ads' order."""
+                 fetch_workers: int = FETCH_WORKERS, chunk_ads: int = CHUNK_ADS, wall=time.time) -> dict:
+    """The pictures kept aside by runs without the reader: fetched, fingerprinted and read, each ad's row
+    completed as it goes; what the budget leaves waits for the next run.
+
+    The houses share the budget: each in turn reads for its share of the time left, the house whose addresses
+    lapse first going first, and a further round takes up what a house finishing early left. Within a house,
+    see read_order. An ad whose addresses have lapsed is not fetched: its row says media_lapsed and it waits
+    for the addresses of the next collection, which replace them. An ad the service failed on is not tried
+    again in the same run. With skip_dynamic, the dynamic and catalogue units are left for later. The pictures
+    of a few ads are fetched at once, and taken into the rows in order."""
     import threading
     from concurrent.futures import ThreadPoolExecutor
     P = paths(name)
@@ -453,73 +491,120 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
         except (requests.RequestException, MediaError, OSError, ValueError) as e:
             return [], f"{e.__class__.__name__}: {str(e)[:120]}"
 
+    def waiting(h) -> tuple[dict, dict]:
+        """The house's waiting ads: those to read in this run, and the dynamic units left for later."""
+        pend_all = {r["ad_id"]: r for r in store.read_jsonl(P["pending"] / f"{h.id}.jsonl")}
+        later = {}
+        if skip_dynamic and pend_all:
+            formats = {r["ad_id"]: r.get("display_format") for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
+            later = {k: v for k, v in pend_all.items() if (formats.get(k) or "") in DYNAMIC}
+        return {k: v for k, v in pend_all.items() if k not in later}, later
+
     pool = ThreadPoolExecutor(max_workers=max(1, fetch_workers))
     t0 = clock()
-    counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0, "dynamic_left": 0}
+    counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0,
+              "dynamic_left": 0, "lapsed": 0}
     taker = Taker(P, run, embedder, scorer, counts)
     stopped = None
+    tried: set[str] = set()              # ads taken in this run, read or failed on
+    left: dict[str, int] = {}            # house -> ads still waiting (lapsed ones too)
+    readable: dict[str, int] = {}        # house -> ads this run can still read
+    lapsed: dict[str, int] = {}
+    queue = []
+    for i, h in enumerate(reg.houses):
+        pend, later = waiting(h)
+        counts["dynamic_left"] += len(later)
+        if pend:
+            cutoff = wall() + LAPSE_MARGIN_S
+            first = min((t for t in (lapses(pr) for pr in pend.values()) if t >= cutoff), default=NO_LAPSE)
+            queue.append((first, i, h))
+            left[h.id] = readable[h.id] = len(pend)
+    houses = [h for _, _, h in sorted(queue, key=lambda t: t[:2])]
+    visited: set[str] = set()
+
+    def read_house(h, deadline: float) -> int:
+        """One visit: the house's waiting ads read until its share of the time is spent; how many were read."""
+        nonlocal stopped
+        pend, later = waiting(h)
+        path = P["ads"] / f"{h.id}.jsonl"
+        ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
+        cutoff = wall() + LAPSE_MARGIN_S
+        gone = {k for k, pr in pend.items() if lapses(pr) < cutoff}
+        order = sorted(((k, pr) for k, pr in pend.items() if k not in gone and k not in tried), key=read_order)
+        done, n = [], 0
+        try:
+            for i in range(0, len(order), max(1, chunk_ads)):
+                now = clock()
+                if now - t0 > budget_s:
+                    stopped = "budget"
+                    break
+                if now > deadline or taker.all_off:
+                    break
+                chunk = order[i:i + max(1, chunk_ads)]
+                done += [ad_id for ad_id, _ in chunk if ad_id not in ads]     # the ad's row is gone: nothing to complete
+                todo = [(ad_id, pr) for ad_id, pr in chunk if ad_id in ads]
+                got = list(pool.map(lambda kv: fetch(kv[1]), todo)) if len(todo) > 1 and fetch_workers > 1 \
+                    else [fetch(pr) for _, pr in todo]
+                for (ad_id, pr), (media, err) in zip(todo, got):
+                    row = ads[ad_id]
+                    if err:
+                        row["media_error"] = err
+                        counts["media_errors"] += 1
+                    taker.take(row, media, h.id, today)
+                    row.pop("media_pending", None)
+                    row.pop("media_lapsed", None)
+                    counts["ads_read"] += 1
+                    n += 1
+                    tried.add(ad_id)
+                    done.append(ad_id)
+        finally:
+            taker.flush()
+            failed = [a for a in done if a in taker.dropped]
+            for ad_id in failed:                    # the service failed on it: read again in a later run
+                done.remove(ad_id)
+                if ad_id in ads:
+                    ads[ad_id]["media_pending"] = True
+            counts["ads_read"] -= len(failed)
+            n -= len(failed)
+            taker.dropped.clear()
+            for ad_id in gone:                      # waits for fresh addresses from the next collection
+                if ad_id in ads:
+                    ads[ad_id]["media_lapsed"] = True
+            store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]), reverse=True))
+            for ad_id in done:
+                pend.pop(ad_id, None)
+            store.write_jsonl(P["pending"] / f"{h.id}.jsonl", sorted({**pend, **later}.values(), key=lambda r: r["ad_id"]))
+            left[h.id] = len(pend)
+            lapsed[h.id] = len(gone)
+            readable[h.id] = sum(1 for k in pend if k not in gone and k not in tried)
+            taker.save()
+        return n
+
     try:
-        for h in reg.houses:
-            pend_path = P["pending"] / f"{h.id}.jsonl"
-            pend_all = {r["ad_id"]: r for r in store.read_jsonl(pend_path)}
-            later = {}
-            if skip_dynamic and pend_all:
-                formats = {r["ad_id"]: r.get("display_format") for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
-                later = {k: v for k, v in pend_all.items() if (formats.get(k) or "") in DYNAMIC}
-                counts["dynamic_left"] += len(later)
-            pend = {k: v for k, v in pend_all.items() if k not in later}
-            if not pend:
-                continue
-            if clock() - t0 > budget_s:
-                stopped = "budget"
-                counts["ads_left"] += len(pend)
-                continue
-            path = P["ads"] / f"{h.id}.jsonl"
-            ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
-            done = []
-            order = sorted(pend.items(), key=lambda kv: (kv[1].get("first_shown") or "", kv[0]), reverse=True)
-            try:
-                for i in range(0, len(order), max(1, chunk_ads)):
-                    if clock() - t0 > budget_s:
-                        stopped = "budget"
-                        break
-                    if taker.all_off:
-                        break
-                    chunk = order[i:i + max(1, chunk_ads)]
-                    done += [ad_id for ad_id, _ in chunk if ad_id not in ads]     # the ad's row is gone: nothing to complete
-                    todo = [(ad_id, pr) for ad_id, pr in chunk if ad_id in ads]
-                    got = list(pool.map(lambda kv: fetch(kv[1]), todo)) if len(todo) > 1 and fetch_workers > 1 \
-                        else [fetch(pr) for _, pr in todo]
-                    for (ad_id, pr), (media, err) in zip(todo, got):
-                        row = ads[ad_id]
-                        if err:
-                            row["media_error"] = err
-                            counts["media_errors"] += 1
-                        taker.take(row, media, h.id, today)
-                        row.pop("media_pending", None)
-                        counts["ads_read"] += 1
-                        done.append(ad_id)
-            finally:
-                taker.flush()
-                for ad_id in [a for a in done if a in taker.dropped]:      # the service failed on it: read again later
-                    done.remove(ad_id)
-                    if ad_id in ads:
-                        ads[ad_id]["media_pending"] = True
-                counts["ads_read"] -= len(taker.dropped & set(pend))
-                taker.dropped.clear()
-                store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]),
-                                               reverse=True))
-                for ad_id in done:
-                    pend.pop(ad_id, None)
-                store.write_jsonl(pend_path, sorted({**pend, **later}.values(), key=lambda r: r["ad_id"]))
-                counts["ads_left"] += len(pend)
-                taker.save()
-            counts["houses"] += 1
+        while houses and stopped is None and not taker.all_off:
+            got = 0
+            for k, h in enumerate(houses):
+                now = clock()
+                if now - t0 > budget_s:
+                    stopped = "budget"
+                    break
+                if taker.all_off:
+                    break
+                visited.add(h.id)
+                got += read_house(h, now + (budget_s - (now - t0)) / (len(houses) - k))
+                if stopped:
+                    break
+            houses = [h for h in houses if readable.get(h.id)]
+            if not got:
+                break
     except ScoreError as e:
         stopped = f"reader: {str(e)[:200]}"
     finally:
         pool.shutdown(wait=False, cancel_futures=True)
     taker.save()
+    counts["houses"] = len(visited)
+    counts["ads_left"] = sum(left.values())
+    counts["lapsed"] = sum(lapsed.values())
     if taker.status():
         stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
     out = {"run": run, "stage": "read", "updated_at": store.utc_now(), **counts, "stopped": stopped}

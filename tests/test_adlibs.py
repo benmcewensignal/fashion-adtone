@@ -514,3 +514,109 @@ def test_the_batches_are_read_off_the_main_thread_and_a_failing_map_falls_back_t
     sc.fn = _FakeMap(remote, refuse_everywhere=True)
     got = sc.score_batches([good[:2], good[2:4], good[4:]])
     assert all(isinstance(a, dict) for b in got for a in b)                                # read with single calls instead
+
+
+PRADA = House("prada", "Prada", "treated", "Prada Group", ["Prada"], [], [])
+
+
+def _waiting(house_id: str, ads: list[tuple[str, list[str]]], fmt: str = "IMAGE") -> None:
+    """Rows and waiting addresses on file for a house, as a run without the reader leaves them."""
+    P = adlibs.paths("snap")
+    store.write_jsonl(P["ads"] / f"{house_id}.jsonl", [{"ad_id": a, "house_id": house_id, "first_shown": "2026-09-01", "media": [],
+                                                        "media_pending": True, "display_format": fmt} for a, _ in ads])
+    store.write_jsonl(P["pending"] / f"{house_id}.jsonl", [{"ad_id": a, "house_id": house_id, "urls": urls, "kw": {},
+                                                            "first_shown": "2026-09-01", "found": "2026-10-17"} for a, urls in ads])
+
+
+def _cdn(url, params):
+    """Pictures at addresses that may carry a query, as Meta's do."""
+    base = url.split("?")[0]
+    if base.endswith(".jpg"):
+        n = int(base.rsplit("/", 1)[-1].split(".")[0])
+        return FakeResponse(200, content=jpeg_bytes(toned_image(0.3 + 0.04 * n, seed=300 + n)))
+    return FakeResponse(404)
+
+
+def test_the_read_stage_shares_its_budget_between_the_houses(tmp_data):
+    _waiting("gucci", [(f"g{i}", [f"https://cdn.example/{i}.jpg"]) for i in range(8)])
+    _waiting("prada", [(f"p{i}", [f"https://cdn.example/{10 + i}.jpg"]) for i in range(8)])
+    ticks = iter(range(0, 10_000, 10))
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI, PRADA]), "r1", FakeEmbedder(), FakeScorer(load_rubric()),
+                              budget_s=100, sess=FakeSession(_cdn), today=date(2026, 10, 17), clock=lambda: next(ticks),
+                              chunk_ads=1, fetch_workers=1)
+    left = {h: len(store.read_jsonl(adlibs.paths("snap")["pending"] / f"{h}.jsonl")) for h in ("gucci", "prada")}
+    # the first house reads for half the time, the second for what is left: both are read, neither to the end
+    assert out["houses"] == 2 and out["stopped"] == "budget" and 0 < left["gucci"] < 8 and 0 < left["prada"] < 8
+    assert out["ads_read"] == 16 - left["gucci"] - left["prada"] and out["ads_left"] == left["gucci"] + left["prada"]
+    # a house finishing early leaves its time to the others, round after round, until nothing waits
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI, PRADA]), "r2", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=FakeSession(_cdn), today=date(2026, 10, 17), chunk_ads=1, fetch_workers=1)
+    assert out["ads_left"] == 0 and out["stopped"] is None and out["ads_read"] == left["gucci"] + left["prada"]
+
+
+def test_addresses_that_lapse_first_are_read_first_and_lapsed_ones_wait_for_new_ones(tmp_data):
+    now = 1_790_000_000
+    oe = lambda t: f"?_nc_ht=x&oe={t:X}"                                    # Meta's addresses carry their lapse in hex
+    _waiting("gucci", [("late", [f"https://cdn.example/1.jpg{oe(now + 4 * 86400)}"]),
+                       ("soon", [f"https://cdn.example/2.jpg{oe(now + 3 * 3600)}"]),
+                       ("gone", [f"https://cdn.example/3.jpg{oe(now - 60)}"]),
+                       ("plain", ["https://cdn.example/4.jpg"])])
+    assert adlibs.lapses({"urls": [f"https://x/1.jpg{oe(now)}", f"https://x/2.mp4{oe(now - 5)}"]}) == now - 5
+    assert adlibs.lapses({"urls": ["https://x/1.jpg"]}) == adlibs.NO_LAPSE
+    clock = iter([0, 0, 0, 9999, 9999, 9999])
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
+                              sess=FakeSession(_cdn), today=date(2026, 10, 17), clock=lambda: next(clock), chunk_ads=1,
+                              fetch_workers=1, wall=lambda: now)
+    rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")}
+    assert out["ads_read"] == 1 and rows["soon"]["media"] and "media_pending" not in rows["soon"]
+    assert rows["gone"]["media_pending"] and rows["gone"]["media_lapsed"] and out["lapsed"] == 1
+    assert not rows["gone"]["media"] and "media_error" not in rows["gone"]                   # not fetched at all
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=FakeSession(_cdn), today=date(2026, 10, 17), chunk_ads=1, fetch_workers=1, wall=lambda: now)
+    assert out["ads_read"] == 2 and out["ads_left"] == 1 and out["lapsed"] == 1 and out["stopped"] is None
+    assert [p["ad_id"] for p in store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")] == ["gone"]
+    # the order within a house is fixed by the ad's id, not its date
+    a = sorted([("x1", {"urls": []}), ("x2", {"urls": []}), ("x3", {"urls": []})], key=adlibs.read_order)
+    assert [k for k, _ in a] == [k for k, _ in sorted(a, key=adlibs.read_order)]
+
+
+def test_a_new_collection_renews_the_addresses_of_pictures_still_waiting(tmp_data):
+    sess = _snap_session([])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", today=date(2026, 10, 17))                # deferred: no reader
+    P = adlibs.paths("snap")
+    pend = store.read_jsonl(P["pending"] / "gucci.jsonl")
+    fresh = {p["ad_id"]: p["urls"] for p in pend}
+    store.write_jsonl(P["pending"] / "gucci.jsonl", [{**p, "urls": ["https://old.example/1.jpg?oe=1"]} for p in pend])
+    rows = store.read_jsonl(P["ads"] / "gucci.jsonl")
+    store.write_jsonl(P["ads"] / "gucci.jsonl", [{**r, "media_lapsed": True} for r in rows])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    src.house_refresh_days = 0
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r2", today=date(2026, 10, 18))
+    assert out["addresses_renewed"] == len(pend) and out["new_ads"] == 0
+    assert {p["ad_id"]: p["urls"] for p in store.read_jsonl(P["pending"] / "gucci.jsonl")} == fresh
+    assert not any(r.get("media_lapsed") for r in store.read_jsonl(P["ads"] / "gucci.jsonl"))
+
+
+def test_a_house_never_searched_to_the_end_is_searched_for_its_whole_year(tmp_data, monkeypatch):
+    from adtone import metaweb
+    monkeypatch.setenv("META_PERIOD", "last30d")
+    cc = metaweb.Source(_apify_session({}), token="t", actor="curious_coder~facebook-ads-library-scraper", countries="FR", sleep=lambda s: None)
+    assert cc._input(page_ids=["1"])["scrapePageAds"]["period"] == "last30d"
+    assert cc._input(terms=["Gucci"])["scrapePageAds"]["period"] == ""          # the page lookup by name: the whole library
+    cc.first_search = True
+    assert cc._input(page_ids=["1"])["scrapePageAds"]["period"] == ""
+    # the loop says which: true for a house with no searched marker, false once it has one
+    seen = []
+    src = snap.Source(_snap_session([]), sleep=lambda s: None, pace_s=0)
+    src.first_search = None
+    real = src.search_ads
+
+    def spy(h, keep, start, end):
+        seen.append(src.first_search)
+        yield from real(h, keep, start, end)
+    src.search_ads = spy
+    adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", today=date(2026, 10, 17))
+    src.house_refresh_days = 0
+    adlibs.collect(src, Registry(1, "T", [GUCCI]), "r2", today=date(2026, 10, 18))
+    assert seen == [True, False]
