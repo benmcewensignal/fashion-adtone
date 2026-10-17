@@ -17,6 +17,7 @@ dates in `reference/shows.csv`.
 | Snapchat's Ads Gallery for the EU, through Snap's open API | snap | `data/snap` | per ad |
 | Microsoft's Ad Library (Bing search ads in the EEA), through Microsoft's API (needs the `MSADS_*` tokens) | msads | `data/msads` | per ad |
 | Meta's Ad Library as a data vendor reads it, through an Apify actor's API (needs `APIFY_TOKEN`) | metaweb | `data/metaweb` | per ad |
+| X's Ads Repository, through X's export route (needs `X_BEARER_TOKEN`; `reference/x_accounts.csv`) | xads | `data/xads` | per ad, no pictures |
 | Wikipedia page views, English | attention | `data/attention` | per house, per day |
 | Wikipedia page views in ten languages, renamed articles joined | attention | `data/wikiviews` | per house, language, day |
 | Wikidata: owners and creative directors, checked against the registry | attention | `data/wikidata` | per house |

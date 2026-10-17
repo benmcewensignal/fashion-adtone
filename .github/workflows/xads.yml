@@ -1,0 +1,53 @@
+name: xads
+run-name: xads ${{ github.event_name }}
+# X's Ads Repository (its ad library for the EU under the DSA), through the export route X documents for
+# developer accounts: a report per advertiser and country, as a CSV with the advertiser, the funding entity,
+# targeting, impressions and reach, and an address for each ad but not its content. Weekly. Waits,
+# recording that it waited, until X_BEARER_TOKEN exists.
+on:
+  schedule:
+    - cron: "35 8 * * 4"
+  workflow_dispatch:
+    inputs:
+      houses:
+        description: "comma-separated house ids for a trial run (empty: all)"
+        default: ""
+  push:   # editing .github/kick/xads starts a run
+    branches: [main]
+    paths: [".github/kick/xads"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-xads
+  cancel-in-progress: false
+
+jobs:
+  xads:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    env:
+      PYTHONUNBUFFERED: "1"
+      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: |
+          pip install -r requirements.txt
+      - name: Collect ads
+        continue-on-error: true
+        timeout-minutes: 90
+        run: |
+          python -m adtone.xads collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}" --no-reader
+      - name: Probe
+        if: env.X_BEARER_TOKEN != ''
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.xads probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh xads "xads ${{ github.event_name }}"

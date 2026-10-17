@@ -180,6 +180,10 @@ key exists:
   settings) and an OAuth refresh token for an app registered in Azure (the Bing Ads SDK's quick start
   walks through getting one). The weekly msads workflow then reads the houses' Bing search ads in the EEA.
 
+- `X_BEARER_TOKEN`: an app's bearer token from developer.x.com. The weekly xads workflow then asks X's
+  Ads Repository for each house's EU report (advertiser, funding entity, targeting, impressions, reach,
+  and an address for each ad but not its content), by the accounts in `reference/x_accounts.csv`.
+
 Snapchat's Ads Gallery needs no key at all: `adtone.snap` reads it weekly through Snap's open API.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
