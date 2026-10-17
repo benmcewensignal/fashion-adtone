@@ -60,7 +60,7 @@ ALLOW = {
                "data/provenance/luxury.jsonl"],
     "thread": ["data/thread/*.jsonl", "data/thread/*.json", "data/thread/*.csv", "data/results/thread.json",
                "data/results/benchmark.json", "data/results/benchmark.csv", "data/provenance/thread.jsonl"],
-    "clothes": ["data/clothes/*.json", "data/clothes/*.jsonl", "data/provenance/clothes.jsonl"],
+    "clothes": ["data/clothes/*.json", "data/clothes/*.jsonl", "data/clothes/vectors/*.npz", "data/provenance/clothes.jsonl"],
     "flex": ["data/flex/*.json", "data/provenance/flex.jsonl"],
     "issues": ["data/issues/*.json", "data/provenance/issues.jsonl"],
     "analyse": ["data/results/summary.json", "data/results/report.md", "data/results/forward-*.json",

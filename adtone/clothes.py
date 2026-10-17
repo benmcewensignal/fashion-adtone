@@ -50,6 +50,8 @@ from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+import numpy as np
+
 from . import config, store
 
 DIR = config.DATA / "clothes"
@@ -567,6 +569,58 @@ def read(budget_min: float = 70, min_waiting: int = 0, present: dict | None = No
     return result
 
 
+VECTORS = DIR / "vectors"
+
+
+def fingerprint(budget_min: float = 40, batch: int = 64, embedder=None, read_copy=None) -> dict:
+    """The runway looks' fingerprints, by the same pinned image model as every homepage and ad picture's,
+    so an ad can be set against the looks of the show it follows. Pictures come from the private volume
+    a few at a time and are never written here; the vectors go to data/clothes/vectors/<tag>.npz, resumed
+    run by run."""
+    from .bakeoff import from_volume
+    from .embed import OpenClipEmbedder
+    from PIL import Image
+    t0 = time.monotonic()
+    emb = embedder or OpenClipEmbedder()
+    out = VECTORS / f"{emb.tag}.npz"
+    shas, vecs = [], []
+    if out.exists():
+        with np.load(out, allow_pickle=False) as z:
+            shas, vecs = [str(x) for x in z["shas"]], [v for v in z["vecs"]]
+    have = set(shas)
+    want = [r["sha"] for r in store.read_jsonl(DIR / "runway.jsonl") if r["sha"] not in have]
+    want = list(dict.fromkeys(want))
+    done, missing = 0, 0
+    for i in range(0, len(want), batch):
+        if time.monotonic() - t0 > budget_min * 60:
+            break
+        part = want[i:i + batch]
+        jpegs = (read_copy or from_volume)(part, RUNWAY_VOL_DIR)
+        missing += len(part) - len(jpegs)
+        imgs, keys = [], []
+        for sha in part:
+            if sha in jpegs:
+                try:
+                    imgs.append(Image.open(io.BytesIO(jpegs[sha])))
+                    keys.append(sha)
+                except Exception:
+                    missing += 1
+        if imgs:
+            got = emb.embed_many(imgs)
+            for sha, v in zip(keys, got):
+                shas.append(sha)
+                vecs.append(np.asarray(v, dtype=np.float16))
+                done += 1
+            for im in imgs:
+                im.close()
+    VECTORS.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(out, shas=np.array(shas), vecs=np.array(vecs, dtype=np.float16) if vecs else np.zeros((0, 512), np.float16))
+    result = {"looks": len(have) + len(want), "had": len(have), "done": done, "missing_on_volume": missing,
+              "left": len(want) - done - missing, "seconds": round(time.monotonic() - t0), "tag": emb.tag}
+    _log("fingerprint", **result)
+    return result
+
+
 def readings(path: Path | None = None) -> dict[str, dict]:
     """The reader's answers by picture, the last good reading of each."""
     path = path or READINGS
@@ -1065,6 +1119,8 @@ def main(argv: list[str] | None = None) -> int:
     rd.add_argument("--min-waiting", type=int, default=0, help="send nothing until this many pictures wait")
     sub.add_parser("judge")
     sub.add_parser("recheck")
+    fp = sub.add_parser("fingerprint")
+    fp.add_argument("--budget-min", type=float, default=40)
     lb = sub.add_parser("labels")
     lb.add_argument("folder", help="the labelling page's documents, one JSON file each")
     a = ap.parse_args(argv)
@@ -1089,6 +1145,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"clothes read: {read(a.budget_min, a.min_waiting)}")
     elif a.cmd == "recheck":
         print(f"clothes recheck: {recheck_lines()}")
+    elif a.cmd == "fingerprint":
+        print(f"clothes fingerprint: {fingerprint(a.budget_min)}")
     elif a.cmd == "judge":
         j = judge_questions()
         print(f"clothes judge: {j['status']}; {j.get('counts')}; standing {j['use']}")

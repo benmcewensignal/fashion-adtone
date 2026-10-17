@@ -379,3 +379,22 @@ def test_an_advertiser_is_the_house_itself_not_a_person_or_a_shop_with_its_name(
     assert not snap.Source.own(H("gucci", "Gucci"), "Gucci.Interpol", "Promotions iOS in-app")
     assert snap.Source.own(H("miu_miu", "Miu Miu"), "Prada spa", "Miu Miu Spa") and not snap.Source.own(H("prada", "Prada"), "Prada spa", "Miu Miu Spa")
     assert snap.Source.own(H("prada", "Prada"), "Prada spa", "Prada spa Self Service")
+
+
+def test_the_runway_looks_get_the_same_fingerprint_as_every_other_picture(tmp_data, monkeypatch):
+    import numpy as np
+    from adtone import clothes
+    from adtone.synth import jpeg_bytes, toned_image
+    d = tmp_data / "clothes"
+    d.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(clothes, "DIR", d)
+    monkeypatch.setattr(clothes, "VECTORS", d / "vectors")
+    monkeypatch.setattr(clothes, "PROV", d / "prov.jsonl")
+    store.write_jsonl(d / "runway.jsonl", [{"sha": f"s{i}", "house": "gucci"} for i in range(5)])
+    copies = lambda shas, vol: {s: jpeg_bytes(toned_image(0.2 + 0.1 * int(s[1:]), seed=int(s[1:]))) for s in shas if s != "s4"}
+    fe = FakeEmbedder()
+    out = clothes.fingerprint(embedder=fe, read_copy=copies, batch=2)
+    assert out["done"] == 4 and out["missing_on_volume"] == 1 and out["left"] == 0
+    with np.load(d / "vectors" / f"{fe.tag}.npz", allow_pickle=False) as z:
+        assert sorted(str(s) for s in z["shas"]) == ["s0", "s1", "s2", "s3"] and z["vecs"].shape[0] == 4
+    assert clothes.fingerprint(embedder=fe, read_copy=copies, batch=2)["done"] == 0      # resumed: nothing made again

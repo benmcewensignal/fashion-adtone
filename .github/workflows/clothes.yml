@@ -28,7 +28,7 @@ on:
       mode:
         type: choice
         default: looks
-        options: [looks, sample, crops, seal, testset, coverage, collect, auto, read, judge]
+        options: [looks, sample, crops, seal, testset, coverage, collect, auto, read, judge, fingerprint]
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -62,12 +62,25 @@ jobs:
           mode="${{ inputs.mode }}"
           if [ "${{ github.event_name }}" = "schedule" ]; then mode=auto; fi
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/clothes 2>/dev/null | awk '{print $1}'); fi
-          case "$mode" in looks|sample|crops|seal|testset|coverage|collect|auto|read|judge) ;; *) mode=looks ;; esac
+          case "$mode" in looks|sample|crops|seal|testset|coverage|collect|auto|read|judge|fingerprint) ;; *) mode=looks ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "clothes mode: $mode"
       - name: Install
-        timeout-minutes: 10
-        run: pip install -q -r requirements.txt pynacl
+        timeout-minutes: 15
+        run: |
+          pip install -q -r requirements.txt pynacl
+          if [ "${{ steps.m.outputs.mode }}" = fingerprint ]; then pip install -q -r requirements-embed.txt; fi
+      - name: Cache embedder weights
+        if: steps.m.outputs.mode == 'fingerprint'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: The runway looks' fingerprints, by the image model every other picture has
+        if: steps.m.outputs.mode == 'fingerprint'
+        continue-on-error: true
+        timeout-minutes: 60
+        run: python -m adtone.clothes fingerprint --budget-min 45
       - name: Which shows the archive holds pages for
         if: steps.m.outputs.mode == 'coverage' || steps.m.outputs.mode == 'auto'
         continue-on-error: true
