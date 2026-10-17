@@ -221,9 +221,11 @@ class ModalScorer:
         revision = config.open_model_revision() if revision is None else revision
         if not revision:
             raise ScoreError("API: the open model's weights are not pinned; run the reader workflow first")
+        self.fn = None
         if remote is None:
             import modal
-            remote = modal.Cls.from_name(config.MODAL_APP, "Reader")().read.remote
+            self.fn = modal.Cls.from_name(config.MODAL_APP, "Reader")().read
+            remote = self.fn.remote
         self.remote, self.rubric, self.revision = remote, rubric, revision
         self.schema = json_schema(rubric)
         self.grammar = gbnf(rubric)
@@ -242,6 +244,31 @@ class ModalScorer:
                 out.append(parse(text, self.rubric))
             except ScoreError as e:
                 out.append(e)
+        return out
+
+    def score_batches(self, batches: list[list[bytes]]) -> list[list[dict | ScoreError]]:
+        """Several batches at once, each on its own container; a batch the service fails is tried once more
+        on its own, and raised if it fails again."""
+        if self.fn is None or len(batches) < 2:
+            return [self.score_many(b) for b in batches]
+        self.calls += len(batches)
+        args = [(b, self.rubric.prompt, self.schema, self.grammar) for b in batches]
+        try:
+            results = list(self.fn.starmap(args, return_exceptions=True))
+        except Exception as e:
+            raise ScoreError(f"API: Modal {e.__class__.__name__}") from None
+        out = []
+        for b, res in zip(batches, results):
+            if isinstance(res, BaseException):
+                out.append(self.score_many(b))
+                continue
+            got = []
+            for text in res:
+                try:
+                    got.append(parse(text, self.rubric))
+                except ScoreError as e:
+                    got.append(e)
+            out.append(got)
         return out
 
     def score(self, jpeg: bytes) -> dict:
@@ -277,6 +304,14 @@ def score_batch(scorer, jpegs: list[bytes]) -> list:
                 raise
             out.append(e)
     return out
+
+def score_batches(scorer, batches: list[list[bytes]]) -> list:
+    """Every batch's answers in one flat list, the batches read at once where the reader can (the open
+    model on Modal, a container per batch), one after another otherwise."""
+    if hasattr(scorer, "score_batches"):
+        return [a for got in scorer.score_batches(batches) for a in got]
+    return [a for b in batches for a in score_batch(scorer, b)]
+
 
 class FakeScorer:
     """Deterministic valid output from image brightness, for tests."""

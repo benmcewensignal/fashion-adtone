@@ -26,13 +26,15 @@ import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+import os
 import requests
 
 from . import config, registry, store
 from .media import MediaError, jpeg_for_model
-from .score import ScoreError, score_batch
+from .score import ScoreError, score_batch, score_batches
 
-BATCH = 16
+BATCH = 16                                              # pictures per call to the reader
+PARALLEL = int(os.environ.get("ADTONE_READ_PARALLEL") or 6)   # calls in flight at once, each its own container
 
 
 def paths(name: str) -> dict[str, Path]:
@@ -128,7 +130,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     def flush():
         if not pending:
             return
-        answers = score_batch(scorer, [jpeg_for_model(f.image) for f, _ in pending])
+        jpegs = [jpeg_for_model(f.image) for f, _ in pending]
+        answers = score_batches(scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
         for (f, ob), ans in zip(pending, answers):
             ob["scored_at"] = store.utc_now()
             if isinstance(ans, ScoreError):
@@ -203,7 +206,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                             pending.append((f, {"sha": f.sha, "instrument": scorer.instrument, "ad_id": row["ad_id"],
                                                 "house_id": h.id, "kind": m["kind"], "rubric_version": scorer.rubric.version,
                                                 "run_id": run}))
-                            if len(pending) >= BATCH:
+                            if len(pending) >= BATCH * PARALLEL:
                                 flush()
                         else:
                             f.image.close()
