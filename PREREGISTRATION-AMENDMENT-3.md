@@ -7,6 +7,16 @@ advertisement is read with `rubric/clothes-v1.md`. The readings of the rubric's 
 (`data/clothes/sample.json`) decide which questions go forward and are never used here. Until frozen,
 everything below is exploratory and reported as such.
 
+## Read before the freeze
+
+On 17 October 2026, before this amendment was frozen, the paid-social collectors read 1,628 pictures of
+Snapchat advertisements with `rubric/clothes-v1.md` (the reader had been added to the collection loop
+that day, and the run finished before it was stopped; `data/snap/obs/clothes-v1.jsonl`). No position,
+change, likeness or statistic of section 3 was computed from them, and none will be until the freeze;
+the collectors read no further advertisement with the rubric until then (`--no-clothes`). The readings
+are kept, dated, so that the record shows them rather than hides them; whether they enter the test
+after the freeze is decided here, in writing, before it.
+
 ## What it does not change
 
 The frozen pre-registration and Amendments 1 and 2 stand as they are. Nothing here reads their
