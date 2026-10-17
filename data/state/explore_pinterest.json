@@ -1,5 +1,8 @@
 {
-  "at": "2026-10-17T08:36:26Z",
+  "action_errors": [
+    "click button:has-text(Search): Error"
+  ],
+  "at": "2026-10-17T08:42:32Z",
   "block_words": [],
   "body_chars": 14798,
   "calls": [
@@ -53,39 +56,11 @@
       "type": "script"
     },
     {
-      "content_type": "text/css",
-      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository-a9570b48de80ce80.css",
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Bold-ce475d98.woff2",
       "query_keys": [],
       "status": 200,
-      "type": "stylesheet"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/88708.en_GB-01a7e5d994edeb5e.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/83881-03afa506052fc6f8.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/92910-20b7c466cdc734e0.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/9317-9bcd45ec053cd8e6.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
+      "type": "font"
     },
     {
       "content_type": "application/javascript",
@@ -96,28 +71,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/16399-99eded5a9261b397.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/84269-fe802395dc0710e2.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/32123-2d92638a31a21857.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/41678-c87e4b54164cc236.mjs",
+      "key": "GET https://s.pinimg.com/webapp/13031-90411defe7594720.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -131,56 +85,28 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/21101-ac072d63e43358a5.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/43713-f88064a3f293b89f.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "font/woff2",
-      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Bold-ce475d98.woff2",
-      "query_keys": [],
-      "status": 200,
-      "type": "font"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/13031-90411defe7594720.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/73704-f0e1d6711340938b.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/44175-fa362a588feaf0b7.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/88778.en_GB-45f6338d8984805f.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/14157-e513b36f89b4156d.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/16399-99eded5a9261b397.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17545-a1fe8781838ae865.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21101-ac072d63e43358a5.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -194,28 +120,14 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/32123-2d92638a31a21857.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/34481-5b59931d42e72355.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/44442-b33eb5b4b0c5d7c7.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/16013.en_GB-fe5dcf5d1714ffbf.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17545-a1fe8781838ae865.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -236,21 +148,147 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/51323-03887acc5cf1d709.mjs",
+      "key": "GET https://s.pinimg.com/webapp/40264-b1360ce0af2a8202.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/30791.en_GB-8146f7c9aae6d0ae.mjs",
+      "key": "GET https://s.pinimg.com/webapp/41130-8f0f852c667c5130.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/90392.en_GB-fdb30ab5043089ad.mjs",
+      "key": "GET https://s.pinimg.com/webapp/41678-c87e4b54164cc236.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/43713-f88064a3f293b89f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44442-b33eb5b4b0c5d7c7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44175-fa362a588feaf0b7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/566-441a98eedb907231.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/60589-f5e871521ab570b8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/59100-6944faa01c657643.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/61911-f979e9a1ef012f14.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/35330-97ed3a1883bceb74.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/66885-7c5cb5c155a2d5ce.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/70725-c8a04785e14e7a02.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/74407-f8e3cc2186acc94f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/73704-f0e1d6711340938b.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/65633-76cb56bd8efa1e37.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/76580-8ba914f3740609f9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/75508-04a862185b9e2a70.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/runtime.en_GB-7bbcd6102ea8c4ea.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/83881-03afa506052fc6f8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-LocaleDataLoader-cfc132080745cfd1.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -264,21 +302,21 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/40264-b1360ce0af2a8202.mjs",
+      "key": "GET https://s.pinimg.com/webapp/13686.en_GB-63e8aceb01a8053a.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17962.en_GB-cf80a4944888d1e8.mjs",
+      "key": "GET https://s.pinimg.com/webapp/17603.en_GB-89f911be93d6befb.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/25667-d9831e01c79022bf.mjs",
+      "key": "GET https://s.pinimg.com/webapp/16013.en_GB-fe5dcf5d1714ffbf.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -299,196 +337,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/41130-8f0f852c667c5130.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/58315.en_GB-9fdb2097c6abd7c0.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/566-441a98eedb907231.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/59100-6944faa01c657643.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/93668.en_GB-b86f08bf90f912c3.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-LocaleDataLoader-cfc132080745cfd1.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/92264.en_GB-93936ba4622ffbc9.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/91654.en_GB-fd508bd97a0656f6.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/95383.en_GB-936f1fa99aeb9ebb.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/13686.en_GB-63e8aceb01a8053a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/96150.en_GB-68446bf0b60c6b02.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/17603.en_GB-89f911be93d6befb.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/21125.en_GB-aa62e2d740552654.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/27730.en_GB-e09e182a1ca97a47.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/35330-97ed3a1883bceb74.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/32390.en_GB-33e1d369f81ff43c.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/50365.en_GB-375981faae66f927.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/55344.en_GB-eaa2eedbf473b882.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/58693.en_GB-3bb4dd8e53f21868.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/60589-f5e871521ab570b8.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/61911-f979e9a1ef012f14.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/10339.en_GB-e5ec059a492cba3a.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/58875.en_GB-095ce2e4aa46e1db.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/64423.en_GB-f0fca8911143c01e.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/runtime.en_GB-7bbcd6102ea8c4ea.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/65633-76cb56bd8efa1e37.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/65966.en_GB-d5b5b28c2998444f.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/66885-7c5cb5c155a2d5ce.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -502,6 +351,55 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/64423.en_GB-f0fca8911143c01e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/55344.en_GB-eaa2eedbf473b882.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17962.en_GB-cf80a4944888d1e8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/27730.en_GB-e09e182a1ca97a47.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/32390.en_GB-33e1d369f81ff43c.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/58875.en_GB-095ce2e4aa46e1db.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/30791.en_GB-8146f7c9aae6d0ae.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/70075.en_GB-858632fb6dd6950d.mjs",
       "query_keys": [],
       "status": 200,
@@ -509,21 +407,21 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/70725-c8a04785e14e7a02.mjs",
+      "key": "GET https://s.pinimg.com/webapp/58693.en_GB-3bb4dd8e53f21868.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/62820.en_GB-ac745d8534f3527a.mjs",
+      "key": "GET https://s.pinimg.com/webapp/65966.en_GB-d5b5b28c2998444f.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/74407-f8e3cc2186acc94f.mjs",
+      "key": "GET https://s.pinimg.com/webapp/10339.en_GB-e5ec059a492cba3a.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -537,6 +435,13 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21125.en_GB-aa62e2d740552654.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/76262.en_GB-359fa0583e187372.mjs",
       "query_keys": [],
       "status": 200,
@@ -544,14 +449,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/75508-04a862185b9e2a70.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/76300.en_GB-f167cb53b60bd5bd.mjs",
+      "key": "GET https://s.pinimg.com/webapp/84269-fe802395dc0710e2.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -565,7 +463,63 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/76580-8ba914f3740609f9.mjs",
+      "key": "GET https://s.pinimg.com/webapp/88708.en_GB-01a7e5d994edeb5e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/8198.en_GB-c1786e35155c1f57.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/50365.en_GB-375981faae66f927.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/88778.en_GB-45f6338d8984805f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/76300.en_GB-f167cb53b60bd5bd.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/92910-20b7c466cdc734e0.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/9317-9bcd45ec053cd8e6.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/90392.en_GB-fdb30ab5043089ad.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/93668.en_GB-b86f08bf90f912c3.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -579,7 +533,14 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/8198.en_GB-c1786e35155c1f57.mjs",
+      "key": "GET https://s.pinimg.com/webapp/95383.en_GB-936f1fa99aeb9ebb.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/62820.en_GB-ac745d8534f3527a.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -600,6 +561,20 @@
     },
     {
       "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/sterling/_client.en_GB-8fff9a40867b44f0.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/91654.en_GB-fd508bd97a0656f6.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/gestalt-2bdabd81191c5484.mjs",
       "query_keys": [],
       "status": 200,
@@ -607,7 +582,7 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/sterling/_client.en_GB-8fff9a40867b44f0.mjs",
+      "key": "GET https://s.pinimg.com/webapp/51323-03887acc5cf1d709.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -620,8 +595,36 @@
       "type": "script"
     },
     {
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository-a9570b48de80ce80.css",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/25667-d9831e01c79022bf.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
       "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository.en_GB-6c9cd228035fe96e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/96150.en_GB-68446bf0b60c6b02.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/92264.en_GB-93936ba4622ffbc9.mjs",
       "query_keys": [],
       "status": 200,
       "type": "script"
@@ -668,17 +671,6 @@
       "type": "fetch"
     },
     {
-      "content_type": "",
-      "key": "POST https://ads.pinterest.com/_/_/logClientError/",
-      "post_keys": [
-        "report_context",
-        "report_data"
-      ],
-      "query_keys": [],
-      "status": 204,
-      "type": "xhr"
-    },
-    {
       "content_type": "application/javascript",
       "key": "GET https://s.pinimg.com/webapp/locale-en_GB-data-js-24507c716a66d896.mjs",
       "query_keys": [],
@@ -693,11 +685,11 @@
       "type": "xhr"
     },
     {
-      "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/94687-5e7aef72c8507ac4.mjs",
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/94687-ebad536e260561b9.css",
       "query_keys": [],
       "status": 200,
-      "type": "script"
+      "type": "stylesheet"
     },
     {
       "content_type": "application/javascript",
@@ -707,11 +699,11 @@
       "type": "script"
     },
     {
-      "content_type": "text/css",
-      "key": "GET https://s.pinimg.com/webapp/94687-ebad536e260561b9.css",
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/94687-5e7aef72c8507ac4.mjs",
       "query_keys": [],
       "status": 200,
-      "type": "stylesheet"
+      "type": "script"
     },
     {
       "content_type": "application/json",
@@ -722,19 +714,19 @@
     },
     {
       "content_type": "application/javascript",
-      "key": "GET https://s.pinimg.com/webapp/93457-6388ae7410b3a440.mjs",
-      "query_keys": [],
-      "status": 200,
-      "type": "script"
-    },
-    {
-      "content_type": "application/javascript",
       "key": "GET https://accounts.google.com/gsi/client",
       "query_keys": [
         "hl"
       ],
       "status": 200,
       "type": "script"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://accounts.google.com/gsi/style",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
     },
     {
       "content_type": "application/json",
@@ -748,11 +740,11 @@
       "type": "xhr"
     },
     {
-      "content_type": "text/css",
-      "key": "GET https://accounts.google.com/gsi/style",
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/93457-6388ae7410b3a440.mjs",
       "query_keys": [],
       "status": 200,
-      "type": "stylesheet"
+      "type": "script"
     },
     {
       "content_type": "application/json",
@@ -767,112 +759,7 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/3b/51/a7/3b51a7e305a0439261e4c49d7d37348b.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/30/45/d2/3045d269fcd1b77cbcd0c793b5dcf584.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/32/35/75/323575774b02c546819bab6a4c385dfd.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/50/6e/a0/506ea09c7a2ea1845ec3fde03ce5533b.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/b8/b3/1b/b8b31b5361cddae33d279b57bc9346f5.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/fa/26/d1/fa26d116845cae77656bab4b1dab7a17.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/30/cc/74/30cc743dec4756b1f5e37797292b82f9.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/1e/f1/82/1ef18208cbd6fbaec7278a7efe7ef1ee.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/32/7b/71/327b711d382c72aa9a3bbdc0adba8f8e.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/8e/82/6c/8e826c1d41d720ddcb27aca8dacb350a.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/f2/c4/0c/f2c40cedb4da5dc2d05c73b5b5b6b125.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/63/f0/0c/63f00cbe62b9e4bf51acb798d6fcbdb9.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/18/e9/da/18e9da6e28f7fe45c7224ae999647ea7.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/0e/06/55/0e06559d2712d174ead6212c73922405.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/83/5a/ae/835aaef5c14ba78fb67363b330dbd662.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/24/19/30/241930e874520bff43b9b4f438f4933e.jpg",
+      "key": "GET https://i.pinimg.com/474x/22/34/d7/2234d7d78afd65bfd1c11099ddc0c645.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -886,28 +773,7 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/22/34/d7/2234d7d78afd65bfd1c11099ddc0c645.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/14/40/ae/1440ae5b0e971de76dcd34623983a5a6.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/1f/a0/0a/1fa00a77d0ac587c9e02d4b2c7f36625.jpg",
-      "query_keys": [],
-      "status": 200,
-      "type": "image"
-    },
-    {
-      "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/e3/90/15/e390152d99de305cdcd0299fd2d86702.jpg",
+      "key": "GET https://i.pinimg.com/474x/83/5a/ae/835aaef5c14ba78fb67363b330dbd662.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -921,7 +787,7 @@
     },
     {
       "content_type": "image/jpeg",
-      "key": "GET https://i.pinimg.com/474x/4d/dd/1d/4ddd1d72f01a004d36677efba491186b.jpg",
+      "key": "GET https://i.pinimg.com/474x/32/35/75/323575774b02c546819bab6a4c385dfd.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -929,6 +795,132 @@
     {
       "content_type": "image/jpeg",
       "key": "GET https://i.pinimg.com/474x/c3/48/29/c34829c563991d4873cc591add258a33.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/fa/26/d1/fa26d116845cae77656bab4b1dab7a17.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/30/45/d2/3045d269fcd1b77cbcd0c793b5dcf584.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/3b/51/a7/3b51a7e305a0439261e4c49d7d37348b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/32/7b/71/327b711d382c72aa9a3bbdc0adba8f8e.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/63/f0/0c/63f00cbe62b9e4bf51acb798d6fcbdb9.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/0e/06/55/0e06559d2712d174ead6212c73922405.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1f/a0/0a/1fa00a77d0ac587c9e02d4b2c7f36625.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/4d/dd/1d/4ddd1d72f01a004d36677efba491186b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/8e/82/6c/8e826c1d41d720ddcb27aca8dacb350a.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1e/f1/82/1ef18208cbd6fbaec7278a7efe7ef1ee.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/f2/c4/0c/f2c40cedb4da5dc2d05c73b5b5b6b125.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/e3/90/15/e390152d99de305cdcd0299fd2d86702.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/50/6e/a0/506ea09c7a2ea1845ec3fde03ce5533b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/30/cc/74/30cc743dec4756b1f5e37797292b82f9.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/14/40/ae/1440ae5b0e971de76dcd34623983a5a6.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/b8/b3/1b/b8b31b5361cddae33d279b57bc9346f5.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/18/e9/da/18e9da6e28f7fe45c7224ae999647ea7.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/24/19/30/241930e874520bff43b9b4f438f4933e.jpg",
       "query_keys": [],
       "status": 200,
       "type": "image"
@@ -1133,8 +1125,17 @@
       "name": null,
       "placeholder": "Search by advertiser",
       "tag": "input",
-      "text": null,
+      "text": "Gucci",
       "type": "text"
+    },
+    {
+      "aria": "Clear advertiser name",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "div",
+      "text": null,
+      "type": null
     },
     {
       "aria": null,
@@ -1361,15 +1362,15 @@
       "resource_response": {
         "code": "int",
         "data": {
-          "affiliate_disclosure": "NoneType",
-          "affiliate_link": "NoneType",
-          "alt_text": "NoneType",
+          "access": [],
+          "ai_disclosures": [],
           "attribution": "NoneType",
+          "buyable_product_availability": "NoneType",
           "category": "str",
           "closeup_attribution": {
             "ads_only_profile_site": "NoneType",
             "blocked_by_me": "bool",
-            "domain_url": "NoneType",
+            "domain_url": "str",
             "domain_verified": "bool",
             "explicitly_followed_by_me": "bool",
             "first_name": "str",
@@ -1393,54 +1394,26 @@
             "username": "str",
             "verified_identity": {}
           },
-          "closeup_unified_attribution": {
-            "ads_only_profile_site": "NoneType",
-            "blocked_by_me": "bool",
-            "domain_url": "NoneType",
-            "domain_verified": "bool",
-            "explicitly_followed_by_me": "bool",
-            "first_name": "str",
-            "followed_by_me": "bool",
-            "follower_count": "int",
-            "full_name": "str",
-            "id": "str",
-            "image_medium_url": "str",
-            "image_small_url": "str",
-            "indexed": "bool",
-            "instagram_data": {
-              "has_invalid_instagram_auth": "bool",
-              "url": "str",
-              "username": "str"
-            },
-            "is_ads_only_profile": "bool",
-            "is_default_image": "bool",
-            "is_verified_merchant": "bool",
-            "node_id": "str",
-            "type": "str",
-            "username": "str",
-            "verified_identity": {}
-          },
-          "comments_disabled": "bool",
-          "created_at": "str",
+          "collection_pin": "NoneType",
           "description": "str",
-          "description_html": "str",
-          "digital_media_source_type": "NoneType",
-          "dominant_color": "str",
+          "domain": "str",
+          "edited_fields": [
+            "str"
+          ],
           "embed": "NoneType",
           "formatted_description": {
             "components": [
               {
-                "content": [
-                  "..."
-                ],
-                "description_links": "NoneType",
+                "content": "str",
+                "description_links": [],
                 "type": "str"
               }
             ]
           },
-          "grid_title": "str",
+          "has_been_boost_promoted": "bool",
           "has_required_attribution_provider": "bool",
-          "highlighted_aggregated_comments": [],
+          "id": "str",
+          "image_medium_url": "str",
           "images": {
             "136x136": {
               "height": "int",
@@ -1489,118 +1462,144 @@
             }
           },
           "is_eligible_for_aggregated_comments": "bool",
-          "is_eligible_for_image_download": "bool",
-          "is_go_linkless": "bool",
+          "is_eligible_for_pdp": "bool",
+          "is_eligible_for_related_products": "bool",
           "is_hidden": "bool",
+          "is_native": "bool",
           "is_oos_product": "bool",
           "is_product_tagging_enabled_standard_pin": "bool",
           "is_promotable": "bool",
           "is_quick_promotable": "bool",
-          "is_repin": "bool",
-          "is_stale_product": "bool",
-          "is_unsafe_for_comments": "bool",
-          "is_video": "bool",
-          "is_whitelisted_for_tried_it": "bool",
-          "link_utm_applicable_and_replaced": "int",
-          "method": "str",
+          "is_quick_promotable_by_pinner": "bool",
+          "link": "str",
+          "link_domain": "NoneType",
+          "manual_interest_tags": "NoneType",
           "mobile_link": "NoneType",
+          "native_creator": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "str",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
+            },
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
+          },
           "node_id": "str",
           "origin_pinner": "NoneType",
           "pin_additional_note": "NoneType",
           "pin_join": {
             "annotations_with_links": {
-              "1990s Fashion": {
+              "Above The Clouds": {
                 "name": "str",
                 "url": "str"
               },
-              "Coral Jumpsuit": {
+              "Home Wallpaper": {
                 "name": "str",
                 "url": "str"
               },
-              "Coral Shorts": {
+              "Old Planes": {
                 "name": "str",
                 "url": "str"
               },
-              "Fitted Pink Jumpsuit With Ruffles": {
+              "Paleta De Colores": {
                 "name": "str",
                 "url": "str"
               },
-              "Flowy Jumpsuit": {
+              "Room Wallpaper": {
                 "name": "str",
                 "url": "str"
               },
-              "Jumpsuit Online": {
+              "Soft Shades": {
                 "name": "str",
                 "url": "str"
               },
-              "Lingerie Gift": {
+              "Soothing Colors": {
                 "name": "str",
                 "url": "str"
               },
-              "Short Sleeve Jumpsuits": {
+              "Starry Sky": {
                 "name": "str",
                 "url": "str"
               },
-              "Summer V-neck Jumpsuit With Ruffles": {
+              "Twinkle Star": {
                 "name": "str",
                 "url": "str"
               }
             },
-            "canonical_pin": {
-              "id": "str"
-            },
+            "canonical_pin": "NoneType",
             "shopping_klp_urls": "NoneType",
             "visual_annotation": [
               "str"
             ]
           },
+          "pinned_to_board": "NoneType",
+          "pinner": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "str",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
+            },
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
+          },
           "price_currency": "str",
           "privacy": "str",
-          "product_metadata": {
-            "id": "str",
-            "type": "str"
-          },
-          "product_pin_data": "NoneType",
-          "promoter": "NoneType",
-          "related_article": {},
+          "promoted_is_removable": "bool",
           "repin_count": "int",
-          "rich_metadata": {
-            "amp_url": "str",
-            "amp_valid": "bool",
-            "apple_touch_icon_images": "NoneType",
-            "apple_touch_icon_link": "NoneType",
-            "canonical_url": "NoneType",
-            "description": "str",
-            "favicon_images": {
-              "orig": "str"
-            },
-            "favicon_link": "str",
-            "has_price_drop": "bool",
-            "id": "str",
-            "is_accessible_for_free": "NoneType",
-            "link_status": "int",
-            "locale": "str",
-            "site_name": "str",
-            "title": "str",
-            "tracker": "NoneType",
-            "type": "str",
-            "url": "str"
-          },
+          "rich_metadata": "NoneType",
+          "rich_summary": "NoneType",
           "section": "NoneType",
+          "seo_description": "str",
           "seo_noindex_reason": "NoneType",
           "seo_title": "str",
           "share_count": "int",
-          "shopping_flags": [
-            "int"
-          ],
-          "should_open_in_stream": "bool",
-          "shuffle": "NoneType",
-          "sponsorship": "NoneType",
+          "ships_to_user_country": "bool",
+          "shopping_rec_disabled": "bool",
           "story_pin_data": "NoneType",
           "story_pin_data_id": "NoneType",
-          "user_mention_tags": "NoneType",
-          "via_pinner": "NoneType",
-          "video_status_message": "NoneType"
+          "third_party_pin_owner": "NoneType",
+          "tracking_params": "str",
+          "type": "str",
+          "unified_user_note": "str",
+          "video_status": "NoneType",
+          "video_status_message": "NoneType",
+          "videos": "NoneType"
         },
         "endpoint_name": "str",
         "http_status": "int",
@@ -2028,8 +2027,8 @@
   },
   "login_wall": false,
   "name": "pinterest",
-  "run": "gh39017939792",
-  "seconds": 14.3,
+  "run": "gh39018303873",
+  "seconds": 18.3,
   "title": "Pinterest Ads",
   "url": "https://ads.pinterest.com/ads-repository/"
 }
