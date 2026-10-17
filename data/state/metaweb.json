@@ -79,13 +79,36 @@
   ],
   "form": "library",
   "problems": {},
-  "requests": 0,
-  "run": "gh39025725993",
+  "requests": 3,
+  "run": "gh39025845966",
   "searched": {
     "gucci": "2026-10-17"
   },
-  "shape": null,
+  "shape": {
+    "error": "str"
+  },
   "stopped": null,
-  "updated_at": "2026-10-17T10:40:38Z",
-  "vendor_runs": []
+  "updated_at": "2026-10-17T10:42:47Z",
+  "vendor_runs": [
+    {
+      "id": "NUwEUpfO712mdB7ZY",
+      "input": {
+        "limitPerSource": 120,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "FR",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=FR&search_type=page&view_all_page_id=44596321012"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.0008
+    }
+  ]
 }
