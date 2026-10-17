@@ -72,12 +72,20 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", s)
 
 
+def _words(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii").lower()
+    return " " + re.sub(r"[^a-z0-9]+", " ", s).strip() + " "
+
+
 def is_house(house: registry.House, name: str) -> bool:
+    """The advertiser is the house: its name appears in the advertiser's as whole words (Guccio Gucci S.p.A.,
+    not Guccione), and the advertiser is not a beauty or fragrance licensee or a reseller."""
     b = _norm(name)
     if not b or any(w in b for w in NOT_THE_HOUSE):
         return False
-    names = {_norm(n) for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
-    return any(n in b for n in names)
+    bw = _words(name)
+    names = {_words(n) for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
+    return any(n in bw for n in names)
 
 
 def find(obj, *patterns: str, want=(str, int, float, list, dict), depth: int = 0):
@@ -239,24 +247,38 @@ class Source:
         return is_house(house, payer or "") or (payer is None and is_house(house, account or ""))
 
     def ad_row(self, item: dict, house_id: str, run: str) -> dict:
-        by_country = find(item, "impressionsbycountry", "impressions.*country.*", want=(dict, list))
+        """The row, from the fields the first live run showed (17 October 2026): paying_advertiser_name,
+        ad_account_name, impressions_total, impressions_map by country, start_date, status, targeting_v2,
+        creative_type, headline and name (kept only as features and the line the ad sells)."""
+        from . import copyfeat, thread
+        by_country = find(item, "impressionsmap", "impressionsbycountry", "impressions.*country.*", want=(dict, list))
+        texts = [t for t in (item.get("headline"), item.get("name")) if isinstance(t, str) and t.strip()]
+        tv2 = item.get("targeting_v2") if isinstance(item.get("targeting_v2"), dict) else None
+        demo = (tv2 or {}).get("demographics") or []
         return {"ad_id": str(find(item, "id", "adid", "ad_id") or ""), "house_id": house_id,
                 "advertiser": find(item, "payingadvertisername", "payingadvertiser", "paidby", "advertisername", want=(str,)),
                 "account": find(item, "adaccountname", "accountname", want=(str,)),
                 "first_shown": _day(find(item, "startdate", "start.*", "firstshown.*", want=(str, int))),
                 "last_shown": _day(find(item, "enddate", "end.*", "lastshown.*", want=(str, int))),
                 "status": find(item, "status", "adstatus", want=(str,)) or item.get("status_searched"),
+                "review_status": item.get("review_status"),
                 "impressions": find(item, "impressionstotal", "totalimpressions", "impressions", want=(int, str)),
-                "impressions_by_country": by_country if isinstance(by_country, dict) else
+                "impressions_by_country": {k: v for k, v in by_country.items() if v} if isinstance(by_country, dict) else
                 ({str(c.get("country") or c.get("countryCode") or c.get("country_code")): c.get("impressions") or c.get("count")
                   for c in by_country if isinstance(c, dict)} if isinstance(by_country, list) else None),
                 "creative_type": find(item, "creativetype", "adtype", "topsnapmediatype", want=(str,)),
-                "targeting": find(item, "targeting", "targets", want=(dict, list)),
+                "ad_type": item.get("ad_type"),
+                "targeting": ({"min_age": next((d.get("min_age") for d in demo if isinstance(d, dict) and d.get("min_age")), None),
+                               "age_groups": sorted({g for d in demo if isinstance(d, dict) for g in (d.get("age_groups") or [])}) or None,
+                               "devices": tv2.get("devices") or None, "regulated": tv2.get("regulated_content")} if tv2
+                              else find(item, "targeting.*", "targets", want=(dict, list))),
+                "copy": copyfeat.features(texts) if texts else None,
+                "line": thread.ad_line(texts) if texts else None,
                 "last_run": run}
 
     def media_for(self, item: dict) -> list[dict]:
         # the download address first, then any image, then video stills; at most five pictures and two videos
-        urls = urls_in(item)
+        urls = [(k, u) for k, u in urls_in(item) if not any(w in _norm(k) for w in ("profile", "logo", "icon", "avatar"))]
         ordered = sorted(urls, key=lambda kv: (0 if "download" in _norm(kv[0]) else 1 if any(w in _norm(kv[0]) for w in ("image", "thumbnail", "preview")) else 2))
         return adlibs.fetch_media(self.s, [u for _, u in ordered], max_video_bytes=MAX_VIDEO_BYTES)
 

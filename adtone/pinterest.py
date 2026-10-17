@@ -149,7 +149,7 @@ class Source:
             pg.keyboard.press("ArrowDown")
             pg.keyboard.press("Enter")
         before = len(P.answers)
-        pg.click("text=Search", timeout=10000)
+        pg.get_by_role("button", name="Search", exact=True).click(timeout=10000)
         self.requests += 1
         pg.wait_for_timeout(SETTLE_MS + 2500)
         items: list[dict] = []
