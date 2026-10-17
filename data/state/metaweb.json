@@ -1,6 +1,240 @@
 {
   "actor": "curious_coder~facebook-ads-library-scraper",
   "advertisers": {
+    "chanel": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 132,
+          "id": "10109514234",
+          "name": "CHANEL"
+        },
+        {
+          "ads": 19,
+          "id": "908096722655850",
+          "name": "CHANEL"
+        },
+        {
+          "ads": 1,
+          "id": "726432077387960",
+          "name": "CHANEL 샤넬"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 10,
+          "id": "130287678273",
+          "name": "Falabella Perú"
+        },
+        {
+          "ads": 9,
+          "id": "110617665114470",
+          "name": "Amazon.com.be"
+        },
+        {
+          "ads": 9,
+          "id": "1053324268086562",
+          "name": "Amazon Home"
+        },
+        {
+          "ads": 7,
+          "id": "188155134634806",
+          "name": "SEPHORA"
+        },
+        {
+          "ads": 6,
+          "id": "1454336254812049",
+          "name": "FDM Fabryka Dobrych Materacy"
+        },
+        {
+          "ads": 5,
+          "id": "1544653935786928",
+          "name": "Shopee"
+        },
+        {
+          "ads": 5,
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 5,
+          "id": "111491543719974",
+          "name": "Made in Lab Perfume"
+        },
+        {
+          "ads": 4,
+          "id": "618753817993013",
+          "name": "Not Actually Studying"
+        },
+        {
+          "ads": 4,
+          "id": "145210795501787",
+          "name": "John Lewis & Partners"
+        },
+        {
+          "ads": 3,
+          "id": "2216970645005783",
+          "name": "A Retro Tale"
+        },
+        {
+          "ads": 3,
+          "id": "158340507536335",
+          "name": "Catawiki"
+        },
+        {
+          "ads": 3,
+          "id": "229037136952236",
+          "name": "Deals Deluxe"
+        },
+        {
+          "ads": 2,
+          "id": "101331258161815",
+          "name": "Candlelight Concerts by Fever"
+        },
+        {
+          "ads": 2,
+          "id": "104809688115145",
+          "name": "Sesky Perfumes"
+        },
+        {
+          "ads": 2,
+          "id": "1483454928554062",
+          "name": "Emporium Emquartier"
+        },
+        {
+          "ads": 2,
+          "id": "464913113371612",
+          "name": "Jordan Roth"
+        },
+        {
+          "ads": 2,
+          "id": "162365472588435",
+          "name": "Studio Luxco"
+        },
+        {
+          "ads": 2,
+          "id": "102825741868911",
+          "name": "KittySpout"
+        },
+        {
+          "ads": 2,
+          "id": "213767938642445",
+          "name": "Port Magazine"
+        }
+      ]
+    },
+    "dior": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 195,
+          "id": "118197471568260",
+          "name": "Dior"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 8,
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 4,
+          "id": "160150784042061",
+          "name": "Renner"
+        },
+        {
+          "ads": 4,
+          "id": "1483454928554062",
+          "name": "Emporium Emquartier"
+        },
+        {
+          "ads": 4,
+          "id": "101846985358240",
+          "name": "HudaFode"
+        },
+        {
+          "ads": 4,
+          "id": "283954235143591",
+          "name": "Dior Beauty"
+        },
+        {
+          "ads": 3,
+          "id": "181669042190004",
+          "name": "Vinted"
+        },
+        {
+          "ads": 3,
+          "id": "163997340343740",
+          "name": "EVKUR"
+        },
+        {
+          "ads": 3,
+          "id": "104708409294483",
+          "name": "The Mall Lifestore Bangkapi"
+        },
+        {
+          "ads": 3,
+          "id": "112095024478839",
+          "name": "Collector's Cage"
+        },
+        {
+          "ads": 3,
+          "id": "104378295847208",
+          "name": "perfume.archaeology"
+        },
+        {
+          "ads": 3,
+          "id": "2216272798648227",
+          "name": "Narciso Lopez Italia"
+        },
+        {
+          "ads": 3,
+          "id": "202468699617033",
+          "name": "Magiczne Perfumy"
+        },
+        {
+          "ads": 2,
+          "id": "480418118654568",
+          "name": "E.Leclerc"
+        },
+        {
+          "ads": 2,
+          "id": "109010563764559",
+          "name": "The Atelier & Co."
+        },
+        {
+          "ads": 2,
+          "id": "148998239086",
+          "name": "SEPHORA"
+        },
+        {
+          "ads": 2,
+          "id": "1452123171725442",
+          "name": "Paragon Department Store"
+        },
+        {
+          "ads": 2,
+          "id": "138937542631235",
+          "name": "Varone"
+        },
+        {
+          "ads": 2,
+          "id": "112815178544283",
+          "name": "ZOFIAMODA"
+        },
+        {
+          "ads": 2,
+          "id": "625743404104157",
+          "name": "Edgars Beauty"
+        },
+        {
+          "ads": 2,
+          "id": "2046779158899878",
+          "name": "The Voice of Fashion"
+        }
+      ]
+    },
     "gucci": {
       "checked": "2026-10-17",
       "keep": [
@@ -75,12 +309,14 @@
     }
   },
   "countries": [
-    "FR"
+    "ALL"
   ],
   "form": "library",
-  "problems": {},
-  "requests": 4,
-  "run": "gh39026176152",
+  "problems": {
+    "chanel": "ads: RuntimeError: Apify HTTP 400: {\n  \"error\": {\n    \"type\": \"schema-validation\",\n    \"message\": \"Invalid value provided in options: memoryMbytes needs to be a power of two, like 512, 1024, 2048, 4096, etc. Received 15"
+  },
+  "requests": 44,
+  "run": "gh39026512965",
   "searched": {
     "gucci": "2026-10-17"
   },
@@ -207,14 +443,9 @@
       "body": {
         "text": "str"
       },
-      "branded_content": {
-        "page_id": "str",
-        "page_is_deleted": "bool",
-        "page_name": "str",
-        "page_profile_uri": "str"
-      },
+      "branded_content": "NoneType",
       "brazil_tax_id": "NoneType",
-      "byline": "str",
+      "byline": "NoneType",
       "caption": "str",
       "cards": [
         {
@@ -228,9 +459,9 @@
           "original_image_url": "str",
           "resized_image_url": "str",
           "title": "str",
-          "video_hd_url": "NoneType",
-          "video_preview_image_url": "NoneType",
-          "video_sd_url": "NoneType",
+          "video_hd_url": "str",
+          "video_preview_image_url": "str",
+          "video_sd_url": "str",
           "watermarked_resized_image_url": "str",
           "watermarked_video_hd_url": "NoneType",
           "watermarked_video_sd_url": "NoneType"
@@ -243,23 +474,10 @@
       "display_format": "str",
       "ec_certificates": [],
       "event": "NoneType",
-      "extra_images": [
-        {
-          "image_crops": [],
-          "original_image_url": "str",
-          "resized_image_url": "str"
-        }
-      ],
-      "extra_links": [
-        "str"
-      ],
+      "extra_images": [],
+      "extra_links": [],
       "extra_texts": [],
-      "extra_videos": [
-        {
-          "video_hd_handle": "str",
-          "video_sd_handle": "str"
-        }
-      ],
+      "extra_videos": [],
       "images": [
         {
           "image_crops": [],
@@ -350,65 +568,84 @@
           }
         ],
         "gender_audience": "str",
-        "location_audience": [],
+        "location_audience": [
+          {
+            "excluded": "bool",
+            "name": "str",
+            "num_obfuscated": "int",
+            "type": "str"
+          }
+        ],
         "total_reach": "int"
       }
     },
     "url": "str",
-    "verified_voice_context": {
-      "ad_library_all_geo_fin_serv_info": {
-        "finserv_data": [
-          {
-            "beneficiary_info": {
-              "license_info": "NoneType",
-              "location": "str",
-              "name": "str",
-              "phone": "NoneType",
-              "tax_id": "NoneType",
-              "website": "str"
-            },
-            "geo": "str",
-            "is_payer_beneficiary_same": "bool",
-            "payer_info": {
-              "license_info": "NoneType",
-              "location": "str",
-              "name": "str",
-              "phone": "NoneType",
-              "tax_id": "NoneType",
-              "website": "str"
-            }
-          }
-        ]
-      },
-      "types": [
-        "str"
-      ]
-    },
+    "verified_voice_context": "NoneType",
     "violation_types": []
   },
-  "stopped": null,
-  "updated_at": "2026-10-17T10:50:58Z",
+  "stopped": "budget",
+  "updated_at": "2026-10-17T12:08:22Z",
   "vendor_errors": [],
   "vendor_runs": [
     {
-      "id": "57YGQZO4FkSBhqG8G",
+      "id": "4pep5kxe5LJXP1suu",
       "input": {
-        "limitPerSource": 120,
+        "limitPerSource": 300,
         "scrapeAdDetails": true,
         "scrapePageAds": {
           "activeStatus": "all",
-          "countryCode": "FR",
+          "countryCode": "ALL",
           "period": "",
           "sortBy": "most_recent"
         },
         "urls": [
           {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=FR&search_type=page&view_all_page_id=44596321012"
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Chanel&search_type=keyword_unordered"
           }
         ]
       },
       "status": "SUCCEEDED",
-      "usd": 0.0968
+      "usd": 0.24305
+    },
+    {
+      "id": "EuOkcfg0s7VJxuv3P",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Dior&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.2303
+    },
+    {
+      "id": "mUNSy53KSe9eQCWIa",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=118197471568260"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 1.5218
     }
   ]
 }
