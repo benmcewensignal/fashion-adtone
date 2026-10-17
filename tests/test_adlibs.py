@@ -684,3 +684,17 @@ def test_tidy_applies_the_rules_as_they_stand_to_the_rows_on_file(tmp_data):
     # run again, nothing changes
     out = adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [alaia, versace]), "t2")
     assert out["dropped"] == 0 and out["division_changed"] == 0
+
+
+def test_a_page_with_the_house_name_that_is_another_company_is_not_the_house(tmp_data):
+    from adtone import metaweb
+    loewe = House("loewe", "Loewe", "treated", "LVMH", ["Loewe"], [], [])
+    assert metaweb.is_page(loewe, {"id": "184360374941311", "name": "LOEWE", "ads": 76})
+    assert not metaweb.is_page(loewe, {"id": "106889830893927", "name": "Loewe", "ads": 3})     # the television maker
+    P = adlibs.paths("metaweb")
+    store.write_jsonl(P["ads"] / "loewe.jsonl", [{"ad_id": "a", "page_id": "184360374941311", "page_name": "LOEWE", "media": []},
+                                                 {"ad_id": "b", "page_id": "106889830893927", "page_name": "Loewe", "media": []}])
+    store.write_state(P["state"], {"advertisers": {"loewe": {"keep": [{"id": "184360374941311", "name": "LOEWE", "ads": 76},
+                                                                      {"id": "106889830893927", "name": "Loewe", "ads": 3}]}}})
+    adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [loewe]), "t1")
+    assert [r["ad_id"] for r in store.read_jsonl(P["ads"] / "loewe.jsonl")] == ["a"]

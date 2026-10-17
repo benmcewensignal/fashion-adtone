@@ -111,7 +111,7 @@ _SELF_SERVE_APP = re.compile(r"in[- ]?app|ios|android|app aus", re.I)      # Sna
 _DIVISION = (("beauty", ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "pcd", "fnb", "f b", "makeup", "skincare",
                          "loreal", "esteelauder", "coty", "euroitalia", "shiseido")),
              ("eyewear", ("eyewear", "lunettes", "occhiali", "optical", "luxottica", "thelios", "marcolin", "safilo")),
-             ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli", "wfj", "haute horlogerie")))
+             ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli", "wfj", "haute horlogerie", "vertime")))
 
 
 def is_own(house: registry.House, name: str, ads: int | None = None) -> bool:

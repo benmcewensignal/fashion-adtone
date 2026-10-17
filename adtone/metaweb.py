@@ -64,13 +64,20 @@ NOT_A_HOUSE_PAGE = ("blog", "personal", "public figure", "community", "just for 
                     "restaurant", "amusement", "water park", "surf", "travel agency")
 
 
+# pages that bear a house's exact name and belong to another company, as the payers of their ads show
+OTHER_COMPANIES_PAGES = {
+    "106889830893927": "Loewe: Loewe Technology GmbH, the television maker (its ads paid by Loewe Technology GmbH and "
+                       "Loewe International, reaching Denmark, Germany and Austria)",
+}
+
+
 def is_page(house: registry.House, page: dict) -> bool:
     """The page is the house's own: its name is the house's (Gucci, GUCCI, CHANEL 샤넬), or the house's name
     with a company suffix, or with a place and a few ads at least (Loewe Greece), never a person, a blog, a
     shop, a business that shares the name or a licensee whose name merely contains it (celine_maureen, Céline
     Rousseau - Blog Santé, LOEWE Perfumes, Thiết bị phòng tắm cao cấp Fendi, Alaïa Bay, Hermes Logistik)."""
     cats = " ".join(page.get("categories") or []).lower()
-    if any(w in cats for w in NOT_A_HOUSE_PAGE):
+    if any(w in cats for w in NOT_A_HOUSE_PAGE) or str(page.get("id") or "") in OTHER_COMPANIES_PAGES:
         return False
     return is_own(house, page.get("name") or "", ads=int(page.get("ads") or 0))
 
