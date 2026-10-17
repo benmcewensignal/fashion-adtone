@@ -85,13 +85,17 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
                     else:
                         entry["post_keys"] = sorted({k for k, _ in parse_qsl(body)})[:60]
                 calls.append(entry)
-                if "json" in ctype or "javascript" in ctype and u.path.endswith(".json"):
-                    if key not in shapes and resp.status == 200:
-                        try:
-                            data = resp.json()
-                            shapes[key] = adlibs.shape(data)
-                        except Exception:
-                            pass
+                if ("json" in ctype or "javascript" in ctype and u.path.endswith(".json")) and resp.status == 200:
+                    try:
+                        data = resp.json()
+                    except Exception:
+                        data = None
+                    if data is not None:
+                        sh = adlibs.shape(data)
+                        sub = key + " " + " ".join(entry.get("data_urls") or [])[:200]
+                        if sub not in shapes and len(shapes) < 80:
+                            shapes[sub] = sh
+                        entry["response_shape_key"] = sub
             except Exception:
                 pass
 
@@ -201,7 +205,7 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
             out["read_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
         browser.close()
     seen = set()
-    out["calls"] = [c for c in calls if not (c["key"] in seen or seen.add(c["key"]))][:150]
+    out["calls"] = [c for c in calls if not ((k := c["key"] + json.dumps(c.get("data_urls")) + json.dumps(c.get("post_data_shape"))) in seen or seen.add(k))][:200]
     out["json_shapes"] = shapes
     return out
 
