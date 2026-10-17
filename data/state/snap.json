@@ -1,5 +1,65 @@
 {
   "advertisers": {
+    "balenciaga": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Balenciaga",
+          "name": "Balenciaga"
+        },
+        {
+          "id": "Balenciaga SA",
+          "name": "Balenciaga SA"
+        }
+      ],
+      "refused": []
+    },
+    "bottega_veneta": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Bottega Veneta",
+          "name": "Bottega Veneta"
+        },
+        {
+          "id": "Bottega Veneta SRL",
+          "name": "Bottega Veneta SRL"
+        }
+      ],
+      "refused": []
+    },
+    "celine": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Celine",
+          "name": "Celine"
+        },
+        {
+          "id": "CELINE",
+          "name": "CELINE"
+        }
+      ],
+      "refused": []
+    },
+    "chanel": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Chanel",
+          "name": "Chanel"
+        },
+        {
+          "id": "CHANEL",
+          "name": "CHANEL"
+        },
+        {
+          "id": "Chanel SAS",
+          "name": "Chanel SAS"
+        }
+      ],
+      "refused": []
+    },
     "dior": {
       "checked": "2026-10-17",
       "keep": [
@@ -14,6 +74,24 @@
         {
           "id": "Christian Dior",
           "name": "Christian Dior"
+        }
+      ],
+      "refused": []
+    },
+    "fendi": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Fendi",
+          "name": "Fendi"
+        },
+        {
+          "id": "FENDI",
+          "name": "FENDI"
+        },
+        {
+          "id": "FENDI S.r.l.",
+          "name": "FENDI S.r.l."
         }
       ],
       "refused": []
@@ -35,24 +113,67 @@
         }
       ],
       "refused": []
+    },
+    "loewe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Loewe",
+          "name": "Loewe"
+        },
+        {
+          "id": "LOEWE",
+          "name": "LOEWE"
+        },
+        {
+          "id": "LOEWE S.A.",
+          "name": "LOEWE S.A."
+        }
+      ],
+      "refused": []
     }
   },
   "date_form": "year",
   "names_answered": {
+    "balenciaga": [
+      "Balenciaga"
+    ],
+    "bottega_veneta": [
+      "Bottega Veneta"
+    ],
+    "celine": [
+      "Celine"
+    ],
+    "chanel": [
+      "Chanel"
+    ],
     "dior": [
       "Dior"
     ],
     "gucci": [
       "Gucci"
+    ],
+    "loewe": [
+      "Loewe"
     ]
   },
   "problems": {},
-  "requests": 137,
-  "run": "gh39019257538",
+  "requests": 278,
+  "run": "gh39025078397",
+  "searched": {
+    "balenciaga": "2026-10-17",
+    "bottega_veneta": "2026-10-17",
+    "celine": "2026-10-17",
+    "chanel": "2026-10-17",
+    "dior": "2026-10-17",
+    "gucci": "2026-10-17",
+    "loewe": "2026-10-17"
+  },
   "shape": {
     "ad_account_name": "str",
     "ad_render_type": "str",
     "ad_type": "str",
+    "brand_name": "str",
     "call_to_action": "str",
     "collection_preview": {
       "collection_creative_element_attachment": [
@@ -68,7 +189,30 @@
         "url": "str"
       }
     },
+    "composite_preview": {
+      "ad_snaps": [
+        {
+          "brand_name": "str",
+          "call_to_action": "str",
+          "headline": "str",
+          "render_type": "str",
+          "top_snap_crop_position": "str",
+          "top_snap_media_download_link": "str",
+          "top_snap_media_type": "str",
+          "type": "str",
+          "web_view_preview": {
+            "url": "str"
+          }
+        }
+      ],
+      "should_loop": "bool"
+    },
     "creative_type": "str",
+    "deep_link_properties": {
+      "deep_link_uri": "str",
+      "icon_media_url": "str",
+      "playable_media_properties": {}
+    },
     "headline": "str",
     "id": "str",
     "impressions_map": {
@@ -102,7 +246,14 @@
       "tr": "int"
     },
     "impressions_total": "int",
-    "languages": [],
+    "languages": [
+      "str"
+    ],
+    "lens_preview": {
+      "icon_url": "str",
+      "preview_image_url": "str",
+      "preview_video_url": "str"
+    },
     "name": "str",
     "name_searched": "str",
     "paying_advertiser_name": "str",
@@ -113,24 +264,38 @@
     "start_date": "str",
     "status": "str",
     "status_searched": "str",
+    "sticker_display_mode": "str",
     "stickers": [],
     "targeting_v2": {
       "demographics": [
         {
           "advanced_demographics": [],
           "age_groups": [],
-          "languages": [],
+          "gender": "str",
+          "languages": [
+            "str"
+          ],
+          "max_age": "str",
           "min_age": "str",
           "operation": "str"
         }
       ],
-      "devices": [],
+      "devices": [
+        {
+          "carrier_id": [],
+          "marketing_name": [],
+          "model": []
+        }
+      ],
       "regulated_content": "bool"
     },
     "top_snap_crop_position": "str",
     "top_snap_media_download_link": "str",
-    "top_snap_media_type": "str"
+    "top_snap_media_type": "str",
+    "web_view_properties": {
+      "url": "str"
+    }
   },
-  "stopped": null,
-  "updated_at": "2026-10-17T10:03:55Z"
+  "stopped": "budget",
+  "updated_at": "2026-10-17T11:30:59Z"
 }
