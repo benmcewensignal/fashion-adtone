@@ -25,6 +25,9 @@ on:
       max_ads:
         description: "ads per house for this run (empty: the META_MAX_ADS variable, default 2000)"
         default: ""
+      form:
+        description: "the address given to Apify's actor: library (the page's ads in the library) or page (the page's own address)"
+        default: ""
   push:   # editing .github/kick/metaweb starts a run
     branches: [main]
     paths: [".github/kick/metaweb"]
@@ -46,6 +49,7 @@ jobs:
       META_ACTOR: ${{ vars.META_ACTOR || 'apify~facebook-ads-scraper' }}
       META_COUNTRIES: ${{ github.event.inputs.countries || vars.META_COUNTRIES || 'ALL' }}
       META_MAX_ADS: ${{ github.event.inputs.max_ads || vars.META_MAX_ADS || '2000' }}
+      META_INPUT_FORM: ${{ github.event.inputs.form || vars.META_INPUT_FORM || 'library' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}

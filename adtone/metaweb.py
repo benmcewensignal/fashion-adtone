@@ -72,11 +72,12 @@ class Source:
         self.actor = actor or os.environ.get("META_ACTOR", DEFAULT_ACTOR).replace("/", "~")
         self.countries = [c.strip().upper() for c in (countries or os.environ.get("META_COUNTRIES", "ALL")).split(",") if c.strip()]
         self.max_ads = max_ads or int(os.environ.get("META_MAX_ADS", "2000"))
+        self.form = os.environ.get("META_INPUT_FORM", "library").strip() or "library"
         self.sleep, self.clock, self.t0, self.budget_s = sleep, clock, clock(), budget_s
         self.requests, self.runs, self.cost_usd = 0, [], 0.0
 
     def state_extra(self) -> dict:
-        return {"actor": self.actor, "countries": self.countries, "vendor_runs": self.runs[-40:]}
+        return {"actor": self.actor, "countries": self.countries, "form": self.form, "vendor_runs": self.runs[-40:]}
 
     def _call(self, method: str, path: str, **kw) -> dict:
         self.requests += 1
@@ -129,7 +130,10 @@ class Source:
         n = max_results or self.max_ads
         if self.actor.startswith("apify~"):
             country = self.countries[0] if self.countries else "ALL"
-            urls = [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&search_type=page&view_all_page_id={p}" for p in page_ids or []]
+            if self.form == "page":   # the page's own address, which the actor's issue tracker shows answered with the EU block
+                urls = [f"https://www.facebook.com/{p}" for p in page_ids or []]
+            else:
+                urls = [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&search_type=page&view_all_page_id={p}" for p in page_ids or []]
             urls += [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&q={t}&search_type=keyword_unordered" for t in terms or []]
             return {"startUrls": [{"url": u} for u in urls], "resultsLimit": n, "activeStatus": "", "scrapeAdDetails": True}
         inp = {"countries": self.countries, "adType": "all", "maxResults": n}
