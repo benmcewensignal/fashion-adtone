@@ -464,8 +464,9 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
         src = make_source()
         if a.fresh:
             src.house_refresh_days = 0
-        if a.rematch:
+        if a.rematch:                 # matched again, and searched again whatever the week's marker says
             src.advertiser_refresh_days = 0
+            src.house_refresh_days = 0
         out = collect(src, reg, a.run, embedder, scorer, a.budget_min * 60)
     except Exception as e:
         out = {"run": a.run, "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
