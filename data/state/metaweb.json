@@ -1,0 +1,189 @@
+{
+  "actor": "bovi~meta-ads-library-scraper",
+  "advertisers": {
+    "gucci": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 13,
+          "id": "44596321012",
+          "name": "Gucci"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 3,
+          "id": "304852989388606",
+          "name": "Apps4Style - Shoes"
+        },
+        {
+          "ads": 2,
+          "id": "818191698049303",
+          "name": "AnnexStrategy"
+        },
+        {
+          "ads": 2,
+          "id": "766580633201846",
+          "name": "Photo Collage Video Maker"
+        },
+        {
+          "ads": 2,
+          "id": "184016578301367",
+          "name": "Gusto Ids"
+        },
+        {
+          "ads": 1,
+          "id": "405057976021499",
+          "name": "Luxx Perfume Shop"
+        },
+        {
+          "ads": 1,
+          "id": "66385872534",
+          "name": "Culture Connection 360"
+        },
+        {
+          "ads": 1,
+          "id": "24761297864",
+          "name": "Fashionphile"
+        },
+        {
+          "ads": 1,
+          "id": "7220419617",
+          "name": "Clash Magazine"
+        },
+        {
+          "ads": 1,
+          "id": "162870590581298",
+          "name": "MARY Parfum"
+        },
+        {
+          "ads": 1,
+          "id": "966185476575534",
+          "name": "Alamode Tokyo "
+        },
+        {
+          "ads": 1,
+          "id": "107333512075829",
+          "name": "Trending show"
+        },
+        {
+          "ads": 1,
+          "id": "1483454928554062",
+          "name": "Emporium Emquartier"
+        }
+      ]
+    }
+  },
+  "countries": [
+    "ALL"
+  ],
+  "problems": {
+    "gucci": "ads: TypeError: 'NoneType' object is not iterable"
+  },
+  "requests": 6,
+  "run": "gh39023696007",
+  "shape": {
+    "ad_archive_id": "str",
+    "ad_creative_bodies": "NoneType",
+    "ad_creative_link_captions": [
+      "str"
+    ],
+    "ad_creative_link_descriptions": "NoneType",
+    "ad_creative_link_titles": "NoneType",
+    "ad_delivery_start_date": "str",
+    "ad_delivery_stop_date": "str",
+    "ad_snapshot_url": "str",
+    "byline": "NoneType",
+    "card_count": "int",
+    "categories": [
+      "str"
+    ],
+    "collation_count": "int",
+    "collation_id": "str",
+    "contains_digital_created_media": "bool",
+    "contains_sensitive_content": "bool",
+    "cta_text": "str",
+    "cta_type": "str",
+    "currency": "str",
+    "days_active": "int",
+    "display_format": "str",
+    "entity_type": "NoneType",
+    "has_metrics": "bool",
+    "impressions_lower": "NoneType",
+    "impressions_midpoint": "NoneType",
+    "impressions_upper": "NoneType",
+    "is_active": "bool",
+    "is_scaled": "bool",
+    "link_url": "str",
+    "longevity_score": "float",
+    "media_count": "int",
+    "page_categories": [
+      "str"
+    ],
+    "page_id": "str",
+    "page_like_count": "int",
+    "page_name": "str",
+    "page_profile_picture_url": "str",
+    "page_profile_uri": "str",
+    "parse_confidence": "int",
+    "publisher_platforms": [
+      "str"
+    ],
+    "reach_estimate": "NoneType",
+    "regional_regulation_data": {
+      "finserv": {
+        "is_deemed_finserv": "bool",
+        "is_limited_delivery": "bool"
+      },
+      "tw_anti_scam": {
+        "is_limited_delivery": "bool"
+      }
+    },
+    "scraped_at": "str",
+    "snapshot_images": "NoneType",
+    "snapshot_videos": [
+      "str"
+    ],
+    "spend_lower": "NoneType",
+    "spend_midpoint": "NoneType",
+    "spend_upper": "NoneType",
+    "state_media_run_label": "NoneType",
+    "targeted_or_reached_countries": [],
+    "total_active_time": "NoneType",
+    "warnings": []
+  },
+  "stopped": null,
+  "updated_at": "2026-10-17T10:09:24Z",
+  "vendor_runs": [
+    {
+      "id": "E1pPglDswMHvKrc21",
+      "input": {
+        "adType": "all",
+        "countries": [
+          "ALL"
+        ],
+        "maxResults": 300,
+        "searchTerms": [
+          "Gucci"
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.12004999999999999
+    },
+    {
+      "id": "WApKhC5NRnpMigz5z",
+      "input": {
+        "adType": "all",
+        "countries": [
+          "ALL"
+        ],
+        "maxResults": 2000,
+        "pageIds": [
+          "44596321012"
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.12004999999999999
+    }
+  ]
+}
