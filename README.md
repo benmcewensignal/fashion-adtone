@@ -168,6 +168,14 @@ key exists:
   developers.tiktok.com (TikTok says it answers within two working days); the keys then appear in the
   research section of the developer site. The weekly tiktok workflow then reads the houses' ads in
   Europe, kept by TikTok for a year after they last ran.
+- `APIFY_TOKEN`: an Apify account's API token (console.apify.com, Settings > API and integrations). The
+  weekly metaweb workflow then reads Meta's Ad Library as the actor named in the `META_ACTOR` variable
+  (default bovi~meta-ads-library-scraper, paid per ad to the vendor) reads it: each house's pages found
+  once by name and kept in `data/state/metaweb.json` for checking, then their ads for the past year in
+  the row shape the official API's ads take.
+
+Two more repositories need no key at all and run weekly as the runner is: Snapchat's Ads Gallery
+(`adtone.snap`, Snap's open API) and Microsoft's Ad Library (`adtone.msads`, Microsoft's open API).
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and
