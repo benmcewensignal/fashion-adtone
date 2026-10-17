@@ -39,12 +39,12 @@
   },
   "names_answered": {},
   "problems": {
-    "dior": "ads: RuntimeError: Snap HTTP 400: {'request_status': 'ERROR', 'request_id': '33d83149-58b6-49a2-9feb-11fbd43cf703', 'debug_message': 'Start or end time is not valid: [endDate]', 'display_message': 'Start or end time is ",
-    "gucci": "ads: RuntimeError: Snap HTTP 400: {'request_status': 'ERROR', 'request_id': 'bb78e6c5-23d4-43fb-8ec8-405548d98527', 'debug_message': 'Start or end time is not valid: [endDate]', 'display_message': 'Start or end time is "
+    "dior": "ads: RuntimeError: Snap HTTP 400: {'request_status': 'ERROR', 'request_id': 'c5e1689a-c234-4359-91c2-8699cef39cc8', 'debug_message': 'Start or end time is not valid: [endDate]', 'display_message': 'Start or end time is ",
+    "gucci": "ads: RuntimeError: Snap HTTP 400: {'request_status': 'ERROR', 'request_id': 'ba0ed343-7c49-4960-9558-70c4739c4505', 'debug_message': 'Start or end time is not valid: [endDate]', 'display_message': 'Start or end time is "
   },
   "requests": 2,
-  "run": "gh39017937306",
+  "run": "gh39018301033",
   "shape": null,
   "stopped": null,
-  "updated_at": "2026-10-17T08:36:37Z"
+  "updated_at": "2026-10-17T08:42:38Z"
 }
