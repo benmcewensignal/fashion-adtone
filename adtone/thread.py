@@ -160,15 +160,37 @@ def vouched(row: dict, ref: list[dict]) -> dict | None:
     return near[0] if near else None
 
 
+SEASON_REDATE_DAYS = 45
+
+
+def season_label(row: dict) -> str | None:
+    """A listing's season as the verified shows write it: SS26, AW25, SS27 men, AW26 couture."""
+    if not row.get("year") or not row.get("season") or not str(row["year"]).isdigit():
+        return None
+    lab = f"{row['season']}{int(row['year']) % 100:02d}"
+    return lab if row.get("category") == "rtw" else f"{lab} {row.get('category')}"
+
+
 def redated(row: dict, ref: list[dict], days: int = 7) -> dict:
     """A listing a few days off a verified show of the same house takes the verified date: the listing's date is
     then a gallery timestamp, not the show (NOWFASHION dates Celine's SS26 page 30 September 2025; the show was on
     5 October, and a jump read on the 30th misses it). Left alone within a day of a verified show, or more than
-    `days` from any; the listed date is kept as `listed_date`."""
+    `days` from any; the listed date is kept as `listed_date`. A verified show of the same house and season held
+    away from the usual week takes the listing's place up to SEASON_REDATE_DAYS off, with its city (NOWFASHION
+    files Zegna's summer 2026 show, held at the Dubai Opera on 11 June 2025, under Milan on 23 June)."""
     try:
         d = date.fromisoformat(row["date"])
     except (KeyError, ValueError):
         return row
+    lab = season_label(row)
+    same = sorted((abs((date.fromisoformat(v["date"]) - d).days), v["date"], v.get("city") or "") for v in ref
+                  if lab and v["house"] == row.get("house") and (v.get("season") or "").strip() == lab
+                  and (v.get("kind") or "show") in ("show", "debut"))
+    if same and days < same[0][0] <= SEASON_REDATE_DAYS:
+        out = {**row, "date": same[0][1], "listed_date": row["date"]}
+        if same[0][2] and same[0][2] != row.get("city"):
+            out.update(city=same[0][2], listed_city=row.get("city"))
+        return out
     gaps = sorted((abs((date.fromisoformat(v["date"]) - d).days), v["date"]) for v in ref if v["house"] == row.get("house"))
     if not gaps or gaps[0][0] <= 1 or gaps[0][0] > days:
         return row
@@ -508,6 +530,20 @@ SEARCH_PROV = config.PROV_DIR / "adstransparency.jsonl"
 SEARCH_FLOOR = date(2023, 3, 1)
 SEARCH_KEEP_DAYS = 365
 BEAUTY_TOPICS = {"Beauty & Personal Care", "Health & Beauty"}
+SEARCH_ACCOUNTS = config.ROOT / "reference" / "google_advertisers.csv"
+
+
+def search_accounts(path=None) -> set[str]:
+    """The houses with an account of their own on the checked list (house, or doubt while Google has not verified
+    it), the accounts the collector reads. A house with none has no record to count from: no ads on file for it
+    says nothing about whether it advertised."""
+    p = path or SEARCH_ACCOUNTS
+    if not p.exists():
+        return set()
+    with p.open(encoding="utf-8", newline="") as f:
+        return {r["house"].strip() for r in csv.DictReader(f)
+                if r.get("house", "").strip() and r.get("advertiser_id", "").strip()
+                and ((r.get("status") or "house").strip() or "house") in ("house", "doubt")}
 
 
 def search_record(prov=None) -> dict:
@@ -526,14 +562,17 @@ def advertised(adv: dict, period: str) -> bool:
     return bool(adv.get(period)) or (s.get("record") == "complete" and s.get("ads", 0) > 0)
 
 
-def search_window(ads: list[tuple], d0: date, d1: date, record: dict) -> dict:
+def search_window(ads: list[tuple], d0: date, d1: date, record: dict, account: bool = True) -> dict:
     """The search and video ads first shown from d0 to d1, by format and how many advertise beauty, and how much of
     the window the record covers: complete from a year before the first read, survivors only before that, partly
-    survivors across it; an open window runs on past the last read."""
+    survivors across it; an open window runs on past the last read. A house with no account of its own on the
+    list has no record at all, which is said rather than counted as none."""
     if not record.get("first_read"):
         return {"record": "not read"}
     if d1 <= SEARCH_FLOOR:
         return {"record": "before the dataset"}
+    if not account:
+        return {"record": "no account found"}
     from datetime import timedelta
     keep_from = max(date.fromisoformat(record["first_read"]) - timedelta(days=SEARCH_KEEP_DAYS),
                     SEARCH_FLOOR + timedelta(days=1))
@@ -679,7 +718,7 @@ def _load_sources() -> dict:
         search += [{"house_id": r.get("house"), "first": r.get("first"), "fmt": r.get("fmt"), "topic": r.get("topic")}
                    for r in store.read_jsonl(p)]
     return {"ambassadors": amb, "homepages": hp, "campaigns": camps, "campaigns_read": read, "ads": ads,
-            "search_ads": search, "search_record": search_record()}
+            "search_ads": search, "search_record": search_record(), "search_accounts": search_accounts()}
 
 
 def collections(rows: list[dict], main: dict[str, str], sources: dict | None = None) -> dict:
@@ -729,6 +768,7 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
             ads[r["house_id"]].append(date.fromisoformat(r["start"]))
     have_ads = any(ads.values())
     record = src.get("search_record") or {}
+    accounts = src.get("search_accounts")          # None: not known, every house taken to have its account
     search = defaultdict(list)
     for r in src.get("search_ads", []):
         f = r.get("first") or ""
@@ -750,8 +790,10 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         # are counted beside them on the same windows, with how much of each window their record covers
         c["advertising"] = {"show_period": sum(1 for d in ads.get(h, []) if p0 <= d <= p1),
                             "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1),
-                            "search_video": {"show_period": search_window(search.get(h, []), p0, p1, record),
-                                             "campaign_period": search_window(search.get(h, []), q0, q1, record)}}
+                            "search_video": {"show_period": search_window(search.get(h, []), p0, p1, record,
+                                                                          accounts is None or h in accounts),
+                                             "campaign_period": search_window(search.get(h, []), q0, q1, record,
+                                                                              accounts is None or h in accounts)}}
         c["campaign"] = {"entries": 0, "pictures_read": 0, "by_kind": Counter(), "by_line": Counter(),
                          "joined_by": Counter(), "ids": []}
 
@@ -833,6 +875,8 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
             "advertising": {"paid_social": "on file" if have_ads else "waiting on the paid social archive",
                             "search_video": {**record, "ads_dated": sum(len(v) for v in search.values()),
                                              "floor": SEARCH_FLOOR.isoformat(), "keep_days": SEARCH_KEEP_DAYS,
+                                             "houses_without_account": sorted({c["house"] for c in mains} - accounts)
+                                             if accounts is not None else [],
                                              "main_with_both_windows_complete": sum(
                                                  all((c["advertising"]["search_video"][p].get("record") == "complete")
                                                      for p in ("show_period", "campaign_period")) for c in mains)}},

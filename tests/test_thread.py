@@ -230,6 +230,16 @@ def test_a_listing_a_few_days_off_a_verified_show_takes_its_date():
     assert T.redated(far, ref) == far                        # more than a week from any: left alone
     other = {**row, "house": "dior"}
     assert T.redated(other, ref) == other
+    # a show of the same season held away from the usual week, verified, takes the listing's place and its city
+    zref = [{"house": "zegna", "date": "2025-06-11", "season": "SS26 men", "city": "Dubai", "kind": "show"},
+            {"house": "zegna", "date": "2025-01-20", "season": "AW25 men", "city": "Milan", "kind": "show"}]
+    listed = {"house": "zegna", "date": "2025-06-23", "year": 2026, "season": "SS", "category": "men", "city": "Milan"}
+    moved = T.redated(listed, zref)
+    assert (moved["date"], moved["city"], moved["listed_date"], moved["listed_city"]) == ("2025-06-11", "Dubai",
+                                                                                         "2025-06-23", "Milan")
+    assert T.season_label(listed) == "SS26 men" and T.season_label({**listed, "category": "rtw"}) == "SS26"
+    assert T.redated({**listed, "category": "rtw"}, zref) == {**listed, "category": "rtw"}   # another season: left
+    assert T.redated({**listed, "date": "2025-08-30"}, zref)["date"] == "2025-08-30"           # 80 days off: left
 
 
 def test_momentum_shares_no_days_with_the_weeks_lasting_attention_is_measured_from(tmp_path, monkeypatch):
@@ -374,6 +384,11 @@ def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_pat
     assert T.search_window(ads, date(2022, 9, 1), date(2022, 10, 1), record) == {"record": "before the dataset"}
     assert T.search_window(ads, date(2026, 10, 1), date(2026, 10, 30), record)["open"] is True
     assert T.search_window(ads, date(2026, 2, 24), date(2026, 3, 24), {}) == {"record": "not read"}
+    # a house with no account of its own has no record to count from, which is said rather than counted as none
+    assert T.search_window([], date(2026, 2, 24), date(2026, 3, 24), record, account=False) == {"record": "no account found"}
+    listed = tmp_path / "accounts.csv"
+    listed.write_text("house,advertiser_id,status\nh0,AR1,house\nh1,AR2,doubt\nh2,AR3,not\nh3,,house\n")
+    assert T.search_accounts(listed) == {"h0", "h1"}
     prov = tmp_path / "prov.jsonl"
     prov.write_text("\n".join(json.dumps(r) for r in [{"updated_at": "2026-10-12T17:51:51Z"},
                                                       {"updated_at": "2026-10-12T18:32:58Z", "stage": "discover+collect"},
@@ -388,7 +403,7 @@ def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_pat
              for h in range(5)] + [{"house": "h1", "date": "2024-02-26", "category": "rtw", "season": "AW", "year": 2024,
                                     "city": "Milan"}]
     sources = {"ambassadors": [], "homepages": [], "campaigns": [], "campaigns_read": set(), "ads": [],
-               "search_record": record,
+               "search_record": record, "search_accounts": {"h0", "h1", "h2", "h3"},
                "search_ads": [{"house_id": "h0", "first": "2026-03-04", "fmt": "VIDEO", "topic": "Apparel"},
                               {"house_id": "h0", "first": "2026-05-20", "fmt": "IMAGE", "topic": "Apparel"},
                               {"house_id": "h0", "first": "2023-03-01", "fmt": "TEXT", "topic": "Apparel"},
@@ -407,8 +422,11 @@ def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_pat
     assert old["advertising"]["search_video"]["show_period"] == {"ads": 1, "video": 1, "image": 0, "text": 0,
                                                                   "beauty": 0, "record": "survivors"}
     assert old["fill"]["advertising"] == "none"                                       # survivors do not fill the stage
+    assert recs[("h4", "2026-03-02")]["advertising"]["search_video"]["show_period"] == {"record": "no account found"}
+    assert recs[("h3", "2026-03-02")]["advertising"]["search_video"]["show_period"]["record"] == "complete"
     summary = out["collections"]["advertising"]
     assert summary["paid_social"] == "waiting on the paid social archive" and summary["search_video"]["ads_dated"] == 4
+    assert summary["search_video"]["houses_without_account"] == ["h4"]
 
 
 def test_the_campaign_window_runs_to_a_week_before_the_next_main_show():

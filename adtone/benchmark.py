@@ -104,6 +104,16 @@ def advertised(row: dict) -> bool:
         for p in ("show_period", "campaign_period"))
 
 
+def advertising_known(row: dict) -> bool:
+    """Whether the record could show this collection's ads: the paid social archive's on file, or the house's own
+    search and video account read over a whole window. Without either, no ads on file is not the same as none."""
+    a = row.get("advertising") or {}
+    paid = a.get("paid_social") or {}
+    sv = a.get("search_video") or {}
+    return bool(paid.get("show_period") or paid.get("campaign_period")) or any(
+        (sv.get(p) or {}).get("record") == "complete" for p in ("show_period", "campaign_period"))
+
+
 def kind_group(creative_type: str | None) -> str:
     return GROUP_OF.get(creative_type or "", "other")
 
@@ -530,6 +540,7 @@ def build(collections: list[dict], pictures: list[dict], last_month: str | None 
                       "movement": sum("value" in r["shop_window"]["movement"] for r in rs),
                       "campaigns": sum(bool(r["campaigns"]["entries"]) for r in rs),
                       "advertising": sum(advertised(r) for r in rs),
+                      "advertising_on_record": sum(advertising_known(r) for r in rs),
                       "scene": sum(bool((r["scene"] or {}).get("covered")) for r in rs),
                       "runway": sum(bool((r["clothes"].get("runway") or {}).get("profile")) for r in rs),
                       "clothes_window": sum(bool((r["clothes"].get("shop_window") or {}).get("profile")) for r in rs),

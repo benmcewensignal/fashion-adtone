@@ -18,6 +18,7 @@ addresses, the counts and a verdict per house, in data/thread/looks_probe.json.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import sys
@@ -447,13 +448,34 @@ def homepage_sections(c: Crawler, house: str, years: tuple = HOMEPAGE_YEARS) -> 
     return [pre for pre, _ in found.most_common(SECTIONS_PER_HOUSE)]
 
 
-def house_sections(c: Crawler, house: str, shows: list[dict], domains: list[str], seeds: list[str]) -> tuple[list, list]:
-    """A house's show sections: from show pages already found and from the links on its own front page; if
-    neither gives one, from a week's search after its two latest shows. Then every page the archive holds
-    under each section."""
+SHOW_PAGES = config.ROOT / "reference" / "show_pages.csv"
+
+
+def seeded_sections(path=None) -> dict[str, list[str]]:
+    """Where a house keeps its shows on its own site, found by hand (reference/show_pages.csv): the address
+    prefixes the archive's index is read under, for houses whose front page does not say and whose whole domain
+    is too large for the index to search in time (Louis Vuitton's, Armani's)."""
+    p = path or SHOW_PAGES
+    if not p.exists():
+        return {}
+    out: dict[str, list[str]] = {}
+    with p.open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            h, pre = (r.get("house") or "").strip(), (r.get("prefix") or "").strip().split("://", 1)[-1]
+            if h and pre and pre not in out.get(h, []):
+                out.setdefault(h, []).append(pre)
+    return out
+
+
+def house_sections(c: Crawler, house: str, shows: list[dict], domains: list[str], seeds: list[str],
+                   fixed: list[str] | tuple = ()) -> tuple[list, list]:
+    """A house's show sections: those found by hand first, then from show pages already found and from the links
+    on its own front page; if none of these gives one, from a week's search after its two latest shows. Then
+    every page the archive holds under each section."""
     from collections import Counter
     from datetime import timedelta
-    prefixes = [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in seeds))).most_common(SECTIONS_PER_HOUSE)]
+    prefixes = list(fixed) + [pre for pre, _ in Counter(filter(None, (section_prefix(u) for u in seeds))).most_common(
+        SECTIONS_PER_HOUSE) if pre not in fixed]
     for pre in homepage_sections(c, house):            # the house's own front page says where its shows live
         if pre not in prefixes and len(prefixes) < 2 * SECTIONS_PER_HOUSE:
             prefixes.append(pre)
@@ -491,7 +513,13 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
                 shows_prev[k] = {**v, "status": "partial", "candidates": []}
             else:
                 shows_prev[k] = {**v, "candidates": sorted(fit, key=lambda x: -score(x["url"], v.get("category")))}
-    done = {k for k, v in shows_prev.items() if v.get("status") in COVERAGE_FINAL}
+    fixed = seeded_sections()
+
+    def unseen(v):
+        """A show found to have no page before its house was given a section by hand: asked again."""
+        return v.get("status") == "none" and bool(set(fixed.get(v.get("house"), ())) - set(v.get("seeds") or ()))
+
+    done = {k for k, v in shows_prev.items() if v.get("status") in COVERAGE_FINAL and not unseen(v)}
     out = {"generated_at": store.utc_now(), "window_days": list(AFTER_SHOW), "shows": shows_prev,
            "sections": dict(prev.get("sections", {})), "note": "addresses only; no page or picture is kept"}
     probe_pages = {}
@@ -512,9 +540,16 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
             return
         seeds = [x["url"] for k, v in shows_prev.items() if v.get("house") == house and v.get("status") == "found"
                  for x in v.get("candidates", [])[:1]] + probe_pages.get(house, [])
-        prefixes, rows = house_sections(cc, house, by_house[house], doms.get(house, []), seeds)
+        prefixes, rows = house_sections(cc, house, by_house[house], doms.get(house, []), seeds, fixed.get(house, ()))
+
+        def order(sh):
+            """Shows never asked first, then those whose search failed before, newest first within each: a
+            domain whose index keeps failing on its latest shows no longer keeps the older ones from being asked."""
+            tried = shows_prev.get(f"{house}:{sh['date']}:{sh['category']}", {}).get("status") in ("index failed", "partial")
+            return (tried, -int(sh["date"].replace("-", "")))
+
         failed = 0
-        for sh in sorted(pending, key=lambda s: s["date"], reverse=True):
+        for sh in sorted(pending, key=order):
             if clock() > deadline:
                 break
             domains = doms.get(house, []) if failed < 2 else []    # after two failures only the sections are read
@@ -528,6 +563,8 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
                 if pre and pre not in prefixes:          # a section found on the way answers the older shows
                     prefixes.append(pre)
                     rows = rows + section_index(cc, pre)
+            if house in fixed:
+                row["seeds"] = list(fixed[house])            # asked with the sections found by hand
             with lock:
                 out["shows"][f"{house}:{sh['date']}:{sh['category']}"] = row
                 out["sections"][house] = {"prefixes": prefixes, "pages": len(rows)}

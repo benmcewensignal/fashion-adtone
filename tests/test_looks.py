@@ -225,3 +225,56 @@ def test_a_front_page_link_to_one_show_page_points_to_its_folder(monkeypatch):
             return _R(200, html, url=url)
 
     assert L.homepage_sections(Front(), "prada") == ["www.prada.com/us/en/pradasphere/fashion-shows/"]
+
+
+def test_a_failing_domain_no_longer_blocks_older_shows_and_a_section_found_by_hand_answers_them(tmp_path, monkeypatch):
+    from adtone import homepages
+    monkeypatch.setattr(homepages, "load_index", lambda h: {})
+    monkeypatch.setattr(L, "COVERAGE_OUT", tmp_path / "coverage.json")
+    monkeypatch.setattr(L, "COVERAGE_PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(L, "OUT", tmp_path / "no-probe.json")
+    monkeypatch.setattr(L, "SHOW_PAGES", tmp_path / "show_pages.csv")
+    monkeypatch.setattr(L, "sites", lambda: {"louis_vuitton": ["louisvuitton.com"]})
+    shows = [{"house": "louis_vuitton", "date": d, "season": s, "category": "rtw"} for d, s in
+             [("2025-10-01", "2026 SS rtw"), ("2025-03-10", "2025 AW rtw"), ("2024-10-01", "2025 SS rtw"),
+              ("2024-03-05", "2024 AW rtw")]]
+    monkeypatch.setattr(L, "shows_on_file", lambda: shows)
+    section = "www.louisvuitton.com/eng-gb/magazine/articles/"
+
+    class Huge:
+        """A domain too large for the index: every search of the whole of it fails; one of its sections answers."""
+        calls = 0
+
+        def get(self, url, params=None):
+            self.calls += 1
+            if params.get("matchType") == "domain":
+                return _R(504, "the index timed out")
+            rows = [["timestamp", "original"]]
+            if params["url"] == section:
+                rows += [["20251002000000", f"https://{section}women-spring-summer-2026-show"],
+                         ["20240306000000", f"https://{section}women-fall-winter-2024-show"]]
+            return _R(200, json.dumps(rows), "application/json")
+
+    L.coverage(c=Huge())
+    s = json.loads((tmp_path / "coverage.json").read_text())["shows"]
+    assert {k: v["status"] for k, v in s.items()} == {"louis_vuitton:2025-10-01:rtw": "index failed",
+                                                      "louis_vuitton:2025-03-10:rtw": "index failed"}
+    L.coverage(c=Huge())                     # the two that failed wait their turn: the older two are asked
+    s = json.loads((tmp_path / "coverage.json").read_text())["shows"]
+    assert len(s) == 4 and all(v["status"] == "index failed" for v in s.values())
+    # an answer from before the section was known: no page; with the section given by hand it is asked again
+    cov = json.loads((tmp_path / "coverage.json").read_text())
+    cov["shows"]["louis_vuitton:2024-03-05:rtw"] = {**shows[3], "status": "none", "via": "window", "candidates": []}
+    (tmp_path / "coverage.json").write_text(json.dumps(cov))
+    (tmp_path / "show_pages.csv").write_text(f"house,prefix,note\nlouis_vuitton,https://{section},by hand\n")
+    assert L.seeded_sections() == {"louis_vuitton": [section]}
+    out = L.coverage(c=Huge())
+    s = out["shows"]
+    assert s["louis_vuitton:2025-10-01:rtw"]["status"] == "found" and s["louis_vuitton:2025-10-01:rtw"]["via"] == "section"
+    assert s["louis_vuitton:2024-03-05:rtw"]["status"] == "found"
+    assert s["louis_vuitton:2024-03-05:rtw"]["seeds"] == [section]
+    assert out["sections"]["louis_vuitton"]["prefixes"][0] == section
+    again = Huge()
+    L.coverage(c=again)                      # found and seen with the section: not asked again
+    s2 = json.loads((tmp_path / "coverage.json").read_text())["shows"]
+    assert s2["louis_vuitton:2024-03-05:rtw"]["status"] == "found"
