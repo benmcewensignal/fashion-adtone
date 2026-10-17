@@ -28,7 +28,7 @@ from datetime import date, timedelta
 import requests
 
 from . import adlibs, copyfeat, registry, thread
-from .snap import is_house
+from .snap import is_own
 
 PAGE_URL = "https://ads.pinterest.com/ads-repository/"
 COUNTRIES = ("FR", "DE", "IT")      # the larger markets; an ad shown in several is kept once, and most are shown in all three
@@ -148,8 +148,16 @@ class Source:
                 if name in seen:
                     continue
                 seen.add(name)
-                (keep if is_house(house, name) else refused).append({"id": name, "name": name})
+                (keep if is_own(house, name) else refused).append({"id": name, "name": name})
         return keep, refused
+
+    def filter_keep(self, house: registry.House, keep: list[dict]) -> list[dict]:
+        """The names on file, judged by the rule as it stands: the house's own name, not a person's with
+        it (Celine Dion, Céline Ameel), a shop's or a licensee's (LOEWE Perfumes, Loewe Technology)."""
+        return [a for a in keep if is_own(house, a["name"])]
+
+    def row_is_kept(self, row: dict, keep: list[dict], house: registry.House | None = None) -> bool:
+        return house is None or not row.get("advertiser") or is_own(house, row["advertiser"])
 
     def _search(self, name: str, country: str, start: date, end: date) -> list[dict]:
         """One search on the page: country, dates and the advertiser's name set, Search pressed, every page of
@@ -195,6 +203,9 @@ class Source:
         except Exception as e:
             with self._lock:
                 self.notes.append(f"{name} {country} {win_start}: {e.__class__.__name__}: {str(e)[:120]}")
+                stuck = self._pages.pop(threading.get_ident(), None)   # the page is replaced for the next search
+            if stuck is not None:
+                stuck.close()
             return []
 
     def search_ads(self, house: registry.House, keep: list[dict], start: date, end: date):
@@ -233,7 +244,7 @@ class Source:
     def is_houses(self, item: dict, house: registry.House, keep: list[dict]) -> bool:
         names = (item.get("ad_details") or {}).get("advertiser_names")
         if isinstance(names, list) and names:
-            return any(is_house(house, n) for n in names if isinstance(n, str))
+            return any(is_own(house, n) for n in names if isinstance(n, str))
         return True   # the search was by the house's own advertiser name
 
     def ad_row(self, item: dict, house_id: str, run: str) -> dict:
