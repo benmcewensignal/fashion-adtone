@@ -80,18 +80,22 @@
   "form": "library",
   "problems": {},
   "requests": 3,
-  "run": "gh39025845966",
+  "run": "gh39026014024",
   "searched": {
     "gucci": "2026-10-17"
   },
-  "shape": {
-    "error": "str"
-  },
+  "shape": null,
   "stopped": null,
-  "updated_at": "2026-10-17T10:42:47Z",
+  "updated_at": "2026-10-17T10:45:26Z",
+  "vendor_errors": [
+    {
+      "error": "You must provide atleast 1 input URL per 512MB of RAM memory. (You've assignd 1GB memory, but provided only 1 input URLs. You can either reduce the memory to 0.5GB or provide 2 input URLs to scrape)",
+      "house": "gucci"
+    }
+  ],
   "vendor_runs": [
     {
-      "id": "NUwEUpfO712mdB7ZY",
+      "id": "ZARzHLa0deCVcoErw",
       "input": {
         "limitPerSource": 120,
         "scrapeAdDetails": true,
