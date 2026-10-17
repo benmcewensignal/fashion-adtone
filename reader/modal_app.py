@@ -16,7 +16,7 @@ import modal
 MODEL = os.environ.get("ADTONE_OPEN_MODEL", "Qwen/Qwen2.5-VL-7B-Instruct")
 REVISION = os.environ.get("ADTONE_OPEN_MODEL_REVISION", "")      # a commit hash once pinned
 GPU = os.environ.get("ADTONE_MODAL_GPU", "L4")
-CONTAINERS = int(os.environ.get("ADTONE_READER_CONTAINERS", "4"))   # read in parallel when callers send batches at once
+CONTAINERS = int(os.environ.get("ADTONE_READER_CONTAINERS", "8"))   # read in parallel when callers send batches at once
 MAX_PIXELS = 1024 * 28 * 28    # at most about a thousand image tokens: the pipeline already sends 1,568px at most
 
 image = (modal.Image.debian_slim(python_version="3.12")

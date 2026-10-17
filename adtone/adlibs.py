@@ -42,7 +42,7 @@ from .media import MediaError, jpeg_for_model
 from .score import ScoreError, score_batches
 
 BATCH = 16                                              # pictures per call to the reader
-PARALLEL = int(os.environ.get("ADTONE_READ_PARALLEL") or 6)   # calls in flight at once, each its own container
+PARALLEL = int(os.environ.get("ADTONE_READ_PARALLEL") or 8)   # calls in flight at once, each its own container
 
 
 def paths(name: str) -> dict[str, Path]:

@@ -207,7 +207,8 @@ Each picture is read by the pinned reader with the eighteen questions, to `data/
 fingerprint. The clothes rubric, read by the larger reader the runway looks and homepage pictures were read
 with, is not read on advertisements until Amendment 3 is frozen: the workflows leave it out unless the
 repository variable `ADS_CLOTHES` is `yes` (`--no-clothes` on the command line). The reader on Modal runs up
-to `ADTONE_READER_CONTAINERS` containers (four) when a caller sends several batches at once.
+to `ADTONE_READER_CONTAINERS` containers (eight) when a caller sends several batches at once, and the
+collectors send eight batches of sixteen pictures at a time (`ADTONE_READ_PARALLEL`).
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and
