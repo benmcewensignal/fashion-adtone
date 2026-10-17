@@ -13,9 +13,9 @@ shown there with the advertiser, first and last day, the countries, genders, age
 whether keywords or audience lists were used, how many people in the EU and in each country saw it in
 bands, the picture or video, and any moderation. EU, EEA, Brazil and Türkiye only; no UK. Advertiser
 names come from the page's own name search, matched to the house as elsewhere (no beauty or fragrance
-licensees, no resellers). The year is read a month at a time for the larger markets, the countries side
-by side in their own browser pages (PINTEREST_WORKERS, one per country); an ad shown in several is kept
-once. Pictures and video stills go through the reader and the fingerprint, in memory; the ad's title and
+licensees, no resellers). The year is read a month at a time for the larger markets, one page unless
+PINTEREST_WORKERS asks for the countries side by side (two runs stalled that way on 17 October); an ad
+shown in several is kept once. Pictures and video stills go through the reader and the fingerprint, in memory; the ad's title and
 text are kept only as features, never as text.
 """
 from __future__ import annotations
@@ -99,7 +99,8 @@ class Source:
         self.s = sess or requests.Session()
         self.s.headers.setdefault("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36")
         self.sleep, self.countries = sleep, list(countries)
-        self.workers = workers or int(os.environ.get("PINTEREST_WORKERS") or len(self.countries))
+        # one page unless asked: the sync browser driver in several threads stalled two runs on 17 October
+        self.workers = workers or int(os.environ.get("PINTEREST_WORKERS") or 1)
         self.requests, self.notes = 0, []
         self._lock = threading.Lock()
 
