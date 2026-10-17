@@ -15,6 +15,12 @@ on:
         description: "ads only, no pictures read"
         type: boolean
         default: false
+      countries:
+        description: "the library's country filter for this run (empty: the META_COUNTRIES variable, default ALL)"
+        default: ""
+      max_ads:
+        description: "ads per house for this run (empty: the META_MAX_ADS variable, default 2000)"
+        default: ""
   push:   # editing .github/kick/metaweb starts a run
     branches: [main]
     paths: [".github/kick/metaweb"]
@@ -34,8 +40,8 @@ jobs:
       PYTHONUNBUFFERED: "1"
       APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
       META_ACTOR: ${{ vars.META_ACTOR || 'apify~facebook-ads-scraper' }}
-      META_COUNTRIES: ${{ vars.META_COUNTRIES || 'ALL' }}
-      META_MAX_ADS: ${{ vars.META_MAX_ADS || '2000' }}
+      META_COUNTRIES: ${{ github.event.inputs.countries || vars.META_COUNTRIES || 'ALL' }}
+      META_MAX_ADS: ${{ github.event.inputs.max_ads || vars.META_MAX_ADS || '2000' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
