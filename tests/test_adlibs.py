@@ -715,3 +715,14 @@ def test_tidy_keeps_a_page_refused_before_that_is_the_house_and_has_the_house_se
     assert {p["name"] for p in st["advertisers"]["alaia"]["refused"]} == {"Alaïa Bay", "Villa Alaia"}
     assert "alaia" not in st["searched"] and out["pages_revived"] == 1 and out["dropped"] == 1
     assert not store.read_jsonl(P["ads"] / "alaia.jsonl")
+
+
+def test_the_read_stage_can_leave_other_divisions_for_later(tmp_data):
+    _waiting("gucci", [("f1", ["https://cdn.example/1.jpg"]), ("b1", ["https://cdn.example/2.jpg"])])
+    P = adlibs.paths("snap")
+    rows = store.read_jsonl(P["ads"] / "gucci.jsonl")
+    store.write_jsonl(P["ads"] / "gucci.jsonl", [{**r, "division": "beauty" if r["ad_id"] == "b1" else "fashion"} for r in rows])
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=FakeSession(_cdn), today=date(2026, 10, 17), fashion_only=True, fetch_workers=1)
+    assert out["ads_read"] == 1 and out["dynamic_left"] == 1
+    assert [p["ad_id"] for p in store.read_jsonl(P["pending"] / "gucci.jsonl")] == ["b1"]

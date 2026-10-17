@@ -474,6 +474,7 @@ def read_order(item: tuple[str, dict]) -> tuple:
 
 def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, budget_s: float = 60 * 60,
                  sess=None, today: date | None = None, clock=time.monotonic, skip_dynamic: bool = False,
+                 fashion_only: bool = False,
                  fetch_workers: int = FETCH_WORKERS, chunk_ads: int = CHUNK_ADS, wall=time.time) -> dict:
     """The pictures kept aside by runs without the reader: fetched, fingerprinted and read, each ad's row
     completed as it goes; what the budget leaves waits for the next run.
@@ -482,7 +483,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     lapse first going first, and a further round takes up what a house finishing early left. Within a house,
     see read_order. An ad whose addresses have lapsed is not fetched: its row says media_lapsed and it waits
     for the addresses of the next collection, which replace them. An ad the service failed on is not tried
-    again in the same run. With skip_dynamic, the dynamic and catalogue units are left for later. The pictures
+    again in the same run. With skip_dynamic, the dynamic and catalogue units are left for later; with
+    fashion_only, the ads of other divisions (a licensee's beauty or eyewear) as well. The pictures
     of a few ads are fetched at once, and taken into the rows in order."""
     import threading
     from concurrent.futures import ThreadPoolExecutor
@@ -510,12 +512,14 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
             return [], f"{e.__class__.__name__}: {str(e)[:120]}"
 
     def waiting(h) -> tuple[dict, dict]:
-        """The house's waiting ads: those to read in this run, and the dynamic units left for later."""
+        """The house's waiting ads: those to read in this run, and those left for later (dynamic units, other divisions)."""
         pend_all = {r["ad_id"]: r for r in store.read_jsonl(P["pending"] / f"{h.id}.jsonl")}
         later = {}
-        if skip_dynamic and pend_all:
-            formats = {r["ad_id"]: r.get("display_format") for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
-            later = {k: v for k, v in pend_all.items() if (formats.get(k) or "") in DYNAMIC}
+        if (skip_dynamic or fashion_only) and pend_all:
+            rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
+            later = {k: v for k, v in pend_all.items()
+                     if (skip_dynamic and (rows.get(k, {}).get("display_format") or "") in DYNAMIC)
+                     or (fashion_only and rows.get(k, {}).get("division", "fashion") != "fashion")}
         return {k: v for k, v in pend_all.items() if k not in later}, later
 
     pool = ThreadPoolExecutor(max_workers=max(1, fetch_workers))
@@ -751,6 +755,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     ap.add_argument("--no-reader", action="store_true")
     ap.add_argument("--no-clothes", action="store_true", help="the eighteen questions only, not the clothes")
     ap.add_argument("--skip-dynamic", action="store_true", help="read stage: leave the dynamic and catalogue units for later")
+    ap.add_argument("--fashion-only", action="store_true", help="read stage: leave other divisions' ads (beauty, eyewear) for later")
     ap.add_argument("--houses", default="", help="comma-separated house ids, for a trial run")
     ap.add_argument("--fresh", action="store_true", help="search every house again, even one searched to the end this week")
     ap.add_argument("--rematch", action="store_true", help="match every house's advertiser accounts again first")
@@ -793,7 +798,8 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
         if scorer is None:
             return waiting(name, a.run, "no reader for the read stage")
         try:
-            out = read_pending(name, reg, a.run, embedder, scorer, a.budget_min * 60, skip_dynamic=a.skip_dynamic)
+            out = read_pending(name, reg, a.run, embedder, scorer, a.budget_min * 60, skip_dynamic=a.skip_dynamic,
+                               fashion_only=a.fashion_only)
         except Exception as e:
             out = {"run": a.run, "stage": "read", "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
             store.append_jsonl(paths(name)["prov"], [out])

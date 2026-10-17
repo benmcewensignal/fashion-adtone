@@ -122,7 +122,7 @@ jobs:
             fi
             left=$(( 75 - (SECONDS - start) / 60 ))
             if [ "$left" -gt 5 ]; then
-              python -m adtone.metaweb read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --skip-dynamic $NC || true
+              python -m adtone.metaweb read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --skip-dynamic --fashion-only $NC || true
             fi
             exit 0
           fi
