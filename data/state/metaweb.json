@@ -77,23 +77,25 @@
   "countries": [
     "ALL"
   ],
-  "problems": {
-    "gucci": "ads: TypeError: 'NoneType' object is not iterable"
-  },
-  "requests": 6,
-  "run": "gh39023696007",
+  "problems": {},
+  "requests": 3,
+  "run": "gh39023880774",
   "shape": {
     "ad_archive_id": "str",
-    "ad_creative_bodies": "NoneType",
+    "ad_creative_bodies": [
+      "str"
+    ],
     "ad_creative_link_captions": [
       "str"
     ],
     "ad_creative_link_descriptions": "NoneType",
-    "ad_creative_link_titles": "NoneType",
+    "ad_creative_link_titles": [
+      "str"
+    ],
     "ad_delivery_start_date": "str",
     "ad_delivery_stop_date": "str",
     "ad_snapshot_url": "str",
-    "byline": "NoneType",
+    "byline": "str",
     "card_count": "int",
     "categories": [
       "str"
@@ -140,7 +142,9 @@
       }
     },
     "scraped_at": "str",
-    "snapshot_images": "NoneType",
+    "snapshot_images": [
+      "str"
+    ],
     "snapshot_videos": [
       "str"
     ],
@@ -153,25 +157,10 @@
     "warnings": []
   },
   "stopped": null,
-  "updated_at": "2026-10-17T10:09:24Z",
+  "updated_at": "2026-10-17T10:11:56Z",
   "vendor_runs": [
     {
-      "id": "E1pPglDswMHvKrc21",
-      "input": {
-        "adType": "all",
-        "countries": [
-          "ALL"
-        ],
-        "maxResults": 300,
-        "searchTerms": [
-          "Gucci"
-        ]
-      },
-      "status": "SUCCEEDED",
-      "usd": 0.12004999999999999
-    },
-    {
-      "id": "WApKhC5NRnpMigz5z",
+      "id": "kpxho5v0QEhBL68sT",
       "input": {
         "adType": "all",
         "countries": [
