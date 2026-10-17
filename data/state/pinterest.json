@@ -1,5 +1,160 @@
 {
   "advertisers": {
+    "balenciaga": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Balenciaga",
+          "name": "Balenciaga"
+        }
+      ],
+      "refused": []
+    },
+    "bottega_veneta": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Bottega Veneta",
+          "name": "Bottega Veneta"
+        }
+      ],
+      "refused": []
+    },
+    "celine": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Celine",
+          "name": "Celine"
+        },
+        {
+          "id": "Céline Ameel",
+          "name": "Céline Ameel"
+        },
+        {
+          "id": "Celine Avenue | Personal Growth, Mindset & Online Business",
+          "name": "Celine Avenue | Personal Growth, Mindset & Online Business"
+        },
+        {
+          "id": "Celine Azelie",
+          "name": "Celine Azelie"
+        },
+        {
+          "id": "Céline CHATELAIN",
+          "name": "Céline CHATELAIN"
+        },
+        {
+          "id": "Céline Dagnaux",
+          "name": "Céline Dagnaux"
+        },
+        {
+          "id": "Celine Dion",
+          "name": "Celine Dion"
+        },
+        {
+          "id": "Céline Domecq",
+          "name": "Céline Domecq"
+        },
+        {
+          "id": "Celine Drapp - Ideen für das erste Babyjahr / Affiliate Marketing",
+          "name": "Celine Drapp - Ideen für das erste Babyjahr / Affiliate Marketing"
+        },
+        {
+          "id": "Céline Dujardin",
+          "name": "Céline Dujardin"
+        },
+        {
+          "id": "Celine Dujowich",
+          "name": "Celine Dujowich"
+        },
+        {
+          "id": "celine eveil",
+          "name": "celine eveil"
+        },
+        {
+          "id": "Celine Frochaux",
+          "name": "Celine Frochaux"
+        },
+        {
+          "id": "Céline Gendre",
+          "name": "Céline Gendre"
+        },
+        {
+          "id": "Céline Hayek",
+          "name": "Céline Hayek"
+        },
+        {
+          "id": "Celine Jeanjean Books",
+          "name": "Celine Jeanjean Books"
+        },
+        {
+          "id": "Céline Louis",
+          "name": "Céline Louis"
+        },
+        {
+          "id": "Céline Ménard robes de mariées",
+          "name": "Céline Ménard robes de mariées"
+        },
+        {
+          "id": "Celine Muller Design",
+          "name": "Celine Muller Design"
+        },
+        {
+          "id": "Céline Navarro | Content Systems for Creators",
+          "name": "Céline Navarro | Content Systems for Creators"
+        },
+        {
+          "id": "Céline Perencin",
+          "name": "Céline Perencin"
+        },
+        {
+          "id": "Céline Picou",
+          "name": "Céline Picou"
+        },
+        {
+          "id": "Céline Roger",
+          "name": "Céline Roger"
+        },
+        {
+          "id": "Celine salsano",
+          "name": "Celine salsano"
+        },
+        {
+          "id": "Céline skowron",
+          "name": "Céline skowron"
+        }
+      ],
+      "refused": [
+        {
+          "id": "céline claire on cosmetic inc.",
+          "name": "céline claire on cosmetic inc."
+        },
+        {
+          "id": "celinebeautygirlstore",
+          "name": "celinebeautygirlstore"
+        },
+        {
+          "id": "CelineBella-US",
+          "name": "CelineBella-US"
+        },
+        {
+          "id": "Celinedoef",
+          "name": "Celinedoef"
+        },
+        {
+          "id": "CelinePinkStudio",
+          "name": "CelinePinkStudio"
+        },
+        {
+          "id": "celinercreations",
+          "name": "celinercreations"
+        },
+        {
+          "id": "celinestore",
+          "name": "celinestore"
+        }
+      ]
+    },
     "chanel": {
       "checked": "2026-10-17",
       "keep": [
@@ -284,37 +439,92 @@
           "name": " DAKO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
         }
       ]
+    },
+    "loewe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "LOEWE",
+          "name": "LOEWE"
+        },
+        {
+          "id": "Loewe Dolomites",
+          "name": "Loewe Dolomites"
+        },
+        {
+          "id": "Loewe Oscar Sandberg",
+          "name": "Loewe Oscar Sandberg"
+        },
+        {
+          "id": "LOEWE Perfumes",
+          "name": "LOEWE Perfumes"
+        },
+        {
+          "id": "Loewe Technology",
+          "name": "Loewe Technology"
+        },
+        {
+          "id": "Loewe Verlag",
+          "name": "Loewe Verlag"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Loewen Design Studios | Custom Wood Dining Tables",
+          "name": "Loewen Design Studios | Custom Wood Dining Tables"
+        },
+        {
+          "id": "LoewenCenter",
+          "name": "LoewenCenter"
+        },
+        {
+          "id": "LoewenGermanProducts WORLDWIDE DELIVERY",
+          "name": "LoewenGermanProducts WORLDWIDE DELIVERY"
+        },
+        {
+          "id": "loewenkopf.shop",
+          "name": "loewenkopf.shop"
+        },
+        {
+          "id": "Loewenthal Katarina",
+          "name": "Loewenthal Katarina"
+        }
+      ]
     }
   },
   "country_form": null,
   "notes": [
-    "Chanel Italia IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel Italia IT 2026-02-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 4 elements:\n   ",
-    "Chanel Italia IT 2026-01-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 4 elements:\n   ",
-    "Chanel Italia IT 2025-12-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 5 elements:\n   ",
-    "Chanel Italia IT 2025-11-11: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 5 elements:\n   ",
-    "Chanel's Fashion FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Fashion DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Fashion IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Goods FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Goods DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Goods IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Secret FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Secret DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Chanel's Secret IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dior FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dior DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dior IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "gucci FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "gucci DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "gucci IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "LOEWE Perfumes IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Technology FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Technology DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Technology IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Verlag FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Verlag DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loewe Verlag IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Bottega Veneta FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Bottega Veneta DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Bottega Veneta IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Céline Ameel FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Céline Ameel DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Céline Ameel IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine Avenue | Personal Growth, Mindset & Online Business FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine Avenue | Personal Growth, Mindset & Online Business DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine Avenue | Personal Growth, Mindset & Online Business IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine Azelie FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 399,
-  "run": "gh39025079518",
+  "requests": 513,
+  "run": "gh39030416430",
   "searched": {
+    "balenciaga": "2026-10-17",
+    "bottega_veneta": "2026-10-17",
     "chanel": "2026-10-17",
-    "dior": "2026-10-17"
+    "dior": "2026-10-17",
+    "gucci": "2026-10-17",
+    "loewe": "2026-10-17"
   },
   "shape": {
     "ad_details": {
@@ -355,21 +565,24 @@
       ],
       "postal_codes": [],
       "regions": [],
-      "review_status": "NoneType",
+      "review_status": "str",
       "start_date": "str",
-      "statement_of_reasons": "NoneType",
+      "statement_of_reasons": [
+        "str"
+      ],
       "user_count_by_country": {
         "France": "str",
+        "Germany": "str",
         "Italy": "str"
       },
       "user_count_eu": "str",
       "violation_decision_means": "NoneType",
-      "violation_source": "NoneType"
+      "violation_source": "str"
     },
     "country_searched": "str",
     "name_searched": "str",
     "pin_id": "str"
   },
   "stopped": "budget",
-  "updated_at": "2026-10-17T11:46:23Z"
+  "updated_at": "2026-10-17T13:14:55Z"
 }
