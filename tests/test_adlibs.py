@@ -478,3 +478,39 @@ def test_the_read_stage_keeps_an_ad_pending_when_the_service_fails_on_it(tmp_dat
     after = {p["ad_id"] for p in store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")}
     # the ads whose pictures came are kept pending; snap-2's video is not a video and it has no picture to read
     assert {"snap-0", "snap-3"} <= after <= before and out["read_ok"] == 0 and "left unread" in out["stopped"]
+
+
+class _FakeMap:
+    """Modal's method handle: starmap refuses on the main thread, as it does where Playwright keeps an event loop
+    running there; or refuses everywhere."""
+
+    def __init__(self, remote, refuse_everywhere=False):
+        self.remote, self.refuse_everywhere, self.threads = remote, refuse_everywhere, []
+
+    def starmap(self, args, return_exceptions=False):
+        import threading
+        self.threads.append(threading.current_thread() is threading.main_thread())
+        if self.refuse_everywhere or threading.current_thread() is threading.main_thread():
+            raise InvalidError("You can't `iter(Function.starmap())` from an async function.")
+        out = []
+        for a in args:
+            try:
+                out.append(self.remote(*a))
+            except Exception as e:
+                if not return_exceptions:
+                    raise
+                out.append(e)
+        return out
+
+
+def test_the_batches_are_read_off_the_main_thread_and_a_failing_map_falls_back_to_single_calls():
+    from adtone.score import ModalScorer
+    good = [jpeg_bytes(toned_image(0.2 + 0.1 * i, seed=i)) for i in range(5)]
+    remote = _fake_remote()
+    sc = ModalScorer(load_rubric(), remote=remote, revision="abc123")
+    sc.fn = _FakeMap(remote)
+    got = sc.score_batches([good[:2], good[2:4], good[4:]])
+    assert all(isinstance(a, dict) for b in got for a in b) and sc.fn.threads == [False]   # the map ran off the main thread
+    sc.fn = _FakeMap(remote, refuse_everywhere=True)
+    got = sc.score_batches([good[:2], good[2:4], good[4:]])
+    assert all(isinstance(a, dict) for b in got for a in b)                                # read with single calls instead

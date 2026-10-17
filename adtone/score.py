@@ -290,10 +290,15 @@ class ModalScorer:
             return [self._one_batch(b) for b in batches]
         self.calls += len(batches)
         args = [(b, self.rubric.prompt, self.schema, self.grammar) for b in batches]
+        # Modal iterates a map on the calling thread's own event loop, and refuses (InvalidError) in a thread where
+        # one is already running, as Playwright's sync API keeps one in the main thread: so it runs in a thread of
+        # its own. If the map still fails as a whole, each batch is read with a call of its own.
+        from concurrent.futures import ThreadPoolExecutor
         try:
-            results = list(self.fn.starmap(args, return_exceptions=True))
-        except Exception as e:
-            raise ScoreError(f"API: Modal {e.__class__.__name__}: {str(e)[:160]}") from None
+            with ThreadPoolExecutor(1) as ex:
+                results = ex.submit(lambda: list(self.fn.starmap(args, return_exceptions=True))).result()
+        except Exception:
+            return [self._one_batch(b) for b in batches]
         out = []
         for b, res in zip(batches, results):
             if isinstance(res, BaseException):
