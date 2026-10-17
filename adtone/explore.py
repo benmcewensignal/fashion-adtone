@@ -165,6 +165,37 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
             out["links_sample"] = page.evaluate("() => Array.from(document.querySelectorAll('a[href]')).map(a => a.getAttribute('href')).filter(h => h && h.length < 160).slice(0, 80)")
             out["api_mentions"] = page.evaluate("""() => Array.from(document.querySelectorAll('a[href]')).filter(a => /api|developer|docs/i.test(a.getAttribute('href') + ' ' + a.innerText)).slice(0, 20).map(a => a.innerText.trim().slice(0, 80) + ' -> ' + a.getAttribute('href').slice(0, 200))""")
             out["calls_by_key"] = sorted({c["key"] for c in calls if c["type"] in ("xhr", "fetch")})[:60]
+            out["documents"] = [c for c in calls if c["type"] == "document"][:20]
+            # the data a server-rendered page embeds for its scripts (Pinterest's __PWS_DATA__, Meta's data-sjs, Next's
+            # __NEXT_DATA__): the shape of each, and the names and options of the resources it was rendered from
+            embedded = page.evaluate("""() => Array.from(document.querySelectorAll('script[id], script[type="application/json"]')).map(s => ({id: s.id || null, type: s.type || null, text: (s.textContent || '').slice(0, 400000)}))""")
+            emb = []
+            for sc in embedded:
+                t = (sc.get("text") or "").strip()
+                if not t.startswith("{"):
+                    continue
+                try:
+                    obj = json.loads(t)
+                except ValueError:
+                    continue
+                item = {"id": sc.get("id"), "type": sc.get("type"), "top_keys": list(obj.keys())[:40] if isinstance(obj, dict) else "list"}
+                rr = None
+                stack = [obj]
+                while stack and rr is None:
+                    cur = stack.pop()
+                    if isinstance(cur, dict):
+                        if "resourceResponses" in cur:
+                            rr = cur["resourceResponses"]
+                        else:
+                            stack.extend(v for v in cur.values() if isinstance(v, (dict, list)))
+                    elif isinstance(cur, list):
+                        stack.extend(v for v in cur if isinstance(v, (dict, list)))
+                if isinstance(rr, list):
+                    item["resources"] = [{"name": r.get("name"), "options": adlibs.shape(r.get("options")),
+                                          "option_strings": {k: v for k, v in (r.get("options") or {}).items() if isinstance(v, (str, int, bool)) and len(str(v)) < 60},
+                                          "response_shape": adlibs.shape((r.get("response") or {}).get("data"))} for r in rr if isinstance(r, dict)][:30]
+                emb.append(item)
+            out["embedded"] = emb[:10]
         except Exception as e:
             out["read_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
         browser.close()
