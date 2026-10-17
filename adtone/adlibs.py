@@ -389,8 +389,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     if row is None:          # the ad's row is gone: nothing to complete
                         done.append(ad_id)
                         continue
-                    try:
-                        media = fetch_media(sess, pr["urls"], **(pr.get("kw") or {}))
+                    try:        # one video of moderate size per ad unless the source said otherwise: three stills need no more
+                        media = fetch_media(sess, pr["urls"], **{"max_videos": 1, "max_video_bytes": 25_000_000, **(pr.get("kw") or {})})
                     except (requests.RequestException, MediaError, OSError, ValueError) as e:
                         media, row["media_error"] = [], f"{e.__class__.__name__}: {str(e)[:120]}"
                         counts["media_errors"] += 1
