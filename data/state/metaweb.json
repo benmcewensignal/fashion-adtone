@@ -1,6 +1,356 @@
 {
   "actor": "curious_coder~facebook-ads-library-scraper",
   "advertisers": {
+    "balenciaga": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 161,
+          "id": "128450347241247",
+          "name": "BALENCIAGA"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 9,
+          "id": "908555025972310",
+          "name": "PUBG MOBILE"
+        },
+        {
+          "ads": 8,
+          "id": "247451658648149",
+          "name": "VITKAC"
+        },
+        {
+          "ads": 8,
+          "id": "202468699617033",
+          "name": "Magiczne Perfumy"
+        },
+        {
+          "ads": 8,
+          "id": "870754622781586",
+          "name": "Its On Clearance"
+        },
+        {
+          "ads": 6,
+          "id": "1424234361203703",
+          "name": "It Moda"
+        },
+        {
+          "ads": 5,
+          "id": "112095024478839",
+          "name": "Collector's Cage"
+        },
+        {
+          "ads": 5,
+          "id": "167475176967139",
+          "name": "Kenza"
+        },
+        {
+          "ads": 5,
+          "id": "101975219529073",
+          "name": "desertbluesoutlet"
+        },
+        {
+          "ads": 4,
+          "id": "101097668940462",
+          "name": "Answear HR"
+        },
+        {
+          "ads": 3,
+          "id": "336667776449496",
+          "name": "Vinted"
+        },
+        {
+          "ads": 3,
+          "id": "159980240708797",
+          "name": "ANSWEAR"
+        },
+        {
+          "ads": 3,
+          "id": "101491461454105",
+          "name": "Tise Finland"
+        },
+        {
+          "ads": 3,
+          "id": "101954609238249",
+          "name": "5A Agency"
+        },
+        {
+          "ads": 3,
+          "id": "110686115659861",
+          "name": "Museo del Tessuto"
+        },
+        {
+          "ads": 3,
+          "id": "419786675322",
+          "name": "King Power"
+        },
+        {
+          "ads": 3,
+          "id": "109061745274329",
+          "name": "Tilt App"
+        },
+        {
+          "ads": 2,
+          "id": "324747277396278",
+          "name": "mrpinho81"
+        },
+        {
+          "ads": 2,
+          "id": "2046779158899878",
+          "name": "The Voice of Fashion"
+        },
+        {
+          "ads": 2,
+          "id": "368604899662825",
+          "name": "ZazzoStore"
+        },
+        {
+          "ads": 2,
+          "id": "101278168029253",
+          "name": "Siam Premium Outlets Bangkok"
+        }
+      ]
+    },
+    "bottega_veneta": {
+      "checked": "2026-10-17",
+      "keep": [],
+      "refused": [
+        {
+          "ads": 51,
+          "id": "1649552205340278",
+          "name": "Cettire"
+        },
+        {
+          "ads": 30,
+          "id": "11608793743",
+          "name": "Madame Figaro"
+        },
+        {
+          "ads": 19,
+          "id": "51624954766",
+          "name": "Galeries Lafayette"
+        },
+        {
+          "ads": 9,
+          "id": "112095024478839",
+          "name": "Collector's Cage"
+        },
+        {
+          "ads": 7,
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 7,
+          "id": "286292202704",
+          "name": "Vogue France"
+        },
+        {
+          "ads": 6,
+          "id": "79360828514",
+          "name": "Bloomingdale's"
+        },
+        {
+          "ads": 5,
+          "id": "320970901369233",
+          "name": "Lensa"
+        },
+        {
+          "ads": 5,
+          "id": "672276885960104",
+          "name": "Unsane.practice"
+        },
+        {
+          "ads": 4,
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 4,
+          "id": "1333596090121762",
+          "name": "LVX Optika"
+        },
+        {
+          "ads": 4,
+          "id": "93588242329",
+          "name": "Mytheresa"
+        },
+        {
+          "ads": 4,
+          "id": "619389571446629",
+          "name": "Living Corriere"
+        },
+        {
+          "ads": 4,
+          "id": "38657880749",
+          "name": "ELLE"
+        },
+        {
+          "ads": 3,
+          "id": "158340507536335",
+          "name": "Catawiki"
+        },
+        {
+          "ads": 3,
+          "id": "434180890121819",
+          "name": "ANSWEAR"
+        },
+        {
+          "ads": 3,
+          "id": "478636558868418",
+          "name": "Etiqueta Única"
+        },
+        {
+          "ads": 3,
+          "id": "304461626077717",
+          "name": "HIVE Preloved"
+        },
+        {
+          "ads": 3,
+          "id": "1794079217542674",
+          "name": "OUNASS"
+        },
+        {
+          "ads": 3,
+          "id": "1434660493435190",
+          "name": "Glück & Glanz"
+        }
+      ]
+    },
+    "celine": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 116,
+          "id": "206070910246492",
+          "name": "CELINE"
+        },
+        {
+          "ads": 7,
+          "id": "615842204954410",
+          "name": "Céline, les pieds sur terre"
+        },
+        {
+          "ads": 1,
+          "id": "101150892556589",
+          "name": "celine_maureen"
+        },
+        {
+          "ads": 1,
+          "id": "1103559919500825",
+          "name": "Céline Rousseau - Blog Santé"
+        },
+        {
+          "ads": 1,
+          "id": "109372678572776",
+          "name": "Celine in Canada"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 10,
+          "id": "516773251528508",
+          "name": "Leonie & Co "
+        },
+        {
+          "ads": 10,
+          "id": "196646287039806",
+          "name": "20th Century Studios"
+        },
+        {
+          "ads": 7,
+          "id": "191183977719073",
+          "name": "Visa"
+        },
+        {
+          "ads": 6,
+          "id": "221341697997826",
+          "name": "Erika Fashion"
+        },
+        {
+          "ads": 5,
+          "id": "112651933872984",
+          "name": "NUSTAR Resort"
+        },
+        {
+          "ads": 5,
+          "id": "510984038764358",
+          "name": "Coca-Cola"
+        },
+        {
+          "ads": 4,
+          "id": "204639666057041",
+          "name": "Zeke Danny"
+        },
+        {
+          "ads": 4,
+          "id": "131840030178250",
+          "name": "Booking.com"
+        },
+        {
+          "ads": 3,
+          "id": "106948684168558",
+          "name": "ecuriefape"
+        },
+        {
+          "ads": 3,
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 3,
+          "id": "314467271901260",
+          "name": "Marriott Bonvoy"
+        },
+        {
+          "ads": 3,
+          "id": "102519138587486",
+          "name": "拍拍圈PopChill"
+        },
+        {
+          "ads": 3,
+          "id": "236672451730",
+          "name": "Marie Claire France"
+        },
+        {
+          "ads": 3,
+          "id": "22036796848",
+          "name": "Aufeminin"
+        },
+        {
+          "ads": 3,
+          "id": "112978923803989",
+          "name": "Bed4U Northern Ireland & Ireland"
+        },
+        {
+          "ads": 3,
+          "id": "1900097093339447",
+          "name": "AccuFix Cosmetics"
+        },
+        {
+          "ads": 2,
+          "id": "560457753979627",
+          "name": "Editura Univers"
+        },
+        {
+          "ads": 2,
+          "id": "480418118654568",
+          "name": "E.Leclerc"
+        },
+        {
+          "ads": 2,
+          "id": "774568199083884",
+          "name": "Dr. Sarah Mitchell"
+        },
+        {
+          "ads": 2,
+          "id": "105525248060177",
+          "name": "80below"
+        }
+      ]
+    },
     "chanel": {
       "checked": "2026-10-17",
       "keep": [
@@ -235,6 +585,123 @@
         }
       ]
     },
+    "fendi": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 127,
+          "id": "301701851577",
+          "name": "Fendi"
+        },
+        {
+          "ads": 1,
+          "id": "151841160346943",
+          "name": "Thiết bị phòng tắm cao cấp Fendi"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 8,
+          "id": "83771558150",
+          "name": "Visit Valley Forge & Montco"
+        },
+        {
+          "ads": 7,
+          "id": "109900384579839",
+          "name": "Perfumeria Sylvia"
+        },
+        {
+          "ads": 6,
+          "id": "84169421673",
+          "name": "Esquire"
+        },
+        {
+          "ads": 5,
+          "id": "304461626077717",
+          "name": "HIVE Preloved"
+        },
+        {
+          "ads": 5,
+          "id": "93588242329",
+          "name": "Mytheresa"
+        },
+        {
+          "ads": 4,
+          "id": "209905849067545",
+          "name": "Les Petits"
+        },
+        {
+          "ads": 4,
+          "id": "104897769544054",
+          "name": "XTB Online Trading"
+        },
+        {
+          "ads": 4,
+          "id": "185499393135",
+          "name": "eBay"
+        },
+        {
+          "ads": 4,
+          "id": "42933792278",
+          "name": "Vogue"
+        },
+        {
+          "ads": 3,
+          "id": "112727500143177",
+          "name": "Whatnot"
+        },
+        {
+          "ads": 3,
+          "id": "129512345170",
+          "name": "The Mall Firenze"
+        },
+        {
+          "ads": 3,
+          "id": "2452905401605962",
+          "name": "Mytheresa Men"
+        },
+        {
+          "ads": 3,
+          "id": "1114363655092395",
+          "name": "FilmNow: Short Drama Mini Film"
+        },
+        {
+          "ads": 2,
+          "id": "324747277396278",
+          "name": "mrpinho81"
+        },
+        {
+          "ads": 2,
+          "id": "158340507536335",
+          "name": "Catawiki"
+        },
+        {
+          "ads": 2,
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 2,
+          "id": "553035264552540",
+          "name": "Limited Edition."
+        },
+        {
+          "ads": 2,
+          "id": "112095024478839",
+          "name": "Collector's Cage"
+        },
+        {
+          "ads": 2,
+          "id": "173039169466058",
+          "name": "Eastanbul"
+        },
+        {
+          "ads": 2,
+          "id": "113099241160544",
+          "name": "Rendichicas Smart Card Business"
+        }
+      ]
+    },
     "gucci": {
       "checked": "2026-10-17",
       "keep": [
@@ -306,18 +773,266 @@
           "name": "Emporium Emquartier"
         }
       ]
+    },
+    "jil_sander": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 144,
+          "id": "158119067554",
+          "name": "Jil Sander"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 61,
+          "id": "88573992939",
+          "name": "FARFETCH"
+        },
+        {
+          "ads": 34,
+          "id": "133137093423758",
+          "name": "flaconi"
+        },
+        {
+          "ads": 17,
+          "id": "289151601688640",
+          "name": "Jil Sander Parfums"
+        },
+        {
+          "ads": 12,
+          "id": "7248739415",
+          "name": "YOOX"
+        },
+        {
+          "ads": 7,
+          "id": "124065181027246",
+          "name": "Moncler"
+        },
+        {
+          "ads": 6,
+          "id": "289334101158310",
+          "name": "Staff International Outlet"
+        },
+        {
+          "ads": 6,
+          "id": "167595049958235",
+          "name": "Breuninger"
+        },
+        {
+          "ads": 4,
+          "id": "355154840077",
+          "name": "Coty"
+        },
+        {
+          "ads": 4,
+          "id": "129512345170",
+          "name": "The Mall Firenze"
+        },
+        {
+          "ads": 3,
+          "id": "711331002318396",
+          "name": "Le Labo Store"
+        },
+        {
+          "ads": 3,
+          "id": "69300806211",
+          "name": "Fidenza Village"
+        },
+        {
+          "ads": 2,
+          "id": "569386850075904",
+          "name": "The Mall Sanremo"
+        },
+        {
+          "ads": 2,
+          "id": "203178507093996",
+          "name": "Deloox.com"
+        },
+        {
+          "ads": 2,
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 2,
+          "id": "211174459058216",
+          "name": "Porto di Mare"
+        },
+        {
+          "ads": 1,
+          "id": "333972588785",
+          "name": "limango"
+        },
+        {
+          "ads": 1,
+          "id": "1504683293115989",
+          "name": "The Fashion - លក់សំលៀកបំពាក់ បញ្ជាទិញក្នុងតម្លៃដ៏សមរម្យ"
+        },
+        {
+          "ads": 1,
+          "id": "117759808271053",
+          "name": "OTB Foundation ETS"
+        },
+        {
+          "ads": 1,
+          "id": "112066392160743",
+          "name": "END."
+        },
+        {
+          "ads": 1,
+          "id": "102949699434461",
+          "name": "Hiệu Mobile"
+        }
+      ]
+    },
+    "loewe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "ads": 76,
+          "id": "184360374941311",
+          "name": "LOEWE"
+        },
+        {
+          "ads": 60,
+          "id": "351058035420618",
+          "name": "LOEWE Perfumes"
+        },
+        {
+          "ads": 3,
+          "id": "106889830893927",
+          "name": "Loewe"
+        },
+        {
+          "ads": 1,
+          "id": "647669961766226",
+          "name": "Loewe Greece"
+        }
+      ],
+      "refused": [
+        {
+          "ads": 27,
+          "id": "51624954766",
+          "name": "Galeries Lafayette"
+        },
+        {
+          "ads": 13,
+          "id": "221341697997826",
+          "name": "Erika Fashion"
+        },
+        {
+          "ads": 13,
+          "id": "641070482433657",
+          "name": "Löwe Motors"
+        },
+        {
+          "ads": 9,
+          "id": "115867246072",
+          "name": "Vestiaire Collective"
+        },
+        {
+          "ads": 9,
+          "id": "380039845369159",
+          "name": "SHEIN"
+        },
+        {
+          "ads": 8,
+          "id": "218726778785423",
+          "name": "SHEIN Brasil"
+        },
+        {
+          "ads": 7,
+          "id": "93588242329",
+          "name": "Mytheresa"
+        },
+        {
+          "ads": 6,
+          "id": "108603155219028",
+          "name": "Good-T"
+        },
+        {
+          "ads": 5,
+          "id": "101975219529073",
+          "name": "desertbluesoutlet"
+        },
+        {
+          "ads": 4,
+          "id": "103324598091584",
+          "name": "PinkPeri"
+        },
+        {
+          "ads": 4,
+          "id": "1980557928867086",
+          "name": "SHEIN Mexico"
+        },
+        {
+          "ads": 4,
+          "id": "167595049958235",
+          "name": "Breuninger"
+        },
+        {
+          "ads": 4,
+          "id": "238939146624",
+          "name": "On"
+        },
+        {
+          "ads": 3,
+          "id": "112651933872984",
+          "name": "NUSTAR Resort"
+        },
+        {
+          "ads": 3,
+          "id": "45415668089",
+          "name": "NET-A-PORTER"
+        },
+        {
+          "ads": 3,
+          "id": "1139516319240078",
+          "name": "Le Lyra0"
+        },
+        {
+          "ads": 2,
+          "id": "760008804015909",
+          "name": "Suzuka Group - Wall Finishing Professionals"
+        },
+        {
+          "ads": 2,
+          "id": "1483454928554062",
+          "name": "Emporium Emquartier"
+        },
+        {
+          "ads": 2,
+          "id": "105148947896954",
+          "name": "JUSTSTANDART"
+        },
+        {
+          "ads": 2,
+          "id": "1533545236928771",
+          "name": "Secretlab"
+        }
+      ]
     }
   },
   "countries": [
     "ALL"
   ],
   "form": "library",
-  "problems": {},
-  "requests": 27,
-  "run": "gh39033401884",
+  "problems": {
+    "margiela": "advertisers: RuntimeError: Apify run 8O1y19k4Q0jsn8PBX FAILED"
+  },
+  "requests": 165,
+  "run": "gh39039335148",
   "searched": {
+    "balenciaga": "2026-10-17",
+    "bottega_veneta": "2026-10-17",
+    "celine": "2026-10-17",
     "chanel": "2026-10-17",
-    "gucci": "2026-10-17"
+    "dior": "2026-10-17",
+    "fendi": "2026-10-17",
+    "gucci": "2026-10-17",
+    "jil_sander": "2026-10-17",
+    "loewe": "2026-10-17"
   },
   "shape": {
     "aaa_info": {
@@ -582,43 +1297,17 @@
     "verified_voice_context": "NoneType",
     "violation_types": []
   },
-  "stopped": "budget",
-  "updated_at": "2026-10-17T13:57:14Z",
+  "stopped": "Apify refused the token (HTTP 403)",
+  "updated_at": "2026-10-17T14:53:46Z",
   "vendor_errors": [
     {
-      "error": "You must provide atleast 1 input URL per 512MB of RAM memory. (You've assignd 2GB memory, but provided only 3 input URLs. You can either reduce the memory to 1.5GB or provide 4 input URLs to scrape)",
-      "house": "chanel"
+      "error": "You must provide atleast 1 input URL per 512MB of RAM memory. (You've assignd 4GB memory, but provided only 5 input URLs. You can either reduce the memory to 2.5GB or provide 8 input URLs to scrape)",
+      "house": "celine"
     }
   ],
   "vendor_runs": [
     {
-      "id": "MZXb6YErlQUclKChP",
-      "input": {
-        "limitPerSource": 2000,
-        "scrapeAdDetails": true,
-        "scrapePageAds": {
-          "activeStatus": "all",
-          "countryCode": "ALL",
-          "period": "",
-          "sortBy": "most_recent"
-        },
-        "urls": [
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=10109514234"
-          },
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=908096722655850"
-          },
-          {
-            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=726432077387960"
-          }
-        ]
-      },
-      "status": "SUCCEEDED",
-      "usd": 0.0008500000000000001
-    },
-    {
-      "id": "1CJvxv156TTvedjCm",
+      "id": "8dc7XWk3dCeTmacq8",
       "input": {
         "limitPerSource": 2000,
         "scrapeAdDetails": true,
@@ -636,6 +1325,270 @@
       },
       "status": "SUCCEEDED",
       "usd": 1.52255
+    },
+    {
+      "id": "rnc8K3oeal8adICTm",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Balenciaga&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.24004999999999999
+    },
+    {
+      "id": "qa5Y5KmifY9AB2xlA",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=128450347241247"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 1.5023000000000002
+    },
+    {
+      "id": "hOHJFtleV9V0MHBIN",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Loewe&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.20854999999999999
+    },
+    {
+      "id": "IeW8givopy7JKVwDA",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=184360374941311"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=351058035420618"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=106889830893927"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=647669961766226"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 2.9123500000000004
+    },
+    {
+      "id": "j4UmezeNV5ueaeFlM",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Bottega Veneta&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.24305
+    },
+    {
+      "id": "wWa5J9EEn4As3yY4R",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Celine&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.2468
+    },
+    {
+      "id": "Fgs3x8XOIALRbwIXa",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=206070910246492"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=615842204954410"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=101150892556589"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=1103559919500825"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=109372678572776"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.00095
+    },
+    {
+      "id": "X3CypqycRbsAdusbk",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Fendi&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.24455
+    },
+    {
+      "id": "klg1OzClMd9P8dlnu",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=301701851577"
+          },
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=151841160346943"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 1.4678000000000002
+    },
+    {
+      "id": "wLhQBAhahG9osAfqz",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Jil Sander&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.22655
+    },
+    {
+      "id": "H8vWsBWJQEukexF4F",
+      "input": {
+        "limitPerSource": 2000,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&search_type=page&view_all_page_id=158119067554"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 1.0073
+    },
+    {
+      "id": "8O1y19k4Q0jsn8PBX",
+      "input": {
+        "limitPerSource": 300,
+        "scrapeAdDetails": true,
+        "scrapePageAds": {
+          "activeStatus": "all",
+          "countryCode": "ALL",
+          "period": "",
+          "sortBy": "most_recent"
+        },
+        "urls": [
+          {
+            "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Maison Margiela&search_type=keyword_unordered"
+          }
+        ]
+      },
+      "status": "FAILED",
+      "usd": 5e-05
     }
   ]
 }
