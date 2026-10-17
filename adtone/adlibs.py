@@ -277,6 +277,13 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     flush = taker.flush
     # without the reader, a source that can name its picture addresses keeps them for the read stage
     defer = embedder is None and not taker.readings and hasattr(src, "media_urls")
+    # in a run without the reader, the pictures read before: an ad whose pictures were fetched but never read (a reader
+    # that failed unnoticed, in the first runs) is kept aside for the read stage with this search's addresses
+    read_before = None
+    if defer:
+        from .score import load_rubric
+        read_before = {o["sha"] for o in store.read_jsonl(P["obs"] / f"{load_rubric().version}.jsonl")
+                       if o.get("status") in ("ok", "invalid")}
     sample_shape, shaped = None, 0      # the shape is taken afresh each run
 
     st.setdefault("searched", {})        # house -> the day its year was last searched to the end
@@ -316,7 +323,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             pend_path = P["pending"] / f"{h.id}.jsonl"
             pend = {r["ad_id"]: r for r in store.read_jsonl(pend_path)}
             n_pend = len(pend)
-            urls_of: dict[str, tuple] = {}       # this run's new ads' picture addresses, for any the reader fails on
+            urls_of: dict[str, tuple] = {}       # the picture addresses of the ads read in this run, for any the reader fails on
             try:
                 for item in src.search_ads(h, keep, today - timedelta(days=src.lookback_days), today):
                     if clock() - t0 > budget_s:
@@ -335,7 +342,9 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                         kept = {**ads[row["ad_id"]], **{k: v for k, v in row.items() if v is not None}}
                         ads[row["ad_id"]] = kept
                         counts["updated_ads"] += 1
-                        if kept.get("media_pending") and hasattr(src, "media_urls"):
+                        never_read = (read_before is not None and bool(kept.get("media"))
+                                      and any(m["sha"] not in read_before for m in kept["media"]))
+                        if (kept.get("media_pending") or never_read) and hasattr(src, "media_urls"):
                             # the addresses kept aside lapse (Meta's within days of the search): this search's replace them
                             try:
                                 urls, kw = src.media_urls(item)
@@ -346,7 +355,11 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                                                       "urls": list(urls), "kw": dict(kw), "first_shown": kept.get("first_shown"),
                                                       "found": kept.get("found")}
                                 kept.pop("media_lapsed", None)
-                                counts["addresses_renewed"] = counts.get("addresses_renewed", 0) + 1
+                                if kept.get("media_pending"):
+                                    counts["addresses_renewed"] = counts.get("addresses_renewed", 0) + 1
+                                else:
+                                    kept["media_pending"] = True
+                                    counts["never_read_kept"] = counts.get("never_read_kept", 0) + 1
                         if not defer and kept.get("media") and taker.unread(kept):
                             # a picture read before a reader was added: fetched again and read by the readers it lacks
                             try:
@@ -354,6 +367,11 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                             except (requests.RequestException, MediaError, OSError, ValueError):
                                 media = []
                             if media:
+                                if hasattr(src, "media_urls"):     # for the read stage, should the reader fail on it again
+                                    try:
+                                        urls_of[row["ad_id"]] = src.media_urls(item)
+                                    except Exception:
+                                        pass
                                 had = kept["media"]
                                 taker.take(kept, media, h.id, today)
                                 kept["media"] = had        # the row keeps the pictures as first recorded
@@ -395,7 +413,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                             pend[ad_id] = {"ad_id": ad_id, "house_id": h.id, "urls": list(urls), "kw": dict(kw),
                                            "first_shown": ads[ad_id].get("first_shown"), "found": ads[ad_id].get("found")}
                             ads[ad_id]["media_pending"] = True
-                    taker.dropped.clear()             # an older ad read again and failed is read again next run
+                    taker.dropped.clear()
                 store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]),
                                                reverse=True))
                 if pend or n_pend:

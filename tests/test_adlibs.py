@@ -620,3 +620,42 @@ def test_a_house_never_searched_to_the_end_is_searched_for_its_whole_year(tmp_da
     src.house_refresh_days = 0
     adlibs.collect(src, Registry(1, "T", [GUCCI]), "r2", today=date(2026, 10, 18))
     assert seen == [True, False]
+
+
+def test_pictures_fetched_but_never_read_are_kept_aside_by_the_next_collection(tmp_data):
+    from adtone.score import ModalScorer
+    sess = _snap_session([])
+    P = adlibs.paths("snap")
+    adlibs.collect(snap.Source(sess, sleep=lambda s: None, pace_s=0), Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(),
+                   FakeScorer(load_rubric()), today=date(2026, 10, 17))
+    with_pictures = {r["ad_id"] for r in store.read_jsonl(P["ads"] / "gucci.jsonl") if r.get("media")}
+    assert with_pictures
+    (P["obs"] / f"{load_rubric().version}.jsonl").unlink()            # as if the reader had answered nothing
+    # a run with the reader that fails again: the ads go to the read stage instead of waiting for next week
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    src.house_refresh_days = 0
+    down = ModalScorer(load_rubric(), remote=_fake_remote(down=True), revision="abc123")
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), down, today=date(2026, 10, 18))
+    assert out["reread"] == len(with_pictures)
+    assert {p["ad_id"] for p in store.read_jsonl(P["pending"] / "gucci.jsonl")} == with_pictures
+    rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / "gucci.jsonl")}
+    assert all(rows[a]["media_pending"] and rows[a]["media"] for a in with_pictures)    # the pictures as first recorded stay
+    # a run without the reader does the same from the readings on file
+    store.write_jsonl(P["pending"] / "gucci.jsonl", [])
+    store.write_jsonl(P["ads"] / "gucci.jsonl", [{k: v for k, v in r.items() if k != "media_pending"} for r in rows.values()])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    src.house_refresh_days = 0
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r3", today=date(2026, 10, 19))
+    assert out["never_read_kept"] == len(with_pictures) and out.get("addresses_renewed", 0) == 0
+    assert {p["ad_id"] for p in store.read_jsonl(P["pending"] / "gucci.jsonl")} == with_pictures
+    # and the read stage reads them
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r4", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=sess, today=date(2026, 10, 19))
+    assert out["ads_read"] == len(with_pictures) and out["ads_left"] == 0 and out["read_ok"] >= 1
+    rows = store.read_jsonl(P["ads"] / "gucci.jsonl")
+    assert not any(r.get("media_pending") for r in rows)
+    # with every picture read, a further run without the reader keeps nothing aside
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    src.house_refresh_days = 0
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r5", today=date(2026, 10, 20))
+    assert out.get("never_read_kept", 0) == 0 and not store.read_jsonl(P["pending"] / "gucci.jsonl")
