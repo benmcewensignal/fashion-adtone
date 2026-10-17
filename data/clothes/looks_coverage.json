@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T01:38:35Z",
+ "generated_at": "2026-10-17T05:40:29Z",
  "window_days": [
   -1,
   14
@@ -84,6 +84,32 @@
      "score": 9.88
     }
    ]
+  },
+  "armani:2026-01-19:men": {
+   "house": "armani",
+   "date": "2026-01-19",
+   "season": "2026 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
+  },
+  "armani:2026-01-27:couture": {
+   "house": "armani",
+   "date": "2026-01-27",
+   "season": "2026 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
   },
   "armani:2026-03-01:rtw": {
    "house": "armani",
@@ -803,7 +829,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2019-01-23:couture": {
    "house": "balmain",
@@ -813,7 +845,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2019-03-01:rtw": {
    "house": "balmain",
@@ -823,7 +861,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2019-06-21:men": {
    "house": "balmain",
@@ -833,7 +877,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2019-09-27:rtw": {
    "house": "balmain",
@@ -843,7 +893,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2020-01-17:men": {
    "house": "balmain",
@@ -853,7 +909,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2020-02-28:rtw": {
    "house": "balmain",
@@ -863,7 +925,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2020-09-30:rtw": {
    "house": "balmain",
@@ -873,7 +941,13 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2021-03-08:rtw": {
    "house": "balmain",
@@ -883,17 +957,32 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2021-09-29:rtw": {
    "house": "balmain",
    "date": "2021-09-29",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "none",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2022-03-02:rtw": {
    "house": "balmain",
@@ -1428,6 +1517,40 @@
    "status": "none",
    "pages": 0,
    "candidates": []
+  },
+  "burberry:2015-01-12:men": {
+   "house": "burberry",
+   "date": "2015-01-12",
+   "season": "2015 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ConnectTimeout"
+   },
+   "seeds": [
+    "ca.burberry.com/c/burberry-world/collections/",
+    "mo.burberry.com/london-fashion-week/"
+   ]
+  },
+  "burberry:2015-02-23:rtw": {
+   "house": "burberry",
+   "date": "2015-02-23",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "burberry.com": "ReadTimeout"
+   },
+   "seeds": [
+    "ca.burberry.com/c/burberry-world/collections/",
+    "mo.burberry.com/london-fashion-week/"
+   ]
   },
   "burberry:2015-06-15:men": {
    "house": "burberry",
@@ -2769,6 +2892,19 @@
      "score": 8.62
     }
    ]
+  },
+  "chanel:2023-07-04:couture": {
+   "house": "chanel",
+   "date": "2023-07-04",
+   "season": "2023 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "chanel.com": "ReadTimeout"
+   }
   },
   "chanel:2023-10-03:rtw": {
    "house": "chanel",
@@ -6327,7 +6463,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2015-03-01:rtw": {
    "house": "ferragamo",
@@ -6337,7 +6476,10 @@
    "status": "none",
    "via": "window",
    "pages": 4,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2015-06-21:men": {
    "house": "ferragamo",
@@ -6535,7 +6677,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2017-09-23:rtw": {
    "house": "ferragamo",
@@ -6545,7 +6690,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2018-02-24:rtw": {
    "house": "ferragamo",
@@ -6555,7 +6703,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2018-09-22:rtw": {
    "house": "ferragamo",
@@ -6565,7 +6716,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2019-02-20:rtw": {
    "house": "ferragamo",
@@ -6575,7 +6729,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2019-09-21:rtw": {
    "house": "ferragamo",
@@ -6585,7 +6742,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2020-01-12:men": {
    "house": "ferragamo",
@@ -6595,20 +6755,20 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
   },
   "ferragamo:2020-02-22:rtw": {
    "house": "ferragamo",
    "date": "2020-02-22",
    "season": "2020 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
    "candidates": [],
-   "errors": {
-    "ferragamo.com": "ConnectionError"
-   },
    "seeds": [
     "www.ferragamo.com/en-us/collections/"
    ]
@@ -6618,13 +6778,10 @@
    "date": "2020-09-26",
    "season": "2021 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
    "candidates": [],
-   "errors": {
-    "ferragamo.com": "ReadTimeout"
-   },
    "seeds": [
     "www.ferragamo.com/en-us/collections/"
    ]
@@ -6664,6 +6821,38 @@
    "via": "window",
    "pages": 2,
    "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
+  },
+  "ferragamo:2023-02-25:rtw": {
+   "house": "ferragamo",
+   "date": "2023-02-25",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": [],
+   "seeds": [
+    "www.ferragamo.com/en-us/collections/"
+   ]
+  },
+  "ferragamo:2023-09-23:rtw": {
+   "house": "ferragamo",
+   "date": "2023-09-23",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.ferragamo.com/en-us/collections/ss24-show",
+     "ts": "20240118074442",
+     "score": 5.88
+    }
+   ],
    "seeds": [
     "www.ferragamo.com/en-us/collections/"
    ]
@@ -9284,10 +9473,68 @@
     "www.jacquemus.com/collection/"
    ]
   },
+  "jacquemus:2022-12-12:rtw": {
+   "house": "jacquemus",
+   "date": "2022-12-12",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "jacquemus.com": "ReadTimeout"
+   },
+   "seeds": [
+    "www.jacquemus.com/collection/"
+   ]
+  },
   "jacquemus:2023-03-07:rtw": {
    "house": "jacquemus",
    "date": "2023-03-07",
    "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "seeds": [
+    "www.jacquemus.com/collection/"
+   ]
+  },
+  "jacquemus:2024-01-29:rtw": {
+   "house": "jacquemus",
+   "date": "2024-01-29",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "jacquemus.com": "ReadTimeout"
+   },
+   "seeds": [
+    "www.jacquemus.com/collection/"
+   ]
+  },
+  "jacquemus:2024-06-10:rtw": {
+   "house": "jacquemus",
+   "date": "2024-06-10",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "seeds": [
+    "www.jacquemus.com/collection/"
+   ]
+  },
+  "jacquemus:2025-01-26:rtw": {
+   "house": "jacquemus",
+   "date": "2025-01-26",
+   "season": "2025 AW rtw",
    "category": "rtw",
    "status": "none",
    "via": "window",
@@ -10123,6 +10370,22 @@
     {
      "url": "https://www.lanvin.com/gb/maison-lanvin/shows/fall-winter-2022-show.html",
      "ts": "20220518101715",
+     "score": 7.06
+    }
+   ]
+  },
+  "lanvin:2022-10-03:rtw": {
+   "house": "lanvin",
+   "date": "2022-10-03",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.lanvin.com/gb/maison-lanvin/shows/spring-2023-show.html",
+     "ts": "20230123123538",
      "score": 7.06
     }
    ]
@@ -13505,6 +13768,37 @@
    "pages": 0,
    "candidates": []
   },
+  "moncler:2025-03-15:rtw": {
+   "house": "moncler",
+   "date": "2025-03-15",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.moncler.com/en-gb/grenoble-show-fall-winter-2025.html",
+     "ts": "20250317104037",
+     "score": 4.12
+    },
+    {
+     "url": "https://www.moncler.com/en-ch/stories/article-grenoble-show-fw25.html",
+     "ts": "20250318042013",
+     "score": 3.62
+    }
+   ]
+  },
+  "moncler:2026-01-31:rtw": {
+   "house": "moncler",
+   "date": "2026-01-31",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
   "prada:2015-01-18:men": {
    "house": "prada",
    "date": "2015-01-18",
@@ -15283,6 +15577,32 @@
     }
    ]
   },
+  "schiaparelli:2025-07-07:couture": {
+   "house": "schiaparelli",
+   "date": "2025-07-07",
+   "season": "2025 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2025-26/looks/look-1",
+     "ts": "20250813221156",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2025-26/looks/look-10",
+     "ts": "20250813220647",
+     "score": 8.62
+    },
+    {
+     "url": "https://www.schiaparelli.com/en/haute-couture/haute-couture-fall-winter-2025-26/looks/look-11",
+     "ts": "20250813215226",
+     "score": 8.62
+    }
+   ]
+  },
   "schiaparelli:2025-10-02:rtw": {
    "house": "schiaparelli",
    "date": "2025-10-02",
@@ -15386,6 +15706,32 @@
      "score": 2.62
     }
    ]
+  },
+  "stella_mccartney:2019-03-04:rtw": {
+   "house": "stella_mccartney",
+   "date": "2019-03-04",
+   "season": "2019 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ReadTimeout"
+   }
+  },
+  "stella_mccartney:2020-03-02:rtw": {
+   "house": "stella_mccartney",
+   "date": "2020-03-02",
+   "season": "2020 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ReadTimeout"
+   }
   },
   "stella_mccartney:2021-10-04:rtw": {
    "house": "stella_mccartney",
@@ -15614,6 +15960,137 @@
      "url": "https://www.therow.com/us/collections/women-039-s-spring-2020_grd51",
      "ts": "20191112182849",
      "score": 4.81
+    }
+   ]
+  },
+  "the_row:2022-09-28:rtw": {
+   "house": "the_row",
+   "date": "2022-09-28",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/us/collections/women-039-s-summer-2023_grd168",
+     "ts": "20221207175633",
+     "score": 4.81
+    }
+   ]
+  },
+  "the_row:2023-09-27:rtw": {
+   "house": "the_row",
+   "date": "2023-09-27",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "therow.com": "ConnectTimeout"
+   }
+  },
+  "the_row:2024-02-28:rtw": {
+   "house": "the_row",
+   "date": "2024-02-28",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/en-at/collections/women-fall-2024",
+     "ts": "20240520023110",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.therow.com/en-at/collections/women-winter-2024",
+     "ts": "20240310202647",
+     "score": 4.62
+    },
+    {
+     "url": "https://www.therow.com/en-at/collections/men-fall-2024",
+     "ts": "20240522042633",
+     "score": 0.62
+    }
+   ]
+  },
+  "the_row:2024-09-25:rtw": {
+   "house": "the_row",
+   "date": "2024-09-25",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/collections/women-summer-2025",
+     "ts": "20241004112307",
+     "score": 4.0
+    },
+    {
+     "url": "https://www.therow.com/zh-gb/collections/spring-2025",
+     "ts": "20241004110342",
+     "score": 3.0
+    }
+   ]
+  },
+  "the_row:2025-03-05:rtw": {
+   "house": "the_row",
+   "date": "2025-03-05",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "therow.com": "ReadTimeout"
+   }
+  },
+  "the_row:2025-10-02:rtw": {
+   "house": "the_row",
+   "date": "2025-10-02",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/en-at/collections/collection-womens-summer-2026",
+     "ts": "20251124121929",
+     "score": 6.62
+    }
+   ]
+  },
+  "the_row:2026-03-04:rtw": {
+   "house": "the_row",
+   "date": "2026-03-04",
+   "season": "2026 AW rtw",
+   "category": "rtw",
+   "status": "none",
+   "via": "window",
+   "pages": 1,
+   "candidates": []
+  },
+  "the_row:2026-09-30:rtw": {
+   "house": "the_row",
+   "date": "2026-09-30",
+   "season": "2027 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "window",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/en-eu/collections/women-summer-2027",
+     "ts": "20261002172516",
+     "score": 4.62
     }
    ]
   },
@@ -17029,10 +17506,9 @@
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/",
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 28
+   "pages": 26
   },
   "chanel": {
    "prefixes": [
@@ -17252,8 +17728,8 @@
   "jacquemus": {
    "prefixes": [
     "www.jacquemus.com/collection/",
-    "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
     "www.jacquemus.com/nl_nl/la-croisiere/",
+    "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
     "www.jacquemus.com/nl_nl/collections/"
    ],
    "pages": 38
@@ -17263,18 +17739,18 @@
     "www.moncler.com/gb/news/",
     "www.moncler.com/jp/news/",
     "pressoffice.moncler.com/moncler/c/",
-    "www.moncler.com/en-ch/genius/collections/moncler-x-gilga-farm-designed-by-donald-glover/",
     "www.moncler.com/en-ch/genius-collection-asap-rocky/",
+    "www.moncler.com/en-ch/genius/collections/moncler-x-gilga-farm-designed-by-donald-glover/",
     "www.moncler.com/en-ch/genius/collections/moncler-x-mercedes-benz-by-nigo/",
-    "www.moncler.com/en-ch/genius/collections/"
+    "www.moncler.com/en-ch/genius/collections/moncler-x-edward-enninful/"
    ],
-   "pages": 444
+   "pages": 365
   },
   "the_row": {
    "prefixes": [
+    "www.therow.com/us/collections/",
     "www.therow.com/en-at/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/us/collections/",
     "www.therow.com/us/collections/women-039-s-resort-2020_grd38/"
    ],
    "pages": 740
@@ -17291,10 +17767,9 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
    ],
    "pages": 358
   },
@@ -17306,29 +17781,25 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/"
+    "www.balmain.com/de/balmain/couture-show/"
    ],
-   "pages": 515
+   "pages": 504
   },
   "schiaparelli": {
    "prefixes": [
-    "www.schiaparelli.com/en/haute-couture/",
     "www.schiaparelli.com/en/collections/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-secret/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-bijoux-buttons/"
+    "www.schiaparelli.com/en/haute-couture/",
+    "schiaparelli.com/en/collections/"
    ],
-   "pages": 3294
+   "pages": 3292
   },
   "lanvin": {
    "prefixes": [
     "www.lanvin.com/gb/news/",
     "www.lanvin.com/gb/maison-lanvin/shows/",
-    "www.lanvin.com/nl/maison-lanvin/shows/",
-    "www.lanvin.com/us/news/",
-    "www.lanvin.com/nl/maison-lanvin/projects/"
+    "store.lanvin.com/gb/women/"
    ],
-   "pages": 401
+   "pages": 343
   },
   "comme_des_garcons": {
    "prefixes": [],
@@ -17339,7 +17810,7 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/ru/fashion-show/kids_section/"
+    "www.stellamccartney.com/nl/collectionsadidas_section/"
    ],
    "pages": 1348
   },
@@ -17353,9 +17824,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 575,
-   "index failed": 69,
-   "none": 380
+   "found": 584,
+   "index failed": 79,
+   "none": 386
   },
   "by_house": {
    "alaia": {
@@ -17363,7 +17834,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 7,
+    "shows": 9,
     "found": 3
    },
    "balenciaga": {
@@ -17383,7 +17854,7 @@
     "found": 0
    },
    "burberry": {
-    "shows": 23,
+    "shows": 25,
     "found": 9
    },
    "celine": {
@@ -17391,7 +17862,7 @@
     "found": 8
    },
    "chanel": {
-    "shows": 46,
+    "shows": 47,
     "found": 33
    },
    "chloe": {
@@ -17419,8 +17890,8 @@
     "found": 39
    },
    "ferragamo": {
-    "shows": 28,
-    "found": 9
+    "shows": 30,
+    "found": 10
    },
    "givenchy": {
     "shows": 40,
@@ -17439,7 +17910,7 @@
     "found": 12
    },
    "jacquemus": {
-    "shows": 14,
+    "shows": 18,
     "found": 3
    },
    "jil_sander": {
@@ -17447,8 +17918,8 @@
     "found": 13
    },
    "lanvin": {
-    "shows": 30,
-    "found": 12
+    "shows": 31,
+    "found": 13
    },
    "loewe": {
     "shows": 36,
@@ -17479,8 +17950,8 @@
     "found": 22
    },
    "moncler": {
-    "shows": 17,
-    "found": 10
+    "shows": 19,
+    "found": 11
    },
    "prada": {
     "shows": 32,
@@ -17491,16 +17962,16 @@
     "found": 24
    },
    "schiaparelli": {
-    "shows": 31,
-    "found": 28
+    "shows": 32,
+    "found": 29
    },
    "stella_mccartney": {
-    "shows": 11,
+    "shows": 13,
     "found": 7
    },
    "the_row": {
-    "shows": 3,
-    "found": 1
+    "shows": 11,
+    "found": 6
    },
    "tom_ford": {
     "shows": 18,
@@ -17521,7 +17992,7 @@
   },
   "by_year": {
    "2015": {
-    "shows": 48,
+    "shows": 50,
     "found": 30
    },
    "2016": {
@@ -17537,11 +18008,11 @@
     "found": 35
    },
    "2019": {
-    "shows": 93,
+    "shows": 94,
     "found": 40
    },
    "2020": {
-    "shows": 92,
+    "shows": 93,
     "found": 43
    },
    "2021": {
@@ -17553,24 +18024,24 @@
     "found": 60
    },
    "2023": {
-    "shows": 79,
-    "found": 53
+    "shows": 84,
+    "found": 55
    },
    "2024": {
-    "shows": 79,
-    "found": 51
+    "shows": 84,
+    "found": 53
    },
    "2025": {
-    "shows": 70,
-    "found": 40
+    "shows": 75,
+    "found": 43
    },
    "2026": {
-    "shows": 98,
-    "found": 52
+    "shows": 103,
+    "found": 53
    },
    "2027": {
-    "shows": 44,
-    "found": 12
+    "shows": 45,
+    "found": 13
    }
   }
  }
