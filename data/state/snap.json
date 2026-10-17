@@ -668,9 +668,6 @@
       "Chloé",
       "Chloe"
     ],
-    "dior": [
-      "Dior"
-    ],
     "dolce_gabbana": [
       "Dolce&Gabbana"
     ],
@@ -687,17 +684,11 @@
       "Hermès",
       "Hermes"
     ],
-    "jacquemus": [
-      "Jacquemus"
-    ],
     "loewe": [
       "Loewe"
     ],
     "louis_vuitton": [
       "Louis Vuitton"
-    ],
-    "mcqueen": [
-      "McQueen"
     ],
     "miu_miu": [
       "Prada spa"
@@ -715,9 +706,11 @@
       "Versace"
     ]
   },
-  "problems": {},
-  "requests": 585,
-  "run": "gh39045030718",
+  "problems": {
+    "dior": "ads: ReadTimeout: HTTPSConnectionPool(host='adsapi.snapchat.com', port=443): Read timed out. (read timeout=60)"
+  },
+  "requests": 550,
+  "run": "gh39048809641",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -870,7 +863,13 @@
           "operation": "str"
         }
       ],
-      "devices": [],
+      "devices": [
+        {
+          "carrier_id": [],
+          "marketing_name": [],
+          "model": []
+        }
+      ],
       "regulated_content": "bool"
     },
     "top_snap_crop_position": "str",
@@ -880,6 +879,6 @@
       "url": "str"
     }
   },
-  "stopped": null,
-  "updated_at": "2026-10-17T15:50:10Z"
+  "stopped": "budget",
+  "updated_at": "2026-10-17T17:24:23Z"
 }
