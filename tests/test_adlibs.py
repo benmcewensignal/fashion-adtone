@@ -659,3 +659,28 @@ def test_pictures_fetched_but_never_read_are_kept_aside_by_the_next_collection(t
     src.house_refresh_days = 0
     out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r5", today=date(2026, 10, 20))
     assert out.get("never_read_kept", 0) == 0 and not store.read_jsonl(P["pending"] / "gucci.jsonl")
+
+
+def test_tidy_applies_the_rules_as_they_stand_to_the_rows_on_file(tmp_data):
+    from adtone import metaweb
+    alaia = House("alaia", "Alaïa", "treated", "Richemont", ["Alaïa", "Alaia"], [], [])
+    versace = House("versace", "Versace", "treated", "Capri", ["Versace"], [], [])
+    P = adlibs.paths("metaweb")
+    row = lambda i, pid, name, payer="": {"ad_id": f"{pid}-{i}", "house_id": "x", "page_id": pid, "page_name": name, "media": [],
+                                          "beneficiary_payers": [{"payer": payer, "beneficiary": payer}] if payer else None}
+    store.write_jsonl(P["ads"] / "alaia.jsonl", [row(1, "1", "Alaïa Bay"), row(2, "1", "Alaïa Bay"), row(3, "2", "Alaia"),
+                                                 row(4, "3", "Alaia Muse")])
+    store.write_jsonl(P["pending"] / "alaia.jsonl", [{"ad_id": "1-1", "urls": ["https://x/1.jpg"]}, {"ad_id": "2-3", "urls": ["https://x/2.jpg"]}])
+    store.write_jsonl(P["ads"] / "versace.jsonl", [row(1, "9", "Versace", "Gianni Versace S.r.l."), row(2, "9", "Versace", "Luxottica Group S.p.A."),
+                                                   row(3, "9", "Versace", "EuroItalia S.r.l."), row(4, "8", "Hermes Logistik")])
+    # Versace's lookup is on file and keeps its page; Alaïa's is missing, so its rows are judged by their pages' names
+    store.write_state(P["state"], {"advertisers": {"versace": {"checked": "2026-10-17", "keep": [{"id": "9", "name": "Versace", "ads": 115}]}}})
+    out = adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [alaia, versace]), "t1")
+    rows = {h: {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / f"{h}.jsonl")} for h in ("alaia", "versace")}
+    assert set(rows["alaia"]) == {"2-3"}                                 # the surf park and the shop are not the house
+    assert [p["ad_id"] for p in store.read_jsonl(P["pending"] / "alaia.jsonl")] == ["2-3"]
+    assert {k: r["division"] for k, r in rows["versace"].items()} == {"9-1": "fashion", "9-2": "eyewear", "9-3": "beauty"}
+    assert out["dropped"] == 4 and out["pending_dropped"] == 1 and out["division_changed"] == 4
+    # run again, nothing changes
+    out = adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [alaia, versace]), "t2")
+    assert out["dropped"] == 0 and out["division_changed"] == 0

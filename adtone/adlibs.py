@@ -630,6 +630,54 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     return out
 
 
+def tidy(src, reg: registry.Registry, run: str) -> dict:
+    """The rules as they stand, applied to the rows on file with no call to the library: each house's kept
+    pages or accounts judged again (filter_keep), the rows no longer the house's own dropped with any
+    pictures they had waiting, and each row's division read again from its names (row_division). A rule
+    tightened after a collection (a business that only shares a house's name, a licensee's payer) reaches
+    the rows already gathered, not just the next ones."""
+    P = paths(src.name)
+    st = store.read_state(P["state"])
+    counts = {"houses": 0, "rows": 0, "dropped": 0, "pending_dropped": 0, "division_changed": 0}
+    for h in reg.houses:
+        path = P["ads"] / f"{h.id}.jsonl"
+        if not path.exists():
+            continue
+        rows = store.read_jsonl(path)
+        rec = (st.get("advertisers") or {}).get(h.id)
+        keep = (rec or {}).get("keep") or []
+        if rec is None and hasattr(src, "keep_from_rows"):
+            keep = src.keep_from_rows(rows)        # no lookup on file: the rows' own pages, judged by name
+        if hasattr(src, "filter_keep"):
+            keep = src.filter_keep(h, keep)
+        kept = [r for r in rows if not hasattr(src, "row_is_kept") or src.row_is_kept(r, keep, h)]
+        changed = len(kept) != len(rows)
+        if hasattr(src, "row_division"):
+            for r in kept:
+                d = src.row_division(r)
+                if r.get("division") != d:
+                    r["division"] = d
+                    counts["division_changed"] += 1
+                    changed = True
+        counts["houses"] += 1
+        counts["rows"] += len(kept)
+        counts["dropped"] += len(rows) - len(kept)
+        if changed:
+            store.write_jsonl(path, kept)
+        gone = {r["ad_id"] for r in rows} - {r["ad_id"] for r in kept}
+        pend_path = P["pending"] / f"{h.id}.jsonl"
+        if gone and pend_path.exists():
+            pend = store.read_jsonl(pend_path)
+            left = [x for x in pend if x["ad_id"] not in gone]
+            if len(left) != len(pend):
+                counts["pending_dropped"] += len(pend) - len(left)
+                store.write_jsonl(pend_path, left)
+    out = {"run": run, "stage": "tidy", "updated_at": store.utc_now(), **counts}
+    if counts["dropped"] or counts["division_changed"]:
+        store.append_jsonl(P["prov"], [out])
+    return out
+
+
 SOURCES = ("metaweb", "snap", "pinterest", "msads", "linkedin", "xads", "tiktok")
 
 
@@ -680,7 +728,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     import os
 
     ap = argparse.ArgumentParser(prog=f"adtone.{name}")
-    ap.add_argument("stage", choices=["collect", "read", "probe"])
+    ap.add_argument("stage", choices=["collect", "read", "probe", "tidy"])
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--no-reader", action="store_true")
@@ -712,6 +760,15 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
             except Exception as e:
                 print(f"::warning::{name}: clothes reader unavailable, the eighteen questions only: {e.__class__.__name__}: {str(e)[:200]}")
     reg = registry.load()
+    # the rules as they stand, on every house's rows on file, before anything else (no call to the library)
+    try:      # the rule methods need no session: a bare instance, so that no browser or client is started for them
+        tidied = tidy(object.__new__(make_source) if isinstance(make_source, type) else make_source(), reg, a.run)
+        if tidied["dropped"] or tidied["division_changed"]:
+            print(f"::notice::{name} tidy: {tidied}")
+    except Exception as e:
+        print(f"::warning::{name} tidy failed: {e.__class__.__name__}: {str(e)[:200]}")
+    if a.stage == "tidy":
+        return 0
     if a.houses:
         want = {x.strip() for x in a.houses.split(",") if x.strip()}
         reg = registry.Registry(version=reg.version, status=reg.status, houses=[h for h in reg.houses if h.id in want])

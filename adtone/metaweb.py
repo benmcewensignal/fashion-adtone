@@ -59,14 +59,16 @@ def _texts(item: dict) -> list[str]:
 
 
 NOT_A_HOUSE_PAGE = ("blog", "personal", "public figure", "community", "just for fun", "writer", "artist",
-                    "musician", "band", "actor", "athlete", "journalist", "fan page", "video creator", "digital creator")
+                    "musician", "band", "actor", "athlete", "journalist", "fan page", "video creator", "digital creator",
+                    "cargo", "freight", "logistics", "medical", "clinic", "hospital", "hotel", "resort", "real estate",
+                    "restaurant", "amusement", "water park", "surf", "travel agency")
 
 
 def is_page(house: registry.House, page: dict) -> bool:
     """The page is the house's own: its name is the house's (Gucci, GUCCI, CHANEL 샤넬), or the house's name
-    with one more word and a few ads at least (Loewe Greece), never a person, a blog, a shop or a
-    licensee whose name merely contains it (celine_maureen, Céline Rousseau - Blog Santé, LOEWE Perfumes,
-    Thiết bị phòng tắm cao cấp Fendi)."""
+    with a company suffix, or with a place and a few ads at least (Loewe Greece), never a person, a blog, a
+    shop, a business that shares the name or a licensee whose name merely contains it (celine_maureen, Céline
+    Rousseau - Blog Santé, LOEWE Perfumes, Thiết bị phòng tắm cao cấp Fendi, Alaïa Bay, Hermes Logistik)."""
     cats = " ".join(page.get("categories") or []).lower()
     if any(w in cats for w in NOT_A_HOUSE_PAGE):
         return False
@@ -205,6 +207,22 @@ class Source:
     def filter_keep(self, house: registry.House, keep: list[dict]) -> list[dict]:
         """The pages on file, judged by the rule as it stands (a page from the registry always stands)."""
         return [p for p in keep if p.get("from") == "registry" or is_page(house, p)]
+
+    @staticmethod
+    def keep_from_rows(rows: list[dict]) -> list[dict]:
+        """The pages the rows on file came from, as the page lookup records them: for a house whose lookup
+        record is missing, so that its rows are judged by their pages' names rather than all dropped."""
+        pages: dict[str, dict] = {}
+        for r in rows:
+            if r.get("page_id"):
+                rec = pages.setdefault(str(r["page_id"]), {"id": str(r["page_id"]), "name": r.get("page_name") or "", "ads": 0})
+                rec["ads"] += 1
+        return list(pages.values())
+
+    @staticmethod
+    def row_division(row: dict) -> str:
+        return division(row.get("page_name") or "", *[str(p.get(k) or "") for p in (row.get("beneficiary_payers") or [])
+                                                      for k in ("payer", "beneficiary")])
 
     def row_is_kept(self, row: dict, keep: list[dict], house: registry.House | None = None) -> bool:
         """A stored row stays only while its page is among the house's own: a page matched too loosely

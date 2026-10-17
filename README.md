@@ -201,7 +201,12 @@ blind to its date, so that a read cut short is a fair sample of the year. An ad 
 not fetched: its row says `media_lapsed` and it waits for the next collection, which renews them. While a
 library's first year is incomplete, its workflow also runs hourly (`scripts/backfill_left.py`): the houses
 never searched to the end, then the pictures waiting; an hour with nothing left does nothing. A house never
-searched to the end is searched for its whole year, whatever period the run asks for.
+searched to the end is searched for its whole year, whatever period the run asks for. Every run first applies
+the ownership and division rules as they stand to the rows on file (stage `tidy`, no call to the library),
+so a rule tightened after a collection reaches the rows already gathered: a business that only shares a
+house's name (a surf park, a carrier, a clinic, a shop) is dropped, and an ad paid for by a licensee
+(L'Oréal, Estée Lauder, Coty, EuroItalia, Shiseido for beauty; Luxottica, Thélios, Marcolin, Safilo for
+eyewear) is sorted out of the fashion count.
 
 Each picture is read by the pinned reader with the eighteen questions, to `data/<source>/obs/`, beside the
 fingerprint. The clothes rubric, read by the larger reader the runway looks and homepage pictures were read

@@ -90,19 +90,38 @@ def is_house(house: registry.House, name: str) -> bool:
 
 SUFFIX = {"spa", "sas", "srl", "sa", "ag", "nv", "bv", "ltd", "llc", "inc", "gmbh", "limited", "international", "europe", "emea",
           "italia", "italy", "france", "paris", "uk", "usa", "us", "japan", "korea", "china", "global", "eur", "group", "couture",
-          "malletier", "moda", "official", "milano", "london", "deutschland", "espana", "spain", "nederland"}
+          "malletier", "official", "milano", "london", "deutschland", "espana", "spain", "nederland",
+          # the lines a house's own account may be named for; the division then sorts them out of the fashion count
+          "eyewear", "lunettes", "occhiali", "watches", "jewellery", "jewelry", "joaillerie", "horlogerie"}
+# a place after the house's name, accepted from a page or account with a few ads at least (Loewe Greece): one with
+# any other word is someone else's (Alaïa Bay, a surf park; Hermes Logistik, a carrier; Alaia Muse, a shop)
+PLACES = {"greece", "hellas", "germany", "austria", "osterreich", "switzerland", "schweiz", "suisse", "belgium", "belgique",
+          "netherlands", "holland", "sweden", "sverige", "denmark", "danmark", "norway", "norge", "finland", "suomi", "poland",
+          "polska", "portugal", "ireland", "czech", "czechia", "hungary", "romania", "bulgaria", "croatia", "slovenia", "slovakia",
+          "luxembourg", "monaco", "cyprus", "malta", "estonia", "latvia", "lithuania", "iceland", "turkey", "turkiye", "israel",
+          "uae", "dubai", "qatar", "kuwait", "ksa", "mena", "canada", "mexico", "brasil", "brazil", "australia", "india",
+          "singapore", "taiwan", "thailand", "vietnam", "malaysia", "indonesia", "philippines", "hongkong", "macau", "asia",
+          "apac", "americas", "nordics", "benelux", "dach", "iberia", "roma", "rome", "madrid", "barcelona", "berlin", "munich",
+          "munchen", "vienna", "wien", "zurich", "geneve", "geneva", "amsterdam", "brussels", "bruxelles", "stockholm",
+          "copenhagen", "oslo", "helsinki", "warsaw", "lisbon", "lisboa", "dublin", "athens", "prague", "budapest", "nyc", "la"}
 _SELF_SERVE_APP = re.compile(r"in[- ]?app|ios|android|app aus", re.I)      # Snap's self-serve accounts from the phone app
-_DIVISION = (("beauty", ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "pcd", "fnb", "f b", "makeup", "skincare")),
-             ("eyewear", ("eyewear", "lunettes", "occhiali", "optical")),
+# the licensees that pay for a house's beauty or eyewear advertising under its name (L'Oréal for Prada, Miu Miu,
+# Armani, Valentino, Saint Laurent and Margiela; Estée Lauder for Tom Ford; Coty for Gucci, Chloé, Burberry and Jil
+# Sander; EuroItalia for Versace; Shiseido for Issey Miyake; Luxottica, Thélios, Marcolin and Safilo for eyewear)
+_DIVISION = (("beauty", ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "pcd", "fnb", "f b", "makeup", "skincare",
+                         "loreal", "esteelauder", "coty", "euroitalia", "shiseido")),
+             ("eyewear", ("eyewear", "lunettes", "occhiali", "optical", "luxottica", "thelios", "marcolin", "safilo")),
              ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli", "wfj", "haute horlogerie")))
 
 
 def is_own(house: registry.House, name: str, ads: int | None = None) -> bool:
     """The advertiser is the house itself: the name is the house's or one of its legal names (Gucci,
     GUCCI, Guccio Gucci S.p.A., CHANEL 샤넬), or the house's name with one more word that is a company
-    suffix or a place (Prada spa, Loewe Greece with a few ads), and never a beauty or fragrance licensee
-    or a reseller. A person with the name in theirs (Celine Anders, Franco Armani, Chloe Kate), a shop
-    (De Valentino's Den Haag) or a name with emoji in it (Celine ✌🏼, Dior Ndiaye👸) is not the house."""
+    suffix or a line (Prada spa, Prada Spa Eyewear), or a place with a few ads at least (Loewe Greece), and
+    never a beauty or fragrance licensee or a reseller. A person with the name in theirs (Celine Anders,
+    Franco Armani, Chloe Kate), a shop (De Valentino's Den Haag, Alaia Muse), a business that shares the
+    name (Alaïa Bay, Hermes Logistik, Hermes Clinics) or a name with emoji in it (Celine ✌🏼, Dior Ndiaye👸)
+    is not the house."""
     if not is_house(house, name):
         return False
     if any(unicodedata.category(ch) in ("So", "Sk") or 0x1F000 <= ord(ch) <= 0x1FAFF for ch in name):
@@ -114,7 +133,7 @@ def is_own(house: registry.House, name: str, ads: int | None = None) -> bool:
     for n in sorted(names, key=len, reverse=True):
         if w.startswith(n + " "):
             rest = w[len(n) + 1:].split()
-            return len(rest) == 1 and (rest[0] in SUFFIX or (ads is not None and ads >= 3))
+            return len(rest) == 1 and (rest[0] in SUFFIX or (rest[0] in PLACES and ads is not None and ads >= 3))
     return False
 
 
@@ -304,6 +323,10 @@ class Source:
         if row.get("advertiser") is None and row.get("account") is None:
             return True
         return self.own(house, row.get("advertiser"), row.get("account"))
+
+    @staticmethod
+    def row_division(row: dict) -> str:
+        return division(row.get("account") or "", row.get("advertiser") or "")
 
     def ad_row(self, item: dict, house_id: str, run: str) -> dict:
         """The row, from the fields the first live run showed (17 October 2026): paying_advertiser_name,
