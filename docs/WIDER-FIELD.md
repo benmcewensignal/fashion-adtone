@@ -15,8 +15,8 @@ ticked here in the same commit.
 
 | table | rows | houses with none |
 |---|---|---|
-| `reference/designers.csv` | 37 | none |
-| `reference/executives.csv` | 40 | none |
+| `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026) | none |
+| `reference/executives.csv` | 40 (Hecquet's announcement filled 17 October 2026) | none |
 | `reference/shows.csv` | 153, February 2022 on | none |
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
@@ -35,7 +35,7 @@ Identifiers
       comme_des_garcons. Still to do: mcqueen (its listing would not load) and armani, whose Privé page now
       links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
       On 16 October 2026 the fetcher could not open nowfashion.com at all (its permission request went
-      unanswered in a scheduled run), so nothing was read.
+      unanswered in a scheduled run), so nothing was read; the same happened on 17 October 2026.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -82,10 +82,12 @@ People
 - [x] Credits: 115 rows, among them Sarah Burton's 2021 to 2023 McQueen campaigns, Balmain 2022 to 2026,
       Moncler 2021 to 2024, Stella McCartney 2020 to 2023 and The Row's lookbooks and Summer 2022 campaign.
 - [ ] Still open on people: the show days missing for Giornetti's last show (AW16), Rigoni's first (SS17),
-      Andrew's last (AW21), Elbaz's last (SS16) and Takahashi's first (SS14); Guillaume Meilland's dates;
-      Hecquet's appointment at Lanvin, Andy Lew's announcement and Tom Mendenhall's start; credits for Comme
-      des Garçons and Schiaparelli, and for Moncler, Stella McCartney and The Row after 2024, whose credits
-      sit behind a login.
+      Andrew's last (AW21) and Takahashi's first (SS14); Meilland's last show and departure; Andy Lew's
+      announcement as the Lanvin brand's CEO and Tom Mendenhall's start (not stated in the reports of
+      2025-09-08 to 2025-09-10); credits for Comme des Garçons and Schiaparelli, and for Moncler, Stella
+      McCartney and The Row after 2024, whose credits sit behind a login. Filled on 17 October 2026:
+      Elbaz's last show (2015-10-01), Meilland's announcement (2016-11-17) and first show (AW17 men's,
+      Milan, 2017-01-15), Hecquet's announcement at Lanvin (2018-08-28).
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to

@@ -569,6 +569,15 @@
    "date": "2015-07-31"
   },
   {
+   "house": "lanvin",
+   "who": "Alber Elbaz",
+   "scope": "womenswear",
+   "verified": true,
+   "source": "https://ca.fashionnetwork.com/news/Alber-elbaz-leaving-lanvin,588542.html",
+   "kind": "last show",
+   "date": "2015-10-01"
+  },
+  {
    "house": "balenciaga",
    "who": "Alexander Wang",
    "scope": "womenswear",
@@ -900,6 +909,24 @@
    "date": "2016-10-24",
    "verified": true,
    "source": "https://fashionunited.uk/news/people/cedric-charbit-is-appointed-ceo-of-balenciaga/2016102422208"
+  },
+  {
+   "house": "ferragamo",
+   "who": "Guillaume Meilland",
+   "scope": "menswear",
+   "verified": true,
+   "source": "https://fashionunited.uk/news/people/paul-andrew-named-creative-director-of-salvatore-ferragamo/2019022141725",
+   "kind": "creative lead appointed",
+   "date": "2016-11-17"
+  },
+  {
+   "house": "ferragamo",
+   "who": "Guillaume Meilland",
+   "scope": "menswear",
+   "verified": true,
+   "source": "https://fashionunited.uk/news/people/paul-andrew-named-creative-director-of-salvatore-ferragamo/2019022141725",
+   "kind": "first show",
+   "date": "2017-01-15"
   },
   {
    "house": "chloe",
@@ -1242,6 +1269,15 @@
    "source": "https://pl.fashionnetwork.com/news/Kim-Jones-replaces-Kris-Van-Assche-at-Dior-Homme,959507.html",
    "kind": "first show",
    "date": "2018-06-23"
+  },
+  {
+   "house": "lanvin",
+   "who": "Jean-Philippe Hecquet",
+   "role": "CEO",
+   "kind": "chief executive appointed",
+   "date": "2018-08-28",
+   "verified": true,
+   "source": "https://ca.fashionnetwork.com/news/Jean-philippe-hecquet-quits-lanvin-in-management-overhaul,1197868.html | https://fashionunited.uk/news/people/lanvin-appoints-ex-sandro-manager-as-ceo/2018082838520"
   },
   {
    "house": "burberry",
@@ -5875,11 +5911,11 @@
  ],
  "counts": {
   "ambassador named": 219,
-  "chief executive appointed": 68,
-  "creative lead appointed": 66,
+  "chief executive appointed": 69,
+  "creative lead appointed": 67,
   "creative lead leaving": 71,
-  "first show": 85,
-  "last show": 72,
+  "first show": 86,
+  "last show": 73,
   "owner from": 2
  }
 }
