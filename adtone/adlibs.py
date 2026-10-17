@@ -43,6 +43,7 @@ from .score import ScoreError, score_batches
 
 BATCH = 16                                              # pictures per call to the reader
 PARALLEL = int(os.environ.get("ADTONE_READ_PARALLEL") or 8)   # calls in flight at once, each its own container
+OVERLAP = os.environ.get("ADTONE_READ_OVERLAP", "1") != "0"     # the reader reads one flush while the next pictures are fetched
 
 
 def paths(name: str) -> dict[str, Path]:
@@ -126,6 +127,7 @@ class _Reading:
         self.obs_path = P["obs"] / f"{scorer.rubric.version}.jsonl"
         self.scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(self.obs_path)}
         self.pending: list[tuple] = []
+        self.waiting: dict[str, list[str]] = {}    # sha queued or being read -> the other ads that carry the picture
         self.new_obs: list[dict] = []
         self.down = 0           # flushes in a row with nothing read
         self.off = False
@@ -146,6 +148,8 @@ class Taker:
         self.readings = [_Reading(sc, P) for sc in scorers]
         self.holds: dict[str, int] = {}      # sha -> readers still to take the picture, before it is closed
         self.dropped: set[str] = set()       # ads with a picture the service failed to read: to be read later
+        self._inflight = None                # (reading, items, future): the reader's call while the next pictures are fetched
+        self._pool = None
 
     @property
     def scorer(self):
@@ -166,8 +170,12 @@ class Taker:
                 if rd.off:
                     self.dropped.add(row["ad_id"])
                     continue
-                if (f.sha, sc.instrument) in rd.scored or any(f.sha == g.sha for g, _ in rd.pending):
+                if (f.sha, sc.instrument) in rd.scored:
                     continue
+                if f.sha in rd.waiting:          # queued or being read for another ad: this ad follows its fate
+                    rd.waiting[f.sha].append(row["ad_id"])
+                    continue
+                rd.waiting[f.sha] = []
                 rd.pending.append((f, {"sha": f.sha, "instrument": sc.instrument, "ad_id": row["ad_id"],
                                        "house_id": house_id, "kind": m["kind"], "rubric_version": sc.rubric.version,
                                        "run_id": self.run}))
@@ -210,23 +218,51 @@ class Taker:
 
     def _flush(self, rd: _Reading) -> None:
         """The reader's queue read in parallel batches. A picture the reader answers is recorded, valid or not;
-        one the service failed on ("API: ...") is left unread and its ad noted, so that a later run reads it;
-        a service that reads nothing in DOWN_AFTER flushes in a row is not asked again this run."""
+        one the service failed on ("API: ...") is left unread and its ads noted, so that a later run reads it;
+        a service that reads nothing in DOWN_AFTER flushes in a row is not asked again this run. With OVERLAP
+        the call runs in a thread of its own while the caller fetches the next pictures, one call at a time;
+        it is answered and recorded at the next flush, or by flush(), before the caller looks at the rows."""
+        self._wait()
         if not rd.pending:
             return
-        jpegs = [jpeg_for_model(f.image) for f, _ in rd.pending]
+        items = list(rd.pending)
+        rd.pending.clear()
+        jpegs = [jpeg_for_model(f.image) for f, _ in items]
+        batches = [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)]
+        if OVERLAP:
+            if self._pool is None:
+                from concurrent.futures import ThreadPoolExecutor
+                self._pool = ThreadPoolExecutor(1)
+            self._inflight = (rd, items, self._pool.submit(score_batches, rd.scorer, batches))
+            return
+        self._record(rd, items, self._answers(lambda: score_batches(rd.scorer, batches), len(items)))
+
+    @staticmethod
+    def _answers(call, n: int) -> list:
         try:
-            answers = score_batches(rd.scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
+            return call()
         except ScoreError as e:
             if not str(e).startswith("API:"):
                 raise
-            answers = [e] * len(rd.pending)
+            return [e] * n
+
+    def _wait(self) -> None:
+        """The reader's call in flight, answered and recorded."""
+        if self._inflight is None:
+            return
+        rd, items, fut = self._inflight
+        self._inflight = None
+        self._record(rd, items, self._answers(fut.result, len(items)))
+
+    def _record(self, rd: _Reading, items: list[tuple], answers: list) -> None:
         failed = 0
-        for (f, ob), ans in zip(rd.pending, answers):
+        for (f, ob), ans in zip(items, answers):
+            others = rd.waiting.pop(f.sha, [])
             if isinstance(ans, ScoreError) and str(ans).startswith("API:"):
                 failed += 1
                 rd.last_error = str(ans)
                 self.dropped.add(ob["ad_id"])
+                self.dropped.update(others)
                 self._release(f)
                 continue
             ob["scored_at"] = store.utc_now()
@@ -244,14 +280,21 @@ class Taker:
         if failed:
             k = f"unread_{rd.scorer.rubric.version}"
             self.counts[k] = self.counts.get(k, 0) + failed
-        rd.down = rd.down + 1 if failed == len(rd.pending) else 0
+        rd.down = rd.down + 1 if failed == len(items) else 0
         if rd.down >= rd.DOWN_AFTER:
             rd.off = True
-        rd.pending.clear()
 
     def flush(self) -> None:
+        """Every reader's queue read, and every call answered and recorded."""
         for rd in self.readings:
             self._flush(rd)
+        self._wait()
+
+    def close(self) -> None:
+        self._wait()
+        if self._pool is not None:
+            self._pool.shutdown(wait=True)
+            self._pool = None
 
     def save(self) -> None:
         for rd in self.readings:
@@ -434,6 +477,10 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                 src.close()
             except Exception:
                 pass
+    try:
+        taker.close()                    # any reader call still in flight, answered and recorded
+    except ScoreError as e:
+        stopped = f"{stopped}; reader: {str(e)[:120]}" if stopped else f"reader: {str(e)[:200]}"
     taker.save()
     if taker.status():
         stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
@@ -623,6 +670,10 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
         stopped = f"reader: {str(e)[:200]}"
     finally:
         pool.shutdown(wait=False, cancel_futures=True)
+    try:
+        taker.close()
+    except ScoreError as e:
+        stopped = f"{stopped}; reader: {str(e)[:120]}" if stopped else f"reader: {str(e)[:200]}"
     taker.save()
     counts["houses"] = len(visited)
     counts["ads_left"] = sum(left.values())

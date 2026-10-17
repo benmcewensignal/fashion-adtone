@@ -726,3 +726,25 @@ def test_the_read_stage_can_leave_other_divisions_for_later(tmp_data):
                               sess=FakeSession(_cdn), today=date(2026, 10, 17), fashion_only=True, fetch_workers=1)
     assert out["ads_read"] == 1 and out["dynamic_left"] == 1
     assert [p["ad_id"] for p in store.read_jsonl(P["pending"] / "gucci.jsonl")] == ["b1"]
+
+
+def test_an_ad_that_shares_a_picture_being_read_follows_that_reading(tmp_data, monkeypatch):
+    from adtone.score import ModalScorer
+    from adtone.media import to_fetched
+    P = adlibs.paths("snap")
+    pic = jpeg_bytes(toned_image(0.4, seed=7))
+    for overlap in (True, False):
+        monkeypatch.setattr(adlibs, "OVERLAP", overlap)
+        down = ModalScorer(load_rubric(), remote=_fake_remote(down=True), revision="abc123")
+        taker = adlibs.Taker(P, "r1", FakeEmbedder(), down)
+        for ad in ("a1", "a2"):              # the same picture in two ads, the second taken while the first waits
+            taker.take({"ad_id": ad}, [{"kind": "image", "fetched": to_fetched(pic)}], "gucci", date(2026, 10, 17))
+        taker.flush()
+        assert taker.dropped == {"a1", "a2"}, overlap      # the service failed: both ads wait for a later run
+        taker.close()
+        ok = adlibs.Taker(P, "r2", FakeEmbedder(), FakeScorer(load_rubric()))
+        for ad in ("a1", "a2"):
+            ok.take({"ad_id": ad}, [{"kind": "image", "fetched": to_fetched(pic)}], "gucci", date(2026, 10, 17))
+        ok.flush()
+        assert not ok.dropped and len(ok.readings[0].new_obs) == 1, overlap      # read once, for both
+        ok.close()
