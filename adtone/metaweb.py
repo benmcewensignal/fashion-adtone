@@ -271,7 +271,8 @@ class Source:
             if any(w in k for w in ("profile", "logo", "avatar", "watermark")):
                 continue
             if any(w in k for w in ("originalimageurl", "resizedimageurl", "videohdurl", "videosdurl", "videopreviewimageurl", "imageurl", "videourl")):
-                urls.append((0 if "original" in k or "hd" in k else 1, u))
+                # the full-size picture, and the standard-definition video: three stills need no HD file of tens of megabytes
+                urls.append((0 if "original" in k or "videosd" in k else 1, u))
         # lists of addresses under a key (bovi's snapshot_images and snapshot_videos)
         for key in ("snapshot_images", "snapshot_videos", "images", "videos", "media_urls", "mediaUrls"):
             v = item.get(key)
@@ -280,7 +281,7 @@ class Source:
         if any(rank == 0 for rank, _ in urls):   # the full-size pictures are there: the resized copies are not fetched
             urls = [(rank, u) for rank, u in urls if rank == 0 or "preview" in u]
         urls.sort(key=lambda t: t[0])
-        return list(dict.fromkeys(u for _, u in urls)), {}
+        return list(dict.fromkeys(u for _, u in urls)), {"max_videos": 1, "max_video_bytes": 25_000_000}
 
     def media_for(self, item: dict) -> list[dict]:
         urls, kw = self.media_urls(item)
