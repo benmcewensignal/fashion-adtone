@@ -293,6 +293,97 @@
         }
       ]
     },
+    "chloe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Chloe",
+          "name": "Chloe"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Chloé - Académie Liberté",
+          "name": "Chloé - Académie Liberté"
+        },
+        {
+          "id": "Chloe & Claire Boutique",
+          "name": "Chloe & Claire Boutique"
+        },
+        {
+          "id": "chloe & lex",
+          "name": "chloe & lex"
+        },
+        {
+          "id": "CHLOE & LUCAS, S.L.",
+          "name": "CHLOE & LUCAS, S.L."
+        },
+        {
+          "id": "Chloé | Créatrice de voyages intérieurs, méditations guidées 🌙",
+          "name": "Chloé | Créatrice de voyages intérieurs, méditations guidées 🌙"
+        },
+        {
+          "id": "Chloé | Des Mots et Du Thé | Astuces Ƥinterest & Contenu Web",
+          "name": "Chloé | Des Mots et Du Thé | Astuces Ƥinterest & Contenu Web"
+        },
+        {
+          "id": "Chloe | Ur Brand Bestie 🥥☁️🧺",
+          "name": "Chloe | Ur Brand Bestie 🥥☁️🧺"
+        },
+        {
+          "id": "Chloé ARNOUX",
+          "name": "Chloé ARNOUX"
+        },
+        {
+          "id": "CHLOÉ ASTUCES",
+          "name": "CHLOÉ ASTUCES"
+        },
+        {
+          "id": "chloe bordils",
+          "name": "chloe bordils"
+        },
+        {
+          "id": "Chloe Botanika | Nutrition | Wellness | Holistic Health",
+          "name": "Chloe Botanika | Nutrition | Wellness | Holistic Health"
+        },
+        {
+          "id": "Chloe Chu Chu",
+          "name": "Chloe Chu Chu"
+        },
+        {
+          "id": "chloe dunn",
+          "name": "chloe dunn"
+        },
+        {
+          "id": "Chloe Elikia | Feminine Lifestyle And Beauty Tutorials",
+          "name": "Chloe Elikia | Feminine Lifestyle And Beauty Tutorials"
+        },
+        {
+          "id": "Chloé Fragrances",
+          "name": "Chloé Fragrances"
+        },
+        {
+          "id": "Chloé Gauthier",
+          "name": "Chloé Gauthier"
+        },
+        {
+          "id": "Chloe Gifts Tee Women Girl Name Birthday Gifts",
+          "name": "Chloe Gifts Tee Women Girl Name Birthday Gifts"
+        },
+        {
+          "id": "Chloe Gutierrez",
+          "name": "Chloe Gutierrez"
+        },
+        {
+          "id": "Chloe Jade Home",
+          "name": "Chloe Jade Home"
+        },
+        {
+          "id": "Chloe Janssens",
+          "name": "Chloe Janssens"
+        }
+      ]
+    },
     "dior": {
       "checked": "2026-10-17",
       "keep": [
@@ -650,6 +741,16 @@
         }
       ]
     },
+    "loro_piana": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Loro Piana",
+          "name": "Loro Piana"
+        }
+      ],
+      "refused": []
+    },
     "louis_vuitton": {
       "checked": "2026-10-17",
       "keep": [
@@ -759,22 +860,69 @@
         }
       ],
       "refused": []
+    },
+    "valentino": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Valentino",
+          "name": "Valentino"
+        },
+        {
+          "id": "Valentino S.p.A.",
+          "name": "Valentino S.p.A."
+        }
+      ],
+      "refused": [
+        {
+          "id": "Valentino Beauty",
+          "name": "Valentino Beauty"
+        },
+        {
+          "id": "VALENTINO COMERCIO",
+          "name": "VALENTINO COMERCIO"
+        },
+        {
+          "id": "Valentino Ferri",
+          "name": "Valentino Ferri"
+        },
+        {
+          "id": "Valentino Morelli",
+          "name": "Valentino Morelli"
+        },
+        {
+          "id": "Valentino Pavan | Creative & Visual Designer",
+          "name": "Valentino Pavan | Creative & Visual Designer"
+        },
+        {
+          "id": "VALENTINO SILVIA",
+          "name": "VALENTINO SILVIA"
+        },
+        {
+          "id": "Valentino Spa Kft.",
+          "name": "Valentino Spa Kft."
+        },
+        {
+          "id": "Valentino Studio Film",
+          "name": "Valentino Studio Film"
+        },
+        {
+          "id": "Valentino Zulj",
+          "name": "Valentino Zulj"
+        },
+        {
+          "id": "Valentino.Beauty",
+          "name": "Valentino.Beauty"
+        },
+        {
+          "id": "valentinos",
+          "name": "valentinos"
+        }
+      ]
     }
   },
   "country_form": null,
   "notes": [
-    "Hermès DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Hermès IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton Official FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton Official DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton Official IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Miu Miu FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Miu Miu DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Miu Miu IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "SAINT LAURENT FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
@@ -782,9 +930,22 @@
     "SAINT LAURENT IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Burberry FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Burberry DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Burberry IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino S.p.A. FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino S.p.A. DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Valentino S.p.A. IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loro Piana FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loro Piana DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Loro Piana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chloe FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chloe DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chloe IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {
+    "burberry": "ads: ScoreError: API: Modal InvalidError",
     "fendi": "ads: ScoreError: API: Modal InvalidError",
     "hermes": "ads: ScoreError: API: Modal InvalidError",
     "louis_vuitton": "ads: ScoreError: API: Modal InvalidError",
@@ -792,18 +953,21 @@
     "prada": "ads: ScoreError: API: Modal InvalidError",
     "saint_laurent": "ads: ScoreError: API: Modal InvalidError"
   },
-  "requests": 571,
-  "run": "gh39057447974",
+  "requests": 592,
+  "run": "gh39063524385",
   "searched": {
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
+    "chloe": "2026-10-17",
     "dior": "2026-10-17",
     "gucci": "2026-10-17",
     "jil_sander": "2026-10-17",
     "loewe": "2026-10-17",
-    "margiela": "2026-10-17"
+    "loro_piana": "2026-10-17",
+    "margiela": "2026-10-17",
+    "valentino": "2026-10-17"
   },
   "shape": {
     "ad_details": {
@@ -858,6 +1022,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": "budget; reader: API: Modal InvalidError",
-  "updated_at": "2026-10-17T19:40:05Z"
+  "stopped": "reader: API: Modal InvalidError",
+  "updated_at": "2026-10-17T21:02:53Z"
 }
