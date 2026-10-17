@@ -1,5 +1,45 @@
 {
   "advertisers": {
+    "alaia": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Alaïa",
+          "name": "Alaïa"
+        },
+        {
+          "id": "ALAÏA",
+          "name": "ALAÏA"
+        },
+        {
+          "id": "Alaia",
+          "name": "Alaia"
+        },
+        {
+          "id": "Azzedine Alaïa",
+          "name": "Azzedine Alaïa"
+        }
+      ],
+      "refused": []
+    },
+    "armani": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Giorgio Armani",
+          "name": "Giorgio Armani"
+        },
+        {
+          "id": "Giorgio Armani S.p.A.",
+          "name": "Giorgio Armani S.p.A."
+        },
+        {
+          "id": "Armani",
+          "name": "Armani"
+        }
+      ],
+      "refused": []
+    },
     "balenciaga": {
       "checked": "2026-10-17",
       "keep": [
@@ -14,6 +54,20 @@
       ],
       "refused": []
     },
+    "balmain": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Balmain",
+          "name": "Balmain"
+        },
+        {
+          "id": "Pierre Balmain SA",
+          "name": "Pierre Balmain SA"
+        }
+      ],
+      "refused": []
+    },
     "bottega_veneta": {
       "checked": "2026-10-17",
       "keep": [
@@ -24,6 +78,34 @@
         {
           "id": "Bottega Veneta SRL",
           "name": "Bottega Veneta SRL"
+        }
+      ],
+      "refused": []
+    },
+    "brunello_cucinelli": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Brunello Cucinelli",
+          "name": "Brunello Cucinelli"
+        },
+        {
+          "id": "Brunello Cucinelli S.p.A.",
+          "name": "Brunello Cucinelli S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "burberry": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Burberry",
+          "name": "Burberry"
+        },
+        {
+          "id": "Burberry Limited",
+          "name": "Burberry Limited"
         }
       ],
       "refused": []
@@ -60,6 +142,42 @@
       ],
       "refused": []
     },
+    "chloe": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Chloé",
+          "name": "Chloé"
+        },
+        {
+          "id": "Chloe",
+          "name": "Chloe"
+        },
+        {
+          "id": "Chloé SAS",
+          "name": "Chloé SAS"
+        }
+      ],
+      "refused": []
+    },
+    "comme_des_garcons": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Comme des Garçons",
+          "name": "Comme des Garçons"
+        },
+        {
+          "id": "COMME des GARÇONS",
+          "name": "COMME des GARÇONS"
+        },
+        {
+          "id": "Comme des Garcons",
+          "name": "Comme des Garcons"
+        }
+      ],
+      "refused": []
+    },
     "dior": {
       "checked": "2026-10-17",
       "keep": [
@@ -74,6 +192,38 @@
         {
           "id": "Christian Dior",
           "name": "Christian Dior"
+        }
+      ],
+      "refused": []
+    },
+    "dolce_gabbana": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Dolce&Gabbana",
+          "name": "Dolce&Gabbana"
+        },
+        {
+          "id": "Dolce & Gabbana",
+          "name": "Dolce & Gabbana"
+        },
+        {
+          "id": "Dolce & Gabbana S.r.l.",
+          "name": "Dolce & Gabbana S.r.l."
+        }
+      ],
+      "refused": []
+    },
+    "dries_van_noten": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Dries Van Noten",
+          "name": "Dries Van Noten"
+        },
+        {
+          "id": "Van Noten Andries NV",
+          "name": "Van Noten Andries NV"
         }
       ],
       "refused": []
@@ -96,6 +246,38 @@
       ],
       "refused": []
     },
+    "ferragamo": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Ferragamo",
+          "name": "Ferragamo"
+        },
+        {
+          "id": "Salvatore Ferragamo",
+          "name": "Salvatore Ferragamo"
+        },
+        {
+          "id": "Salvatore Ferragamo S.p.A.",
+          "name": "Salvatore Ferragamo S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "givenchy": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Givenchy",
+          "name": "Givenchy"
+        },
+        {
+          "id": "Givenchy SA",
+          "name": "Givenchy SA"
+        }
+      ],
+      "refused": []
+    },
     "gucci": {
       "checked": "2026-10-17",
       "keep": [
@@ -110,6 +292,84 @@
         {
           "id": "Guccio Gucci SpA",
           "name": "Guccio Gucci SpA"
+        }
+      ],
+      "refused": []
+    },
+    "hermes": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Hermès",
+          "name": "Hermès"
+        },
+        {
+          "id": "Hermès International",
+          "name": "Hermès International"
+        },
+        {
+          "id": "Hermes",
+          "name": "Hermes"
+        }
+      ],
+      "refused": []
+    },
+    "issey_miyake": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Issey Miyake",
+          "name": "Issey Miyake"
+        },
+        {
+          "id": "ISSEY MIYAKE",
+          "name": "ISSEY MIYAKE"
+        },
+        {
+          "id": "Issey Miyake Europe",
+          "name": "Issey Miyake Europe"
+        }
+      ],
+      "refused": []
+    },
+    "jacquemus": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Jacquemus",
+          "name": "Jacquemus"
+        },
+        {
+          "id": "Jacquemus SAS",
+          "name": "Jacquemus SAS"
+        }
+      ],
+      "refused": []
+    },
+    "jil_sander": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Jil Sander",
+          "name": "Jil Sander"
+        },
+        {
+          "id": "Jil Sander S.p.A.",
+          "name": "Jil Sander S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "lanvin": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Lanvin",
+          "name": "Lanvin"
+        },
+        {
+          "id": "Jeanne Lanvin SA",
+          "name": "Jeanne Lanvin SA"
         }
       ],
       "refused": []
@@ -131,49 +391,347 @@
         }
       ],
       "refused": []
+    },
+    "loro_piana": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Loro Piana",
+          "name": "Loro Piana"
+        },
+        {
+          "id": "Loro Piana S.p.A.",
+          "name": "Loro Piana S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "louis_vuitton": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Louis Vuitton",
+          "name": "Louis Vuitton"
+        },
+        {
+          "id": "Louis Vuitton Malletier",
+          "name": "Louis Vuitton Malletier"
+        }
+      ],
+      "refused": []
+    },
+    "margiela": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Maison Margiela",
+          "name": "Maison Margiela"
+        },
+        {
+          "id": "Margiela",
+          "name": "Margiela"
+        }
+      ],
+      "refused": []
+    },
+    "max_mara": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Max Mara",
+          "name": "Max Mara"
+        },
+        {
+          "id": "Max Mara Fashion Group",
+          "name": "Max Mara Fashion Group"
+        }
+      ],
+      "refused": []
+    },
+    "mcqueen": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Alexander McQueen",
+          "name": "Alexander McQueen"
+        },
+        {
+          "id": "McQueen",
+          "name": "McQueen"
+        },
+        {
+          "id": "Alexander McQueen Trading Ltd",
+          "name": "Alexander McQueen Trading Ltd"
+        }
+      ],
+      "refused": []
+    },
+    "miu_miu": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Miu Miu",
+          "name": "Miu Miu"
+        },
+        {
+          "id": "PRADA S.p.A.",
+          "name": "PRADA S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "moncler": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Moncler",
+          "name": "Moncler"
+        },
+        {
+          "id": "Moncler S.p.A.",
+          "name": "Moncler S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "prada": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Prada",
+          "name": "Prada"
+        },
+        {
+          "id": "PRADA S.p.A.",
+          "name": "PRADA S.p.A."
+        },
+        {
+          "id": "Prada SpA",
+          "name": "Prada SpA"
+        }
+      ],
+      "refused": []
+    },
+    "saint_laurent": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Saint Laurent",
+          "name": "Saint Laurent"
+        },
+        {
+          "id": "Yves Saint Laurent SAS",
+          "name": "Yves Saint Laurent SAS"
+        }
+      ],
+      "refused": []
+    },
+    "schiaparelli": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Schiaparelli",
+          "name": "Schiaparelli"
+        },
+        {
+          "id": "Maison Schiaparelli",
+          "name": "Maison Schiaparelli"
+        }
+      ],
+      "refused": []
+    },
+    "stella_mccartney": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Stella McCartney",
+          "name": "Stella McCartney"
+        },
+        {
+          "id": "Stella McCartney Ltd",
+          "name": "Stella McCartney Ltd"
+        }
+      ],
+      "refused": []
+    },
+    "the_row": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "The Row",
+          "name": "The Row"
+        },
+        {
+          "id": "The Row LLC",
+          "name": "The Row LLC"
+        }
+      ],
+      "refused": []
+    },
+    "tom_ford": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Tom Ford",
+          "name": "Tom Ford"
+        },
+        {
+          "id": "TOM FORD",
+          "name": "TOM FORD"
+        },
+        {
+          "id": "Tom Ford International",
+          "name": "Tom Ford International"
+        }
+      ],
+      "refused": []
+    },
+    "valentino": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Valentino",
+          "name": "Valentino"
+        },
+        {
+          "id": "Valentino S.p.A.",
+          "name": "Valentino S.p.A."
+        }
+      ],
+      "refused": []
+    },
+    "versace": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Versace",
+          "name": "Versace"
+        },
+        {
+          "id": "Gianni Versace S.r.l.",
+          "name": "Gianni Versace S.r.l."
+        }
+      ],
+      "refused": []
+    },
+    "zegna": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Zegna",
+          "name": "Zegna"
+        },
+        {
+          "id": "ZEGNA",
+          "name": "ZEGNA"
+        },
+        {
+          "id": "Ermenegildo Zegna",
+          "name": "Ermenegildo Zegna"
+        }
+      ],
+      "refused": []
     }
   },
   "date_form": "year",
   "names_answered": {
-    "balenciaga": [
-      "Balenciaga"
+    "alaia": [
+      "Alaia"
     ],
-    "bottega_veneta": [
-      "Bottega Veneta"
+    "armani": [
+      "Armani"
     ],
-    "celine": [
-      "Celine"
+    "burberry": [
+      "Burberry"
     ],
-    "chanel": [
-      "Chanel"
+    "chloe": [
+      "Chloé",
+      "Chloe"
     ],
-    "dior": [
-      "Dior"
+    "dolce_gabbana": [
+      "Dolce&Gabbana"
     ],
-    "gucci": [
-      "Gucci"
+    "fendi": [
+      "Fendi"
     ],
-    "loewe": [
-      "Loewe"
+    "givenchy": [
+      "Givenchy"
+    ],
+    "hermes": [
+      "Hermès",
+      "Hermes"
+    ],
+    "jacquemus": [
+      "Jacquemus"
+    ],
+    "louis_vuitton": [
+      "Louis Vuitton"
+    ],
+    "mcqueen": [
+      "McQueen"
+    ],
+    "moncler": [
+      "Moncler"
+    ],
+    "prada": [
+      "Prada"
+    ],
+    "valentino": [
+      "Valentino"
+    ],
+    "versace": [
+      "Versace"
     ]
   },
   "problems": {},
-  "requests": 278,
-  "run": "gh39025078397",
+  "requests": 259,
+  "run": "gh39030415108",
   "searched": {
+    "alaia": "2026-10-17",
+    "armani": "2026-10-17",
     "balenciaga": "2026-10-17",
+    "balmain": "2026-10-17",
     "bottega_veneta": "2026-10-17",
+    "brunello_cucinelli": "2026-10-17",
+    "burberry": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
+    "chloe": "2026-10-17",
+    "comme_des_garcons": "2026-10-17",
     "dior": "2026-10-17",
+    "dolce_gabbana": "2026-10-17",
+    "dries_van_noten": "2026-10-17",
+    "fendi": "2026-10-17",
+    "ferragamo": "2026-10-17",
+    "givenchy": "2026-10-17",
     "gucci": "2026-10-17",
-    "loewe": "2026-10-17"
+    "hermes": "2026-10-17",
+    "issey_miyake": "2026-10-17",
+    "jacquemus": "2026-10-17",
+    "jil_sander": "2026-10-17",
+    "lanvin": "2026-10-17",
+    "loewe": "2026-10-17",
+    "loro_piana": "2026-10-17",
+    "louis_vuitton": "2026-10-17",
+    "margiela": "2026-10-17",
+    "max_mara": "2026-10-17",
+    "mcqueen": "2026-10-17",
+    "miu_miu": "2026-10-17",
+    "moncler": "2026-10-17",
+    "prada": "2026-10-17",
+    "saint_laurent": "2026-10-17",
+    "schiaparelli": "2026-10-17",
+    "stella_mccartney": "2026-10-17",
+    "the_row": "2026-10-17",
+    "tom_ford": "2026-10-17",
+    "valentino": "2026-10-17",
+    "versace": "2026-10-17",
+    "zegna": "2026-10-17"
   },
   "shape": {
     "ad_account_name": "str",
     "ad_render_type": "str",
     "ad_type": "str",
-    "brand_name": "str",
     "call_to_action": "str",
     "collection_preview": {
       "collection_creative_element_attachment": [
@@ -195,7 +753,6 @@
           "brand_name": "str",
           "call_to_action": "str",
           "headline": "str",
-          "render_type": "str",
           "top_snap_crop_position": "str",
           "top_snap_media_download_link": "str",
           "top_snap_media_type": "str",
@@ -249,11 +806,6 @@
     "languages": [
       "str"
     ],
-    "lens_preview": {
-      "icon_url": "str",
-      "preview_image_url": "str",
-      "preview_video_url": "str"
-    },
     "name": "str",
     "name_searched": "str",
     "paying_advertiser_name": "str",
@@ -272,21 +824,13 @@
           "advanced_demographics": [],
           "age_groups": [],
           "gender": "str",
-          "languages": [
-            "str"
-          ],
+          "languages": [],
           "max_age": "str",
           "min_age": "str",
           "operation": "str"
         }
       ],
-      "devices": [
-        {
-          "carrier_id": [],
-          "marketing_name": [],
-          "model": []
-        }
-      ],
+      "devices": [],
       "regulated_content": "bool"
     },
     "top_snap_crop_position": "str",
@@ -296,6 +840,6 @@
       "url": "str"
     }
   },
-  "stopped": "budget",
-  "updated_at": "2026-10-17T11:30:59Z"
+  "stopped": null,
+  "updated_at": "2026-10-17T12:38:00Z"
 }
