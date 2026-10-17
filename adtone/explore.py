@@ -48,6 +48,33 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
                 ctype = (resp.headers.get("content-type") or "").lower()
                 entry = {"key": key, "status": resp.status, "type": req.resource_type, "content_type": ctype.split(";")[0],
                          "query_keys": sorted({k for k, _ in parse_qsl(u.query)})[:40]}
+                for qk, qv in parse_qsl(u.query):
+                    # a query value that is itself JSON (Pinterest's resource calls carry their options this way): its
+                    # shape, and the addresses named in it, which say which resource the page asked for
+                    if qv.startswith("{") and qk in ("data", "options", "variables", "params"):
+                        try:
+                            obj = json.loads(qv)
+                        except ValueError:
+                            continue
+                        entry[f"{qk}_shape"] = adlibs.shape(obj)
+                        urls = []
+
+                        def walk(o, depth=0):
+                            if depth > 5:
+                                return
+                            if isinstance(o, dict):
+                                for k2, v2 in o.items():
+                                    if isinstance(v2, str) and ("url" in str(k2).lower() or v2.startswith("/")) and len(v2) < 200:
+                                        urls.append(f"{k2}={v2}")
+                                    else:
+                                        walk(v2, depth + 1)
+                            elif isinstance(o, list):
+                                for v2 in o:
+                                    walk(v2, depth + 1)
+                        walk(obj)
+                        entry[f"{qk}_urls"] = urls[:12]
+                if req.method == "POST" and (req.post_data or "").startswith("data="):
+                    entry["post_data_shape"] = adlibs.shape(json.loads(dict(parse_qsl(req.post_data)).get("data", "{}")))
                 if req.method == "POST":
                     body = req.post_data or ""
                     if body.startswith("{"):
@@ -136,6 +163,8 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
             out["headings"] = page.evaluate("() => Array.from(document.querySelectorAll('h1,h2,h3')).slice(0,40).map(h => h.innerText.trim().slice(0,80))")
             out["text_tail"] = page.inner_text("body")[-700:]
             out["links_sample"] = page.evaluate("() => Array.from(document.querySelectorAll('a[href]')).map(a => a.getAttribute('href')).filter(h => h && h.length < 160).slice(0, 80)")
+            out["api_mentions"] = page.evaluate("""() => Array.from(document.querySelectorAll('a[href]')).filter(a => /api|developer|docs/i.test(a.getAttribute('href') + ' ' + a.innerText)).slice(0, 20).map(a => a.innerText.trim().slice(0, 80) + ' -> ' + a.getAttribute('href').slice(0, 200))""")
+            out["calls_by_key"] = sorted({c["key"] for c in calls if c["type"] in ("xhr", "fetch")})[:60]
         except Exception as e:
             out["read_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
         browser.close()
