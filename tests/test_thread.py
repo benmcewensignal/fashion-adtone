@@ -354,7 +354,8 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
                       {"house_id": "h1", "campaign_id": "c", "title": "H1 S/S 2031 Campaign", "kind": "campaign"}],
         "campaigns_read": {"a"},
         "ads": [{"house_id": "h0", "start": (show_day + timedelta(days=3)).isoformat()},
-                {"house_id": "h0", "start": (show_day + timedelta(days=90)).isoformat()}],
+                {"house_id": "h0", "start": (show_day + timedelta(days=90)).isoformat()},
+                {"house_id": "h0", "start": (show_day + timedelta(days=91)).isoformat(), "dynamic": True, "source": "metaweb"}],
     }
     out = T.build(shows, att, {}, sources=sources)
     recs = {json.loads(x)["house"]: json.loads(x) for x in (tmp_path / "thread" / "collections.jsonl").read_text().splitlines()}
@@ -363,7 +364,8 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     assert h0["shop_window"]["months_read"] == 4 and h0["shop_window"]["pictures_read"] == 5
     assert h0["campaign"]["entries"] == 2 and h0["campaign"]["joined_by"] == {"season": 1, "date": 1}
     assert h0["campaign"]["by_line"] == {"collection": 1, "accessories": 1} and h0["campaign"]["pictures_read"] == 1
-    assert h0["advertising"] == {"show_period": 1, "campaign_period": 1,
+    assert h0["advertising"] == {"show_period": 1, "campaign_period": 2, "made": {"show_period": 1, "campaign_period": 1},
+                                 "paid_social_covered": {"show_period": False, "campaign_period": True},   # the first ad on file is after the show window opens
                                  "search_video": {"show_period": {"record": "not read"}, "campaign_period": {"record": "not read"}}}
     assert h0["fill"] == {"scene": "full", "show": "part", "shop_window": "full", "campaign": "full", "advertising": "full"}
     assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" in recs["h1"]["show"]

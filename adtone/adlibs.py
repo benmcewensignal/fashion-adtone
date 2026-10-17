@@ -416,6 +416,30 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     return out
 
 
+SOURCES = ("metaweb", "snap", "pinterest", "msads", "linkedin", "xads", "tiktok")
+
+
+def paid_social(sources: tuple[str, ...] = SOURCES) -> list[dict]:
+    """Every ad-library row on file, as the thread counts advertising: house, the day first shown, the library,
+    whether the unit is a dynamic one, and whether its pictures are read. Fashion division only, the rows
+    being the houses' own already (a rematch drops the rest)."""
+    out = []
+    for name in sources:
+        d = paths(name)["ads"]
+        if not d.exists():
+            continue
+        for p in sorted(d.glob("*.jsonl")):
+            for r in store.read_jsonl(p):
+                if r.get("division", "fashion") != "fashion":
+                    continue
+                start = (r.get("first_shown") or r.get("start") or "")[:10]
+                if r.get("house_id") and len(start) == 10:
+                    out.append({"house_id": r["house_id"], "start": start, "source": name,
+                                "dynamic": (r.get("display_format") or "") in DYNAMIC,
+                                "pictures": len(r.get("media") or []), "pending": bool(r.get("media_pending"))})
+    return out
+
+
 def probe(name: str, run: str) -> list[str]:
     st = store.read_state(paths(name)["state"])
     if st.get("run") != run:

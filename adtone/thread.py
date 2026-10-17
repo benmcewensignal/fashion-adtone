@@ -751,6 +751,8 @@ def _load_sources() -> dict:
     ads = []
     for p in sorted(config.ADS_DIR.glob("*.jsonl")) if config.ADS_DIR.exists() else []:
         ads += [{"house_id": r.get("house_id"), "start": (r.get("start") or "")[:10]} for r in store.read_jsonl(p)]
+    from . import adlibs
+    ads += adlibs.paid_social()           # Meta through the vendor, Snapchat, Pinterest and the rest, as they come
     search = []
     for p in sorted(SEARCH_ADS.glob("*.jsonl")) if SEARCH_ADS.exists() else []:
         search += [{"house_id": r.get("house"), "first": r.get("first"), "fmt": r.get("fmt"), "topic": r.get("topic")}
@@ -801,10 +803,14 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         if r.get("house_id") and r.get("month"):
             hp[r["house_id"]][r["month"]] += 1
     ads = defaultdict(list)
+    made = defaultdict(list)              # the made pictures' ads: the dynamic and catalogue units set apart
     for r in src.get("ads", []):
         if r.get("house_id") and len(r.get("start") or "") == 10:
             ads[r["house_id"]].append(date.fromisoformat(r["start"]))
+            if not r.get("dynamic"):
+                made[r["house_id"]].append(date.fromisoformat(r["start"]))
     have_ads = any(ads.values())
+    ads_from = min((d for ds in ads.values() for d in ds), default=None)     # the libraries hold a year: earlier windows are blind
     record = src.get("search_record") or {}
     accounts = src.get("search_accounts")          # None: not known, every house taken to have its account
     search = defaultdict(list)
@@ -828,6 +834,10 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         # are counted beside them on the same windows, with how much of each window their record covers
         c["advertising"] = {"show_period": sum(1 for d in ads.get(h, []) if p0 <= d <= p1),
                             "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1),
+                            "made": {"show_period": sum(1 for d in made.get(h, []) if p0 <= d <= p1),
+                                     "campaign_period": sum(1 for d in made.get(h, []) if q0 <= d <= q1)},
+                            "paid_social_covered": {"show_period": bool(ads_from and p0 >= ads_from),
+                                                    "campaign_period": bool(ads_from and q0 >= ads_from)},
                             "search_video": {"show_period": search_window(search.get(h, []), p0, p1, record,
                                                                           accounts is None or h in accounts),
                                              "campaign_period": search_window(search.get(h, []), q0, q1, record,
