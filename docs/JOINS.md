@@ -14,6 +14,8 @@ dates in `reference/shows.csv`.
 | Back catalogue: campaigns listed on models.com | backcat | `data/backcat` | per campaign |
 | YouTube: each house's films, counts and thumbnails (needs `YOUTUBE_API_KEY`) | youtube | `data/youtube` | per film, weekly counts |
 | TikTok's ad library for Europe (needs an approved Commercial Content API key) | tiktok | `data/tiktok` | per ad |
+| Snapchat's Ads Gallery for the EU, through Snap's open API | snap | `data/snap` | per ad |
+| Microsoft's Ad Library (Bing search ads in the EEA), through Microsoft's open API | msads | `data/msads` | per ad |
 | Wikipedia page views, English | attention | `data/attention` | per house, per day |
 | Wikipedia page views in ten languages, renamed articles joined | attention | `data/wikiviews` | per house, language, day |
 | Wikidata: owners and creative directors, checked against the registry | attention | `data/wikidata` | per house |

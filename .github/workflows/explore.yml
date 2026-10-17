@@ -1,0 +1,55 @@
+name: explore
+run-name: explore ${{ github.event.inputs.name }}
+# One look at a public ad repository from the runner: the addresses its page calls, the shapes of what they
+# return (keys and types, never an ad's values), its form controls, and whether a login wall or a block came
+# up. Made as the runner is, with no proxy and nothing done to pass as a person.
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "short name for the state file (pinterest, linkedin, metaweb)"
+        required: true
+      url:
+        description: "the page to look at"
+        required: true
+      scroll:
+        description: "how many screens to scroll"
+        default: "2"
+      type:
+        description: "selector=text to type, one per line"
+        default: ""
+      click:
+        description: "selectors to click after typing, one per line"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-explore
+  cancel-in-progress: false
+
+jobs:
+  explore:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 10
+        run: pip install -r requirements.txt playwright && python -m playwright install --with-deps chromium
+      - name: Look
+        continue-on-error: true
+        timeout-minutes: 8
+        run: |
+          ARGS=(--name "${{ github.event.inputs.name }}" --url "${{ github.event.inputs.url }}" --scroll "${{ github.event.inputs.scroll }}" --run "gh${GITHUB_RUN_ID}")
+          while IFS= read -r line; do [ -n "$line" ] && ARGS+=(--type "$line"); done <<< "${{ github.event.inputs.type }}"
+          while IFS= read -r line; do [ -n "$line" ] && ARGS+=(--click "$line"); done <<< "${{ github.event.inputs.click }}"
+          python -m adtone.explore "${ARGS[@]}"
+      - name: Persist
+        timeout-minutes: 5
+        run: bash scripts/persist.sh explore "explore ${{ github.event.inputs.name }}"

@@ -1,0 +1,64 @@
+name: snap
+run-name: snap ${{ github.event_name }}
+# Snapchat's Ads Gallery (its ad library for the EU under the DSA), through Snap's own open API: no
+# credentials. Weekly; the gallery holds a year, so the history grows forward.
+on:
+  schedule:
+    - cron: "25 7 * * 4"
+  workflow_dispatch:
+    inputs:
+      houses:
+        description: "comma-separated house ids for a trial run (empty: all)"
+        default: ""
+      no_reader:
+        description: "ads only, no pictures read"
+        type: boolean
+        default: false
+  push:   # editing .github/kick/snap starts a run
+    branches: [main]
+    paths: [".github/kick/snap"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-snap
+  cancel-in-progress: false
+
+jobs:
+  snap:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    env:
+      PYTHONUNBUFFERED: "1"
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt
+      - name: Cache embedder weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Collect ads
+        continue-on-error: true
+        timeout-minutes: 80
+        run: |
+          EXTRA=""
+          if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
+          python -m adtone.snap collect --run "gh${GITHUB_RUN_ID}" --budget-min 60 --houses "${{ github.event.inputs.houses }}" $EXTRA
+      - name: Probe
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.snap probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh snap "snap ${{ github.event_name }}"

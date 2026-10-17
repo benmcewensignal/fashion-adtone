@@ -1,0 +1,64 @@
+name: msads
+run-name: msads ${{ github.event_name }}
+# Microsoft's Ad Library (Bing search ads shown in the EEA under the DSA), through Microsoft's own open API:
+# no credentials. Weekly; the library holds a year, so the history grows forward.
+on:
+  schedule:
+    - cron: "45 7 * * 4"
+  workflow_dispatch:
+    inputs:
+      houses:
+        description: "comma-separated house ids for a trial run (empty: all)"
+        default: ""
+      no_reader:
+        description: "ads only, no pictures read"
+        type: boolean
+        default: false
+  push:   # editing .github/kick/msads starts a run
+    branches: [main]
+    paths: [".github/kick/msads"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-msads
+  cancel-in-progress: false
+
+jobs:
+  msads:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    env:
+      PYTHONUNBUFFERED: "1"
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: pip install -r requirements.txt -r requirements-embed.txt
+      - name: Cache embedder weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-openclip-vitb32-laion2b-v1
+      - name: Collect ads
+        continue-on-error: true
+        timeout-minutes: 60
+        run: |
+          EXTRA=""
+          if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
+          python -m adtone.msads collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}" $EXTRA
+      - name: Probe
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.msads probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh msads "msads ${{ github.event_name }}"

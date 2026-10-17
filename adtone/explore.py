@@ -1,0 +1,142 @@
+"""Look at a public ad repository the way its own page does, and record how it works: the addresses the page
+calls, the shape (keys and types, never values) of the JSON they return, the page's form controls and their
+options, and whether a login wall or a block came up. For the repositories that have no documented API
+(Pinterest, LinkedIn, Meta's library pages), one such look from the runner tells what a collector can read
+and what it needs; nothing from any ad is stored.
+
+    python -m adtone.explore --name pinterest --url "https://ads.pinterest.com/ads-repository/" [--scroll 3]
+        [--type "input[name=q]=Gucci"] [--click "text=Search"] [--wait 8]
+
+Writes data/state/explore_<name>.json. The look is made from the runner as it is, with no proxy and nothing
+done to pass as a person: a repository that refuses the runner is recorded as refusing, and left alone.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+import time
+from urllib.parse import parse_qsl, urlsplit
+
+from . import adlibs, config, store
+
+BLOCK_WORDS = ("log in to continue", "login to continue", "you must log in", "temporarily blocked", "unusual traffic",
+               "verify you are human", "captcha", "access denied", "request blocked", "rate limit", "too many requests")
+
+
+def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: list[str] = (), clicks: list[str] = (),
+            headless: bool = True) -> dict:
+    from playwright.sync_api import sync_playwright
+
+    calls: list[dict] = []
+    shapes: dict[str, dict] = {}
+    statuses: dict[str, int] = {}
+    out = {"name": name, "url": url, "at": store.utc_now()}
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=headless)
+        ctx = browser.new_context(viewport={"width": 1366, "height": 900}, locale="en-GB")
+        page = ctx.new_page()
+
+        def on_response(resp):
+            try:
+                req = resp.request
+                u = urlsplit(resp.url)
+                key = f"{req.method} {u.scheme}://{u.netloc}{u.path}"
+                statuses[key] = resp.status
+                ctype = (resp.headers.get("content-type") or "").lower()
+                entry = {"key": key, "status": resp.status, "type": req.resource_type, "content_type": ctype.split(";")[0],
+                         "query_keys": sorted({k for k, _ in parse_qsl(u.query)})[:40]}
+                if req.method == "POST":
+                    body = req.post_data or ""
+                    if body.startswith("{"):
+                        try:
+                            entry["post_json_shape"] = adlibs.shape(json.loads(body))
+                        except ValueError:
+                            pass
+                    else:
+                        entry["post_keys"] = sorted({k for k, _ in parse_qsl(body)})[:60]
+                calls.append(entry)
+                if "json" in ctype or "javascript" in ctype and u.path.endswith(".json"):
+                    if key not in shapes and resp.status == 200:
+                        try:
+                            data = resp.json()
+                            shapes[key] = adlibs.shape(data)
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+
+        page.on("response", on_response)
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        except Exception as e:
+            out["goto_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
+        page.wait_for_timeout(int(wait_s * 1000))
+        for t in types:
+            sel, _, text = t.partition("=")
+            try:
+                page.fill(sel, text, timeout=10000)
+                page.wait_for_timeout(2500)
+            except Exception as e:
+                out.setdefault("action_errors", []).append(f"type {sel}: {e.__class__.__name__}")
+        for c in clicks:
+            try:
+                page.click(c, timeout=10000)
+                page.wait_for_timeout(int(wait_s * 1000))
+            except Exception as e:
+                out.setdefault("action_errors", []).append(f"click {c}: {e.__class__.__name__}")
+        for _ in range(scroll):
+            page.mouse.wheel(0, 2400)
+            page.wait_for_timeout(2500)
+        try:
+            out["title"] = page.title()
+            out["final_url"] = page.url
+            text = page.inner_text("body")[:200000].lower()
+            out["body_chars"] = len(text)
+            out["block_words"] = sorted({w for w in BLOCK_WORDS if w in text})
+            out["login_wall"] = bool(re.search(r"\b(log in|sign in)\b", text[:3000])) and out["body_chars"] < 6000
+            out["controls"] = page.evaluate("""() => {
+                const out = [];
+                for (const el of document.querySelectorAll('input, select, button, textarea, [role=combobox], [role=button], a[href*="?"]')) {
+                    const o = {tag: el.tagName.toLowerCase(), type: el.type || null, name: el.name || null, id: el.id || null,
+                               placeholder: el.placeholder || null, aria: el.getAttribute('aria-label'),
+                               text: (el.innerText || el.value || '').trim().slice(0, 60) || null};
+                    if (el.tagName === 'SELECT') o.options = Array.from(el.options).slice(0, 80).map(x => x.text.trim().slice(0, 40));
+                    if (el.tagName === 'A') o.href = el.getAttribute('href').slice(0, 160);
+                    out.push(o);
+                }
+                return out.slice(0, 250);
+            }""")
+            out["headings"] = page.evaluate("() => Array.from(document.querySelectorAll('h1,h2,h3')).slice(0,40).map(h => h.innerText.trim().slice(0,80))")
+        except Exception as e:
+            out["read_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
+        browser.close()
+    seen = set()
+    out["calls"] = [c for c in calls if not (c["key"] in seen or seen.add(c["key"]))][:150]
+    out["json_shapes"] = shapes
+    return out
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(prog="adtone.explore")
+    ap.add_argument("--name", required=True)
+    ap.add_argument("--url", required=True)
+    ap.add_argument("--scroll", type=int, default=2)
+    ap.add_argument("--wait", type=float, default=8.0)
+    ap.add_argument("--type", action="append", default=[], help="selector=text to type")
+    ap.add_argument("--click", action="append", default=[], help="selector to click")
+    ap.add_argument("--run", default=config.run_id())
+    a = ap.parse_args(argv)
+    t0 = time.monotonic()
+    out = explore(a.name, a.url, a.scroll, a.wait, a.type, a.click)
+    out["run"], out["seconds"] = a.run, round(time.monotonic() - t0, 1)
+    path = config.STATE_DIR / f"explore_{a.name}.json"
+    store.write_state(path, out)
+    print(f"explore {a.name}: {len(out.get('calls', []))} calls, {len(out.get('json_shapes', {}))} JSON shapes, "
+          f"login_wall={out.get('login_wall')} block_words={out.get('block_words')} -> {path.relative_to(config.ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
