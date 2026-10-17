@@ -53,7 +53,7 @@ REQUESTS_PER_RUN = 800        # TikTok's research APIs allow about a thousand re
 FRAMES_AT = (0.1, 0.5, 0.9)
 MAX_VIDEO_BYTES = 60_000_000
 BATCH = 16
-NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "fragrance", "cosmetic", "loreal", "coty", "esteelauder",
+NOT_THE_HOUSE = ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "loreal", "coty", "esteelauder",
                  "interparfums", "shiseido", "outlet", "vintage", "resale", "secondhand", "preloved")
 
 

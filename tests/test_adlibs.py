@@ -321,3 +321,28 @@ def test_each_picture_goes_to_every_reader_and_each_reader_keeps_its_own_observa
     out = adlibs.collect(src2, Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), [FakeScorer(load_rubric()), clothes],
                          today=date(2026, 10, 17))
     assert out["new_ads"] == 0 and clothes.calls == before
+
+
+def test_meta_keeps_the_houses_own_page_and_a_rematch_drops_a_licensees_rows(tmp_data):
+    from adtone import metaweb
+    from adtone.registry import House
+    loewe = House("loewe", "Loewe", "treated", "LVMH", ["Loewe"], [], [])
+    assert metaweb.is_page(loewe, {"name": "LOEWE", "ads": 76})
+    assert not metaweb.is_page(loewe, {"name": "LOEWE Perfumes", "ads": 60})          # Puig's licence, not the house
+    assert not metaweb.is_page(loewe, {"name": "Loewe Greece", "ads": 1})             # one ad: noise
+    assert not metaweb.is_page(loewe, {"name": "Loewe", "ads": 9, "categories": ["Personal blog"]})
+    celine = House("celine", "Celine", "treated", "LVMH", ["Celine"], [], [])
+    assert not metaweb.is_page(celine, {"name": "Céline Rousseau - Blog Santé", "ads": 1})
+    assert not metaweb.is_page(celine, {"name": "celine_maureen", "ads": 1})
+    # the actor's memory: the largest power of two within one address per 512 MB
+    for n, want in ((1, 512), (2, 1024), (3, 1024), (5, 2048), (8, 4096), (20, 4096)):
+        memory = 512
+        while memory * 2 <= 512 * n and memory * 2 <= 4096:
+            memory *= 2
+        assert memory == want, (n, memory)
+    # rows of a page no longer kept go when the house is matched again
+    src = metaweb.Source(sess=None, token="t")
+    keep = [{"id": "184360374941311", "name": "LOEWE"}]
+    assert src.row_is_kept({"ad_id": "1", "page_id": "184360374941311"}, keep)
+    assert not src.row_is_kept({"ad_id": "2", "page_id": "351058035420618"}, keep)
+    assert src.row_is_kept({"ad_id": "3"}, keep)

@@ -248,6 +248,12 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             keep = rec.get("keep") or []
             path = P["ads"] / f"{h.id}.jsonl"
             ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
+            if hasattr(src, "row_is_kept"):
+                before = len(ads)
+                ads = {k: r for k, r in ads.items() if src.row_is_kept(r, keep)}
+                if len(ads) != before:
+                    counts["dropped"] = counts.get("dropped", 0) + before - len(ads)
+                    store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]), reverse=True))
             pend_path = P["pending"] / f"{h.id}.jsonl"
             pend = {r["ad_id"]: r for r in store.read_jsonl(pend_path)} if defer else {}
             try:
@@ -415,6 +421,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     ap.add_argument("--no-clothes", action="store_true", help="the eighteen questions only, not the clothes")
     ap.add_argument("--houses", default="", help="comma-separated house ids, for a trial run")
     ap.add_argument("--fresh", action="store_true", help="search every house again, even one searched to the end this week")
+    ap.add_argument("--rematch", action="store_true", help="match every house's advertiser accounts again first")
     a = ap.parse_args(argv)
     if a.stage == "probe":
         for e in probe(name, a.run):
@@ -457,6 +464,8 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
         src = make_source()
         if a.fresh:
             src.house_refresh_days = 0
+        if a.rematch:
+            src.advertiser_refresh_days = 0
         out = collect(src, reg, a.run, embedder, scorer, a.budget_min * 60)
     except Exception as e:
         out = {"run": a.run, "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}

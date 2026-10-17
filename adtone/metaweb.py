@@ -32,7 +32,7 @@ from datetime import date
 import requests
 
 from . import adlibs, copyfeat, registry, thread
-from .snap import _day, _norm, find, is_house, urls_in
+from .snap import LEGAL, _day, _norm, _words, find, is_house, urls_in
 
 API = "https://api.apify.com/v2"
 UA = "fashion-adtone research (Apify client; contact via the repository)"
@@ -56,6 +56,32 @@ def _texts(item: dict) -> list[str]:
         v = find(item, _norm(k), want=(str, list))
         out.extend(x for x in _list(v) if isinstance(x, str))
     return out
+
+
+NOT_A_HOUSE_PAGE = ("blog", "personal", "public figure", "community", "just for fun", "writer", "artist",
+                    "musician", "band", "actor", "athlete", "journalist", "fan page", "video creator", "digital creator")
+
+
+def is_page(house: registry.House, page: dict) -> bool:
+    """The page is the house's own: its name is the house's (Gucci, GUCCI, CHANEL 샤넬), or the house's name
+    with one more word and a few ads at least (Loewe Greece), never a person, a blog, a shop or a
+    licensee whose name merely contains it (celine_maureen, Céline Rousseau - Blog Santé, LOEWE Perfumes,
+    Thiết bị phòng tắm cao cấp Fendi)."""
+    name = page.get("name") or ""
+    if not is_house(house, name):
+        return False
+    cats = " ".join(page.get("categories") or []).lower()
+    if any(w in cats for w in NOT_A_HOUSE_PAGE):
+        return False
+    w = _words(name).strip()
+    names = {_words(n).strip() for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
+    if w in names:
+        return True
+    for n in sorted(names, key=len, reverse=True):
+        if w.startswith(n + " "):
+            rest = w[len(n) + 1:].split()
+            return len(rest) == 1 and int(page.get("ads") or 0) >= 3
+    return False
 
 
 class Source:
@@ -85,7 +111,12 @@ class Source:
         self.requests += 1
         r = self.s.request(method, f"{API}/{path}", params={"token": self.token, **kw.pop("params", {})}, timeout=120, **kw)
         if r.status_code in (401, 403):
-            raise Stop(f"Apify refused the token (HTTP {r.status_code})")
+            why = ""
+            try:
+                why = (r.json().get("error") or {}).get("message") or ""
+            except ValueError:
+                pass
+            raise Stop(f"Apify refused the request (HTTP {r.status_code}): {why[:160]}" if why else f"Apify refused the token (HTTP {r.status_code})")
         if r.status_code == 402:
             raise Stop("Apify: the account's credit is used up (HTTP 402)")
         if r.status_code >= 400:
@@ -99,7 +130,7 @@ class Source:
         """Start the actor with the input, wait for it, and return its dataset's records."""
         n_urls = len(inp.get("urls") or inp.get("startUrls") or inp.get("pageIds") or inp.get("searchTerms") or [1])
         memory = 512                                   # curious_coder's actor wants at most one address per 512 MB,
-        while memory < 512 * n_urls and memory < 4096:  # and Apify a power of two
+        while memory * 2 <= 512 * n_urls and memory * 2 <= 4096:   # and Apify a power of two: the largest allowed
             memory *= 2
         started = self._call("POST", f"acts/{self.actor}/runs", json=inp, params={"memory": memory})
         run = started.get("data") or {}
@@ -166,13 +197,23 @@ class Source:
             pname = find(item, "pagename", "page_name", want=(str,)) or ""
             if not pid:
                 continue
-            rec = pages.setdefault(pid, {"id": pid, "name": pname, "ads": 0})
+            rec = pages.setdefault(pid, {"id": pid, "name": pname, "ads": 0, "categories": []})
             rec["ads"] += 1
-        keep = [p for p in pages.values() if is_house(house, p["name"])]
-        refused = [p for p in pages.values() if not is_house(house, p["name"])]
+            cats = find(item, "pagecategories", "categories", want=(list,)) or []
+            cat = find(item, "pagecategory", want=(str,))
+            for c in [*cats, cat]:
+                if isinstance(c, str) and c and c not in rec["categories"]:
+                    rec["categories"].append(c)
+        keep = [p for p in pages.values() if is_page(house, p)]
+        refused = [p for p in pages.values() if not is_page(house, p)]
         keep.sort(key=lambda p: -p["ads"])
         refused.sort(key=lambda p: -p["ads"])
         return keep, refused
+
+    def row_is_kept(self, row: dict, keep: list[dict]) -> bool:
+        """A stored row stays only while its page is among the house's own: a page matched too loosely
+        before, and dropped on a rematch, takes its rows with it."""
+        return not row.get("page_id") or row["page_id"] in {k["id"] for k in keep}
 
     def search_ads(self, house: registry.House, keep: list[dict], start: date, end: date):
         ids = [k["id"] for k in keep]
