@@ -21,6 +21,9 @@ on:
       click:
         description: "selectors to click after typing, one per line"
         default: ""
+      steps:
+        description: "steps, one per line: select:<sel>=<label>, type:<sel>=<text>, press:<sel>=<key>, click:<sel>, wait:<ms>, scroll:<px>"
+        default: ""
 
 permissions:
   contents: write
@@ -49,6 +52,7 @@ jobs:
           ARGS=(--name "${{ github.event.inputs.name }}" --url "${{ github.event.inputs.url }}" --scroll "${{ github.event.inputs.scroll }}" --run "gh${GITHUB_RUN_ID}")
           while IFS= read -r line; do [ -n "$line" ] && ARGS+=(--type "$line"); done <<< "${{ github.event.inputs.type }}"
           while IFS= read -r line; do [ -n "$line" ] && ARGS+=(--click "$line"); done <<< "${{ github.event.inputs.click }}"
+          while IFS= read -r line; do [ -n "$line" ] && ARGS+=(--do "$line"); done <<< "${{ github.event.inputs.steps }}"
           python -m adtone.explore "${ARGS[@]}"
       - name: Persist
         timeout-minutes: 5

@@ -23,7 +23,7 @@ import re
 import sys
 import time
 import unicodedata
-from datetime import date
+from datetime import date, timedelta
 
 import requests
 
@@ -35,6 +35,7 @@ COUNTRIES = "de be fi pt bg dk lt lu hr lv fr hu se si sk ie ee el mt it es at c
 UA = "fashion-adtone research (Snap Ads Gallery API; contact via the repository)"
 PACE_S = 2.0
 MAX_429_IN_A_ROW = 8
+DATE_FORMS = ("year", "year_to_yesterday", "quarter", "month", "none")
 # Legal and trading names the houses pay under, beyond the house's own name and search terms. Added to as
 # the state shows which names answer; a name that never answers costs one request a run.
 LEGAL = {
@@ -135,9 +136,10 @@ class Source:
         self.sleep, self.pace_s = sleep, pace_s
         self.requests, self.refused_in_a_row, self.last = 0, 0, 0.0
         self.names_answered: dict[str, list[str]] = {}
+        self.date_form: str | None = None
 
     def state_extra(self) -> dict:
-        return {"names_answered": self.names_answered}
+        return {"names_answered": self.names_answered, "date_form": self.date_form}
 
     def post(self, url: str, body: dict) -> dict:
         attempt = 0
@@ -172,17 +174,44 @@ class Source:
                 names.append(n)
         return [{"id": n, "name": n} for n in names], []
 
+    def _dates(self, form: str, start: date, end: date) -> dict:
+        """The date fields in one of the forms tried: Snap's reference shows T00:00:00.000Z and refused a
+        year-long window ending today on the first runs, so shorter windows and no window at all are tried."""
+        iso = lambda d: f"{d.isoformat()}T00:00:00.000Z"
+        if form == "year":
+            return {"start_date": iso(start), "end_date": iso(end)}
+        if form == "year_to_yesterday":
+            return {"start_date": iso(start), "end_date": iso(end - timedelta(days=1))}
+        if form == "quarter":
+            return {"start_date": iso(end - timedelta(days=90)), "end_date": iso(end - timedelta(days=1))}
+        if form == "month":
+            return {"start_date": iso(end - timedelta(days=30)), "end_date": iso(end - timedelta(days=1))}
+        return {}
+
     def search_ads(self, house: registry.House, keep: list[dict], start: date, end: date):
         seen: set[str] = set()
         for cand in keep:
             name = cand["name"]
             n_here = 0
             for status in ("ACTIVE", "PAUSED"):
-                body = {"paying_advertiser_name": name, "countries": COUNTRIES, "status": status,
-                        "start_date": f"{start.isoformat()}T00:00:00.000Z", "end_date": f"{end.isoformat()}T00:00:00.000Z"}
+                forms = [self.date_form] if self.date_form else DATE_FORMS
                 url = SEARCH
                 while url:
-                    out = self.post(url, body)   # the next page is the same search at the address with the cursor
+                    body = None
+                    for form in forms:
+                        body = {"paying_advertiser_name": name, "countries": COUNTRIES, "status": status, **self._dates(form, start, end)}
+                        try:
+                            out = self.post(url, body)   # the next page is the same search at the address with the cursor
+                        except RuntimeError as e:
+                            if "time is not valid" in str(e).lower() or "date" in str(e).lower():
+                                continue
+                            raise
+                        if self.date_form != form:
+                            self.date_form = form
+                        break
+                    else:
+                        raise RuntimeError("Snap refused every form of the dates: " + ", ".join(forms))
+                    forms = [self.date_form]
                     for wrap in out.get("ad_previews") or []:
                         item = wrap.get("ad_preview") if isinstance(wrap, dict) and "ad_preview" in wrap else wrap
                         if not isinstance(item, dict):

@@ -16,6 +16,7 @@ any other ad picture, in memory.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import time
@@ -28,12 +29,16 @@ from .media import MediaError, to_fetched
 from .snap import _norm, is_house
 
 BASE = "https://adlibrary.api.bingads.microsoft.com/api/v1"
-# the API sits behind Azure's web application firewall, which answered the first run's plain client with a
-# JavaScript challenge (HTTP 403); the browser's own headers are tried next, and if that is refused too the
-# documented authenticated route (a Microsoft Advertising developer token) is the way in
-UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36"
-HEADERS = {"Accept": "application/json, text/plain, */*", "Accept-Language": "en-GB,en;q=0.9",
-           "Referer": "https://adlibrary.ads.microsoft.com/", "Origin": "https://adlibrary.ads.microsoft.com"}
+# The API sits behind Azure's web application firewall, which answered the first two runs' anonymous requests
+# with a JavaScript challenge (HTTP 403), browser headers or not. That challenge is Microsoft's own gate on
+# anonymous use and is left as it is. The documented authenticated route carries a Microsoft Advertising
+# developer token and an OAuth access token (MSADS_DEVELOPER_TOKEN, MSADS_CLIENT_ID, MSADS_REFRESH_TOKEN
+# in the repository's secrets); with those the run signs its requests, and without them it tries once
+# anonymously, records the refusal and waits.
+UA = "fashion-adtone research (Microsoft Ad Library API; contact via the repository)"
+HEADERS = {"Accept": "application/json, text/plain, */*"}
+OAUTH = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+SCOPE = "https://ads.microsoft.com/msads.manage offline_access"
 PACE_S = 1.0
 PAGE = 50
 MAX_ADS_PER_ADVERTISER = 4000
@@ -44,19 +49,42 @@ class Stop(RuntimeError):
     pass
 
 
+def access_token(sess: requests.Session, client_id: str, refresh_token: str) -> str:
+    """A fresh access token from the refresh token, as the Bing Ads SDKs do it."""
+    r = sess.post(OAUTH, data={"client_id": client_id, "refresh_token": refresh_token, "grant_type": "refresh_token",
+                               "scope": SCOPE}, timeout=60)
+    body = r.json() if r.status_code == 200 else {}
+    if not body.get("access_token"):
+        raise Stop(f"Microsoft refused the refresh token (HTTP {r.status_code})")
+    return body["access_token"]
+
+
 class Source:
     name = "msads"
     lookback_days = 364
     advertiser_refresh_days = 30
     Stop = Stop
 
-    def __init__(self, sess: requests.Session | None = None, sleep=time.sleep, pace_s: float = PACE_S):
+    def __init__(self, sess: requests.Session | None = None, sleep=time.sleep, pace_s: float = PACE_S,
+                 developer_token: str | None = None, client_id: str | None = None, refresh_token: str | None = None):
         self.s = sess or requests.Session()
         self.s.headers.setdefault("User-Agent", UA)
         for k, v in HEADERS.items():
             self.s.headers.setdefault(k, v)
         self.sleep, self.pace_s, self.last = sleep, pace_s, 0.0
         self.requests, self.refused = 0, 0
+        env = os.environ.get
+        self.developer_token = (developer_token if developer_token is not None else env("MSADS_DEVELOPER_TOKEN", "")).strip()
+        self.client_id = (client_id if client_id is not None else env("MSADS_CLIENT_ID", "")).strip()
+        self.refresh_token = (refresh_token if refresh_token is not None else env("MSADS_REFRESH_TOKEN", "")).strip()
+        self.signed = bool(self.developer_token and self.client_id and self.refresh_token)
+        self.via = "signed" if self.signed else "anonymous"
+        if self.signed:
+            self.s.headers["DeveloperToken"] = self.developer_token
+            self.s.headers["AuthenticationToken"] = access_token(self.s, self.client_id, self.refresh_token)
+
+    def state_extra(self) -> dict:
+        return {"via": self.via}
 
     def get(self, path: str, params: dict | None = None):
         attempt = 0
@@ -68,6 +96,12 @@ class Source:
             self.last = time.monotonic()
             self.requests += 1
             r = self.s.get(f"{BASE}/{path}", params=params, timeout=60)
+            if r.status_code == 403 and "challenge" in (r.text or "").lower():
+                raise Stop("Microsoft's firewall refuses anonymous requests (JavaScript challenge); the signed route needs "
+                           "MSADS_DEVELOPER_TOKEN, MSADS_CLIENT_ID and MSADS_REFRESH_TOKEN")
+            if r.status_code == 401 and self.signed:
+                self.s.headers["AuthenticationToken"] = access_token(self.s, self.client_id, self.refresh_token)
+                continue
             if r.status_code == 429 or r.status_code >= 500:
                 self.refused += 1
                 if self.refused >= 8:

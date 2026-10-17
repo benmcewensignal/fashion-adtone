@@ -6,6 +6,7 @@ and what it needs; nothing from any ad is stored.
 
     python -m adtone.explore --name pinterest --url "https://ads.pinterest.com/ads-repository/" [--scroll 3]
         [--type "input[name=q]=Gucci"] [--click "text=Search"] [--wait 8]
+        [--do "select:#country=France" --do "type:#q=Gucci" --do "press:#q=Enter" --do "click:text=Search" --do "wait:6000"]
 
 Writes data/state/explore_<name>.json. The look is made from the runner as it is, with no proxy and nothing
 done to pass as a person: a repository that refuses the runner is recorded as refusing, and left alone.
@@ -26,7 +27,7 @@ BLOCK_WORDS = ("log in to continue", "login to continue", "you must log in", "te
 
 
 def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: list[str] = (), clicks: list[str] = (),
-            headless: bool = True) -> dict:
+            actions: list[str] = (), headless: bool = True) -> dict:
     from playwright.sync_api import sync_playwright
 
     calls: list[dict] = []
@@ -79,13 +80,37 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
                 page.fill(sel, text, timeout=10000)
                 page.wait_for_timeout(2500)
             except Exception as e:
-                out.setdefault("action_errors", []).append(f"type {sel}: {e.__class__.__name__}")
+                out.setdefault("action_errors", []).append(f"type {sel}: {e.__class__.__name__}: {str(e)[:120]}")
         for c in clicks:
             try:
                 page.click(c, timeout=10000)
                 page.wait_for_timeout(int(wait_s * 1000))
             except Exception as e:
-                out.setdefault("action_errors", []).append(f"click {c}: {e.__class__.__name__}")
+                out.setdefault("action_errors", []).append(f"click {c}: {e.__class__.__name__}: {str(e)[:120]}")
+        for step in actions:
+            kind, _, rest = step.partition(":")
+            try:
+                if kind == "select":
+                    sel, _, label = rest.partition("=")
+                    page.select_option(sel, label=label, timeout=10000)
+                elif kind == "type":
+                    sel, _, text = rest.partition("=")
+                    page.fill(sel, text, timeout=10000)
+                elif kind == "press":
+                    sel, _, key = rest.partition("=")
+                    page.press(sel, key, timeout=10000)
+                elif kind == "click":
+                    page.click(rest, timeout=10000)
+                elif kind == "wait":
+                    page.wait_for_timeout(int(rest))
+                elif kind == "scroll":
+                    page.mouse.wheel(0, int(rest or 2400))
+                else:
+                    out.setdefault("action_errors", []).append(f"unknown step {step}")
+                    continue
+                page.wait_for_timeout(1500)
+            except Exception as e:
+                out.setdefault("action_errors", []).append(f"{step}: {e.__class__.__name__}: {str(e)[:160]}")
         for _ in range(scroll):
             page.mouse.wheel(0, 2400)
             page.wait_for_timeout(2500)
@@ -109,6 +134,8 @@ def explore(name: str, url: str, scroll: int = 2, wait_s: float = 8.0, types: li
                 return out.slice(0, 250);
             }""")
             out["headings"] = page.evaluate("() => Array.from(document.querySelectorAll('h1,h2,h3')).slice(0,40).map(h => h.innerText.trim().slice(0,80))")
+            out["text_tail"] = page.inner_text("body")[-700:]
+            out["links_sample"] = page.evaluate("() => Array.from(document.querySelectorAll('a[href]')).map(a => a.getAttribute('href')).filter(h => h && h.length < 160).slice(0, 80)")
         except Exception as e:
             out["read_error"] = f"{e.__class__.__name__}: {str(e)[:200]}"
         browser.close()
@@ -126,10 +153,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--wait", type=float, default=8.0)
     ap.add_argument("--type", action="append", default=[], help="selector=text to type")
     ap.add_argument("--click", action="append", default=[], help="selector to click")
+    ap.add_argument("--do", action="append", default=[], help="a step: select:<sel>=<label>, type:<sel>=<text>, press:<sel>=<key>, click:<sel>, wait:<ms>, scroll:<px>")
     ap.add_argument("--run", default=config.run_id())
     a = ap.parse_args(argv)
     t0 = time.monotonic()
-    out = explore(a.name, a.url, a.scroll, a.wait, a.type, a.click)
+    out = explore(a.name, a.url, a.scroll, a.wait, a.type, a.click, a.do)
     out["run"], out["seconds"] = a.run, round(time.monotonic() - t0, 1)
     path = config.STATE_DIR / f"explore_{a.name}.json"
     store.write_state(path, out)

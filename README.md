@@ -174,8 +174,13 @@ key exists:
   once by name and kept in `data/state/metaweb.json` for checking, then their ads for the past year in
   the row shape the official API's ads take.
 
-Two more repositories need no key at all and run weekly as the runner is: Snapchat's Ads Gallery
-(`adtone.snap`, Snap's open API) and Microsoft's Ad Library (`adtone.msads`, Microsoft's open API).
+- `MSADS_DEVELOPER_TOKEN`, `MSADS_CLIENT_ID` and `MSADS_REFRESH_TOKEN`: Microsoft's Ad Library API is
+  documented as open, but its anonymous route sits behind Azure's firewall challenge, which refused the
+  runner. The signed route needs a Microsoft Advertising account's developer token (Tools > Developer
+  settings) and an OAuth refresh token for an app registered in Azure (the Bing Ads SDK's quick start
+  walks through getting one). The weekly msads workflow then reads the houses' Bing search ads in the EEA.
+
+Snapchat's Ads Gallery needs no key at all: `adtone.snap` reads it weekly through Snap's open API.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and

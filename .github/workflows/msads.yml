@@ -1,7 +1,9 @@
 name: msads
 run-name: msads ${{ github.event_name }}
-# Microsoft's Ad Library (Bing search ads shown in the EEA under the DSA), through Microsoft's own open API:
-# no credentials. Weekly; the library holds a year, so the history grows forward.
+# Microsoft's Ad Library (Bing search ads shown in the EEA under the DSA), through Microsoft's own API. The
+# anonymous route is behind Azure's firewall challenge, so the run signs its requests with a Microsoft
+# Advertising developer token when the three MSADS secrets exist, and otherwise tries once, records the
+# refusal and waits. Weekly; the library holds a year, so the history grows forward.
 on:
   schedule:
     - cron: "45 7 * * 4"
@@ -31,6 +33,9 @@ jobs:
     timeout-minutes: 80
     env:
       PYTHONUNBUFFERED: "1"
+      MSADS_DEVELOPER_TOKEN: ${{ secrets.MSADS_DEVELOPER_TOKEN }}
+      MSADS_CLIENT_ID: ${{ secrets.MSADS_CLIENT_ID }}
+      MSADS_REFRESH_TOKEN: ${{ secrets.MSADS_REFRESH_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
