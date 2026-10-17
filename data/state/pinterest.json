@@ -1,11 +1,181 @@
 {
-  "advertisers": {},
+  "advertisers": {
+    "gucci": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "gucci",
+          "name": "gucci"
+        },
+        {
+          "id": "Gucci Vision",
+          "name": "Gucci Vision"
+        },
+        {
+          "id": "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI",
+          "name": "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI"
+        }
+      ],
+      "refused": [
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "    Foivos P Paradeisis",
+          "name": "    Foivos P Paradeisis"
+        },
+        {
+          "id": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊",
+          "name": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊"
+        },
+        {
+          "id": " A2A Energia S.P.A",
+          "name": " A2A Energia S.P.A"
+        },
+        {
+          "id": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " American Society of Civil Engineers",
+          "name": " American Society of Civil Engineers"
+        },
+        {
+          "id": " ATRYOS DMCC LIMITED",
+          "name": " ATRYOS DMCC LIMITED"
+        },
+        {
+          "id": " Bianchessi S.r.l.",
+          "name": " Bianchessi S.r.l."
+        },
+        {
+          "id": " Blinde Bonde & Babe AS",
+          "name": " Blinde Bonde & Babe AS"
+        },
+        {
+          "id": " BODY HEALTH REHABILITATION CENTER E.E.",
+          "name": " BODY HEALTH REHABILITATION CENTER E.E."
+        },
+        {
+          "id": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Cat Crack",
+          "name": " Cat Crack"
+        },
+        {
+          "id": " CEP",
+          "name": " CEP"
+        },
+        {
+          "id": " CHRISTOPHER",
+          "name": " CHRISTOPHER"
+        },
+        {
+          "id": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Color Life",
+          "name": " Color Life"
+        },
+        {
+          "id": " Com2uS",
+          "name": " Com2uS"
+        },
+        {
+          "id": " Cross Orders s.r.o.",
+          "name": " Cross Orders s.r.o."
+        },
+        {
+          "id": " DAKO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " DAKO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        }
+      ]
+    }
+  },
   "country_form": null,
-  "notes": [],
+  "notes": [
+    "gucci DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "gucci IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "gucci ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "gucci NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "gucci SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision FR 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Gucci Vision SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI FR 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
+    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme"
+  ],
   "problems": {},
-  "requests": 1,
-  "run": "gh39020896267",
-  "shape": null,
-  "stopped": "Pinterest refused the runner (HTTP 403)",
-  "updated_at": "2026-10-17T09:25:00Z"
+  "requests": 222,
+  "run": "gh39021808371",
+  "shape": {
+    "ad_details": {
+      "advertiser_names": "NoneType",
+      "age_buckets": [
+        "str"
+      ],
+      "content_commercial": "bool",
+      "countries": [
+        "str"
+      ],
+      "devices": [],
+      "dynamic_images": "NoneType",
+      "end_date": "str",
+      "genders": [
+        "str"
+      ],
+      "has_excluded_locations": "bool",
+      "image_link": "str",
+      "interests": [
+        "str"
+      ],
+      "internet_service_providers": [],
+      "is_local_inventory": "bool",
+      "keywords_used": "bool",
+      "metros": [],
+      "negative_keywords_used": "bool",
+      "pin_data": {
+        "content_creator_name": "NoneType",
+        "details": "str",
+        "image_link": "str",
+        "story_pin_page_blocks": [],
+        "title": "str",
+        "video_link": "str"
+      },
+      "pinner_list_types": [
+        "str"
+      ],
+      "postal_codes": [],
+      "regions": [],
+      "review_status": "NoneType",
+      "start_date": "str",
+      "statement_of_reasons": "NoneType",
+      "user_count_by_country": {
+        "France": "str"
+      },
+      "user_count_eu": "str",
+      "violation_decision_means": "NoneType",
+      "violation_source": "NoneType"
+    },
+    "country_searched": "str",
+    "name_searched": "str",
+    "pin_id": "str"
+  },
+  "stopped": null,
+  "updated_at": "2026-10-17T10:09:26Z"
 }
