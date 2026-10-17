@@ -94,7 +94,7 @@ SUFFIX = {"spa", "sas", "srl", "sa", "ag", "nv", "bv", "ltd", "llc", "inc", "gmb
 _SELF_SERVE_APP = re.compile(r"in[- ]?app|ios|android|app aus", re.I)      # Snap's self-serve accounts from the phone app
 _DIVISION = (("beauty", ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "pcd", "fnb", "f b", "makeup", "skincare")),
              ("eyewear", ("eyewear", "lunettes", "occhiali", "optical")),
-             ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli")))
+             ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli", "wfj", "haute horlogerie")))
 
 
 def is_own(house: registry.House, name: str, ads: int | None = None) -> bool:

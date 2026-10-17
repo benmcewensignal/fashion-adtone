@@ -199,6 +199,10 @@ class Source:
         refused.sort(key=lambda p: -p["ads"])
         return keep, refused
 
+    def filter_keep(self, house: registry.House, keep: list[dict]) -> list[dict]:
+        """The pages on file, judged by the rule as it stands (a page from the registry always stands)."""
+        return [p for p in keep if p.get("from") == "registry" or is_page(house, p)]
+
     def row_is_kept(self, row: dict, keep: list[dict], house: registry.House | None = None) -> bool:
         """A stored row stays only while its page is among the house's own: a page matched too loosely
         before, and dropped on a rematch, takes its rows with it."""

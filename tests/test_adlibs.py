@@ -346,6 +346,9 @@ def test_meta_keeps_the_houses_own_page_and_a_rematch_drops_a_licensees_rows(tmp
     assert src.row_is_kept({"ad_id": "1", "page_id": "184360374941311"}, keep)
     assert not src.row_is_kept({"ad_id": "2", "page_id": "351058035420618"}, keep)
     assert src.row_is_kept({"ad_id": "3"}, keep)
+    # the pages on file are judged by the rule as it stands, even before the vendor is asked again
+    on_file = [{"id": "1", "name": "LOEWE", "ads": 76}, {"id": "2", "name": "LOEWE Perfumes", "ads": 60}, {"id": "3", "name": "Loewe Greece", "ads": 1}]
+    assert [p["id"] for p in src.filter_keep(loewe, on_file)] == ["1"]
 
 
 def test_an_advertiser_is_the_house_itself_not_a_person_or_a_shop_with_its_name(tmp_data):

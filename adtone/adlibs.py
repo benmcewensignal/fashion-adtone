@@ -246,6 +246,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                 rec = {"checked": today.isoformat(), "keep": keep, "refused": refused[:20]}
                 st["advertisers"][h.id] = rec
             keep = rec.get("keep") or []
+            if hasattr(src, "filter_keep"):      # the rule as it stands now, applied to the accounts on file
+                keep = src.filter_keep(h, keep)
             path = P["ads"] / f"{h.id}.jsonl"
             ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
             if hasattr(src, "row_is_kept"):
