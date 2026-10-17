@@ -19,7 +19,6 @@ HTTP 429 often, so requests are paced and a run that is refused repeatedly stops
 """
 from __future__ import annotations
 
-import io
 import re
 import sys
 import time
@@ -29,8 +28,7 @@ from datetime import date
 import requests
 
 from . import adlibs, registry
-from .media import MediaError, to_fetched
-from .tiktok import FRAMES_AT, MAX_VIDEO_BYTES, NOT_THE_HOUSE, video_frames
+from .tiktok import MAX_VIDEO_BYTES, NOT_THE_HOUSE
 
 SEARCH = "https://adsapi.snapchat.com/v1/ads_library/ads/search"
 COUNTRIES = "de be fi pt bg dk lt lu hr lv fr hu se si sk ie ee el mt it es at cy cz pl ro nl".split()
@@ -181,7 +179,7 @@ class Source:
             n_here = 0
             for status in ("ACTIVE", "PAUSED"):
                 body = {"paying_advertiser_name": name, "countries": COUNTRIES, "status": status,
-                        "start_date": f"{start.isoformat()}T00:00:00.000Z", "end_date": f"{end.isoformat()}T23:59:59.000Z"}
+                        "start_date": f"{start.isoformat()}T00:00:00.000Z", "end_date": f"{end.isoformat()}T00:00:00.000Z"}
                 url = SEARCH
                 while url:
                     out = self.post(url, body)   # the next page is the same search at the address with the cursor
@@ -225,33 +223,10 @@ class Source:
                 "last_run": run}
 
     def media_for(self, item: dict) -> list[dict]:
-        got = []
-        urls = urls_in(item)
         # the download address first, then any image, then video stills; at most five pictures and two videos
-        ordered = sorted(urls, key=lambda kv: (0 if "download" in _norm(kv[0]) else 1 if "image" in _norm(kv[0]) or "thumbnail" in _norm(kv[0]) or "preview" in _norm(kv[0]) else 2))
-        images = videos = 0
-        for key, u in ordered:
-            if images >= 5 and videos >= 2:
-                break
-            r = self.s.get(u, timeout=90)
-            if r.status_code != 200 or not r.content:
-                continue
-            ctype = ((getattr(r, "headers", None) or {}).get("Content-Type") or "").lower()
-            if ctype.startswith("video") or u.split("?")[0].lower().endswith((".mp4", ".mov", ".webm")):
-                if videos >= 2 or len(r.content) > MAX_VIDEO_BYTES:
-                    continue
-                videos += 1
-                for a, img in zip(FRAMES_AT, video_frames(r.content)):
-                    buf = io.BytesIO()
-                    img.convert("RGB").save(buf, format="JPEG", quality=92)
-                    got.append({"kind": "frame", "at": a, "fetched": to_fetched(buf.getvalue())})
-            elif images < 5:
-                try:
-                    got.append({"kind": "image", "fetched": to_fetched(r.content)})
-                    images += 1
-                except MediaError:
-                    continue
-        return got
+        urls = urls_in(item)
+        ordered = sorted(urls, key=lambda kv: (0 if "download" in _norm(kv[0]) else 1 if any(w in _norm(kv[0]) for w in ("image", "thumbnail", "preview")) else 2))
+        return adlibs.fetch_media(self.s, [u for _, u in ordered], max_video_bytes=MAX_VIDEO_BYTES)
 
 
 def main(argv: list[str] | None = None) -> int:

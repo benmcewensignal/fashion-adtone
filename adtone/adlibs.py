@@ -53,6 +53,44 @@ def shape(obj, depth: int = 0):
     return type(obj).__name__
 
 
+def fetch_media(sess, urls: list[str], max_images: int = 5, max_videos: int = 2, max_video_bytes: int = 60_000_000) -> list[dict]:
+    """The pictures at the addresses, and three frames of each video, in memory: [{"kind", "at"?, "fetched"}].
+    An address that is not a picture or a video is skipped."""
+    import io
+
+    from .media import MediaError, to_fetched
+    from .tiktok import FRAMES_AT, video_frames
+
+    got, images, videos, shas = [], 0, 0, set()
+    for u in dict.fromkeys(urls):
+        if images >= max_images and videos >= max_videos:
+            break
+        r = sess.get(u, timeout=90)
+        if r.status_code != 200 or not r.content:
+            continue
+        ctype = ((getattr(r, "headers", None) or {}).get("Content-Type") or "").lower()
+        if ctype.startswith("video") or u.split("?")[0].lower().endswith((".mp4", ".mov", ".webm", ".m4v")):
+            if videos >= max_videos or len(r.content) > max_video_bytes:
+                continue
+            videos += 1
+            for a, img in zip(FRAMES_AT, video_frames(r.content)):
+                buf = io.BytesIO()
+                img.convert("RGB").save(buf, format="JPEG", quality=92)
+                got.append({"kind": "frame", "at": a, "fetched": to_fetched(buf.getvalue())})
+        elif images < max_images:
+            try:
+                f = to_fetched(r.content)
+            except MediaError:
+                continue
+            if f.sha in shas:       # the same picture at a second address (a resized copy, say)
+                f.image.close()
+                continue
+            shas.add(f.sha)
+            got.append({"kind": "image", "fetched": f})
+            images += 1
+    return got
+
+
 def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, budget_s: float = 60 * 60,
             today: date | None = None, clock=time.monotonic) -> dict:
     from .embed import VectorStore

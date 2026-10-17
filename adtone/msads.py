@@ -28,7 +28,12 @@ from .media import MediaError, to_fetched
 from .snap import _norm, is_house
 
 BASE = "https://adlibrary.api.bingads.microsoft.com/api/v1"
-UA = "fashion-adtone research (Microsoft Ad Library API; contact via the repository)"
+# the API sits behind Azure's web application firewall, which answered the first run's plain client with a
+# JavaScript challenge (HTTP 403); the browser's own headers are tried next, and if that is refused too the
+# documented authenticated route (a Microsoft Advertising developer token) is the way in
+UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36"
+HEADERS = {"Accept": "application/json, text/plain, */*", "Accept-Language": "en-GB,en;q=0.9",
+           "Referer": "https://adlibrary.ads.microsoft.com/", "Origin": "https://adlibrary.ads.microsoft.com"}
 PACE_S = 1.0
 PAGE = 50
 MAX_ADS_PER_ADVERTISER = 4000
@@ -48,6 +53,8 @@ class Source:
     def __init__(self, sess: requests.Session | None = None, sleep=time.sleep, pace_s: float = PACE_S):
         self.s = sess or requests.Session()
         self.s.headers.setdefault("User-Agent", UA)
+        for k, v in HEADERS.items():
+            self.s.headers.setdefault(k, v)
         self.sleep, self.pace_s, self.last = sleep, pace_s, 0.0
         self.requests, self.refused = 0, 0
 

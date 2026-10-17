@@ -39,7 +39,7 @@ def _snap_session(calls):
             return FakeResponse(200, payload={"request_status": "SUCCESS", "paging": {},
                                               "ad_previews": [_snap_ad(3, "Guccio Gucci S.p.A.")]})
         name, status = body["paying_advertiser_name"], body["status"]
-        assert body["countries"][0] == "de" and body["start_date"].endswith("T00:00:00.000Z")
+        assert body["countries"][0] == "de" and body["start_date"].endswith("T00:00:00.000Z") and body["end_date"].endswith("T00:00:00.000Z")
         if name == "Gucci" and status == "ACTIVE":
             return FakeResponse(200, payload={"request_status": "SUCCESS",
                                               "paging": {"next_link": "https://adsapi.snapchat.com/v1/ads_library/ads/search?cursor=ABC"},
@@ -132,3 +132,65 @@ def test_microsoft_ads_come_with_their_details_and_an_image_when_there_is_one(tm
     st = store.read_state(adlibs.paths("msads")["state"])
     assert [a["id"] for a in st["advertisers"]["gucci"]["keep"]] == ["501"]
     assert st["advertisers"]["gucci"]["refused"][0]["name"] == "Gucci Outlet Store"
+
+
+def _vendor_item(i, page_id, page_name):
+    return {"ad_archive_id": f"77{i}", "page_id": page_id, "page_name": page_name, "ad_creative_bodies": ["The new collection. Shop now."],
+            "publisher_platforms": ["FACEBOOK", "INSTAGRAM"], "is_active": True, "ad_delivery_start_date": f"2026-09-0{1 + i % 9}",
+            "snapshot_images": [{"original_image_url": f"https://scontent.fbcdn.example/o/{i}.jpg", "resized_image_url": f"https://scontent.fbcdn.example/r/{i}.jpg"}],
+            "regional_regulation_data": {"eu_total_reach": 1500 * (i + 1), "payer_beneficiary_data": [{"payer": page_name, "beneficiary": page_name}],
+                                         "age_country_gender_reach_breakdown": [{"country": "FR", "age_gender_breakdowns": [{"age_range": "25-34", "male": 100, "female": 300}]}],
+                                         "location_audience": [{"name": "France", "type": "country", "excluded": False}],
+                                         "age_audience": {"min": 18, "max": 65}, "gender_audience": "All"}}
+
+
+def _apify_session(datasets):
+    runs = {}
+
+    def post(url, params, body, data):
+        if "/runs" in url:
+            rid = f"run{len(runs) + 1}"
+            runs[rid] = {"id": rid, "status": "RUNNING", "defaultDatasetId": f"ds-{rid}", "input": body}
+            return FakeResponse(201, payload={"data": dict(runs[rid])})
+        raise AssertionError(url)
+
+    def get(url, params):
+        if "/actor-runs/" in url:
+            rid = url.rsplit("/", 1)[-1]
+            runs[rid]["status"], runs[rid]["usageTotalUsd"] = "SUCCEEDED", 0.12
+            return FakeResponse(200, payload={"data": dict(runs[rid])})
+        if "/datasets/" in url:
+            rid = url.split("/datasets/ds-")[1].split("/")[0]
+            inp = runs[rid]["input"]
+            key = "search:" + inp["searchTerms"][0] if inp.get("searchTerms") else "pages:" + ",".join(inp["pageIds"])
+            return FakeResponse(200, payload=datasets[key])
+        if url.endswith(".jpg"):
+            n = int(url.rsplit("/", 1)[-1].split(".")[0])
+            return FakeResponse(200, content=jpeg_bytes(toned_image(0.4 + 0.03 * n, seed=100 + n)))
+        return FakeResponse(404)
+
+    class S(FakeSession):
+        def request(self, method, url, params=None, json=None, timeout=None, **kw):
+            return post(url, params, json, None) if method == "POST" else get(url, params)
+    return S(get, post)
+
+
+def test_meta_through_the_vendor_finds_the_houses_pages_then_their_ads_in_our_row_shape(tmp_data):
+    from adtone import metaweb
+    datasets = {"search:Gucci": [_vendor_item(0, "100", "Gucci"), _vendor_item(1, "100", "Gucci"), _vendor_item(2, "200", "Gucci Beauty"),
+                                 _vendor_item(3, "300", "Gucci Outlet Resale")],
+                "pages:100": [_vendor_item(i, "100", "Gucci") for i in range(5)]}
+    src = metaweb.Source(_apify_session(datasets), token="t", actor="bovi~meta-ads-library-scraper", countries="ALL", sleep=lambda s: None)
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()), today=date(2026, 10, 17))
+    assert out["problems"] == {} and out["new_ads"] == 5 and out["pictures"] == 5 and out["read_ok"] == 5
+    st = store.read_state(adlibs.paths("metaweb")["state"])
+    assert [p["id"] for p in st["advertisers"]["gucci"]["keep"]] == ["100"]
+    assert {p["name"] for p in st["advertisers"]["gucci"]["refused"]} == {"Gucci Beauty", "Gucci Outlet Resale"}
+    assert st["actor"] == "bovi~meta-ads-library-scraper" and len(st["vendor_runs"]) == 2 and st["vendor_runs"][0]["usd"] == 0.12
+    rows = store.read_jsonl(adlibs.paths("metaweb")["ads"] / "gucci.jsonl")
+    r = next(x for x in rows if x["ad_id"] == "770")
+    assert r["page_id"] == "100" and r["start"] == "2026-09-01" and r["platforms"] == ["FACEBOOK", "INSTAGRAM"] and r["is_active"] is True
+    assert r["eu_total_reach"] == 1500 and r["reach"]["by_country"] == {"FR": 400} and r["reach"]["by_gender"] == {"female": 300, "male": 100}
+    assert r["beneficiary_payers"] == [{"payer": "Gucci", "beneficiary": "Gucci"}] and r["target_locations"][0]["name"] == "France"
+    assert r["line"] in ("collection", "other", "season") and "copy" in r and "Shop now" not in json.dumps(rows)
+    assert len(r["media"]) == 1   # the original and the resized picture are one picture
