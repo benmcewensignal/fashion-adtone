@@ -12,7 +12,9 @@ its bot check turns GitHub's machines away, so `calendar` from a workflow mostly
 is on file. Its dates match the 86 verified shows in reference/shows.csv on the day for 77 and within a day
 for 80; 5 of those shows are not listed. A listed date outside the weeks its kind of show takes place (4 of
 900, mostly the day a collection was added to the site) is flagged and left out, unless a verified show of
-the house falls within a day of it, as Gucci's Love Parade in Los Angeles in November 2021 does.
+the house falls within a day of it, as Gucci's Love Parade in Los Angeles in November 2021 does. A verified show the
+listings do not hold at all (The Row's Paris shows since 2022, Jacquemus's away from the calendar, 23 on 17 October
+2026) joins the calendar as the verified record gives it, marked as verified rather than listed.
 
 The strands, all from sources the project already holds:
   heat       the jump in English Wikipedia views around the show: the peak from the day before to three days
@@ -195,6 +197,40 @@ def redated(row: dict, ref: list[dict], days: int = 7) -> dict:
     if not gaps or gaps[0][0] <= 1 or gaps[0][0] > days:
         return row
     return {**row, "date": gaps[0][1], "listed_date": row["date"]}
+
+
+REF_SEASON = re.compile(r"^(SS|AW)(\d{2})(?: (men|couture))?$")
+
+
+def unlisted(rows: list[dict], ref: list[dict], days: int = 7) -> list[dict]:
+    """The verified shows the listings do not hold: none of the house's listings within `days` of it, and none of the
+    same season and kind at any date (The Row's Paris shows since 2022, Jacquemus's shows away from the calendar). Each
+    joins the calendar as the verified record gives it, marked as such; a verified season the code cannot read (a
+    presentation filed under the nearest season) is left out."""
+    by = defaultdict(list)
+    for r in rows:
+        by[r.get("house")].append(r)
+    out = []
+    for v in ref:
+        m = REF_SEASON.match((v.get("season") or "").strip())
+        try:
+            d = date.fromisoformat(v["date"])
+        except (KeyError, ValueError):
+            continue
+        if not m or (v.get("kind") or "show") not in ("show", "debut"):
+            continue
+        season, year, kind = m.group(1), 2000 + int(m.group(2)), m.group(3) or "rtw"
+        mine = by.get(v["house"], [])
+        near = any(abs((date.fromisoformat(r["date"]) - d).days) <= days for r in mine if len(r.get("date") or "") == 10)
+        same = any(str(r.get("year")) == str(year) and r.get("season") == season and r.get("category") == kind for r in mine)
+        if near or same:
+            continue
+        row = {"house": v["house"], "date": v["date"], "year": year, "season": season, "category": kind,
+               "city": v.get("city") or "", "title": f"{v['house']} {kind} {season.lower()} {year} (a checked show the listings do not hold)",
+               "url": (v.get("source") or "").split(" | ")[0].strip(), "source": "verified", "read": None, "date_doubtful": False}
+        out.append(row)
+        by[v["house"]].append(row)
+    return out
 
 
 def doubtful(row: dict, ref: list[dict]) -> bool:
@@ -395,6 +431,8 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
             v = None if not s.get("year") or in_window(s) else vouched(s, ref)
             if v and v.get("city"):
                 s["city"] = v["city"]
+        # the verified shows the listings never held join the calendar as the verified record gives them
+        shows += unlisted([s for s in shows if s.get("year")], ref)
     n_doubtful = sum(1 for s in shows if s.get("date_doubtful"))
     shows = [s for s in shows if s.get("year") and int(s["date"][:4]) >= FIRST_YEAR and not s.get("date_doubtful")]
     houses = sorted({s["house"] for s in shows})

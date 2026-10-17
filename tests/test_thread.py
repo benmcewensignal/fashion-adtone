@@ -436,3 +436,21 @@ def test_the_campaign_window_runs_to_a_week_before_the_next_main_show():
     assert T.campaign_window(date(2025, 9, 30), None, "SS") == (45, 147)
     assert T.campaign_window(show, None, None) == (45, 150)
     assert T.campaign_window(show, show, "AW") == (45, 203)                    # a same-day show is not the next one
+
+
+def test_a_checked_show_the_listings_do_not_hold_joins_the_calendar():
+    ref = [{"house": "the_row", "date": "2025-10-02", "season": "SS26", "city": "Paris", "kind": "show", "source": "https://a | https://b"},
+           {"house": "the_row", "date": "2025-03-05", "season": "AW25", "city": "Paris", "kind": "show"},
+           {"house": "jacquemus", "date": "2024-06-10", "season": "AW24", "city": "Capri", "kind": "show"},
+           {"house": "zegna", "date": "2025-06-11", "season": "SS26 men", "city": "Dubai", "kind": "show"},
+           {"house": "moncler", "date": "2023-02-20", "season": "AW23", "city": "London", "kind": "presentation"},
+           {"house": "dior", "date": "2025-10-01", "season": "SS26", "city": "Paris", "kind": "show"}]
+    rows = [{"house": "the_row", "date": "2025-03-06", "year": 2025, "season": "AW", "category": "rtw"},   # within a week
+            {"house": "jacquemus", "date": "2024-09-01", "year": 2024, "season": "AW", "category": "rtw"},  # same season, far off
+            {"house": "zegna", "date": "2025-06-11", "year": 2026, "season": "SS", "category": "men"},
+            {"house": "dior", "date": "2025-10-01", "year": 2026, "season": "SS", "category": "rtw"}]
+    added = T.unlisted(rows, ref)
+    assert [(a["house"], a["date"], a["year"], a["season"], a["category"]) for a in added] == [
+        ("the_row", "2025-10-02", 2026, "SS", "rtw")]
+    assert added[0]["source"] == "verified" and added[0]["url"] == "https://a" and added[0]["city"] == "Paris"
+    assert T.unlisted(rows + added, ref) == []          # added once
