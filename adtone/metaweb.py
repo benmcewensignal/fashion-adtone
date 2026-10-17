@@ -183,9 +183,11 @@ class Source:
             "target_ages": ages,
             "target_gender": gender,
             "target_locations": [{"name": loc.get("name"), "type": loc.get("type"), "excluded": bool(loc.get("excluded"))}
-                                 for loc in locs if isinstance(loc, dict)] or None,
+                                 for loc in (locs or []) if isinstance(loc, dict)] or None,
             "reach": _reach(breakdown) if breakdown else None,
-            "beneficiary_payers": [{"payer": p.get("payer"), "beneficiary": p.get("beneficiary")} for p in payers if isinstance(p, dict)] or None,
+            "beneficiary_payers": [{"payer": p.get("payer"), "beneficiary": p.get("beneficiary")} for p in (payers or []) if isinstance(p, dict)] or None,
+            "countries": _list(find(item, "targetedorreachedcountries", "countries", want=(list,))) or None,
+            "has_metrics": find(item, "hasmetrics", want=(bool,)),
             "copy": copyfeat.features([t for t in texts if t]) if texts else None,
             "title": copyfeat.features([t for t in titles if isinstance(t, str)]) if titles else None,
             "line": thread.ad_line(texts) if texts else None,

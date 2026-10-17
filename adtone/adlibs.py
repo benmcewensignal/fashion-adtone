@@ -41,6 +41,21 @@ def paths(name: str) -> dict[str, Path]:
             "state": config.STATE_DIR / f"{name}.json", "prov": config.PROV_DIR / f"{name}.jsonl"}
 
 
+def merge_shapes(a, b):
+    """Two shapes as one: every key either has, a type that varies shown as both."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        return {k: merge_shapes(a.get(k), b.get(k)) if k in a and k in b else (a.get(k) if k in a else b.get(k)) for k in list(a) + [k for k in b if k not in a]}
+    if isinstance(a, list) and isinstance(b, list):
+        return [merge_shapes(a[0], b[0])] if a and b else (a or b)
+    if a == b or b is None:
+        return a
+    if a is None or a == "NoneType":
+        return b
+    if b == "NoneType":
+        return a
+    return a if isinstance(a, str) and isinstance(b, str) and b in a else (f"{a}|{b}" if isinstance(a, str) and isinstance(b, str) else a)
+
+
 def shape(obj, depth: int = 0, max_depth: int = 6):
     """The keys and types of a record, without its values: what a library actually returns, kept in the
     state after the first live run so the row can be tuned to it without storing any ad's text."""
@@ -108,7 +123,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(obs_path)} if obs_path else set()
     new_obs: list[dict] = []
     pending: list[tuple] = []
-    sample_shape = st.get("shape")
+    sample_shape, shaped = None, 0      # the shape is taken afresh each run
 
     def flush():
         if not pending:
@@ -151,7 +166,9 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                     if clock() - t0 > budget_s:
                         raise src.Stop("budget")      # mid-search: what came back is kept, the rest waits for next week
                     if sample_shape is None:
-                        sample_shape = shape(item)
+                        sample_shape, shaped = shape(item), 1
+                    elif shaped < 60:     # the first sixty records' keys together: a field one record lacks, another has
+                        sample_shape, shaped = merge_shapes(sample_shape, shape(item)), shaped + 1
                     if not src.is_houses(item, h, keep):
                         continue
                     counts["ads_found"] += 1
