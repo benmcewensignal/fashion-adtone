@@ -20,6 +20,29 @@
       ],
       "refused": []
     },
+    "burberry": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Burberry",
+          "name": "Burberry"
+        },
+        {
+          "id": "Burberry Limited",
+          "name": "Burberry Limited"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Burberry Beauty",
+          "name": "Burberry Beauty"
+        },
+        {
+          "id": "Burberry South Africa",
+          "name": "Burberry South Africa"
+        }
+      ]
+    },
     "celine": {
       "checked": "2026-10-17",
       "keep": [
@@ -341,6 +364,37 @@
         }
       ]
     },
+    "fendi": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Fendi",
+          "name": "Fendi"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Fendi Furniture CA",
+          "name": "Fendi Furniture CA"
+        },
+        {
+          "id": "Fendi Furniture US",
+          "name": "Fendi Furniture US"
+        },
+        {
+          "id": "Fendia",
+          "name": "Fendia"
+        },
+        {
+          "id": "FENDITEK",
+          "name": "FENDITEK"
+        },
+        {
+          "id": "fendixi",
+          "name": "fendixi"
+        }
+      ]
+    },
     "gucci": {
       "checked": "2026-10-17",
       "keep": [
@@ -440,6 +494,111 @@
         }
       ]
     },
+    "hermes": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Hermès",
+          "name": "Hermès"
+        },
+        {
+          "id": "HERMES SRL",
+          "name": "HERMES SRL"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Hermes Caviar",
+          "name": "Hermes Caviar"
+        },
+        {
+          "id": "Hermes Depot",
+          "name": "Hermes Depot"
+        },
+        {
+          "id": "Hermes Digital SRL",
+          "name": "Hermes Digital SRL"
+        },
+        {
+          "id": "Hermes Export",
+          "name": "Hermes Export"
+        },
+        {
+          "id": "Hermes Germany GmbH",
+          "name": "Hermes Germany GmbH"
+        },
+        {
+          "id": "Hermes Gold j.d.o.o",
+          "name": "Hermes Gold j.d.o.o"
+        },
+        {
+          "id": "HERMES INSERV",
+          "name": "HERMES INSERV"
+        },
+        {
+          "id": "Hermes Marketing SRLS",
+          "name": "Hermes Marketing SRLS"
+        },
+        {
+          "id": "Hermes Music Club",
+          "name": "Hermes Music Club"
+        },
+        {
+          "id": "Hermes Nova",
+          "name": "Hermes Nova"
+        },
+        {
+          "id": "Hermes Reinigungssysteme GmbH",
+          "name": "Hermes Reinigungssysteme GmbH"
+        },
+        {
+          "id": "HERMES RETAIL P.C.",
+          "name": "HERMES RETAIL P.C."
+        },
+        {
+          "id": "Hermes Royal GmbH",
+          "name": "Hermes Royal GmbH"
+        },
+        {
+          "id": "Hermes School of Astrology",
+          "name": "Hermes School of Astrology"
+        },
+        {
+          "id": "Hermes Solution Kft.",
+          "name": "Hermes Solution Kft."
+        },
+        {
+          "id": "Hermes Torres Ortega",
+          "name": "Hermes Torres Ortega"
+        },
+        {
+          "id": "Hermes Tuinhuizen B.V.",
+          "name": "Hermes Tuinhuizen B.V."
+        },
+        {
+          "id": "hermesabeona",
+          "name": "hermesabeona"
+        },
+        {
+          "id": "Hermesdeals Solar",
+          "name": "Hermesdeals Solar"
+        },
+        {
+          "id": "HermesJewelery",
+          "name": "HermesJewelery"
+        }
+      ]
+    },
+    "jil_sander": {
+      "checked": "2026-10-17",
+      "keep": [],
+      "refused": [
+        {
+          "id": "Jil Sander Parfums",
+          "name": "Jil Sander Parfums"
+        }
+      ]
+    },
     "loewe": {
       "checked": "2026-10-17",
       "keep": [
@@ -490,41 +649,161 @@
           "name": "Loewenthal Katarina"
         }
       ]
+    },
+    "louis_vuitton": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Louis Vuitton",
+          "name": "Louis Vuitton"
+        },
+        {
+          "id": "Louis Vuitton Official",
+          "name": "Louis Vuitton Official"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Louis Vuitton Österreich Ges.m.b.h.",
+          "name": "Louis Vuitton Österreich Ges.m.b.h."
+        },
+        {
+          "id": "Louis Vuitton Polska Sp. Z.o.o.",
+          "name": "Louis Vuitton Polska Sp. Z.o.o."
+        }
+      ]
+    },
+    "margiela": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Maison Margiela",
+          "name": "Maison Margiela"
+        },
+        {
+          "id": "Maison Margiela Paris",
+          "name": "Maison Margiela Paris"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Maison Margiela (CZ)",
+          "name": "Maison Margiela (CZ)"
+        },
+        {
+          "id": "Maison Margiela Fragrances   ",
+          "name": "Maison Margiela Fragrances   "
+        }
+      ]
+    },
+    "miu_miu": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Miu Miu",
+          "name": "Miu Miu"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Miu Miu Canada",
+          "name": "Miu Miu Canada"
+        }
+      ]
+    },
+    "prada": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Prada",
+          "name": "Prada"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Prada Beauty",
+          "name": "Prada Beauty"
+        },
+        {
+          "id": "Prada Beauty ANZ",
+          "name": "Prada Beauty ANZ"
+        },
+        {
+          "id": "Prada Beauty Canada",
+          "name": "Prada Beauty Canada"
+        },
+        {
+          "id": "Prada Beauty ES",
+          "name": "Prada Beauty ES"
+        },
+        {
+          "id": "Prada SA CV",
+          "name": "Prada SA CV"
+        },
+        {
+          "id": "Prada'S Design",
+          "name": "Prada'S Design"
+        },
+        {
+          "id": "PRADAKOS s.r.o.",
+          "name": "PRADAKOS s.r.o."
+        }
+      ]
+    },
+    "saint_laurent": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "SAINT LAURENT",
+          "name": "SAINT LAURENT"
+        }
+      ],
+      "refused": []
     }
   },
   "country_form": null,
   "notes": [
-    "Céline Dujardin DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Dujardin IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Dujowich FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Dujowich DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Dujowich IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "celine eveil FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "celine eveil FR 2025-11-11: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 3 elements:\n   ",
-    "celine eveil DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "celine eveil IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Frochaux FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Frochaux DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Frochaux IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Gendre FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Gendre DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Gendre IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Hayek FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Hayek DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Céline Hayek IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Jeanjean Books FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Celine Jeanjean Books DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Hermès DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton Official FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton Official DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Louis Vuitton Official IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Prada IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Miu Miu FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Miu Miu DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Miu Miu IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "SAINT LAURENT FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "SAINT LAURENT DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "SAINT LAURENT IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Burberry FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Burberry DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Burberry IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
-  "problems": {},
-  "requests": 518,
-  "run": "gh39039347025",
+  "problems": {
+    "fendi": "ads: ScoreError: API: Modal InvalidError",
+    "hermes": "ads: ScoreError: API: Modal InvalidError",
+    "louis_vuitton": "ads: ScoreError: API: Modal InvalidError",
+    "miu_miu": "ads: ScoreError: API: Modal InvalidError",
+    "prada": "ads: ScoreError: API: Modal InvalidError",
+    "saint_laurent": "ads: ScoreError: API: Modal InvalidError"
+  },
+  "requests": 571,
+  "run": "gh39057447974",
   "searched": {
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
+    "celine": "2026-10-17",
     "chanel": "2026-10-17",
     "dior": "2026-10-17",
     "gucci": "2026-10-17",
-    "loewe": "2026-10-17"
+    "jil_sander": "2026-10-17",
+    "loewe": "2026-10-17",
+    "margiela": "2026-10-17"
   },
   "shape": {
     "ad_details": {
@@ -544,7 +823,9 @@
       ],
       "has_excluded_locations": "bool",
       "image_link": "str",
-      "interests": [],
+      "interests": [
+        "str"
+      ],
       "internet_service_providers": [],
       "is_local_inventory": "bool",
       "keywords_used": "bool",
@@ -558,7 +839,9 @@
         "title": "str",
         "video_link": "str"
       },
-      "pinner_list_types": [],
+      "pinner_list_types": [
+        "str"
+      ],
       "postal_codes": [],
       "regions": [],
       "review_status": "NoneType",
@@ -575,6 +858,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": "budget",
-  "updated_at": "2026-10-17T15:27:38Z"
+  "stopped": "budget; reader: API: Modal InvalidError",
+  "updated_at": "2026-10-17T19:40:05Z"
 }
