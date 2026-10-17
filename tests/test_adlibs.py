@@ -698,3 +698,20 @@ def test_a_page_with_the_house_name_that_is_another_company_is_not_the_house(tmp
                                                                       {"id": "106889830893927", "name": "Loewe", "ads": 3}]}}})
     adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [loewe]), "t1")
     assert [r["ad_id"] for r in store.read_jsonl(P["ads"] / "loewe.jsonl")] == ["a"]
+
+
+def test_tidy_keeps_a_page_refused_before_that_is_the_house_and_has_the_house_searched_again(tmp_data):
+    from adtone import metaweb
+    alaia = House("alaia", "Alaïa", "treated", "Richemont", ["Alaïa", "Alaia"], [], [])
+    P = adlibs.paths("metaweb")
+    store.write_jsonl(P["ads"] / "alaia.jsonl", [{"ad_id": "b1", "page_id": "1", "page_name": "Alaïa Bay", "media": []}])
+    store.write_state(P["state"], {"searched": {"alaia": "2026-10-17"}, "advertisers": {"alaia": {
+        "keep": [{"id": "1", "name": "Alaïa Bay", "ads": 17, "categories": ["UNKNOWN", "Surfing Spot"]}],
+        "refused": [{"id": "2", "name": "Maison Alaïa", "ads": 132, "categories": ["UNKNOWN", "Clothing (brand)"]},
+                    {"id": "3", "name": "Villa Alaia", "ads": 5, "categories": ["UNKNOWN", "Vacation Home Rental"]}]}}})
+    out = adlibs.tidy(object.__new__(metaweb.Source), Registry(1, "T", [alaia]), "t1")
+    st = store.read_state(P["state"])
+    assert [p["name"] for p in st["advertisers"]["alaia"]["keep"]] == ["Maison Alaïa"]
+    assert {p["name"] for p in st["advertisers"]["alaia"]["refused"]} == {"Alaïa Bay", "Villa Alaia"}
+    assert "alaia" not in st["searched"] and out["pages_revived"] == 1 and out["dropped"] == 1
+    assert not store.read_jsonl(P["ads"] / "alaia.jsonl")

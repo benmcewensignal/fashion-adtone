@@ -56,7 +56,7 @@ LEGAL = {
     "stella_mccartney": ["Stella McCartney Ltd", "Stella McCartney"], "lanvin": ["Lanvin", "Jeanne Lanvin SA"],
     "schiaparelli": ["Schiaparelli", "Maison Schiaparelli"], "the_row": ["The Row", "The Row LLC"],
     "tom_ford": ["Tom Ford", "Tom Ford International"], "chloe": ["Chloé", "Chloe", "Chloé SAS"],
-    "alaia": ["Alaïa", "Alaia", "Azzedine Alaïa"], "margiela": ["Maison Margiela", "Margiela"],
+    "alaia": ["Alaïa", "Alaia", "Azzedine Alaïa", "Maison Alaïa"], "margiela": ["Maison Margiela", "Margiela"],
     "jil_sander": ["Jil Sander", "Jil Sander S.p.A."], "dries_van_noten": ["Dries Van Noten", "Van Noten Andries NV"],
     "loro_piana": ["Loro Piana S.p.A.", "Loro Piana"], "brunello_cucinelli": ["Brunello Cucinelli S.p.A.", "Brunello Cucinelli"],
     "issey_miyake": ["Issey Miyake", "Issey Miyake Europe"], "comme_des_garcons": ["Comme des Garçons", "Comme des Garcons"],

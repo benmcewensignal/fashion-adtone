@@ -638,13 +638,28 @@ def tidy(src, reg: registry.Registry, run: str) -> dict:
     the rows already gathered, not just the next ones."""
     P = paths(src.name)
     st = store.read_state(P["state"])
-    counts = {"houses": 0, "rows": 0, "dropped": 0, "pending_dropped": 0, "division_changed": 0}
+    counts = {"houses": 0, "rows": 0, "dropped": 0, "pending_dropped": 0, "division_changed": 0, "pages_revived": 0}
+    state_changed = False
     for h in reg.houses:
+        rec = (st.get("advertisers") or {}).get(h.id)
+        if rec is not None and hasattr(src, "filter_keep"):
+            # the lookup's own verdicts judged again: a page refused before that is the house's by the rule as it
+            # stands is kept, and the house searched again, its ads never having been gathered (Maison Alaïa)
+            keep_now = src.filter_keep(h, rec.get("keep") or [])
+            refused = rec.get("refused") or []
+            revived = src.filter_keep(h, refused)
+            if revived or len(keep_now) != len(rec.get("keep") or []):
+                ids = {str(p.get("id")) for p in keep_now + revived}
+                rec["refused"] = [p for p in (rec.get("keep") or []) + refused if str(p.get("id")) not in ids]
+                rec["keep"] = keep_now + revived
+                state_changed = True
+            if revived:
+                counts["pages_revived"] += len(revived)
+                st.get("searched", {}).pop(h.id, None)
         path = P["ads"] / f"{h.id}.jsonl"
         if not path.exists():
             continue
         rows = store.read_jsonl(path)
-        rec = (st.get("advertisers") or {}).get(h.id)
         keep = (rec or {}).get("keep") or []
         if rec is None and hasattr(src, "keep_from_rows"):
             keep = src.keep_from_rows(rows)        # no lookup on file: the rows' own pages, judged by name
@@ -672,8 +687,10 @@ def tidy(src, reg: registry.Registry, run: str) -> dict:
             if len(left) != len(pend):
                 counts["pending_dropped"] += len(pend) - len(left)
                 store.write_jsonl(pend_path, left)
+    if state_changed:
+        store.write_state(P["state"], st)
     out = {"run": run, "stage": "tidy", "updated_at": store.utc_now(), **counts}
-    if counts["dropped"] or counts["division_changed"]:
+    if counts["dropped"] or counts["division_changed"] or state_changed:
         store.append_jsonl(P["prov"], [out])
     return out
 
@@ -763,7 +780,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     # the rules as they stand, on every house's rows on file, before anything else (no call to the library)
     try:      # the rule methods need no session: a bare instance, so that no browser or client is started for them
         tidied = tidy(object.__new__(make_source) if isinstance(make_source, type) else make_source(), reg, a.run)
-        if tidied["dropped"] or tidied["division_changed"]:
+        if tidied["dropped"] or tidied["division_changed"] or tidied["pages_revived"]:
             print(f"::notice::{name} tidy: {tidied}")
     except Exception as e:
         print(f"::warning::{name} tidy failed: {e.__class__.__name__}: {str(e)[:200]}")
