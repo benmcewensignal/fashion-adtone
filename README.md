@@ -180,6 +180,10 @@ key exists:
   settings) and an OAuth refresh token for an app registered in Azure (the Bing Ads SDK's quick start
   walks through getting one). The weekly msads workflow then reads the houses' Bing search ads in the EEA.
 
+- `LINKEDIN_CLIENT_ID` and `LINKEDIN_CLIENT_SECRET` (or a `LINKEDIN_ACCESS_TOKEN`): a developer app at
+  linkedin.com/developers/apps with the "Ad Library API" product requested under Products and granted on
+  review. The weekly linkedin workflow then reads the houses' ads with their EU impression ranges and
+  targeting. The library's web pages refuse the runner's addresses, and that is left as it is.
 - `X_BEARER_TOKEN`: an app's bearer token from developer.x.com. The weekly xads workflow then asks X's
   Ads Repository for each house's EU report (advertiser, funding entity, targeting, impressions, reach,
   and an address for each ad but not its content), by the accounts in `reference/x_accounts.csv`.

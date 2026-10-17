@@ -1,0 +1,60 @@
+name: linkedin
+run-name: linkedin ${{ github.event_name }}
+# LinkedIn's Ad Library (its ad library for the EU under the DSA), through LinkedIn's own Ad Library API, a
+# developer app's product granted on review. Weekly. Waits, recording that it waited, until the app's
+# LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET (or LINKEDIN_ACCESS_TOKEN) exist.
+on:
+  schedule:
+    - cron: "55 8 * * 4"
+  workflow_dispatch:
+    inputs:
+      houses:
+        description: "comma-separated house ids for a trial run (empty: all)"
+        default: ""
+  push:   # editing .github/kick/linkedin starts a run
+    branches: [main]
+    paths: [".github/kick/linkedin"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adtone-linkedin
+  cancel-in-progress: false
+
+jobs:
+  linkedin:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    env:
+      PYTHONUNBUFFERED: "1"
+      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+      LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+      LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+      LINKEDIN_VERSION: ${{ vars.LINKEDIN_VERSION }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ADTONE_CLAUDE_MODEL: ${{ vars.ADTONE_CLAUDE_MODEL || 'claude-sonnet-5-5' }}
+      ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install
+        timeout-minutes: 15
+        run: |
+          if [ -n "$LINKEDIN_CLIENT_ID$LINKEDIN_ACCESS_TOKEN" ]; then pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt; else pip install -r requirements.txt; fi
+      - name: Collect ads
+        continue-on-error: true
+        timeout-minutes: 90
+        run: |
+          python -m adtone.linkedin collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}"
+      - name: Probe
+        if: env.LINKEDIN_CLIENT_ID != '' || env.LINKEDIN_ACCESS_TOKEN != ''
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python -m adtone.linkedin probe --run "gh${GITHUB_RUN_ID}"
+      - name: Persist
+        timeout-minutes: 10
+        run: bash scripts/persist.sh linkedin "linkedin ${{ github.event_name }}"
