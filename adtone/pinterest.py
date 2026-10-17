@@ -13,13 +13,15 @@ shown there with the advertiser, first and last day, the countries, genders, age
 whether keywords or audience lists were used, how many people in the EU and in each country saw it in
 bands, the picture or video, and any moderation. EU, EEA, Brazil and Türkiye only; no UK. Advertiser
 names come from the page's own name search, matched to the house as elsewhere (no beauty or fragrance
-licensees, no resellers). The year is read a month at a time for the larger markets; an ad shown in
-several is kept once. Pictures and video stills go through the reader and the fingerprint, in memory;
-the ad's title and text are kept only as features, never as text.
+licensees, no resellers). The year is read a month at a time for the larger markets, the countries side
+by side in their own browser pages (PINTEREST_WORKERS, one per country); an ad shown in several is kept
+once. Pictures and video stills go through the reader and the fingerprint, in memory; the ad's title and
+text are kept only as features, never as text.
 """
 from __future__ import annotations
 
 import sys
+import threading
 import time
 from datetime import date, timedelta
 
@@ -88,22 +90,38 @@ class Source:
     advertiser_refresh_days = 30
     Stop = Stop
 
-    def __init__(self, page: Page | None = None, sess: requests.Session | None = None, countries=COUNTRIES, sleep=time.sleep):
-        self._page = page
+    def __init__(self, page: Page | None = None, sess: requests.Session | None = None, countries=COUNTRIES, sleep=time.sleep,
+                 workers: int | None = None):
+        import os
+        self._pages: dict[int, Page] = {}          # one browser page per worker thread
+        if page is not None:
+            self._pages[threading.get_ident()] = page
         self.s = sess or requests.Session()
         self.s.headers.setdefault("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36")
         self.sleep, self.countries = sleep, list(countries)
+        self.workers = workers or int(os.environ.get("PINTEREST_WORKERS") or len(self.countries))
         self.requests, self.notes = 0, []
+        self._lock = threading.Lock()
 
     @property
     def page(self) -> Page:
-        if self._page is None:
-            self._page = Page()
-        return self._page
+        """The browser page of the calling thread: the countries are searched side by side, each in its own
+        page, as a person with a few tabs open would."""
+        tid = threading.get_ident()
+        with self._lock:
+            pg = self._pages.get(tid)
+            if pg is None and len(self._pages) == 1 and self.workers <= 1:
+                pg = next(iter(self._pages.values()))
+        if pg is None:
+            pg = Page()
+            with self._lock:
+                self._pages[tid] = pg
+        return pg
 
     def close(self):
-        if self._page is not None:
-            self._page.close()
+        for pg in list(self._pages.values()):
+            pg.close()
+        self._pages.clear()
 
     def state_extra(self) -> dict:
         return {"notes": self.notes[-20:]}
@@ -171,24 +189,46 @@ class Source:
             pg.wait_for_timeout(SETTLE_MS + 1500)
         return items
 
+    def _one(self, name: str, country: str, win_start: date, win_end: date) -> list[dict]:
+        try:
+            return self._search(name, country, win_start, win_end)
+        except Exception as e:
+            with self._lock:
+                self.notes.append(f"{name} {country} {win_start}: {e.__class__.__name__}: {str(e)[:120]}")
+            return []
+
     def search_ads(self, house: registry.House, keep: list[dict], start: date, end: date):
+        """Each advertiser's year, a country and a month at a time; the countries side by side, in as many
+        browser pages as workers."""
+        from concurrent.futures import ThreadPoolExecutor
         seen: set[str] = set()
         for adv in keep:
+            jobs = []
             for country in self.countries:
                 win_end = end
                 while win_end > start:
                     win_start = max(start, win_end - timedelta(days=WINDOW_DAYS))
-                    try:
-                        items = self._search(adv["name"], country, win_start, win_end)
-                    except Exception as e:
-                        self.notes.append(f"{adv['name']} {country} {win_start}: {e.__class__.__name__}: {str(e)[:120]}")
-                        items = []
-                    for it in items:
-                        pid = str(it.get("pin_id") or "")
-                        if pid and pid not in seen:
-                            seen.add(pid)
-                            yield {"country_searched": country, "name_searched": adv["name"], **it}
+                    jobs.append((adv["name"], country, win_start, win_end))
                     win_end = win_start - timedelta(days=1)
+            # one worker per country: a worker takes a country's windows in order, newest first
+            by_country = {c: [j for j in jobs if j[1] == c] for c in self.countries}
+
+            def run_country(js):
+                out = []
+                for j in js:
+                    out.append((j, self._one(*j)))
+                return out
+            if self.workers > 1:
+                with ThreadPoolExecutor(max_workers=min(self.workers, len(by_country))) as ex:
+                    results = [r for got in ex.map(run_country, by_country.values()) for r in got]
+            else:
+                results = [r for js in by_country.values() for r in run_country(js)]
+            for (name, country, _ws, _we), items in results:
+                for it in items:
+                    pid = str(it.get("pin_id") or "")
+                    if pid and pid not in seen:
+                        seen.add(pid)
+                        yield {"country_searched": country, "name_searched": name, **it}
 
     def is_houses(self, item: dict, house: registry.House, keep: list[dict]) -> bool:
         names = (item.get("ad_details") or {}).get("advertiser_names")
