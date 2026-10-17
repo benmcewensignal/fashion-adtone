@@ -70,6 +70,8 @@ jobs:
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
           if [ "${{ github.event.inputs.rematch }}" = "true" ]; then EXTRA="$EXTRA --rematch"; fi
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
+          # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
+          if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
           python -m adtone.pinterest "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         continue-on-error: true
