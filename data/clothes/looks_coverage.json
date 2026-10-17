@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T11:40:32Z",
+ "generated_at": "2026-10-17T16:30:05Z",
  "window_days": [
   -1,
   14
@@ -84,6 +84,32 @@
      "score": 9.88
     }
    ]
+  },
+  "armani:2025-03-02:rtw": {
+   "house": "armani",
+   "date": "2025-03-02",
+   "season": "2025 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ConnectionError"
+   }
+  },
+  "armani:2025-06-23:men": {
+   "house": "armani",
+   "date": "2025-06-23",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "HTTP 504"
+   }
   },
   "armani:2025-07-08:couture": {
    "house": "armani",
@@ -812,20 +838,38 @@
    "date": "2018-01-20",
    "season": "2018 AW men",
    "category": "men",
-   "status": "none",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2018-03-02:rtw": {
    "house": "balmain",
    "date": "2018-03-02",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "none",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2018-06-24:men": {
    "house": "balmain",
@@ -1840,7 +1884,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3111,7 +3155,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "HTTP 503"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3124,7 +3168,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 503"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -4352,6 +4396,19 @@
     }
    ]
   },
+  "dior:2025-10-01:rtw": {
+   "house": "dior",
+   "date": "2025-10-01",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "ReadTimeout"
+   }
+  },
   "dior:2026-01-21:men": {
    "house": "dior",
    "date": "2026-01-21",
@@ -4872,6 +4929,19 @@
      "score": 18.0
     }
    ]
+  },
+  "dolce_gabbana:2025-09-27:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2025-09-27",
+   "season": "2026 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dolcegabbana.com": "ReadTimeout"
+   }
   },
   "dolce_gabbana:2026-01-17:men": {
    "house": "dolce_gabbana",
@@ -9396,7 +9466,10 @@
    "status": "none",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "seeds": [
+    "www.jacquemus.com/collection/"
+   ]
   },
   "jacquemus:2015-09-29:rtw": {
    "house": "jacquemus",
@@ -9476,7 +9549,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "jacquemus.com": "HTTP 504"
+    "jacquemus.com": "ConnectionError"
    },
    "seeds": [
     "www.jacquemus.com/collection/"
@@ -9527,7 +9600,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "jacquemus.com": "ConnectionError"
+    "jacquemus.com": "ReadTimeout"
    },
    "seeds": [
     "www.jacquemus.com/collection/"
@@ -9538,13 +9611,10 @@
    "date": "2020-01-18",
    "season": "2020 AW men",
    "category": "men",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
    "candidates": [],
-   "errors": {
-    "jacquemus.com": "ReadTimeout"
-   },
    "seeds": [
     "www.jacquemus.com/collection/"
    ]
@@ -9567,13 +9637,10 @@
    "date": "2022-12-12",
    "season": "2023 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
    "candidates": [],
-   "errors": {
-    "jacquemus.com": "ReadTimeout"
-   },
    "seeds": [
     "www.jacquemus.com/collection/"
    ]
@@ -9596,13 +9663,10 @@
    "date": "2024-01-29",
    "season": "2024 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
    "pages": 0,
    "candidates": [],
-   "errors": {
-    "jacquemus.com": "ReadTimeout"
-   },
    "seeds": [
     "www.jacquemus.com/collection/"
    ]
@@ -15796,6 +15860,32 @@
     }
    ]
   },
+  "stella_mccartney:2017-03-06:rtw": {
+   "house": "stella_mccartney",
+   "date": "2017-03-06",
+   "season": "2017 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ReadTimeout"
+   }
+  },
+  "stella_mccartney:2017-10-02:rtw": {
+   "house": "stella_mccartney",
+   "date": "2017-10-02",
+   "season": "2018 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "stellamccartney.com": "ReadTimeout"
+   }
+  },
   "stella_mccartney:2018-03-05:rtw": {
    "house": "stella_mccartney",
    "date": "2018-03-05",
@@ -16104,7 +16194,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "ReadTimeout"
+    "therow.com": "ConnectionError"
    }
   },
   "the_row:2023-09-27:rtw": {
@@ -16117,7 +16207,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "ReadTimeout"
+    "therow.com": "HTTP 504"
    }
   },
   "the_row:2024-02-28:rtw": {
@@ -17647,7 +17737,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2006
+   "pages": 62
   },
   "dior": {
    "prefixes": [
@@ -17656,22 +17746,19 @@
     "www.dior.com/en_us/mens-fashion/",
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
     "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/womens-fashion/"
    ],
-   "pages": 973
+   "pages": 1390
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
-    "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/women/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/men/shoes/dolcegabbana-havaianas-collection/",
-    "www.dolcegabbana.com/en-fi/fashion/men/dg-essentials-collection/accessories-and-shoes/"
+    "www.dolcegabbana.com/child/collection/"
    ],
-   "pages": 3637
+   "pages": 2202
   },
   "dries_van_noten": {
    "prefixes": [
@@ -17884,7 +17971,7 @@
     "www.therow.com/en-at/collections/",
     "www.therow.com/en-eu/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/collections/women-039-s-fall-winter-2019_grd31/"
+    "www.therow.com/collections/women-039-s-resort-2020_grd38/"
    ],
    "pages": 904
   },
@@ -17915,10 +18002,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/"
+    "www.balmain.com/en_us/show/",
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 515
+   "pages": 513
   },
   "schiaparelli": {
    "prefixes": [
@@ -17945,9 +18032,9 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/ru/fashion-show/kids_section/"
+    "www.stellamccartney.com/fi/en/stellas-world/"
    ],
-   "pages": 1348
+   "pages": 1420
   },
   "issey_miyake": {
    "prefixes": [
@@ -17960,8 +18047,8 @@
  "summary": {
   "by_status": {
    "found": 585,
-   "index failed": 87,
-   "none": 383
+   "index failed": 92,
+   "none": 384
   },
   "by_house": {
    "alaia": {
@@ -17969,7 +18056,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 11,
+    "shows": 13,
     "found": 3
    },
    "balenciaga": {
@@ -18009,11 +18096,11 @@
     "found": 0
    },
    "dior": {
-    "shows": 24,
+    "shows": 25,
     "found": 18
    },
    "dolce_gabbana": {
-    "shows": 22,
+    "shows": 23,
     "found": 18
    },
    "dries_van_noten": {
@@ -18101,7 +18188,7 @@
     "found": 29
    },
    "stella_mccartney": {
-    "shows": 15,
+    "shows": 17,
     "found": 7
    },
    "the_row": {
@@ -18135,11 +18222,11 @@
     "found": 60
    },
    "2017": {
-    "shows": 95,
+    "shows": 96,
     "found": 62
    },
    "2018": {
-    "shows": 94,
+    "shows": 95,
     "found": 35
    },
    "2019": {
@@ -18167,11 +18254,11 @@
     "found": 53
    },
    "2025": {
-    "shows": 76,
+    "shows": 77,
     "found": 44
    },
    "2026": {
-    "shows": 104,
+    "shows": 107,
     "found": 53
    },
    "2027": {
