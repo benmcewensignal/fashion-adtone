@@ -480,7 +480,8 @@ def load_images(reader: str = "qwen3", vec: str = "clip", axes: list[str] | None
                 seen.add(key)
                 out.append({"house": row["house_id"], "month": row["month"], "sha": s, "out": answers[s],
                             "type": TYPES.get(answers[s].get("creative_type"), "other"), "period": period_of(row["month"]),
-                            "vec": vecs[s], "dup": dup.get(s)})
+                            "vec": vecs[s], "dup": dup.get(s),
+                            **({"nodup": True} if vec != "clip" and dup.get(s) is None else {})})
     return out
 
 

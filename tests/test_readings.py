@@ -236,6 +236,11 @@ def test_crops_are_found_by_the_fingerprint_kept_apart():
     a = {"house": "a", "month": "2024-01", "sha": "x", "vec": np.array([1.0, 2.0]), "dup": c}
     b = {"house": "a", "month": "2024-01", "sha": "y", "vec": np.array([5.0, -3.0]), "dup": c}
     assert len(R.duplicate_pairs([a, b])) == 1
+    # a picture with no fingerprint yet, whose vector is two positions, is set against no fingerprint and no
+    # other picture's positions: it is simply not paired
+    d = {"house": "a", "month": "2024-01", "sha": "w", "vec": np.array([1.0, 2.0]), "dup": None, "nodup": True}
+    e = {"house": "a", "month": "2024-01", "sha": "v", "vec": np.array([1.0, 2.0]), "dup": None, "nodup": True}
+    assert len(R.duplicate_pairs([a, b, d, e])) == 1
 
 
 def test_brands_moving_towards_the_brand_of_the_moment_are_found_and_still_brands_are_not():

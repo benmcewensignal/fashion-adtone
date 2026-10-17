@@ -118,7 +118,11 @@ def _similarity(C: np.ndarray) -> np.ndarray:
 
 def _dupvec(im):
     """The vector that says two pictures are crops of one picture: the fingerprint, kept apart under "dup"
-    when the picture's vector is something else."""
+    when the picture's vector is something else. A picture whose vector is something else and that has no
+    fingerprint yet ("nodup") cannot be told a crop of another: its vector (two positions, say) says nothing
+    about that, and cannot be set against a fingerprint."""
+    if im.get("nodup"):
+        return None
     return im["dup"] if im.get("dup") is not None else im["vec"]
 
 

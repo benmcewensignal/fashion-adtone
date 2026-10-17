@@ -219,6 +219,7 @@ def test_the_new_instrument_is_loaded_as_readings_takes_it(tmp_path, monkeypatch
                                                                ("2024-02", "x", "campaign")]
     assert abs(ims[0]["vec"][0] - 1.0) < 1e-9 and abs(ims[1]["vec"][0] + 1.0) < 1e-9       # standard units
     assert ims[0]["dup"] is None and ims[0]["period"] == "2024H1"
+    assert ims[0]["nodup"] is True             # no fingerprint on file: its positions are not taken for one
     assert len(L.load_images("qwen3", "positions", axes=["opulent"])) == 3
 
 

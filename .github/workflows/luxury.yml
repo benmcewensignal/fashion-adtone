@@ -14,6 +14,7 @@ run-name: luxury ${{ inputs.mode || 'kick' }}
 #         judged by the rules frozen with it (data/luxury/bakeoff_v2.json); composition for every picture
 # read-v2: deploy, then every picture on what went forward in v2 (data/luxury/plan-v2.json): tone-v2,
 #         the kept axes' comparisons, positions, composition, and the readings (data/results/luxury-v2.json)
+# analyse-v2: the readings of read-v2 alone, on what is already read (data/results/luxury-v2.json)
 # Editing .github/kick/luxury starts a run; its first word is the mode.
 on:
   workflow_dispatch:
@@ -21,7 +22,7 @@ on:
       mode:
         type: choice
         default: fetch
-        options: [fetch, deploy, bakeoff, read, check, embed, analyse, all, v2, read-v2]
+        options: [fetch, deploy, bakeoff, read, check, embed, analyse, all, v2, read-v2, analyse-v2]
   push:
     branches: [main]
     paths: [".github/kick/luxury"]
@@ -55,7 +56,7 @@ jobs:
         run: |
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ]; then mode=$(head -1 .github/kick/luxury | awk '{print $1}'); fi
-          case "$mode" in fetch|deploy|bakeoff|read|check|embed|analyse|all|v2|read-v2) ;; *) mode=fetch ;; esac
+          case "$mode" in fetch|deploy|bakeoff|read|check|embed|analyse|all|v2|read-v2|analyse-v2) ;; *) mode=fetch ;; esac
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "luxury mode: $mode"
       - name: Install
@@ -159,7 +160,7 @@ jobs:
           python -m adtone.luxury positions --reader qwen3 --instrument v2 2>&1 | tee -a /tmp/luxury.log || echo "::warning::positions stopped"
           python -m adtone.luxury composition --budget 30 2>&1 | tee -a /tmp/luxury.log || echo "::warning::composition stopped"
       - name: "v2: the readings"
-        if: steps.m.outputs.mode == 'read-v2'
+        if: steps.m.outputs.mode == 'read-v2' || steps.m.outputs.mode == 'analyse-v2'
         continue-on-error: true
         timeout-minutes: 45
         run: set -o pipefail; python -m adtone.luxury analyse --instrument v2 2>&1 | tee -a /tmp/luxury.log
