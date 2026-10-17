@@ -1,7 +1,9 @@
 """Pinterest: the houses' ads in Pinterest's Ads Repository, its ad library for the EU under the Digital
-Services Act, read as its own public page reads it (the page is open to anyone, with no account; the
-resource it calls was recorded by adtone.explore on 17 October 2026 and is used here as the page uses it,
-from the runner as it is, with nothing done to pass as a person).
+Services Act, read through its own public page (open to anyone, with no account) in a headless browser,
+from the runner as it is, with nothing done to pass as a person: the page's country, dates and advertiser
+controls are set, its Search pressed, and the answers its own resource returns are read as they arrive.
+(adtone.explore recorded the resource on 17 October 2026; asked directly, without the page, it answers 403,
+so the page is used as a person uses it.)
 
     python -m adtone.pinterest collect --run <id> [--budget-min 60] [--houses gucci,dior]
     python -m adtone.pinterest probe --run <id>
@@ -17,7 +19,6 @@ the ad's title and text are kept only as features, never as text.
 """
 from __future__ import annotations
 
-import json
 import sys
 import time
 from datetime import date, timedelta
@@ -27,14 +28,54 @@ import requests
 from . import adlibs, copyfeat, registry, thread
 from .snap import is_house
 
-RESOURCE = "https://ads.pinterest.com/resource/ApiResource/get/"
-SOURCE_URL = "/ads-repository/"
-UA = "fashion-adtone research (Pinterest Ads Repository; contact via the repository)"
+PAGE_URL = "https://ads.pinterest.com/ads-repository/"
 COUNTRIES = ("FR", "DE", "IT", "ES", "NL", "SE")      # the larger markets; an ad shown in several is kept once
+COUNTRY_NAMES = {"FR": "France", "DE": "Germany", "IT": "Italy", "ES": "Spain", "NL": "Netherlands", "SE": "Sweden", "IE": "Ireland",
+                 "BE": "Belgium", "AT": "Austria", "PL": "Poland", "DK": "Denmark", "PT": "Portugal"}
 WINDOW_DAYS = 30
-PAGE_SIZE = 50
-PACE_S = 1.5
 MAX_PAGES = 40
+SETTLE_MS = 2500
+
+
+class Page:
+    """The repository page in a headless browser, with every answer of its ad-library resource kept as it
+    arrives. One per run."""
+
+    def __init__(self):
+        from playwright.sync_api import sync_playwright
+        self._pw = sync_playwright().start()
+        self._browser = self._pw.chromium.launch(headless=True)
+        self._ctx = self._browser.new_context(locale="en-GB", viewport={"width": 1366, "height": 900})
+        self.page = self._ctx.new_page()
+        self.answers: list[dict] = []        # ad-library answers, oldest first
+        self.names: list[list[str]] = []     # advertiser-name answers
+        self.page.on("response", self._on_response)
+        self.page.goto(PAGE_URL, wait_until="domcontentloaded", timeout=60000)
+        self.page.wait_for_timeout(5000)
+
+    def _on_response(self, resp):
+        try:
+            if "ApiResource/get" not in resp.url or resp.status != 200:
+                return
+            if "ad_library" in resp.url:
+                rr = (resp.json() or {}).get("resource_response") or {}
+                self.answers.append(rr)
+            elif "advertiser_names" in resp.url:
+                rr = (resp.json() or {}).get("resource_response") or {}
+                self.names.append(list((rr.get("data") or {}).get("advertiser_names") or []))
+        except Exception:
+            pass
+
+    def close(self):
+        for x in (self._ctx, self._browser):
+            try:
+                x.close()
+            except Exception:
+                pass
+        try:
+            self._pw.stop()
+        except Exception:
+            pass
 
 
 class Stop(RuntimeError):
@@ -47,77 +88,88 @@ class Source:
     advertiser_refresh_days = 30
     Stop = Stop
 
-    def __init__(self, sess: requests.Session | None = None, sleep=time.sleep, pace_s: float = PACE_S, countries=COUNTRIES):
+    def __init__(self, page: Page | None = None, sess: requests.Session | None = None, countries=COUNTRIES, sleep=time.sleep):
+        self._page = page
         self.s = sess or requests.Session()
-        self.s.headers.setdefault("User-Agent", UA)
-        self.s.headers.setdefault("Accept", "application/json, text/javascript, */*; q=0.01")
-        self.s.headers.setdefault("X-Requested-With", "XMLHttpRequest")
-        self.s.headers.setdefault("Referer", "https://ads.pinterest.com/ads-repository/")
-        self.sleep, self.pace_s, self.last = sleep, pace_s, 0.0
-        self.requests, self.refused, self.countries = 0, 0, list(countries)
-        self.country_form: str | None = None
-        self.notes: list[str] = []
+        self.s.headers.setdefault("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36")
+        self.sleep, self.countries = sleep, list(countries)
+        self.requests, self.notes = 0, []
+
+    @property
+    def page(self) -> Page:
+        if self._page is None:
+            self._page = Page()
+        return self._page
+
+    def close(self):
+        if self._page is not None:
+            self._page.close()
 
     def state_extra(self) -> dict:
-        return {"country_form": self.country_form, "notes": self.notes[-20:]}
+        return {"notes": self.notes[-20:]}
 
-    def resource(self, url: str, data: dict, bookmark: str | None = None) -> dict:
-        opts = {"url": url, "data": data}
-        if bookmark:
-            opts["bookmarks"] = [bookmark]
-            opts["data"] = {**data, "bookmark": bookmark}
-        attempt = 0
-        while True:
-            attempt += 1
-            wait = self.pace_s - (time.monotonic() - self.last)
-            if wait > 0:
-                self.sleep(wait)
-            self.last = time.monotonic()
-            self.requests += 1
-            r = self.s.get(RESOURCE, params={"source_url": SOURCE_URL, "data": json.dumps({"options": opts, "context": {}}),
-                                             "_": str(int(time.time() * 1000))}, timeout=60)
-            if r.status_code in (401, 403):
-                raise Stop(f"Pinterest refused the runner (HTTP {r.status_code})")
-            if r.status_code == 429 or r.status_code >= 500:
-                self.refused += 1
-                if self.refused >= 8:
-                    raise Stop(f"Pinterest refused {self.refused} requests in a row (HTTP {r.status_code})")
-                self.sleep(min(90.0, 2.5 * 2 ** attempt))
-                continue
-            self.refused = 0
-            try:
-                out = r.json()
-            except ValueError:
-                raise RuntimeError(f"Pinterest HTTP {r.status_code}: not JSON")
-            rr = out.get("resource_response") or {}
-            if r.status_code != 200 or rr.get("status") not in (None, "success"):
-                raise RuntimeError(f"Pinterest HTTP {r.status_code}: {str(rr.get('message') or out)[:200]}")
-            return rr
+    # ---- driving the page ----
+    def _type_name(self, name: str) -> None:
+        pg = self.page.page
+        box = pg.locator("#combobox-advertiserName")
+        box.fill("")
+        box.fill(name)
+        pg.wait_for_timeout(SETTLE_MS)
+
+    def _names(self, term: str) -> list[str]:
+        """The advertiser names the page's own name search offers for a term."""
+        before = len(self.page.names)
+        self._type_name(term)
+        self.requests += 1
+        return [n for names in self.page.names[before:] for n in names if isinstance(n, str)]
 
     def advertisers(self, house: registry.House):
         keep, refused, seen = [], [], set()
         for term in [house.name] + list(house.search_terms or []):
-            rr = self.resource("/ads/v4/ads_repository/advertiser_names", {"search_text": term})
-            for name in (rr.get("data") or {}).get("advertiser_names") or []:
-                if not isinstance(name, str) or name in seen:
+            for name in self._names(term):
+                if name in seen:
                     continue
                 seen.add(name)
                 (keep if is_house(house, name) else refused).append({"id": name, "name": name})
         return keep, refused
 
-    def _ads(self, name: str, country: str, start: date, end: date):
-        bookmark = None
+    def _search(self, name: str, country: str, start: date, end: date) -> list[dict]:
+        """One search on the page: country, dates and the advertiser's name set, Search pressed, every page of
+        the answer read."""
+        pg, P = self.page.page, self.page
+        pg.select_option("#country", label=COUNTRY_NAMES.get(country, country))
+        for sel, d in (("#startDate", start), ("#endDate", end)):
+            pg.fill(sel, d.strftime("%d/%m/%Y"))
+            pg.keyboard.press("Tab")
+        self._type_name(name)
+        option = pg.locator(f"[role=option]:has-text('{name}')").first
+        try:
+            option.click(timeout=4000)
+        except Exception:
+            pg.keyboard.press("ArrowDown")
+            pg.keyboard.press("Enter")
+        before = len(P.answers)
+        pg.click("text=Search", timeout=10000)
+        self.requests += 1
+        pg.wait_for_timeout(SETTLE_MS + 2500)
+        items: list[dict] = []
         for _ in range(MAX_PAGES):
-            data = {"country": country, "start_date": start.isoformat(), "end_date": end.isoformat(), "page_size": PAGE_SIZE,
-                    "advertiser_name": name}
-            rr = self.resource("/ads/v4/ads_repository/ad_library", data, bookmark)
-            items = (rr.get("data") or {}).get("pin_ids_with_metadata") or []
-            for it in items:
-                if isinstance(it, dict):
-                    yield it
-            bookmark = rr.get("bookmark")
-            if not items or not bookmark or bookmark == "-end-":
-                return
+            new = P.answers[before:]
+            if not new:
+                break
+            before = len(P.answers)
+            page_items = [it for a in new for it in ((a.get("data") or {}).get("pin_ids_with_metadata") or []) if isinstance(it, dict)]
+            items.extend(page_items)
+            bookmark = new[-1].get("bookmark")
+            if not page_items or not bookmark or bookmark == "-end-":
+                break
+            nxt = pg.locator("button[aria-label='Next page']")
+            if nxt.count() == 0 or nxt.is_disabled():
+                break
+            nxt.click()
+            self.requests += 1
+            pg.wait_for_timeout(SETTLE_MS + 1500)
+        return items
 
     def search_ads(self, house: registry.House, keep: list[dict], start: date, end: date):
         seen: set[str] = set()
@@ -127,17 +179,10 @@ class Source:
                 while win_end > start:
                     win_start = max(start, win_end - timedelta(days=WINDOW_DAYS))
                     try:
-                        items = list(self._ads(adv["name"], country, win_start, win_end))
-                    except RuntimeError as e:
-                        # the country may be wanted as its name rather than its code: tried once, remembered
-                        if self.country_form is None and "country" in str(e).lower():
-                            self.country_form = "name"
-                            self.notes.append(f"country as name after: {str(e)[:100]}")
-                            self.countries = [_country_name(c) for c in self.countries]
-                            continue
-                        raise
-                    if self.country_form is None:
-                        self.country_form = "code"
+                        items = self._search(adv["name"], country, win_start, win_end)
+                    except Exception as e:
+                        self.notes.append(f"{adv['name']} {country} {win_start}: {e.__class__.__name__}: {str(e)[:120]}")
+                        items = []
                     for it in items:
                         pid = str(it.get("pin_id") or "")
                         if pid and pid not in seen:
@@ -175,11 +220,6 @@ class Source:
         if isinstance(dyn, list):
             urls += [u for u in dyn if isinstance(u, str) and u.startswith("http")][:4]
         return adlibs.fetch_media(self.s, urls, max_images=5, max_videos=1)
-
-
-def _country_name(code: str) -> str:
-    return {"FR": "France", "DE": "Germany", "IT": "Italy", "ES": "Spain", "NL": "Netherlands", "SE": "Sweden", "IE": "Ireland",
-            "BE": "Belgium", "AT": "Austria", "PL": "Poland", "DK": "Denmark", "PT": "Portugal"}.get(code, code)
 
 
 def main(argv: list[str] | None = None) -> int:

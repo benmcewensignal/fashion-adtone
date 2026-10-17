@@ -1,7 +1,7 @@
 name: pinterest
 run-name: pinterest ${{ github.event_name }}
-# Pinterest's Ads Repository (its ad library for the EU under the DSA), read as its own public page reads it:
-# no account, no key, from the runner as it is. Weekly; the repository holds a year, so the history grows forward.
+# Pinterest's Ads Repository (its ad library for the EU under the DSA), through its own public page in a
+# headless browser: no account, no key, from the runner as it is. Weekly; the repository holds a year, so the history grows forward.
 on:
   schedule:
     - cron: "5 8 * * 4"
@@ -42,7 +42,7 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - name: Install
         timeout-minutes: 15
-        run: pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt
+        run: pip install -r requirements.txt -r requirements-embed.txt -r requirements-video.txt playwright && python -m playwright install --with-deps chromium
       - name: Cache embedder weights
         uses: actions/cache@v4
         with:
