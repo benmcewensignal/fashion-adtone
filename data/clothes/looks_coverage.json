@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T22:08:09Z",
+ "generated_at": "2026-10-17T00:34:51Z",
  "window_days": [
   -1,
   14
@@ -95,7 +95,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ReadTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -108,7 +108,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -673,7 +673,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ReadTimeout"
    }
   },
   "balmain:2016-09-29:rtw": {
@@ -686,7 +686,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ReadTimeout"
    }
   },
   "balmain:2017-01-21:men": {
@@ -1627,7 +1627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ReadTimeout"
    }
   },
   "celine:2015-03-08:rtw": {
@@ -2738,7 +2738,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -2751,7 +2751,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -4015,7 +4015,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "ConnectTimeout"
    }
   },
   "dior:2026-09-29:rtw": {
@@ -7476,7 +7476,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectTimeout"
    }
   },
   "gucci:2026-09-25:rtw": {
@@ -7489,7 +7489,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ReadTimeout"
+    "gucci.com": "ConnectTimeout"
    }
   },
   "hermes:2015-01-24:men": {
@@ -14630,7 +14630,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -14643,7 +14643,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -16043,22 +16043,21 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/ready-to-wear-shows/",
     "www.dior.com/en_us/mens-fashion/",
-    "www.dior.com/en_us/mens-fashion/collections-shows/",
-    "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/"
+    "www.dior.com/en_us/mens-fashion/collections-shows/"
    ],
-   "pages": 1212
+   "pages": 319
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
+    "www.dolcegabbana.com/en-fi/fashion/women/collection/",
     "www.dolcegabbana.com/en-fi/fashion/men/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/women/collection/"
+    "www.dolcegabbana.com/en/fashion/women/watchesandjewelry/alphabet-collection/",
+    "www.dolcegabbana.com/en/fashion/women/bags/devotion-collection/"
    ],
-   "pages": 3634
+   "pages": 3635
   },
   "dries_van_noten": {
    "prefixes": [
@@ -16108,10 +16107,11 @@
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/",
-    "www.hermes.com/us/en/men/ready-wear/",
-    "www.hermes.com/us/en/women/ready-wear/"
+    "www.hermes.com/fi/en/category/women/ready-wear/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/",
+    "www.hermes.com/fi/en/category/men/ready-wear/"
    ],
-   "pages": 884
+   "pages": 906
   },
   "gucci": {
    "prefixes": [
@@ -16119,10 +16119,11 @@
     "www.gucci.com/us/en/lo/runway/men/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/",
     "www.gucci.com/us/en/lo/runway/women/",
-    "www.gucci.com/us/en/article/",
-    "www.gucci.com/us/en/st/capsule/dionysus-collection/"
+    "www.gucci.com/us/en/st/stories/runway/",
+    "www.gucci.com/us/en/st/capsule/gucci-grip-watches-collection/",
+    "www.gucci.com/us/en/st/capsule/sylvie-collection/"
    ],
-   "pages": 921
+   "pages": 960
   },
   "loewe": {
    "prefixes": [
@@ -16279,8 +16280,8 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
    ],
    "pages": 358
@@ -16291,10 +16292,10 @@
     "fr.balmain.com/fr/experience/",
     "gb.balmain.com/gb/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/",
     "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/show/"
+    "www.balmain.com/en_us/show/",
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
    "pages": 357
   },
