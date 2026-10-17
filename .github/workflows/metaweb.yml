@@ -33,7 +33,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-      META_ACTOR: ${{ vars.META_ACTOR || 'bovi~meta-ads-library-scraper' }}
+      META_ACTOR: ${{ vars.META_ACTOR || 'apify~facebook-ads-scraper' }}
       META_COUNTRIES: ${{ vars.META_COUNTRIES || 'ALL' }}
       META_MAX_ADS: ${{ vars.META_MAX_ADS || '2000' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

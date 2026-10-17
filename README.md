@@ -170,7 +170,7 @@ key exists:
   Europe, kept by TikTok for a year after they last ran.
 - `APIFY_TOKEN`: an Apify account's API token (console.apify.com, Settings > API and integrations). The
   weekly metaweb workflow then reads Meta's Ad Library as the actor named in the `META_ACTOR` variable
-  (default bovi~meta-ads-library-scraper, paid per ad to the vendor) reads it: each house's pages found
+  (default apify~facebook-ads-scraper, Apify's own, paid per ad) reads it: each house's pages found
   once by name and kept in `data/state/metaweb.json` for checking, then their ads for the past year in
   the row shape the official API's ads take.
 

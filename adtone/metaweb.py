@@ -8,8 +8,9 @@ the API's ads, so everything downstream reads them alike.
     python -m adtone.metaweb probe --run <id>
 
 Needs APIFY_TOKEN, an Apify account's API token, in the repository's secrets. Repository variables:
-META_ACTOR (the actor, default bovi~meta-ads-library-scraper, whose records carry the EU transparency data
-as regional_regulation_data), META_COUNTRIES (the library's country filter, default ALL), META_MAX_ADS
+META_ACTOR (the actor, default apify~facebook-ads-scraper, Apify's own, whose records carry the EU transparency
+data; bovi~meta-ads-library-scraper is also understood, though its first run on 17 October carried none),
+META_COUNTRIES (the library's country filter, default ALL), META_MAX_ADS
 (ads per house per run, default 2000). Without the token the run records that it waited and stops.
 
 Each house's Facebook page ids are found once from a search by its name: the pages whose name is the
@@ -35,7 +36,8 @@ from .snap import _day, _norm, find, is_house, urls_in
 API = "https://api.apify.com/v2"
 UA = "fashion-adtone research (Apify client; contact via the repository)"
 POLL_S = 20
-DEFAULT_ACTOR = "bovi~meta-ads-library-scraper"
+DEFAULT_ACTOR = "apify~facebook-ads-scraper"      # Apify's own, which carries the EU transparency block (eu_total_reach)
+LIBRARY = "https://www.facebook.com/ads/library/"
 
 
 class Stop(RuntimeError):
@@ -122,7 +124,15 @@ class Source:
             offset += 1000
 
     def _input(self, page_ids: list[str] | None = None, terms: list[str] | None = None, max_results: int | None = None) -> dict:
-        inp = {"countries": self.countries, "adType": "all", "maxResults": max_results or self.max_ads}
+        """The actor's input: Apify's own actor takes library addresses (a page's ads, or a search by name) and a
+        results limit; bovi's takes page ids or search terms and a country list."""
+        n = max_results or self.max_ads
+        if self.actor.startswith("apify~"):
+            country = self.countries[0] if self.countries else "ALL"
+            urls = [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&search_type=page&view_all_page_id={p}" for p in page_ids or []]
+            urls += [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&q={t}&search_type=keyword_unordered" for t in terms or []]
+            return {"startUrls": [{"url": u} for u in urls], "resultsLimit": n, "activeStatus": "", "scrapeAdDetails": True}
+        inp = {"countries": self.countries, "adType": "all", "maxResults": n}
         if page_ids:
             inp["pageIds"] = page_ids
         if terms:
@@ -201,10 +211,15 @@ class Source:
         urls = []
         for key, u in urls_in(item):
             k = _norm(key)
-            if "snapshot" in k and "profile" in k:
+            if any(w in k for w in ("profile", "logo", "avatar", "watermark")):
                 continue
             if any(w in k for w in ("originalimageurl", "resizedimageurl", "videohdurl", "videosdurl", "videopreviewimageurl", "imageurl", "videourl")):
                 urls.append((0 if "original" in k or "hd" in k else 1, u))
+        # lists of addresses under a key (bovi's snapshot_images and snapshot_videos)
+        for key in ("snapshot_images", "snapshot_videos", "images", "videos", "media_urls", "mediaUrls"):
+            v = item.get(key)
+            if isinstance(v, list):
+                urls += [(0, u) for u in v if isinstance(u, str) and u.startswith("http")]
         if any(rank == 0 for rank, _ in urls):   # the full-size pictures are there: the resized copies are not fetched
             urls = [(rank, u) for rank, u in urls if rank == 0 or "preview" in u]
         urls.sort(key=lambda t: t[0])

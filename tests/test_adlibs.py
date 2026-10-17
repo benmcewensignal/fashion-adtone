@@ -194,6 +194,10 @@ def test_meta_through_the_vendor_finds_the_houses_pages_then_their_ads_in_our_ro
     assert r["beneficiary_payers"] == [{"payer": "Gucci", "beneficiary": "Gucci"}] and r["target_locations"][0]["name"] == "France"
     assert r["line"] in ("collection", "other", "season") and "copy" in r and "Shop now" not in json.dumps(rows)
     assert len(r["media"]) == 1   # the original and the resized picture are one picture
+    official = metaweb.Source(_apify_session({}), token="t", actor="apify~facebook-ads-scraper", countries="ALL", sleep=lambda s: None)
+    inp = official._input(page_ids=["100"], max_results=50)
+    assert inp["startUrls"][0]["url"].endswith("search_type=page&view_all_page_id=100") and inp["resultsLimit"] == 50 and inp["scrapeAdDetails"] is True
+    assert "q=Gucci&search_type=keyword_unordered" in official._input(terms=["Gucci"])["startUrls"][0]["url"]
 
 
 def _pin_item(i, names, country="FR"):
