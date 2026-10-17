@@ -15,6 +15,10 @@ on:
         description: "ads only, no pictures read"
         type: boolean
         default: false
+      fresh:
+        description: "search every house again, even one searched to the end this week"
+        type: boolean
+        default: false
       countries:
         description: "the library's country filter for this run (empty: the META_COUNTRIES variable, default ALL)"
         default: ""
@@ -67,6 +71,7 @@ jobs:
         run: |
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
+          if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
           python -m adtone.metaweb collect --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         if: env.APIFY_TOKEN != ''

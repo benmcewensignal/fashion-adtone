@@ -29,7 +29,7 @@ from . import adlibs, copyfeat, registry, thread
 from .snap import is_house
 
 PAGE_URL = "https://ads.pinterest.com/ads-repository/"
-COUNTRIES = ("FR", "DE", "IT", "ES", "NL", "SE")      # the larger markets; an ad shown in several is kept once
+COUNTRIES = ("FR", "DE", "IT")      # the larger markets; an ad shown in several is kept once, and most are shown in all three
 COUNTRY_NAMES = {"FR": "France", "DE": "Germany", "IT": "Italy", "ES": "Spain", "NL": "Netherlands", "SE": "Sweden", "IE": "Ireland",
                  "BE": "Belgium", "AT": "Austria", "PL": "Poland", "DK": "Denmark", "PT": "Portugal"}
 WINDOW_DAYS = 30

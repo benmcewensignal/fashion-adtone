@@ -142,11 +142,16 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             f.image.close()
         pending.clear()
 
+    st.setdefault("searched", {})        # house -> the day its year was last searched to the end
+    skip_days = getattr(src, "house_refresh_days", 6)
     try:
         for h in reg.houses:
             if clock() - t0 > budget_s:
                 stopped = "budget"
                 break
+            done = st["searched"].get(h.id)
+            if done and (today - date.fromisoformat(done)).days < skip_days:
+                continue                  # searched to the end this week already: a run cut short picks up the rest
             rec = st["advertisers"].get(h.id) or {}
             if not rec.get("checked") or (today - date.fromisoformat(rec["checked"])).days >= src.advertiser_refresh_days:
                 try:
@@ -204,6 +209,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                             f.image.close()
                     ads[row["ad_id"]] = row
                     counts["new_ads"] += 1
+                st["searched"][h.id] = today.isoformat()
             except src.Stop:
                 raise
             except Exception as e:
@@ -271,6 +277,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--no-reader", action="store_true")
     ap.add_argument("--houses", default="", help="comma-separated house ids, for a trial run")
+    ap.add_argument("--fresh", action="store_true", help="search every house again, even one searched to the end this week")
     a = ap.parse_args(argv)
     if a.stage == "probe":
         for e in probe(name, a.run):
@@ -292,7 +299,10 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
         want = {x.strip() for x in a.houses.split(",") if x.strip()}
         reg = registry.Registry(version=reg.version, status=reg.status, houses=[h for h in reg.houses if h.id in want])
     try:
-        out = collect(make_source(), reg, a.run, embedder, scorer, a.budget_min * 60)
+        src = make_source()
+        if a.fresh:
+            src.house_refresh_days = 0
+        out = collect(src, reg, a.run, embedder, scorer, a.budget_min * 60)
     except Exception as e:
         out = {"run": a.run, "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
         store.append_jsonl(paths(name)["prov"], [out])

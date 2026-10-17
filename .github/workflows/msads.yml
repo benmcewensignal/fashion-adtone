@@ -16,6 +16,10 @@ on:
         description: "ads only, no pictures read"
         type: boolean
         default: false
+      fresh:
+        description: "search every house again, even one searched to the end this week"
+        type: boolean
+        default: false
   push:   # editing .github/kick/msads starts a run
     branches: [main]
     paths: [".github/kick/msads"]
@@ -59,6 +63,7 @@ jobs:
         run: |
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
+          if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
           python -m adtone.msads collect --run "gh${GITHUB_RUN_ID}" --budget-min 40 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         continue-on-error: true
