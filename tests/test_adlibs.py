@@ -276,7 +276,7 @@ def test_without_the_reader_the_pictures_wait_and_the_read_stage_takes_them_late
     # the read stage, within a budget that lets two ads through
     clock = iter([0, 0, 0, 1, 9999, 9999, 9999])
     out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
-                              sess=sess, today=date(2026, 10, 17), clock=lambda: next(clock))
+                              sess=sess, today=date(2026, 10, 17), clock=lambda: next(clock), chunk_ads=1, fetch_workers=1)
     assert out["ads_read"] == 2 and out["ads_left"] == 1 and out["stopped"] == "budget" and out["pictures"] >= 1
     rows = {r["ad_id"]: r for r in store.read_jsonl(adlibs.paths("snap")["ads"] / "gucci.jsonl")}
     done = [r for r in rows.values() if "media_pending" not in r]

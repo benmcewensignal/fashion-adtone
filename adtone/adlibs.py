@@ -415,15 +415,45 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
 DYNAMIC = ("DCO", "DPA")     # Meta's dynamic-creative and catalogue units: product feeds assembled by the platform
 
 
+FETCH_WORKERS = int(os.environ.get("ADTONE_FETCH_WORKERS") or 8)    # ads whose pictures are fetched at once
+CHUNK_ADS = 12                                                        # ads fetched together, then taken in order
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+
+
 def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, budget_s: float = 60 * 60,
-                 sess=None, today: date | None = None, clock=time.monotonic, skip_dynamic: bool = False) -> dict:
+                 sess=None, today: date | None = None, clock=time.monotonic, skip_dynamic: bool = False,
+                 fetch_workers: int = FETCH_WORKERS, chunk_ads: int = CHUNK_ADS) -> dict:
     """The pictures kept aside by runs without the reader: fetched, fingerprinted and read, house by house,
     each ad's row completed as it goes; what the budget leaves waits for the next run. With skip_dynamic,
-    the dynamic and catalogue units are left for later and the made pictures read first."""
+    the dynamic and catalogue units are left for later and the made pictures read first. The pictures of a
+    few ads are fetched at once (most of the stage's time was the downloads, one after another), and taken
+    into the rows in the ads' order."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
     P = paths(name)
     today = today or datetime.now(timezone.utc).date()
+    given = sess
     sess = sess or requests.Session()
-    sess.headers.setdefault("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36")
+    sess.headers.setdefault("User-Agent", UA)
+    local = threading.local()
+
+    def session():
+        if given is not None and not isinstance(given, requests.Session):
+            return given                  # a stand-in (the tests'): shared
+        s = getattr(local, "s", None)
+        if s is None:                     # a session of its own for each fetching thread
+            s = requests.Session()
+            s.headers.update(sess.headers)
+            local.s = s
+        return s
+
+    def fetch(pr: dict):
+        try:        # one video of moderate size per ad unless the source said otherwise: three stills need no more
+            return fetch_media(session(), pr["urls"], **{"max_videos": 1, "max_video_bytes": 25_000_000, **(pr.get("kw") or {})}), None
+        except (requests.RequestException, MediaError, OSError, ValueError) as e:
+            return [], f"{e.__class__.__name__}: {str(e)[:120]}"
+
+    pool = ThreadPoolExecutor(max_workers=max(1, fetch_workers))
     t0 = clock()
     counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0, "dynamic_left": 0}
     taker = Taker(P, run, embedder, scorer, counts)
@@ -447,26 +477,28 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
             path = P["ads"] / f"{h.id}.jsonl"
             ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
             done = []
+            order = sorted(pend.items(), key=lambda kv: (kv[1].get("first_shown") or "", kv[0]), reverse=True)
             try:
-                for ad_id, pr in sorted(pend.items(), key=lambda kv: (kv[1].get("first_shown") or "", kv[0]), reverse=True):
+                for i in range(0, len(order), max(1, chunk_ads)):
                     if clock() - t0 > budget_s:
                         stopped = "budget"
                         break
                     if taker.all_off:
                         break
-                    row = ads.get(ad_id)
-                    if row is None:          # the ad's row is gone: nothing to complete
+                    chunk = order[i:i + max(1, chunk_ads)]
+                    done += [ad_id for ad_id, _ in chunk if ad_id not in ads]     # the ad's row is gone: nothing to complete
+                    todo = [(ad_id, pr) for ad_id, pr in chunk if ad_id in ads]
+                    got = list(pool.map(lambda kv: fetch(kv[1]), todo)) if len(todo) > 1 and fetch_workers > 1 \
+                        else [fetch(pr) for _, pr in todo]
+                    for (ad_id, pr), (media, err) in zip(todo, got):
+                        row = ads[ad_id]
+                        if err:
+                            row["media_error"] = err
+                            counts["media_errors"] += 1
+                        taker.take(row, media, h.id, today)
+                        row.pop("media_pending", None)
+                        counts["ads_read"] += 1
                         done.append(ad_id)
-                        continue
-                    try:        # one video of moderate size per ad unless the source said otherwise: three stills need no more
-                        media = fetch_media(sess, pr["urls"], **{"max_videos": 1, "max_video_bytes": 25_000_000, **(pr.get("kw") or {})})
-                    except (requests.RequestException, MediaError, OSError, ValueError) as e:
-                        media, row["media_error"] = [], f"{e.__class__.__name__}: {str(e)[:120]}"
-                        counts["media_errors"] += 1
-                    taker.take(row, media, h.id, today)
-                    row.pop("media_pending", None)
-                    counts["ads_read"] += 1
-                    done.append(ad_id)
             finally:
                 taker.flush()
                 for ad_id in [a for a in done if a in taker.dropped]:      # the service failed on it: read again later
@@ -485,6 +517,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
             counts["houses"] += 1
     except ScoreError as e:
         stopped = f"reader: {str(e)[:200]}"
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
     taker.save()
     if taker.status():
         stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
