@@ -1,11 +1,5 @@
 {
-  "complete": [
-    "balmain",
-    "lanvin",
-    "mcqueen",
-    "schiaparelli",
-    "the_row"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-13",
     "armani": "2026-10-14",
@@ -45,7 +39,7 @@
     "versace": "2026-10-12",
     "zegna": "2026-10-14"
   },
-  "end": "2026-10-15",
+  "end": "2026-10-16",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -91,7 +85,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh38978798844",
+  "run": "gh39004299476",
   "span": {},
-  "updated_at": "2026-10-16T23:39:38Z"
+  "updated_at": "2026-10-17T05:17:28Z"
 }
