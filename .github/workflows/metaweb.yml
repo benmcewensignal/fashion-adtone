@@ -24,6 +24,10 @@ on:
         type: choice
         options: [collect, read]
         default: collect
+      skip_dynamic:
+        description: "read stage: the made pictures first, the dynamic and catalogue units left for later"
+        type: boolean
+        default: true
       fresh:
         description: "search every house again, even one searched to the end this week"
         type: boolean
@@ -94,6 +98,7 @@ jobs:
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
           if [ "${{ github.event.inputs.rematch }}" = "true" ]; then EXTRA="$EXTRA --rematch"; fi
+          if [ "${{ github.event.inputs.skip_dynamic }}" != "false" ]; then EXTRA="$EXTRA --skip-dynamic"; fi
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
           python -m adtone.metaweb "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe

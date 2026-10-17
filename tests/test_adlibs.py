@@ -285,8 +285,18 @@ def test_without_the_reader_the_pictures_wait_and_the_read_stage_takes_them_late
     assert len(left) == 1 and rows[left[0]["ad_id"]]["media_pending"]
     obs = store.read_jsonl(adlibs.paths("snap")["obs"] / f"{load_rubric().version}.jsonl")
     assert len(obs) >= 1 and all(o["status"] == "ok" for o in obs)
-    # the rest on the next run
+    # a dynamic unit is left for later when asked, and read when not
+    path = adlibs.paths("snap")["ads"] / "gucci.jsonl"
+    rows = store.read_jsonl(path)
+    for r in rows:
+        if r.get("media_pending"):
+            r["display_format"] = "DCO"
+    store.write_jsonl(path, rows)
     out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r3", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
+                              sess=sess, today=date(2026, 10, 17), skip_dynamic=True)
+    assert out["ads_read"] == 0 and out["dynamic_left"] == 1 and len(store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")) == 1
+    # the rest on the next run
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r4", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
                               sess=sess, today=date(2026, 10, 17))
     assert out["ads_read"] == 1 and out["ads_left"] == 0 and out["stopped"] is None
     assert not store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")

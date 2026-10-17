@@ -329,22 +329,32 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     return out
 
 
+DYNAMIC = ("DCO", "DPA")     # Meta's dynamic-creative and catalogue units: product feeds assembled by the platform
+
+
 def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, budget_s: float = 60 * 60,
-                 sess=None, today: date | None = None, clock=time.monotonic) -> dict:
+                 sess=None, today: date | None = None, clock=time.monotonic, skip_dynamic: bool = False) -> dict:
     """The pictures kept aside by runs without the reader: fetched, fingerprinted and read, house by house,
-    each ad's row completed as it goes; what the budget leaves waits for the next run."""
+    each ad's row completed as it goes; what the budget leaves waits for the next run. With skip_dynamic,
+    the dynamic and catalogue units are left for later and the made pictures read first."""
     P = paths(name)
     today = today or datetime.now(timezone.utc).date()
     sess = sess or requests.Session()
     sess.headers.setdefault("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36")
     t0 = clock()
-    counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0}
+    counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0, "dynamic_left": 0}
     taker = Taker(P, run, embedder, scorer, counts)
     stopped = None
     try:
         for h in reg.houses:
             pend_path = P["pending"] / f"{h.id}.jsonl"
-            pend = {r["ad_id"]: r for r in store.read_jsonl(pend_path)}
+            pend_all = {r["ad_id"]: r for r in store.read_jsonl(pend_path)}
+            later = {}
+            if skip_dynamic and pend_all:
+                formats = {r["ad_id"]: r.get("display_format") for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
+                later = {k: v for k, v in pend_all.items() if (formats.get(k) or "") in DYNAMIC}
+                counts["dynamic_left"] += len(later)
+            pend = {k: v for k, v in pend_all.items() if k not in later}
             if not pend:
                 continue
             if clock() - t0 > budget_s:
@@ -378,7 +388,7 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                                                reverse=True))
                 for ad_id in done:
                     pend.pop(ad_id, None)
-                store.write_jsonl(pend_path, sorted(pend.values(), key=lambda r: r["ad_id"]))
+                store.write_jsonl(pend_path, sorted({**pend, **later}.values(), key=lambda r: r["ad_id"]))
                 counts["ads_left"] += len(pend)
                 taker.save()
             counts["houses"] += 1
@@ -421,6 +431,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--no-reader", action="store_true")
     ap.add_argument("--no-clothes", action="store_true", help="the eighteen questions only, not the clothes")
+    ap.add_argument("--skip-dynamic", action="store_true", help="read stage: leave the dynamic and catalogue units for later")
     ap.add_argument("--houses", default="", help="comma-separated house ids, for a trial run")
     ap.add_argument("--fresh", action="store_true", help="search every house again, even one searched to the end this week")
     ap.add_argument("--rematch", action="store_true", help="match every house's advertiser accounts again first")
@@ -454,7 +465,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
         if scorer is None:
             return waiting(name, a.run, "no reader for the read stage")
         try:
-            out = read_pending(name, reg, a.run, embedder, scorer, a.budget_min * 60)
+            out = read_pending(name, reg, a.run, embedder, scorer, a.budget_min * 60, skip_dynamic=a.skip_dynamic)
         except Exception as e:
             out = {"run": a.run, "stage": "read", "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
             store.append_jsonl(paths(name)["prov"], [out])
