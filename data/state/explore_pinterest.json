@@ -1,0 +1,2035 @@
+{
+  "at": "2026-10-17T08:36:26Z",
+  "block_words": [],
+  "body_chars": 14798,
+  "calls": [
+    {
+      "content_type": "text/html",
+      "key": "GET https://ads.pinterest.com/ads-repository/",
+      "query_keys": [],
+      "status": 200,
+      "type": "document"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/gestalt-fba5572bcdbeebf2.css",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/sterling/_client-54c3c73994ab8ba9.css",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Regular-708c49dd.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Medium-704a4f34.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Heavy-2b6abf8c.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/polyfills-c553f004bae058a3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository-a9570b48de80ce80.css",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/88708.en_GB-01a7e5d994edeb5e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/83881-03afa506052fc6f8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/92910-20b7c466cdc734e0.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/9317-9bcd45ec053cd8e6.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/1068-8dcd0732d1f50d38.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/16399-99eded5a9261b397.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/84269-fe802395dc0710e2.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/32123-2d92638a31a21857.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/41678-c87e4b54164cc236.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/14340-e142c613701fc63b.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21101-ac072d63e43358a5.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/43713-f88064a3f293b89f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "font/woff2",
+      "key": "GET https://s.pinimg.com/webapp/Pin-Sans-MacOS-Bold-ce475d98.woff2",
+      "query_keys": [],
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/13031-90411defe7594720.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/73704-f0e1d6711340938b.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44175-fa362a588feaf0b7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/88778.en_GB-45f6338d8984805f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/14157-e513b36f89b4156d.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/28236-f61666ad4ca82e1e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/34481-5b59931d42e72355.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/44442-b33eb5b4b0c5d7c7.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/16013.en_GB-fe5dcf5d1714ffbf.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17545-a1fe8781838ae865.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21869-8bfdb11854c3b7f5.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/24266-0b480fef3e44021b.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/51323-03887acc5cf1d709.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/30791.en_GB-8146f7c9aae6d0ae.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/90392.en_GB-fdb30ab5043089ad.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/10297.en_GB-81410a5e6626ab1b.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/40264-b1360ce0af2a8202.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17962.en_GB-cf80a4944888d1e8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/25667-d9831e01c79022bf.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/27940.en_GB-35650c0c00bf0b96.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/39195.en_GB-5cae09cb9f0cd3e3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/41130-8f0f852c667c5130.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/58315.en_GB-9fdb2097c6abd7c0.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/566-441a98eedb907231.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/59100-6944faa01c657643.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/93668.en_GB-b86f08bf90f912c3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-LocaleDataLoader-cfc132080745cfd1.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/92264.en_GB-93936ba4622ffbc9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/91654.en_GB-fd508bd97a0656f6.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/95383.en_GB-936f1fa99aeb9ebb.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/13686.en_GB-63e8aceb01a8053a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/96150.en_GB-68446bf0b60c6b02.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/17603.en_GB-89f911be93d6befb.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/21125.en_GB-aa62e2d740552654.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/27730.en_GB-e09e182a1ca97a47.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/35330-97ed3a1883bceb74.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/32390.en_GB-33e1d369f81ff43c.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/50365.en_GB-375981faae66f927.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/55344.en_GB-eaa2eedbf473b882.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/58693.en_GB-3bb4dd8e53f21868.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/60589-f5e871521ab570b8.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/61911-f979e9a1ef012f14.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/10339.en_GB-e5ec059a492cba3a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/58875.en_GB-095ce2e4aa46e1db.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/64423.en_GB-f0fca8911143c01e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/runtime.en_GB-7bbcd6102ea8c4ea.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/65633-76cb56bd8efa1e37.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/65966.en_GB-d5b5b28c2998444f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/66885-7c5cb5c155a2d5ce.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/64845.en_GB-499563f1e33a149c.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/70075.en_GB-858632fb6dd6950d.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/70725-c8a04785e14e7a02.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/62820.en_GB-ac745d8534f3527a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/74407-f8e3cc2186acc94f.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/73160.en_GB-a1b0fe1b6c3617b9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/76262.en_GB-359fa0583e187372.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/75508-04a862185b9e2a70.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/76300.en_GB-f167cb53b60bd5bd.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/78293.en_GB-37a3d504553eb128.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/76580-8ba914f3740609f9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/96092.en_GB-120cb06187337ae3.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/8198.en_GB-c1786e35155c1f57.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/99414.en_GB-70a32999911baff9.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/vendor-papaparse-e397b7df09a15d9c.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/gestalt-2bdabd81191c5484.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/sterling/_client.en_GB-8fff9a40867b44f0.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/vendor-react-9324cf244efc150a.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/sterling/ads-repository.en_GB-6c9cd228035fe96e.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "",
+      "key": "POST https://ads.pinterest.com/_/_/csp_report/",
+      "post_json_shape": {
+        "csp-report": {
+          "blocked-uri": "str",
+          "column-number": "int",
+          "disposition": "str",
+          "document-uri": "str",
+          "effective-directive": "str",
+          "line-number": "int",
+          "original-policy": "str",
+          "referrer": "str",
+          "script-sample": "str",
+          "source-file": "str",
+          "status-code": "int",
+          "violated-directive": "str"
+        }
+      },
+      "query_keys": [
+        "rid"
+      ],
+      "status": 204,
+      "type": "other"
+    },
+    {
+      "content_type": "",
+      "key": "POST https://ads.pinterest.com/_/_/storage_report/",
+      "post_json_shape": {
+        "storage-report": {
+          "get": [
+            "str"
+          ],
+          "remove": [],
+          "set": []
+        }
+      },
+      "query_keys": [],
+      "status": 204,
+      "type": "fetch"
+    },
+    {
+      "content_type": "",
+      "key": "POST https://ads.pinterest.com/_/_/logClientError/",
+      "post_keys": [
+        "report_context",
+        "report_data"
+      ],
+      "query_keys": [],
+      "status": 204,
+      "type": "xhr"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/locale-en_GB-data-js-24507c716a66d896.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "",
+      "key": "GET https://www.pinterest.com/_/_/ping/",
+      "query_keys": [],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/94687-5e7aef72c8507ac4.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/79657-3b5a50d12e940145.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://s.pinimg.com/webapp/94687-ebad536e260561b9.css",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "application/json",
+      "key": "GET https://ads.pinterest.com/secure/arkose_data_exchange/",
+      "query_keys": [],
+      "status": 403,
+      "type": "fetch"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://s.pinimg.com/webapp/93457-6388ae7410b3a440.mjs",
+      "query_keys": [],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/javascript",
+      "key": "GET https://accounts.google.com/gsi/client",
+      "query_keys": [
+        "hl"
+      ],
+      "status": 200,
+      "type": "script"
+    },
+    {
+      "content_type": "application/json",
+      "key": "GET https://ads.pinterest.com/resource/ApiResource/get/",
+      "query_keys": [
+        "_",
+        "data",
+        "source_url"
+      ],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "text/css",
+      "key": "GET https://accounts.google.com/gsi/style",
+      "query_keys": [],
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "content_type": "application/json",
+      "key": "GET https://ads.pinterest.com/resource/PinResource/get/",
+      "query_keys": [
+        "_",
+        "data",
+        "source_url"
+      ],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/3b/51/a7/3b51a7e305a0439261e4c49d7d37348b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/30/45/d2/3045d269fcd1b77cbcd0c793b5dcf584.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/32/35/75/323575774b02c546819bab6a4c385dfd.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/50/6e/a0/506ea09c7a2ea1845ec3fde03ce5533b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/b8/b3/1b/b8b31b5361cddae33d279b57bc9346f5.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/fa/26/d1/fa26d116845cae77656bab4b1dab7a17.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/30/cc/74/30cc743dec4756b1f5e37797292b82f9.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1e/f1/82/1ef18208cbd6fbaec7278a7efe7ef1ee.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/32/7b/71/327b711d382c72aa9a3bbdc0adba8f8e.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/8e/82/6c/8e826c1d41d720ddcb27aca8dacb350a.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/f2/c4/0c/f2c40cedb4da5dc2d05c73b5b5b6b125.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/63/f0/0c/63f00cbe62b9e4bf51acb798d6fcbdb9.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/18/e9/da/18e9da6e28f7fe45c7224ae999647ea7.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/0e/06/55/0e06559d2712d174ead6212c73922405.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/83/5a/ae/835aaef5c14ba78fb67363b330dbd662.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/24/19/30/241930e874520bff43b9b4f438f4933e.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/a6/34/1a/a6341ab76bbb6af00fb96a8deb4040fd.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/22/34/d7/2234d7d78afd65bfd1c11099ddc0c645.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/14/40/ae/1440ae5b0e971de76dcd34623983a5a6.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/1f/a0/0a/1fa00a77d0ac587c9e02d4b2c7f36625.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/e3/90/15/e390152d99de305cdcd0299fd2d86702.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/bf/e9/9e/bfe99ee6301b3758c9528e2a04807a62.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/4d/dd/1d/4ddd1d72f01a004d36677efba491186b.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "image/jpeg",
+      "key": "GET https://i.pinimg.com/474x/c3/48/29/c34829c563991d4873cc591add258a33.jpg",
+      "query_keys": [],
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "content_type": "application/json",
+      "key": "POST https://ads.pinterest.com/resource/ApiSResource/create/",
+      "post_keys": [
+        "data",
+        "source_url"
+      ],
+      "query_keys": [],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "application/json",
+      "key": "POST https://ads.pinterest.com/resource/ActivateExperimentResource/create/",
+      "post_keys": [
+        "data",
+        "source_url"
+      ],
+      "query_keys": [],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "application/json",
+      "key": "POST https://ads.pinterest.com/resource/UserRegisterTrackActionResource/update/",
+      "post_keys": [
+        "data",
+        "source_url"
+      ],
+      "query_keys": [],
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "content_type": "application/json",
+      "key": "POST https://ads.pinterest.com/resource/ApiCResource/create/",
+      "post_keys": [
+        "data",
+        "source_url"
+      ],
+      "query_keys": [],
+      "status": 200,
+      "type": "xhr"
+    }
+  ],
+  "controls": [
+    {
+      "aria": null,
+      "id": "startDate",
+      "name": null,
+      "placeholder": "DD/MM/YYYY",
+      "tag": "input",
+      "text": "12/10/2026",
+      "type": "text"
+    },
+    {
+      "aria": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "div",
+      "text": null,
+      "type": null
+    },
+    {
+      "aria": null,
+      "id": "endDate",
+      "name": null,
+      "placeholder": "DD/MM/YYYY",
+      "tag": "input",
+      "text": "17/10/2026",
+      "type": "text"
+    },
+    {
+      "aria": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "div",
+      "text": null,
+      "type": null
+    },
+    {
+      "aria": null,
+      "id": "adVertical",
+      "name": null,
+      "options": [
+        "All categories",
+        "Animals",
+        "Architecture",
+        "Art",
+        "Beauty",
+        "Children's fashion",
+        "Design",
+        "DIY and crafts",
+        "Education",
+        "Electronics",
+        "Entertainment",
+        "Event planning",
+        "Finance",
+        "Food and drink",
+        "Gardening",
+        "Health",
+        "Home décor",
+        "Men's fashion",
+        "Other",
+        "Parenting",
+        "Quotes",
+        "Sport",
+        "Travel",
+        "Vehicles",
+        "Wedding",
+        "Women's fashion"
+      ],
+      "placeholder": null,
+      "tag": "select",
+      "text": "All categories\nAnimals\nArchitecture\nArt\nBeauty\nChildren's fa",
+      "type": "select-one"
+    },
+    {
+      "aria": null,
+      "id": "country",
+      "name": null,
+      "options": [
+        "Austria",
+        "Belgium",
+        "Brazil",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Finland",
+        "France",
+        "Germany",
+        "Greece",
+        "Hungary",
+        "Ireland",
+        "Italy",
+        "Latvia",
+        "Lithuania",
+        "Luxembourg",
+        "Malta",
+        "Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Sweden",
+        "Türkiye"
+      ],
+      "placeholder": null,
+      "tag": "select",
+      "text": "Austria\nBelgium\nBrazil\nBulgaria\nCroatia\nCyprus\nCzech Republi",
+      "type": "select-one"
+    },
+    {
+      "aria": null,
+      "id": "gender",
+      "name": null,
+      "options": [
+        "All genders",
+        "Female",
+        "Male",
+        "Unspecified"
+      ],
+      "placeholder": null,
+      "tag": "select",
+      "text": "All genders\nFemale\nMale\nUnspecified",
+      "type": "select-one"
+    },
+    {
+      "aria": null,
+      "id": "ageBucket",
+      "name": null,
+      "options": [
+        "All ages",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-49",
+        "50-54",
+        "55-64",
+        "65+"
+      ],
+      "placeholder": null,
+      "tag": "select",
+      "text": "All ages\n18-24\n25-34\n35-44\n45-49\n50-54\n55-64\n65+",
+      "type": "select-one"
+    },
+    {
+      "aria": null,
+      "id": "combobox-advertiserName",
+      "name": null,
+      "placeholder": "Search by advertiser",
+      "tag": "input",
+      "text": null,
+      "type": "text"
+    },
+    {
+      "aria": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "button",
+      "text": "Search",
+      "type": "button"
+    },
+    {
+      "aria": "Previous page",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "button",
+      "text": null,
+      "type": "button"
+    },
+    {
+      "aria": "Next page",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "tag": "button",
+      "text": null,
+      "type": "button"
+    }
+  ],
+  "final_url": "https://ads.pinterest.com/ads-repository/",
+  "headings": [
+    "Ads repository"
+  ],
+  "json_shapes": {
+    "GET https://ads.pinterest.com/resource/ApiResource/get/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "bookmarks": [
+            "str"
+          ],
+          "data": {},
+          "url": "str"
+        }
+      },
+      "resource_response": {
+        "code": "int",
+        "data": {
+          "no_active_incidents": "bool"
+        },
+        "endpoint_name": "str",
+        "http_status": "int",
+        "message": "str",
+        "status": "str",
+        "x_pinterest_sli_endpoint_name": "str"
+      }
+    },
+    "GET https://ads.pinterest.com/resource/PinResource/get/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "add_fields": "str",
+          "bookmarks": [
+            "str"
+          ],
+          "field_set_key": "str",
+          "id": "str"
+        }
+      },
+      "resource_response": {
+        "code": "int",
+        "data": {
+          "affiliate_disclosure": "NoneType",
+          "affiliate_link": "NoneType",
+          "alt_text": "NoneType",
+          "attribution": "NoneType",
+          "category": "str",
+          "closeup_attribution": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "NoneType",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
+            },
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
+          },
+          "closeup_unified_attribution": {
+            "ads_only_profile_site": "NoneType",
+            "blocked_by_me": "bool",
+            "domain_url": "NoneType",
+            "domain_verified": "bool",
+            "explicitly_followed_by_me": "bool",
+            "first_name": "str",
+            "followed_by_me": "bool",
+            "follower_count": "int",
+            "full_name": "str",
+            "id": "str",
+            "image_medium_url": "str",
+            "image_small_url": "str",
+            "indexed": "bool",
+            "instagram_data": {
+              "has_invalid_instagram_auth": "bool",
+              "url": "str",
+              "username": "str"
+            },
+            "is_ads_only_profile": "bool",
+            "is_default_image": "bool",
+            "is_verified_merchant": "bool",
+            "node_id": "str",
+            "type": "str",
+            "username": "str",
+            "verified_identity": {}
+          },
+          "comments_disabled": "bool",
+          "created_at": "str",
+          "description": "str",
+          "description_html": "str",
+          "digital_media_source_type": "NoneType",
+          "dominant_color": "str",
+          "embed": "NoneType",
+          "formatted_description": {
+            "components": [
+              {
+                "content": [
+                  "..."
+                ],
+                "description_links": "NoneType",
+                "type": "str"
+              }
+            ]
+          },
+          "grid_title": "str",
+          "has_required_attribution_provider": "bool",
+          "highlighted_aggregated_comments": [],
+          "images": {
+            "136x136": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "170x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "236x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "474x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "564x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "600x315": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "60x60": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "736x": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            },
+            "orig": {
+              "height": "int",
+              "url": "str",
+              "width": "int"
+            }
+          },
+          "is_eligible_for_aggregated_comments": "bool",
+          "is_eligible_for_image_download": "bool",
+          "is_go_linkless": "bool",
+          "is_hidden": "bool",
+          "is_oos_product": "bool",
+          "is_product_tagging_enabled_standard_pin": "bool",
+          "is_promotable": "bool",
+          "is_quick_promotable": "bool",
+          "is_repin": "bool",
+          "is_stale_product": "bool",
+          "is_unsafe_for_comments": "bool",
+          "is_video": "bool",
+          "is_whitelisted_for_tried_it": "bool",
+          "link_utm_applicable_and_replaced": "int",
+          "method": "str",
+          "mobile_link": "NoneType",
+          "node_id": "str",
+          "origin_pinner": "NoneType",
+          "pin_additional_note": "NoneType",
+          "pin_join": {
+            "annotations_with_links": {
+              "1990s Fashion": {
+                "name": "str",
+                "url": "str"
+              },
+              "Coral Jumpsuit": {
+                "name": "str",
+                "url": "str"
+              },
+              "Coral Shorts": {
+                "name": "str",
+                "url": "str"
+              },
+              "Fitted Pink Jumpsuit With Ruffles": {
+                "name": "str",
+                "url": "str"
+              },
+              "Flowy Jumpsuit": {
+                "name": "str",
+                "url": "str"
+              },
+              "Jumpsuit Online": {
+                "name": "str",
+                "url": "str"
+              },
+              "Lingerie Gift": {
+                "name": "str",
+                "url": "str"
+              },
+              "Short Sleeve Jumpsuits": {
+                "name": "str",
+                "url": "str"
+              },
+              "Summer V-neck Jumpsuit With Ruffles": {
+                "name": "str",
+                "url": "str"
+              }
+            },
+            "canonical_pin": {
+              "id": "str"
+            },
+            "shopping_klp_urls": "NoneType",
+            "visual_annotation": [
+              "str"
+            ]
+          },
+          "price_currency": "str",
+          "privacy": "str",
+          "product_metadata": {
+            "id": "str",
+            "type": "str"
+          },
+          "product_pin_data": "NoneType",
+          "promoter": "NoneType",
+          "related_article": {},
+          "repin_count": "int",
+          "rich_metadata": {
+            "amp_url": "str",
+            "amp_valid": "bool",
+            "apple_touch_icon_images": "NoneType",
+            "apple_touch_icon_link": "NoneType",
+            "canonical_url": "NoneType",
+            "description": "str",
+            "favicon_images": {
+              "orig": "str"
+            },
+            "favicon_link": "str",
+            "has_price_drop": "bool",
+            "id": "str",
+            "is_accessible_for_free": "NoneType",
+            "link_status": "int",
+            "locale": "str",
+            "site_name": "str",
+            "title": "str",
+            "tracker": "NoneType",
+            "type": "str",
+            "url": "str"
+          },
+          "section": "NoneType",
+          "seo_noindex_reason": "NoneType",
+          "seo_title": "str",
+          "share_count": "int",
+          "shopping_flags": [
+            "int"
+          ],
+          "should_open_in_stream": "bool",
+          "shuffle": "NoneType",
+          "sponsorship": "NoneType",
+          "story_pin_data": "NoneType",
+          "story_pin_data_id": "NoneType",
+          "user_mention_tags": "NoneType",
+          "via_pinner": "NoneType",
+          "video_status_message": "NoneType"
+        },
+        "endpoint_name": "str",
+        "http_status": "int",
+        "message": "str",
+        "status": "str",
+        "x_pinterest_sli_endpoint_name": "str"
+      }
+    },
+    "POST https://ads.pinterest.com/resource/ActivateExperimentResource/create/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "bookmarks": [
+            "str"
+          ],
+          "experiments": [
+            {
+              "experiment_group": "str",
+              "experiment_name": "str"
+            }
+          ]
+        }
+      },
+      "resource_response": {
+        "code": "int",
+        "data": [
+          {
+            "group": "str"
+          }
+        ],
+        "endpoint_name": "str",
+        "http_status": "int",
+        "message": "str",
+        "status": "str",
+        "x_pinterest_sli_endpoint_name": "str"
+      }
+    },
+    "POST https://ads.pinterest.com/resource/ApiCResource/create/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "bookmarks": [
+            "str"
+          ],
+          "events": [
+            {
+              "appState": "int",
+              "aux_data": {},
+              "clientUUID": "str",
+              "component_data": {},
+              "event_data": {},
+              "event_type": "int",
+              "pair_id": "str",
+              "time": "int",
+              "view_data": {},
+              "view_parameter": "NoneType"
+            }
+          ],
+          "report_time": "int"
+        }
+      },
+      "resource_response": {
+        "code": "int",
+        "data": "NoneType",
+        "endpoint_name": "str",
+        "http_status": "int",
+        "message": "str",
+        "status": "str",
+        "x_pinterest_sli_endpoint_name": "str"
+      }
+    },
+    "POST https://ads.pinterest.com/resource/ApiSResource/create/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "bookmarks": [],
+          "keepAlive": "bool",
+          "source": "str",
+          "stats": [
+            [
+              "str"
+            ]
+          ]
+        }
+      },
+      "resource_response": {
+        "data": "NoneType",
+        "http_status": "int",
+        "status": "str"
+      }
+    },
+    "POST https://ads.pinterest.com/resource/UserRegisterTrackActionResource/update/": {
+      "client_context": {
+        "analysis_ua": {
+          "app_type": "int",
+          "app_version": "str",
+          "browser_name": "str",
+          "browser_version": "str",
+          "device": "str",
+          "device_type": "NoneType",
+          "os_name": "str",
+          "os_version": "str"
+        },
+        "app_type_detailed": "int",
+        "app_version": "str",
+        "autologin": "NoneType",
+        "browser_name": "str",
+        "browser_type": "int",
+        "browser_version": "str",
+        "country": "str",
+        "country_from_hostname": "str",
+        "country_from_ip": "str",
+        "csp_nonce": "str",
+        "current_url": "str",
+        "debug": "bool",
+        "deep_link": "str",
+        "enabled_advertiser_countries": [
+          "str"
+        ],
+        "facebook_token": "NoneType",
+        "full_path": "str",
+        "gestalt_theme": "str",
+        "has_dcip": "bool",
+        "has_geo_is_anon": "bool",
+        "http_referrer": "str",
+        "impersonator_user_id": "NoneType",
+        "invite_code": "str",
+        "invite_sender_id": "str",
+        "is_authenticated": "bool",
+        "is_bot": "str",
+        "is_full_page": "bool",
+        "is_hosting": "bool",
+        "is_mobile_agent": "bool",
+        "is_perf_metrics_bot": "bool",
+        "is_proxy": "bool",
+        "is_sterling_on_steroids": "bool",
+        "is_tablet_agent": "bool",
+        "is_tor": "bool",
+        "is_unauth_botspam_asn": "bool",
+        "is_vpn": "bool",
+        "language": "str",
+        "locale": "str",
+        "origin": "str",
+        "path": "str",
+        "placed_experiences": "NoneType",
+        "referrer": "NoneType",
+        "region_from_ip": "str",
+        "request_host": "str",
+        "request_identifier": "str",
+        "seo_debug": "bool",
+        "social_bot": "str",
+        "stage": "str",
+        "sterling_on_steroids_ldap": "NoneType",
+        "sterling_on_steroids_user_type": "NoneType",
+        "theme": "str",
+        "unauth_id": "str",
+        "user": {
+          "ip_country": "str",
+          "ip_region": "str",
+          "unauth_id": "str"
+        },
+        "user_agent": "str",
+        "user_agent_can_use_native_app": "bool",
+        "user_agent_platform": "str",
+        "user_agent_platform_version": "NoneType",
+        "utm_campaign": "NoneType",
+        "visible_url": "str"
+      },
+      "request_identifier": "str",
+      "resource": {
+        "name": "str",
+        "options": {
+          "actions": [
+            {
+              "aux_data": {
+                "tags": {}
+              },
+              "name": "str"
+            }
+          ],
+          "bookmarks": []
+        }
+      },
+      "resource_response": {
+        "code": "int",
+        "data": "NoneType",
+        "endpoint_name": "str",
+        "http_status": "int",
+        "message": "str",
+        "status": "str",
+        "x_pinterest_sli_endpoint_name": "str"
+      }
+    }
+  },
+  "login_wall": false,
+  "name": "pinterest",
+  "run": "gh39017939792",
+  "seconds": 14.3,
+  "title": "Pinterest Ads",
+  "url": "https://ads.pinterest.com/ads-repository/"
+}
