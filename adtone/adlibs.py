@@ -169,6 +169,10 @@ class Taker:
             else:
                 f.image.close()
 
+    def unread(self, row: dict) -> bool:
+        """Whether any picture of the row still lacks a reading by one of the readers."""
+        return any((m["sha"], rd.scorer.instrument) not in rd.scored for m in (row.get("media") or []) for rd in self.readings)
+
     def _flush(self, rd: _Reading) -> None:
         if not rd.pending:
             return
@@ -273,8 +277,20 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
                     if not row.get("ad_id"):
                         continue
                     if row["ad_id"] in ads:
-                        ads[row["ad_id"]] = {**ads[row["ad_id"]], **{k: v for k, v in row.items() if v is not None}}
+                        kept = {**ads[row["ad_id"]], **{k: v for k, v in row.items() if v is not None}}
+                        ads[row["ad_id"]] = kept
                         counts["updated_ads"] += 1
+                        if not defer and kept.get("media") and taker.unread(kept):
+                            # a picture read before a reader was added: fetched again and read by the readers it lacks
+                            try:
+                                media = src.media_for(item)
+                            except (requests.RequestException, MediaError, OSError, ValueError):
+                                media = []
+                            if media:
+                                had = kept["media"]
+                                taker.take(kept, media, h.id, today)
+                                kept["media"] = had        # the row keeps the pictures as first recorded
+                                counts["reread"] = counts.get("reread", 0) + 1
                         continue
                     row["found"] = today.isoformat()
                     if defer:

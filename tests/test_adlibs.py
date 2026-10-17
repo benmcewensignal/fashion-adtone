@@ -332,7 +332,17 @@ def test_each_picture_goes_to_every_reader_and_each_reader_keeps_its_own_observa
     src2.house_refresh_days = 0
     out = adlibs.collect(src2, Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), [FakeScorer(load_rubric()), clothes],
                          today=date(2026, 10, 17))
-    assert out["new_ads"] == 0 and clothes.calls == before
+    assert out["new_ads"] == 0 and clothes.calls == before and not out.get("reread")
+    # a reader added later: the pictures are fetched again and read by it alone
+    other = _FakeClothes()
+    other.rubric = type("R", (), {"version": "clothes-v2"})()
+    other.instrument = "clothes-v2@fake"
+    tone = FakeScorer(load_rubric())
+    src3 = snap.Source(_snap_session([]), sleep=lambda s: None, pace_s=0)
+    src3.house_refresh_days = 0
+    out = adlibs.collect(src3, Registry(1, "T", [GUCCI]), "r3", FakeEmbedder(), [tone, other], today=date(2026, 10, 17))
+    assert out["reread"] >= 2 and other.calls >= 1 and tone.calls == 0       # the ad without a picture is not fetched again
+    assert len(store.read_jsonl(adlibs.paths("snap")["obs"] / "clothes-v2.jsonl")) == len(clo)
 
 
 def test_meta_keeps_the_houses_own_page_and_a_rematch_drops_a_licensees_rows(tmp_data):
