@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T16:30:05Z",
+ "generated_at": "2026-10-17T21:31:01Z",
  "window_days": [
   -1,
   14
@@ -84,6 +84,32 @@
      "score": 9.88
     }
    ]
+  },
+  "armani:2025-01-20:men": {
+   "house": "armani",
+   "date": "2025-01-20",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ConnectTimeout"
+   }
+  },
+  "armani:2025-01-28:couture": {
+   "house": "armani",
+   "date": "2025-01-28",
+   "season": "2025 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
   },
   "armani:2025-03-02:rtw": {
    "house": "armani",
@@ -818,20 +844,38 @@
    "date": "2017-06-24",
    "season": "2018 SS men",
    "category": "men",
-   "status": "none",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2017-09-28:rtw": {
    "house": "balmain",
    "date": "2017-09-28",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "none",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
-   "candidates": []
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ConnectTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
   },
   "balmain:2018-01-20:men": {
    "house": "balmain",
@@ -1884,7 +1928,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ConnectTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3155,7 +3199,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ConnectTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3168,7 +3212,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ReadTimeout"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -4395,6 +4439,19 @@
      "score": 0.88
     }
    ]
+  },
+  "dior:2025-06-27:men": {
+   "house": "dior",
+   "date": "2025-06-27",
+   "season": "2026 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "ReadTimeout"
+   }
   },
   "dior:2025-10-01:rtw": {
    "house": "dior",
@@ -9549,7 +9606,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "jacquemus.com": "ConnectionError"
+    "jacquemus.com": "ConnectTimeout"
    },
    "seeds": [
     "www.jacquemus.com/collection/"
@@ -15860,6 +15917,105 @@
     }
    ]
   },
+  "stella_mccartney:2015-03-09:rtw": {
+   "house": "stella_mccartney",
+   "date": "2015-03-09",
+   "season": "2015 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/autumn-2015-lookbook/",
+     "ts": "20150525235402",
+     "score": 3.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/experience/en/winter-2015-collection/?",
+     "ts": "20150312180735",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/watch-winter-2015-collection-launch-beijing-3/",
+     "ts": "20150614093749",
+     "score": 2.62
+    }
+   ]
+  },
+  "stella_mccartney:2015-10-05:rtw": {
+   "house": "stella_mccartney",
+   "date": "2015-10-05",
+   "season": "2016 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/summer-2016-show-behind-the-scenes-and-front-row/",
+     "ts": "20151212190931",
+     "score": 3.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/kids-spring-summer-2016-collection/",
+     "ts": "20151212190850",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/summer-2016-collection/",
+     "ts": "20151007043204",
+     "score": 2.62
+    }
+   ]
+  },
+  "stella_mccartney:2016-03-07:rtw": {
+   "house": "stella_mccartney",
+   "date": "2016-03-07",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/swim-collection-launch-for-autumn-winter-2016/",
+     "ts": "20160521205143",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/winter-2016-collection/",
+     "ts": "20160311142102",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/winter-2016-behind-the-scenes/",
+     "ts": "20160315065836",
+     "score": 0.62
+    }
+   ]
+  },
+  "stella_mccartney:2016-10-03:rtw": {
+   "house": "stella_mccartney",
+   "date": "2016-10-03",
+   "season": "2017 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/explore-the-spring-2017-collection/",
+     "ts": "20170129014725",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.stellamccartney.com:80/experience/en/discover-the-summer-2017-campaign/",
+     "ts": "20170129014719",
+     "score": 0.62
+    }
+   ]
+  },
   "stella_mccartney:2017-03-06:rtw": {
    "house": "stella_mccartney",
    "date": "2017-03-06",
@@ -16116,7 +16272,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectTimeout"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16194,7 +16350,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "ConnectionError"
+    "therow.com": "ReadTimeout"
    }
   },
   "the_row:2023-09-27:rtw": {
@@ -16207,7 +16363,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "HTTP 504"
+    "therow.com": "ReadTimeout"
    }
   },
   "the_row:2024-02-28:rtw": {
@@ -17727,17 +17883,16 @@
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/",
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 28
+   "pages": 26
   },
   "chanel": {
    "prefixes": [
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 62
+   "pages": 2006
   },
   "dior": {
    "prefixes": [
@@ -17747,10 +17902,10 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/womens-fashion/",
+    "www.dior.com/en_us/shows/haute-couture/"
    ],
-   "pages": 1390
+   "pages": 1212
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -17951,7 +18106,7 @@
     "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
     "www.jacquemus.com/nl_nl/collections/"
    ],
-   "pages": 38
+   "pages": 35
   },
   "moncler": {
    "prefixes": [
@@ -17971,7 +18126,7 @@
     "www.therow.com/en-at/collections/",
     "www.therow.com/en-eu/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/collections/women-039-s-resort-2020_grd38/"
+    "www.therow.com/collections/women-039-s-fall-winter-2019_grd31/"
    ],
    "pages": 904
   },
@@ -17987,10 +18142,10 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
    "pages": 358
   },
@@ -18002,10 +18157,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/"
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
-   "pages": 513
+   "pages": 189
   },
   "schiaparelli": {
    "prefixes": [
@@ -18032,9 +18187,9 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/fi/en/stellas-world/"
+    "www.stellamccartney.com/experience/en/"
    ],
-   "pages": 1420
+   "pages": 2175
   },
   "issey_miyake": {
    "prefixes": [
@@ -18046,9 +18201,9 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 585,
-   "index failed": 92,
-   "none": 384
+   "found": 589,
+   "index failed": 97,
+   "none": 382
   },
   "by_house": {
    "alaia": {
@@ -18056,7 +18211,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 13,
+    "shows": 15,
     "found": 3
    },
    "balenciaga": {
@@ -18096,7 +18251,7 @@
     "found": 0
    },
    "dior": {
-    "shows": 25,
+    "shows": 26,
     "found": 18
    },
    "dolce_gabbana": {
@@ -18188,8 +18343,8 @@
     "found": 29
    },
    "stella_mccartney": {
-    "shows": 17,
-    "found": 7
+    "shows": 21,
+    "found": 11
    },
    "the_row": {
     "shows": 12,
@@ -18214,16 +18369,16 @@
   },
   "by_year": {
    "2015": {
-    "shows": 50,
-    "found": 30
+    "shows": 51,
+    "found": 31
    },
    "2016": {
-    "shows": 97,
-    "found": 60
+    "shows": 99,
+    "found": 62
    },
    "2017": {
-    "shows": 96,
-    "found": 62
+    "shows": 97,
+    "found": 63
    },
    "2018": {
     "shows": 95,
@@ -18254,11 +18409,11 @@
     "found": 53
    },
    "2025": {
-    "shows": 77,
+    "shows": 79,
     "found": 44
    },
    "2026": {
-    "shows": 107,
+    "shows": 108,
     "found": 53
    },
    "2027": {
