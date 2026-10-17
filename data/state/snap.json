@@ -476,6 +476,10 @@
         {
           "id": "PRADA S.p.A.",
           "name": "PRADA S.p.A."
+        },
+        {
+          "id": "Prada spa",
+          "name": "Prada spa"
         }
       ],
       "refused": []
@@ -508,6 +512,10 @@
         {
           "id": "Prada SpA",
           "name": "Prada SpA"
+        },
+        {
+          "id": "Prada spa",
+          "name": "Prada spa"
         }
       ],
       "refused": []
@@ -641,12 +649,27 @@
     "armani": [
       "Armani"
     ],
+    "balenciaga": [
+      "Balenciaga"
+    ],
+    "bottega_veneta": [
+      "Bottega Veneta"
+    ],
     "burberry": [
       "Burberry"
+    ],
+    "celine": [
+      "Celine"
+    ],
+    "chanel": [
+      "Chanel"
     ],
     "chloe": [
       "Chloé",
       "Chloe"
+    ],
+    "dior": [
+      "Dior"
     ],
     "dolce_gabbana": [
       "Dolce&Gabbana"
@@ -657,6 +680,9 @@
     "givenchy": [
       "Givenchy"
     ],
+    "gucci": [
+      "Gucci"
+    ],
     "hermes": [
       "Hermès",
       "Hermes"
@@ -664,11 +690,17 @@
     "jacquemus": [
       "Jacquemus"
     ],
+    "loewe": [
+      "Loewe"
+    ],
     "louis_vuitton": [
       "Louis Vuitton"
     ],
     "mcqueen": [
       "McQueen"
+    ],
+    "miu_miu": [
+      "Prada spa"
     ],
     "moncler": [
       "Moncler"
@@ -684,8 +716,8 @@
     ]
   },
   "problems": {},
-  "requests": 259,
-  "run": "gh39030415108",
+  "requests": 585,
+  "run": "gh39045030718",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -732,6 +764,7 @@
     "ad_account_name": "str",
     "ad_render_type": "str",
     "ad_type": "str",
+    "brand_name": "str",
     "call_to_action": "str",
     "collection_preview": {
       "collection_creative_element_attachment": [
@@ -753,6 +786,7 @@
           "brand_name": "str",
           "call_to_action": "str",
           "headline": "str",
+          "render_type": "str",
           "top_snap_crop_position": "str",
           "top_snap_media_download_link": "str",
           "top_snap_media_type": "str",
@@ -806,6 +840,10 @@
     "languages": [
       "str"
     ],
+    "lens_preview": {
+      "icon_url": "str",
+      "preview_image_url": "str"
+    },
     "name": "str",
     "name_searched": "str",
     "paying_advertiser_name": "str",
@@ -824,7 +862,9 @@
           "advanced_demographics": [],
           "age_groups": [],
           "gender": "str",
-          "languages": [],
+          "languages": [
+            "str"
+          ],
           "max_age": "str",
           "min_age": "str",
           "operation": "str"
@@ -841,5 +881,5 @@
     }
   },
   "stopped": null,
-  "updated_at": "2026-10-17T12:38:00Z"
+  "updated_at": "2026-10-17T15:50:10Z"
 }
