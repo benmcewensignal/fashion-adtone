@@ -8,8 +8,9 @@ the API's ads, so everything downstream reads them alike.
     python -m adtone.metaweb probe --run <id>
 
 Needs APIFY_TOKEN, an Apify account's API token, in the repository's secrets. Repository variables:
-META_ACTOR (the actor, default apify~facebook-ads-scraper, Apify's own, whose records carry the EU transparency
-data; bovi~meta-ads-library-scraper is also understood, though its first run on 17 October carried none),
+META_ACTOR (the actor, default curious_coder~facebook-ads-library-scraper, whose "scrape ad details" option
+names the EU reach; apify~facebook-ads-scraper and bovi~meta-ads-library-scraper are also understood, though
+on 17 October neither carried the EU block for Gucci's page),
 META_COUNTRIES (the library's country filter, default ALL), META_MAX_ADS
 (ads per house per run, default 2000). Without the token the run records that it waited and stops.
 
@@ -36,7 +37,7 @@ from .snap import _day, _norm, find, is_house, urls_in
 API = "https://api.apify.com/v2"
 UA = "fashion-adtone research (Apify client; contact via the repository)"
 POLL_S = 20
-DEFAULT_ACTOR = "apify~facebook-ads-scraper"      # Apify's own, which carries the EU transparency block (eu_total_reach)
+DEFAULT_ACTOR = "curious_coder~facebook-ads-library-scraper"   # its "scrape ad details" option names the EU reach
 LIBRARY = "https://www.facebook.com/ads/library/"
 
 
@@ -128,6 +129,13 @@ class Source:
         """The actor's input: Apify's own actor takes library addresses (a page's ads, or a search by name) and a
         results limit; bovi's takes page ids or search terms and a country list."""
         n = max_results or self.max_ads
+        if self.actor.startswith("curious_coder~"):
+            # library addresses, with the ad details (the EU block) asked for by name
+            country = self.countries[0] if self.countries else "ALL"
+            urls = [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&search_type=page&view_all_page_id={p}" for p in page_ids or []]
+            urls += [f"{LIBRARY}?active_status=all&ad_type=all&country={country}&q={t}&search_type=keyword_unordered" for t in terms or []]
+            return {"urls": [{"url": u} for u in urls], "scrapeAdDetails": True, "limitPerSource": n,
+                    "scrapePageAds": {"period": "", "activeStatus": "all", "sortBy": "most_recent", "countryCode": country}}
         if self.actor.startswith("apify~"):
             country = self.countries[0] if self.countries else "ALL"
             if self.form == "page":   # the page's own address, which the actor's issue tracker shows answered with the EU block

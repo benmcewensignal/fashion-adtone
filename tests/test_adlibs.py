@@ -198,6 +198,10 @@ def test_meta_through_the_vendor_finds_the_houses_pages_then_their_ads_in_our_ro
     inp = official._input(page_ids=["100"], max_results=50)
     assert inp["startUrls"][0]["url"].endswith("search_type=page&view_all_page_id=100") and inp["resultsLimit"] == 50 and inp["scrapeAdDetails"] is True
     assert "q=Gucci&search_type=keyword_unordered" in official._input(terms=["Gucci"])["startUrls"][0]["url"]
+    cc = metaweb.Source(_apify_session({}), token="t", actor="curious_coder~facebook-ads-library-scraper", countries="FR", sleep=lambda s: None)
+    inp = cc._input(page_ids=["100"], max_results=120)
+    assert inp["urls"][0]["url"].endswith("country=FR&search_type=page&view_all_page_id=100") and inp["scrapeAdDetails"] is True
+    assert inp["limitPerSource"] == 120 and inp["scrapePageAds"]["countryCode"] == "FR"
 
 
 def _pin_item(i, names, country="FR"):

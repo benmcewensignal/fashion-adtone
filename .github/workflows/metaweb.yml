@@ -28,6 +28,9 @@ on:
       form:
         description: "the address given to Apify's actor: library (the page's ads in the library) or page (the page's own address)"
         default: ""
+      actor:
+        description: "the actor for this run (empty: the META_ACTOR variable)"
+        default: ""
   push:   # editing .github/kick/metaweb starts a run
     branches: [main]
     paths: [".github/kick/metaweb"]
@@ -46,7 +49,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-      META_ACTOR: ${{ vars.META_ACTOR || 'apify~facebook-ads-scraper' }}
+      META_ACTOR: ${{ github.event.inputs.actor || vars.META_ACTOR || 'curious_coder~facebook-ads-library-scraper' }}
       META_COUNTRIES: ${{ github.event.inputs.countries || vars.META_COUNTRIES || 'ALL' }}
       META_MAX_ADS: ${{ github.event.inputs.max_ads || vars.META_MAX_ADS || '2000' }}
       META_INPUT_FORM: ${{ github.event.inputs.form || vars.META_INPUT_FORM || 'library' }}
