@@ -32,7 +32,7 @@ from datetime import date
 import requests
 
 from . import adlibs, copyfeat, registry, thread
-from .snap import LEGAL, _day, _norm, _words, find, is_house, urls_in
+from .snap import _day, _norm, division, find, is_house, is_own, urls_in
 
 API = "https://api.apify.com/v2"
 UA = "fashion-adtone research (Apify client; contact via the repository)"
@@ -67,21 +67,10 @@ def is_page(house: registry.House, page: dict) -> bool:
     with one more word and a few ads at least (Loewe Greece), never a person, a blog, a shop or a
     licensee whose name merely contains it (celine_maureen, Céline Rousseau - Blog Santé, LOEWE Perfumes,
     Thiết bị phòng tắm cao cấp Fendi)."""
-    name = page.get("name") or ""
-    if not is_house(house, name):
-        return False
     cats = " ".join(page.get("categories") or []).lower()
     if any(w in cats for w in NOT_A_HOUSE_PAGE):
         return False
-    w = _words(name).strip()
-    names = {_words(n).strip() for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
-    if w in names:
-        return True
-    for n in sorted(names, key=len, reverse=True):
-        if w.startswith(n + " "):
-            rest = w[len(n) + 1:].split()
-            return len(rest) == 1 and int(page.get("ads") or 0) >= 3
-    return False
+    return is_own(house, page.get("name") or "", ads=int(page.get("ads") or 0))
 
 
 class Source:
@@ -210,7 +199,7 @@ class Source:
         refused.sort(key=lambda p: -p["ads"])
         return keep, refused
 
-    def row_is_kept(self, row: dict, keep: list[dict]) -> bool:
+    def row_is_kept(self, row: dict, keep: list[dict], house: registry.House | None = None) -> bool:
         """A stored row stays only while its page is among the house's own: a page matched too loosely
         before, and dropped on a rematch, takes its rows with it."""
         return not row.get("page_id") or row["page_id"] in {k["id"] for k in keep}
@@ -257,6 +246,8 @@ class Source:
                                  for loc in (locs or []) if isinstance(loc, dict)] or None,
             "reach": _reach(breakdown) if breakdown else None,
             "beneficiary_payers": [{"payer": p.get("payer"), "beneficiary": p.get("beneficiary")} for p in (payers or []) if isinstance(p, dict)] or None,
+            "division": division(find(item, "pagename", "page_name", want=(str,)) or "",
+                                 *[str(p.get(k) or "") for p in (payers or []) if isinstance(p, dict) for k in ("payer", "beneficiary")]),
             "countries": _list(find(item, "targetedorreachedcountries", "countries", want=(list,))) or None,
             "has_metrics": find(item, "hasmetrics", want=(bool,)),
             "copy": copyfeat.features([t for t in texts if t]) if texts else None,

@@ -250,7 +250,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
             if hasattr(src, "row_is_kept"):
                 before = len(ads)
-                ads = {k: r for k, r in ads.items() if src.row_is_kept(r, keep)}
+                ads = {k: r for k, r in ads.items() if src.row_is_kept(r, keep, h)}
                 if len(ads) != before:
                     counts["dropped"] = counts.get("dropped", 0) + before - len(ads)
                     store.write_jsonl(path, sorted(ads.values(), key=lambda r: (r.get("first_shown") or "", r["ad_id"]), reverse=True))

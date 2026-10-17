@@ -14,6 +14,10 @@ on:
         description: "ads only; the pictures' addresses are kept for a later run with stage read"
         type: boolean
         default: false
+      rematch:
+        description: "match every house's advertisers again first; rows no longer the house's own are dropped"
+        type: boolean
+        default: false
       stage:
         description: "collect (the library) or read (the pictures kept aside by runs without the reader)"
         type: choice
@@ -64,6 +68,7 @@ jobs:
           EXTRA=""
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
+          if [ "${{ github.event.inputs.rematch }}" = "true" ]; then EXTRA="$EXTRA --rematch"; fi
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
           python -m adtone.snap "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 60 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe

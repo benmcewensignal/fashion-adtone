@@ -42,13 +42,13 @@ MAX_PAGES = 400               # pages of one search; a cursor that comes back ag
 LEGAL = {
     "gucci": ["Guccio Gucci S.p.A.", "Guccio Gucci SpA"], "dior": ["Christian Dior Couture", "Christian Dior"],
     "chanel": ["CHANEL", "Chanel SAS"], "louis_vuitton": ["Louis Vuitton Malletier", "Louis Vuitton"],
-    "prada": ["PRADA S.p.A.", "Prada SpA"], "burberry": ["Burberry Limited", "Burberry"],
+    "prada": ["PRADA S.p.A.", "Prada SpA", "Prada spa"], "burberry": ["Burberry Limited", "Burberry"],
     "saint_laurent": ["Yves Saint Laurent SAS", "Saint Laurent"], "balenciaga": ["Balenciaga SA", "Balenciaga"],
     "bottega_veneta": ["Bottega Veneta SRL", "Bottega Veneta"], "hermes": ["Hermès International", "Hermes"],
     "fendi": ["FENDI S.r.l.", "Fendi"], "celine": ["CELINE", "Celine"], "loewe": ["LOEWE S.A.", "Loewe"],
     "givenchy": ["Givenchy SA", "Givenchy"], "valentino": ["Valentino S.p.A.", "Valentino"],
     "versace": ["Gianni Versace S.r.l.", "Versace"], "moncler": ["Moncler S.p.A.", "Moncler"],
-    "armani": ["Giorgio Armani S.p.A.", "Giorgio Armani", "Armani"], "miu_miu": ["Miu Miu", "PRADA S.p.A."],
+    "armani": ["Giorgio Armani S.p.A.", "Giorgio Armani", "Armani"], "miu_miu": ["Miu Miu", "PRADA S.p.A.", "Prada spa"],
     "dolce_gabbana": ["Dolce & Gabbana S.r.l.", "Dolce & Gabbana", "Dolce&Gabbana"],
     "zegna": ["Ermenegildo Zegna", "Zegna"], "max_mara": ["Max Mara Fashion Group", "Max Mara"],
     "ferragamo": ["Salvatore Ferragamo S.p.A.", "Ferragamo"], "jacquemus": ["Jacquemus SAS", "Jacquemus"],
@@ -86,6 +86,46 @@ def is_house(house: registry.House, name: str) -> bool:
     bw = _words(name)
     names = {_words(n) for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
     return any(n in bw for n in names)
+
+
+SUFFIX = {"spa", "sas", "srl", "sa", "ag", "nv", "bv", "ltd", "llc", "inc", "gmbh", "limited", "international", "europe", "emea",
+          "italia", "italy", "france", "paris", "uk", "usa", "us", "japan", "korea", "china", "global", "eur", "group", "couture",
+          "malletier", "moda", "official", "milano", "london", "deutschland", "espana", "spain", "nederland"}
+_SELF_SERVE_APP = re.compile(r"in[- ]?app|ios|android|app aus", re.I)      # Snap's self-serve accounts from the phone app
+_DIVISION = (("beauty", ("beaute", "beauty", "parfum", "perfume", "fragrance", "cosmetic", "pcd", "fnb", "f b", "makeup", "skincare")),
+             ("eyewear", ("eyewear", "lunettes", "occhiali", "optical")),
+             ("watches", ("watch", "horlogerie", "montres", "jewel", "joaillerie", "gioielli")))
+
+
+def is_own(house: registry.House, name: str, ads: int | None = None) -> bool:
+    """The advertiser is the house itself: the name is the house's or one of its legal names (Gucci,
+    GUCCI, Guccio Gucci S.p.A., CHANEL 샤넬), or the house's name with one more word that is a company
+    suffix or a place (Prada spa, Loewe Greece with a few ads), and never a beauty or fragrance licensee
+    or a reseller. A person with the name in theirs (Celine Anders, Franco Armani, Chloe Kate), a shop
+    (De Valentino's Den Haag) or a name with emoji in it (Celine ✌🏼, Dior Ndiaye👸) is not the house."""
+    if not is_house(house, name):
+        return False
+    if any(unicodedata.category(ch) in ("So", "Sk") or 0x1F000 <= ord(ch) <= 0x1FAFF for ch in name):
+        return False
+    w = _words(name).strip()
+    names = {_words(n).strip() for n in [house.name] + list(house.search_terms or []) + LEGAL.get(house.id, []) if len(_norm(n)) >= 4}
+    if w in names:
+        return True
+    for n in sorted(names, key=len, reverse=True):
+        if w.startswith(n + " "):
+            rest = w[len(n) + 1:].split()
+            return len(rest) == 1 and (rest[0] in SUFFIX or (ads is not None and ads >= 3))
+    return False
+
+
+def division(*names: str) -> str:
+    """What the account or payer name says the ad sells: fashion unless it names beauty, eyewear or
+    watches and jewellery (Parfums Christian Dior, PCD_PC_FRA, OMG_CHANEL_Social_BE_FNB, Prada Spa Eyewear)."""
+    text = " ".join(_words(n) for n in names if n)
+    for div, words in _DIVISION:
+        if any(f" {wd} " in text or (len(wd) > 4 and wd in text.replace(" ", "")) for wd in words):
+            return div
+    return "fashion"
 
 
 def find(obj, *patterns: str, want=(str, int, float, list, dict), depth: int = 0):
@@ -244,7 +284,26 @@ class Source:
         account = find(item, "adaccountname", "accountname", "brandname", want=(str,))
         if payer is None and account is None:   # no name in the record: the search was by the house's own name
             return True
-        return is_house(house, payer or "") or (payer is None and is_house(house, account or ""))
+        return self.own(house, payer, account)
+
+    @staticmethod
+    def own(house: registry.House, payer: str | None, account: str | None) -> bool:
+        """The ad is the house's own: paid for in its name (not a person's with the name in it), from a
+        company account rather than the phone app's self-serve one; Prada's accounts for Miu Miu are
+        Miu Miu's, and not Prada's."""
+        if account and _SELF_SERVE_APP.search(account):
+            return False
+        acc = _words(account or "")
+        if house.id == "miu_miu":
+            return " miu miu " in acc and (is_own(house, payer or "") or is_own(house, account or ""))
+        if house.id == "prada" and " miu miu " in acc:
+            return False
+        return is_own(house, payer or "") or (payer is None and is_own(house, account or ""))
+
+    def row_is_kept(self, row: dict, keep: list[dict], house: registry.House) -> bool:
+        if row.get("advertiser") is None and row.get("account") is None:
+            return True
+        return self.own(house, row.get("advertiser"), row.get("account"))
 
     def ad_row(self, item: dict, house_id: str, run: str) -> dict:
         """The row, from the fields the first live run showed (17 October 2026): paying_advertiser_name,
@@ -255,9 +314,10 @@ class Source:
         texts = [t for t in (item.get("headline"), item.get("name")) if isinstance(t, str) and t.strip()]
         tv2 = item.get("targeting_v2") if isinstance(item.get("targeting_v2"), dict) else None
         demo = (tv2 or {}).get("demographics") or []
+        payer = find(item, "payingadvertisername", "payingadvertiser", "paidby", "advertisername", want=(str,))
+        account = find(item, "adaccountname", "accountname", want=(str,))
         return {"ad_id": str(find(item, "id", "adid", "ad_id") or ""), "house_id": house_id,
-                "advertiser": find(item, "payingadvertisername", "payingadvertiser", "paidby", "advertisername", want=(str,)),
-                "account": find(item, "adaccountname", "accountname", want=(str,)),
+                "advertiser": payer, "account": account, "division": division(account, payer),
                 "first_shown": _day(find(item, "startdate", "start.*", "firstshown.*", want=(str, int))),
                 "last_shown": _day(find(item, "enddate", "end.*", "lastshown.*", want=(str, int))),
                 "status": find(item, "status", "adstatus", want=(str,)) or item.get("status_searched"),

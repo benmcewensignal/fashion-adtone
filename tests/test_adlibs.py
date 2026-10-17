@@ -346,3 +346,21 @@ def test_meta_keeps_the_houses_own_page_and_a_rematch_drops_a_licensees_rows(tmp
     assert src.row_is_kept({"ad_id": "1", "page_id": "184360374941311"}, keep)
     assert not src.row_is_kept({"ad_id": "2", "page_id": "351058035420618"}, keep)
     assert src.row_is_kept({"ad_id": "3"}, keep)
+
+
+def test_an_advertiser_is_the_house_itself_not_a_person_or_a_shop_with_its_name(tmp_data):
+    from adtone.registry import House
+    from adtone.snap import division, is_own
+    H = lambda i, n: House(i, n, "treated", "x", [n], [], [])
+    assert is_own(H("valentino", "Valentino"), "Valentino") and not is_own(H("valentino", "Valentino"), "𝑉𝑎𝑙𝑒𝑛𝑡𝑖𝑛𝑜 𝑅𝑎𝑘𝑖𝑐")
+    assert not is_own(H("celine", "Celine"), "Celine Anders") and not is_own(H("celine", "Celine"), "Celine ✌🏼")
+    assert not is_own(H("chloe", "Chloé"), "Chloe Kate") and not is_own(H("chloe", "Chloé"), "Maison Chloe")
+    assert is_own(H("gucci", "Gucci"), "Guccio Gucci S.p.A.") and is_own(H("prada", "Prada"), "Prada spa")
+    assert is_own(H("loewe", "Loewe"), "Loewe Greece", ads=5) and not is_own(H("loewe", "Loewe"), "Loewe Greece", ads=1)
+    assert not is_own(H("loewe", "Loewe"), "LOEWE Perfumes", ads=60)
+    assert division("PCD_PC_FRA_EMEA_SOCIAL-SNAPCHAT", "Dior") == "beauty" and division("CDC_FLG_HUB-FRA", "Dior") == "fashion"
+    assert division("Prada Spa Eyewear", "Prada spa") == "eyewear" and division("Parfums Christian Dior") == "beauty"
+    # Snap: the phone app's self-serve accounts are people; Prada's Miu Miu accounts are Miu Miu's
+    assert not snap.Source.own(H("gucci", "Gucci"), "Gucci.Interpol", "Promotions iOS in-app")
+    assert snap.Source.own(H("miu_miu", "Miu Miu"), "Prada spa", "Miu Miu Spa") and not snap.Source.own(H("prada", "Prada"), "Prada spa", "Miu Miu Spa")
+    assert snap.Source.own(H("prada", "Prada"), "Prada spa", "Prada spa Self Service")
