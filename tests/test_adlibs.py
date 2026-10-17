@@ -288,3 +288,36 @@ def test_without_the_reader_the_pictures_wait_and_the_read_stage_takes_them_late
                               sess=sess, today=date(2026, 10, 17))
     assert out["ads_read"] == 1 and out["ads_left"] == 0 and out["stopped"] is None
     assert not store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")
+
+
+class _FakeClothes:
+    """A second reader, the clothes rubric, answering with one fixed dict per picture."""
+
+    def __init__(self):
+        self.rubric = load_rubric("clothes-v1")
+        self.instrument = "clothes-v1@fake"
+        self.calls = 0
+
+    def score_many(self, jpegs):
+        self.calls += 1
+        return [{"garments": ["dress"], "n": len(jpegs)} for _ in jpegs]
+
+
+def test_each_picture_goes_to_every_reader_and_each_reader_keeps_its_own_observations(tmp_data):
+    sess = _snap_session([])
+    src = snap.Source(sess, sleep=lambda s: None, pace_s=0)
+    clothes = _FakeClothes()
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), [FakeScorer(load_rubric()), clothes],
+                         today=date(2026, 10, 17))
+    assert out["new_ads"] == 3 and out["pictures"] >= 2 and out["ok_clothes-v1"] == out["pictures"] and clothes.calls >= 1
+    tone = store.read_jsonl(adlibs.paths("snap")["obs"] / "tone-v1.jsonl")
+    clo = store.read_jsonl(adlibs.paths("snap")["obs"] / "clothes-v1.jsonl")
+    assert {o["sha"] for o in tone} == {o["sha"] for o in clo} and all(o["instrument"] == "clothes-v1@fake" for o in clo)
+    assert all(o["status"] == "ok" and o["output"]["garments"] == ["dress"] for o in clo)
+    # a second collection reads nothing again
+    before = clothes.calls
+    src2 = snap.Source(_snap_session([]), sleep=lambda s: None, pace_s=0)
+    src2.house_refresh_days = 0
+    out = adlibs.collect(src2, Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), [FakeScorer(load_rubric()), clothes],
+                         today=date(2026, 10, 17))
+    assert out["new_ads"] == 0 and clothes.calls == before

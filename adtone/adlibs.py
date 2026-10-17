@@ -114,19 +114,34 @@ def fetch_media(sess, urls: list[str], max_images: int = 5, max_videos: int = 2,
     return got
 
 
+class _Reading:
+    """One rubric's reader: its observations file, what it has read, and the pictures queued for it."""
+
+    def __init__(self, scorer, P: dict):
+        self.scorer = scorer
+        self.obs_path = P["obs"] / f"{scorer.rubric.version}.jsonl"
+        self.scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(self.obs_path)}
+        self.pending: list[tuple] = []
+        self.new_obs: list[dict] = []
+
+
 class Taker:
-    """The pictures of one ad, taken into the row: fingerprinted into the vectors, and queued for the reader,
-    which is called in parallel batches. Shared by collection and by the read stage."""
+    """The pictures of one ad, taken into the row: fingerprinted into the vectors, and queued for each
+    reader (the eighteen questions, and the clothes), which are called in parallel batches. Shared by
+    collection and by the read stage. `scorer` may be one scorer or a list of them."""
 
     def __init__(self, P: dict, run: str, embedder=None, scorer=None, counts: dict | None = None):
         from .embed import VectorStore
-        self.run, self.embedder, self.scorer = run, embedder, scorer
+        self.run, self.embedder = run, embedder
         self.counts = counts if counts is not None else {"pictures": 0, "read_ok": 0, "invalid": 0}
         self.vectors = VectorStore(embedder.tag, root=P["vectors"]) if embedder is not None else None
-        self.obs_path = P["obs"] / f"{scorer.rubric.version}.jsonl" if scorer is not None else None
-        self.scored = {(r["sha"], r["instrument"]) for r in store.read_jsonl(self.obs_path)} if self.obs_path else set()
-        self.new_obs: list[dict] = []
-        self.pending: list[tuple] = []
+        scorers = [] if scorer is None else (list(scorer) if isinstance(scorer, (list, tuple)) else [scorer])
+        self.readings = [_Reading(sc, P) for sc in scorers]
+        self.holds: dict[str, int] = {}      # sha -> readers still to take the picture, before it is closed
+
+    @property
+    def scorer(self):
+        return self.readings[0].scorer if self.readings else None
 
     def take(self, row: dict, media: list[dict], house_id: str, today: date) -> None:
         row["media"] = []
@@ -137,22 +152,29 @@ class Taker:
                                  "sha": f.sha, "phash": f.phash, "w": f.w, "h": f.h})
             if self.vectors is not None and f.sha not in self.vectors:
                 self.vectors.add(f.sha, self.embedder.embed(f.image), (row.get("first_shown") or today.isoformat())[:7])
-            if self.scorer is not None and (f.sha, self.scorer.instrument) not in self.scored \
-                    and all(f.sha != g.sha for g, _ in self.pending):
-                self.pending.append((f, {"sha": f.sha, "instrument": self.scorer.instrument, "ad_id": row["ad_id"],
-                                         "house_id": house_id, "kind": m["kind"], "rubric_version": self.scorer.rubric.version,
-                                         "run_id": self.run}))
-                if len(self.pending) >= BATCH * PARALLEL:
-                    self.flush()
+            queued = 0
+            for rd in self.readings:
+                sc = rd.scorer
+                if (f.sha, sc.instrument) in rd.scored or any(f.sha == g.sha for g, _ in rd.pending):
+                    continue
+                rd.pending.append((f, {"sha": f.sha, "instrument": sc.instrument, "ad_id": row["ad_id"],
+                                       "house_id": house_id, "kind": m["kind"], "rubric_version": sc.rubric.version,
+                                       "run_id": self.run}))
+                queued += 1
+            if queued:
+                self.holds[f.sha] = self.holds.get(f.sha, 0) + queued
+                for rd in self.readings:
+                    if len(rd.pending) >= BATCH * PARALLEL:
+                        self._flush(rd)
             else:
                 f.image.close()
 
-    def flush(self) -> None:
-        if not self.pending:
+    def _flush(self, rd: _Reading) -> None:
+        if not rd.pending:
             return
-        jpegs = [jpeg_for_model(f.image) for f, _ in self.pending]
-        answers = score_batches(self.scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
-        for (f, ob), ans in zip(self.pending, answers):
+        jpegs = [jpeg_for_model(f.image) for f, _ in rd.pending]
+        answers = score_batches(rd.scorer, [jpegs[i:i + BATCH] for i in range(0, len(jpegs), BATCH)])
+        for (f, ob), ans in zip(rd.pending, answers):
             ob["scored_at"] = store.utc_now()
             if isinstance(ans, ScoreError):
                 ob["status"], ob["error"] = "invalid", str(ans)[:300]
@@ -160,15 +182,27 @@ class Taker:
             else:
                 ob["status"], ob["output"] = "ok", ans
                 self.counts["read_ok"] += 1
-            self.new_obs.append(ob)
-            self.scored.add((f.sha, self.scorer.instrument))
-            f.image.close()
-        self.pending.clear()
+                k = f"ok_{rd.scorer.rubric.version}"
+                self.counts[k] = self.counts.get(k, 0) + 1
+            rd.new_obs.append(ob)
+            rd.scored.add((f.sha, rd.scorer.instrument))
+            left = self.holds.get(f.sha, 1) - 1
+            if left <= 0:
+                self.holds.pop(f.sha, None)
+                f.image.close()
+            else:
+                self.holds[f.sha] = left
+        rd.pending.clear()
+
+    def flush(self) -> None:
+        for rd in self.readings:
+            self._flush(rd)
 
     def save(self) -> None:
-        if self.obs_path is not None:
-            store.append_jsonl(self.obs_path, self.new_obs)
-            self.new_obs = []
+        for rd in self.readings:
+            if rd.new_obs:
+                store.append_jsonl(rd.obs_path, rd.new_obs)
+                rd.new_obs = []
         if self.vectors is not None:
             self.vectors.save()
 
@@ -187,7 +221,7 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     taker = Taker(P, run, embedder, scorer, counts)
     flush = taker.flush
     # without the reader, a source that can name its picture addresses keeps them for the read stage
-    defer = embedder is None and scorer is None and hasattr(src, "media_urls")
+    defer = embedder is None and not taker.readings and hasattr(src, "media_urls")
     sample_shape, shaped = None, 0      # the shape is taken afresh each run
 
     st.setdefault("searched", {})        # house -> the day its year was last searched to the end
@@ -378,6 +412,7 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--no-reader", action="store_true")
+    ap.add_argument("--no-clothes", action="store_true", help="the eighteen questions only, not the clothes")
     ap.add_argument("--houses", default="", help="comma-separated house ids, for a trial run")
     ap.add_argument("--fresh", action="store_true", help="search every house again, even one searched to the end this week")
     a = ap.parse_args(argv)
@@ -396,6 +431,12 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
             embedder, scorer = OpenClipEmbedder(), make_scorer(load_rubric())
         except Exception as e:
             print(f"::warning::{name}: reader unavailable, ads only: {e.__class__.__name__}: {str(e)[:200]}")
+        if scorer is not None and not a.no_clothes:
+            try:
+                from .score import clothes_scorer
+                scorer = [scorer, clothes_scorer()]
+            except Exception as e:
+                print(f"::warning::{name}: clothes reader unavailable, the eighteen questions only: {e.__class__.__name__}: {str(e)[:200]}")
     reg = registry.load()
     if a.houses:
         want = {x.strip() for x in a.houses.split(",") if x.strip()}

@@ -194,8 +194,11 @@ Ads Repository (`adtone.pinterest`, read as its own public page reads it), both 
 Every ad-library workflow takes a `stage`: `collect` (the default) searches the library and reads each new
 ad's pictures as it goes; with `no_reader` it keeps the pictures' addresses aside instead, under
 `data/<source>/pending/`, and a later run with stage `read` fetches and reads them in its own budget, so a
-backfill of forty houses can be gathered in a few hours and read over the days after. The reader on Modal
-runs up to `ADTONE_READER_CONTAINERS` containers (four) when a caller sends several batches at once.
+backfill of forty houses can be gathered in a few hours and read over the days after. Each picture is read
+twice: the eighteen questions by the pinned reader, and the clothes rubric by the larger reader the runway
+looks and homepage pictures were read with (`--no-clothes` leaves the second out), each to its own file under
+`data/<source>/obs/`, beside the fingerprint. The reader on Modal runs up to `ADTONE_READER_CONTAINERS`
+containers (four) when a caller sends several batches at once.
 
 Optional repository variables: `GRAPH_API_VERSION` (default v26.0), `ADTONE_CLAUDE_MODEL` (default
 claude-sonnet-5-5; part of the instrument's identity, so changing it starts a separate series), and

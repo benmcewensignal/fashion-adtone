@@ -217,19 +217,21 @@ class ModalScorer:
     constrained to the rubric's schema and then validated by the same code, so the two readers'
     observations are interchangeable in every analysis."""
 
-    def __init__(self, rubric: Rubric, remote=None, revision: str | None = None):
+    def __init__(self, rubric: Rubric, remote=None, revision: str | None = None, app: str | None = None,
+                 model: str | None = None, parser=None):
         revision = config.open_model_revision() if revision is None else revision
         if not revision:
             raise ScoreError("API: the open model's weights are not pinned; run the reader workflow first")
         self.fn = None
         if remote is None:
             import modal
-            self.fn = modal.Cls.from_name(config.MODAL_APP, "Reader")().read
+            self.fn = modal.Cls.from_name(app or config.MODAL_APP, "Reader")().read
             remote = self.fn.remote
         self.remote, self.rubric, self.revision = remote, rubric, revision
         self.schema = json_schema(rubric)
         self.grammar = gbnf(rubric)
-        self.instrument = f"{rubric.version}@{config.OPEN_MODEL.split('/')[-1].lower()}@{revision[:12]}"
+        self.parser = parser or parse
+        self.instrument = f"{rubric.version}@{(model or config.OPEN_MODEL).split('/')[-1].lower()}@{revision[:12]}"
         self.calls = 0
 
     def score_many(self, jpegs: list[bytes]) -> list[dict | ScoreError]:
@@ -241,7 +243,7 @@ class ModalScorer:
         out: list[dict | ScoreError] = []
         for text in texts:
             try:
-                out.append(parse(text, self.rubric))
+                out.append(self.parser(text, self.rubric))
             except ScoreError as e:
                 out.append(e)
         return out
@@ -265,7 +267,7 @@ class ModalScorer:
             got = []
             for text in res:
                 try:
-                    got.append(parse(text, self.rubric))
+                    got.append(self.parser(text, self.rubric))
                 except ScoreError as e:
                     got.append(e)
             out.append(got)
@@ -304,6 +306,22 @@ def score_batch(scorer, jpegs: list[bytes]) -> list:
                 raise
             out.append(e)
     return out
+
+def clothes_scorer(remote=None):
+    """The clothes rubric read by the larger open reader (the one the runway looks and homepage pictures
+    were read with), at the weights pinned for it; its answers in the same form as the tone reader's."""
+    import json as _json
+    from .clothes import READER, VERSION, _parse
+    pinned = _json.loads((config.DATA / "luxury" / "readers.json").read_text(encoding="utf-8")).get(READER) or {}
+    if not pinned.get("revision"):
+        raise ScoreError(f"API: no pinned weights for the {READER} reader in data/luxury/readers.json")
+
+    def parser(text, rub):
+        out, _dedup = _parse(text, rub)
+        return out
+    return ModalScorer(load_rubric(VERSION), remote=remote, revision=pinned["revision"], app=pinned.get("app"),
+                       model=pinned.get("model", READER), parser=parser)
+
 
 def score_batches(scorer, batches: list[list[bytes]]) -> list:
     """Every batch's answers in one flat list, the batches read at once where the reader can (the open
