@@ -1,5 +1,191 @@
 {
   "advertisers": {
+    "chanel": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "CHANEL",
+          "name": "CHANEL"
+        },
+        {
+          "id": "Chanel Graver- DOMINIQUE J C DESIGNS",
+          "name": "Chanel Graver- DOMINIQUE J C DESIGNS"
+        },
+        {
+          "id": "Chanel Hair",
+          "name": "Chanel Hair"
+        },
+        {
+          "id": "Chanel Italia",
+          "name": "Chanel Italia"
+        },
+        {
+          "id": "Chanel's Fashion",
+          "name": "Chanel's Fashion"
+        },
+        {
+          "id": "Chanel's Goods",
+          "name": "Chanel's Goods"
+        },
+        {
+          "id": "Chanel's Secret",
+          "name": "Chanel's Secret"
+        }
+      ],
+      "refused": [
+        {
+          "id": "chanelfemenize",
+          "name": "chanelfemenize"
+        },
+        {
+          "id": "Chanelle Cursed",
+          "name": "Chanelle Cursed"
+        },
+        {
+          "id": "Chanelle Vauthier",
+          "name": "Chanelle Vauthier"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "    Foivos P Paradeisis",
+          "name": "    Foivos P Paradeisis"
+        },
+        {
+          "id": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊",
+          "name": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊"
+        },
+        {
+          "id": " A2A Energia S.P.A",
+          "name": " A2A Energia S.P.A"
+        },
+        {
+          "id": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " American Society of Civil Engineers",
+          "name": " American Society of Civil Engineers"
+        },
+        {
+          "id": " ATRYOS DMCC LIMITED",
+          "name": " ATRYOS DMCC LIMITED"
+        },
+        {
+          "id": " Bianchessi S.r.l.",
+          "name": " Bianchessi S.r.l."
+        },
+        {
+          "id": " Blinde Bonde & Babe AS",
+          "name": " Blinde Bonde & Babe AS"
+        },
+        {
+          "id": " BODY HEALTH REHABILITATION CENTER E.E.",
+          "name": " BODY HEALTH REHABILITATION CENTER E.E."
+        },
+        {
+          "id": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Cat Crack",
+          "name": " Cat Crack"
+        },
+        {
+          "id": " CEP",
+          "name": " CEP"
+        },
+        {
+          "id": " CHRISTOPHER",
+          "name": " CHRISTOPHER"
+        },
+        {
+          "id": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Color Life",
+          "name": " Color Life"
+        }
+      ]
+    },
+    "dior": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Dior",
+          "name": "Dior"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Dior Beauty",
+          "name": "Dior Beauty"
+        },
+        {
+          "id": "Diora Media",
+          "name": "Diora Media"
+        },
+        {
+          "id": "Diora store",
+          "name": "Diora store"
+        },
+        {
+          "id": "Diorah Jewellers",
+          "name": "Diorah Jewellers"
+        },
+        {
+          "id": "Dioramapresepe",
+          "name": "Dioramapresepe"
+        },
+        {
+          "id": "Diorar",
+          "name": "Diorar"
+        },
+        {
+          "id": "Diorge Kiwify",
+          "name": "Diorge Kiwify"
+        },
+        {
+          "id": "DIORIS Sleep",
+          "name": "DIORIS Sleep"
+        },
+        {
+          "id": "DIORIS US",
+          "name": "DIORIS US"
+        },
+        {
+          "id": "Dioro Wear",
+          "name": "Dioro Wear"
+        },
+        {
+          "id": "DIOROAR",
+          "name": "DIOROAR"
+        },
+        {
+          "id": "DiorQueenz",
+          "name": "DiorQueenz"
+        },
+        {
+          "id": "Diorra Jewelry",
+          "name": "Diorra Jewelry"
+        },
+        {
+          "id": "Diorssen",
+          "name": "Diorssen"
+        },
+        {
+          "id": "DiorSun",
+          "name": "DiorSun"
+        }
+      ]
+    },
     "gucci": {
       "checked": "2026-10-17",
       "keep": [
@@ -102,27 +288,34 @@
   },
   "country_form": null,
   "notes": [
-    "gucci DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "gucci IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "gucci ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "gucci NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "gucci SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision FR 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Gucci Vision SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI FR 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI DE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI IT 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI ES 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI NL 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme",
-    "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI SE 2026-09-17: TimeoutError: Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Search\")\n    - locator resolved to 2 eleme"
+    "Chanel Italia IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel Italia IT 2026-02-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 4 elements:\n   ",
+    "Chanel Italia IT 2026-01-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 4 elements:\n   ",
+    "Chanel Italia IT 2025-12-12: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 5 elements:\n   ",
+    "Chanel Italia IT 2025-11-11: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 5 elements:\n   ",
+    "Chanel's Fashion FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Fashion DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Fashion IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Goods FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Goods DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Goods IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Secret FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Secret DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Chanel's Secret IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dior FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dior DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dior IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "gucci FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "gucci DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "gucci IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 222,
-  "run": "gh39021808371",
+  "requests": 399,
+  "run": "gh39025079518",
+  "searched": {
+    "chanel": "2026-10-17",
+    "dior": "2026-10-17"
+  },
   "shape": {
     "ad_details": {
       "advertiser_names": "NoneType",
@@ -166,7 +359,8 @@
       "start_date": "str",
       "statement_of_reasons": "NoneType",
       "user_count_by_country": {
-        "France": "str"
+        "France": "str",
+        "Italy": "str"
       },
       "user_count_eu": "str",
       "violation_decision_means": "NoneType",
@@ -176,6 +370,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": null,
-  "updated_at": "2026-10-17T10:09:26Z"
+  "stopped": "budget",
+  "updated_at": "2026-10-17T11:46:23Z"
 }
