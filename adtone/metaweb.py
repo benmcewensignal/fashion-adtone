@@ -97,7 +97,9 @@ class Source:
 
     def run_actor(self, inp: dict) -> list[dict]:
         """Start the actor with the input, wait for it, and return its dataset's records."""
-        started = self._call("POST", f"acts/{self.actor}/runs", json=inp, params={"memory": 1024})
+        n_urls = len(inp.get("urls") or inp.get("startUrls") or inp.get("pageIds") or inp.get("searchTerms") or [1])
+        memory = min(4096, max(512, 512 * n_urls))     # curious_coder's actor wants at most one address per 512 MB
+        started = self._call("POST", f"acts/{self.actor}/runs", json=inp, params={"memory": memory})
         run = started.get("data") or {}
         rid = run.get("id")
         if not rid:
