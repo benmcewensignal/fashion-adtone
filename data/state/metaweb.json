@@ -77,11 +77,208 @@
   "countries": [
     "FR"
   ],
+  "form": "page",
   "problems": {},
-  "requests": 1,
-  "run": "gh39025019912",
-  "shape": null,
-  "stopped": "Apify: the account's credit is used up (HTTP 402)",
-  "updated_at": "2026-10-17T10:29:43Z",
-  "vendor_runs": []
+  "requests": 10,
+  "run": "gh39025364742",
+  "searched": {
+    "gucci": "2026-10-17"
+  },
+  "shape": {
+    "adArchiveID": "str",
+    "adArchiveId": "str",
+    "adId": "NoneType",
+    "categories": [
+      "str"
+    ],
+    "collationCount": "int",
+    "collationId": "str",
+    "containsDigitalCreatedMedia": "bool",
+    "containsSensitiveContent": "bool",
+    "currency": "str",
+    "endDate": "int",
+    "endDateFormatted": "str",
+    "fevInfo": "NoneType",
+    "gatedType": "str",
+    "hasUserReported": "bool",
+    "hideDataStatus": "str",
+    "impressionsWithIndex": {
+      "impressionsIndex": "int",
+      "impressionsText": "NoneType"
+    },
+    "inputUrl": "str",
+    "isAaaEligible": "bool",
+    "isActive": "bool",
+    "menuItems": [],
+    "pageID": "str",
+    "pageId": "str",
+    "pageInfo": {
+      "adLibraryPageInfo": {
+        "pageInfo": {
+          "hasBlankAds": "bool",
+          "hiddenAds": "int",
+          "pageIsDeleted": "bool",
+          "relatedPages": [
+            {
+              "categoryName": "str",
+              "country": "str",
+              "countryName": "str",
+              "pageId": "str",
+              "pageName": "str",
+              "pageVerification": "str",
+              "profileImageUri": "str"
+            }
+          ]
+        }
+      },
+      "adLibrarySystemStatus": {
+        "systemStatus": {
+          "activeIssues": [
+            {
+              "product": "str",
+              "status": "str"
+            }
+          ],
+          "status": "str"
+        }
+      },
+      "adLibraryUser": "NoneType",
+      "page": {
+        "id": "str",
+        "name": "str"
+      },
+      "xfbAdLibraryIsCaptchaRequired": "bool"
+    },
+    "pageIsDeleted": "bool",
+    "pageName": "str",
+    "publisherPlatform": [
+      "str"
+    ],
+    "reachEstimate": "NoneType",
+    "regionalRegulationData": {
+      "finserv": {
+        "isDeemedFinserv": "bool",
+        "isLimitedDelivery": "bool"
+      },
+      "twAntiScam": {
+        "isLimitedDelivery": "bool"
+      }
+    },
+    "reportCount": "NoneType",
+    "snapshot": {
+      "additionalInfo": "NoneType",
+      "body": {
+        "text": "str"
+      },
+      "brandedContent": {
+        "pageId": "str",
+        "pageIsDeleted": "bool",
+        "pageName": "str",
+        "pageProfileUri": "str"
+      },
+      "brazilTaxId": "NoneType",
+      "byline": "str",
+      "caption": "str",
+      "cards": [
+        {
+          "body": "str",
+          "caption": "str",
+          "ctaText": "str",
+          "ctaType": "str",
+          "imageCrops": [],
+          "linkDescription": "str",
+          "linkUrl": "str",
+          "originalImageUrl": "str",
+          "resizedImageUrl": "str",
+          "title": "str",
+          "videoHdUrl": "NoneType",
+          "videoPreviewImageUrl": "str",
+          "videoSdUrl": "str",
+          "watermarkedResizedImageUrl": "str",
+          "watermarkedVideoHdUrl": "NoneType",
+          "watermarkedVideoSdUrl": "NoneType"
+        }
+      ],
+      "countryIsoCode": "NoneType",
+      "ctaText": "str",
+      "ctaType": "str",
+      "disclaimerLabel": "NoneType",
+      "displayFormat": "str",
+      "ecCertificates": [],
+      "event": "NoneType",
+      "extraImages": [
+        {
+          "imageCrops": [],
+          "originalImageUrl": "str",
+          "resizedImageUrl": "str"
+        }
+      ],
+      "extraLinks": [
+        "str"
+      ],
+      "extraTexts": [],
+      "extraVideos": [
+        {
+          "videoHdHandle": "str",
+          "videoSdHandle": "str"
+        }
+      ],
+      "images": [
+        {
+          "imageCrops": [],
+          "originalImageUrl": "str",
+          "resizedImageUrl": "str",
+          "watermarkedResizedImageUrl": "str"
+        }
+      ],
+      "isReshared": "bool",
+      "linkDescription": "str",
+      "linkUrl": "str",
+      "pageCategories": [
+        "str"
+      ],
+      "pageId": "str",
+      "pageIsDeleted": "bool",
+      "pageLikeCount": "int",
+      "pageName": "str",
+      "pageProfilePictureUrl": "str",
+      "pageProfileUri": "str",
+      "rootResharedPost": "NoneType",
+      "title": "str",
+      "videos": [
+        {
+          "videoHdUrl": "str",
+          "videoPreviewImageUrl": "str",
+          "videoSdUrl": "str",
+          "watermarkedVideoHdUrl": "NoneType",
+          "watermarkedVideoSdUrl": "NoneType"
+        }
+      ]
+    },
+    "spend": "NoneType",
+    "startDate": "int",
+    "startDateFormatted": "str",
+    "stateMediaRunLabel": "NoneType",
+    "targetedOrReachedCountries": [],
+    "totalActiveTime": "NoneType"
+  },
+  "stopped": null,
+  "updated_at": "2026-10-17T10:37:39Z",
+  "vendor_runs": [
+    {
+      "id": "o1rTCcjcN519FRESJ",
+      "input": {
+        "activeStatus": "",
+        "resultsLimit": 120,
+        "scrapeAdDetails": true,
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/44596321012"
+          }
+        ]
+      },
+      "status": "SUCCEEDED",
+      "usd": 0.45
+    }
+  ]
 }
