@@ -299,3 +299,4 @@
 {"at":"2026-10-16T23:53:24Z","event":"read","instrument":"v2","probs":{"asked":114461,"rows":114461},"reader":"qwen3","seconds":4446,"what":"probs"}
 {"at":"2026-10-16T23:53:25Z","axes":{"intimate":{"first_bias":-1.588,"judgements":69404,"pictures":9540},"provocative":{"first_bias":-1.54,"judgements":69249,"pictures":9540}},"event":"positions","instrument":"v2","reader":"qwen3"}
 {"asked":7501,"at":"2026-10-17T00:23:58Z","errors":0,"event":"composition","measured":3100,"seconds":1832}
+{"at":"2026-10-17T01:10:09Z","event":"analyse","instrument":"v2","reader":"qwen3","readings":{"clip":14894,"composition":7988,"pixels":14902,"positions":14902}}
