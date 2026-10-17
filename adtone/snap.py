@@ -36,6 +36,7 @@ UA = "fashion-adtone research (Snap Ads Gallery API; contact via the repository)
 PACE_S = 2.0
 MAX_429_IN_A_ROW = 8
 DATE_FORMS = ("year", "year_to_yesterday", "quarter", "month", "none")
+MAX_PAGES = 400               # pages of one search; a cursor that comes back again ends the search
 # Legal and trading names the houses pay under, beyond the house's own name and search terms. Added to as
 # the state shows which names answer; a name that never answers costs one request a run.
 LEGAL = {
@@ -195,8 +196,10 @@ class Source:
             n_here = 0
             for status in ("ACTIVE", "PAUSED"):
                 forms = [self.date_form] if self.date_form else DATE_FORMS
-                url = SEARCH
-                while url:
+                url, pages, seen_urls = SEARCH, 0, set()
+                while url and pages < MAX_PAGES and url not in seen_urls:
+                    seen_urls.add(url)
+                    pages += 1
                     body = None
                     for form in forms:
                         body = {"paying_advertiser_name": name, "countries": COUNTRIES, "status": status, **self._dates(form, start, end)}

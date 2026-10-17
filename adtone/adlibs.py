@@ -148,6 +148,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
             ads = {r["ad_id"]: r for r in store.read_jsonl(path)}
             try:
                 for item in src.search_ads(h, keep, today - timedelta(days=src.lookback_days), today):
+                    if clock() - t0 > budget_s:
+                        raise src.Stop("budget")      # mid-search: what came back is kept, the rest waits for next week
                     if sample_shape is None:
                         sample_shape = shape(item)
                     if not src.is_houses(item, h, keep):
