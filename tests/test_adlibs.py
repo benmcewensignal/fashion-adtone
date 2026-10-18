@@ -803,6 +803,17 @@ def test_rehydrate_takes_the_vendors_recent_datasets_for_the_pictures_a_reader_l
     # nothing lacks a reading any more: a second rehydrate finds nothing to do
     out = src.rehydrate(Registry(1, "T", [GUCCI]), "r5", since="2026-10-17")
     assert out["lacking"] == 0 and out["rehydrated"] == 0
+    # a video's frames, taken again, hash differently from those first recorded: the reading made under the ad's
+    # id counts as the ad's, and the ad is not asked for again
+    rows = store.read_jsonl(P["ads"] / "gucci.jsonl")
+    rows[0]["media"].append({"kind": "frame", "at": 1.0, "sha": "f" * 64, "phash": "0" * 16, "w": 10, "h": 10})
+    store.write_jsonl(P["ads"] / "gucci.jsonl", rows)
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r6", since="2026-10-17")
+    assert out["lacking"] == 0                                                  # read under its id already
+    rows[0]["ad_id"] = "999"                                                    # an ad nothing was read under
+    store.write_jsonl(P["ads"] / "gucci.jsonl", rows)
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r7", since="2026-10-17")
+    assert out["lacking"] == 1
 
 
 def test_rehydrate_gives_the_rows_on_file_the_season_their_words_name(tmp_data):

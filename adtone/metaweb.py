@@ -348,7 +348,9 @@ class Source:
         them with those readers only and keeps the pictures as first recorded. Meta's addresses lapse within
         days of the search, so this is run while they stand. On the way, every row on file that lacks the
         season key its words name (`season`, kept since 18 October) is given it from the same datasets; the
-        words themselves are not kept."""
+        words themselves are not kept. A reading is the ad's by the picture's hash or, failing that, by the ad's
+        id: a video's frames taken again hash differently from those first recorded (adlibs.read_pending keeps
+        the pictures as first recorded), so the frames' readings are joined to the ad by its id."""
         from . import store as _store
         from .score import load_rubric
         P = adlibs.paths(self.name)
@@ -365,11 +367,15 @@ class Source:
                 if (r.get("display_format") or "") in adlibs.DYNAMIC or r.get("division", "fashion") != "fashion" or not r.get("media"):
                     continue
                 want[r["ad_id"]] = r
-        read = {}
+        read, read_ads = {}, {}
         for v in readers:
-            read[v] = {o["sha"] for o in _store.read_jsonl(P["obs"] / f"{load_rubric(v).version}.jsonl") if o.get("status") in ("ok", "invalid")}
+            obs = [o for o in _store.read_jsonl(P["obs"] / f"{load_rubric(v).version}.jsonl") if o.get("status") in ("ok", "invalid")]
+            read[v] = {o["sha"] for o in obs}
+            read_ads[v] = {str(o.get("ad_id")) for o in obs}
+        # an ad lacks a reading when a picture of its lacks one and nothing was read under the ad's id either: a
+        # video's frames, taken again, hash differently from those first recorded, and are read under the ad's id
         lacking = {a: r for a, r in want.items()
-                   if any(any(m["sha"] not in read[v] for m in r["media"]) for v in readers)}
+                   if any(a not in read_ads[v] and any(m["sha"] not in read[v] for m in r["media"]) for v in readers)}
         counts = {"runs": 0, "items": 0, "ads_on_file": len(want), "lacking": len(lacking), "rehydrated": 0, "no_address": 0,
                   "unkeyed": len(unkeyed), "seasons_named": 0, "seasons_filled": 0}
         found: dict[str, tuple] = {}
