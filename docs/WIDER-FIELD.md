@@ -15,7 +15,7 @@ ticked here in the same commit.
 
 | table | rows | houses with none |
 |---|---|---|
-| `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026) | none |
+| `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026; Giornetti, Rigoni, Andrew and Takahashi's show days 18 October 2026) | none |
 | `reference/executives.csv` | 40 (Hecquet's announcement filled 17 October 2026) | none |
 | `reference/shows.csv` | 153, February 2022 on | none |
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
@@ -35,7 +35,7 @@ Identifiers
       comme_des_garcons. Still to do: mcqueen (its listing would not load) and armani, whose Privé page now
       links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
       On 16 October 2026 the fetcher could not open nowfashion.com at all (its permission request went
-      unanswered in a scheduled run), so nothing was read; the same happened on 17 October 2026.
+      unanswered in a scheduled run), so nothing was read; the same happened on 17 and 18 October 2026.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -61,7 +61,8 @@ Shows (`reference/shows.csv`)
       (5 October 2026; no 2025 show beyond Courchevel was found) and McQueen SS27 in London (20 September 2026).
 - [ ] Still open on shows: the days of Comme des Garçons' two Tokyo shows of AW22 (men's and women's, no
       source gives them, so they have no row; on 16 October 2026 Fashionsnap and WWDJAPAN still gave only the
-      Aoyama head office and their publication days, 17 January and 8 March 2022); the 2022 rows checked
+      Aoyama head office and their publication days, 17 January and 8 March 2022, and on 18 October 2026
+      Hypebae and A Magazine Curated By gave no day either); the 2022 rows checked
       against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
@@ -81,13 +82,15 @@ People
       found. None new was found for McQueen after 2023 or for Lanvin.
 - [x] Credits: 115 rows, among them Sarah Burton's 2021 to 2023 McQueen campaigns, Balmain 2022 to 2026,
       Moncler 2021 to 2024, Stella McCartney 2020 to 2023 and The Row's lookbooks and Summer 2022 campaign.
-- [ ] Still open on people: the show days missing for Giornetti's last show (AW16), Rigoni's first (SS17),
-      Andrew's last (AW21) and Takahashi's first (SS14); Meilland's last show and departure; Andy Lew's
+- [ ] Still open on people: Meilland's last show and departure; Andy Lew's
       announcement as the Lanvin brand's CEO and Tom Mendenhall's start (not stated in the reports of
       2025-09-08 to 2025-09-10); credits for Comme des Garçons and Schiaparelli, and for Moncler, Stella
       McCartney and The Row after 2024, whose credits sit behind a login. Filled on 17 October 2026:
       Elbaz's last show (2015-10-01), Meilland's announcement (2016-11-17) and first show (AW17 men's,
-      Milan, 2017-01-15), Hecquet's announcement at Lanvin (2018-08-28).
+      Milan, 2017-01-15), Hecquet's announcement at Lanvin (2018-08-28). Filled on 18 October 2026:
+      Giornetti's last show (AW16, 2016-02-28, Camera Moda's calendar), Rigoni's first (SS17, 2016-09-25) and
+      Andrew's last (AW21, digital, 2021-02-27), both from FashionNetwork's published schedules, and
+      Takahashi's first (SS14, Paris, 2013-06-27, FashionUnited and AFP).
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
