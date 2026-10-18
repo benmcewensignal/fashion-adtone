@@ -155,6 +155,10 @@ def _apify_session(datasets):
         raise AssertionError(url)
 
     def get(url, params):
+        if url.endswith("/actor-runs"):          # the account's runs, newest first, as the vendor lists them
+            items = [{"id": r["id"], "status": "SUCCEEDED", "defaultDatasetId": r["defaultDatasetId"],
+                      "startedAt": f"2026-10-17T{9 + i:02d}:00:00Z"} for i, r in enumerate(runs.values())]
+            return FakeResponse(200, payload={"data": {"items": items[::-1]}})
         if "/actor-runs/" in url:
             rid = url.rsplit("/", 1)[-1]
             runs[rid]["status"], runs[rid]["usageTotalUsd"] = "SUCCEEDED", 0.12
@@ -768,3 +772,34 @@ def test_the_read_stage_fetches_the_next_ads_while_taking_these_and_each_picture
                               sess=FakeSession(_cdn), today=date(2026, 10, 17), clock=lambda: next(clock), chunk_ads=2, fetch_workers=4)
     assert out["ads_read"] == 2 and out["ads_left"] == 4
     assert len(store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")) == 4
+
+
+def test_rehydrate_takes_the_vendors_recent_datasets_for_the_pictures_a_reader_lacks(tmp_data):
+    from adtone import metaweb
+    datasets = {"search:Gucci": [_vendor_item(0, "100", "Gucci"), _vendor_item(1, "100", "Gucci")],
+                "pages:100": [_vendor_item(i, "100", "Gucci") for i in range(4)]}
+    sess = _apify_session(datasets)
+    src = metaweb.Source(sess, token="t", actor="bovi~meta-ads-library-scraper", countries="ALL", sleep=lambda s: None)
+    out = adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()), today=date(2026, 10, 17))
+    assert out["new_ads"] == 4 and out["read_ok"] == 4
+    P = adlibs.paths("metaweb")
+    rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / "gucci.jsonl")}
+    media_before = {a: r["media"] for a, r in rows.items()}
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r2", since="2026-10-17")
+    assert out["lacking"] == 4 and out["rehydrated"] == 4 and out["no_address"] == 0 and out["runs"] == 2
+    pend = store.read_jsonl(P["pending"] / "gucci.jsonl")
+    assert len(pend) == 4 and all(p["readers"] == ["clothes-v1"] and p["keep_media"] and p["urls"] for p in pend)
+    # a read run without the clothes reader leaves them waiting
+    out = adlibs.read_pending("metaweb", Registry(1, "T", [GUCCI]), "r3", FakeEmbedder(), FakeScorer(load_rubric()), sess=sess, today=date(2026, 10, 18))
+    assert out["ads_read"] == 0 and len(store.read_jsonl(P["pending"] / "gucci.jsonl")) == 4
+    # with it, they are read by the clothes reader only, and the rows keep their pictures as first recorded
+    clothes = _FakeClothes()
+    out = adlibs.read_pending("metaweb", Registry(1, "T", [GUCCI]), "r4", FakeEmbedder(), [FakeScorer(load_rubric()), clothes], sess=sess, today=date(2026, 10, 18))
+    assert out["ads_read"] == 4 and out["reread"] == 4 and out["ads_left"] == 0 and clothes.calls >= 1
+    rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / "gucci.jsonl")}
+    assert {a: r["media"] for a, r in rows.items()} == media_before
+    assert len(store.read_jsonl(P["obs"] / "tone-v1.jsonl")) == 4            # nothing read twice by the first reader
+    assert len(store.read_jsonl(P["obs"] / "clothes-v1.jsonl")) == 4
+    # nothing lacks a reading any more: a second rehydrate finds nothing to do
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r5", since="2026-10-17")
+    assert out["lacking"] == 0 and out["rehydrated"] == 0

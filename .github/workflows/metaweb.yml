@@ -23,9 +23,9 @@ on:
         type: boolean
         default: false
       stage:
-        description: "collect (the library) or read (the pictures kept aside by runs without the reader)"
+        description: "collect (the library), read (the pictures kept aside), tidy (the rules on the rows on file), or rehydrate (the vendor's recent datasets, for pictures a reader lacks)"
         type: choice
-        options: [collect, read]
+        options: [collect, read, tidy, rehydrate]
         default: collect
       skip_dynamic:
         description: "read stage: the made fashion pictures first; the dynamic and catalogue units, and other divisions' ads, left for later"

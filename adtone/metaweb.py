@@ -314,6 +314,84 @@ class Source:
         urls, kw = self.media_urls(item)
         return adlibs.fetch_media(self.s, urls, **kw)
 
+    def vendor_datasets(self, since: str) -> list[dict]:
+        """The account's successful actor runs since a day, newest first, with their dataset ids: the vendor
+        keeps a run's records for days after it, so the picture addresses of ads already on file can be had
+        again without buying the ads again."""
+        out, offset = [], 0
+        while True:
+            page = self._call("GET", "actor-runs", params={"limit": 100, "offset": offset, "desc": "true"})
+            items = (page.get("data") or {}).get("items") or []
+            for r in items:
+                if (r.get("startedAt") or "") < since:
+                    return out
+                if r.get("status") == "SUCCEEDED" and r.get("defaultDatasetId"):
+                    out.append({"id": r.get("id"), "dataset": r["defaultDatasetId"], "started": r.get("startedAt")})
+            if len(items) < 100:
+                return out
+            offset += 100
+
+    def dataset_items(self, ds: str) -> list[dict]:
+        items, offset = [], 0
+        while True:
+            page = self._call("GET", f"datasets/{ds}/items", params={"clean": "true", "offset": offset, "limit": 1000})
+            rows = page if isinstance(page, list) else (page.get("items") or [])
+            items.extend(r for r in rows if isinstance(r, dict))
+            if len(rows) < 1000:
+                return items
+            offset += 1000
+
+    def rehydrate(self, reg: registry.Registry, run: str, since: str, readers: tuple[str, ...] = ("clothes-v1",)) -> dict:
+        """The picture addresses of the made fashion ads already on file whose pictures lack a reading by one of
+        `readers`, taken again from the vendor's recent datasets and kept aside for the read stage, which reads
+        them with those readers only and keeps the pictures as first recorded. Meta's addresses lapse within
+        days of the search, so this is run while they stand."""
+        from . import store as _store
+        from .score import load_rubric
+        P = adlibs.paths(self.name)
+        houses = {h.id: h for h in reg.houses}
+        want: dict[str, dict] = {}          # ad_id -> row
+        for h in reg.houses:
+            path = P["ads"] / f"{h.id}.jsonl"
+            for r in _store.read_jsonl(path):
+                if (r.get("display_format") or "") in adlibs.DYNAMIC or r.get("division", "fashion") != "fashion" or not r.get("media"):
+                    continue
+                want[r["ad_id"]] = r
+        read = {}
+        for v in readers:
+            read[v] = {o["sha"] for o in _store.read_jsonl(P["obs"] / f"{load_rubric(v).version}.jsonl") if o.get("status") in ("ok", "invalid")}
+        lacking = {a: r for a, r in want.items()
+                   if any(any(m["sha"] not in read[v] for m in r["media"]) for v in readers)}
+        counts = {"runs": 0, "items": 0, "ads_on_file": len(want), "lacking": len(lacking), "rehydrated": 0, "no_address": 0}
+        found: dict[str, tuple] = {}
+        for vr in self.vendor_datasets(since):
+            counts["runs"] += 1
+            for item in self.dataset_items(vr["dataset"]):
+                counts["items"] += 1
+                ad_id = str(find(item, "adarchiveid", "ad_archive_id", "id", "adid", want=(str, int)) or "")
+                if ad_id in lacking and ad_id not in found:
+                    urls, kw = self.media_urls(item)
+                    if urls:
+                        found[ad_id] = (urls, kw)
+        by_house: dict[str, dict] = {}
+        for ad_id, (urls, kw) in found.items():
+            r = lacking[ad_id]
+            by_house.setdefault(r["house_id"], {})[ad_id] = {"ad_id": ad_id, "house_id": r["house_id"], "urls": list(urls), "kw": dict(kw),
+                                                           "first_shown": r.get("first_shown"), "found": r.get("found"),
+                                                           "readers": list(readers), "keep_media": True}
+        counts["no_address"] = len(lacking) - len(found)
+        for h, entries in by_house.items():
+            pend_path = P["pending"] / f"{h}.jsonl"
+            pend = {x["ad_id"]: x for x in _store.read_jsonl(pend_path)}
+            for ad_id, x in entries.items():
+                if ad_id not in pend:
+                    pend[ad_id] = x
+                    counts["rehydrated"] += 1
+            _store.write_jsonl(pend_path, sorted(pend.values(), key=lambda x: x["ad_id"]))
+        out = {"run": run, "stage": "rehydrate", "updated_at": _store.utc_now(), "since": since, "readers": list(readers), **counts}
+        _store.append_jsonl(P["prov"], [out])
+        return out
+
 
 def _reach(breakdown: list) -> dict:
     from collections import Counter

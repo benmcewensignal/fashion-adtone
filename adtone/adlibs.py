@@ -155,7 +155,8 @@ class Taker:
     def scorer(self):
         return self.readings[0].scorer if self.readings else None
 
-    def take(self, row: dict, media: list[dict], house_id: str, today: date) -> None:
+    def take(self, row: dict, media: list[dict], house_id: str, today: date, readers: set[str] | None = None) -> None:
+        """The pictures into the row and to every reader, or with `readers` to those rubric versions only."""
         row["media"] = []
         for m in media:
             f = m["fetched"]
@@ -167,6 +168,8 @@ class Taker:
             queued = 0
             for rd in self.readings:
                 sc = rd.scorer
+                if readers is not None and sc.rubric.version not in readers:
+                    continue
                 if rd.off:
                     self.dropped.add(row["ad_id"])
                     continue
@@ -196,6 +199,11 @@ class Taker:
     @property
     def all_off(self) -> bool:
         return bool(self.readings) and all(rd.off for rd in self.readings)
+
+    @property
+    def versions(self) -> set[str]:
+        """The rubric versions of the readers still working this run."""
+        return {rd.scorer.rubric.version for rd in self.readings if not rd.off}
 
     def status(self) -> str | None:
         """What the readers' failures come to, for the run's record; None when every reading went through."""
@@ -568,14 +576,15 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
             return [], f"{e.__class__.__name__}: {str(e)[:120]}"
 
     def waiting(h) -> tuple[dict, dict]:
-        """The house's waiting ads: those to read in this run, and those left for later (dynamic units, other divisions)."""
+        """The house's waiting ads: those to read in this run, and those left for later (dynamic units, other
+        divisions, and entries for readers not working this run)."""
         pend_all = {r["ad_id"]: r for r in store.read_jsonl(P["pending"] / f"{h.id}.jsonl")}
-        later = {}
+        later = {k: v for k, v in pend_all.items() if v.get("readers") and not set(v["readers"]) & taker.versions}
         if (skip_dynamic or fashion_only) and pend_all:
             rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / f"{h.id}.jsonl")}
-            later = {k: v for k, v in pend_all.items()
-                     if (skip_dynamic and (rows.get(k, {}).get("display_format") or "") in DYNAMIC)
-                     or (fashion_only and rows.get(k, {}).get("division", "fashion") != "fashion")}
+            later.update({k: v for k, v in pend_all.items()
+                          if (skip_dynamic and (rows.get(k, {}).get("display_format") or "") in DYNAMIC)
+                          or (fashion_only and rows.get(k, {}).get("division", "fashion") != "fashion")})
         return {k: v for k, v in pend_all.items() if k not in later}, later
 
     pool = ThreadPoolExecutor(max_workers=max(1, fetch_workers))
@@ -642,7 +651,11 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     if err:
                         row["media_error"] = err
                         counts["media_errors"] += 1
-                    taker.take(row, media, h.id, today)
+                    had = row.get("media") if pr.get("keep_media") else None
+                    taker.take(row, media, h.id, today, readers=set(pr["readers"]) if pr.get("readers") else None)
+                    if had:
+                        row["media"] = had            # read again for a reader it lacked: the pictures as first recorded
+                        counts["reread"] = counts.get("reread", 0) + 1
                     row.pop("media_pending", None)
                     row.pop("media_lapsed", None)
                     counts["ads_read"] += 1
@@ -829,7 +842,8 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     import os
 
     ap = argparse.ArgumentParser(prog=f"adtone.{name}")
-    ap.add_argument("stage", choices=["collect", "read", "probe", "tidy"])
+    ap.add_argument("stage", choices=["collect", "read", "probe", "tidy", "rehydrate"])
+    ap.add_argument("--since", default="", help="rehydrate: the vendor's runs from this day (ISO date)")
     ap.add_argument("--run", default=config.run_id())
     ap.add_argument("--budget-min", type=float, default=60)
     ap.add_argument("--no-reader", action="store_true")
@@ -870,6 +884,19 @@ def main_for(name: str, make_source, argv: list[str] | None = None, needs: tuple
     except Exception as e:
         print(f"::warning::{name} tidy failed: {e.__class__.__name__}: {str(e)[:200]}")
     if a.stage == "tidy":
+        return 0
+    if a.stage == "rehydrate":
+        src = make_source()
+        if not hasattr(src, "rehydrate"):
+            return waiting(name, a.run, "no rehydrate for this library")
+        try:
+            out = src.rehydrate(reg, a.run, a.since or (datetime.now(timezone.utc).date() - timedelta(days=7)).isoformat())
+        except Exception as e:
+            out = {"run": a.run, "stage": "rehydrate", "updated_at": store.utc_now(), "crashed": f"{e.__class__.__name__}: {str(e)[:300]}"}
+            store.append_jsonl(paths(name)["prov"], [out])
+            print(f"::error::{name} rehydrate crashed, recorded in provenance: {out['crashed']}")
+            return 1
+        print(out)
         return 0
     if a.houses:
         want = {x.strip() for x in a.houses.split(",") if x.strip()}
