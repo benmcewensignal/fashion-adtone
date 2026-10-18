@@ -59,6 +59,11 @@
       ],
       "refused": []
     },
+    "balmain": {
+      "checked": "2026-10-18",
+      "keep": [],
+      "refused": []
+    },
     "bottega_veneta": {
       "checked": "2026-10-17",
       "keep": [
@@ -108,7 +113,9 @@
         {
           "id": "Celine",
           "name": "Celine"
-        },
+        }
+      ],
+      "refused": [
         {
           "id": "Céline Ameel",
           "name": "Céline Ameel"
@@ -204,9 +211,7 @@
         {
           "id": "Céline skowron",
           "name": "Céline skowron"
-        }
-      ],
-      "refused": [
+        },
         {
           "id": "céline claire on cosmetic inc.",
           "name": "céline claire on cosmetic inc."
@@ -245,16 +250,18 @@
           "name": "CHANEL"
         },
         {
+          "id": "Chanel Italia",
+          "name": "Chanel Italia"
+        }
+      ],
+      "refused": [
+        {
           "id": "Chanel Graver- DOMINIQUE J C DESIGNS",
           "name": "Chanel Graver- DOMINIQUE J C DESIGNS"
         },
         {
           "id": "Chanel Hair",
           "name": "Chanel Hair"
-        },
-        {
-          "id": "Chanel Italia",
-          "name": "Chanel Italia"
         },
         {
           "id": "Chanel's Fashion",
@@ -267,9 +274,7 @@
         {
           "id": "Chanel's Secret",
           "name": "Chanel's Secret"
-        }
-      ],
-      "refused": [
+        },
         {
           "id": "chanelfemenize",
           "name": "chanelfemenize"
@@ -443,6 +448,11 @@
         }
       ]
     },
+    "comme_des_garcons": {
+      "checked": "2026-10-18",
+      "keep": [],
+      "refused": []
+    },
     "dior": {
       "checked": "2026-10-17",
       "keep": [
@@ -578,6 +588,24 @@
         }
       ]
     },
+    "ferragamo": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "Ferragamo",
+          "name": "Ferragamo"
+        },
+        {
+          "id": "Salvatore Ferragamo",
+          "name": "Salvatore Ferragamo"
+        },
+        {
+          "id": "Salvatore Ferragamo Spa",
+          "name": "Salvatore Ferragamo Spa"
+        }
+      ],
+      "refused": []
+    },
     "givenchy": {
       "checked": "2026-10-17",
       "keep": [
@@ -599,7 +627,9 @@
         {
           "id": "gucci",
           "name": "gucci"
-        },
+        }
+      ],
+      "refused": [
         {
           "id": "Gucci Vision",
           "name": "Gucci Vision"
@@ -607,9 +637,7 @@
         {
           "id": "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI",
           "name": "Guccione Parrucchieri di GUCCIONE NICOLO GIOVANNI"
-        }
-      ],
-      "refused": [
+        },
         {
           "id": "",
           "name": ""
@@ -787,6 +815,26 @@
         }
       ]
     },
+    "issey_miyake": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "Issey Miyake",
+          "name": "Issey Miyake"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Issey Miyake Parfums",
+          "name": "Issey Miyake Parfums"
+        }
+      ]
+    },
+    "jacquemus": {
+      "checked": "2026-10-18",
+      "keep": [],
+      "refused": []
+    },
     "jil_sander": {
       "checked": "2026-10-17",
       "keep": [],
@@ -797,13 +845,25 @@
         }
       ]
     },
+    "lanvin": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "Lanvin",
+          "name": "Lanvin"
+        }
+      ],
+      "refused": []
+    },
     "loewe": {
       "checked": "2026-10-17",
       "keep": [
         {
           "id": "LOEWE",
           "name": "LOEWE"
-        },
+        }
+      ],
+      "refused": [
         {
           "id": "Loewe Dolomites",
           "name": "Loewe Dolomites"
@@ -823,9 +883,7 @@
         {
           "id": "Loewe Verlag",
           "name": "Loewe Verlag"
-        }
-      ],
-      "refused": [
+        },
         {
           "id": "Loewen Design Studios | Custom Wood Dining Tables",
           "name": "Loewen Design Studios | Custom Wood Dining Tables"
@@ -919,6 +977,16 @@
         }
       ]
     },
+    "mcqueen": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "MCQUEEN SRL",
+          "name": "MCQUEEN SRL"
+        }
+      ],
+      "refused": []
+    },
     "miu_miu": {
       "checked": "2026-10-17",
       "keep": [
@@ -931,6 +999,97 @@
         {
           "id": "Miu Miu Canada",
           "name": "Miu Miu Canada"
+        }
+      ]
+    },
+    "moncler": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "Moncler",
+          "name": "Moncler"
+        }
+      ],
+      "refused": [
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "    Foivos P Paradeisis",
+          "name": "    Foivos P Paradeisis"
+        },
+        {
+          "id": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊",
+          "name": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊"
+        },
+        {
+          "id": " A2A Energia S.P.A",
+          "name": " A2A Energia S.P.A"
+        },
+        {
+          "id": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " American Society of Civil Engineers",
+          "name": " American Society of Civil Engineers"
+        },
+        {
+          "id": " ATRYOS DMCC LIMITED",
+          "name": " ATRYOS DMCC LIMITED"
+        },
+        {
+          "id": " Bianchessi S.r.l.",
+          "name": " Bianchessi S.r.l."
+        },
+        {
+          "id": " Blinde Bonde & Babe AS",
+          "name": " Blinde Bonde & Babe AS"
+        },
+        {
+          "id": " BODY HEALTH REHABILITATION CENTER E.E.",
+          "name": " BODY HEALTH REHABILITATION CENTER E.E."
+        },
+        {
+          "id": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Cat Crack",
+          "name": " Cat Crack"
+        },
+        {
+          "id": " CEP",
+          "name": " CEP"
+        },
+        {
+          "id": " CHRISTOPHER",
+          "name": " CHRISTOPHER"
+        },
+        {
+          "id": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " CITY APART MANAGEMENT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Color Life",
+          "name": " Color Life"
+        },
+        {
+          "id": " Com2uS",
+          "name": " Com2uS"
+        },
+        {
+          "id": " Cross Orders s.r.o.",
+          "name": " Cross Orders s.r.o."
+        },
+        {
+          "id": " DAKO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " DAKO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
         }
       ]
     },
@@ -982,6 +1141,35 @@
         }
       ],
       "refused": []
+    },
+    "schiaparelli": {
+      "checked": "2026-10-18",
+      "keep": [],
+      "refused": []
+    },
+    "stella_mccartney": {
+      "checked": "2026-10-18",
+      "keep": [
+        {
+          "id": "Stella McCartney",
+          "name": "Stella McCartney"
+        }
+      ],
+      "refused": []
+    },
+    "the_row": {
+      "checked": "2026-10-18",
+      "keep": [],
+      "refused": [
+        {
+          "id": "The Rowan",
+          "name": "The Rowan"
+        },
+        {
+          "id": "The Rowan Sisters",
+          "name": "The Rowan Sisters"
+        }
+      ]
     },
     "tom_ford": {
       "checked": "2026-10-17",
@@ -1080,56 +1268,67 @@
   },
   "country_form": null,
   "notes": [
-    "Dolce&Gabbana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce&Gabbana IT 2026-04-15: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 7 elements:\n   ",
-    "Dolce & Gabbana FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce & Gabbana DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce & Gabbana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce & Gabbana Srl FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce & Gabbana Srl DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Dolce & Gabbana Srl IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Max Mara FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Max Mara DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Max Mara IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Brunello Cucinelli FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Brunello Cucinelli DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Brunello Cucinelli IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "GIORGIO ARMANI FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "GIORGIO ARMANI DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "GIORGIO ARMANI IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Giorgio Armani Spa FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Giorgio Armani Spa DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Giorgio Armani Spa IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Ferragamo DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Ferragamo IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo Spa FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo Spa DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Salvatore Ferragamo Spa IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "MCQUEEN SRL FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "MCQUEEN SRL DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "MCQUEEN SRL IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Lanvin FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Lanvin DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Lanvin IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Stella McCartney FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Stella McCartney DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Stella McCartney IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Issey Miyake FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Issey Miyake DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Issey Miyake IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 482,
-  "run": "gh39076997494",
+  "requests": 293,
+  "run": "gh39081945727",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
     "balenciaga": "2026-10-17",
+    "balmain": "2026-10-18",
     "bottega_veneta": "2026-10-17",
     "brunello_cucinelli": "2026-10-17",
     "burberry": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
     "chloe": "2026-10-17",
+    "comme_des_garcons": "2026-10-18",
     "dior": "2026-10-17",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
     "fendi": "2026-10-17",
+    "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-10-17",
     "hermes": "2026-10-17",
+    "issey_miyake": "2026-10-18",
+    "jacquemus": "2026-10-18",
     "jil_sander": "2026-10-17",
+    "lanvin": "2026-10-18",
     "loewe": "2026-10-17",
     "loro_piana": "2026-10-17",
     "louis_vuitton": "2026-10-17",
     "margiela": "2026-10-17",
     "max_mara": "2026-10-17",
+    "mcqueen": "2026-10-18",
     "miu_miu": "2026-10-17",
+    "moncler": "2026-10-18",
     "prada": "2026-10-17",
     "saint_laurent": "2026-10-17",
+    "schiaparelli": "2026-10-18",
+    "stella_mccartney": "2026-10-18",
+    "the_row": "2026-10-18",
     "tom_ford": "2026-10-17",
     "valentino": "2026-10-17",
     "versace": "2026-10-17",
@@ -1178,7 +1377,7 @@
       "start_date": "str",
       "statement_of_reasons": "NoneType",
       "user_count_by_country": {
-        "France": "str"
+        "Italy": "str"
       },
       "user_count_eu": "str",
       "violation_decision_means": "NoneType",
@@ -1188,6 +1387,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": "budget",
-  "updated_at": "2026-10-18T00:21:33Z"
+  "stopped": null,
+  "updated_at": "2026-10-18T01:06:17Z"
 }
