@@ -1,10 +1,5 @@
 {
-  "complete": [
-    "celine",
-    "comme_des_garcons",
-    "issey_miyake",
-    "stella_mccartney"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-13",
     "armani": "2026-10-14",
@@ -47,7 +42,7 @@
     "versace": "2026-10-12",
     "zegna": "2026-10-14"
   },
-  "end": "2026-10-16",
+  "end": "2026-10-17",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -93,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh39075641470",
+  "run": "gh39099108212",
   "span": {},
-  "updated_at": "2026-10-17T22:59:56Z"
+  "updated_at": "2026-10-18T05:29:12Z"
 }
