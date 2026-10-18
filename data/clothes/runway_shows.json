@@ -4493,18 +4493,81 @@
   "status": "collected"
  },
  "louis_vuitton:2020-01-16:men": {
+  "candidates": [
+   "20200330090807 https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2020-show"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 192,
+   "refused": 120,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "louis_vuitton:2020-03-03:rtw": {
+  "candidates": [
+   "20200410221757 https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fall-winter-2020-show",
+   "20200418030357 https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fw20-show-highlights",
+   "20200604082013 https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fw20-show-guests"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 184,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 229,
+   "refused": 184,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "louis_vuitton:2020-09-28:rtw": {
+  "candidates": [
+   "20201017050056 https://uk.louisvuitton.com/eng-gb/magazine/articles/women-spring-summer-2021-show-paris"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 174,
+   "refused": 120,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "louis_vuitton:2021-01-21:men": {
+  "candidates": [
+   "20210212110512 https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2021-show-paris?utm_source=linkedin&utm_medium=social&utm_campaign=PUBL_MENSHOWFW21_LK_GB_ENG_AW_20210119_20210126_MEN_SHOW",
+   "20210514202207 https://uk.louisvuitton.com/eng-gb/magazine/articles/mens-prefall-fw21"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 2,
+   "pictures": 211,
+   "refused": 120,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -4514,19 +4577,19 @@
    "20210620215733 https://uk.louisvuitton.com/eng-gb/magazine/articles/prefall-21"
   ],
   "diag": {
-   "captures_tried": 1,
-   "cut": true,
+   "captures_tried": 5,
+   "cut": false,
    "duplicates": 0,
    "failed": 0,
-   "fetched": 24,
-   "opened": 1,
+   "fetched": 200,
+   "opened": 5,
    "pages": 2,
-   "pictures": 81,
-   "refused": 24,
+   "pictures": 477,
+   "refused": 200,
    "small": 0
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "louis_vuitton:2021-06-24:men": {
   "candidates": [
@@ -5062,42 +5125,206 @@
   "status": "collected"
  },
  "miu_miu:2015-03-11:rtw": {
+  "candidates": [
+   "20150326020102 http://www.miumiu.com:80/en/fashion-shows/fw15/backstage",
+   "20150504062025 http://www.miumiu.com:80/en/fashion-shows/fw15/video?cc=NL"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 44,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 47,
+   "refused": 4,
+   "small": 40
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2015-10-07:rtw": {
+  "candidates": [
+   "20151016125534 http://www.miumiu.com:80/en/fashion-shows/ss16/video",
+   "20151019133105 http://www.miumiu.com:80/hans/fashion-shows/ss16/video",
+   "20151019133110 http://www.miumiu.com:80/hant/fashion-shows/ss16/video"
+  ],
+  "diag": {
+   "captures_tried": 8,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 320,
+   "opened": 8,
+   "pages": 3,
+   "pictures": 339,
+   "refused": 8,
+   "small": 312
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2016-03-09:rtw": {
+  "candidates": [
+   "20160314151355 http://www.miumiu.com:80/en/fashion-shows/fw16/video?cc=ES&intcmp=hero1_fw16_fashion_show",
+   "20160314210235 http://www.miumiu.com:80/en/fashion-shows/fw16/details",
+   "20160314210250 http://www.miumiu.com:80/en/fashion-shows/fw16/showspace"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 146,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 160,
+   "refused": 135,
+   "small": 11
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2016-10-05:rtw": {
+  "candidates": [
+   "20161011083605 http://www.miumiu.com:80/en/fashion-shows/ss17/backstage?cc=IT",
+   "20161011083612 http://www.miumiu.com:80/en/fashion-shows/ss17/front-row?cc=IT",
+   "20161011084412 http://www.miumiu.com:80/en/fashion-shows/ss17/details?cc=IT"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2017-03-07:rtw": {
+  "candidates": [
+   "20170310151316 http://www.miumiu.com:80/en/fashion-shows/fw17/video?cc=IT",
+   "20170313080255 http://www.miumiu.com:80/en/fashion-shows/fw17/details?"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2017-10-03:rtw": {
+  "candidates": [
+   "20171008165345 http://www.miumiu.com:80/en/fashion-shows/ss18/backstage?cc=IT",
+   "20171008165351 http://www.miumiu.com:80/en/fashion-shows/ss18/front-row?cc=IT",
+   "20171008165618 http://www.miumiu.com:80/en/fashion-shows/ss18/details?cc=IT"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 3,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 3,
+   "refused": 0,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2018-03-06:rtw": {
+  "candidates": [
+   "20180310031317 http://www.miumiu.com:80/en/fashion-shows/fw18/details?cc=IT",
+   "20180310031321 http://www.miumiu.com:80/en/fashion-shows/fw18/front-row?cc=IT",
+   "20180310031328 http://www.miumiu.com:80/en/fashion-shows/fw18/inside-the-club?cc=IT"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 6,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 6,
+   "refused": 0,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2018-10-02:rtw": {
+  "candidates": [
+   "20181004065935 http://www.miumiu.com/en/fashion-shows/ss19/front-row",
+   "20181006153802 http://www.miumiu.com:80/en/fashion-shows/ss19/details",
+   "20181006154325 http://www.miumiu.com:80/en/fashion-shows/ss19/showspace"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 9,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 9,
+   "refused": 0,
+   "small": 9
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2019-03-05:rtw": {
+  "candidates": [
+   "20190331112634 https://www.miumiu.com/us/en/miumiu-club/fashion-shows/fw19-fashion-show.html"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 5,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 5,
+   "refused": 0,
+   "small": 5
+  },
   "looks": 0,
   "status": "no looks"
  },
  "miu_miu:2019-10-01:rtw": {
+  "candidates": [
+   "20191113043336 https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss20-fashion-show.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 18,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 18,
+   "refused": 3,
+   "small": 15
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -5109,18 +5336,18 @@
   ],
   "diag": {
    "captures_tried": 6,
-   "cut": true,
+   "cut": false,
    "duplicates": 0,
    "failed": 0,
-   "fetched": 11,
+   "fetched": 12,
    "opened": 6,
    "pages": 3,
    "pictures": 12,
    "refused": 0,
-   "small": 11
+   "small": 12
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "miu_miu:2021-03-09:rtw": {
   "candidates": [
@@ -5350,16 +5577,63 @@
   "status": "collected"
  },
  "prada:2015-01-18:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20150126051351 http://www.prada.com:80/en/collections/fashion-show/man-fw-2015.html?video=video-pradamanfw15web",
+   "20150510173103 http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 169,
+   "refused": 21,
+   "small": 58
+  },
+  "looks": 1,
+  "status": "collected"
  },
  "prada:2015-02-26:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20150316095639 http://www.prada.com:80/en/collections/fashion-show/woman-fw-2015.html?look=11",
+   "20150510173103 http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 168,
+   "refused": 2,
+   "small": 64
+  },
+  "looks": 14,
+  "status": "collected"
  },
  "prada:2015-06-21:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20150623000120 http://www.prada.com:80/en/collections/fashion-show/man-ss-2016.html"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 113,
+   "refused": 6,
+   "small": 19
+  },
+  "looks": 15,
+  "status": "collected"
  },
  "prada:2015-09-24:rtw": {
   "looks": 2,
@@ -5390,14 +5664,60 @@
   "status": "collected"
  },
  "prada:2017-06-18:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20170621021935 http://www.prada.com:80/en/collections/fashion-show/man-ss-2018.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 2,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 169,
+   "refused": 100,
+   "small": 17
+  },
+  "looks": 1,
+  "status": "collected"
  },
  "prada:2017-09-21:rtw": {
+  "candidates": [
+   "20171110025207 http://www.prada.com:80/en/collections/advertising-campaign/365_ss18.html",
+   "20180111015303 http://www.prada.com:80/en/collections/fashion-show/woman-ss-2018.html?look=8"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 91,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 122,
+   "refused": 38,
+   "small": 53
+  },
   "looks": 0,
   "status": "no looks"
  },
  "prada:2018-01-14:men": {
+  "candidates": [
+   "20180116002741 http://www.prada.com:80/en/collections/fashion-show/man-fw-2018.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 231,
+   "refused": 108,
+   "small": 12
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -5408,19 +5728,19 @@
    "20180615041657 http://www.prada.com:80/en/collections/advertising-campaign/365_fw18.html"
   ],
   "diag": {
-   "captures_tried": 1,
-   "cut": true,
+   "captures_tried": 7,
+   "cut": false,
    "duplicates": 0,
    "failed": 0,
-   "fetched": 10,
-   "opened": 1,
+   "fetched": 109,
+   "opened": 7,
    "pages": 3,
-   "pictures": 66,
-   "refused": 4,
-   "small": 6
+   "pictures": 135,
+   "refused": 73,
+   "small": 36
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "prada:2018-06-17:men": {
   "candidates": [
@@ -5607,18 +5927,83 @@
   "status": "collected"
  },
  "saint_laurent:2016-03-07:rtw": {
+  "candidates": [
+   "20160309121534 http://www.ysl.com:80/corporate/us/saint-laurent-collections/womens-fall-winter-16/",
+   "20160315041502 http://www.ysl.com:80/corporate/us/wfw16-fashion-show/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "saint_laurent:2016-09-27:rtw": {
+  "candidates": [
+   "20161004142311 http://www.ysl.com:80/corporate/us/ss17-collection/?",
+   "20161010062940 http://www.ysl.com:80/corporate/saint-laurent-collections/fashion-show-ss17/fashion-show/",
+   "20161010062945 http://www.ysl.com:80/corporate/saint-laurent-collections/fashion-show-ss17/ysl02/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "saint_laurent:2017-02-28:rtw": {
+  "candidates": [
+   "20170309103132 http://www.ysl.com:80/corporate/saint-laurent-collections/winter-17/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 2,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 2,
+   "refused": 2,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "saint_laurent:2017-09-26:rtw": {
+  "candidates": [
+   "20171005172820 http://www.ysl.com:80/corporate/en/saint-laurent-collections/fss18/",
+   "20171005172921 http://www.ysl.com:80/corporate/us/saint-laurent-collections/fss18/",
+   "20171008184035 http://www.ysl.com:80/corporate/jp/saint-laurent-collections/fss18/"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -5657,6 +6042,14 @@
  "saint_laurent:2024-09-24:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "saint_laurent:2025-01-28:couture": {
+  "candidates": [
+   "20250423074757 https://www.ysl.com/en-gb/collections/page-women-summer-25/looks",
+   "20250429191346 https://www.ysl.com/en-gb/collections/page-women-summer-25-2/looks"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
  },
  "saint_laurent:2025-06-24:men": {
   "looks": 20,
@@ -6166,28 +6559,97 @@
   "status": "no looks"
  },
  "valentino:2018-01-24:couture": {
+  "candidates": [
+   "20180202160922 https://www.valentino.com/experience/cn/news/spring-summer-2018-collection/",
+   "20180202161030 https://www.valentino.com/experience/en/news/spring-summer-2018-collection/",
+   "20180202161120 https://www.valentino.com/experience/us/news/spring-summer-2018-collection/"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "valentino:2019-01-16:men": {
+  "candidates": [
+   "20190402234826 https://www.valentino.com/en-fi/collections/men/fall-winter-2019-20-section"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 57,
+   "refused": 36,
+   "small": 4
+  },
   "looks": 0,
   "status": "no looks"
  },
  "valentino:2019-01-23:couture": {
+  "candidates": [
+   "20190404012800 https://www.valentino.com/en-fi/collections/women/spring-summer-2019-section"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "valentino:2019-03-03:rtw": {
+  "candidates": [
+   "20190402234813 https://www.valentino.com/en-fi/collections/women/pre-fall-2019-section",
+   "20190403005623 https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20-section"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 164,
+   "refused": 75,
+   "small": 5
+  },
   "looks": 0,
   "status": "no looks"
  },
  "valentino:2019-06-19:men": {
+  "candidates": [
+   "20190716163810 https://www.valentino.com/en-fi/collections/men/spring-summer-2020"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 216,
+   "refused": 75,
+   "small": 2
+  },
+  "looks": 3,
+  "status": "collected"
+ },
+ "valentino:2019-07-03:couture": {
+  "candidates": [
+   "20190717145650 https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20",
+   "20191006181106 https://www.valentino.com/en-fi/collections/women/pre-fall-2019"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "valentino:2019-09-29:rtw": {
   "looks": 5,
   "status": "collected"
+ },
+ "valentino:2021-01-29:couture": {
+  "candidates": [
+   "20210325175452 https://www.valentino.com/en-us/experience/valentino-collezione-milano-woman?utm_campaign=f_mainss_21&utm_source=twitter&utm_medium=websitecard&utm_content=valentino_collezione_milano_woman"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
  },
  "valentino:2021-03-01:rtw": {
   "looks": 3,
@@ -6205,7 +6667,48 @@
   "looks": 17,
   "status": "collected"
  },
+ "valentino:2022-07-08:couture": {
+  "candidates": [
+   "20220710002045 https://www.valentino.com/en-fi/collections/valentino-the-beginning-haute-couture-fall-winter-22-23?view=comparableLink",
+   "20221005213418 https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 6,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 236,
+   "refused": 8,
+   "small": 1
+  },
+  "looks": 20,
+  "status": "collected"
+ },
  "valentino:2022-10-02:rtw": {
+  "looks": 20,
+  "status": "collected"
+ },
+ "valentino:2023-01-25:couture": {
+  "candidates": [
+   "20230125180948 https://www.valentino.com/en-fi/collections/valentino-le-club-couture-haute-couture-spring-summer-2023",
+   "20230202120806 https://www.valentino.com/en-fi/experience/valentino-ways-spring-2023-collection",
+   "20230324131939 https://www.valentino.com/en-gb/experience/valentino-surfaces-spring-2023-collection"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 4,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 1,
+   "small": 3
+  },
   "looks": 20,
   "status": "collected"
  },
@@ -6217,6 +6720,27 @@
   "looks": 20,
   "status": "collected"
  },
+ "valentino:2023-07-05:couture": {
+  "candidates": [
+   "20230717080003 https://www.valentino.com/en-fi/collections/valentino-un-chateau-haute-couture-fall-winter-23-24-show",
+   "20230830013111 https://www.valentino.com/en-fi/collections/valentino-black-tie-fall-winter-23-24-show",
+   "20231006213815 https://www.valentino.com/en-gb/experience/black-tie-fall-winter-23-24-collection?utm_campaign=f_mainfw_2324&utm_source=whowhatwear.com&utm_medium=branded_content&utm_content=valentino_black_tie"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 5,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 0,
+   "small": 7
+  },
+  "looks": 20,
+  "status": "collected"
+ },
  "valentino:2023-10-01:rtw": {
   "looks": 2,
   "status": "collected"
@@ -6224,6 +6748,14 @@
  "valentino:2024-01-20:men": {
   "looks": 20,
   "status": "collected"
+ },
+ "valentino:2024-01-24:couture": {
+  "candidates": [
+   "20240417104038 https://www.valentino.com/en-gb/experience/valentino-l-ecole-spring-summer-2024-collection",
+   "20240424063915 https://www.valentino.com/en-fi/experience/spring-2024-collection"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
  },
  "valentino:2024-03-03:rtw": {
   "looks": 20,
@@ -6233,6 +6765,13 @@
   "looks": 20,
   "status": "collected"
  },
+ "valentino:2025-01-29:couture": {
+  "candidates": [
+   "20250316001928 https://www.valentino.com/en-gb/experience/valentino-pavillon-des-folies-spring-summer-2025-collection"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
+ },
  "valentino:2025-03-09:rtw": {
   "looks": 20,
   "status": "collected"
@@ -6240,6 +6779,14 @@
  "valentino:2025-10-05:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "valentino:2026-01-28:couture": {
+  "candidates": [
+   "20260128163157 https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
+   "20260307024345 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
  },
  "valentino:2026-03-12:rtw": {
   "looks": 20,
@@ -6258,10 +6805,40 @@
   "status": "collected"
  },
  "zegna:2015-01-17:men": {
+  "candidates": [
+   "20150131092856 http://www.zegna.com:80/us/z-zegna/aw15/milan-fashion-week-fw-15-preview.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 24,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 24,
+   "refused": 0,
+   "small": 24
+  },
   "looks": 0,
   "status": "no looks"
  },
  "zegna:2015-06-20:men": {
+  "candidates": [
+   "20150627213229 http://www.zegna.com:80/gb/z-zegna/presentation-ss16.html"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 12,
+   "refused": 2,
+   "small": 10
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -6270,14 +6847,44 @@
   "status": "collected"
  },
  "zegna:2021-01-15:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20210116011555 https://www.zegna.com/us-en/winter-fashion-show/?utm_source=twitter&amp;utm_medium=&amp;utm_campaign=us_en_fsfw21&amp;utm_content=cm"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 140,
+   "refused": 21,
+   "small": 18
+  },
+  "looks": 1,
+  "status": "collected"
  },
  "zegna:2021-06-18:men": {
   "looks": 9,
   "status": "collected"
  },
  "zegna:2022-01-14:men": {
+  "candidates": [
+   "20220119205604 https://www.zegna.com/us-en/winter-fashion-show/?utm_source=dbm&utm_medium=pros&utm_campaign=us_en_100122_fashionshowfw22&utm_content=300x600_news&utm_term=man&utm_id=326336656&dclid=CMrIrLG9vvUCFQkV-QAdZiMKtg"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 159,
+   "refused": 24,
+   "small": 16
+  },
   "looks": 0,
   "status": "no looks"
  },
