@@ -1,6 +1,7 @@
 """What an ad library's first year still lacks, for the hourly backfill runs: the houses never searched to the
-end, and the ads whose made pictures wait to be read (Meta's dynamic and catalogue units are left out, and
-so are other divisions' ads and ads whose picture addresses have lapsed: they wait for the next collection's).
+end, and the fashion ads whose pictures wait to be read, Meta's catalogue and dynamic units included since
+18 October (other divisions' ads are left out, and so are ads whose picture links have lapsed: they wait for
+the next collection's).
 Standard library only, so it runs before anything is installed; prints GitHub step outputs.
 
     python3 scripts/backfill_left.py <source>        -> go=yes|no, collect=yes|no, houses=a,b,c, read=yes|no
@@ -56,13 +57,13 @@ def left(source: str, now: float | None = None) -> dict:
     made = 0
     pend_dir = ROOT / "data" / source / "pending"
     for p in sorted(pend_dir.glob("*.jsonl")) if pend_dir.exists() else []:
-        later = set()        # dynamic units and other divisions' ads, which the hourly read leaves for later
+        later = set()        # other divisions' ads, which the hourly read leaves out (the pack shots are read since 18 October)
         ads = ROOT / "data" / source / "ads" / p.name
         if ads.exists():
             for line in ads.read_text(encoding="utf-8").splitlines():
                 if line.strip():
                     r = json.loads(line)
-                    if (r.get("display_format") or "") in DYNAMIC or r.get("division", "fashion") != "fashion":
+                    if r.get("division", "fashion") != "fashion":
                         later.add(r["ad_id"])
         for line in p.read_text(encoding="utf-8").splitlines():
             if line.strip():

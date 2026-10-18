@@ -122,7 +122,8 @@ jobs:
             fi
             left=$(( 75 - (SECONDS - start) / 60 ))
             if [ "$left" -gt 5 ]; then
-              python -m adtone.metaweb read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --skip-dynamic --fashion-only $NC || true
+              # the pack shots too, since 18 October: their picture links lapse within days of the search
+              python -m adtone.metaweb read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --fashion-only $NC || true
             fi
             exit 0
           fi
@@ -130,7 +131,8 @@ jobs:
           if [ "${{ github.event.inputs.no_reader }}" = "true" ]; then EXTRA="--no-reader"; fi
           if [ "${{ github.event.inputs.fresh }}" = "true" ]; then EXTRA="$EXTRA --fresh"; fi
           if [ "${{ github.event.inputs.rematch }}" = "true" ]; then EXTRA="$EXTRA --rematch"; fi
-          if [ "${{ github.event.inputs.skip_dynamic }}" != "false" ]; then EXTRA="$EXTRA --skip-dynamic --fashion-only"; fi
+          if [ "${{ github.event.inputs.skip_dynamic }}" != "false" ]; then EXTRA="$EXTRA --skip-dynamic"; fi
+          EXTRA="$EXTRA --fashion-only"     # read stage: other divisions' ads (a licensee's beauty or eyewear) are left out
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
           # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
           if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
