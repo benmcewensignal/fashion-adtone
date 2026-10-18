@@ -641,11 +641,83 @@
       "refused": []
     }
   },
-  "date_form": null,
-  "names_answered": {},
+  "date_form": "year",
+  "names_answered": {
+    "alaia": [
+      "Alaia"
+    ],
+    "armani": [
+      "Armani"
+    ],
+    "balenciaga": [
+      "Balenciaga"
+    ],
+    "bottega_veneta": [
+      "Bottega Veneta"
+    ],
+    "burberry": [
+      "Burberry"
+    ],
+    "celine": [
+      "Celine"
+    ],
+    "chanel": [
+      "Chanel"
+    ],
+    "chloe": [
+      "Chloé",
+      "Chloe"
+    ],
+    "dior": [
+      "Dior"
+    ],
+    "dolce_gabbana": [
+      "Dolce&Gabbana"
+    ],
+    "fendi": [
+      "Fendi"
+    ],
+    "givenchy": [
+      "Givenchy"
+    ],
+    "gucci": [
+      "Gucci"
+    ],
+    "hermes": [
+      "Hermès",
+      "Hermes"
+    ],
+    "jacquemus": [
+      "Jacquemus"
+    ],
+    "loewe": [
+      "Loewe"
+    ],
+    "louis_vuitton": [
+      "Louis Vuitton"
+    ],
+    "mcqueen": [
+      "McQueen"
+    ],
+    "miu_miu": [
+      "Prada spa"
+    ],
+    "moncler": [
+      "Moncler"
+    ],
+    "prada": [
+      "Prada"
+    ],
+    "valentino": [
+      "Valentino"
+    ],
+    "versace": [
+      "Versace"
+    ]
+  },
   "problems": {},
-  "requests": 0,
-  "run": "gh39167280928",
+  "requests": 621,
+  "run": "gh39167798278",
   "searched": {
     "alaia": "2026-10-18",
     "armani": "2026-10-18",
@@ -688,7 +760,122 @@
     "versace": "2026-10-18",
     "zegna": "2026-10-18"
   },
-  "shape": null,
+  "shape": {
+    "ad_account_name": "str",
+    "ad_render_type": "str",
+    "ad_type": "str",
+    "brand_name": "str",
+    "call_to_action": "str",
+    "collection_preview": {
+      "collection_creative_element_attachment": [
+        {
+          "app_install_properties": {},
+          "media_download_link": "str",
+          "web_view_properties": {
+            "url": "str"
+          }
+        }
+      ],
+      "web_view_properties": {
+        "url": "str"
+      }
+    },
+    "composite_preview": {
+      "ad_snaps": [
+        {
+          "brand_name": "str",
+          "call_to_action": "str",
+          "headline": "str",
+          "render_type": "str",
+          "top_snap_crop_position": "str",
+          "top_snap_media_download_link": "str",
+          "top_snap_media_type": "str",
+          "type": "str",
+          "web_view_preview": {
+            "url": "str"
+          }
+        }
+      ],
+      "should_loop": "bool"
+    },
+    "creative_type": "str",
+    "favorite_display_mode": "str",
+    "headline": "str",
+    "id": "str",
+    "impressions_map": {
+      "at": "int",
+      "be": "int",
+      "bg": "int",
+      "cy": "int",
+      "cz": "int",
+      "de": "int",
+      "dk": "int",
+      "ee": "int",
+      "el": "int",
+      "es": "int",
+      "fi": "int",
+      "fr": "int",
+      "hr": "int",
+      "hu": "int",
+      "ie": "int",
+      "it": "int",
+      "lt": "int",
+      "lu": "int",
+      "lv": "int",
+      "mt": "int",
+      "nl": "int",
+      "pl": "int",
+      "pt": "int",
+      "ro": "int",
+      "se": "int",
+      "si": "int",
+      "sk": "int",
+      "tr": "int"
+    },
+    "impressions_total": "int",
+    "languages": [
+      "str"
+    ],
+    "lens_preview": {
+      "icon_url": "str",
+      "preview_image_url": "str"
+    },
+    "name": "str",
+    "name_searched": "str",
+    "paying_advertiser_name": "str",
+    "profile_logo_url": "str",
+    "profile_name": "str",
+    "rejection_reasons": [],
+    "review_status": "str",
+    "start_date": "str",
+    "status": "str",
+    "status_searched": "str",
+    "sticker_display_mode": "str",
+    "stickers": [],
+    "targeting_v2": {
+      "demographics": [
+        {
+          "advanced_demographics": [],
+          "age_groups": [],
+          "gender": "str",
+          "languages": [
+            "str"
+          ],
+          "max_age": "str",
+          "min_age": "str",
+          "operation": "str"
+        }
+      ],
+      "devices": [],
+      "regulated_content": "bool"
+    },
+    "top_snap_crop_position": "str",
+    "top_snap_media_download_link": "str",
+    "top_snap_media_type": "str",
+    "web_view_properties": {
+      "url": "str"
+    }
+  },
   "stopped": null,
-  "updated_at": "2026-10-18T21:20:19Z"
+  "updated_at": "2026-10-18T21:50:11Z"
 }
