@@ -1,13 +1,58 @@
 {
  "armani:2023-01-16:men": {
+  "candidates": [
+   "20230203205737 https://www.armani.com/en-us/experience/giorgio-armani/fashion-show-fall-winter-2023-men"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 24,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 24,
+   "refused": 12,
+   "small": 12
+  },
   "looks": 0,
   "status": "no looks"
  },
  "armani:2023-01-24:couture": {
+  "candidates": [
+   "20230402013414 https://www.armani.com/en-us/experience/giorgio-armani/prive-couture-ss23"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 12,
+   "refused": 3,
+   "small": 9
+  },
   "looks": 0,
   "status": "no looks"
  },
  "armani:2023-02-26:rtw": {
+  "candidates": [
+   "20230326082838 https://www.armani.com/en-us/experience/giorgio-armani/fashion-show-fall-winter-2023-women"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 12,
+   "refused": 3,
+   "small": 9
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -28,22 +73,62 @@
   "status": "collected"
  },
  "balenciaga:2017-03-05:rtw": {
+  "candidates": [
+   "20170606185339 https://www.balenciaga.com/de/f%C3%BCr-sie/collections/campaign_w_fallwinter17_section",
+   "20170610112700 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
+   "20170611042135 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/campaign_m_fallwinter17_section/main"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 7,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 7,
+   "refused": 0,
+   "small": 7
+  },
   "looks": 0,
   "status": "no looks"
  },
  "balenciaga:2017-10-01:rtw": {
+  "candidates": [
+   "20171015020003 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
+   "20171209095713 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "balenciaga:2018-03-04:rtw": {
+  "candidates": [
+   "20180331191909 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
+   "20180410223345 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "balenciaga:2020-03-01:rtw": {
   "looks": 20,
   "status": "collected"
  },
  "balenciaga:2020-10-04:rtw": {
+  "candidates": [
+   "20201007080654 https://www.balenciaga.com/us/women/collections/spring-21-w_section"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 123,
+   "refused": 120,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -56,6 +141,22 @@
   "status": "collected"
  },
  "balenciaga:2022-07-06:couture": {
+  "candidates": [
+   "20220714105810 https://www.balenciaga.com/en-gb/fall-22-campaign",
+   "20220715110938 https://www.balenciaga.com/zh-us/%E6%96%B0%E5%93%81%E4%B8%8A%E5%B8%82/fall-22/women"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 2,
+   "pictures": 279,
+   "refused": 44,
+   "small": 76
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -92,6 +193,21 @@
   "status": "collected"
  },
  "balenciaga:2026-07-08:couture": {
+  "candidates": [
+   "20260710114026 https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 82,
+   "refused": 3,
+   "small": 37
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -132,14 +248,62 @@
   "status": "collected"
  },
  "bottega_veneta:2015-06-21:men": {
+  "candidates": [
+   "20150627084107 http://www.bottegaveneta.com:80/wy/%E5%A5%B3%E5%A3%AB/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24561"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 6,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 6,
+   "refused": 4,
+   "small": 2
+  },
   "looks": 0,
   "status": "no looks"
  },
  "bottega_veneta:2015-09-26:rtw": {
+  "candidates": [
+   "20150926123339 http://www.bottegaveneta.com/de/f%C3%BCr-sie/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24521",
+   "20150927065607 http://www.bottegaveneta.com/gb/women/bottega-veneta-men-s-spring-summer-2016-fashion-show_grd24521"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 14,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 14,
+   "refused": 8,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "bottega_veneta:2016-01-17:men": {
+  "candidates": [
+   "20160128155529 http://www.bottegaveneta.com/gb/women/bottega-veneta-men-fall-winter-16-17_grd29752",
+   "20160130010106 http://www.bottegaveneta.com/it/donna/bottega-veneta-men-fall-winter-16-17_grd29752",
+   "20160130020756 http://www.bottegaveneta.com/jp/%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9/bottega-veneta-men-fall-winter-16-17_grd29752"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 84,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 84,
+   "refused": 14,
+   "small": 70
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -148,14 +312,60 @@
   "status": "collected"
  },
  "bottega_veneta:2016-09-24:rtw": {
+  "candidates": [
+   "20161002205517 http://www.bottegaveneta.com:80/us/women/spring-summer-2017-fashion-show_grd31491",
+   "20161007205131 http://www.bottegaveneta.com:80/fr/femme/spring-summer-2017-fashion-show-the-looks_grd31491"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 43,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 43,
+   "refused": 0,
+   "small": 43
+  },
   "looks": 0,
   "status": "no looks"
  },
  "bottega_veneta:2017-02-25:rtw": {
+  "candidates": [
+   "20170228015957 http://www.bottegaveneta.com:80/gb/fall_winter_2017_fashionshow_section"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 63,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 63,
+   "refused": 0,
+   "small": 63
+  },
   "looks": 0,
   "status": "no looks"
  },
  "bottega_veneta:2018-02-10:rtw": {
+  "candidates": [
+   "20180211083721 https://www.bottegaveneta.com/gb/fall_winter_2018_fashionshow_section"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 15,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 15,
+   "refused": 15,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -172,10 +382,40 @@
   "status": "collected"
  },
  "burberry:2018-09-17:rtw": {
+  "candidates": [
+   "20180918014035 https://mo.burberry.com/london-fashion-week/spring-summer-2019-show/"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 6,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 6,
+   "refused": 3,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
  "burberry:2019-02-17:rtw": {
+  "candidates": [
+   "20190220044805 https://mo.burberry.com/london-fashion-week/autumn-winter-2019-show/"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 10,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 10,
+   "refused": 7,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -184,6 +424,21 @@
   "status": "collected"
  },
  "burberry:2020-02-17:rtw": {
+  "candidates": [
+   "20200317072441 https://mo.burberry.com/london-fashion-week/autumn-winter-2020-show/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 66,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 66,
+   "refused": 6,
+   "small": 60
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -216,14 +471,64 @@
   "status": "collected"
  },
  "celine:2019-09-27:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20191021132316 https://www.celine.com/en-gb/celine-collections/womens-summer-2020/runway-looks/",
+   "20191021233809 https://www.celine.com/en-gb/celine-collections/womens-summer-2020/show/",
+   "20191121071321 https://www.celine.com/fr-ch/celine-collections/womens-summer-2020/looks-du-defile/"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 41,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 126,
+   "refused": 0,
+   "small": 0
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "celine:2022-03-19:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20220520134436 https://www.celine.com/en-us/cm/celine-collections/men-s-winter-2022/runway-looks-winter2022-men?",
+   "20220604163406 https://www.celine.com/en-gb/cm/celine-collections/womens-winter-2022/runway-looks",
+   "20220702045908 https://www.celine.com/en-gb/cm/celine-collections/womens-winter-2022/show-winter2022-women?"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 8,
+   "failed": 0,
+   "fetched": 39,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 39,
+   "refused": 27,
+   "small": 0
+  },
+  "looks": 4,
+  "status": "collected"
  },
  "celine:2022-06-26:men": {
+  "candidates": [
+   "20220629202523 https://www.celine.com/en-us/cm/celine-collections/men-s-summer-2023/dysfunctional-bauhaus",
+   "20220701211806 https://www.celine.com/en-gb/cm/celine-collections/men-s-summer-2023/teaser-1"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 715,
+   "refused": 0,
+   "small": 120
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -232,10 +537,41 @@
   "status": "collected"
  },
  "celine:2025-10-05:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20251006201856 https://www.celine.com/en-us/cm/fashion-show-summer-2026",
+   "20251126183848 https://www.celine.com/en-us/cm/spring-26-highlights/"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 15,
+   "failed": 0,
+   "fetched": 160,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 347,
+   "refused": 0,
+   "small": 135
+  },
+  "looks": 10,
+  "status": "collected"
  },
  "celine:2026-03-07:rtw": {
+  "candidates": [
+   "20260309034802 https://www.celine.com/en-gb/cm/fashion-show-winter-2026"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -371,6 +707,145 @@
   "looks": 0,
   "status": "no looks"
  },
+ "chanel:2024-10-01:rtw": {
+  "candidates": [
+   "20241001184006 https://www.chanel.com/gb/fashion/collection/spring-summer-2025/"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": true,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 10,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 5,
+   "small": 1
+  },
+  "looks": 4,
+  "status": "collected"
+ },
+ "chanel:2025-01-28:couture": {
+  "candidates": [
+   "20250130090233 https://www.chanel.com/gb/fashion/collection/spring-summer-2025-pre-collection/",
+   "20250312191028 https://www.chanel.com/gb/haute-couture/spring-summer-2025/"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 160,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 976,
+   "refused": 136,
+   "small": 20
+  },
+  "looks": 4,
+  "status": "collected"
+ },
+ "chanel:2025-03-11:rtw": {
+  "candidates": [
+   "20250318124554 https://www.chanel.com/gb/fashion/collection/fall-winter-2025-26/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 8,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 900,
+   "refused": 108,
+   "small": 0
+  },
+  "looks": 4,
+  "status": "collected"
+ },
+ "chanel:2025-07-08:couture": {
+  "candidates": [
+   "20250803075512 https://www.chanel.com/gb/fashion/collection/fall-winter-2025-26-pre-collection-the-campaign/",
+   "20250910151021 https://www.chanel.com/gb/haute-couture/fall-winter-2025-26/",
+   "20251011171051 https://www.chanel.com/gb/fashion/collection/fall-winter-2025-26-editorial/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 784,
+   "refused": 109,
+   "small": 7
+  },
+  "looks": 4,
+  "status": "collected"
+ },
+ "chanel:2025-10-06:rtw": {
+  "candidates": [
+   "20251101135854 https://www.chanel.com/gb/fashion/collection/spring-summer-2026/?utm_medium=smaorganic&utm_campaign=fsh_fs_26s_2025_ss&utm_source=instagram&utm_content=&utm_term=linkbio_&fbclid=PAZnRzaANQzghleHRuA2FlbQIxMQABp7XCrYJ374vkli1ULObWyh2AfPuOKIHnHwAVyE3xPI6UeBMS4vG877JxKY46_aem_ZJCkMvJnjQbq38gxybFoSw",
+   "20260127220115 https://www.chanel.com/gb/fashion/collection/spring-summer-2026-pre-collection/"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 160,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 1127,
+   "refused": 116,
+   "small": 39
+  },
+  "looks": 5,
+  "status": "collected"
+ },
+ "chanel:2026-01-27:couture": {
+  "candidates": [
+   "20260127220058 https://www.chanel.com/gb/haute-couture/spring-summer-2026/",
+   "20260127220115 https://www.chanel.com/gb/fashion/collection/spring-summer-2026-pre-collection/",
+   "20260305175104 https://www.chanel.com/gb/fashion/collection/spring-summer-2026-looks/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 1,
+   "failed": 0,
+   "fetched": 240,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 1800,
+   "refused": 176,
+   "small": 56
+  },
+  "looks": 7,
+  "status": "collected"
+ },
+ "chanel:2026-03-09:rtw": {
+  "candidates": [
+   "20260310085027 https://www.chanel.com/gb/fashion/collection/fall-winter-2026/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 647,
+   "refused": 102,
+   "small": 10
+  },
+  "looks": 8,
+  "status": "collected"
+ },
  "chloe:2015-03-08:rtw": {
   "looks": 20,
   "status": "collected"
@@ -424,12 +899,42 @@
   "status": "collected"
  },
  "chloe:2024-02-29:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20240307170239 https://www.chloe.com/us/chloe/women/fashionshow/chloe_winter2024_section"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 196,
+   "refused": 1,
+   "small": 17
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "chloe:2025-03-06:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20250319053136 https://www.chloe.com/wx/chloe/women/subhome/show_winter25_section"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 9,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 44,
+   "refused": 10,
+   "small": 15
+  },
+  "looks": 6,
+  "status": "collected"
  },
  "chloe:2025-10-05:rtw": {
   "looks": 20,
@@ -511,55 +1016,374 @@
   "looks": 0,
   "status": "no looks"
  },
+ "dior:2023-07-03:couture": {
+  "candidates": [
+   "20230722050908 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/autumn-winter-2023-2024-haute-couture-show",
+   "20230820073220 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-automne-hiver-2023-2024/new-world"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": true,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 39,
+   "opened": 1,
+   "pages": 2,
+   "pictures": 59,
+   "refused": 2,
+   "small": 35
+  },
+  "looks": 2,
+  "status": "collected"
+ },
+ "dior:2023-09-26:rtw": {
+  "candidates": [
+   "20231019070040 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2024-ready-to-wear-show",
+   "20240124213906 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 4,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 900,
+   "refused": 111,
+   "small": 3
+  },
+  "looks": 2,
+  "status": "collected"
+ },
+ "dior:2024-01-19:men": {
+  "candidates": [
+   "20240120151201 https://www.dior.com/en_gb/fashion/mens-fashion/shows/winter-2024-2025-mens-show",
+   "20240302053446 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show",
+   "20240426035450 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2024-ready-to-wear-show"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 900,
+   "refused": 111,
+   "small": 6
+  },
+  "looks": 3,
+  "status": "collected"
+ },
+ "dior:2024-01-22:couture": {
+  "candidates": [
+   "20240124213906 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show",
+   "20240126023509 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show%0A"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 8,
+   "failed": 0,
+   "fetched": 240,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 1800,
+   "refused": 216,
+   "small": 12
+  },
+  "looks": 4,
+  "status": "collected"
+ },
+ "dior:2024-02-27:rtw": {
+  "candidates": [
+   "20240302053446 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show",
+   "20240426035450 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2024-ready-to-wear-show"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 6,
+   "failed": 0,
+   "fetched": 240,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 1800,
+   "refused": 205,
+   "small": 23
+  },
+  "looks": 6,
+  "status": "collected"
+ },
  "dolce_gabbana:2015-01-17:men": {
+  "candidates": [
+   "20150216213745 http://www.dolcegabbana.com/child/collection/dolce-and-gabbana-winter-2015-child-collection-09/",
+   "20150216224910 http://www.dolcegabbana.com/child/collection/dolce-and-gabbana-winter-2015-child-collection-29/"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 516,
+   "refused": 80,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2015-06-20:men": {
+  "candidates": [
+   "20150714044803 http://www.dolcegabbana.com/man/fashion-show/summer-2016/",
+   "20150905091630 http://www.dolcegabbana.com/man/fashion-show/summer-2016/backstage/",
+   "20150905095914 http://www.dolcegabbana.com/man/fashion-show/summer-2016/catwalk/"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 90,
+   "opened": 4,
+   "pages": 3,
+   "pictures": 493,
+   "refused": 65,
+   "small": 25
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2015-09-27:rtw": {
+  "candidates": [
+   "20151123164335 http://www.dolcegabbana.com/woman/fashion-show/summer-2016/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 192,
+   "refused": 87,
+   "small": 33
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2016-01-16:men": {
+  "candidates": [
+   "20160401162642 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-01/",
+   "20160401162647 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-02/",
+   "20160401163343 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-men-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 72,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 72,
+   "refused": 18,
+   "small": 54
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2016-02-28:rtw": {
+  "candidates": [
+   "20160507091636 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-03/",
+   "20160507092344 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-01/",
+   "20160507094147 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2016-17/catwalk/dolce-and-gabbana-fall-winter-2016-17-women-fashion-show-runway-02/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 24,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 24,
+   "refused": 6,
+   "small": 18
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2016-06-18:men": {
+  "candidates": [
+   "20160624111102 http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/catwalk/",
+   "20160624143936 http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-men-fashion-show-feed_runway-01/",
+   "20160624143941 http://www.dolcegabbana.com:80/man/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-men-fashion-show-feed_runway-02/"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 148,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 928,
+   "refused": 128,
+   "small": 20
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2016-09-25:rtw": {
+  "candidates": [
+   "20161026184800 http://www.dolcegabbana.com/woman/fashion-show/summer-2017-fashion-show/catwalk/?i=dolce-and-gabbana-summer-2017-women-fashion-show-runway-28",
+   "20161123214059 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2017/dolce-and-gabbana-summer-2017-women-fashion-show-runway_feed_1/",
+   "20161123233202 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2017/catwalk/dolce-and-gabbana-summer-2017-women-fashion-show-runway-01/"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 64,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 324,
+   "refused": 42,
+   "small": 22
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2017-01-14:men": {
+  "candidates": [
+   "20170118123619 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-02-2/",
+   "20170118124416 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-01-2/",
+   "20170118124421 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-men-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 12,
+   "refused": 12,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2017-02-26:rtw": {
+  "candidates": [
+   "20170302224111 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-01/",
+   "20170304050708 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-02/",
+   "20170304050713 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2017-18/catwalk/dolce-and-gabbana-fall-winter-2017-18-women-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 19,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 19,
+   "refused": 18,
+   "small": 1
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2017-06-17:men": {
+  "candidates": [
+   "20170924101223 http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-01/",
+   "20170924102733 http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-02/",
+   "20170924103148 http://www.dolcegabbana.com:80/man/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-men-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 18,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 18,
+   "refused": 12,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2017-09-24:rtw": {
+  "candidates": [
+   "20170930104247 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-03/",
+   "20170930110200 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-01/",
+   "20170930110205 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2018/catwalk/dolce-and-gabbana-summer-2018-women-fashion-show-runway-02/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 18,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 18,
+   "refused": 12,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2018-01-13:men": {
+  "candidates": [
+   "20180118135613 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-01/",
+   "20180118135618 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-03/",
+   "20180118140659 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-men-fashion-show-runway-02/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 18,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 18,
+   "refused": 12,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2018-02-25:rtw": {
+  "candidates": [
+   "20180413195613 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-01/",
+   "20180413195618 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-02/",
+   "20180413195623 http://www.dolcegabbana.com:80/woman/fashion-show/fall-winter-2018-19/catwalk/dolce-and-gabbana-fall-winter-2018-19-women-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 27,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 27,
+   "refused": 18,
+   "small": 9
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -568,10 +1392,44 @@
   "status": "collected"
  },
  "dolce_gabbana:2018-09-23:rtw": {
+  "candidates": [
+   "20181217190949 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-02/",
+   "20181217192958 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-01/",
+   "20181217193124 http://www.dolcegabbana.com:80/woman/fashion-show/summer-2019/catwalk/dolce-and-gabbana-summer-2019-women-fashion-show-runway-03/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 12,
+   "refused": 6,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dolce_gabbana:2019-01-12:men": {
+  "candidates": [
+   "20190118062412 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-02/",
+   "20190118062804 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-03/",
+   "20190118062946 http://www.dolcegabbana.com:80/man/fashion-show/fall-winter-2019-20/catwalk/dolce-and-gabbana-fall-winter-2019-20-men-fashion-show-runway-01/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 12,
+   "refused": 6,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -580,14 +1438,63 @@
   "status": "collected"
  },
  "dolce_gabbana:2019-06-15:men": {
+  "candidates": [
+   "20190817102751 https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-02/",
+   "20190819012242 https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-03/",
+   "20190822203500 https://www.dolcegabbana.com/man/fashion-show/summer-2020/catwalk/dolce-and-gabbana-summer-2020-men-fashion-show-runway-01/"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 24,
+   "opened": 6,
+   "pages": 3,
+   "pictures": 24,
+   "refused": 12,
+   "small": 12
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dries_van_noten:2016-06-23:men": {
+  "candidates": [
+   "20160629082144 http://www.driesvannoten.be:80/collections.php?collection=ss2017men",
+   "20160630152002 http://www.driesvannoten.be:80/video.php?collection=ss2017men"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 10,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 10,
+   "refused": 0,
+   "small": 10
+  },
   "looks": 0,
   "status": "no looks"
  },
  "dries_van_noten:2016-09-28:rtw": {
+  "candidates": [
+   "20161004104526 http://www.driesvannoten.be:80/collections.php?collection=ss2017women",
+   "20161004104531 http://www.driesvannoten.be:80/video.php?collection=ss2017women"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 10,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 10,
+   "refused": 0,
+   "small": 10
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -796,14 +1703,46 @@
   "status": "collected"
  },
  "fendi:2024-09-17:rtw": {
+  "candidates": [
+   "20240926113218 https://www.fendi.com/it-it/cm/fashion-shows/fendi-women-s-spring-summer-2025-fashion-show"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": true,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 48,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 231,
+   "refused": 37,
+   "small": 11
+  },
   "looks": 0,
-  "status": "no looks"
+  "status": "unread"
  },
  "fendi:2025-02-26:rtw": {
   "looks": 20,
   "status": "collected"
  },
  "fendi:2025-09-24:rtw": {
+  "candidates": [
+   "20250929005944 https://www.fendi.com/us-en/cm/articles/women-s-and-men-s-spring-summer-2026-show-palazzo-fendi-milano?srsltid=AfmBOooU2Ne_ewCdazUfnkGNOiGgBHfnDz5GIHMiftgRaPqKYPtdGhxI",
+   "20251003041440 https://www.fendi.com/us-en/woman/shoes?utm_source=meta&utm_medium=paid-social&utm_campaign=US_PreCoSpringSummer2026W_Performance&utm_content=%7B%7Bad.id%7D%7D&utm_id=%7B%7Bad.id%7D%7D",
+   "20251003050332 https://www.fendi.com/us-en/woman/new-in?utm_source=meta&utm_medium=paid-social&utm_campaign=US_PreCoSpringSummer2026W_Branding"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 1,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 3,
+   "pictures": 310,
+   "refused": 46,
+   "small": 34
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -840,14 +1779,59 @@
   "status": "collected"
  },
  "ferragamo:2017-02-26:rtw": {
+  "candidates": [
+   "20170226090555 http://www.ferragamo.com:80/runway/en/usa/women/fw-17-18"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 3,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 3,
+   "refused": 3,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "ferragamo:2023-09-23:rtw": {
+  "candidates": [
+   "20240118074442 https://www.ferragamo.com/en-us/collections/ss24-show"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 54,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 54,
+   "refused": 0,
+   "small": 54
+  },
   "looks": 0,
   "status": "no looks"
  },
  "ferragamo:2024-02-24:rtw": {
+  "candidates": [
+   "20240306124820 https://www.ferragamo.com/en-us/collections/fw24-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 9,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 9,
+   "refused": 9,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -892,8 +1876,25 @@
   "status": "no looks"
  },
  "givenchy:2019-07-02:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20190701054334 https://www.givenchy.com/america/en/haute-couture/fall-winter-2019/",
+   "20190701064634 https://www.givenchy.com/fr/en/haute-couture/fall-winter-2019/",
+   "20190716080109 https://www.givenchy.com/gb/en/fall-winter-2019/women-winter/"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": true,
+   "duplicates": 3,
+   "failed": 0,
+   "fetched": 92,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 94,
+   "refused": 51,
+   "small": 36
+  },
+  "looks": 2,
+  "status": "collected"
  },
  "givenchy:2020-01-21:couture": {
   "looks": 2,
@@ -1168,58 +2169,275 @@
   "status": "no looks"
  },
  "issey_miyake:2015-01-22:men": {
+  "candidates": [
+   "20150205030030 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_autumn_winter_2015_collection.html",
+   "20150320075204 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2015_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 15,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 15,
+   "refused": 12,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2015-03-06:rtw": {
+  "candidates": [
+   "20150320075204 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2015_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 3,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 3,
+   "refused": 0,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2015-06-25:men": {
+  "candidates": [
+   "20150703094146 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2016_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 18,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 18,
+   "refused": 18,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2015-10-02:rtw": {
+  "candidates": [
+   "20160122012058 http://www.isseymiyake.com:80/en/news/brands/pleats_please_issey_miyake_spring_summer_2016.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 3,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 3,
+   "refused": 3,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2016-01-21:men": {
+  "candidates": [
+   "20160330163920 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2016_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 6,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 6,
+   "refused": 0,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2016-03-04:rtw": {
+  "candidates": [
+   "20160330163920 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2016_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 6,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 6,
+   "refused": 0,
+   "small": 6
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2016-06-23:men": {
+  "candidates": [
+   "20160711090326 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2017_collection.html",
+   "20161006025536 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 30,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 30,
+   "refused": 30,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2016-09-30:rtw": {
+  "candidates": [
+   "20161006025536 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_collection.html",
+   "20170104083816 http://www.isseymiyake.com:80/en/news/brands/pleats_please_issey_miyake_spring_summer_2017.html",
+   "20170124123333 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2017_image_video.html"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 15,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 15,
+   "refused": 14,
+   "small": 1
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2017-01-19:men": {
+  "candidates": [
+   "20170128204313 http://isseymiyake.com:80/en/news/brands/issey_miyake_men_autumn_winter_2017_collection.html",
+   "20170312142936 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2017_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 32,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 32,
+   "refused": 32,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2017-03-03:rtw": {
+  "candidates": [
+   "20170312142936 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_autumn_winter_2017_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 14,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 14,
+   "refused": 14,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2017-06-22:men": {
+  "candidates": [
+   "20170626024653 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_men_spring_summer_2018_collection.html",
+   "20171007125243 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2018_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 39,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 39,
+   "refused": 39,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "issey_miyake:2017-09-29:rtw": {
+  "candidates": [
+   "20171006174540 http://isseymiyake.com:80/news/brand/issey_miyake_spring_summer_2018_collection.html",
+   "20171007125243 http://www.isseymiyake.com:80/en/news/brands/issey_miyake_spring_summer_2018_collection.html"
+  ],
+  "diag": {
+   "captures_tried": 6,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 42,
+   "opened": 6,
+   "pages": 2,
+   "pictures": 42,
+   "refused": 42,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "jacquemus:2018-09-24:rtw": {
+  "candidates": [
+   "20181008121352 https://www.jacquemus.com/collection/ss19-le-gadjo/?_=1539000814755"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 2,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 2,
+   "refused": 1,
+   "small": 1
+  },
   "looks": 0,
   "status": "no looks"
  },
  "jacquemus:2019-02-25:rtw": {
+  "candidates": [
+   "20190418095337 https://www.jacquemus.com/collection/fw19-la-collectionneuse/?v=5b4eff78e91a"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 39,
+   "small": 1
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1296,8 +2514,25 @@
   "status": "collected"
  },
  "lanvin:2020-02-26:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20200425225302 https://www.lanvin.com/gb/news/womens-autumn-winter-2020-show-looks/",
+   "20200427145029 https://www.lanvin.com/gb/news/mens-fall-winter-2020-show-looks-women/",
+   "20200428123523 https://www.lanvin.com/gb/news/mens-fall-winter-2020-show-looks-women/page/2/"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 31,
+   "failed": 0,
+   "fetched": 90,
+   "opened": 4,
+   "pages": 3,
+   "pictures": 125,
+   "refused": 0,
+   "small": 19
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "lanvin:2021-03-08:rtw": {
   "looks": 14,
@@ -1320,14 +2555,45 @@
   "status": "collected"
  },
  "lanvin:2025-01-26:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20250130155329 https://us.lanvin.com/pages/autumn-winter-2025-looks",
+   "20250209090709 https://us.lanvin.com/pages/autumn-winter-2025-show"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 77,
+   "opened": 4,
+   "pages": 2,
+   "pictures": 77,
+   "refused": 55,
+   "small": 19
+  },
+  "looks": 3,
+  "status": "collected"
  },
  "lanvin:2025-09-30:rtw": {
   "looks": 4,
   "status": "collected"
  },
  "lanvin:2026-10-02:rtw": {
+  "candidates": [
+   "20261009074719 https://www.lanvin.com/en-us/spring-summer-2027-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1620,14 +2886,65 @@
   "status": "collected"
  },
  "mcqueen:2017-03-06:rtw": {
+  "candidates": [
+   "20170308061654 http://www.alexandermcqueen.com:80/experience/en/aw17-womens-show/",
+   "20170309020631 http://www.alexandermcqueen.com:80/experience/ru/aw17-womens-show/?",
+   "20170310043221 http://www.alexandermcqueen.com:80/experience/us/aw17-womens-show/?"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 335,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 1375,
+   "refused": 335,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "mcqueen:2017-06-25:men": {
+  "candidates": [
+   "20170629043056 http://www.alexandermcqueen.com:80/experience/en/ss18-mens-show/",
+   "20170629072821 http://www.alexandermcqueen.com:80/experience/us/ss18-mens-show/?",
+   "20170629072951 http://www.alexandermcqueen.com:80/experience/ru/ss18-mens-show/?"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 360,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 2700,
+   "refused": 349,
+   "small": 11
+  },
   "looks": 0,
   "status": "no looks"
  },
  "mcqueen:2017-10-02:rtw": {
+  "candidates": [
+   "20171003032410 http://www.alexandermcqueen.com:80/experience/en/womens-spring-summer-2018-show/",
+   "20171004104854 http://www.alexandermcqueen.com:80/experience/us/womens-spring-summer-2018-show/?",
+   "20171007031048 http://www.alexandermcqueen.com:80/experience/cn/womens-spring-summer-2018-show/"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 280,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 2100,
+   "refused": 266,
+   "small": 14
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1640,16 +2957,23 @@
   "status": "collected"
  },
  "mcqueen:2021-09-09:rtw": {
+  "candidates": [
+   "20211222184350 https://www.alexandermcqueen.com/en-fi/men/collections/ss22-collection"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "mcqueen:2022-03-15:rtw": {
   "looks": 16,
   "status": "collected"
  },
  "mcqueen:2023-03-04:rtw": {
+  "candidates": [
+   "20230428144110 https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-pre-collection",
+   "20230629090532 https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-collection"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "mcqueen:2023-09-30:rtw": {
   "looks": 20,
@@ -1764,10 +3088,40 @@
   "status": "no looks"
  },
  "moncler:2015-01-18:men": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20150123013725 http://eng.moncler.com:80/news/behind-the-scenes-at-the-moncler-gamme-bleu-fw15-show/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 4,
+   "failed": 0,
+   "fetched": 78,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 78,
+   "refused": 39,
+   "small": 33
+  },
+  "looks": 2,
+  "status": "collected"
  },
  "moncler:2015-02-15:rtw": {
+  "candidates": [
+   "20150526032507 http://www.moncler.com:80/gb/news/behind-the-scenes-at-the-moncler-gamme-bleu-fw15-show/"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 55,
+   "refused": 39,
+   "small": 1
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1776,10 +3130,40 @@
   "status": "collected"
  },
  "moncler:2015-06-21:men": {
+  "candidates": [
+   "20150627213613 http://www.moncler.com:80/gb/news/moncler-gamme-bleu-ss16-show/"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 110,
+   "refused": 73,
+   "small": 7
+  },
   "looks": 0,
   "status": "no looks"
  },
  "moncler:2015-10-07:rtw": {
+  "candidates": [
+   "20151017025306 http://www.moncler.com:80/jp/news/moncler-gamme-rouge-spring-summer-2016-show/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 138,
+   "refused": 117,
+   "small": 3
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1788,6 +3172,23 @@
   "status": "collected"
  },
  "moncler:2016-10-05:rtw": {
+  "candidates": [
+   "20161010132918 http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show",
+   "20161010144529 http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show/photo_atmosphere",
+   "20161010144534 http://pressoffice.moncler.com:80/moncler/gamme-rouge-ss-17_show/photo_backstage"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 166,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 178,
+   "refused": 166,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -1796,6 +3197,23 @@
   "status": "collected"
  },
  "moncler:2017-02-15:rtw": {
+  "candidates": [
+   "20170224110145 http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show/photo_images_looks",
+   "20170225065451 http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show/pdf_about-moncler-grenoble",
+   "20170225132136 http://pressoffice.moncler.com:80/moncler/c/moncler-grenoble-fw-17-18-show"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 47,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 77,
+   "refused": 47,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -2008,40 +3426,193 @@
   "status": "no looks"
  },
  "schiaparelli:2015-01-26:couture": {
+  "candidates": [
+   "20150130061450 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2015-the-looks/",
+   "20150201085140 http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2015-les-looks/",
+   "20150220004831 http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2015"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 131,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 131,
+   "refused": 103,
+   "small": 28
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2015-07-06:couture": {
+  "candidates": [
+   "20150711050819 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/52",
+   "20150711133026 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/53",
+   "20150711133203 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2015-16-look-detail/51"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 111,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 111,
+   "refused": 111,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2016-01-25:couture": {
+  "candidates": [
+   "20160303203244 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2016-the-looks/6",
+   "20160303203318 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2016-the-show/shiap_hc_2016_montage_final02_va",
+   "20160305004755 http://www.schiaparelli.com:80/en/collections/haute-couture-printemps-ete-2016-le-defile/shiap_hc_2016_montage_final_va"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 122,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 162,
+   "refused": 101,
+   "small": 21
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2016-07-04:couture": {
+  "candidates": [
+   "20160710003849 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2016-17/",
+   "20160907022244 http://www.schiaparelli.com/en/collections/haute-couture-fall-winter-2016-17/the-video/",
+   "20161024231910 http://www.schiaparelli.com:80/en/collections/pret-a-couture-fall-winter-2016-17/the-sweaters/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 51,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 51,
+   "refused": 21,
+   "small": 30
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2017-01-23:couture": {
+  "candidates": [
+   "20170131082934 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2017/",
+   "20170209135229 http://www.schiaparelli.com/en/collections/haute-couture-spring-summer-2017/the-video/",
+   "20170505073148 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2017/the-ambiance/"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 101,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 101,
+   "refused": 43,
+   "small": 58
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2017-07-03:couture": {
+  "candidates": [
+   "20170722214307 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/403_52/",
+   "20170722214315 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/404_52/",
+   "20170722214755 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2017-18-looks-detail/402_52/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 45,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 45,
+   "refused": 24,
+   "small": 21
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2018-01-22:couture": {
+  "candidates": [
+   "20180128195520 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-1/",
+   "20180201073701 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-looks/54/",
+   "20180313075250 http://www.schiaparelli.com:80/en/collections/haute-couture-spring-summer-2018-looks-detail/468_54/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 75,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 134,
+   "refused": 53,
+   "small": 22
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2018-07-02:couture": {
+  "candidates": [
+   "20180706093703 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19/",
+   "20180706093905 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19-1/the-video/",
+   "20180708044521 http://www.schiaparelli.com:80/en/collections/haute-couture-fall-winter-2018-19/interview-with-bertrand-guyon/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 146,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 146,
+   "refused": 65,
+   "small": 81
+  },
   "looks": 0,
   "status": "no looks"
  },
  "schiaparelli:2019-07-01:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20191014132754 https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-10/",
+   "20191014133030 https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-11/",
+   "20191014133234 https://schiaparelli.com/en/haute-couture/haute-couture-automne-hiver-2019-2020-1/looks/look-1/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 48,
+   "failed": 0,
+   "fetched": 231,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 231,
+   "refused": 66,
+   "small": 111
+  },
+  "looks": 6,
+  "status": "collected"
  },
  "schiaparelli:2021-01-25:couture": {
   "looks": 2,
@@ -2124,18 +3695,68 @@
   "status": "collected"
  },
  "stella_mccartney:2015-03-09:rtw": {
+  "candidates": [
+   "20150312180735 http://www.stellamccartney.com:80/experience/en/experience/en/winter-2015-collection/?",
+   "20150525235402 http://www.stellamccartney.com:80/experience/en/autumn-2015-lookbook/",
+   "20150614093749 http://www.stellamccartney.com:80/experience/en/watch-winter-2015-collection-launch-beijing-3/"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 235,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 238,
+   "refused": 1,
+   "small": 234
+  },
   "looks": 0,
   "status": "no looks"
  },
  "stella_mccartney:2015-10-05:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20151007043204 http://www.stellamccartney.com:80/experience/en/summer-2016-collection/",
+   "20151212190850 http://www.stellamccartney.com:80/experience/en/kids-spring-summer-2016-collection/",
+   "20151212190931 http://www.stellamccartney.com:80/experience/en/summer-2016-show-behind-the-scenes-and-front-row/"
+  ],
+  "diag": {
+   "captures_tried": 9,
+   "cut": false,
+   "duplicates": 1,
+   "failed": 0,
+   "fetched": 286,
+   "opened": 9,
+   "pages": 3,
+   "pictures": 286,
+   "refused": 279,
+   "small": 5
+  },
+  "looks": 1,
+  "status": "collected"
  },
  "stella_mccartney:2016-03-07:rtw": {
   "looks": 1,
   "status": "collected"
  },
  "stella_mccartney:2016-10-03:rtw": {
+  "candidates": [
+   "20170129014719 http://www.stellamccartney.com:80/experience/en/discover-the-summer-2017-campaign/",
+   "20170129014725 http://www.stellamccartney.com:80/experience/en/explore-the-spring-2017-collection/"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 38,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 38,
+   "refused": 20,
+   "small": 18
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -2144,8 +3765,23 @@
   "status": "collected"
  },
  "stella_mccartney:2022-03-07:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20220619090256 https://www.stellamccartney.com/fi/en/women/autumn-2022-collection"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 1,
+   "failed": 0,
+   "fetched": 120,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 225,
+   "refused": 72,
+   "small": 44
+  },
+  "looks": 3,
+  "status": "collected"
  },
  "stella_mccartney:2022-10-03:rtw": {
   "looks": 20,
@@ -2176,6 +3812,21 @@
   "status": "collected"
  },
  "the_row:2022-09-28:rtw": {
+  "candidates": [
+   "20221207175633 https://www.therow.com/us/collections/women-039-s-summer-2023_grd168"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 33,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 33,
+   "refused": 33,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -2200,10 +3851,40 @@
   "status": "collected"
  },
  "tom_ford:2015-02-23:rtw": {
+  "candidates": [
+   "20150308142953 http://www.tomford.com:80/w-aw15-look-26.html?"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 12,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 12,
+   "refused": 3,
+   "small": 9
+  },
   "looks": 0,
   "status": "no looks"
  },
  "tom_ford:2020-09-16:rtw": {
+  "candidates": [
+   "20200924004057 https://www.tomford.com/ss21-show-notes/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 0,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "small": 0
+  },
   "looks": 0,
   "status": "no looks"
  },
