@@ -95,6 +95,11 @@ jobs:
             if [ "${{ steps.left.outputs.read }}" = "yes" ] && [ "$left" -gt 5 ]; then
               python -m adtone.pinterest read --run "gh${GITHUB_RUN_ID}" --budget-min "$left" $NC || true
             fi
+            left=$(( 75 - (SECONDS - start) / 60 ))
+            # houses whose pictures were fetched but never read: searched again, once a day at most, and read
+            if [ "${{ steps.left.outputs.collect }}" != "yes" ] && [ -n "${{ steps.left.outputs.fresh }}" ] && [ "$left" -gt 10 ]; then
+              python -m adtone.pinterest collect --run "gh${GITHUB_RUN_ID}" --budget-min "$left" --fresh --houses "${{ steps.left.outputs.fresh }}" $NC || true
+            fi
             exit 0
           fi
           EXTRA=""
