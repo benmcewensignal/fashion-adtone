@@ -5,6 +5,18 @@
       "checked": "2026-10-17",
       "keep": [
         {
+          "ads": 132,
+          "categories": [
+            "UNKNOWN",
+            "Clothing (brand)",
+            "Clothing (Brand)"
+          ],
+          "id": "2065953210084784",
+          "name": "Maison Alaïa"
+        }
+      ],
+      "refused": [
+        {
           "ads": 17,
           "categories": [
             "UNKNOWN",
@@ -41,18 +53,6 @@
           ],
           "id": "142870372943454",
           "name": "Alaia Moda"
-        }
-      ],
-      "refused": [
-        {
-          "ads": 132,
-          "categories": [
-            "UNKNOWN",
-            "Clothing (brand)",
-            "Clothing (Brand)"
-          ],
-          "id": "2065953210084784",
-          "name": "Maison Alaïa"
         },
         {
           "ads": 28,
@@ -652,7 +652,9 @@
           "ads": 116,
           "id": "206070910246492",
           "name": "CELINE"
-        },
+        }
+      ],
+      "refused": [
         {
           "ads": 7,
           "id": "615842204954410",
@@ -672,9 +674,7 @@
           "ads": 1,
           "id": "109372678572776",
           "name": "Celine in Canada"
-        }
-      ],
-      "refused": [
+        },
         {
           "ads": 10,
           "id": "516773251528508",
@@ -1410,14 +1410,14 @@
           "ads": 127,
           "id": "301701851577",
           "name": "Fendi"
-        },
+        }
+      ],
+      "refused": [
         {
           "ads": 1,
           "id": "151841160346943",
           "name": "Thiết bị phòng tắm cao cấp Fendi"
-        }
-      ],
-      "refused": [
+        },
         {
           "ads": 8,
           "id": "83771558150",
@@ -1811,7 +1811,9 @@
           ],
           "id": "447850575390345",
           "name": "Hermès"
-        },
+        }
+      ],
+      "refused": [
         {
           "ads": 10,
           "categories": [
@@ -1829,9 +1831,7 @@
           ],
           "id": "635785887051399",
           "name": "Hermes Clinics"
-        }
-      ],
-      "refused": [
+        },
         {
           "ads": 12,
           "categories": [
@@ -2133,7 +2133,9 @@
           "ads": 76,
           "id": "184360374941311",
           "name": "LOEWE"
-        },
+        }
+      ],
+      "refused": [
         {
           "ads": 60,
           "id": "351058035420618",
@@ -2148,9 +2150,7 @@
           "ads": 1,
           "id": "647669961766226",
           "name": "Loewe Greece"
-        }
-      ],
-      "refused": [
+        },
         {
           "ads": 27,
           "id": "51624954766",
@@ -4038,7 +4038,6 @@
   "requests": 1,
   "run": "gh39071506193",
   "searched": {
-    "alaia": "2026-10-17",
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
     "burberry": "2026-10-17",
