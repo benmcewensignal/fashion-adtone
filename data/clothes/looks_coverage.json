@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T00:06:45Z",
+ "generated_at": "2026-10-18T06:01:58Z",
  "window_days": [
   -1,
   14
@@ -84,6 +84,32 @@
      "score": 9.88
     }
    ]
+  },
+  "armani:2024-01-23:couture": {
+   "house": "armani",
+   "date": "2024-01-23",
+   "season": "2024 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ConnectTimeout"
+   }
+  },
+  "armani:2024-02-25:rtw": {
+   "house": "armani",
+   "date": "2024-02-25",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
   },
   "armani:2024-06-17:men": {
    "house": "armani",
@@ -817,6 +843,44 @@
      "ts": "20261004132057",
      "score": 0.62
     }
+   ]
+  },
+  "balmain:2016-01-23:men": {
+   "house": "balmain",
+   "date": "2016-01-23",
+   "season": "2016 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ConnectTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
+   ]
+  },
+  "balmain:2016-03-03:rtw": {
+   "house": "balmain",
+   "date": "2016-03-03",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
    ]
   },
   "balmain:2016-06-25:men": {
@@ -1972,7 +2036,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -1989,7 +2053,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3243,7 +3307,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectTimeout"
    }
   },
   "chanel:2026-10-05:rtw": {
@@ -3256,7 +3320,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 503"
    }
   },
   "chloe:2015-03-08:rtw": {
@@ -4483,6 +4547,32 @@
      "score": 0.88
     }
    ]
+  },
+  "dior:2025-01-24:men": {
+   "house": "dior",
+   "date": "2025-01-24",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "ReadTimeout"
+   }
+  },
+  "dior:2025-01-27:couture": {
+   "house": "dior",
+   "date": "2025-01-27",
+   "season": "2025 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "HTTP 503"
+   }
   },
   "dior:2025-03-04:rtw": {
    "house": "dior",
@@ -16420,7 +16510,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "ReadTimeout"
+    "therow.com": "HTTP 503"
    }
   },
   "the_row:2024-02-28:rtw": {
@@ -17960,10 +18050,9 @@
     "www.dior.com/en_us/mens-fashion/collections-shows/",
     "www.dior.com/en_us/shows/mens-ready-to-wear/",
     "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/shows/womens-ready-to-wear/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/"
    ],
-   "pages": 318
+   "pages": 795
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -18160,8 +18249,8 @@
   "jacquemus": {
    "prefixes": [
     "www.jacquemus.com/collection/",
-    "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
     "www.jacquemus.com/nl_nl/la-croisiere/",
+    "www.jacquemus.com/dw/image/v2/BJFJ_PRD/on/demandware.static/-/Library-Sites-JacquemusSharedLibrary/default/dw394ff719/0-JACQUEMUS-LEPAYSAN-LOOKBOOK-01.jpg",
     "www.jacquemus.com/nl_nl/collections/"
    ],
    "pages": 38
@@ -18184,9 +18273,9 @@
     "www.therow.com/en-at/collections/",
     "www.therow.com/en-eu/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/collections/women-039-s-resort-2020_grd38/"
+    "www.therow.com/us/collections/women-039-s-resort-2020_grd38/"
    ],
-   "pages": 904
+   "pages": 762
   },
   "mcqueen": {
    "prefixes": [
@@ -18200,12 +18289,12 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 358
+   "pages": 351
   },
   "balmain": {
    "prefixes": [
@@ -18216,9 +18305,9 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
+    "www.balmain.com/en_us/show/"
    ],
-   "pages": 516
+   "pages": 513
   },
   "schiaparelli": {
    "prefixes": [
@@ -18246,9 +18335,9 @@
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/fi/en/stellas-world/"
+    "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 2247
+   "pages": 2167
   },
   "issey_miyake": {
    "prefixes": [
@@ -18261,7 +18350,7 @@
  "summary": {
   "by_status": {
    "found": 589,
-   "index failed": 102,
+   "index failed": 108,
    "none": 380
   },
   "by_house": {
@@ -18270,7 +18359,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 17,
+    "shows": 19,
     "found": 3
    },
    "balenciaga": {
@@ -18278,7 +18367,7 @@
     "found": 22
    },
    "balmain": {
-    "shows": 31,
+    "shows": 33,
     "found": 8
    },
    "bottega_veneta": {
@@ -18310,7 +18399,7 @@
     "found": 0
    },
    "dior": {
-    "shows": 27,
+    "shows": 29,
     "found": 18
    },
    "dolce_gabbana": {
@@ -18432,7 +18521,7 @@
     "found": 31
    },
    "2016": {
-    "shows": 99,
+    "shows": 101,
     "found": 62
    },
    "2017": {
@@ -18464,11 +18553,11 @@
     "found": 55
    },
    "2024": {
-    "shows": 85,
+    "shows": 87,
     "found": 53
    },
    "2025": {
-    "shows": 81,
+    "shows": 83,
     "found": 44
    },
    "2026": {
