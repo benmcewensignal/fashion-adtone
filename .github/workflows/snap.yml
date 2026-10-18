@@ -27,6 +27,11 @@ on:
         description: "search every house again, even one searched to the end this week"
         type: boolean
         default: false
+      clothes:
+        description: "read the clothes rubric on the pictures: yes, no, or as the ADS_CLOTHES variable says"
+        type: choice
+        options: [variable, "yes", "no"]
+        default: variable
   push:   # editing .github/kick/snap starts a run
     branches: [main]
     paths: [".github/kick/snap"]
@@ -74,7 +79,7 @@ jobs:
           if [ "${{ github.event.inputs.rematch }}" = "true" ]; then EXTRA="$EXTRA --rematch"; fi
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
           # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
-          if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
+          CL="${{ github.event.inputs.clothes }}"; if [ "$CL" != "yes" ] && { [ "$CL" = "no" ] || [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; }; then EXTRA="$EXTRA --no-clothes"; fi
           python -m adtone.snap "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 60 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         continue-on-error: true

@@ -35,6 +35,11 @@ on:
         description: "search every house again, even one searched to the end this week"
         type: boolean
         default: false
+      clothes:
+        description: "read the clothes rubric on the pictures: yes, no, or as the ADS_CLOTHES variable says"
+        type: choice
+        options: [variable, "yes", "no"]
+        default: variable
       period:
         description: "the vendor's period: empty for the whole library, last30d for a top-up"
         default: ""
@@ -135,7 +140,7 @@ jobs:
           EXTRA="$EXTRA --fashion-only"     # read stage: other divisions' ads (a licensee's beauty or eyewear) are left out
           STAGE="${{ github.event.inputs.stage || 'collect' }}"
           # the clothes rubric is not read on advertisements until Amendment 3 is frozen (PREREGISTRATION-AMENDMENT-3.md)
-          if [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; then EXTRA="$EXTRA --no-clothes"; fi
+          CL="${{ github.event.inputs.clothes }}"; if [ "$CL" != "yes" ] && { [ "$CL" = "no" ] || [ "${{ vars.ADS_CLOTHES }}" != "yes" ]; }; then EXTRA="$EXTRA --no-clothes"; fi
           python -m adtone.metaweb "$STAGE" --run "gh${GITHUB_RUN_ID}" --budget-min 75 --houses "${{ github.event.inputs.houses }}" $EXTRA
       - name: Probe
         if: env.APIFY_TOKEN != '' && steps.left.outputs.go == 'yes'
