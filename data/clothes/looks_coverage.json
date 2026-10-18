@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T17:08:54Z",
+ "generated_at": "2026-10-18T21:55:22Z",
  "window_days": [
   -1,
   14
@@ -31,6 +31,58 @@
    "status": "none",
    "pages": 0,
    "candidates": []
+  },
+  "armani:2022-02-27:rtw": {
+   "house": "armani",
+   "date": "2022-02-27",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ConnectionError"
+   }
+  },
+  "armani:2022-06-20:men": {
+   "house": "armani",
+   "date": "2022-06-20",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "HTTP 503"
+   }
+  },
+  "armani:2022-07-05:couture": {
+   "house": "armani",
+   "date": "2022-07-05",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
+  },
+  "armani:2022-09-25:rtw": {
+   "house": "armani",
+   "date": "2022-09-25",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
   },
   "armani:2023-01-16:men": {
    "house": "armani",
@@ -443,26 +495,10 @@
    "date": "2017-03-05",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/campaign_m_fallwinter17_section/main",
-     "ts": "20170611042135",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
-     "ts": "20170610112700",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-sie/collections/campaign_w_fallwinter17_section",
-     "ts": "20170606185339",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2017-06-21:men": {
    "house": "balenciaga",
@@ -478,42 +514,20 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
-     "ts": "20171015020003",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main",
-     "ts": "20171209095713",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section",
-     "ts": "20180410223345",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
-     "ts": "20180331191909",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -614,11 +628,6 @@
      "url": "https://www.balenciaga.com/en-gb/winter-22",
      "ts": "20220320075101",
      "score": 1.12
-    },
-    {
-     "url": "https://www.balenciaga.com/en-au?utm_source=20220306_Winter22ShowLiveNowROW_All_Global_Type3&utm_medium=email&utm_campaign=row&utm_content=look",
-     "ts": "20220307030246",
-     "score": 0.62
     }
    ]
   },
@@ -627,21 +636,13 @@
    "date": "2022-07-06",
    "season": "2022 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "index failed",
    "via": "window",
-   "pages": 8,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/zh-us/%E6%96%B0%E5%93%81%E4%B8%8A%E5%B8%82/fall-22/women",
-     "ts": "20220715110938",
-     "score": 0.75
-    },
-    {
-     "url": "https://www.balenciaga.com/en-gb/fall-22-campaign",
-     "ts": "20220714105810",
-     "score": 0.12
-    }
-   ]
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ConnectionError"
+   }
   },
   "balenciaga:2022-10-02:rtw": {
    "house": "balenciaga",
@@ -848,15 +849,13 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "found",
-   "pages": 12,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81",
-     "ts": "20260710114026",
-     "score": 4.12
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ConnectionError"
+   }
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1343,7 +1342,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1459,15 +1458,18 @@
    "date": "2025-10-01",
    "season": "2026 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "index failed",
    "via": "window",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://us.balmain.com/us/experience/show-women-SS26?utm_source=igfb&utm_medium=social&utm_campaign=SS26show_Oct25&utm_content=SS26show_vv_int_USUKFRIT_guest_RBM_video",
-     "ts": "20251007042951",
-     "score": 5.81
-    }
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balmain.com": "ReadTimeout"
+   },
+   "seeds": [
+    "us.balmain.com/en/experience/",
+    "gb.balmain.com/gb/experience/",
+    "us.balmain.com/us/experience/",
+    "gb.balmain.com/en/experience/"
    ]
   },
   "balmain:2026-03-04:rtw": {
@@ -2133,7 +2135,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2406,11 +2408,6 @@
      "url": "https://www.celine.com/en-gb/cm/celine-collections/womens-winter-2022/show-winter2022-women?",
      "ts": "20220702045908",
      "score": 9.12
-    },
-    {
-     "url": "https://www.celine.com/en-us/cm/celine-collections/men-s-winter-2022/runway-looks-winter2022-men?",
-     "ts": "20220520134436",
-     "score": 7.88
     }
    ]
   },
@@ -2451,11 +2448,6 @@
      "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
      "ts": "20251006201856",
      "score": 7.88
-    },
-    {
-     "url": "https://www.celine.com/en-gb/home?utm_campaign=%20WOMENSPRING26&utm_source=sothebys_uk&utm_medium=display",
-     "ts": "20251002203943",
-     "score": 1.12
     }
    ]
   },
@@ -2472,11 +2464,6 @@
      "url": "https://www.celine.com/en-us/cm/fashion-show-summer-2026",
      "ts": "20251006201856",
      "score": 7.88
-    },
-    {
-     "url": "https://www.celine.com/en-us/cm/spring-26-highlights/",
-     "ts": "20251126183848",
-     "score": 0.88
     }
    ]
   },
@@ -2500,16 +2487,10 @@
    "date": "2015-01-27",
    "season": "2015 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/spring-summer-2015-pre-collection.html",
-     "ts": "20150204033015",
-     "score": 3.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2015-03-10:rtw": {
    "house": "chanel",
@@ -2537,21 +2518,10 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2015-16.html?WT.mc_id=FA_en_WW_20150907_15KCollection&WT.mc_t=sma",
-     "ts": "20150910235351",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2015-16-pre-collection.html",
-     "ts": "20150804034555",
-     "score": 3.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2015-10-06:rtw": {
    "house": "chanel",
@@ -2571,11 +2541,6 @@
      "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-spring-summer-2016.html?",
      "ts": "20151011205333",
      "score": 5.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/spring-summer-2016-pre-collection.html",
-     "ts": "20160125193137",
-     "score": 4.62
     }
    ]
   },
@@ -2584,16 +2549,10 @@
    "date": "2016-01-26",
    "season": "2016 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/spring-summer-2016-pre-collection.html",
-     "ts": "20160125193137",
-     "score": 3.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2016-03-08:rtw": {
    "house": "chanel",
@@ -2621,26 +2580,10 @@
    "date": "2016-07-05",
    "season": "2016 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2016-17.html?WT.mc_id=FA_COLLECTION_16kcollection_en_WW_sma_20160914&WT.mc_t=sma&utm_source=facebook&utm_medium=sma&utm_campaign=16kcollection",
-     "ts": "20160926030623",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-eyewear-collection.html?WT.mc_id=FA_EYEWEAR_sun_fw1617_en_WW_sma_20160825&WT.mc_t=sma&utm_source=Facebook&utm_medium=sma&utm_campaign=sun_fw1617",
-     "ts": "20160906213320",
-     "score": 3.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-pre-collection.html",
-     "ts": "20160724013840",
-     "score": 3.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2016-10-04:rtw": {
    "house": "chanel",
@@ -2668,26 +2611,10 @@
    "date": "2017-01-24",
    "season": "2017 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2017.html",
-     "ts": "20170515214624",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-spring-summer-2017.html?WT.mc_id=FA_COLLECTION_17scollectionhp_en_WW_sma_20170227&WT.mc_t=sma&utm_source=facebook&utm_medium=sma&utm_campaign=17scollectionhp_20170227",
-     "ts": "20170310180258",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/spring-summer-2017-pre-collection.html",
-     "ts": "20170203084321",
-     "score": 3.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2017-03-07:rtw": {
    "house": "chanel",
@@ -2720,21 +2647,10 @@
    "date": "2017-07-04",
    "season": "2017 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/fall-winter-2017-18-eyewear-campaign.html",
-     "ts": "20170901062848",
-     "score": 1.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/fall-winter-2017-18-pre-collection.html?utm_source=facebook&utm_medium=smaorganic&utm_campaign=17b_boots_en_ww.d.video.html",
-     "ts": "20170728022514",
-     "score": 1.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2017-10-03:rtw": {
    "house": "chanel",
@@ -2767,26 +2683,10 @@
    "date": "2018-01-23",
    "season": "2018 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.0.html",
-     "ts": "20180323181352",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.1.html",
-     "ts": "20180323181357",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.2.html",
-     "ts": "20180323181402",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2018-03-06:rtw": {
    "house": "chanel",
@@ -2819,21 +2719,10 @@
    "date": "2018-07-03",
    "season": "2018 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2018-19-eyewear-campaign.html",
-     "ts": "20181020020728",
-     "score": 1.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2018-19-pre-collection.html",
-     "ts": "20181020022946",
-     "score": 1.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2018-10-02:rtw": {
    "house": "chanel",
@@ -2856,16 +2745,10 @@
    "date": "2019-01-22",
    "season": "2019 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2019-pre-collection.html",
-     "ts": "20190401202517",
-     "score": 1.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2019-03-05:rtw": {
    "house": "chanel",
@@ -2888,26 +2771,10 @@
    "date": "2019-07-02",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n10.html",
-     "ts": "20190822162233",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n11.html",
-     "ts": "20190817134556",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n13.html",
-     "ts": "20190821012058",
-     "score": 7.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2019-10-01:rtw": {
    "house": "chanel",
@@ -2940,16 +2807,10 @@
    "date": "2020-01-21",
    "season": "2020 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2020-pre-collection.html",
-     "ts": "20200331002247",
-     "score": 1.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2020-03-03:rtw": {
    "house": "chanel",
@@ -2998,26 +2859,10 @@
    "date": "2021-01-29",
    "season": "2021 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-1.html",
-     "ts": "20210422035606",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-10.html",
-     "ts": "20210419180051",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-12.html",
-     "ts": "20210416112338",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2021-03-09:rtw": {
    "house": "chanel",
@@ -3050,110 +2895,50 @@
    "date": "2021-07-06",
    "season": "2021 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-1.html",
-     "ts": "20210925212138",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-11.html",
-     "ts": "20210927051219",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-2.html",
-     "ts": "20210927034527",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2021-10-03:rtw": {
    "house": "chanel",
    "date": "2021-10-03",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022.html?utm_campaign=fsh_fs_22s_show_en-ww&utm_source=twitter&utm_medium=smaorganic",
-     "ts": "20211021075814",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2022-01-25:couture": {
    "house": "chanel",
    "date": "2022-01-25",
    "season": "2022 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-38.html",
-     "ts": "20220525203323",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-43.html",
-     "ts": "20220525201128",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-8.html",
-     "ts": "20220525202226",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2022-03-08:rtw": {
    "house": "chanel",
    "date": "2022-03-08",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23.html?utm_campaign=fsh_fs_22k_show_en-id&utm_source=twitter&utm_medium=smaorganic",
-     "ts": "20220310130749",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2022-07-05:couture": {
    "house": "chanel",
    "date": "2022-07-05",
    "season": "2022 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n1.html",
-     "ts": "20220811113012",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n10.html",
-     "ts": "20220928070023",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n11.html",
-     "ts": "20221002212903",
-     "score": 7.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2022-10-04:rtw": {
    "house": "chanel",
@@ -3186,26 +2971,10 @@
    "date": "2023-01-24",
    "season": "2023 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023/the-looks/look-n16.html",
-     "ts": "20230129124143",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023-pre-collection/look-1.html",
-     "ts": "20230212190101",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023-pre-collection/look-10.html",
-     "ts": "20230212190101",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "chanel:2023-03-07:rtw": {
    "house": "chanel",
@@ -3286,11 +3055,6 @@
      "url": "https://www.chanel.com/gb/haute-couture/spring-summer-2024/",
      "ts": "20240129165447",
      "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2024-pre-collection/",
-     "ts": "20240301004955",
-     "score": 2.06
     }
    ],
    "seeds": [
@@ -3331,11 +3095,6 @@
      "url": "https://www.chanel.com/gb/haute-couture/fall-winter-2024-25/",
      "ts": "20240625145708",
      "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/fall-winter-2024-25-pre-collection/",
-     "ts": "20240909095810",
-     "score": 2.06
     }
    ],
    "seeds": [
@@ -3376,11 +3135,6 @@
      "url": "https://www.chanel.com/gb/haute-couture/spring-summer-2025/",
      "ts": "20250312191028",
      "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2025-pre-collection/",
-     "ts": "20250130090233",
-     "score": 2.06
     }
    ],
    "seeds": [
@@ -3421,16 +3175,6 @@
      "url": "https://www.chanel.com/gb/haute-couture/fall-winter-2025-26/",
      "ts": "20250910151021",
      "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/fall-winter-2025-26-editorial/",
-     "ts": "20251011171051",
-     "score": 2.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/fall-winter-2025-26-pre-collection-the-campaign/",
-     "ts": "20250803075512",
-     "score": 2.06
     }
    ],
    "seeds": [
@@ -3443,21 +3187,10 @@
    "date": "2025-10-06",
    "season": "2026 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2026-pre-collection/",
-     "ts": "20260127220115",
-     "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2026/?utm_medium=smaorganic&utm_campaign=fsh_fs_26s_2025_ss&utm_source=instagram&utm_content=&utm_term=linkbio_&fbclid=PAZnRzaANQzghleHRuA2FlbQIxMQABp7XCrYJ374vkli1ULObWyh2AfPuOKIHnHwAVyE3xPI6UeBMS4vG877JxKY46_aem_ZJCkMvJnjQbq38gxybFoSw",
-     "ts": "20251101135854",
-     "score": 3.06
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -3473,19 +3206,9 @@
    "pages": 3,
    "candidates": [
     {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2026-looks/",
-     "ts": "20260305175104",
-     "score": 5.06
-    },
-    {
      "url": "https://www.chanel.com/gb/haute-couture/spring-summer-2026/",
      "ts": "20260127220058",
      "score": 3.06
-    },
-    {
-     "url": "https://www.chanel.com/gb/fashion/collection/spring-summer-2026-pre-collection/",
-     "ts": "20260127220115",
-     "score": 2.06
     }
    ],
    "seeds": [
@@ -3540,7 +3263,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3718,16 +3441,10 @@
    "date": "2020-10-01",
    "season": "2021 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.chloe.com/us/chloe/women/fashionshow/chloe_springsummer2021_section?utm_source=affiliate&utm_medium=rakuten&utm_campaign=3290493_Winter+Lights&utm_content=10&utm_term=us_network&ranMID=46112&ranEAID=3I1fuv*ATEg&ranSiteID=3I1fuv.ATEg-5pUZ4rVb2Ca5XKpPuou_yg",
-     "ts": "20201103150626",
-     "score": 2.81
-    }
-   ]
+   "candidates": []
   },
   "chloe:2021-03-03:rtw": {
    "house": "chloe",
@@ -4369,6 +4086,42 @@
    "pages": 0,
    "candidates": []
   },
+  "dior:2018-07-02:couture": {
+   "house": "dior",
+   "date": "2018-07-02",
+   "season": "2018 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "HTTP 503"
+   },
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2018-09-24:rtw": {
+   "house": "dior",
+   "date": "2018-09-24",
+   "season": "2019 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "HTTP 503"
+   },
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
   "dior:2019-01-18:men": {
    "house": "dior",
    "date": "2019-01-18",
@@ -4390,16 +4143,10 @@
    "date": "2019-01-21",
    "season": "2019 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_us/womens-fashion/summer-2019-collection",
-     "ts": "20190415072611",
-     "score": 2.88
-    }
-   ]
+   "candidates": []
   },
   "dior:2019-02-26:rtw": {
    "house": "dior",
@@ -4623,11 +4370,6 @@
      "score": 9.88
     },
     {
-     "url": "https://www.dior.com/en_us/mens-fashion/shows/summer-2022-mens-show?utm_source=twitter&utm_medium=social_paid_branding&utm_campaign=cdc_global_men_summer22_post_show_webcard_feed&utm_term=feed&utm_content=video",
-     "ts": "20210703040147",
-     "score": 8.88
-    },
-    {
      "url": "https://www.dior.com/en_us/mens-fashion/shows/folder-men-summer-2022/accessoires",
      "ts": "20210725163254",
      "score": 6.88
@@ -4699,6 +4441,298 @@
    "via": "section",
    "pages": 3,
    "candidates": []
+  },
+  "dior:2022-06-24:men": {
+   "house": "dior",
+   "date": "2022-06-24",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2023-mens-show",
+     "ts": "20220711015057",
+     "score": 9.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/spring-2023-mens-capsule-collection-presentation",
+     "ts": "20220707022843",
+     "score": 8.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2022-07-04:couture": {
+   "house": "dior",
+   "date": "2022-07-04",
+   "season": "2022 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-automne-hiver-2022-2023/the-tree-of-life",
+     "ts": "20220706185159",
+     "score": 11.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/autumn-winter-2022-2023-haute-couture-show",
+     "ts": "20220819111045",
+     "score": 10.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2022-09-27:rtw": {
+   "house": "dior",
+   "date": "2022-09-27",
+   "season": "2023 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2023-ready-to-wear-show?ranMID=47916&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-lsQoRzFTajsH5YwWh9xDBQ",
+     "ts": "20221111120253",
+     "score": 11.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-01-20:men": {
+   "house": "dior",
+   "date": "2023-01-20",
+   "season": "2023 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/fall-2023-mens-show",
+     "ts": "20230427195127",
+     "score": 9.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/winter-2023-2024-mens-show",
+     "ts": "20230120165322",
+     "score": 9.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-01-23:couture": {
+   "house": "dior",
+   "date": "2023-01-23",
+   "season": "2023 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-printemps-ete-2023/dialogue-of-the-arts",
+     "ts": "20230322192557",
+     "score": 11.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2023-haute-couture-show",
+     "ts": "20230127135228",
+     "score": 10.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-02-28:rtw": {
+   "house": "dior",
+   "date": "2023-02-28",
+   "season": "2023 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2023-2024-ready-to-wear-show",
+     "ts": "20230401180623",
+     "score": 11.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2023-ready-to-wear-show",
+     "ts": "20230428114255",
+     "score": 11.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-06-23:men": {
+   "house": "dior",
+   "date": "2023-06-23",
+   "season": "2024 SS men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2024-mens-show",
+     "ts": "20230628090540",
+     "score": 9.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-07-03:couture": {
+   "house": "dior",
+   "date": "2023-07-03",
+   "season": "2023 AW couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-automne-hiver-2023-2024/new-world",
+     "ts": "20230820073220",
+     "score": 11.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/autumn-winter-2023-2024-haute-couture-show",
+     "ts": "20230722050908",
+     "score": 10.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2023-09-26:rtw": {
+   "house": "dior",
+   "date": "2023-09-26",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2024-ready-to-wear-show",
+     "ts": "20231019070040",
+     "score": 11.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2024-01-19:men": {
+   "house": "dior",
+   "date": "2024-01-19",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/winter-2024-2025-mens-show",
+     "ts": "20240120151201",
+     "score": 9.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2024-01-22:couture": {
+   "house": "dior",
+   "date": "2024-01-22",
+   "season": "2024 SS couture",
+   "category": "couture",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show",
+     "ts": "20240124213906",
+     "score": 10.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show%0A",
+     "ts": "20240126023509",
+     "score": 10.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2024-02-27:rtw": {
+   "house": "dior",
+   "date": "2024-02-27",
+   "season": "2024 AW rtw",
+   "category": "rtw",
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show",
+     "ts": "20240302053446",
+     "score": 11.12
+    },
+    {
+     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2024-ready-to-wear-show",
+     "ts": "20240426035450",
+     "score": 11.12
+    }
+   ],
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
   },
   "dior:2024-06-21:men": {
    "house": "dior",
@@ -5324,6 +5358,32 @@
      "score": 18.0
     }
    ]
+  },
+  "dolce_gabbana:2024-09-21:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2024-09-21",
+   "season": "2025 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dolcegabbana.com": "ConnectionError"
+   }
+  },
+  "dolce_gabbana:2025-01-18:men": {
+   "house": "dolce_gabbana",
+   "date": "2025-01-18",
+   "season": "2025 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dolcegabbana.com": "ReadTimeout"
+   }
   },
   "dolce_gabbana:2025-03-01:rtw": {
    "house": "dolce_gabbana",
@@ -6047,21 +6107,10 @@
    "date": "2015-07-08",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 19,
-   "candidates": [
-    {
-     "url": "http://www.fendi.com:80/gb/Galleries/backstage-fashion-show-fw15.html",
-     "ts": "20150710170230",
-     "score": 7.06
-    },
-    {
-     "url": "http://www.fendi.com:80/ro/woman/fall-winter-2015-16/fashion-show/The-show.html",
-     "ts": "20150720073745",
-     "score": 7.0
-    }
-   ]
+   "candidates": []
   },
   "fendi:2015-09-24:rtw": {
    "house": "fendi",
@@ -6196,21 +6245,10 @@
    "date": "2017-07-05",
    "season": "2017 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.fendi.com/qa/woman/collections/fall-winter-2017-18",
-     "ts": "20170807211544",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.fendi.com/qa/woman/collections/pre-fall-2017",
-     "ts": "20171006132118",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "fendi:2017-09-21:rtw": {
    "house": "fendi",
@@ -6307,11 +6345,6 @@
      "url": "https://www.fendi.com/qa/woman/collections/fall-winter-2019-20",
      "ts": "20190420004449",
      "score": 4.0
-    },
-    {
-     "url": "https://www.fendi.com/qa/woman/collections/pre-fall-2019",
-     "ts": "20190509191300",
-     "score": 4.0
     }
    ]
   },
@@ -6380,11 +6413,6 @@
      "url": "https://www.fendi.com/be/femme/a-voir-absolument/printemps-ete-2021/printemps-ete-2021-looks",
      "ts": "20201007225706",
      "score": 4.0
-    },
-    {
-     "url": "https://www.fendi.com/gb/woman/highlights/spring-summer-2021",
-     "ts": "20201001123917",
-     "score": 3.06
     }
    ]
   },
@@ -6397,11 +6425,6 @@
    "via": "window",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.fendi.com/gb/man/highlights/fall-winter-2021-22-collection",
-     "ts": "20210129224003",
-     "score": 5.06
-    },
     {
      "url": "https://www.fendi.com/ca-fr/homme/%C3%A0-voir-absolument/collection-automne-hiver-2021-22",
      "ts": "20210129225439",
@@ -6424,16 +6447,10 @@
    "date": "2021-02-24",
    "season": "2021 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.fendi.com/us/woman/highlights/fall-winter-2021-22-collection",
-     "ts": "20210227023611",
-     "score": 4.81
-    }
-   ]
+   "candidates": []
   },
   "fendi:2021-06-19:men": {
    "house": "fendi",
@@ -6444,11 +6461,6 @@
    "via": "window",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.fendi.com/us/man/highlights/mens-spring-summer-22",
-     "ts": "20210619185808",
-     "score": 2.81
-    },
     {
      "url": "https://www.fendi.com/jp/%E3%83%A1%E3%83%B3%E3%82%BA/%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1/mens-spring-summer-22",
      "ts": "20210619124313",
@@ -6471,11 +6483,6 @@
      "score": 5.0
     },
     {
-     "url": "https://www.fendi.com/us/woman/highlights/fendi-couture-autumn-winter-2021?twclid=11414630255076134916",
-     "ts": "20210712171121",
-     "score": 3.81
-    },
-    {
      "url": "https://www.fendi.com/be/femme/a-voir-absolument/fendi-couture-autumn-winter-2021",
      "ts": "20210722153134",
      "score": 2.0
@@ -6491,11 +6498,6 @@
    "via": "window",
    "pages": 5,
    "candidates": [
-    {
-     "url": "https://www.fendi.com/us/woman/highlights/ready-to-wear-spring-summer-2022-woman/looks",
-     "ts": "20210924073506",
-     "score": 7.81
-    },
     {
      "url": "https://www.fendi.com/jp/%E3%82%A6%E3%82%A3%E3%83%A1%E3%83%B3%E3%82%BA/%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1/ready-to-wear-spring-summer-2022-woman",
      "ts": "20210924014245",
@@ -6513,16 +6515,6 @@
    "pages": 3,
    "candidates": [
     {
-     "url": "https://www.fendi.com/it-en/cm/eu1-default/man/highlights-man/men-fall-winter-2022-2023-fashion-show/men-fall-winter-22-23-fashion-show-collection",
-     "ts": "20220116222233",
-     "score": 12.62
-    },
-    {
-     "url": "https://www.fendi.com/us-en/cm/eu1-default/man/highlights-man/men-fall-winter-2022-2023-fashion-show",
-     "ts": "20220129050417",
-     "score": 10.94
-    },
-    {
      "url": "https://www.fendi.com/de-en/cm/inside-fendi/men-fall-winter-2022-2023-fashion-show",
      "ts": "20220117110550",
      "score": 10.62
@@ -6534,42 +6526,20 @@
    "date": "2022-01-27",
    "season": "2022 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 6,
-   "candidates": [
-    {
-     "url": "https://www.fendi.com/us-en/woman/highlights-woman/women-spring-summer-22-fashion-show",
-     "ts": "20220129051833",
-     "score": 8.94
-    },
-    {
-     "url": "https://www.fendi.com/it-it/donna/highlights-woman/women-spring-summer-22-fashion-show",
-     "ts": "20220129063056",
-     "score": 8.0
-    },
-    {
-     "url": "https://www.fendi.com/lt-en/inside-fendi/women-spring-summer-22-fashion-show",
-     "ts": "20220129013507",
-     "score": 7.62
-    }
-   ]
+   "candidates": []
   },
   "fendi:2022-02-23:rtw": {
    "house": "fendi",
    "date": "2022-02-23",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.fendi.com/ii-en/cm/eu1-default/woman/highlights-woman/women-fall-winter-2022-2023-fashion-show",
-     "ts": "20220307034045",
-     "score": 10.62
-    }
-   ]
+   "candidates": []
   },
   "fendi:2022-07-07:couture": {
    "house": "fendi",
@@ -6584,16 +6554,6 @@
      "url": "https://www.fendi.com/us-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2022",
      "ts": "20220709234107",
      "score": 9.94
-    },
-    {
-     "url": "https://www.fendi.com/ch-en/cm/inside-fendi/fashion-show/women-fall-winter-2022-2023-fashion-show/women-s-fall-winter-22-23-fashion-show-collection",
-     "ts": "20220717191424",
-     "score": 9.62
-    },
-    {
-     "url": "https://www.fendi.com/lt-en/cm/eu1-default/woman/highlights-woman/women-fall-winter-2022-2023-fashion-show",
-     "ts": "20220707171756",
-     "score": 8.62
     }
    ]
   },
@@ -6602,16 +6562,10 @@
    "date": "2022-09-10",
    "season": "2023 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.fendi.com/fr-fr/cm/eu1-default/woman/highlights-woman/fendi-womenswear-collection-ss-23",
-     "ts": "20220923093914",
-     "score": 4.0
-    }
-   ]
+   "candidates": []
   },
   "fendi:2022-09-21:rtw": {
    "house": "fendi",
@@ -6658,11 +6612,6 @@
      "url": "https://www.fendi.com/fi-en/cm/inside-fendi/fashion-show/fendi-couture-spring-summer-2023",
      "ts": "20230331133257",
      "score": 9.62
-    },
-    {
-     "url": "https://www.fendi.com/fi-en/cm/inside-fendi/fashion-show/fendi-womenswear-collection-ss-23",
-     "ts": "20230202083510",
-     "score": 8.62
     }
    ]
   },
@@ -6711,11 +6660,6 @@
      "url": "https://www.fendi.com/ae-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2023/fendi-couture-2023-collection",
      "ts": "20230706193513",
      "score": 11.62
-    },
-    {
-     "url": "https://www.fendi.com/ae-en/cm/inside-fendi/fashion-show/fendi-women-s-fall-winter-2023-24-fashion-show/fendi-women-s-fall-winter-2023-24-fashion-show-collection",
-     "ts": "20230706193739",
-     "score": 9.62
     },
     {
      "url": "https://www.fendi.com/ii-en/cm/inside-fendi/fashion-show/fendi-couture-autumn-winter-2023",
@@ -6864,16 +6808,6 @@
      "url": "https://www.fendi.com/us-en/cm/articles/women-s-and-men-s-spring-summer-2026-show-palazzo-fendi-milano?srsltid=AfmBOooU2Ne_ewCdazUfnkGNOiGgBHfnDz5GIHMiftgRaPqKYPtdGhxI",
      "ts": "20250929005944",
      "score": 6.94
-    },
-    {
-     "url": "https://www.fendi.com/us-en/woman/new-in?utm_source=meta&utm_medium=paid-social&utm_campaign=US_PreCoSpringSummer2026W_Branding",
-     "ts": "20251003050332",
-     "score": 2.94
-    },
-    {
-     "url": "https://www.fendi.com/us-en/woman/shoes?utm_source=meta&utm_medium=paid-social&utm_campaign=US_PreCoSpringSummer2026W_Performance&utm_content=%7B%7Bad.id%7D%7D&utm_id=%7B%7Bad.id%7D%7D",
-     "ts": "20251003041440",
-     "score": 2.94
     }
    ]
   },
@@ -7415,16 +7349,6 @@
      "url": "http://www.givenchy.com:80/en/homepage/womens-show-fall-winter-2015-collection",
      "ts": "20150307032755",
      "score": 7.62
-    },
-    {
-     "url": "http://www.givenchy.com:80/en/homepage/fall-2015-womens-accessories-pre-collection",
-     "ts": "20150627043722",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.givenchy.com:80/en/homepage/fall-2015-womens-ready-wear-pre-collection",
-     "ts": "20150610000900",
-     "score": 4.62
     }
    ]
   },
@@ -7454,21 +7378,10 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
-     "ts": "20150905083116",
-     "score": 5.62
-    },
-    {
-     "url": "http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection",
-     "ts": "20150905155521",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2015-09-12:rtw": {
    "house": "givenchy",
@@ -7504,16 +7417,10 @@
    "date": "2016-03-06",
    "season": "2016 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.givenchy.com/en/collection-women-fall-winter-2016-pre-collection",
-     "ts": "20160413165924",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2016-06-24:men": {
    "house": "givenchy",
@@ -7530,32 +7437,20 @@
    "date": "2016-07-07",
    "season": "2016 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.givenchy.com:80/cn/homepage/pre-collection-fall-2016-women-rtw",
-     "ts": "20160718121249",
-     "score": 4.0
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2016-10-02:rtw": {
    "house": "givenchy",
    "date": "2016-10-02",
    "season": "2017 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.givenchy.com/en/homepage/spring-2017-pre-collection",
-     "ts": "20161231124858",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2017-01-20:men": {
    "house": "givenchy",
@@ -7575,11 +7470,6 @@
      "url": "https://www.givenchy.com/fr/homepage/defile-homme-automne-hiver-2017",
      "ts": "20170128220035",
      "score": 6.0
-    },
-    {
-     "url": "https://www.givenchy.com/fr/collection-homme-automne-hiver-2017-pre-collection",
-     "ts": "20170129052119",
-     "score": 4.0
     }
    ]
   },
@@ -7671,11 +7561,6 @@
      "url": "https://www.givenchy.com/fr/en/haute-couture/fall-winter-2019/",
      "ts": "20190701064634",
      "score": 2.62
-    },
-    {
-     "url": "https://www.givenchy.com/gb/en/fall-winter-2019/women-winter/",
-     "ts": "20190716080109",
-     "score": 1.19
     }
    ]
   },
@@ -7704,16 +7589,10 @@
    "date": "2020-01-21",
    "season": "2020 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.givenchy.com/fr/en/spring-summer-2020/women-summer/",
-     "ts": "20200202052255",
-     "score": 0.62
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2020-03-01:rtw": {
    "house": "givenchy",
@@ -7788,16 +7667,10 @@
    "date": "2022-03-06",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.givenchy.com/us/en-US/homepage?utm_campaign=sm_tw_fw22_fallwintershow_all_0222_all&utm_medium=organicsocial&utm_source=twitter",
-     "ts": "20220310132410",
-     "score": 0.94
-    }
-   ]
+   "candidates": []
   },
   "givenchy:2022-06-22:men": {
    "house": "givenchy",
@@ -8102,52 +7975,20 @@
    "date": "2016-01-18",
    "season": "2016 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-1-p-FW16_MNMLook01US",
-     "ts": "20160424173036",
-     "score": 10.94
-    },
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-10-p-FW16_MNMLook10US",
-     "ts": "20160424173312",
-     "score": 10.94
-    },
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/men/pre-fall-2016/look-14-p-FW16_MNMLook14US",
-     "ts": "20160424173333",
-     "score": 10.94
-    }
-   ]
+   "candidates": []
   },
   "gucci:2016-02-24:rtw": {
    "house": "gucci",
    "date": "2016-02-24",
    "season": "2016 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-1-p-FW16_MNWLook01US",
-     "ts": "20160424165319",
-     "score": 9.94
-    },
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-10-p-FW16_MNWLook11US",
-     "ts": "20160424165754",
-     "score": 9.94
-    },
-    {
-     "url": "https://www.gucci.com/us/en/lo/runway/women/pre-fall-2016/look-11-p-FW16_MNWLook12US",
-     "ts": "20160424165815",
-     "score": 9.94
-    }
-   ]
+   "candidates": []
   },
   "gucci:2017-02-22:rtw": {
    "house": "gucci",
@@ -8283,6 +8124,32 @@
    "via": "section",
    "pages": 3,
    "candidates": []
+  },
+  "gucci:2023-09-22:rtw": {
+   "house": "gucci",
+   "date": "2023-09-22",
+   "season": "2024 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "gucci.com": "ReadTimeout"
+   }
+  },
+  "gucci:2024-01-12:men": {
+   "house": "gucci",
+   "date": "2024-01-12",
+   "season": "2024 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "gucci.com": "HTTP 503"
+   }
   },
   "gucci:2024-02-23:rtw": {
    "house": "gucci",
@@ -8456,11 +8323,6 @@
    "pages": 3,
    "candidates": [
     {
-     "url": "http://defile.hermes.com:80/femme-pe16/en/?utm_source=emailing&utm_medium=Newsletter&utm_campaign=Emailing_2_Defile_Femme_PE16_US_201510",
-     "ts": "20151018172719",
-     "score": 1.62
-    },
-    {
      "url": "http://defile.hermes.com:80/femme-pe16/fr/?",
      "ts": "20151008000034",
      "score": 1.0
@@ -8529,11 +8391,6 @@
    "pages": 2,
    "candidates": [
     {
-     "url": "http://defile.hermes.com:80/femme-pe17/en/?utm_campaign=D%C3%A9fil%C3%A9F_PE17_Internal_RU&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=Vignette",
-     "ts": "20161013143403",
-     "score": 1.62
-    },
-    {
      "url": "http://defile.hermes.com:80/femme-pe17/fr/?v0.10.16",
      "ts": "20161009045403",
      "score": 1.0
@@ -8545,48 +8402,30 @@
    "date": "2017-01-21",
    "season": "2017 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://manifeste.hermes.com:80/en_WW/defileah17/?utm_campaign=Manifeste_defile_Internal_RU&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=HEADER",
-     "ts": "20170131110512",
-     "score": 0.62
-    }
-   ]
+   "candidates": []
   },
   "hermes:2017-03-06:rtw": {
    "house": "hermes",
    "date": "2017-03-06",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://defile.hermes.com:80/en/?utm_campaign=D%C3%A9fil%C3%A9F_AH17_Internal_RU&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=Vignette",
-     "ts": "20170317210956",
-     "score": 0.62
-    }
-   ]
+   "candidates": []
   },
   "hermes:2017-06-24:men": {
    "house": "hermes",
    "date": "2017-06-24",
    "season": "2018 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://defile.hermes.com:80/en/?utm_campaign=DefileH_PE18_Internal_KR&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=Header",
-     "ts": "20170708055409",
-     "score": 0.62
-    }
-   ]
+   "candidates": []
   },
   "hermes:2017-10-02:rtw": {
    "house": "hermes",
@@ -8603,16 +8442,10 @@
    "date": "2018-01-20",
    "season": "2018 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://defile.hermes.com:80/en?xtor=Vignette&utm_campaign=DefileH_AH18_Internal_BR&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=header",
-     "ts": "20180129080516",
-     "score": 0.62
-    }
-   ]
+   "candidates": []
   },
   "hermes:2018-03-03:rtw": {
    "house": "hermes",
@@ -8627,11 +8460,6 @@
      "url": "http://defile.hermes.com:80/en/women-aw18",
      "ts": "20180317080626",
      "score": 2.62
-    },
-    {
-     "url": "http://lesailes.hermes.com:80/pre-fall-women-FW18?utm_campaign=precofemme_Internal_PO&utm_source=Ombrelle&utm_medium=AllDevices&utm_term=vignette",
-     "ts": "20180302172749",
-     "score": 2.0
     }
    ]
   },
@@ -8708,16 +8536,10 @@
    "date": "2019-09-28",
    "season": "2020 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/225281-women-fashion-show-spring-summer-20/?utm_campaign=PAPF_PE20_Social_WW&utm_source=Twitter&utm_medium=Social&utm_content=ORGANIC",
-     "ts": "20191207160516",
-     "score": 7.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2020-01-18:men": {
    "house": "hermes",
@@ -8754,11 +8576,6 @@
    "via": "section",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/274888-women-fashion-show-spring-summer-2021/?utm_campaign=PAPF_PE21_Social_WW&utm_source=Facebook&utm_medium=Social&utm_content=VideoTeaser_Owned",
-     "ts": "20201108025417",
-     "score": 7.94
-    },
     {
      "url": "https://www.hermes.com/us/en/story/277371-women-collection-spring-summer-21/",
      "ts": "20210121110859",
@@ -8829,16 +8646,10 @@
    "date": "2022-03-05",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/298408-women-autumn-winter-2022-runway-show/?utm_campaign=PAPF_AH22_Display_US&utm_source=TheCut&utm_medium=Display&hymnal_variant=02859a167ed8d11249d2295b5bdd1294",
-     "ts": "20220316100930",
-     "score": 7.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2022-06-25:men": {
    "house": "hermes",
@@ -8871,48 +8682,30 @@
    "date": "2023-01-21",
    "season": "2023 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/?utm_campaign=PAPH_AH23_Social_WW&utm_source=&utm_medium=Social",
-     "ts": "20230121135329",
-     "score": 8.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2023-03-04:rtw": {
    "house": "hermes",
    "date": "2023-03-04",
    "season": "2023 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/315186-women-fall-winter-2023-runway-show/?utm_campaign=PAPF_AH23_SOCIAL_WW_EN&utm_source=Instagram&utm_medium=SOCIAL&utm_content=LINKINBIO",
-     "ts": "20230311131508",
-     "score": 7.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2023-06-24:men": {
    "house": "hermes",
    "date": "2023-06-24",
    "season": "2024 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/321436-men-spring-summer-2024-runway-show/?utm_campaign=PAPH_PE24_Social_WW_EN&utm_source=&utm_medium=Social",
-     "ts": "20230705125501",
-     "score": 8.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2023-09-30:rtw": {
    "house": "hermes",
@@ -9034,11 +8827,6 @@
      "url": "https://www.hermes.com/fi/en/content/338474-women-fall-winter-2025-runway-show/",
      "ts": "20250426154413",
      "score": 7.62
-    },
-    {
-     "url": "https://www.hermes.com/jp/ja/content/338478-women-fall-winter-2025-runway-show/?utm_source=social_instagram&utm_medium=paid&utm_campaign=25AWWRTW_wuniv&utm_term=Aftershow_Video_Luxury_Fashion_male&fbclid=PAY2xjawI_6BJleHRuA2FlbQEwAGFkaWQBqxpZKOiLcQGmht69-EvtiQvY7RZrwotaIWUeP9c8lrs8fY_K5_1Cf8Ehg7hgJ_542Bdi_aem_f2TXvT00Tdv71jXm4ce6mg",
-     "ts": "20250313183640",
-     "score": 7.0
     }
    ]
   },
@@ -9067,11 +8855,6 @@
    "via": "section",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.hermes.com/jp/ja/content/344012-men-fall-winter-2026-runway-show/?utm_source=social_line_richmenu&openExternalBrowser=1&utm_campaign=26AWMRTW&utm_content=260127&utm_medium=owned",
-     "ts": "20260216043451",
-     "score": 8.0
-    },
     {
      "url": "https://www.hermes.com/jp/ja/content/344695-men-fall-winter-2026-runway-show-tokyo/?fbclid=PAdGRzdgQCabxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaewpbC5Nz83lf_de5iM8Wwl2qJwyRa4x4bUi-Q1_tEXiHJRVywpFWQ_IWmcAQ_aem_WQ3Hgq7wiEM2KeKA883jDw",
      "ts": "20260223142234",
@@ -9770,7 +9553,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "jacquemus.com": "ReadTimeout"
+    "jacquemus.com": "ConnectionError"
    },
    "seeds": [
     "www.jacquemus.com/collection/"
@@ -10071,11 +9854,6 @@
    "pages": 2,
    "candidates": [
     {
-     "url": "http://www.jilsander.com:80/en/woman/pre-collection-fall-winter-2016",
-     "ts": "20160318222642",
-     "score": 4.62
-    },
-    {
      "url": "http://www.jilsander.com:80/en/woman/fall-winter-2016-women",
      "ts": "20160306190103",
      "score": 3.62
@@ -10113,26 +9891,10 @@
    "date": "2017-02-25",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.jilsander.com:80/en/woman/pre-collection-fall-winter-2017/2149/1-18",
-     "ts": "20170224105711",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.jilsander.com:80/en/woman/pre-collection-fall-winter-2017/2161/13-19",
-     "ts": "20170317034928",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.jilsander.com:80/en/woman/pre-collection-fall-winter-2017/2169/21-13",
-     "ts": "20170223222854",
-     "score": 4.62
-    }
-   ]
+   "candidates": []
   },
   "jil_sander:2017-09-23:rtw": {
    "house": "jil_sander",
@@ -10229,16 +9991,10 @@
    "date": "2021-03-07",
    "season": "2021 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 4,
-   "candidates": [
-    {
-     "url": "https://www.jilsander.com/en-pl/women%27s%3Cbr%3Eprefall/prefall21.html",
-     "ts": "20210307060134",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "jil_sander:2021-06-27:men": {
    "house": "jil_sander",
@@ -11001,11 +10757,6 @@
      "url": "http://www.loewe.com:80/usa/en/ss18_runway",
      "ts": "20171007160520",
      "score": 4.94
-    },
-    {
-     "url": "http://www.loewe.com:80/usa/en/ss18runway_campaign?country=US",
-     "ts": "20171013062502",
-     "score": 0.94
     }
    ]
   },
@@ -11105,11 +10856,6 @@
      "url": "https://www.loewe.com/eur/en/runway/ss20-men/backstage?country=CY",
      "ts": "20190807192936",
      "score": 7.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/runway/ss20-men/campaign?country=CH",
-     "ts": "20190801185420",
-     "score": 7.62
     }
    ]
   },
@@ -11130,11 +10876,6 @@
     {
      "url": "https://www.loewe.com/eur/en/runway/ss20-women/backstage?country=CZ",
      "ts": "20200124160735",
-     "score": 6.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/runway/ss20-women/campaign?country=FI",
-     "ts": "20200124164212",
      "score": 6.62
     }
    ]
@@ -11183,11 +10924,6 @@
      "url": "https://www.loewe.com/eur/en/stories/runway/fw20-women/looks",
      "ts": "20200623065230",
      "score": 9.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/runway/fw20-women/campaign?country=SK",
-     "ts": "20200531210656",
-     "score": 6.62
     }
    ]
   },
@@ -11204,11 +10940,6 @@
      "url": "https://www.loewe.com/eur/en/stories/runway/ss21-women",
      "ts": "20201023052811",
      "score": 6.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/show-on-the-wall.html?utm_campaign=SS21_Show-on-the-Wall&utm_campaign=Show-on-the-Wall&utm_content=SS21_Show-on-the-Wall&utm_medium=Organic_&utm_medium=all&utm_source=Social-LGN&utm_source=Social_&utm_term=SS21_Show-on-the-Wall",
-     "ts": "20201101041942",
-     "score": 5.62
     }
    ]
   },
@@ -11318,11 +11049,6 @@
     {
      "url": "https://www.loewe.com/eur/en/stories-collection/fw22-men-runway-details.html",
      "ts": "20220127060521",
-     "score": 9.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/fw22-men-runway.html?utm_campaign=Talk_LN_FWM&utm_medium=Paid_Social&utm_source=LINE",
-     "ts": "20220325203640",
      "score": 9.62
     }
    ]
@@ -11486,11 +11212,6 @@
      "url": "https://www.loewe.com/eur/en/stories-collection/ss24-women-runway.html",
      "ts": "20231010043339",
      "score": 8.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/ss24-campaign.html",
-     "ts": "20231028114947",
-     "score": 2.62
     }
    ]
   },
@@ -11507,11 +11228,6 @@
      "url": "https://www.loewe.com/eur/en/stories-collection/fw24-men-runway.html",
      "ts": "20240324135756",
      "score": 9.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-paulas-ibiza-campaign.html?utm_campaign=PAULASIBIZA2024&utm_content=PAULASIBIZA2024&utm_medium=Instagram%20bio&utm_medium=all&utm_source=Instagram&utm_source=Social-LGN&utm_term=PAULASIBIZA2024",
-     "ts": "20240413204745",
-     "score": 2.62
     }
    ]
   },
@@ -11528,11 +11244,6 @@
      "url": "https://www.loewe.com/eur/en/stories-collection/fw24-women-runway.html",
      "ts": "20240425082013",
      "score": 8.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/fw24-women-precollection-lookbook.html",
-     "ts": "20240613114027",
-     "score": 7.62
     }
    ]
   },
@@ -11562,26 +11273,10 @@
    "date": "2024-09-27",
    "season": "2025 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-women-runway.html?utm_campaign=SS25-WOMENS-SHOW_POST-SHOW_CONSIDERATION_WW&utm_content=VIDEO-TRUEVIEW-ENGAGEMENT_SS25-M-POLISHED_VIDEO&utm_medium=DISPLAY&utm_source=YOUTUBE",
-     "ts": "20241206060412",
-     "score": 8.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-campaign.html?utm_source=Social-LGN&utm_medium=twitter&utm_campaign=_SS25PRECOLLECTION&utm_term=_SS25PRECOLLECTION&utm_content=_SS25PRECOLLECTION",
-     "ts": "20241031212914",
-     "score": 2.62
-    },
-    {
-     "url": "https://www.loewe.com/eur/en/stories-collection/ss25-collection-campaign.html",
-     "ts": "20250121091311",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "loewe:2025-10-03:rtw": {
    "house": "loewe",
@@ -11714,11 +11409,6 @@
      "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fw20-show-guests",
      "ts": "20200604082013",
      "score": 6.12
-    },
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fw20-show-highlights",
-     "ts": "20200418030357",
-     "score": 6.12
     }
    ],
    "seeds": [
@@ -11749,21 +11439,10 @@
    "date": "2021-01-21",
    "season": "2021 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2021-show-paris?utm_source=linkedin&utm_medium=social&utm_campaign=PUBL_MENSHOWFW21_LK_GB_ENG_AW_20210119_20210126_MEN_SHOW",
-     "ts": "20210212110512",
-     "score": 7.12
-    },
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/mens-prefall-fw21",
-     "ts": "20210514202207",
-     "score": 3.12
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ]
@@ -11781,11 +11460,6 @@
      "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fall-winter-2021-show-paris",
      "ts": "20210311095912",
      "score": 6.12
-    },
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/prefall-21",
-     "ts": "20210620215733",
-     "score": 1.12
     }
    ],
    "seeds": [
@@ -11918,16 +11592,10 @@
    "date": "2023-01-19",
    "season": "2023 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2023-paris?utm_source=twitter&utm_medium=social&utm_campaign=PUBL_MENSHOWFW23_TW_UK_ENG_AW_2023_01_18_2023_01_27_MEN_SHOW",
-     "ts": "20230119133838",
-     "score": 4.12
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ]
@@ -11945,11 +11613,6 @@
      "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fall-winter-2023-show-paris",
      "ts": "20230321224210",
      "score": 6.12
-    },
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-pre-fall-2023-show-seoul?utm_source=youtube&utm_medium=social&utm_campaign=PUBL_WOMENPREFALL23SHOW_YT_UK_ENG_AW_2023_04_25_2023_05_06_WOM_SHOW",
-     "ts": "20230506054801",
-     "score": 6.12
     }
    ],
    "seeds": [
@@ -11961,16 +11624,10 @@
    "date": "2023-06-20",
    "season": "2024 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/men-spring-summer-2024-paris?utm_source=linkedin&utm_medium=social&utm_campaign=PUBL_MENSHOWSS24_LK_UK_ENG_AW_20230618_20230626_MEN_SHOW",
-     "ts": "20230703192516",
-     "score": 4.12
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ]
@@ -12053,16 +11710,10 @@
    "date": "2024-10-01",
    "season": "2025 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-spring-summer-2025-show?utm_source=social&utm_medium=cpm&utm_campaign=Women_Spring_Summer_25_Show",
-     "ts": "20241002213453",
-     "score": 6.12
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ]
@@ -12349,26 +12000,10 @@
    "date": "2017-07-05",
    "season": "2017 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-1",
-     "ts": "20170911162045",
-     "score": 7.81
-    },
-    {
-     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-10",
-     "ts": "20170911175548",
-     "score": 7.81
-    },
-    {
-     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-2",
-     "ts": "20170911153135",
-     "score": 7.81
-    }
-   ]
+   "candidates": []
   },
   "margiela:2017-09-27:rtw": {
    "house": "margiela",
@@ -12441,26 +12076,10 @@
    "date": "2019-01-23",
    "season": "2019 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/women-ss19_section",
-     "ts": "20190517113436",
-     "score": 2.81
-    },
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_ss19_2_section",
-     "ts": "20190516090125",
-     "score": 1.81
-    },
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/mm6-pre-ss19_section",
-     "ts": "20190517123459",
-     "score": 1.81
-    }
-   ]
+   "candidates": []
   },
   "margiela:2019-02-27:rtw": {
    "house": "margiela",
@@ -12488,21 +12107,10 @@
    "date": "2019-07-03",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_aw19_section",
-     "ts": "20190718114219",
-     "score": 1.81
-    },
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_aw19_section_section",
-     "ts": "20190823195351",
-     "score": 1.81
-    }
-   ]
+   "candidates": []
   },
   "margiela:2019-09-25:rtw": {
    "house": "margiela",
@@ -12530,16 +12138,10 @@
    "date": "2020-01-22",
    "season": "2020 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_ss20_section",
-     "ts": "20200307051827",
-     "score": 1.81
-    }
-   ]
+   "candidates": []
   },
   "margiela:2020-02-26:rtw": {
    "house": "margiela",
@@ -12804,16 +12406,10 @@
    "date": "2022-02-24",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://nl.maxmara.com/editorial/runway-fall-winter?r=0&utm_source=facebook_instagram&utm_medium=social&utm_campaign=facebook_instagram_MaxMaraFW22RunwayShow&utm_term=facebook_instagram&utm_content=facebook_instagram_MaxMaraFW22RunwayShow_240222",
-     "ts": "20220223224328",
-     "score": 4.0
-    }
-   ]
+   "candidates": []
   },
   "max_mara:2022-09-22:rtw": {
    "house": "max_mara",
@@ -12860,16 +12456,10 @@
    "date": "2024-09-19",
    "season": "2025 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://fr.maxmara.com/editorial/runway-spring-summer?twclid=2cqm1ztbzp276rzqvzwbcglj2&utm_source=X&utm_term=X&utm_medium=paidsocial&utm_campaign=MaxMara_FR_Brand_FW24&utm_content=FR_X_RunwaySS25_REACH_FW24_PPLV_01",
-     "ts": "20240923153356",
-     "score": 4.0
-    }
-   ]
+   "candidates": []
   },
   "max_mara:2025-02-27:rtw": {
    "house": "max_mara",
@@ -13150,12 +12740,12 @@
    "category": "rtw",
    "status": "found",
    "via": "section",
-   "pages": 3,
+   "pages": 1,
    "candidates": [
     {
-     "url": "https://www.alexandermcqueen.com/en-fi/women/collections/aw22-pre-collection",
-     "ts": "20220614152407",
-     "score": 6.62
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/aw22-collection",
+     "ts": "20220707220031",
+     "score": 2.62
     }
    ]
   },
@@ -13166,16 +12756,11 @@
    "category": "rtw",
    "status": "found",
    "via": "section",
-   "pages": 2,
+   "pages": 1,
    "candidates": [
     {
      "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-collection",
      "ts": "20230629090532",
-     "score": 2.62
-    },
-    {
-     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-pre-collection",
-     "ts": "20230428144110",
      "score": 2.62
     }
    ]
@@ -13544,11 +13129,6 @@
      "url": "https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss21-fashion-show.html",
      "ts": "20201127035237",
      "score": 14.94
-    },
-    {
-     "url": "https://www.miumiu.com/us/en/miumiu-club/campaigns/ss21-campaign.html",
-     "ts": "20210121084431",
-     "score": 0.94
     }
    ]
   },
@@ -13581,11 +13161,6 @@
      "url": "https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss22-fashion-show.html",
      "ts": "20211022070439",
      "score": 14.94
-    },
-    {
-     "url": "https://www.miumiu.com/us/en.html?utm_source=twitter&utm_medium=social_post&utm_campaign=miumiufashionshowss22&post_id=100002585912764",
-     "ts": "20211014150425",
-     "score": 0.94
     }
    ]
   },
@@ -13618,11 +13193,6 @@
      "url": "https://www.miumiu.com/us/en/miumiu-club/fashion-shows/ss23-fashion-show.html",
      "ts": "20221004235402",
      "score": 14.94
-    },
-    {
-     "url": "https://www.miumiu.com/us/en/miumiu-club/campaigns/ss23-campaign.html",
-     "ts": "20230201030000",
-     "score": 0.94
     }
    ]
   },
@@ -13721,11 +13291,6 @@
      "url": "https://www.miumiu.com/us/en/collections/ss26-collection/c/10843US",
      "ts": "20260120205335",
      "score": 4.94
-    },
-    {
-     "url": "https://www.miumiu.com/us/en.html?utm_source=instagram&utm_medium=social_ad&utm_campaign=mmshowss26&post_id=68e3e60510cc00727e5f7d06&utm_content=reach_rt&utm_term=ppv",
-     "ts": "20251007113812",
-     "score": 0.94
     }
    ]
   },
@@ -14060,11 +13625,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2015.html?video=video-pradamanfw15web",
      "ts": "20150126051351",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015",
-     "ts": "20150510173103",
-     "score": 2.62
     }
    ]
   },
@@ -14081,11 +13641,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2015.html?look=11",
      "ts": "20150316095639",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/pre-fall-2015.html?cmp=camp_vogue_en_US_hpros_prefall2015_01-14052015",
-     "ts": "20150510173103",
-     "score": 2.62
     }
    ]
   },
@@ -14118,11 +13673,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2016.html",
      "ts": "20150925182919",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/woman-ss-2016.html",
-     "ts": "20160113212831",
-     "score": 4.62
     }
    ]
   },
@@ -14203,11 +13753,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/man-fw-2017.html",
      "ts": "20170118011624",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/nonconformists_FW2017.html",
-     "ts": "20170408230428",
-     "score": 2.62
     }
    ]
   },
@@ -14224,16 +13769,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/woman-fw-2017.html",
      "ts": "20170226111845",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/city-of-women-fw17.html",
-     "ts": "20170609195101",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_campaign_fw17.html",
-     "ts": "20170614113535",
-     "score": 2.62
     }
    ]
   },
@@ -14266,11 +13801,6 @@
      "url": "http://www.prada.com:80/en/collections/fashion-show/woman-ss-2018.html?look=8",
      "ts": "20180111015303",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_ss18.html",
-     "ts": "20171110025207",
-     "score": 2.62
     }
    ]
   },
@@ -14303,16 +13833,6 @@
      "url": "http://www.prada.com/en/collections/fashion-show/woman-fw-2018.html?video=video-pradawomanfw183",
      "ts": "20180227143652",
      "score": 11.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/365_fw18.html",
-     "ts": "20180615041657",
-     "score": 2.62
-    },
-    {
-     "url": "http://www.prada.com:80/en/collections/advertising-campaign/prefall-2018.html",
-     "ts": "20180517164737",
-     "score": 2.62
     }
    ]
   },
@@ -14373,48 +13893,30 @@
    "date": "2021-06-20",
    "season": "2022 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/us/en/pradasphere/fashion-shows/2022/ss-menswear.html?utm_source=twitter&utm_medium=social_post&utm_campaign=prada_ss22_menswear_show",
-     "ts": "20210620150122",
-     "score": 11.94
-    }
-   ]
+   "candidates": []
   },
   "prada:2022-01-16:men": {
    "house": "prada",
    "date": "2022-01-16",
    "season": "2022 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/us/en/pradasphere/fashion-shows/2022/fw-menswear.html?utm_source=facebook&utm_medium=social_post&utm_campaign=prada_fw22_menswear_show",
-     "ts": "20220119084842",
-     "score": 11.94
-    }
-   ]
+   "candidates": []
   },
   "prada:2023-01-15:men": {
    "house": "prada",
    "date": "2023-01-15",
    "season": "2023 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/fi/en/pradasphere/fashion-shows/2023/fw-menswear.html?utm_source=twitter&utm_medium=social_post&utm_campaign=prada_fw23_menswear_show",
-     "ts": "20230117114020",
-     "score": 11.62
-    }
-   ]
+   "candidates": []
   },
   "prada:2024-02-22:rtw": {
    "house": "prada",
@@ -14460,16 +13962,10 @@
    "date": "2025-01-19",
    "season": "2025 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/fi/en/pradasphere/fashion-shows/2025/fw-menswear.html?utm_source=twitter&utm_medium=social_post&utm_campaign=prada_fw25_menswear_show",
-     "ts": "20250121153742",
-     "score": 11.62
-    }
-   ]
+   "candidates": []
   },
   "prada:2025-02-27:rtw": {
    "house": "prada",
@@ -14496,48 +13992,30 @@
    "date": "2025-09-25",
    "season": "2026 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html?utm_source=instagram&utm_medium=social_ad&utm_campaign=prshowwomenss26&post_id=68e39c2f91e39c4b9b5b26ec&utm_content=reach_pr&utm_term=mp",
-     "ts": "20251010041742",
-     "score": 11.94
-    }
-   ]
+   "candidates": []
   },
   "prada:2026-01-18:men": {
    "house": "prada",
    "date": "2026-01-18",
    "season": "2026 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/kr/ko/pradasphere/fashion-shows/2026/fw-menswear.html?utm_source=kakao&utm_medium=social_post&utm_campaign=prshowmenfw26&utm_term=cta",
-     "ts": "20260121021918",
-     "score": 11.0
-    }
-   ]
+   "candidates": []
   },
   "prada:2026-02-26:rtw": {
    "house": "prada",
    "date": "2026-02-26",
    "season": "2026 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/it/it/pradasphere/fashion-shows/2026/fw-womenswear.html?utm_source=twitter&utm_medium=social_post&utm_campaign=prada_fw26_womenswear_show",
-     "ts": "20260228234737",
-     "score": 11.0
-    }
-   ]
+   "candidates": []
   },
   "prada:2026-06-21:men": {
    "house": "prada",
@@ -14957,16 +14435,6 @@
      "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-25-show",
      "ts": "20241005180824",
      "score": 8.12
-    },
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-spring-25-campaign",
-     "ts": "20250121143545",
-     "score": 5.12
-    },
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-spring25-digital-campaign",
-     "ts": "20250114002505",
-     "score": 5.12
     }
    ]
   },
@@ -14975,21 +14443,10 @@
    "date": "2025-01-28",
    "season": "2025 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25-2/looks",
-     "ts": "20250429191346",
-     "score": 6.12
-    },
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25/looks",
-     "ts": "20250423074757",
-     "score": 6.12
-    }
-   ]
+   "candidates": []
   },
   "saint_laurent:2025-06-24:men": {
    "house": "saint_laurent",
@@ -15025,11 +14482,6 @@
      "url": "https://www.ysl.com/en-gb/collections/la-maison-women-summer-26",
      "ts": "20251016062042",
      "score": 5.12
-    },
-    {
-     "url": "https://www.ysl.com/en-us/collections/women-spring-26-campaign",
-     "ts": "20260115022955",
-     "score": 4.88
     }
    ]
   },
@@ -15080,16 +14532,10 @@
    "date": "2026-09-29",
    "season": "2027 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.ysl.com/ja-jp/collections/la-maison-women-summer-27-show?utm_source=twitter&utm_medium=social&utm_campaign=27w_summer_show&utm_objective=consideration_collection&utm_content=vip4",
-     "ts": "20261006064644",
-     "score": 7.0
-    }
-   ]
+   "candidates": []
   },
   "schiaparelli:2015-01-26:couture": {
    "house": "schiaparelli",
@@ -15956,11 +15402,6 @@
      "url": "http://www.stellamccartney.com:80/experience/en/explore-the-spring-2017-collection/",
      "ts": "20170129014725",
      "score": 2.62
-    },
-    {
-     "url": "http://www.stellamccartney.com:80/experience/en/discover-the-summer-2017-campaign/",
-     "ts": "20170129014719",
-     "score": 0.62
     }
    ]
   },
@@ -16228,7 +15669,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "ConnectionError"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16241,7 +15682,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -16306,7 +15747,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "HTTP 504"
+    "therow.com": "HTTP 503"
    }
   },
   "the_row:2023-09-27:rtw": {
@@ -16319,7 +15760,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "HTTP 504"
+    "therow.com": "ReadTimeout"
    }
   },
   "the_row:2024-02-28:rtw": {
@@ -16669,26 +16110,10 @@
    "date": "2018-01-24",
    "season": "2018 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 9,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/experience/us/news/spring-summer-2018-collection/",
-     "ts": "20180202161120",
-     "score": 1.75
-    },
-    {
-     "url": "https://www.valentino.com/experience/en/news/spring-summer-2018-collection/",
-     "ts": "20180202161030",
-     "score": 1.62
-    },
-    {
-     "url": "https://www.valentino.com/experience/cn/news/spring-summer-2018-collection/",
-     "ts": "20180202160922",
-     "score": 1.0
-    }
-   ]
+   "candidates": []
   },
   "valentino:2018-03-04:rtw": {
    "house": "valentino",
@@ -16751,16 +16176,10 @@
    "date": "2019-01-23",
    "season": "2019 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-fi/collections/women/spring-summer-2019-section",
-     "ts": "20190404012800",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "valentino:2019-03-03:rtw": {
    "house": "valentino",
@@ -16774,11 +16193,6 @@
     {
      "url": "https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20-section",
      "ts": "20190403005623",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/collections/women/pre-fall-2019-section",
-     "ts": "20190402234813",
      "score": 4.62
     }
    ]
@@ -16804,21 +16218,10 @@
    "date": "2019-07-03",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-fi/collections/women/fall-winter-2019-20",
-     "ts": "20190717145650",
-     "score": 2.62
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/collections/women/pre-fall-2019",
-     "ts": "20191006181106",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "valentino:2019-09-29:rtw": {
    "house": "valentino",
@@ -16881,16 +16284,10 @@
    "date": "2021-01-29",
    "season": "2021 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-us/experience/valentino-collezione-milano-woman?utm_campaign=f_mainss_21&utm_source=twitter&utm_medium=websitecard&utm_content=valentino_collezione_milano_woman",
-     "ts": "20210325175452",
-     "score": 0.88
-    }
-   ]
+   "candidates": []
   },
   "valentino:2021-03-01:rtw": {
    "house": "valentino",
@@ -16923,16 +16320,10 @@
    "date": "2022-01-26",
    "season": "2022 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/de-de/collections/women/haute-couture-spring-summer?view=comparableLink&utm_campaign=hcss_22&utm_source=twitter&utm_medium=social_organic&utm_content=runway_hc_ss_22_post",
-     "ts": "20220128051518",
-     "score": 5.0
-    }
-   ]
+   "candidates": []
   },
   "valentino:2022-03-06:rtw": {
    "house": "valentino",
@@ -16963,11 +16354,6 @@
      "url": "https://www.valentino.com/en-fi/collections/valentino-the-beginning-haute-couture-fall-winter-22-23?view=comparableLink",
      "ts": "20220710002045",
      "score": 4.62
-    },
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection",
-     "ts": "20221005213418",
-     "score": 2.12
     }
    ]
   },
@@ -16984,11 +16370,6 @@
      "url": "https://www.valentino.com/en-fi/collections/valentino-the-beginning-haute-couture-fall-winter-22-23?view=comparableLink",
      "ts": "20220710002045",
      "score": 4.62
-    },
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-pink-pp-fall-winter-2022-collection",
-     "ts": "20221005213418",
-     "score": 2.12
     }
    ]
   },
@@ -17001,11 +16382,6 @@
    "via": "section",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.valentino.com/en-fi/collections/unboxing-valentino-spring-summer-2023-show?view=comparableLink&utm_campaign=x_mainss_23&utm_source=instagram&utm_medium=social_organic&utm_content=runway_pap_ss_23_pre",
-     "ts": "20221001203958",
-     "score": 5.62
-    },
     {
      "url": "https://www.valentino.com/en-gb/experience/valentino-ways-spring-2023-collection",
      "ts": "20221204213447",
@@ -17026,16 +16402,6 @@
      "url": "https://www.valentino.com/en-fi/collections/valentino-le-club-couture-haute-couture-spring-summer-2023",
      "ts": "20230125180948",
      "score": 4.62
-    },
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-surfaces-spring-2023-collection",
-     "ts": "20230324131939",
-     "score": 2.12
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/experience/valentino-ways-spring-2023-collection",
-     "ts": "20230202120806",
-     "score": 1.62
     }
    ]
   },
@@ -17048,11 +16414,6 @@
    "via": "section",
    "pages": 2,
    "candidates": [
-    {
-     "url": "https://www.valentino.com/en-gb/experience/sun-surf-x-valentino?utm_campaign=m_prefw_23&utm_source=twitter&utm_medium=social_organic&utm_content=sun_surf_x_valentino",
-     "ts": "20230611022101",
-     "score": 1.12
-    },
     {
      "url": "https://www.valentino.com/en-gb/experience/urban-riviera-fall-2023",
      "ts": "20230609172134",
@@ -17089,16 +16450,6 @@
      "url": "https://www.valentino.com/en-fi/collections/valentino-un-chateau-haute-couture-fall-winter-23-24-show",
      "ts": "20230717080003",
      "score": 7.62
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/collections/valentino-black-tie-fall-winter-23-24-show",
-     "ts": "20230830013111",
-     "score": 4.62
-    },
-    {
-     "url": "https://www.valentino.com/en-gb/experience/black-tie-fall-winter-23-24-collection?utm_campaign=f_mainfw_2324&utm_source=whowhatwear.com&utm_medium=branded_content&utm_content=valentino_black_tie",
-     "ts": "20231006213815",
-     "score": 2.12
     }
    ]
   },
@@ -17149,21 +16500,10 @@
    "date": "2024-01-24",
    "season": "2024 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-l-ecole-spring-summer-2024-collection",
-     "ts": "20240417104038",
-     "score": 2.12
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/experience/spring-2024-collection",
-     "ts": "20240424063915",
-     "score": 1.62
-    }
-   ]
+   "candidates": []
   },
   "valentino:2024-03-03:rtw": {
    "house": "valentino",
@@ -17178,11 +16518,6 @@
      "url": "https://www.valentino.com/en-gb/experience/fall-2024-collection",
      "ts": "20240619040842",
      "score": 3.12
-    },
-    {
-     "url": "https://www.valentino.com/en-fi/experience/valentino-garavani-escape-2024?utm_campaign=x_prefw_24&utm_source=twitter&utm_medium=social_organic&utm_content=escape_capsule_collection_launch",
-     "ts": "20240530070000",
-     "score": 0.62
     }
    ]
   },
@@ -17217,16 +16552,10 @@
    "date": "2025-01-29",
    "season": "2025 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-pavillon-des-folies-spring-summer-2025-collection",
-     "ts": "20250316001928",
-     "score": 2.12
-    }
-   ]
+   "candidates": []
   },
   "valentino:2025-03-09:rtw": {
    "house": "valentino",
@@ -17264,11 +16593,6 @@
      "score": 3.12
     },
     {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-26-holiday-collection?dclid=CI2Y9aqe7pADFR2HfAYdqKYW4A&gad_source=7&gad_campaignid=23205315523",
-     "ts": "20251126071344",
-     "score": 3.12
-    },
-    {
      "url": "https://www.valentino.com/de-de/experience/valentino-spring-2026-collection%0A",
      "ts": "20251210041842",
      "score": 2.0
@@ -17280,37 +16604,20 @@
    "date": "2026-01-28",
    "season": "2026 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection",
-     "ts": "20260307024345",
-     "score": 2.12
-    },
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
-     "ts": "20260128163157",
-     "score": 2.12
-    }
-   ]
+   "candidates": []
   },
   "valentino:2026-03-12:rtw": {
    "house": "valentino",
    "date": "2026-03-12",
    "season": "2026 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.valentino.com/en-gb/experience/valentino-pre-fall-2026-collection",
-     "ts": "20260422092443",
-     "score": 3.12
-    }
-   ]
+   "candidates": []
   },
   "valentino:2026-10-04:rtw": {
    "house": "valentino",
@@ -17536,48 +16843,30 @@
    "date": "2021-01-15",
    "season": "2021 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.zegna.com/us-en/winter-fashion-show/?utm_source=twitter&amp;utm_medium=&amp;utm_campaign=us_en_fsfw21&amp;utm_content=cm",
-     "ts": "20210116011555",
-     "score": 7.94
-    }
-   ]
+   "candidates": []
   },
   "zegna:2021-06-18:men": {
    "house": "zegna",
    "date": "2021-06-18",
    "season": "2022 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.zegna.com/us-en/?utm_source=twitter&utm_medium=&utm_campaign=us_en_fashionshowss22&utm_content=cm",
-     "ts": "20210618165011",
-     "score": 0.94
-    }
-   ]
+   "candidates": []
   },
   "zegna:2022-01-14:men": {
    "house": "zegna",
    "date": "2022-01-14",
    "season": "2022 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.zegna.com/us-en/winter-fashion-show/?utm_source=dbm&utm_medium=pros&utm_campaign=us_en_100122_fashionshowfw22&utm_content=300x600_news&utm_term=man&utm_id=326336656&dclid=CMrIrLG9vvUCFQkV-QAdZiMKtg",
-     "ts": "20220119205604",
-     "score": 9.94
-    }
-   ]
+   "candidates": []
   },
   "zegna:2022-06-20:men": {
    "house": "zegna",
@@ -17604,16 +16893,10 @@
    "date": "2023-06-19",
    "season": "2024 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "window",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.zegna.com/us-en/summer-fashion-show/?utm_content=ctas_2&utm_campaign=us_en_20062023_FashionShowSS24PostShowFW23&utm_source=FashionShowSS24PostShowFW23&utm_medium=eml&utm_term=&e_id=246c9a0c4d1d91212704fddaeecda2d7&deliveryName=DM125030",
-     "ts": "20230621174037",
-     "score": 7.94
-    }
-   ]
+   "candidates": []
   },
   "zegna:2024-01-15:men": {
    "house": "zegna",
@@ -17687,447 +16970,6 @@
    "via": "window",
    "pages": 0,
    "candidates": []
-  },
-  "armani:2022-09-25:rtw": {
-   "house": "armani",
-   "date": "2022-09-25",
-   "season": "2023 SS rtw",
-   "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "armani.com": "ReadTimeout"
-   }
-  },
-  "armani:2022-07-05:couture": {
-   "house": "armani",
-   "date": "2022-07-05",
-   "season": "2022 AW couture",
-   "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "armani.com": "ReadTimeout"
-   }
-  },
-  "dior:2024-02-27:rtw": {
-   "house": "dior",
-   "date": "2024-02-27",
-   "season": "2024 AW rtw",
-   "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show",
-     "ts": "20240302053446",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2024-ready-to-wear-show",
-     "ts": "20240426035450",
-     "score": 11.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2024-01-22:couture": {
-   "house": "dior",
-   "date": "2024-01-22",
-   "season": "2024 SS couture",
-   "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show",
-     "ts": "20240124213906",
-     "score": 10.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show%0A",
-     "ts": "20240126023509",
-     "score": 10.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2024-01-19:men": {
-   "house": "dior",
-   "date": "2024-01-19",
-   "season": "2024 AW men",
-   "category": "men",
-   "status": "found",
-   "via": "section",
-   "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/winter-2024-2025-mens-show",
-     "ts": "20240120151201",
-     "score": 9.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show",
-     "ts": "20240302053446",
-     "score": 7.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2024-ready-to-wear-show",
-     "ts": "20240426035450",
-     "score": 7.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-09-26:rtw": {
-   "house": "dior",
-   "date": "2023-09-26",
-   "season": "2024 SS rtw",
-   "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2024-ready-to-wear-show",
-     "ts": "20231019070040",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2024-haute-couture-show",
-     "ts": "20240124213906",
-     "score": 5.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-07-03:couture": {
-   "house": "dior",
-   "date": "2023-07-03",
-   "season": "2023 AW couture",
-   "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-automne-hiver-2023-2024/new-world",
-     "ts": "20230820073220",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/autumn-winter-2023-2024-haute-couture-show",
-     "ts": "20230722050908",
-     "score": 10.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-06-23:men": {
-   "house": "dior",
-   "date": "2023-06-23",
-   "season": "2024 SS men",
-   "category": "men",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2024-mens-show",
-     "ts": "20230628090540",
-     "score": 9.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2024-ready-to-wear-show",
-     "ts": "20231019070040",
-     "score": 7.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-02-28:rtw": {
-   "house": "dior",
-   "date": "2023-02-28",
-   "season": "2023 AW rtw",
-   "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2023-2024-ready-to-wear-show",
-     "ts": "20230401180623",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2023-ready-to-wear-show",
-     "ts": "20230428114255",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/fall-2023-mens-show",
-     "ts": "20230427195127",
-     "score": 4.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-01-23:couture": {
-   "house": "dior",
-   "date": "2023-01-23",
-   "season": "2023 SS couture",
-   "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-printemps-ete-2023/dialogue-of-the-arts",
-     "ts": "20230322192557",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2023-haute-couture-show",
-     "ts": "20230127135228",
-     "score": 10.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2023-01-20:men": {
-   "house": "dior",
-   "date": "2023-01-20",
-   "season": "2023 AW men",
-   "category": "men",
-   "status": "found",
-   "via": "section",
-   "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/fall-2023-mens-show",
-     "ts": "20230427195127",
-     "score": 9.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/winter-2023-2024-mens-show",
-     "ts": "20230120165322",
-     "score": 9.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2023-2024-ready-to-wear-show",
-     "ts": "20230401180623",
-     "score": 7.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2022-09-27:rtw": {
-   "house": "dior",
-   "date": "2022-09-27",
-   "season": "2023 SS rtw",
-   "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2023-ready-to-wear-show?ranMID=47916&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-lsQoRzFTajsH5YwWh9xDBQ",
-     "ts": "20221111120253",
-     "score": 11.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2022-07-04:couture": {
-   "house": "dior",
-   "date": "2022-07-04",
-   "season": "2022 AW couture",
-   "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/folder-defile-haute-couture-automne-hiver-2022-2023/the-tree-of-life",
-     "ts": "20220706185159",
-     "score": 11.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/autumn-winter-2022-2023-haute-couture-show",
-     "ts": "20220819111045",
-     "score": 10.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2022-ready-to-wear-show?utm_source=Rakuten&utm_medium=affiliates&ranMID=43935&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-p5Aa_wJQkxLqwhNyFq97zA",
-     "ts": "20220711193459",
-     "score": 9.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2022-06-24:men": {
-   "house": "dior",
-   "date": "2022-06-24",
-   "season": "2023 SS men",
-   "category": "men",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2023-mens-show",
-     "ts": "20220711015057",
-     "score": 9.12
-    },
-    {
-     "url": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/spring-2023-mens-capsule-collection-presentation",
-     "ts": "20220707022843",
-     "score": 8.12
-    }
-   ],
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dior:2018-09-24:rtw": {
-   "house": "dior",
-   "date": "2018-09-24",
-   "season": "2019 SS rtw",
-   "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "dior.com": "HTTP 503"
-   },
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
-  },
-  "dolce_gabbana:2025-01-18:men": {
-   "house": "dolce_gabbana",
-   "date": "2025-01-18",
-   "season": "2025 AW men",
-   "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "dolcegabbana.com": "ReadTimeout"
-   }
-  },
-  "dolce_gabbana:2024-09-21:rtw": {
-   "house": "dolce_gabbana",
-   "date": "2024-09-21",
-   "season": "2025 SS rtw",
-   "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "dolcegabbana.com": "ConnectionError"
-   }
-  },
-  "gucci:2024-01-12:men": {
-   "house": "gucci",
-   "date": "2024-01-12",
-   "season": "2024 AW men",
-   "category": "men",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "gucci.com": "HTTP 503"
-   }
-  },
-  "gucci:2023-09-22:rtw": {
-   "house": "gucci",
-   "date": "2023-09-22",
-   "season": "2024 SS rtw",
-   "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "gucci.com": "ReadTimeout"
-   }
-  },
-  "dior:2018-07-02:couture": {
-   "house": "dior",
-   "date": "2018-07-02",
-   "season": "2018 AW couture",
-   "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "dior.com": "HTTP 503"
-   },
-   "seeds": [
-    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
-    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
-    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
-   ]
   }
  },
  "sections": {
@@ -18169,13 +17011,9 @@
     "www.balenciaga.com/gb/women/fashionshow/",
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
-    "www.balenciaga.com/gb/men/fashionshow/",
-    "www.balenciaga.com/de/unisex/collections/",
-    "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/women/fashionshow/"
+    "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 544
+   "pages": 0
   },
   "burberry": {
    "prefixes": [
@@ -18192,7 +17030,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2378
+   "pages": 434
   },
   "dior": {
    "prefixes": [
@@ -18424,18 +17262,19 @@
     "www.alexandermcqueen.com/experience/us/",
     "www.alexandermcqueen.com/en-us/collections/",
     "www.alexandermcqueen.com/experience/en/",
+    "www.alexandermcqueen.com/en-gb/collections/",
     "www.alexandermcqueen.com/en-fi/women/collections/",
     "www.alexandermcqueen.com/en-fi/men/collections/",
-    "www.alexandermcqueen.com/en-fi/shows/",
-    "www.alexandermcqueen.com/en-fi/lookbooks/"
+    "www.alexandermcqueen.com/en-fi/lookbooks/",
+    "www.alexandermcqueen.com/en-fi/shows/"
    ],
-   "pages": 818
+   "pages": 847
   },
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
     "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
@@ -18450,9 +17289,9 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/show/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 504
+   "pages": 189
   },
   "schiaparelli": {
    "prefixes": [
@@ -18460,7 +17299,7 @@
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/"
    ],
-   "pages": 3292
+   "pages": 5822
   },
   "lanvin": {
    "prefixes": [
@@ -18480,7 +17319,7 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/"
    ],
-   "pages": 0
+   "pages": 2172
   },
   "issey_miyake": {
    "prefixes": [
@@ -18489,5 +17328,229 @@
    "pages": 563
   }
  },
- "note": "addresses only; no page or picture is kept"
+ "note": "addresses only; no page or picture is kept",
+ "summary": {
+  "by_status": {
+   "found": 500,
+   "index failed": 130,
+   "none": 379,
+   "partial": 108
+  },
+  "by_house": {
+   "alaia": {
+    "shows": 3,
+    "found": 0
+   },
+   "armani": {
+    "shows": 27,
+    "found": 3
+   },
+   "balenciaga": {
+    "shows": 31,
+    "found": 17
+   },
+   "balmain": {
+    "shows": 36,
+    "found": 7
+   },
+   "bottega_veneta": {
+    "shows": 21,
+    "found": 10
+   },
+   "brunello_cucinelli": {
+    "shows": 5,
+    "found": 0
+   },
+   "burberry": {
+    "shows": 25,
+    "found": 9
+   },
+   "celine": {
+    "shows": 17,
+    "found": 8
+   },
+   "chanel": {
+    "shows": 47,
+    "found": 26
+   },
+   "chloe": {
+    "shows": 24,
+    "found": 16
+   },
+   "comme_des_garcons": {
+    "shows": 42,
+    "found": 0
+   },
+   "dior": {
+    "shows": 46,
+    "found": 22
+   },
+   "dolce_gabbana": {
+    "shows": 27,
+    "found": 18
+   },
+   "dries_van_noten": {
+    "shows": 42,
+    "found": 18
+   },
+   "fendi": {
+    "shows": 54,
+    "found": 33
+   },
+   "ferragamo": {
+    "shows": 30,
+    "found": 10
+   },
+   "givenchy": {
+    "shows": 40,
+    "found": 21
+   },
+   "gucci": {
+    "shows": 20,
+    "found": 7
+   },
+   "hermes": {
+    "shows": 44,
+    "found": 24
+   },
+   "issey_miyake": {
+    "shows": 47,
+    "found": 12
+   },
+   "jacquemus": {
+    "shows": 19,
+    "found": 3
+   },
+   "jil_sander": {
+    "shows": 32,
+    "found": 9
+   },
+   "lanvin": {
+    "shows": 31,
+    "found": 13
+   },
+   "loewe": {
+    "shows": 36,
+    "found": 31
+   },
+   "loro_piana": {
+    "shows": 3,
+    "found": 0
+   },
+   "louis_vuitton": {
+    "shows": 28,
+    "found": 17
+   },
+   "margiela": {
+    "shows": 34,
+    "found": 8
+   },
+   "max_mara": {
+    "shows": 23,
+    "found": 0
+   },
+   "mcqueen": {
+    "shows": 24,
+    "found": 15
+   },
+   "miu_miu": {
+    "shows": 24,
+    "found": 22
+   },
+   "moncler": {
+    "shows": 19,
+    "found": 11
+   },
+   "prada": {
+    "shows": 32,
+    "found": 16
+   },
+   "saint_laurent": {
+    "shows": 30,
+    "found": 20
+   },
+   "schiaparelli": {
+    "shows": 32,
+    "found": 29
+   },
+   "stella_mccartney": {
+    "shows": 21,
+    "found": 12
+   },
+   "the_row": {
+    "shows": 12,
+    "found": 7
+   },
+   "tom_ford": {
+    "shows": 18,
+    "found": 2
+   },
+   "valentino": {
+    "shows": 43,
+    "found": 20
+   },
+   "versace": {
+    "shows": 5,
+    "found": 1
+   },
+   "zegna": {
+    "shows": 23,
+    "found": 3
+   }
+  },
+  "by_year": {
+   "2015": {
+    "shows": 52,
+    "found": 27
+   },
+   "2016": {
+    "shows": 103,
+    "found": 53
+   },
+   "2017": {
+    "shows": 97,
+    "found": 50
+   },
+   "2018": {
+    "shows": 96,
+    "found": 28
+   },
+   "2019": {
+    "shows": 96,
+    "found": 32
+   },
+   "2020": {
+    "shows": 94,
+    "found": 35
+   },
+   "2021": {
+    "shows": 57,
+    "found": 27
+   },
+   "2022": {
+    "shows": 83,
+    "found": 40
+   },
+   "2023": {
+    "shows": 95,
+    "found": 54
+   },
+   "2024": {
+    "shows": 98,
+    "found": 57
+   },
+   "2025": {
+    "shows": 92,
+    "found": 41
+   },
+   "2026": {
+    "shows": 109,
+    "found": 45
+   },
+   "2027": {
+    "shows": 45,
+    "found": 11
+   }
+  }
+ }
 }
