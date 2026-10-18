@@ -803,3 +803,29 @@ def test_rehydrate_takes_the_vendors_recent_datasets_for_the_pictures_a_reader_l
     # nothing lacks a reading any more: a second rehydrate finds nothing to do
     out = src.rehydrate(Registry(1, "T", [GUCCI]), "r5", since="2026-10-17")
     assert out["lacking"] == 0 and out["rehydrated"] == 0
+
+
+def test_rehydrate_gives_the_rows_on_file_the_season_their_words_name(tmp_data):
+    """Rows collected before 18 October carry no season key; the vendor's datasets still hold the words, so the
+    rehydrate stage keys them (the words themselves are not kept), once."""
+    from adtone import metaweb
+    items = [_vendor_item(i, "100", "Gucci") for i in range(3)]
+    items[0]["ad_creative_bodies"] = ["Fall-Winter 2026: the new collection"]
+    items[1]["ad_creative_bodies"] = ["Printemps-Été 2026"]
+    datasets = {"search:Gucci": items[:1], "pages:100": items}
+    sess = _apify_session(datasets)
+    src = metaweb.Source(sess, token="t", actor="bovi~meta-ads-library-scraper", countries="ALL", sleep=lambda s: None)
+    adlibs.collect(src, Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()), today=date(2026, 10, 17))
+    P = adlibs.paths("metaweb")
+    rows = store.read_jsonl(P["ads"] / "gucci.jsonl")
+    assert {r.get("season") for r in rows} == {"2026 AW rtw", "2026 SS rtw", None}     # written at collection since 18 October
+    for r in rows:                                                                    # as rows collected before stood
+        r.pop("season", None)
+    store.write_jsonl(P["ads"] / "gucci.jsonl", rows)
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r2", since="2026-10-17")
+    assert out["unkeyed"] == 3 and out["seasons_filled"] == 3 and out["seasons_named"] == 2
+    rows = {r["ad_id"]: r for r in store.read_jsonl(P["ads"] / "gucci.jsonl")}
+    assert rows["770"]["season"] == "2026 AW rtw" and rows["771"]["season"] == "2026 SS rtw" and rows["772"]["season"] is None
+    assert not any("Fall-Winter" in json.dumps(r) for r in rows.values())            # the words are not kept
+    out = src.rehydrate(Registry(1, "T", [GUCCI]), "r3", since="2026-10-17")
+    assert out["unkeyed"] == 0 and out["seasons_filled"] == 0

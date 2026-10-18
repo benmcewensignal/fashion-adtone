@@ -262,7 +262,7 @@ class Source:
                 "user_count_eu": d.get("user_count_eu"), "user_count_by_country": d.get("user_count_by_country"),
                 "review_status": d.get("review_status"), "commercial_content": d.get("content_commercial"),
                 "has_video": bool(pin.get("video_link")), "copy": copyfeat.features(texts) if texts else None,
-                "line": thread.ad_line(texts) if texts else None, "last_run": run}
+                "line": thread.ad_line(texts) if texts else None, "season": thread.ad_season(texts) if texts else None, "last_run": run}
 
     def media_urls(self, item: dict) -> tuple[list[str], dict]:
         d = item.get("ad_details") or {}

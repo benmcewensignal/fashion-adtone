@@ -102,7 +102,10 @@ The repo is public for unlimited Actions minutes, so:
 
 - Images never reach a commit. They are held in memory, and `.gitignore` and the persist guard
   are the backstops.
-- Ad copy is kept as features and a hash, never as text.
+- Ad copy is kept as features and a hash, never as text. Two things are read from it while it is in hand:
+  what the ad sells (`line`: the season's collection, accessories, beauty, jewellery and watches, a capsule
+  or the holidays) and, since 18 October 2026, the season its words name (`season`, a key such as
+  `2026 AW rtw`), so the campaign for one collection can be told from the next without the words.
 - The API's snapshot URL is never requested, because it can carry the caller's access token.
   Render URLs are rebuilt in memory from the ad id.
 - Vectors, rubric scores, reach marginals and targeting fields are kept as derived data.

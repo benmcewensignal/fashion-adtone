@@ -285,6 +285,7 @@ class Source:
             "copy": copyfeat.features([t for t in texts if t]) if texts else None,
             "title": copyfeat.features([t for t in titles if isinstance(t, str)]) if titles else None,
             "line": thread.ad_line(texts) if texts else None,
+            "season": thread.ad_season(texts) if texts else None,
             "vendor": self.actor,
             "last_collected": run,
         }
@@ -345,15 +346,22 @@ class Source:
         """The picture addresses of the made fashion ads already on file whose pictures lack a reading by one of
         `readers`, taken again from the vendor's recent datasets and kept aside for the read stage, which reads
         them with those readers only and keeps the pictures as first recorded. Meta's addresses lapse within
-        days of the search, so this is run while they stand."""
+        days of the search, so this is run while they stand. On the way, every row on file that lacks the
+        season key its words name (`season`, kept since 18 October) is given it from the same datasets; the
+        words themselves are not kept."""
         from . import store as _store
         from .score import load_rubric
         P = adlibs.paths(self.name)
         houses = {h.id: h for h in reg.houses}
-        want: dict[str, dict] = {}          # ad_id -> row
+        want: dict[str, dict] = {}          # ad_id -> row, the made fashion ads with pictures
+        rows_of: dict[str, list[dict]] = {}
+        unkeyed: dict[str, dict] = {}       # ad_id -> row, every row on file without a season key
         for h in reg.houses:
             path = P["ads"] / f"{h.id}.jsonl"
-            for r in _store.read_jsonl(path):
+            rows_of[h.id] = _store.read_jsonl(path)
+            for r in rows_of[h.id]:
+                if "season" not in r:
+                    unkeyed[r["ad_id"]] = r
                 if (r.get("display_format") or "") in adlibs.DYNAMIC or r.get("division", "fashion") != "fashion" or not r.get("media"):
                     continue
                 want[r["ad_id"]] = r
@@ -362,8 +370,10 @@ class Source:
             read[v] = {o["sha"] for o in _store.read_jsonl(P["obs"] / f"{load_rubric(v).version}.jsonl") if o.get("status") in ("ok", "invalid")}
         lacking = {a: r for a, r in want.items()
                    if any(any(m["sha"] not in read[v] for m in r["media"]) for v in readers)}
-        counts = {"runs": 0, "items": 0, "ads_on_file": len(want), "lacking": len(lacking), "rehydrated": 0, "no_address": 0}
+        counts = {"runs": 0, "items": 0, "ads_on_file": len(want), "lacking": len(lacking), "rehydrated": 0, "no_address": 0,
+                  "unkeyed": len(unkeyed), "seasons_named": 0, "seasons_filled": 0}
         found: dict[str, tuple] = {}
+        keyed: set[str] = set()
         for vr in self.vendor_datasets(since):
             counts["runs"] += 1
             for item in self.dataset_items(vr["dataset"]):
@@ -373,6 +383,19 @@ class Source:
                     urls, kw = self.media_urls(item)
                     if urls:
                         found[ad_id] = (urls, kw)
+                if ad_id in unkeyed and ad_id not in keyed:
+                    texts = _texts(item)
+                    if texts:
+                        keyed.add(ad_id)
+                        season = thread.ad_season(texts)
+                        unkeyed[ad_id]["season"] = season
+                        if season:
+                            counts["seasons_named"] += 1
+        counts["seasons_filled"] = len(keyed)
+        if keyed:
+            for h, rows in rows_of.items():
+                if any(r["ad_id"] in keyed for r in rows):
+                    _store.write_jsonl(P["ads"] / f"{h}.jsonl", rows)
         by_house: dict[str, dict] = {}
         for ad_id, (urls, kw) in found.items():
             r = lacking[ad_id]

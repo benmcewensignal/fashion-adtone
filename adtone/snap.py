@@ -357,6 +357,7 @@ class Source:
                               else find(item, "targeting.*", "targets", want=(dict, list))),
                 "copy": copyfeat.features(texts) if texts else None,
                 "line": thread.ad_line(texts) if texts else None,
+                "season": thread.ad_season(texts) if texts else None,
                 "last_run": run}
 
     def media_urls(self, item: dict) -> tuple[list[str], dict]:

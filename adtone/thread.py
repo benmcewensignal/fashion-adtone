@@ -703,6 +703,36 @@ AD_COLLECTION = re.compile(r"collection|collezion|kollektion|colecci[oó]n|campa
 AD_TITLE_SEASON = re.compile(r"\b" + TITLE_SEASON.pattern, re.I)   # whole words only: "Express 24h" names no season
 
 
+AD_SEASON_WORDS = {"SS": re.compile(r"printemps|\b[eé]t[eé]\b|primavera|estate|fr[uü]hling|fr[uü]hjahr|sommer|verano", re.I),
+                   "AW": re.compile(r"automne|hiver|autunno|inverno|herbst|oto[nñ]o|invierno", re.I)}
+AD_YEAR = re.compile(r"(?:19|20)?(\d{2})(?!\d)")
+
+
+def ad_season(texts: list[str] | None) -> str | None:
+    """The collection an advertisement's words name, as a season key ('2026 AW rtw', '2027 SS rtw', '2027 RE
+    resort'), or None when they name none: the English forms campaign titles use (title_season: 'Fall-Winter
+    2026', 'SS26', 'Cruise 2027', 'Pre-Fall 2026'), whole words only, and the French, Italian, German and
+    Spanish seasons with a year ('Printemps-Été 2026', 'Herbst/Winter 2026'). Men's and couture by their
+    words anywhere in the text. The text itself is not kept; the key is written at collection time."""
+    t = "\n".join(x for x in (texts or []) if x)
+    if not t:
+        return None
+    m = AD_TITLE_SEASON.search(t)
+    if m:
+        cat = next((c for c, rx in TITLE_CATEGORY if rx.search(t)), "rtw")
+        return title_season(m.group(0) + (" couture" if cat == "couture" else " men" if cat == "men" else ""))
+    m = AD_SEASON.search(t)
+    if m:
+        half = next((k for k, rx in AD_SEASON_WORDS.items() if rx.search(m.group(0))), None)
+        y = AD_YEAR.findall(m.group(0))
+        if half and y:
+            year = int(y[-1])
+            year += 2000 if year <= 40 else 1900
+            cat = next((c for c, rx in TITLE_CATEGORY if rx.search(t)), "rtw")
+            return f"{year} {half} {cat if cat in ('couture', 'men') else 'rtw'}"
+    return None
+
+
 def ad_line(texts: list[str] | None) -> str:
     """What an advertisement sells, from its own text (body, link title and description together): beauty,
     jewellery and watches, accessories, a capsule or the holidays by their words; the season's collection when

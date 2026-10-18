@@ -334,6 +334,29 @@ def test_what_an_ad_sells_is_read_from_its_own_text_in_five_languages(texts, lin
     assert T.ad_line(texts) == line
 
 
+@pytest.mark.parametrize("texts,season", [
+    (["Discover the Fall-Winter 2026 collection"], "2026 AW rtw"),
+    (["SS26 is here"], "2026 SS rtw"),
+    (["FW25 campaign", "Shop now"], "2025 AW rtw"),
+    (["Printemps-Été 2026 : la nouvelle collection"], "2026 SS rtw"),
+    (["Herbst/Winter 2026 Kollektion"], "2026 AW rtw"),
+    (["La collezione Autunno Inverno 2026"], "2026 AW rtw"),
+    (["Colección Primavera-Verano 2026"], "2026 SS rtw"),
+    (["The Cruise 2027 show"], "2027 RE resort"),
+    (["Pre-Fall 2026"], "2026 PF prefall"),
+    (["Men's Spring Summer 2027 campaign"], "2027 SS men"),
+    (["Haute Couture Autumn-Winter 2026"], "2026 AW couture"),
+    (["Women's Winter 2026"], "2026 AW rtw"),                        # women is not men
+    (["Express 24h delivery"], None),                                 # no season in "ss 24"
+    (["The new collection. Shop now."], None),                        # a collection, no season named
+    (["Complete the look"], None),
+    ([], None),
+    (None, None),
+])
+def test_the_season_an_ad_names_is_kept_as_a_key_the_words_are_not(texts, season):
+    assert T.ad_season(texts) == season
+
+
 def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
     monkeypatch.setattr(T, "DIR", tmp_path / "thread")
     monkeypatch.setattr(T, "PROV", tmp_path / "prov.jsonl")
