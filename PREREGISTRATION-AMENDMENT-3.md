@@ -17,6 +17,15 @@ the collectors read no further advertisement with the rubric until then (`--no-c
 are kept, dated, so that the record shows them rather than hides them; whether they enter the test
 after the freeze is decided here, in writing, before it.
 
+On 18 October 2026 Ben directed that the clothes readings of advertisements proceed before the freeze,
+and that the clothes analysis run on them. Every result so produced is exploratory and is reported as
+such, under the clause above. The rules that decide which questions stand (rules 1 to 4, fixed with the
+rubric on 9 October) read the test set and the labels only, never these readings; what this costs is
+that the text of this amendment is now finished by people who have seen the advertising read on the
+rubric, which the freeze was meant to prevent. The registered test of section 3 therefore reads its
+first result from the collections whose advertising positions were not computed before the freeze: the
+spring-summer 2027 campaign windows onward. Positions computed before the freeze are description.
+
 ## What it does not change
 
 The frozen pre-registration and Amendments 1 and 2 stand as they are. Nothing here reads their
