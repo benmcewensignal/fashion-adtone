@@ -541,3 +541,25 @@ def test_a_picture_the_archive_lacks_is_asked_at_the_page_s_own_address_then_of_
     out = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1,
                            shows=["louis_vuitton:2026-03-10:rtw"], live_site=False)
     assert not asked["live"]
+
+
+def test_the_collector_reads_the_newest_shows_first_across_the_houses(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(C.config, "priority_houses", lambda: [])
+    opened = []
+
+    class S:
+        headers = {}
+
+        def get(self, url, timeout=None):
+            if "/web/" in url and "im_/" not in url and "cdx" not in url:
+                opened.append(url)
+            return _R(text="<p>nothing</p>", url=url)
+
+    def show(house, d):
+        return {"house": house, "date": d, "season": "x", "category": "rtw", "status": "found",
+                "candidates": [{"ts": d.replace("-", "") + "120000", "url": f"https://www.{house}.com/{d}"}]}
+    cov = {"shows": {f"{h}:{d}:rtw": show(h, d) for h, d in [("armani", "2016-02-27"), ("armani", "2026-02-28"), ("zegna", "2026-06-20"), ("zegna", "2019-01-11")]}}
+    C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert [u.rsplit("/", 1)[-1] for u in opened] == ["2026-06-20", "2026-02-28", "2019-01-11", "2016-02-27"]

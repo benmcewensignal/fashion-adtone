@@ -660,37 +660,42 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
     def keep(sha, read_copy):
         (local / "read" / f"{sha}.jpg").write_bytes(read_copy)
 
-    def one(house):
-        for sh in sorted(todo[house], key=lambda s: s["date"], reverse=True):
-            if clock() > deadline:
-                return
-            pages = [(c["ts"], c["url"]) for c in sh.get("candidates", []) if page_fits(c["url"], sh["category"])]
-            sig = _candidate_signature(sh)
-            if not pages:                 # a page of another line only (a men's page for a women's show): not read
-                with lock:
-                    status[show_key(sh)] = {"status": "no fitting page", "looks": 0, "candidates": sig}
-                    status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
-                continue
-            diag: dict = {}
-            got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
-                              deadline=deadline, tries=TRIES_PER_PAGE, captures=captures, diag=diag, live=live)
-            for g in got:
-                g.update(date=sh["date"], season=sh["season"], category=sh["category"])
+    def one(sh):
+        """One show. The shows run newest first across the houses, so a run cut short has read the shows the
+        advertising on file can meet (the libraries keep a year) before the older ones."""
+        house = sh["house"]
+        if clock() > deadline:
+            return
+        pages = [(c["ts"], c["url"]) for c in sh.get("candidates", []) if page_fits(c["url"], sh["category"])]
+        sig = _candidate_signature(sh)
+        if not pages:                 # a page of another line only (a men's page for a women's show): not read
             with lock:
-                if got:
-                    store.append_jsonl(rows_path, got)
-                n_rows[0] += len(got)
-                if got:
-                    st = {"status": "collected", "looks": len(got)}
-                elif diag.get("cut") or not diag.get("opened"):
-                    st = {"status": "unread", "looks": 0}      # the deadline, or no page opened: asked again next run
-                else:
-                    st = {"status": "no looks", "looks": 0}
-                status[show_key(sh)] = {**st, "candidates": sig, "diag": {k: v for k, v in diag.items() if k != "kept"}}
+                status[show_key(sh)] = {"status": "no fitting page", "looks": 0, "candidates": sig}
                 status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+            return
+        diag: dict = {}
+        got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
+                          deadline=deadline, tries=TRIES_PER_PAGE, captures=captures, diag=diag, live=live)
+        for g in got:
+            g.update(date=sh["date"], season=sh["season"], category=sh["category"])
+        with lock:
+            if got:
+                store.append_jsonl(rows_path, got)
+            n_rows[0] += len(got)
+            if got:
+                st = {"status": "collected", "looks": len(got)}
+            elif diag.get("cut") or not diag.get("opened"):
+                st = {"status": "unread", "looks": 0}      # the deadline, or no page opened: asked again next run
+            else:
+                st = {"status": "no looks", "looks": 0}
+            status[show_key(sh)] = {**st, "candidates": sig, "diag": {k: v for k, v in diag.items() if k != "kept"}}
+            status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
+    order = sorted((sh for shs in todo.values() for sh in shs), key=lambda s: (s["date"], s["house"]), reverse=True)
+    first = set(config.priority_houses()) & set(todo)        # the priority houses' shows first, then the rest newest first
+    order = [sh for sh in order if sh["house"] in first] + [sh for sh in order if sh["house"] not in first]
     with ThreadPoolExecutor(max(1, workers)) as ex:
-        list(ex.map(one, config.first_then_rest(sorted(todo))))
+        list(ex.map(one, order))
     summary = {"shows_collected": sum(1 for v in status.values() if v["status"] == "collected"),
                "shows_without_looks": sum(1 for v in status.values() if v["status"] == "no looks"),
                "shows_unread": sum(1 for v in status.values() if v["status"] == "unread"),
