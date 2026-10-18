@@ -748,3 +748,23 @@ def test_an_ad_that_shares_a_picture_being_read_follows_that_reading(tmp_data, m
         ok.flush()
         assert not ok.dropped and len(ok.readings[0].new_obs) == 1, overlap      # read once, for both
         ok.close()
+
+
+def test_the_read_stage_fetches_the_next_ads_while_taking_these_and_each_picture_once(tmp_data):
+    _waiting("gucci", [(f"g{i}", [f"https://cdn.example/{i}.jpg"]) for i in range(7)])
+    seen = []
+
+    def cdn(url, params):
+        seen.append(url)
+        return _cdn(url, params)
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r1", FakeEmbedder(), FakeScorer(load_rubric()),
+                              sess=FakeSession(cdn), today=date(2026, 10, 17), chunk_ads=2, fetch_workers=4)
+    assert out["ads_read"] == 7 and out["ads_left"] == 0 and out["stopped"] is None
+    assert sorted(seen) == sorted(f"https://cdn.example/{i}.jpg" for i in range(7))
+    # cut short after the first chunk: the chunk fetched ahead is left waiting, not marked read
+    _waiting("gucci", [(f"h{i}", [f"https://cdn.example/{i}.jpg"]) for i in range(6)])
+    clock = iter([0, 0, 0, 9999, 9999, 9999, 9999])
+    out = adlibs.read_pending("snap", Registry(1, "T", [GUCCI]), "r2", FakeEmbedder(), FakeScorer(load_rubric()), budget_s=100,
+                              sess=FakeSession(_cdn), today=date(2026, 10, 17), clock=lambda: next(clock), chunk_ads=2, fetch_workers=4)
+    assert out["ads_read"] == 2 and out["ads_left"] == 4
+    assert len(store.read_jsonl(adlibs.paths("snap")["pending"] / "gucci.jsonl")) == 4

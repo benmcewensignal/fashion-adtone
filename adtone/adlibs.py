@@ -528,7 +528,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
 
     The houses share the budget: each in turn reads for its share of the time left, the house whose addresses
     lapse first going first, and a further round takes up what a house finishing early left. Within a house,
-    see read_order. An ad whose addresses have lapsed is not fetched: its row says media_lapsed and it waits
+    see read_order; the next few ads' pictures are fetched while the last few are taken. An ad whose
+    addresses have lapsed is not fetched: its row says media_lapsed and it waits
     for the addresses of the next collection, which replace them. An ad the service failed on is not tried
     again in the same run. With skip_dynamic, the dynamic and catalogue units are left for later; with
     fashion_only, the ads of other divisions (a licensee's beauty or eyewear) as well. The pictures
@@ -601,19 +602,30 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
         gone = {k for k, pr in pend.items() if lapses(pr) < cutoff}
         order = sorted(((k, pr) for k, pr in pend.items() if k not in gone and k not in tried), key=read_order)
         done, n = [], 0
+        step, parallel = max(1, chunk_ads), fetch_workers > 1
+        ahead = None        # (index, futures): the next chunk's pictures, fetched while this chunk's are taken
         try:
-            for i in range(0, len(order), max(1, chunk_ads)):
+            for i in range(0, len(order), step):
                 now = clock()
                 if now - t0 > budget_s:
                     stopped = "budget"
                     break
                 if now > deadline or taker.all_off:
                     break
-                chunk = order[i:i + max(1, chunk_ads)]
+                chunk = order[i:i + step]
                 done += [ad_id for ad_id, _ in chunk if ad_id not in ads]     # the ad's row is gone: nothing to complete
                 todo = [(ad_id, pr) for ad_id, pr in chunk if ad_id in ads]
-                got = list(pool.map(lambda kv: fetch(kv[1]), todo)) if len(todo) > 1 and fetch_workers > 1 \
-                    else [fetch(pr) for _, pr in todo]
+                if ahead is not None and ahead[0] == i:
+                    got = [f.result() for f in ahead[1]]
+                elif parallel and len(todo) > 1:
+                    got = list(pool.map(lambda kv: fetch(kv[1]), todo))
+                else:
+                    got = [fetch(pr) for _, pr in todo]
+                ahead = None
+                if parallel:
+                    nxt = [pr for ad_id, pr in order[i + step:i + 2 * step] if ad_id in ads]
+                    if nxt:
+                        ahead = (i + step, [pool.submit(fetch, pr) for pr in nxt])
                 for (ad_id, pr), (media, err) in zip(todo, got):
                     row = ads[ad_id]
                     if err:
@@ -627,6 +639,9 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     tried.add(ad_id)
                     done.append(ad_id)
         finally:
+            if ahead is not None:            # fetched ahead and not taken: left waiting
+                for f in ahead[1]:
+                    f.cancel()
             taker.flush()
             failed = [a for a in done if a in taker.dropped]
             for ad_id in failed:                    # the service failed on it: read again in a later run
