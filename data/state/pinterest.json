@@ -1,5 +1,54 @@
 {
   "advertisers": {
+    "alaia": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Alaïa SA",
+          "name": "Alaïa SA"
+        }
+      ],
+      "refused": [
+        {
+          "id": "alaia enterprises",
+          "name": "alaia enterprises"
+        },
+        {
+          "id": "Alaïa Fitness l Coach sportive l Workouts et recettes healthy",
+          "name": "Alaïa Fitness l Coach sportive l Workouts et recettes healthy"
+        },
+        {
+          "id": "Alaiaiden",
+          "name": "Alaiaiden"
+        },
+        {
+          "id": "ALAIAL",
+          "name": "ALAIAL"
+        },
+        {
+          "id": "ALAIAL Tools",
+          "name": "ALAIAL Tools"
+        },
+        {
+          "id": "Alaiay",
+          "name": "Alaiay"
+        }
+      ]
+    },
+    "armani": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "GIORGIO ARMANI",
+          "name": "GIORGIO ARMANI"
+        },
+        {
+          "id": "Giorgio Armani Spa",
+          "name": "Giorgio Armani Spa"
+        }
+      ],
+      "refused": []
+    },
     "balenciaga": {
       "checked": "2026-10-17",
       "keep": [
@@ -16,6 +65,16 @@
         {
           "id": "Bottega Veneta",
           "name": "Bottega Veneta"
+        }
+      ],
+      "refused": []
+    },
+    "brunello_cucinelli": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Brunello Cucinelli",
+          "name": "Brunello Cucinelli"
         }
       ],
       "refused": []
@@ -455,6 +514,39 @@
         }
       ]
     },
+    "dolce_gabbana": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Dolce&Gabbana",
+          "name": "Dolce&Gabbana"
+        },
+        {
+          "id": "Dolce & Gabbana",
+          "name": "Dolce & Gabbana"
+        },
+        {
+          "id": "Dolce & Gabbana Srl",
+          "name": "Dolce & Gabbana Srl"
+        }
+      ],
+      "refused": [
+        {
+          "id": "DOLCE & GABBANA UK LIMITED",
+          "name": "DOLCE & GABBANA UK LIMITED"
+        }
+      ]
+    },
+    "dries_van_noten": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Dries Van Noten",
+          "name": "Dries Van Noten"
+        }
+      ],
+      "refused": []
+    },
     "fendi": {
       "checked": "2026-10-17",
       "keep": [
@@ -483,6 +575,21 @@
         {
           "id": "fendixi",
           "name": "fendixi"
+        }
+      ]
+    },
+    "givenchy": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Givenchy",
+          "name": "Givenchy"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Givenchy Beauty",
+          "name": "Givenchy Beauty"
         }
       ]
     },
@@ -797,6 +904,21 @@
         }
       ]
     },
+    "max_mara": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "Max Mara",
+          "name": "Max Mara"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Max Mara S.r.l.",
+          "name": "Max Mara S.r.l."
+        }
+      ]
+    },
     "miu_miu": {
       "checked": "2026-10-17",
       "keep": [
@@ -860,6 +982,21 @@
         }
       ],
       "refused": []
+    },
+    "tom_ford": {
+      "checked": "2026-10-17",
+      "keep": [
+        {
+          "id": "TOM FORD",
+          "name": "TOM FORD"
+        }
+      ],
+      "refused": [
+        {
+          "id": "Tom Ford Distribution S.r.l.",
+          "name": "Tom Ford Distribution S.r.l."
+        }
+      ]
     },
     "valentino": {
       "checked": "2026-10-17",
@@ -934,43 +1071,54 @@
           "name": "Versace905"
         }
       ]
+    },
+    "zegna": {
+      "checked": "2026-10-17",
+      "keep": [],
+      "refused": []
     }
   },
   "country_form": null,
   "notes": [
-    "Louis Vuitton Official DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Louis Vuitton Official IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Prada IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Miu Miu FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Miu Miu DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Miu Miu IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "SAINT LAURENT FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "SAINT LAURENT DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "SAINT LAURENT IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry Limited FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry Limited DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Burberry Limited IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "VERSACE FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "VERSACE DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "VERSACE IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Dolce&Gabbana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce&Gabbana IT 2026-04-15: Error: Locator.is_disabled: Error: strict mode violation: locator(\"button[aria-label='Next page']\") resolved to 7 elements:\n   ",
+    "Dolce & Gabbana FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce & Gabbana DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce & Gabbana IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce & Gabbana Srl FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce & Gabbana Srl DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dolce & Gabbana Srl IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Max Mara FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Max Mara DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Max Mara IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Brunello Cucinelli FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Brunello Cucinelli DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Brunello Cucinelli IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "GIORGIO ARMANI FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "GIORGIO ARMANI DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "GIORGIO ARMANI IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Giorgio Armani Spa FR 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Giorgio Armani Spa DE 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Giorgio Armani Spa IT 2026-09-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 566,
-  "run": "gh39069327672",
+  "requests": 482,
+  "run": "gh39076997494",
   "searched": {
+    "alaia": "2026-10-17",
+    "armani": "2026-10-17",
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
+    "brunello_cucinelli": "2026-10-17",
     "burberry": "2026-10-17",
     "celine": "2026-10-17",
     "chanel": "2026-10-17",
     "chloe": "2026-10-17",
     "dior": "2026-10-17",
+    "dolce_gabbana": "2026-10-17",
+    "dries_van_noten": "2026-10-17",
     "fendi": "2026-10-17",
+    "givenchy": "2026-10-17",
     "gucci": "2026-10-17",
     "hermes": "2026-10-17",
     "jil_sander": "2026-10-17",
@@ -978,10 +1126,14 @@
     "loro_piana": "2026-10-17",
     "louis_vuitton": "2026-10-17",
     "margiela": "2026-10-17",
+    "max_mara": "2026-10-17",
     "miu_miu": "2026-10-17",
     "prada": "2026-10-17",
     "saint_laurent": "2026-10-17",
-    "valentino": "2026-10-17"
+    "tom_ford": "2026-10-17",
+    "valentino": "2026-10-17",
+    "versace": "2026-10-17",
+    "zegna": "2026-10-17"
   },
   "shape": {
     "ad_details": {
@@ -1036,6 +1188,6 @@
     "name_searched": "str",
     "pin_id": "str"
   },
-  "stopped": "budget; reader tone-v1 stopped after repeated failures: API: Modal InvalidError: You can't `iter(Function.starmap())` from an async function. Use `async for ... in Function.starmap.aio()` instead.",
-  "updated_at": "2026-10-17T22:25:26Z"
+  "stopped": "budget",
+  "updated_at": "2026-10-18T00:21:33Z"
 }
