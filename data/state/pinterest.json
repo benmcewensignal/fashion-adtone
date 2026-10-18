@@ -1267,10 +1267,31 @@
     }
   },
   "country_form": null,
-  "notes": [],
+  "notes": [
+    "Bottega Veneta DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Bottega Veneta IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Celine IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela Paris FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela Paris DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Maison Margiela Paris IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "HERMES SRL FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "HERMES SRL DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "HERMES SRL IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+  ],
   "problems": {},
-  "requests": 0,
-  "run": "gh39167282421",
+  "requests": 578,
+  "run": "gh39167799764",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1290,7 +1311,7 @@
     "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-10-18",
-    "hermes": "2026-10-17",
+    "hermes": "2026-10-18",
     "issey_miyake": "2026-10-18",
     "jacquemus": "2026-10-18",
     "jil_sander": "2026-10-18",
@@ -1313,7 +1334,60 @@
     "versace": "2026-10-17",
     "zegna": "2026-10-17"
   },
-  "shape": null,
-  "stopped": null,
-  "updated_at": "2026-10-18T21:20:50Z"
+  "shape": {
+    "ad_details": {
+      "advertiser_names": "NoneType",
+      "age_buckets": [
+        "str"
+      ],
+      "content_commercial": "bool",
+      "countries": [
+        "str"
+      ],
+      "devices": [],
+      "dynamic_images": "NoneType",
+      "end_date": "str",
+      "genders": [
+        "str"
+      ],
+      "has_excluded_locations": "bool",
+      "image_link": "str",
+      "interests": [
+        "str"
+      ],
+      "internet_service_providers": [],
+      "is_local_inventory": "bool",
+      "keywords_used": "bool",
+      "metros": [],
+      "negative_keywords_used": "bool",
+      "pin_data": {
+        "content_creator_name": "NoneType",
+        "details": "str",
+        "image_link": "str",
+        "story_pin_page_blocks": [],
+        "title": "str",
+        "video_link": "str"
+      },
+      "pinner_list_types": [
+        "str"
+      ],
+      "postal_codes": [],
+      "regions": [],
+      "review_status": "NoneType",
+      "start_date": "str",
+      "statement_of_reasons": "NoneType",
+      "user_count_by_country": {
+        "France": "str",
+        "Italy": "str"
+      },
+      "user_count_eu": "str",
+      "violation_decision_means": "NoneType",
+      "violation_source": "NoneType"
+    },
+    "country_searched": "str",
+    "name_searched": "str",
+    "pin_id": "str"
+  },
+  "stopped": "budget",
+  "updated_at": "2026-10-18T22:44:39Z"
 }
