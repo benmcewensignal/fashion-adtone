@@ -476,7 +476,9 @@ def page_fits(url: str, category: str) -> bool:
     The archive keeps a house's other lines beside the show it is asked for (Dior's women's show of March
     2022 came back as its men's show of January)."""
     line = page_line(url)
-    bad = {"rtw": ("men", "couture"), "men": ("women", "couture"), "couture": ("men",)}.get(category, ())
+    if category == "couture":            # a couture show is read from a page that says so, never from the ready-to-wear
+        return line == "couture"
+    bad = {"rtw": ("men", "couture"), "men": ("women", "couture")}.get(category, ())
     return line not in bad
 
 

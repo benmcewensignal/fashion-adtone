@@ -45,7 +45,8 @@ SHOW_WORDS = {"runway": 4, "fashion-show": 4, "fashion-shows": 4, "show": 3, "sh
               "ready-to-wear": 2, "pret-a-porter": 2, "rtw": 2, "women": 1, "womens": 1, "woman": 1, "men": 1}
 NOT_SHOW = ("product", "/p/", "/pd/", "shop", "cart", "checkout", "account", "search", "store", "careers", "press",
             "beauty", "fragrance", "parfum", "perfume", "makeup", "make-up", "skincare", "gift", "sitemap", "login",
-            "preorder", "pre-order", "new-arrivals", "prefn", "special-projects", "subscribe", "lounge", "chair")
+            "preorder", "pre-order", "new-arrivals", "prefn", "special-projects", "subscribe", "lounge", "chair",
+            "pre-collection", "precollection", "pre-fall", "prefall", "campaign", "highlights")   # not the show's looks
 MEN = re.compile(r"(?<![a-z])(?:men|mens|men-s|homme|uomo|man)(?![a-z])")
 WOMEN = re.compile(r"(?<![a-z])(?:women|womens|women-s|woman|femme|donna|ladies)(?![a-z])")
 COUTURE = re.compile(r"couture|haute")

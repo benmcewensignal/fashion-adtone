@@ -145,6 +145,7 @@ def test_coverage_searches_the_fortnight_after_each_show_and_resumes(tmp_path, m
              {"house": "dior", "date": "2025-10-01", "season": "2026 SS rtw", "category": "rtw"},
              {"house": "celine", "date": "2025-10-03", "season": "2026 SS rtw", "category": "rtw"}]
     monkeypatch.setattr(L, "shows_on_file", lambda: shows)
+    monkeypatch.setattr(L, "seeded_sections", lambda path=None: {})     # the hand-found sections on file stay out of this test
     out = L.coverage(c=_Index())
     s = out["shows"]
     assert s["chanel:2025-10-07:rtw"]["status"] == "found"
