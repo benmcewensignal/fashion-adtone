@@ -1268,9 +1268,6 @@
   },
   "country_form": null,
   "notes": [
-    "Balenciaga DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Balenciaga IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "LOEWE FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "LOEWE DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "LOEWE IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Bottega Veneta FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
@@ -1287,11 +1284,14 @@
     "Maison Margiela IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Maison Margiela Paris FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
     "Maison Margiela Paris DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Maison Margiela Paris IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Maison Margiela Paris IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès FR 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès DE 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Hermès IT 2026-09-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 483,
-  "run": "gh39144474269",
+  "requests": 545,
+  "run": "gh39154170661",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1389,5 +1389,5 @@
     "pin_id": "str"
   },
   "stopped": "budget",
-  "updated_at": "2026-10-18T17:46:29Z"
+  "updated_at": "2026-10-18T19:48:43Z"
 }
