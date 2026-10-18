@@ -121,25 +121,28 @@ def _width_hint(url: str, descriptor: str | None = None) -> int:
     return int(m.group(1)) if m else 0
 
 
-def show_pictures(html: str, page_url: str, ts: str, cap: int = 300) -> list[str]:
-    """The pictures of a show page, in page order, each at the largest size the page names: the archive's
-    addresses as homepages.page_images finds them, with every srcset, data-srcset and lazy-loading variant
-    read too, and of the variants that share one path (a CDN that sizes by its query or a folder) the widest
-    kept. The looks of a show are mostly held at a phone size in `src` and at full size in a srcset or a lazy
-    attribute, and a phone-sized look falls under the size the collector keeps."""
+def picture_variants(html: str, page_url: str, ts: str, cap: int = 300) -> list[list[str]]:
+    """The pictures of a show page, in page order, each as the addresses to try in turn: the widest size the
+    page names first (a srcset, data-srcset or lazy-loading variant, or a width in the address itself), then
+    the address the page's own `src` gives when that differs. Of the variants that share one path (a CDN
+    that sizes by its query or a folder) only those two are kept. The looks of a show are mostly held at a
+    phone size in `src` and at full size in a variant; the archive, which saved what a browser loaded, more
+    often holds the `src` address, so the collector falls back to it when the widest is not there."""
     from urllib.parse import urljoin, urlparse
     from . import homepages
-    from .backcat import IMG_EXT, IMG_SKIP, WAYBACK_IMG
+    from .backcat import IMG_EXT, IMG_SKIP
     raw = homepages.unrewrite(html).replace("\\/", "/")
     base = homepages.page_images(raw, page_url, ts, cap=cap)
     key = lambda u: (lambda p: p.netloc + p.path)(urlparse(u))
     best: dict[str, tuple[int, str]] = {}
+    src: dict[str, str] = {}
     order: list[str] = []
     for u in base:
         o = homepages._original(u)
         k = key(o)
         if k not in best:
             order.append(k)
+            src[k] = o
         if k not in best or _width_hint(o) > best[k][0]:
             best[k] = (_width_hint(o), o)
     variants: list[tuple[str, str | None]] = []
@@ -169,12 +172,37 @@ def show_pictures(html: str, page_url: str, ts: str, cap: int = 300) -> list[str
             best[k] = (w, absu)
         elif w > best[k][0]:
             best[k] = (w, absu)
-    return [WAYBACK_IMG.format(ts=ts, url=best[k][1]) for k in order]
+    out = []
+    for k in order:
+        vs = [best[k][1]]
+        if k in src and src[k] != vs[0]:
+            vs.append(src[k])
+        out.append(vs)
+    return out
+
+
+def show_pictures(html: str, page_url: str, ts: str, cap: int = 300) -> list[str]:
+    """The pictures of a show page, in page order, each at the largest size the page names, as the archive's
+    addresses (see picture_variants)."""
+    from .backcat import WAYBACK_IMG
+    return [WAYBACK_IMG.format(ts=ts, url=vs[0]) for vs in picture_variants(html, page_url, ts, cap=cap)]
+
+
+def _picture(ri) -> tuple[bytes, object] | None:
+    """A response's picture as (bytes, image), or None when there was no response, it was refused, too large
+    or not a picture."""
+    from . import media
+    if ri is None or ri.status_code != 200 or len(ri.content) > config.MAX_IMAGE_BYTES:
+        return None
+    try:
+        return ri.content, media.open_image(ri.content)
+    except media.MediaError:
+        return None
 
 
 def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per_house: int = PER_HOUSE,
                 candidates: int = CANDIDATES, deadline: float | None = None, tries: int | None = None,
-                captures=None, diag: dict | None = None, enough: int = 5) -> list[dict]:
+                captures=None, diag: dict | None = None, enough: int = 5, live=None) -> list[dict]:
     """One house: its pages opened in turn, the pictures on each fetched in page order, the portrait ones
     of a usable size kept once each (the same look at two sizes counts once), until enough are gathered;
     then an even spread of them. `get` fetches a URL; `shrink` makes a picture's small copies at once, so
@@ -182,14 +210,23 @@ def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per
     of a page's pictures are fetched, spread through the page, so a long show is sampled from end to end.
     With `captures`, a function giving a page's other captures (latest first), each page is opened at its
     latest capture first and at an earlier one when that gave fewer than `enough` looks: a show page
-    captured the day after the show may hold a teaser, the gallery coming later. `diag`, when given, is
-    filled with what happened: pages opened or failed, pictures found, fetched, refused, too small, duplicates,
+    captured the day after the show may hold a teaser, the gallery coming later. A picture is asked of the
+    archive at the widest address the page names, then at the page's own `src` address; with `live`, a
+    function fetching an address from the house's own site (robots.txt honoured, None when declined), a
+    picture the archive does not hold, or holds only below the size a look needs, is asked of the site at
+    its widest address. `diag`, when given, is filled with what happened: pages opened or failed, pictures
+    found, fetched, refused, too small, duplicates, how many came from the `src` address or the live site,
     and whether the deadline cut the search short."""
     from . import homepages, media
+    from .backcat import WAYBACK_IMG
     found, seen = [], []
     d = diag if diag is not None else {}
     d.update({"pages": len(pages), "opened": 0, "failed": 0, "pictures": 0, "fetched": 0, "refused": 0, "small": 0,
-              "duplicates": 0, "cut": False, "captures_tried": 0})
+              "duplicates": 0, "cut": False, "captures_tried": 0, "from_src": 0, "from_live": 0})
+
+    def fetch(u):
+        return _picture(get(u))
+
     for ts, url in pages:
         if len(found) >= candidates or (deadline and time.monotonic() > deadline):
             d["cut"] = d["cut"] or len(found) < candidates
@@ -210,22 +247,31 @@ def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per
                 continue
             d["opened"] += 1
             page = homepages.final_url(getattr(r, "url", "") or "", url)
-            urls = show_pictures(r.text, page, stamp, cap=300)
-            d["pictures"] += len(urls)
-            for u in (spread(urls, tries) if tries else urls):
+            groups = picture_variants(r.text, page, stamp, cap=300)
+            d["pictures"] += len(groups)
+            for vs in (spread(groups, tries) if tries else groups):
                 if len(found) >= candidates or (deadline and time.monotonic() > deadline):
                     d["cut"] = d["cut"] or len(found) < candidates
                     break
                 d["fetched"] += 1
-                ri = get(u)
-                if ri is None or ri.status_code != 200 or len(ri.content) > config.MAX_IMAGE_BYTES:
+                got = fetch(WAYBACK_IMG.format(ts=stamp, url=vs[0]))
+                if got is None and len(vs) > 1:
+                    got = fetch(WAYBACK_IMG.format(ts=stamp, url=vs[1]))
+                    if got is not None:
+                        d["from_src"] += 1
+                if got is not None and live is not None and got[1].height < MIN_HEIGHT and _width_hint(vs[0]) > got[1].width:
+                    wider = _picture(live(vs[0]))
+                    if wider is not None:
+                        got = wider
+                        d["from_live"] += 1
+                if got is None and live is not None:
+                    got = _picture(live(vs[0]))
+                    if got is not None:
+                        d["from_live"] += 1
+                if got is None:
                     d["refused"] += 1
                     continue
-                try:
-                    img = media.open_image(ri.content)
-                except media.MediaError:
-                    d["refused"] += 1
-                    continue
+                content, img = got
                 if img.height < MIN_HEIGHT or img.height < PORTRAIT * img.width:
                     d["small"] += 1
                     continue
@@ -234,7 +280,7 @@ def house_looks(get, house: str, pages: list[tuple[str, str]], keep, shrink, per
                     d["duplicates"] += 1
                     continue
                 seen.append(ph)
-                found.append({"sha": hashlib.sha256(ri.content).hexdigest(), "house": house, "page": url, "ts": stamp,
+                found.append({"sha": hashlib.sha256(content).hexdigest(), "house": house, "page": url, "ts": stamp,
                               "order": len(found), "w": img.width, "h": img.height, "phash": ph, "_copies": shrink(img)})
                 del img
             if len(found) - before >= enough or len(found) >= candidates or d["cut"]:
@@ -427,7 +473,7 @@ RUNWAY_VOL_DIR = "/runway-v1"
 RUNWAY_LOCAL = config.ROOT / "clothes_pictures" / "runway"
 PER_SHOW = 20            # looks kept per show, spread from its start to its finish
 TRIES_PER_PAGE = 40      # pictures fetched from a show page, spread through it
-RUNWAY_FINAL = ("collected", "no looks")
+RUNWAY_FINAL = ("collected", "no looks", "no fitting page")
 CAPTURE_AFTER_DAYS = 120  # a show page's later captures, up to four months after the first: the gallery may come later
 
 
@@ -437,10 +483,14 @@ def _candidate_signature(sh: dict) -> list[str]:
 
 def _todo(sh: dict, st: dict | None) -> bool:
     """Whether a show is read (again): never read; read without a final status; read to no looks by the
-    collector before it recorded why (no `diag`), or with candidates since changed."""
+    collector before it recorded why (no `diag`), or with candidates since changed; found to have no fitting
+    page, with candidates since changed (a show whose only pages are another line's stays as it is until
+    the coverage map finds it another page)."""
     if st is None or st.get("status") not in RUNWAY_FINAL:
         return True
     if st["status"] == "no looks" and ("diag" not in st or st.get("candidates") != _candidate_signature(sh)):
+        return True
+    if st["status"] == "no fitting page" and st.get("candidates") != _candidate_signature(sh):
         return True
     return False
 
@@ -501,11 +551,15 @@ def recheck_lines(write: bool = True) -> dict:
 
 
 def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, workers: int = 4, pause: float = 0.4,
-                   budget_min: float = 40, session_factory=None, local: Path | None = None, clock=time.monotonic) -> dict:
+                   budget_min: float = 40, session_factory=None, local: Path | None = None, clock=time.monotonic,
+                   shows: list[str] | None = None, live_site: bool = True) -> dict:
     """For every show the coverage map found pages for, newest first within each house: its likeliest pages
     opened in turn, a spread of their pictures fetched, the portrait looks kept once each, and an even spread
     of `per_show` of them kept: copies for the reader on the runner (then the private volume), hashes and
-    places in data/clothes/runway.jsonl. Resumable: a show collected, or found to hold no looks, is left."""
+    places in data/clothes/runway.jsonl. Resumable: a show collected, or found to hold no looks, is left.
+    With `shows` (keys as show_key gives them), those shows alone are read, again if need be, their looks
+    on file replaced. With `live_site`, a picture the archive lacks is asked of the house's own site
+    (robots.txt honoured), the page itself always of the archive."""
     import requests
     from . import media
     from .bakeoff import READ_EDGE, _jpeg
@@ -515,14 +569,58 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
     status_path = DIR / "runway_shows.json"
     status = json.loads(status_path.read_text()) if status_path.exists() else {}
     rows_path = DIR / "runway.jsonl"
+    if shows:
+        wanted = set(shows)
+        for k in wanted:
+            status.pop(k, None)
+        rows = store.read_jsonl(rows_path) if rows_path.exists() else []
+        store.write_jsonl(rows_path, [r for r in rows if show_key(r) not in wanted])
     n_rows = [len(store.read_jsonl(rows_path))]
     deadline = clock() + budget_min * 60
     todo: dict[str, list[dict]] = defaultdict(list)
     for key, sh in coverage.get("shows", {}).items():
+        if shows and key not in shows:
+            continue
         if sh.get("status") == "found" and _todo(sh, status.get(key)):
             todo[sh["house"]].append(sh)
     tl = threading.local()
     lock = threading.Lock()
+    robots: dict[str, object] = {}
+
+    def live(url):
+        """A picture from the house's own site, asked for as the identified research crawler with robots.txt
+        honoured; None when robots say no or the site declines. Pages are never asked of the site, only
+        pictures the archive lacks."""
+        from urllib import robotparser
+        from urllib.parse import urlparse
+        from .backcat import UA as CRAWLER_UA
+        if not live_site:
+            return None
+        if not hasattr(tl, "live"):
+            tl.live = session_factory() if session_factory else requests.Session()
+            tl.live.headers["User-Agent"] = CRAWLER_UA
+        p = urlparse(url)
+        base = f"{p.scheme}://{p.netloc}"
+        with lock:
+            rp = robots.get(base)
+        if rp is None:
+            rp = robotparser.RobotFileParser()
+            try:
+                r = tl.live.get(f"{base}/robots.txt", timeout=30)
+                rp.parse(r.text.splitlines() if r.status_code == 200 else [])
+            except requests.RequestException:
+                rp.parse([])
+            with lock:
+                robots[base] = rp
+        if not rp.can_fetch(CRAWLER_UA, url):
+            return None
+        try:
+            r = tl.live.get(url, timeout=45)
+        except requests.RequestException:
+            return None
+        if pause:
+            time.sleep(pause)
+        return r
 
     def captures(url, ts):
         """The page's later captures in the archive's index, latest first, up to four months after `ts`."""
@@ -575,7 +673,7 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
                 continue
             diag: dict = {}
             got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
-                              deadline=deadline, tries=TRIES_PER_PAGE, captures=captures, diag=diag)
+                              deadline=deadline, tries=TRIES_PER_PAGE, captures=captures, diag=diag, live=live)
             for g in got:
                 g.update(date=sh["date"], season=sh["season"], category=sh["category"])
             with lock:
@@ -595,7 +693,8 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
         list(ex.map(one, config.first_then_rest(sorted(todo))))
     summary = {"shows_collected": sum(1 for v in status.values() if v["status"] == "collected"),
                "shows_without_looks": sum(1 for v in status.values() if v["status"] == "no looks"),
-               "shows_unread": sum(1 for v in status.values() if v["status"] in ("unread", "no fitting page")),
+               "shows_unread": sum(1 for v in status.values() if v["status"] == "unread"),
+               "shows_without_fitting_page": sum(1 for v in status.values() if v["status"] == "no fitting page"),
                "looks": n_rows[0],
                "left": sum(1 for h in todo for sh in todo[h] if _todo(sh, status.get(show_key(sh)))),
                "out_of_time": clock() > deadline}
@@ -1263,6 +1362,8 @@ def main(argv: list[str] | None = None) -> int:
     co = sub.add_parser("collect")
     co.add_argument("--budget-min", type=float, default=40)
     co.add_argument("--workers", type=int, default=4)
+    co.add_argument("--shows", default="", help="show keys (house:date:category), comma-separated: those alone, read again")
+    co.add_argument("--no-live", action="store_true", help="never ask the houses' own sites for a picture the archive lacks")
     rd = sub.add_parser("read")
     rd.add_argument("--budget-min", type=float, default=70)
     rd.add_argument("--min-waiting", type=int, default=0, help="send nothing until this many pictures wait")
@@ -1281,7 +1382,8 @@ def main(argv: list[str] | None = None) -> int:
     elif a.cmd == "sample":
         print(f"clothes sample: {sample()['counts']}")
     elif a.cmd == "collect":
-        summary = collect_runway(budget_min=a.budget_min, workers=a.workers)
+        summary = collect_runway(budget_min=a.budget_min, workers=a.workers, live_site=not a.no_live,
+                                 shows=[k.strip() for k in a.shows.split(",") if k.strip()] or None)
         n = runway_to_volume()
         print(f"clothes collect: {summary}; {n} copies on the volume")
     elif a.cmd == "seal":

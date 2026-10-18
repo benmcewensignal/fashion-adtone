@@ -463,3 +463,81 @@ def test_the_collector_tries_a_later_capture_and_records_why_a_show_gave_nothing
     before = len(S.calls)
     C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
     assert not any("prada" in u for u in S.calls[before:])
+
+
+def test_a_show_found_to_have_no_fitting_page_is_left_until_its_pages_change(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    sh = {"house": "hermes", "date": "2026-03-07", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+          "candidates": [{"ts": "20260316", "url": "https://www.hermes.com/jp/ja/content/344007-men-fall-winter-2026-runway-show/"}]}
+    st = {"status": "no fitting page", "looks": 0, "candidates": C._candidate_signature(sh)}
+    assert not C._todo(sh, st)                                                   # final, as the summary now counts it
+    assert C._todo(sh, {**st, "candidates": []})                                 # the coverage map found it another page
+    class S:
+        headers = {}
+        def get(self, url, timeout=None):
+            return _R(status=503, text="", url=url)
+    out = C.collect_runway({"shows": {"hermes:2026-03-07:rtw": sh}}, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert out["left"] == 0 and out["shows_without_fitting_page"] == 1 and out["shows_unread"] == 0
+
+
+def test_a_picture_the_archive_lacks_is_asked_at_the_page_s_own_address_then_of_the_site(tmp_path, monkeypatch):
+    """Louis Vuitton's show pages name every look at full size in a srcset the archive never saved, and at a
+    phone size in `src`, which it did: the collector falls back to the `src` address, and to the house's own
+    site when the archive holds neither; a site whose robots.txt declines the crawler is not asked."""
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    big = {f"https://cdn.lv.com/look-{i}.jpg?wid=1600": _jpeg(800, 1200, 500 + i) for i in range(6)}
+    small = {f"https://cdn.lv.com/look-{i}.jpg?wid=414": _jpeg(600, 900, 500 + i) for i in range(3)}   # archived at phone size
+    html = "".join(f'<img src="https://cdn.lv.com/look-{i}.jpg?wid=414" srcset="https://cdn.lv.com/look-{i}.jpg?wid=414 414w, '
+                   f'https://cdn.lv.com/look-{i}.jpg?wid=1600 1600w">' for i in range(6))
+    asked = {"archive": [], "live": [], "robots": 0}
+
+    class S:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, url, timeout=None):
+            if url.endswith("/robots.txt"):
+                asked["robots"] += 1
+                return _R(text="User-agent: *\nDisallow: /private/\n", url=url)
+            if "im_/" in url:
+                orig = url.split("im_/", 1)[1]
+                asked["archive"].append(orig)
+                return _R(content=small[orig]) if orig in small else _R(status=404)
+            if url.startswith("https://cdn.lv.com/"):
+                assert self.headers["User-Agent"].startswith("fashion-adtone")                 # the identified crawler
+                asked["live"].append(url)
+                return _R(content=big[url]) if url in big else _R(status=404)
+            if "cdx/search" in url:
+                return _R(text=json.dumps([["timestamp"]]), url=url)
+            return _R(text=f"<html><body>{html}</body></html>", url=url)
+
+    cov = {"shows": {"louis_vuitton:2026-03-10:rtw": {
+        "house": "louis_vuitton", "date": "2026-03-10", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+        "candidates": [{"ts": "20260420", "url": "https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fall-winter-2026-show"}]}}}
+    out = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    st = json.loads((tmp_path / "runway_shows.json").read_text())["louis_vuitton:2026-03-10:rtw"]
+    assert out["shows_collected"] == 1 and st["looks"] == 6
+    assert st["diag"]["from_src"] == 3 and st["diag"]["from_live"] == 3 and st["diag"]["refused"] == 0
+    assert asked["robots"] == 1 and len(asked["live"]) == 3                      # robots read once; the site asked only for what the archive lacked
+    assert all("wid=1600" in u for u in asked["live"])                          # at the widest address
+    # with the site declining the crawler, the archive's pictures alone
+    asked["live"].clear()
+
+    class Declines(S):
+        def get(self, url, timeout=None):
+            if url.endswith("/robots.txt"):
+                return _R(text="User-agent: fashion-adtone research crawler (contact via the repository)\nDisallow: /\n", url=url)
+            return super().get(url, timeout)
+
+    out = C.collect_runway(cov, pause=0, session_factory=Declines, local=tmp_path / "pics", workers=1,
+                           shows=["louis_vuitton:2026-03-10:rtw"])
+    st = json.loads((tmp_path / "runway_shows.json").read_text())["louis_vuitton:2026-03-10:rtw"]
+    assert st["looks"] == 3 and st["diag"]["from_live"] == 0 and st["diag"]["refused"] == 3 and not asked["live"]
+    rows = [json.loads(x) for x in (tmp_path / "runway.jsonl").read_text().splitlines()]
+    assert len(rows) == 3                                                        # the named show's looks replaced, not added to
+    # and with the live site switched off, the site is never asked
+    out = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1,
+                           shows=["louis_vuitton:2026-03-10:rtw"], live_site=False)
+    assert not asked["live"]

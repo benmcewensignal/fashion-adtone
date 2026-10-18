@@ -12,7 +12,9 @@ run-name: clothes ${{ inputs.mode || 'kick' }}
 #        (adtone/looks.py; addresses only), resumed run by run
 # auto (every three hours): coverage, then collect, each on half the budget, until both are complete
 # collect: about twenty looks of every show the coverage map found pages for, copies to the private volume,
-#        hashes and places to data/clothes/runway.jsonl; resumed run by run
+#        hashes and places to data/clothes/runway.jsonl; resumed run by run. The pages come from the archive;
+#        a picture the archive lacks is asked of the house's own site, robots.txt honoured. With `shows`,
+#        the named shows alone, read again.
 # read:  the reader deployed at its pinned weights (data/luxury/readers.json), then every picture on the
 #        volumes read with the frozen rubric (the test set first, then the runway looks, then the homepage
 #        pictures) to data/clothes/readings.jsonl, resumed run by run; then judge
@@ -29,6 +31,10 @@ on:
         type: choice
         default: looks
         options: [looks, sample, crops, seal, testset, coverage, collect, auto, read, judge, fingerprint]
+      shows:
+        description: "collect: these shows alone (house:date:category, comma-separated), read again"
+        type: string
+        default: ""
   push:
     branches: [main]
     paths: [".github/kick/clothes"]
@@ -93,9 +99,11 @@ jobs:
         if: steps.m.outputs.mode == 'collect' || steps.m.outputs.mode == 'auto'
         continue-on-error: true
         timeout-minutes: 60
+        env:
+          SHOWS: ${{ inputs.shows }}
         run: |
           python -m adtone.clothes recheck
-          python -m adtone.clothes collect --budget-min $([ "${{ steps.m.outputs.mode }}" = auto ] && echo 25 || echo 45) --workers 4
+          python -m adtone.clothes collect --budget-min $([ "${{ steps.m.outputs.mode }}" = auto ] && echo 25 || echo 45) --workers 4 ${SHOWS:+--shows "$SHOWS"}
       - name: Runway looks from the archive
         if: steps.m.outputs.mode == 'looks'
         timeout-minutes: 55
