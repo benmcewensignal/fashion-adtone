@@ -643,54 +643,122 @@
   },
   "date_form": "year",
   "names_answered": {
+    "alaia": [
+      "Alaia"
+    ],
+    "armani": [
+      "Armani"
+    ],
+    "balenciaga": [
+      "Balenciaga"
+    ],
+    "bottega_veneta": [
+      "Bottega Veneta"
+    ],
+    "burberry": [
+      "Burberry"
+    ],
+    "celine": [
+      "Celine"
+    ],
+    "chanel": [
+      "Chanel"
+    ],
+    "chloe": [
+      "Chloé",
+      "Chloe"
+    ],
     "dior": [
       "Dior"
+    ],
+    "dolce_gabbana": [
+      "Dolce&Gabbana"
+    ],
+    "fendi": [
+      "Fendi"
+    ],
+    "givenchy": [
+      "Givenchy"
+    ],
+    "gucci": [
+      "Gucci"
+    ],
+    "hermes": [
+      "Hermès",
+      "Hermes"
+    ],
+    "jacquemus": [
+      "Jacquemus"
+    ],
+    "loewe": [
+      "Loewe"
+    ],
+    "louis_vuitton": [
+      "Louis Vuitton"
+    ],
+    "mcqueen": [
+      "McQueen"
+    ],
+    "miu_miu": [
+      "Prada spa"
+    ],
+    "moncler": [
+      "Moncler"
+    ],
+    "prada": [
+      "Prada"
+    ],
+    "valentino": [
+      "Valentino"
+    ],
+    "versace": [
+      "Versace"
     ]
   },
   "problems": {},
-  "requests": 125,
-  "run": "gh39074610936",
+  "requests": 586,
+  "run": "gh39144472668",
   "searched": {
-    "alaia": "2026-10-17",
-    "armani": "2026-10-17",
-    "balenciaga": "2026-10-17",
-    "balmain": "2026-10-17",
-    "bottega_veneta": "2026-10-17",
-    "brunello_cucinelli": "2026-10-17",
-    "burberry": "2026-10-17",
-    "celine": "2026-10-17",
-    "chanel": "2026-10-17",
-    "chloe": "2026-10-17",
-    "comme_des_garcons": "2026-10-17",
-    "dior": "2026-10-17",
-    "dolce_gabbana": "2026-10-17",
-    "dries_van_noten": "2026-10-17",
-    "fendi": "2026-10-17",
-    "ferragamo": "2026-10-17",
-    "givenchy": "2026-10-17",
-    "gucci": "2026-10-17",
-    "hermes": "2026-10-17",
-    "issey_miyake": "2026-10-17",
-    "jacquemus": "2026-10-17",
-    "jil_sander": "2026-10-17",
-    "lanvin": "2026-10-17",
-    "loewe": "2026-10-17",
-    "loro_piana": "2026-10-17",
-    "louis_vuitton": "2026-10-17",
-    "margiela": "2026-10-17",
-    "max_mara": "2026-10-17",
-    "mcqueen": "2026-10-17",
-    "miu_miu": "2026-10-17",
-    "moncler": "2026-10-17",
-    "prada": "2026-10-17",
-    "saint_laurent": "2026-10-17",
-    "schiaparelli": "2026-10-17",
-    "stella_mccartney": "2026-10-17",
-    "the_row": "2026-10-17",
-    "tom_ford": "2026-10-17",
-    "valentino": "2026-10-17",
-    "versace": "2026-10-17",
-    "zegna": "2026-10-17"
+    "alaia": "2026-10-18",
+    "armani": "2026-10-18",
+    "balenciaga": "2026-10-18",
+    "balmain": "2026-10-18",
+    "bottega_veneta": "2026-10-18",
+    "brunello_cucinelli": "2026-10-18",
+    "burberry": "2026-10-18",
+    "celine": "2026-10-18",
+    "chanel": "2026-10-18",
+    "chloe": "2026-10-18",
+    "comme_des_garcons": "2026-10-18",
+    "dior": "2026-10-18",
+    "dolce_gabbana": "2026-10-18",
+    "dries_van_noten": "2026-10-18",
+    "fendi": "2026-10-18",
+    "ferragamo": "2026-10-18",
+    "givenchy": "2026-10-18",
+    "gucci": "2026-10-18",
+    "hermes": "2026-10-18",
+    "issey_miyake": "2026-10-18",
+    "jacquemus": "2026-10-18",
+    "jil_sander": "2026-10-18",
+    "lanvin": "2026-10-18",
+    "loewe": "2026-10-18",
+    "loro_piana": "2026-10-18",
+    "louis_vuitton": "2026-10-18",
+    "margiela": "2026-10-18",
+    "max_mara": "2026-10-18",
+    "mcqueen": "2026-10-18",
+    "miu_miu": "2026-10-18",
+    "moncler": "2026-10-18",
+    "prada": "2026-10-18",
+    "saint_laurent": "2026-10-18",
+    "schiaparelli": "2026-10-18",
+    "stella_mccartney": "2026-10-18",
+    "the_row": "2026-10-18",
+    "tom_ford": "2026-10-18",
+    "valentino": "2026-10-18",
+    "versace": "2026-10-18",
+    "zegna": "2026-10-18"
   },
   "shape": {
     "ad_account_name": "str",
@@ -728,15 +796,9 @@
           }
         }
       ],
-      "should_loop": "bool",
-      "title_headline": "str"
+      "should_loop": "bool"
     },
     "creative_type": "str",
-    "deep_link_properties": {
-      "deep_link_uri": "str",
-      "icon_media_url": "str",
-      "playable_media_properties": {}
-    },
     "headline": "str",
     "id": "str",
     "impressions_map": {
@@ -775,8 +837,7 @@
     ],
     "lens_preview": {
       "icon_url": "str",
-      "preview_image_url": "str",
-      "preview_video_url": "str"
+      "preview_image_url": "str"
     },
     "name": "str",
     "name_searched": "str",
@@ -788,7 +849,6 @@
     "start_date": "str",
     "status": "str",
     "status_searched": "str",
-    "sticker_display_mode": "str",
     "stickers": [],
     "targeting_v2": {
       "demographics": [
@@ -804,14 +864,7 @@
           "operation": "str"
         }
       ],
-      "devices": [
-        {
-          "carrier_id": [],
-          "marketing_name": [],
-          "model": [],
-          "operation": "str"
-        }
-      ],
+      "devices": [],
       "regulated_content": "bool"
     },
     "top_snap_crop_position": "str",
@@ -822,5 +875,5 @@
     }
   },
   "stopped": null,
-  "updated_at": "2026-10-17T22:58:08Z"
+  "updated_at": "2026-10-18T17:02:16Z"
 }
