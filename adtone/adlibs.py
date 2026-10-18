@@ -235,7 +235,10 @@ class Taker:
                 self._pool = ThreadPoolExecutor(1)
             self._inflight = (rd, items, self._pool.submit(score_batches, rd.scorer, batches))
             return
-        self._record(rd, items, self._answers(lambda: score_batches(rd.scorer, batches), len(items)))
+        t = time.perf_counter()
+        answers = self._answers(lambda: score_batches(rd.scorer, batches), len(items))
+        self.counts["s_waiting_reader"] = self.counts.get("s_waiting_reader", 0) + time.perf_counter() - t
+        self._record(rd, items, answers)
 
     @staticmethod
     def _answers(call, n: int) -> list:
@@ -252,7 +255,10 @@ class Taker:
             return
         rd, items, fut = self._inflight
         self._inflight = None
-        self._record(rd, items, self._answers(fut.result, len(items)))
+        t = time.perf_counter()
+        answers = self._answers(fut.result, len(items))
+        self.counts["s_waiting_reader"] = self.counts.get("s_waiting_reader", 0) + time.perf_counter() - t
+        self._record(rd, items, answers)
 
     def _record(self, rd: _Reading, items: list[tuple], answers: list) -> None:
         failed = 0
@@ -482,6 +488,8 @@ def collect(src, reg: registry.Registry, run: str, embedder=None, scorer=None, b
     except ScoreError as e:
         stopped = f"{stopped}; reader: {str(e)[:120]}" if stopped else f"reader: {str(e)[:200]}"
     taker.save()
+    if "s_waiting_reader" in counts:
+        counts["s_waiting_reader"] = round(counts["s_waiting_reader"])
     if taker.status():
         stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
     st.update({"run": run, "updated_at": store.utc_now(), "problems": problems, "stopped": stopped,
@@ -573,7 +581,7 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     pool = ThreadPoolExecutor(max_workers=max(1, fetch_workers))
     t0 = clock()
     counts = {"houses": 0, "ads_read": 0, "ads_left": 0, "pictures": 0, "read_ok": 0, "invalid": 0, "media_errors": 0,
-              "dynamic_left": 0, "lapsed": 0}
+              "dynamic_left": 0, "lapsed": 0, "s_waiting_fetch": 0.0, "s_taking": 0.0, "s_waiting_reader": 0.0}
     taker = Taker(P, run, embedder, scorer, counts)
     stopped = None
     tried: set[str] = set()              # ads taken in this run, read or failed on
@@ -615,17 +623,20 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                 chunk = order[i:i + step]
                 done += [ad_id for ad_id, _ in chunk if ad_id not in ads]     # the ad's row is gone: nothing to complete
                 todo = [(ad_id, pr) for ad_id, pr in chunk if ad_id in ads]
+                t = time.perf_counter()
                 if ahead is not None and ahead[0] == i:
                     got = [f.result() for f in ahead[1]]
                 elif parallel and len(todo) > 1:
                     got = list(pool.map(lambda kv: fetch(kv[1]), todo))
                 else:
                     got = [fetch(pr) for _, pr in todo]
+                counts["s_waiting_fetch"] += time.perf_counter() - t
                 ahead = None
                 if parallel:
                     nxt = [pr for ad_id, pr in order[i + step:i + 2 * step] if ad_id in ads]
                     if nxt:
                         ahead = (i + step, [pool.submit(fetch, pr) for pr in nxt])
+                t = time.perf_counter()
                 for (ad_id, pr), (media, err) in zip(todo, got):
                     row = ads[ad_id]
                     if err:
@@ -638,6 +649,7 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
                     n += 1
                     tried.add(ad_id)
                     done.append(ad_id)
+                counts["s_taking"] += time.perf_counter() - t      # fingerprints and queueing, the reader's waits included
         finally:
             if ahead is not None:            # fetched ahead and not taken: left waiting
                 for f in ahead[1]:
@@ -693,6 +705,8 @@ def read_pending(name: str, reg: registry.Registry, run: str, embedder, scorer, 
     counts["houses"] = len(visited)
     counts["ads_left"] = sum(left.values())
     counts["lapsed"] = sum(lapsed.values())
+    for k in ("s_waiting_fetch", "s_taking", "s_waiting_reader"):       # where the run's time went, in seconds
+        counts[k] = round(counts.get(k, 0))
     if taker.status():
         stopped = f"{stopped}; {taker.status()}" if stopped else taker.status()
     out = {"run": run, "stage": "read", "updated_at": store.utc_now(), **counts, "stopped": stopped}
