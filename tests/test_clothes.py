@@ -400,3 +400,66 @@ def test_a_show_is_read_only_from_pages_of_its_own_line(tmp_path, monkeypatch):
     assert [r["sha"] for r in C.store.read_jsonl(tmp_path / "runway.jsonl")] == ["c"]
     assert set(json.loads((tmp_path / "runway_shows.json").read_text())) == {"chloe:2022-03-03:rtw"}   # Dior's to be taken again
     assert C.recheck_lines() == {"shows_cleared": 0, "looks_dropped": 0, "looks_kept": 1}
+
+
+def test_a_show_page_gives_its_pictures_at_the_largest_size_it_names():
+    html = ('<img src="https://cdn.x.com/looks/1.jpg?wid=414" srcset="https://cdn.x.com/looks/1.jpg?wid=414 414w, https://cdn.x.com/looks/1.jpg?wid=1600 1600w">'
+            '<img src="data:image/gif;base64,R0lG" data-srcset="https://cdn.x.com/looks/2.jpg?w=400 400w, https://cdn.x.com/looks/2.jpg?w=2000 2000w">'
+            '<img data-src="https://cdn.x.com/looks/3.jpg?imwidth=320" data-original="https://cdn.x.com/looks/3.jpg?imwidth=1920">'
+            '<img src="https://cdn.x.com/i/w_300/4.jpg" srcset="https://cdn.x.com/i/w_1200/4.jpg 1200w">')
+    out = C.show_pictures(html, "https://www.x.com/show", "20260101")
+    urls = [u.split("im_/", 1)[1] for u in out]
+    assert "https://cdn.x.com/looks/1.jpg?wid=1600" in urls and "https://cdn.x.com/looks/1.jpg?wid=414" not in urls
+    assert "https://cdn.x.com/looks/2.jpg?w=2000" in urls
+    assert "https://cdn.x.com/looks/3.jpg?imwidth=1920" in urls
+    assert "https://cdn.x.com/i/w_1200/4.jpg" in urls and "https://cdn.x.com/i/w_300/4.jpg" in urls   # a different path: both kept
+    assert urls.index("https://cdn.x.com/looks/1.jpg?wid=1600") == 0                                  # page order kept
+
+
+def test_the_collector_tries_a_later_capture_and_records_why_a_show_gave_nothing(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    looks = {f"https://www.celine.com/i/look-{i}.jpg": _jpeg(600, 900, 300 + i) for i in range(30)}
+
+    class S:
+        headers = {}
+        calls = []
+
+        def get(self, url, timeout=None):
+            S.calls.append(url)
+            if "cdx/search" in url:
+                return _R(text=json.dumps([["timestamp"], ["20260309"], ["20260420"]]), url=url)
+            if "im_/" in url:
+                return _R(content=looks[url.split("im_/", 1)[1]])
+            if "celine" in url and "/web/20260309/" in url:     # the day after the show: a teaser, no looks
+                return _R(text="<p>soon</p>", url=url)
+            if "celine" in url and "/web/20260420/" in url:     # six weeks on: the gallery
+                return _R(text="".join(f'<img src="{u}">' for u in looks), url=url)
+            if "hermes" in url:                              # a page the archive refuses
+                return _R(status=503, text="", url=url)
+            return _R(text="<p>nothing</p>", url=url)
+
+    cov = {"shows": {
+        "celine:2026-03-07:rtw": {"house": "celine", "date": "2026-03-07", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+                                  "candidates": [{"ts": "20260309", "url": "https://www.celine.com/show"}]},
+        "hermes:2026-03-07:rtw": {"house": "hermes", "date": "2026-03-07", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+                                  "candidates": [{"ts": "20260316", "url": "https://www.hermes.com/jp/ja/content/344007-men-fall-winter-2026-runway-show/"}]},
+        "prada:2026-02-26:rtw": {"house": "prada", "date": "2026-02-26", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+                                 "candidates": [{"ts": "20260228", "url": "https://www.prada.com/show"}]}}}
+    out = C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    st = json.loads((tmp_path / "runway_shows.json").read_text())
+    assert out["shows_collected"] == 1 and st["celine:2026-03-07:rtw"]["status"] == "collected"
+    assert st["celine:2026-03-07:rtw"]["diag"]["captures_tried"] == 1            # the latest capture first, and it held the gallery
+    assert st["hermes:2026-03-07:rtw"]["status"] == "no fitting page"             # a men's page for a women's show
+    assert st["prada:2026-02-26:rtw"]["status"] == "no looks" and st["prada:2026-02-26:rtw"]["diag"]["opened"] >= 1
+    rows = [json.loads(x) for x in (tmp_path / "runway.jsonl").read_text().splitlines()]
+    assert all(r["ts"] == "20260420" for r in rows)
+    # a 'no looks' written before the collector recorded why is read again; one with its reasons is not
+    st["prada:2026-02-26:rtw"] = {"status": "no looks", "looks": 0}
+    (tmp_path / "runway_shows.json").write_text(json.dumps(st))
+    before = len(S.calls)
+    C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert any("prada" in u for u in S.calls[before:]) and not any("celine" in u for u in S.calls[before:])
+    before = len(S.calls)
+    C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    assert not any("prada" in u for u in S.calls[before:])

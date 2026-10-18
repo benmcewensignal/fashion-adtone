@@ -506,9 +506,10 @@ def coverage(houses: list[str] | None = None, budget_min: float = 40, workers: i
     doms = sites()
     prev = json.loads(COVERAGE_OUT.read_text()) if COVERAGE_OUT.exists() else {}
     shows_prev = dict(prev.get("shows", {}))
+    from .clothes import page_fits
     for k, v in shows_prev.items():
         if v.get("status") == "found":
-            fit = [x for x in v.get("candidates", []) if score(x["url"], v.get("category")) > 0]
+            fit = [x for x in v.get("candidates", []) if score(x["url"], v.get("category")) > 0 and page_fits(x["url"], v.get("category") or "")]
             if not fit:
                 shows_prev[k] = {**v, "status": "partial", "candidates": []}
             else:
