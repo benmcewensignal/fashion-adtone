@@ -36,6 +36,12 @@ Identifiers
       links the Fall Winter 2026 couture show as `...-fall-winter-2026-paris-2`, not the address on file.
       On 16 October 2026 the fetcher could not open nowfashion.com at all (its permission request went
       unanswered in a scheduled run), so nothing was read; the same happened on 17 and 18 October 2026.
+      Read on 19 October 2026: McQueen's markdown listing still would not load, but its brand page did and
+      lists 24 shows from SS16, the same 24 dates and addresses already on file, so nothing earlier exists to
+      merge. Giorgio Armani's two pages list 125 (84 main line from 2005, 41 Privé from 2005), holding every
+      show on file except under the Privé Fall Winter 2026 couture show's new `-paris-2` address (the old one
+      no longer opens), so it is not merged until Ben decides whether the new address may replace the old.
+      The six houses merged on 15 October 2026 list the same number of shows as on file.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -62,7 +68,8 @@ Shows (`reference/shows.csv`)
 - [ ] Still open on shows: the days of Comme des Garçons' two Tokyo shows of AW22 (men's and women's, no
       source gives them, so they have no row; on 16 October 2026 Fashionsnap and WWDJAPAN still gave only the
       Aoyama head office and their publication days, 17 January and 8 March 2022, and on 18 October 2026
-      Hypebae and A Magazine Curated By gave no day either); the 2022 rows checked
+      Hypebae and A Magazine Curated By gave no day either, nor on 19 October 2026 Design Scene or Fucking
+      Young!, which give only their publication days, 10 March and 17 January 2022); the 2022 rows checked
       against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
@@ -90,7 +97,9 @@ People
       Milan, 2017-01-15), Hecquet's announcement at Lanvin (2018-08-28). Filled on 18 October 2026:
       Giornetti's last show (AW16, 2016-02-28, Camera Moda's calendar), Rigoni's first (SS17, 2016-09-25) and
       Andrew's last (AW21, digital, 2021-02-27), both from FashionNetwork's published schedules, and
-      Takahashi's first (SS14, Paris, 2013-06-27, FashionUnited and AFP).
+      Takahashi's first (SS14, Paris, 2013-06-27, FashionUnited and AFP). On 19 October 2026 Lanvin Group's
+      release of 2025-01-16 (SEC filing) named Lew only the group's executive president, and the reports of
+      Mendenhall's appointment (The Impression, FashionUnited, 2025-09-08) still gave no start date.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
