@@ -883,6 +883,7 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
     lock = threading.Lock()
     robots: dict[str, object] = {}
     declined: dict[str, int] = {}
+    sites: dict[str, Counter] = defaultdict(Counter)       # host -> how its answers went: ok, robots, left, a status, stalled
     summary = {"houses": 0, "shows_wanted": sum(len(v) for v in wanted.values()), "shows_collected": 0, "shows_without_looks": 0,
                "shows_without_page": 0, "houses_without_sections": 0, "looks": 0, "out_of_time": False}
 
@@ -895,6 +896,7 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
         with lock:
             rp = robots.get(base)
             if declined.get(base, 0) >= LIVE_DECLINES:
+                sites[p.netloc]["left"] += 1
                 return None
         if rp is None:
             rp = robotparser.RobotFileParser()
@@ -906,18 +908,23 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
             with lock:
                 robots[base] = rp
         if not rp.can_fetch(CRAWLER_UA, url):
+            with lock:
+                sites[p.netloc]["robots"] += 1
             return None
         try:
             r = tl.s.get(url, timeout=LIVE_TIMEOUT_S)
-        except requests.RequestException:
+        except requests.RequestException as e:
             r = None
+            why = "stalled" if "timeout" in type(e).__name__.lower() or "Timeout" in str(e) else "failed"
         if pause:
             time.sleep(pause)
         with lock:
             if r is None or r.status_code != 200:
                 declined[base] = declined.get(base, 0) + 1
+                sites[p.netloc][why if r is None else str(r.status_code)] += 1
             else:
                 declined[base] = 0
+                sites[p.netloc]["ok"] += 1
         return r
 
     def shrink(img):
@@ -979,6 +986,7 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
     with ThreadPoolExecutor(max(1, workers)) as ex:
         list(ex.map(one, order))
     summary["looks"] = n_rows[0]
+    summary["sites"] = {h: dict(c) for h, c in sorted(sites.items())}
     _log("runway_live", **summary)
     return summary
 

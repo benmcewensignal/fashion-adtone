@@ -659,3 +659,4 @@ def test_looks_of_the_last_years_shows_come_from_the_houses_own_sites_when_the_a
     assert all("imwidth=1600" in u for u in asked if u in looks)               # at the widest address
     assert (tmp_path / "pics" / "read").exists() and len(list((tmp_path / "pics" / "read").glob("*.jpg"))) == 12
     assert not C._todo(cov["shows"]["dior:2026-09-29:rtw"], st["dior:2026-09-29:rtw"])   # the archive collector leaves it
+    assert out["sites"]["www.gucci.com"] == {"robots": 1} and out["sites"]["www.dior.com"]["ok"] >= 2 and out["sites"]["www.dior.com"]["404"] >= 1
