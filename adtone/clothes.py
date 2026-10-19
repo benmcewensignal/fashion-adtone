@@ -475,6 +475,8 @@ PER_SHOW = 20            # looks kept per show, spread from its start to its fin
 TRIES_PER_PAGE = 40      # pictures fetched from a show page, spread through it
 RUNWAY_FINAL = ("collected", "no looks", "no fitting page")
 CAPTURE_AFTER_DAYS = 120  # a show page's later captures, up to four months after the first: the gallery may come later
+LIVE_TIMEOUT_S = 15       # a house's site gets this long to serve a picture the archive lacks
+LIVE_DECLINES = 3         # after this many failures or stalls in a row, a site is not asked again in the run
 
 
 def _candidate_signature(sh: dict) -> list[str]:
@@ -586,6 +588,7 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
     tl = threading.local()
     lock = threading.Lock()
     robots: dict[str, object] = {}
+    declined: dict[str, int] = {}      # host -> live requests failed or stalled in a row
 
     def live(url):
         """A picture from the house's own site, asked for as the identified research crawler with robots.txt
@@ -614,12 +617,20 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
                 robots[base] = rp
         if not rp.can_fetch(CRAWLER_UA, url):
             return None
+        with lock:
+            if declined.get(base, 0) >= LIVE_DECLINES:     # a site that failed or stalled this often is not asked again this run
+                return None
         try:
-            r = tl.live.get(url, timeout=45)
+            r = tl.live.get(url, timeout=LIVE_TIMEOUT_S)
         except requests.RequestException:
-            return None
+            r = None
         if pause:
             time.sleep(pause)
+        with lock:
+            if r is None or r.status_code != 200:
+                declined[base] = declined.get(base, 0) + 1
+            else:
+                declined[base] = 0
         return r
 
     def captures(url, ts):
@@ -639,12 +650,15 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
         return sorted({row[0] for row in rows[1:] if isinstance(row, list) and row and str(row[0]).isdigit()}, reverse=True)
 
     def get(url):
+        """A page is asked for three times when the archive is busy; a picture twice, since a show has dozens
+        and a busy archive would otherwise cost the run its budget on one show."""
         if not hasattr(tl, "s"):
             tl.s = session_factory() if session_factory else requests.Session()
             tl.s.headers.setdefault("User-Agent", media.UA)
-        for attempt in range(3):
+        picture = "im_/" in url
+        for attempt in range(2 if picture else 3):
             try:
-                r = tl.s.get(url, timeout=45)
+                r = tl.s.get(url, timeout=20 if picture else 45)
             except requests.RequestException:
                 r = None
             if pause:
@@ -674,8 +688,10 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
                 status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
             return
         diag: dict = {}
+        t_show = time.monotonic()
         got = house_looks(get, house, pages, keep, shrink, per_house=per_show, candidates=per_show * 2,
                           deadline=deadline, tries=TRIES_PER_PAGE, captures=captures, diag=diag, live=live)
+        diag["seconds"] = round(time.monotonic() - t_show)
         for g in got:
             g.update(date=sh["date"], season=sh["season"], category=sh["category"])
         with lock:

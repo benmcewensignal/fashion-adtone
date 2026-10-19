@@ -563,3 +563,33 @@ def test_the_collector_reads_the_newest_shows_first_across_the_houses(tmp_path, 
     cov = {"shows": {f"{h}:{d}:rtw": show(h, d) for h, d in [("armani", "2016-02-27"), ("armani", "2026-02-28"), ("zegna", "2026-06-20"), ("zegna", "2019-01-11")]}}
     C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
     assert [u.rsplit("/", 1)[-1] for u in opened] == ["2026-06-20", "2026-02-28", "2019-01-11", "2016-02-27"]
+
+
+def test_a_site_that_fails_three_times_running_is_not_asked_again_in_the_run(tmp_path, monkeypatch):
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    html = "".join(f'<img src="https://cdn.x.com/look-{i}.jpg?wid=1600">' for i in range(12))
+    asked = []
+
+    class S:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, url, timeout=None):
+            if url.endswith("/robots.txt"):
+                return _R(text="", url=url)
+            if "im_/" in url:
+                return _R(status=404)
+            if url.startswith("https://cdn.x.com/"):
+                asked.append(url)
+                return _R(status=503)
+            if "cdx/search" in url:
+                return _R(text=json.dumps([["timestamp"]]), url=url)
+            return _R(text=f"<html><body>{html}</body></html>", url=url)
+
+    cov = {"shows": {"x:2026-03-01:rtw": {"house": "x", "date": "2026-03-01", "season": "2026 AW rtw", "category": "rtw", "status": "found",
+                                          "candidates": [{"ts": "20260305", "url": "https://www.x.com/show"}]}}}
+    C.collect_runway(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1)
+    st = json.loads((tmp_path / "runway_shows.json").read_text())["x:2026-03-01:rtw"]
+    assert st["status"] == "no looks" and st["diag"]["refused"] == 12 and "seconds" in st["diag"]
+    assert len(asked) == C.LIVE_DECLINES                      # the site asked until it had declined three times, then left
