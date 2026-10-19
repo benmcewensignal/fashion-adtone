@@ -62,6 +62,95 @@
   "looks": 0,
   "status": "no looks"
  },
+ "armani:2025-09-28:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "armani:2026-01-19:men": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "armani:2026-01-27:couture": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "armani:2026-03-01:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 78,
+    "refused": 7,
+    "small": 15
+   },
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": "https://www.armani.com/en-us/giorgio-armani/experience/ga-fw26-adv/"
+  },
+  "looks": 18,
+  "status": "collected",
+  "via": "live"
+ },
+ "armani:2026-06-22:men": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "armani:2026-07-07:couture": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "armani:2026-09-27:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 1,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "balenciaga:2015-10-02:rtw": {
   "looks": 20,
   "status": "collected"
@@ -194,6 +283,14 @@
   "candidates": [
    "20260710114026 https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81"
   ],
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 1
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no fitting page"
  },
@@ -232,6 +329,29 @@
  "balmain:2026-03-04:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "balmain:2026-09-30:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 13,
+    "opened": 1,
+    "pictures": 13,
+    "refused": 0,
+    "small": 2
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 3,
+    "opened": 4
+   },
+   "page": "https://gb.balmain.com/en-gb/pages/spring-summer-2027-runway"
+  },
+  "looks": 11,
+  "status": "collected",
+  "via": "live"
  },
  "bottega_veneta:2015-06-21:men": {
   "candidates": [
@@ -378,6 +498,29 @@
  "bottega_veneta:2026-02-28:rtw": {
   "looks": 12,
   "status": "collected"
+ },
+ "bottega_veneta:2026-09-26:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 204,
+    "refused": 0,
+    "small": 29
+   },
+   "indexes": {
+    "indexes": 4,
+    "links": 3,
+    "opened": 3
+   },
+   "page": "https://www.bottegaveneta.com/en-gb/summer-2027.html"
+  },
+  "looks": 11,
+  "status": "collected",
+  "via": "live"
  },
  "burberry:2018-09-17:rtw": {
   "candidates": [
@@ -577,6 +720,14 @@
    "pictures": 0,
    "refused": 0,
    "small": 0
+  },
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
   },
   "looks": 0,
   "status": "no looks"
@@ -1183,6 +1334,28 @@
   "looks": 8,
   "status": "collected"
  },
+ "chanel:2026-07-07:couture": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "chanel:2026-10-05:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "chloe:2015-03-08:rtw": {
   "looks": 20,
   "status": "collected"
@@ -1280,6 +1453,29 @@
  "chloe:2026-03-05:rtw": {
   "looks": 18,
   "status": "collected"
+ },
+ "chloe:2026-10-01:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 2,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 171,
+    "refused": 7,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 4,
+    "links": 3,
+    "opened": 1
+   },
+   "page": "https://www.chloe.com/en-gb/summer-27-edito.html"
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
  },
  "dior:2019-01-18:men": {
   "looks": 16,
@@ -1615,6 +1811,119 @@
   },
   "looks": 6,
   "status": "collected"
+ },
+ "dior:2025-10-01:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dior:2026-01-21:men": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dior:2026-01-26:couture": {
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/haute-couture-spring-summer-2026-show"
+  },
+  "status": "no looks"
+ },
+ "dior:2026-03-03:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dior:2026-06-24:men": {
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2027-show"
+  },
+  "status": "no looks"
+ },
+ "dior:2026-07-06:couture": {
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/fall-winter-2026-2027-haute-couture-show"
+  },
+  "status": "no looks"
+ },
+ "dior:2026-09-29:rtw": {
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 4,
+    "opened": 3
+   },
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/summer-2027-show"
+  },
+  "status": "no looks"
  },
  "dolce_gabbana:2015-01-17:men": {
   "candidates": [
@@ -1999,6 +2308,61 @@
   "looks": 0,
   "status": "no looks"
  },
+ "dolce_gabbana:2025-09-27:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dolce_gabbana:2026-01-17:men": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dolce_gabbana:2026-02-28:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dolce_gabbana:2026-06-20:men": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "dolce_gabbana:2026-09-26:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "dries_van_noten:2016-06-23:men": {
   "candidates": [
    "20160629082144 http://www.driesvannoten.be:80/collections.php?collection=ss2017men",
@@ -2102,6 +2466,29 @@
  "dries_van_noten:2026-03-04:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "dries_van_noten:2026-06-25:men": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 27,
+    "opened": 1,
+    "pictures": 27,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 1,
+    "opened": 4
+   },
+   "page": "https://www.driesvannoten.com/pages/show-ss-27-men"
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
  },
  "dries_van_noten:2026-09-30:rtw": {
   "looks": 20,
@@ -2794,12 +3181,42 @@
    "seconds": 2,
    "small": 0
   },
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "unread"
  },
  "fendi:2026-02-25:rtw": {
   "looks": 19,
   "status": "collected"
+ },
+ "fendi:2026-07-09:couture": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "fendi:2026-09-23:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "ferragamo:2015-06-21:men": {
   "looks": 3,
@@ -2891,6 +3308,39 @@
   },
   "looks": 0,
   "status": "no looks"
+ },
+ "ferragamo:2025-09-27:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "ferragamo:2026-02-28:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "ferragamo:2026-09-26:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "givenchy:2015-01-23:men": {
   "candidates": [
@@ -3142,6 +3592,17 @@
   "looks": 20,
   "status": "collected"
  },
+ "givenchy:2026-06-25:men": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "givenchy:2026-10-02:rtw": {
   "looks": 5,
   "status": "collected"
@@ -3260,6 +3721,39 @@
   },
   "looks": 0,
   "status": "no looks"
+ },
+ "gucci:2025-09-23:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "gucci:2026-02-27:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "gucci:2026-09-25:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "hermes:2015-01-24:men": {
   "candidates": [
@@ -3853,6 +4347,14 @@
    "refused": 0,
    "small": 80
   },
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -3861,8 +4363,27 @@
   "status": "collected"
  },
  "hermes:2026-03-07:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no looks"
+ },
+ "hermes:2026-10-03:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "issey_miyake:2015-01-22:men": {
   "candidates": [
@@ -4123,6 +4644,61 @@
   "looks": 0,
   "status": "no looks"
  },
+ "issey_miyake:2025-10-03:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "issey_miyake:2026-01-22:men": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "issey_miyake:2026-03-06:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "issey_miyake:2026-06-25:men": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "issey_miyake:2026-10-02:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "jacquemus:2018-09-24:rtw": {
   "candidates": [
    "20181008121352 https://www.jacquemus.com/collection/ss19-le-gadjo/?_=1539000814755"
@@ -4325,6 +4901,17 @@
   "looks": 20,
   "status": "collected"
  },
+ "jil_sander:2026-09-23:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "lanvin:2016-09-28:rtw": {
   "looks": 20,
   "status": "collected"
@@ -4406,6 +4993,28 @@
   "looks": 4,
   "status": "collected"
  },
+ "lanvin:2026-01-24:men": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "lanvin:2026-03-06:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "lanvin:2026-10-02:rtw": {
   "candidates": [
    "20261009074719 https://www.lanvin.com/en-us/spring-summer-2027-show"
@@ -4421,6 +5030,14 @@
    "pictures": 0,
    "refused": 0,
    "small": 0
+  },
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
   },
   "looks": 0,
   "status": "no looks"
@@ -4624,6 +5241,50 @@
  "loewe:2024-09-27:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "loewe:2025-10-03:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 1
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "loewe:2026-03-06:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 1
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "loewe:2026-10-02:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 1
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "loro_piana:2026-02-27:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "louis_vuitton:2020-01-16:men": {
   "candidates": [
@@ -4971,6 +5632,28 @@
   "looks": 10,
   "status": "collected"
  },
+ "louis_vuitton:2026-06-23:men": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "louis_vuitton:2026-10-06:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 1,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "margiela:2016-01-27:couture": {
   "looks": 0,
   "status": "no looks"
@@ -5264,6 +5947,29 @@
  "mcqueen:2025-03-08:rtw": {
   "looks": 5,
   "status": "collected"
+ },
+ "mcqueen:2025-10-05:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 36,
+    "opened": 1,
+    "pictures": 36,
+    "refused": 0,
+    "small": 6
+   },
+   "indexes": {
+    "indexes": 6,
+    "links": 5,
+    "opened": 4
+   },
+   "page": "https://www.alexandermcqueen.com/en-us/collections/press26/looks"
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
  },
  "mcqueen:2026-03-08:rtw": {
   "looks": 20,
@@ -5619,6 +6325,14 @@
    "seconds": 157,
    "small": 15
   },
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -5769,6 +6483,17 @@
  "moncler:2025-03-15:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "moncler:2026-01-31:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "prada:2015-01-18:men": {
   "candidates": [
@@ -6063,6 +6788,23 @@
    "refused": 0,
    "small": 0
   },
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": "https://www.prada.com/us/en/pradasphere/fashion-shows/2026/ss-womenswear.html"
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -6081,6 +6823,14 @@
    "pictures": 0,
    "refused": 0,
    "small": 0
+  },
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
   },
   "looks": 0,
   "status": "no looks"
@@ -6101,8 +6851,38 @@
    "refused": 0,
    "small": 0
   },
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no looks"
+ },
+ "prada:2026-06-21:men": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "prada:2026-09-22:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "saint_laurent:2015-01-25:men": {
   "looks": 1,
@@ -6265,6 +7045,14 @@
   "status": "collected"
  },
  "saint_laurent:2026-06-23:men": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -6566,8 +7354,27 @@
    "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 2
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no fitting page"
+ },
+ "schiaparelli:2026-03-05:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 3,
+    "links": 0,
+    "opened": 2
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "schiaparelli:2026-07-06:couture": {
   "looks": 5,
@@ -6693,6 +7500,40 @@
   "looks": 11,
   "status": "collected"
  },
+ "stella_mccartney:2026-03-04:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 124,
+    "refused": 0,
+    "small": 8
+   },
+   "indexes": {
+    "indexes": 5,
+    "links": 2,
+    "opened": 2
+   },
+   "page": "https://www.stellamccartney.com/fi/en/women/winter-2026-collection"
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
+ },
+ "stella_mccartney:2026-09-30:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 5,
+    "links": 2,
+    "opened": 2
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
  "the_row:2019-09-09:rtw": {
   "looks": 20,
   "status": "collected"
@@ -6733,6 +7574,29 @@
  "the_row:2025-10-02:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "the_row:2026-03-04:rtw": {
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 11,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 300,
+    "refused": 0,
+    "small": 3
+   },
+   "indexes": {
+    "indexes": 5,
+    "links": 2,
+    "opened": 2
+   },
+   "page": "https://www.therow.com/en-at/collections/women-winter-2026"
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
  },
  "the_row:2026-09-30:rtw": {
   "looks": 20,
@@ -6777,6 +7641,39 @@
   },
   "looks": 0,
   "status": "no looks"
+ },
+ "tom_ford:2025-10-01:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "tom_ford:2026-03-04:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "tom_ford:2026-09-30:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "valentino:2018-01-24:couture": {
   "candidates": [
@@ -7010,6 +7907,14 @@
    "20260128163157 https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
    "20260307024345 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection"
   ],
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 6
+   },
+   "page": null
+  },
   "looks": 0,
   "status": "no fitting page"
  },
@@ -7028,6 +7933,17 @@
  "versace:2016-09-23:rtw": {
   "looks": 1,
   "status": "collected"
+ },
+ "versace:2025-09-26:rtw": {
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  },
  "zegna:2015-01-17:men": {
   "candidates": [
@@ -7110,5 +8026,27 @@
  "zegna:2023-06-19:men": {
   "looks": 1,
   "status": "collected"
+ },
+ "zegna:2026-01-16:men": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
+ },
+ "zegna:2026-06-20:men": {
+  "live": {
+   "indexes": {
+    "indexes": 6,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
+  },
+  "status": "no page"
  }
 }
