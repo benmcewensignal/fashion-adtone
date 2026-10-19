@@ -6,7 +6,10 @@
     "dior",
     "gucci",
     "louis_vuitton",
-    "margiela"
+    "margiela",
+    "prada",
+    "saint_laurent",
+    "valentino"
   ],
   "covered": {
     "alaia": "2026-10-13",
@@ -40,13 +43,13 @@
     "mcqueen": "2026-10-15",
     "miu_miu": "2026-10-17",
     "moncler": "2026-10-14",
-    "prada": "2026-10-10",
-    "saint_laurent": "2026-10-10",
+    "prada": "2026-10-18",
+    "saint_laurent": "2026-10-18",
     "schiaparelli": "2026-10-15",
     "stella_mccartney": "2026-10-16",
     "the_row": "2026-10-15",
     "tom_ford": "2026-10-13",
-    "valentino": "2026-10-11",
+    "valentino": "2026-10-18",
     "versace": "2026-10-12",
     "zegna": "2026-10-14"
   },
@@ -96,7 +99,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh39280857240",
+  "run": "gh39325607438",
   "span": {},
-  "updated_at": "2026-10-19T16:27:12Z"
+  "updated_at": "2026-10-19T21:46:27Z"
 }
