@@ -169,26 +169,10 @@
  },
  "balenciaga:2017-03-05:rtw": {
   "candidates": [
-   "20170606185339 https://www.balenciaga.com/de/f%C3%BCr-sie/collections/campaign_w_fallwinter17_section",
-   "20170610112700 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
-   "20170611042135 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/campaign_m_fallwinter17_section/main"
+   "20170610112700 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main"
   ],
-  "diag": {
-   "captures_tried": 1,
-   "cut": false,
-   "duplicates": 0,
-   "failed": 0,
-   "fetched": 7,
-   "from_live": 0,
-   "from_src": 0,
-   "opened": 1,
-   "pages": 1,
-   "pictures": 7,
-   "refused": 0,
-   "small": 7
-  },
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "balenciaga:2017-10-01:rtw": {
   "candidates": [
@@ -285,7 +269,7 @@
   ],
   "live": {
    "indexes": {
-    "indexes": 4,
+    "indexes": 6,
     "links": 0,
     "opened": 1
    },
@@ -2276,8 +2260,8 @@
   "live": {
    "indexes": {
     "indexes": 3,
-    "links": 0,
-    "opened": 0
+    "links": 5,
+    "opened": 1
    },
    "page": null
   },
@@ -2285,45 +2269,81 @@
  },
  "dolce_gabbana:2026-01-17:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 3,
-    "links": 0,
-    "opened": 0
+    "links": 5,
+    "opened": 1
    },
-   "page": null
+   "page": "https://www.dolcegabbana.com/fashion-shows/men-fall-winter-2026-fashion-show"
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-02-28:rtw": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 3,
-    "links": 0,
-    "opened": 0
+    "links": 5,
+    "opened": 1
    },
-   "page": null
+   "page": "https://www.dolcegabbana.com/news/dolce-gabbana-adv-campaign-fall-winter-2026"
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-06-20:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 3,
-    "links": 0,
-    "opened": 0
+    "links": 5,
+    "opened": 1
    },
-   "page": null
+   "page": "https://www.dolcegabbana.com/fashion-shows/men-spring-summer-2027-fashion-show"
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-09-26:rtw": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 3,
-    "links": 0,
-    "opened": 0
+    "links": 5,
+    "opened": 1
    },
-   "page": null
+   "page": "https://www.dolcegabbana.com/fashion-shows/women-spring-summer-2027-fashion-show"
   },
   "status": "no page"
  },
@@ -3142,7 +3162,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 7,
+   "seconds": 5,
    "small": 0
   },
   "live": {
@@ -7314,13 +7334,11 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
-   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
    "indexes": {
-    "indexes": 3,
+    "indexes": 5,
     "links": 0,
     "opened": 2
    },
@@ -7332,7 +7350,7 @@
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "indexes": 3,
+    "indexes": 5,
     "links": 0,
     "opened": 2
    },
