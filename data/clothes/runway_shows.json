@@ -66,7 +66,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -77,7 +77,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -88,7 +88,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -122,7 +122,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -133,7 +133,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -144,7 +144,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 1,
+    "links": 0,
     "opened": 3
    },
    "page": null
@@ -1816,8 +1816,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
    "page": null
   },
@@ -1827,8 +1827,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
    "page": null
   },
@@ -1836,21 +1836,12 @@
  },
  "dior:2026-01-26:couture": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/haute-couture-spring-summer-2026-show"
+   "page": null
   },
   "status": "no looks"
  },
@@ -1858,8 +1849,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
    "page": null
   },
@@ -1867,61 +1858,34 @@
  },
  "dior:2026-06-24:men": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2027-show"
+   "page": null
   },
   "status": "no looks"
  },
  "dior:2026-07-06:couture": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/fall-winter-2026-2027-haute-couture-show"
+   "page": null
   },
   "status": "no looks"
  },
  "dior:2026-09-29:rtw": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 6,
-    "links": 4,
-    "opened": 3
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/summer-2027-show"
+   "page": null
   },
   "status": "no looks"
  },
@@ -3180,6 +3144,14 @@
    "refused": 0,
    "seconds": 7,
    "small": 0
+  },
+  "live": {
+   "indexes": {
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": null
   },
   "looks": 0,
   "status": "unread"
@@ -7519,7 +7491,7 @@
   "live": {
    "indexes": {
     "indexes": 5,
-    "links": 2,
+    "links": 0,
     "opened": 2
    },
    "page": null
