@@ -1,9 +1,10 @@
 # Claims ledger
 
-Track record: 0 hits · 0 misses · 0 open · 11 calls registered
+Track record: 0 hits · 0 misses · 0 open · 19 calls registered
 
-Every call carries the probability it was registered with, so the record is scored on calibration (the
-Brier score) as well as on hits, and an easy call does not flatter it.
+Each designer-change call carries the probability it was registered with, so those calls are scored on
+calibration (the Brier score) as well as on hits, and an easy call does not flatter the record. The three
+Saint Laurent calls of 5 October were frozen without probabilities and are scored on hits.
 
 *No open claims yet. A call on the image is open from the first show it waits on; a call on the
 advertising is open from the later of that show and the end of the silent baseline season. Results on the
@@ -31,6 +32,10 @@ advertising is open from the later of that show and the end of the silent baseli
   transfer's is a prior, since no earlier move could be tested.
   - Saint Laurent, successor to Anthony Vaccarello: waiting for the appointment.
   - Versace, Pieter Mulier, from Alaïa: waiting for his first show.
+  - Alaïa, successor to Pieter Mulier, whose exit was confirmed on 30 January 2026: waiting for an
+    appointment; a studio collection is not an event.
+  - Alexander McQueen, successor to Seán McGirr, whose exit was confirmed on 15 October 2026: waiting for
+    the appointment.
 
 ## Validation against history
 

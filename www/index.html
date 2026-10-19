@@ -736,6 +736,34 @@
              line-height: 1; color: var(--accent); font-feature-settings: "lnum"; font-variant-numeric: tabular-nums; }
   .tally span { display: block; margin-top: 0.45rem; font-size: 0.8125rem; line-height: 1.4; color: var(--graphite); text-wrap: balance; }
   @media (max-width: 30rem) { .tally { gap: 1.25rem 0.75rem; } .tally li { flex: 0 1 calc(50% - 0.75rem); } }
+  /* The instrument first: whether it measures the image, what it has found, what it cannot say yet, what it has read
+     and what it is for, each a heading over the deck's columns, every column under its figure */
+  .home .sub.big { margin: clamp(4.5rem, 11vw, 7rem) 0 1.25rem; }
+  .home .body > .sub.big:first-child { margin-top: 0; }
+  .lede { max-width: 34rem; margin: 0 auto; text-align: center; color: var(--ink-2); text-wrap: pretty; }
+  .four .fig { display: block; margin: 0 0 0.6rem; font-family: var(--serif); font-style: italic; font-weight: 400;
+               font-size: clamp(2.25rem, 1.6rem + 1.8vw, 3rem); line-height: 1; color: var(--accent); font-feature-settings: "lnum"; white-space: nowrap; }
+  .four .fig .pm { font-family: var(--sans); font-style: normal; font-weight: 300; }
+  .note.after { max-width: 40rem; margin: 2.25rem auto 0; text-align: center; }
+  /* What it has read: a row for each source, its columns kept, scrolling inside its own box on a phone */
+  .cov { margin: 2.5rem auto 0; max-width: 60rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cov table { width: 100%; min-width: 36rem; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.45; }
+  .cov th, .cov td { padding: 0.75rem 1rem 0.8rem 0; border-top: 1px solid var(--rule); text-align: left; vertical-align: baseline; font-weight: 400; color: var(--ink-2); }
+  .cov thead th { border-top: 0; padding: 0 1rem 0.6rem 0; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .cov tbody th { font-family: var(--serif); font-style: italic; font-size: 1.1875rem; line-height: 1.2; color: var(--ink); }
+  .cov .grp th { padding: 1.6rem 0 0.55rem; border-top: 0; font-family: var(--sans); font-style: normal; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); }
+  .cov .grp + tr th, .cov .grp + tr td { border-top: 2px solid var(--rule-strong); }
+  .cov table { font-variant-numeric: tabular-nums; }
+  .cov.houses th, .cov.houses td { white-space: nowrap; }
+  .cov.houses th, .cov.houses td { padding-right: 0.7rem; }
+  .cov.houses table { font-size: 0.8125rem; }
+  @media (min-width: 72rem) { #method .cov.houses { width: 64rem; max-width: none; margin-left: -14rem; } }
+  @media (min-width: 82rem) { #method .cov.houses { width: 72rem; margin-left: -18rem; } }
+  .cov.houses table { min-width: 52rem; font-size: 0.875rem; }
+  .cov.houses tbody th { font-size: 1rem; white-space: nowrap; }
+  .cov.houses td { text-align: right; padding-right: 0.9rem; }
+  .cov.houses thead th:not(:first-child) { text-align: right; padding-right: 0.9rem; }
+  .cov .thin { color: var(--muted); }
 </style>
 <!-- Vercel Web Analytics: cookieless page views. The site's pages are hash routes, so each page is sent by the router below. -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
@@ -760,7 +788,7 @@
       </nav>
       <div class="lead">
         <p class="tagline">Numbers on what the eye sees.</p>
-        <p class="statement">Luxury fashion speaks in pictures. Focal reads them with AI vision and sets each house against itself and the other <span class="nw">thirty-nine</span>.</p>
+        <p class="statement">Luxury fashion speaks in pictures. Focal reads the pictures each house shows with AI vision, the same way every time, and sets each house against itself and the other <span class="nw">thirty-nine</span>.</p>
       </div>
       <figure class="cover-map">
         <svg viewBox="0 0 760 560" role="img" aria-label="The 40 houses as dots on two axes: remote to intimate across, restrained to provocative up"><g stroke="currentColor" stroke-width="2" stroke-opacity="0.3"><line x1="0" y1="245.9" x2="760" y2="245.9"/><line x1="467" y1="0" x2="467" y2="560"/></g><g fill="currentColor" fill-opacity="0.9"><circle cx="498.0" cy="143.5" r="11"/><circle cx="514.9" cy="216.3" r="11"/><circle cx="98.8" cy="449.0" r="11"/><circle cx="557.2" cy="155.1" r="11"/><circle cx="370.9" cy="466.7" r="11"/><circle cx="118.2" cy="450.1" r="11"/><circle cx="400.5" cy="413.0" r="11"/><circle cx="408.5" cy="491.4" r="11"/><circle cx="661.8" cy="143.2" r="11"/><circle cx="394.1" cy="311.0" r="11"/><circle cx="37.0" cy="287.2" r="11"/><circle cx="636.6" cy="196.0" r="11"/><circle cx="696.0" cy="46.1" r="11"/><circle cx="386.9" cy="309.5" r="11"/><circle cx="456.7" cy="317.6" r="11"/><circle cx="463.9" cy="309.9" r="11"/><circle cx="501.0" cy="241.8" r="11"/><circle cx="445.3" cy="386.3" r="11"/><circle cx="340.9" cy="372.4" r="11"/><circle cx="483.9" cy="138.9" r="11"/><circle cx="368.4" cy="320.5" r="11"/><circle cx="560.4" cy="325.1" r="11"/><circle cx="525.3" cy="324.0" r="11"/><circle cx="503.1" cy="249.5" r="11"/><circle cx="485.2" cy="364.9" r="11"/><circle cx="349.8" cy="352.0" r="11"/><circle cx="474.0" cy="268.1" r="11"/><circle cx="723.0" cy="186.0" r="11"/><circle cx="525.0" cy="170.0" r="11"/><circle cx="335.6" cy="463.2" r="11"/><circle cx="528.5" cy="235.2" r="11"/><circle cx="596.1" cy="289.9" r="11"/><circle cx="532.3" cy="182.1" r="11"/><circle cx="627.6" cy="37.0" r="11"/><circle cx="545.0" cy="174.6" r="11"/><circle cx="400.0" cy="474.1" r="11"/><circle cx="599.4" cy="107.8" r="11"/><circle cx="542.4" cy="181.5" r="11"/><circle cx="628.0" cy="128.1" r="11"/><circle cx="290.7" cy="523.0" r="11"/></g><g fill="currentColor" fill-opacity="0.8" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="27" letter-spacing="0.5"><text x="8" y="234.9">Remote</text><text x="752" y="234.9" text-anchor="end">Intimate</text><text x="479" y="24">Provocative</text><text x="479" y="552">Restrained</text></g></svg>
@@ -774,27 +802,83 @@
       </figure>
         <div class="intro opening">
           <h2>The benchmark</h2>
-          <p>Luxury houses have judged their pictures by eye. Focal puts numbers on what the eye sees: how distinct a house is, how far and which way it moves, whether it still looks like itself, and who made the pictures. It measures the industry's visual language; whether that language moves the business is a question it tests openly.</p>
-          <p>A collection leaves the runway and passes through other hands: the shop window, the campaign, the photographers who also shoot its rivals, the advertising. By the season's end it may no longer be the collection that was shown. Focal describes each stage in the same terms, sets it against the same stage at the other <span class="nw">thirty-nine</span> houses, and says what carried and whether it stood apart.</p>
+          <p>Luxury houses have judged their pictures by eye. Focal reads the pictures a house shows with AI vision, blind to the house and the date: its homepage back to 2014, its runway, its paid advertising. The questions are the same every time, so the answers can be counted and set beside what happened: who made the pictures, what the house paid to show and to whom, and how people responded.</p>
+          <p>From the readings and the campaign credits come four measures of the image: how distinct a house is, how far and which way it moves, whether it still looks like itself, and who made the pictures. Each is tested against chance and stays provisional until people have checked it. Whether the image moves the business is a separate question; what is known of it so far is below.</p>
         </div>
-        <ul class="tally" aria-label="What is on file"><li><b>40</b><span>houses, followed since 2014</span></li><li><b>784</b><span>collections, from 2015</span></li><li><b>10,063</b><span>homepage pictures read</span></li><li><b>4,224</b><span>runway looks read</span></li><li><b>87,014</b><span>search ads, Europe</span></li><li><b>40,942</b><span>social ads, Europe</span></li></ul>
+        <ul class="tally" aria-label="What is on file"><li><b>40</b><span>houses, followed since 2014</span></li><li><b>784</b><span>collections, from 2015</span></li><li><b>10,063</b><span>homepage pictures read</span></li><li><b>4,121</b><span>runway looks on file</span></li><li><b>87,014</b><span>search and video ads, Europe</span></li><li><b>40,942</b><span>social ads, Europe</span></li></ul>
         <div class="body">
-          <div class="triad solo">
-            <div>
-              <span class="when">Season benchmark</span>
-              <h3>What carried, and what stayed distinct?</h3>
-              <p>The runway translated into numbers and followed into the shop window, the campaigns and the advertising, then set against the attention that followed.</p>
-              <ul class="four">
-                <li><span class="t">Transmission</span>Whether the advertising moves the way the runway moved, season to season. Advertising can sell more plainly than the show and still follow its direction.</li>
-                <li><span class="t">Distinctness</span>How far the brand stands from its peers at each stage, the runway among runways and the advertising among advertising, and what sets it apart: the answers on which its pictures differ most from theirs.</li>
-                <li><span class="t">Mix</span>How much of each stage is campaign imagery, product on a model and product alone.</li>
-                <li><span class="t">Movement</span>How far each stage has moved from the brand's own previous seasons. The advertising's movement is shown without a score, since staying recognisable is part of its job.</li>
-              </ul>
-            </div>
-          </div>
+          <p class="sub big" id="proof">Does it measure the image?</p>
+          <p class="lede">A measure of the image should hold while a house keeps its look, move when the people who make the pictures change, and stay put when only the boardroom changes. Tested on the history so far:</p>
+          <ul class="four">
+            <li><span class="fig">24 in 100</span><span class="t">Still itself</span>How often, on average, a house's pictures still pick it out from the other houses five years or more on, against 5 by chance. Chanel's do so 74 times in 100.</li>
+            <li><span class="fig">21 of 30</span><span class="t">A new designer</span>Arrivals of a creative director since 2014 after which the house's pictures moved further than at the median house without one, over the same months.</li>
+            <li><span class="fig">0.61</span><span class="t">A new crew</span>How closely the change in a house's photographers over a year goes with how far its pictures moved that year, across 20 house-years.</li>
+            <li><span class="fig">6 of 13</span><span class="t">A new chief executive</span>Changes of chief executive alone after which the pictures moved more than at comparable houses: what chance would give.</li>
+          </ul>
+          <p class="note after">One result does not fit yet: set against its own other years rather than against other houses, a year with a new designer shows no bigger move beyond chance, across 164 house-years. And most of the crew's years also had a new designer. These are tests on the history, not calls; the calls are frozen before each event, as set out <a href="#/calls">on Method</a>, where <a href="#/tests">the results so far</a> are listed.</p>
+          <p class="sub big" id="found">What it has found</p>
+          <ul class="four">
+            <li><span class="fig">24%</span><span class="t">All the same?</span>Less distance between the typical pair of houses' campaign pictures in 2022 to 2025 than in 2014 to 2017, shrinking gradually. The homepage as a whole has not converged: the houses went different ways with product.</li>
+            <li><span class="fig">17 of 19</span><span class="t">The crew follows</span>Changes of designer on file after which none of the photographers stayed; in fourteen, nobody in the crew stayed at all. Houses that credit the same people look no more alike than others.</li>
+            <li><span class="fig">3 of 4</span><span class="t">Big debuts fade</span>Of the four biggest jumps in attention at a debut show of spring-summer 2026, three kept less attention than the median house one to four months on.</li>
+            <li><span class="fig">0.4%</span><span class="t">The show stays on the runway</span>Of 14,438 ad pictures, 51 show a look from the house's own runway, against none by chance. Half the ads on the largest platform are assembled by the platform from a product feed.</li>
+          </ul>
           <p class="bignum" aria-hidden="true">17 of 40</p>
-          <p class="block fourteen"><a href="#/brands">Seventeen of the <span class="nw">forty</span></a> have new directors since 2025. The reading is the same for each: transmission, distinctness, mix, movement. Not a sales forecast. A reading of what held.</p>
-          <p class="note more">Also: <a href="#/monthly">the monthly reading</a>, <a href="#/end-to-end">each stage, end to end</a>, and <a href="#/status">where the data stands</a>.</p>
+          <p class="block fourteen"><a href="#/brands">Seventeen of the <span class="nw">forty</span></a> have new creative directors since 2025. Focal reads each the same way, and for each change still to come it freezes its calls before the first show. Not a sales forecast: a reading of what held.</p>
+          <p class="sub big" id="example">One move, followed end to end</p>
+          <p class="lede">Jonathan Anderson, from Loewe to Dior: one change of designer read in every source Focal holds, the same way it reads all <span class="nw">forty</span>, gaps included.</p>
+          <ol class="stages" style="margin-top:2.75rem">
+            <li><span class="when">April and June 2025</span><span class="t">Named at Dior</span><span class="d">For men on 17 April, then for women and couture on 2 June, eleven weeks after Loewe confirmed his exit. On the busiest day around the appointment, the news about Dior ran at three times its usual daily level.</span></li>
+            <li><span class="when">With him</span><span class="t">The crew</span><span class="d">Four of the six people credited on his Loewe campaign on file, spring-summer 2025, are credited at Dior: David Sims, Benjamin Bruno, Beno&icirc;t Delhomme and Poppy Bartlett. Two thirds of a crew, more than any two houses share by themselves.</span></li>
+            <li><span class="when">27 June and 1 October 2025</span><span class="t">The first shows</span><span class="d">At his first women's show, attention jumped less than at the season's average show, 19th of 34, and one to four months on Dior had kept less than the median house, 30th of 34.</span></li>
+            <li><span class="when">The months after</span><span class="t">The films</span><span class="d">Dior's own films moved toward the look of Loewe's films under him more than toward 24 of 25 other looks, and further than any of 11 houses without a change: near the usual line, not past it.</span></li>
+            <li><span class="when">Since October 2025</span><span class="t">The advertising</span><span class="d">At least 1,370 fashion ads on the largest platform, 71% of them catalogue units the platform assembles, against 49% across the houses; 55% of their reach is women and 55% under 35.</span></li>
+          </ol>
+          <p class="note after">The gaps are part of the reading: the archive holds two Dior homepage pictures from 2026, too few for the change test, and none of his Dior runway looks are on file yet, so no ad can be set against his runway. Small numbers throughout: six people, one campaign, a dozen homepage pictures a season.</p>
+          <p class="sub big" id="limits">What it cannot say yet</p>
+          <p class="lede">Whether the image moves the business, tested across the sources and within each house. Across houses, size explains most of what moves together.</p>
+          <ul class="four">
+            <li><span class="fig">51 of 700</span><span class="t">Across the sources</span>Pairs of measures from different sources that pass the usual line once size is taken out, where about 35 would by chance. None survives allowing for the number of comparisons.</li>
+            <li><span class="fig"><span class="pm">+</span>0.41</span><span class="t">A year ahead of sales</span>Within each house, a more distinct shop window than its usual has come before faster organic growth the year after: 77 half-years at the 11 houses whose half-yearly organic growth is on file.</li>
+            <li><span class="fig"><span class="pm">+</span>0.03</span><span class="t">Attention is not sales</span>A half-year's change in attention against the next half-year's organic growth, within each house.</li>
+            <li><span class="fig">4 of 14</span><span class="t">Campaigns</span>Houses whose attention was higher in the weeks they published a campaign, shows aside: within chance.</li>
+          </ul>
+          <p class="note after">The one link leans on Gucci, Saint Laurent and Bottega Veneta, whose sales fell; without them it is about +0.24, within chance. A new designer, new product and new pictures arrive together, so it does not show that the pictures raised sales. Still to come: the clothes questions, once people have checked them, and the calls, as they come due.</p>
+          <p class="sub big" id="record">What it has read</p>
+          <p class="lede">Forty houses, followed since 2014, each source read or set beside the pictures in the same way. The depth differs from source to source.</p>
+          <div class="cov" role="region" aria-label="What Focal has read, by source" tabindex="0">
+<table>
+<thead><tr><th scope="col">Source</th><th scope="col">Houses</th><th scope="col">From</th><th scope="col">On file</th></tr></thead>
+<tbody>
+<tr class="grp"><th colspan="4" scope="colgroup">What the houses show, read by AI vision</th></tr>
+<tr><th scope="row">Homepage pictures</th><td>40</td><td>2014</td><td>10,063 read</td></tr>
+<tr><th scope="row">Runway looks</th><td>34</td><td>2015</td><td>4,121 looks from 342 shows, nearly all of them read</td></tr>
+<tr><th scope="row">Social ads</th><td>28 with ads; all 40 searched on two platforms, 23 on the largest</td><td>a year back</td><td>40,942 from the fashion lines, nearly every picture read</td></tr>
+<tr><th scope="row">Films</th><td>36</td><td>2006</td><td>20,705 on the houses' own channels</td></tr>
+<tr><th scope="row">Homepages, daily</th><td>18 give their pictures</td><td>14 October 2026</td><td>Focal's own capture, kept from now on</td></tr>
+<tr class="grp"><th colspan="4" scope="colgroup">Who made it, and what changed</th></tr>
+<tr><th scope="row">Creative directors</th><td>40</td><td>each house's history</td><td>137 tenures</td></tr>
+<tr><th scope="row">Shows</th><td>40</td><td>2002</td><td>1,400 dated, 1,235 of them since 2015</td></tr>
+<tr><th scope="row">Campaign credits</th><td>39</td><td>2020</td><td>918 credits on 236 campaigns</td></tr>
+<tr><th scope="row">Ambassadors</th><td>30</td><td>2019</td><td>225 appointments</td></tr>
+<tr><th scope="row">Chief executives</th><td>37</td><td>2010</td><td>82 appointments</td></tr>
+<tr class="grp"><th colspan="4" scope="colgroup">What they paid to show, and what came back</th></tr>
+<tr><th scope="row">Search and video ads</th><td>35</td><td>2023</td><td>87,014 from the houses' own accounts</td></tr>
+<tr><th scope="row">Attention</th><td>40</td><td>July 2015</td><td>daily page views in ten languages</td></tr>
+<tr><th scope="row">Press</th><td>40</td><td>2017</td><td>daily volume and tone</td></tr>
+<tr><th scope="row">Revenue</th><td>18 report it, 11 enough to test</td><td>2018</td><td>annual and half-yearly figures</td></tr>
+</tbody>
+</table>
+</div>
+          <p class="note after">Thin so far: the largest ad library, searched for 23 of the <span class="nw">forty</span>; recent runway looks at houses whose show pages turn away automated visits; and revenue, which most houses do not report on their own. <a href="#/coverage">House by house</a> in where the data stands.</p>
+          <p class="sub big" id="uses">What it is for</p>
+          <ul class="four">
+            <li><span class="t">Before release</span>A shoot's finalists read privately: whether they read as the house, and where they sit among the <span class="nw">forty</span>. Deleted after.</li>
+            <li><span class="t">At a change</span>A new creative director's first campaign read against the house's past and the field, then at 12 and 24 months, beside the calls made before the show.</li>
+            <li><span class="t">One house</span>Its shows, shop window, campaigns, advertising and the people behind them, read end to end against the other <span class="nw">thirty-nine</span>, season by season.</li>
+            <li><span class="t">The field</span>The industry reports, and every reading as a dated series kept as first published, for those who test it against their own figures.</li>
+          </ul>
+          <p class="note more">Also: <a href="#/season">the season benchmark</a>, <a href="#/end-to-end">each stage, end to end</a>, <a href="#/monthly">the monthly reading</a> and <a href="#/status">where the data stands</a>. The reports written so far are in the <a href="#/private">Private tab</a>.</p>
         </div>
       </div>
       <p class="next"><a href="#/readings"><span class="k">Next</span> <span class="t">What it reads</span></a></p>
@@ -815,7 +899,7 @@
       </header>
       <div class="intro">
         <h2 id="readings-h">What it reads</h2>
-        <p>Every picture a house shows is read four ways: its clothes, how it is made, its place on the axes of luxury, and its colour and light. The answers say what sets a house apart. The clothes come first.</p>
+        <p>Every picture a house shows is read four ways: its clothes, how it is made and its place on the axes of luxury by AI vision held to fixed versions, and its colour and light from the pixels alone. The answers say what sets a house apart. The clothes come first.</p>
       </div>
       <div class="body wide">
         <!--FX-->
@@ -879,7 +963,7 @@
               <div class="fx-ends" aria-hidden="true"><span>More decorated</span><span>Plainer and darker</span></div>
               <p class="fx-now" aria-live="polite">As drawn</p>
             </div>
-            <p class="fx-one">One invented look, changed a step at a time along the answers on which Dior's and Balenciaga's runways differ most. Move it to see what the reader answers.</p>
+            <p class="fx-one">One invented look, changed a step at a time along answers on which Dior's and Balenciaga's runways differ. Move it to see what the reader answers.</p>
             <figcaption>Generated with AI for illustration. Not a real person or collection.</figcaption>
           </figure>
           <div class="fx-side">
@@ -890,7 +974,7 @@
             <div class="fx-all"><p class="sec">Every answer for this picture</p><div class="fx-list"></div></div>
             <details class="fx-more">
               <summary>How the look was made</summary>
-              <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 47 looks from three shows of 2019 to 2021, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025.</p>
+              <p class="note">The shares are the part of each house's runway looks given that answer by the same reader: Dior's ready-to-wear under Maria Grazia Chiuri, 72 looks from seven shows of 2019 to 2024, and Balenciaga's under Demna, 139 looks from eleven shows of 2016 to 2025.</p>
               <p class="note">The pictures were made with open image models, each change held to its own part of the picture so that nothing else moves. Each step was drawn three or four times and read; the reader saw the change in 29 of the 32 versions, and the one shown is the version whose answers moved most as meant and least otherwise. The other answers that change are the reader's own response to the new picture.</p>
             </details>
           </div>
@@ -1012,7 +1096,7 @@
       </header>
       <div class="intro">
         <h2 id="method-h">How it works</h2>
-        <p>How each description is checked, and how the stages, attention and movement are judged.</p>
+        <p>How each description is checked, what the tests have found so far, and how the stages, attention and movement are judged.</p>
       </div>
       <div class="body wide">
         <div class="narrow">
@@ -1028,25 +1112,125 @@
           <div class="callout">
           <p class="sub" id="calls">Calls made before the event</p>
           <ul class="status">
-            <li><span class="t">Every new creative director</span>Frozen on 14 October 2026 for every new creative director whose first show comes later, read on the homepage pictures and the campaign credits, each call with the probability it was registered at: the house moves more, like for like, than nine in ten houses without a change (0.42); its new pictures pick out its own earlier ones less often than at nine in ten of them (0.25); none of the previous photographers stays (0.90); and, when the designer comes from a house Focal reads, its pictures move towards that house more than towards any other (0.30). Saint Laurent and Versace are the first.</li>
+            <li><span class="t">Every new creative director</span>Frozen on 14 October 2026 for every newly named creative lead of a house's womenswear, or of the whole house, whose first show comes later, read on the homepage pictures and the campaign credits, each call with the probability it was registered at: the house moves more, like for like, than nine in ten houses without a change (0.42); its new pictures pick out its own earlier ones less often than at nine in ten of them (0.25); none of the previous photographers stays (0.90); and, when the designer comes from a house Focal reads, its pictures move towards that house more than towards any other (0.30). Four changes are waiting: Versace, for Pieter Mulier&rsquo;s first show, and Saint Laurent, Alexander McQueen and Ala&iuml;a, for a successor to be named.</li>
             <li><span class="t">Saint Laurent’s advertising</span>Three calls registered on 5 October 2026, before a successor to Anthony Vaccarello was named, on the house’s paid advertising after the next designer’s first show.</li>
           </ul>
-          <p class="block">Each call is frozen by hash before the event and kept whether it hits or misses, and the record is scored on calibration as calls come due. <a href="https://github.com/benmcewensignal/fashion-adtone/blob/main/CLAIMS.md" target="_blank" rel="noopener">The ledger is public</a>, with the frozen designs beside it.</p>
-          <p class="block">One result is already in it. The tests frozen on 5 October 2026 on the thirteen houses that took a new creative director in 2025, asking whether their advertising moved more than the others’, could not be run: the ad library keeps one year, and by the first collection the advertising from before the debuts had left it. That is recorded as not testable, and the tests stand as frozen. The calls on new creative directors read the homepage pictures, which reach back to 2015, and do not depend on it.</p>
+          <p class="block">Each call is frozen by hash before the event and kept whether it hits or misses, and the calls that carry a probability are scored on calibration as they come due. <a href="https://github.com/benmcewensignal/fashion-adtone/blob/main/CLAIMS.md" target="_blank" rel="noopener">The ledger is public</a>, with the frozen designs beside it.</p>
+          <p class="block">One result is already in it. The three tests frozen on 5 October 2026 on the 2025 debuts could not be run: the ad library keeps a year, and before the debuts it held too little brand imagery at any house. That is recorded as not testable, and the tests stand as frozen. The calls on new creative directors read the homepage pictures, which reach back to 2014, and do not depend on it.</p>
           </div>
+          <details id="tests" open style="margin-top:3.5rem">
+            <summary>What the tests have found</summary>
+            <p class="block ref-lead">The main results so far, those that found nothing included. These are tests on the history; the calls above are made before the event.</p>
+            <p class="qs-g">The image</p>
+            <dl class="pairs">
+              <div><dt>Still itself</dt><dd>Five years or more on, a house's pictures pick it out from the other houses 24 times in 100 on average, against 5 by chance; the median house, 18. Chanel's 74, Bottega Veneta's 2. Twenty-eight houses have enough years.</dd></div>
+              <div><dt>A new designer</dt><dd>In 21 of 30 changes of creative lead since 2014, at 18 houses, three of them a design studio taking over, the house's pictures moved further than at the median house without a change over the same months; 20 of 30 on the eighteen answers. In the second year after, 10 of 18: no lasting difference beyond chance.</dd></div>
+              <div><dt>Not yet</dt><dd>Set against a house's own other years, a year with a new designer shows no bigger move beyond chance: 164 house-years, 50 of them with a change.</dd></div>
+              <div><dt>A new crew</dt><dd>How much of a house's crew of photographers changed in a year goes with how far its pictures moved: 0.61 over 20 house-years at 10 houses. Thirteen of those years also had a new designer; without them, 0.54 on seven, within chance.</dd></div>
+              <div><dt>A new chief executive</dt><dd>Of the 13 changes of chief executive with no new designer within a year that can be read, of 25, 6 were followed by more movement than at comparable houses: what chance gives.</dd></div>
+              <div><dt>The crew follows</dt><dd>After 17 of 19 changes of designer on file, none of the photographers stayed; after fourteen, nobody in the crew did.</dd></div>
+              <div><dt>The previous house</dt><dd>Of 10 moves since 2014 that can be read, in 4 the new house moved toward the designer's old one, the old look first or second of the 20 to 27 it could have moved toward: Valentino toward Alessandro Michele's Gucci, Gucci toward Demna's Balenciaga, Dior toward Jonathan Anderson's Loewe, Celine toward Hedi Slimane's Saint Laurent. Pierpaolo Piccioli, Matthieu Blazy and Maria Grazia Chiuri show nothing of the kind, and Riccardo Tisci's Burberry only leans toward his Givenchy: not a rule.</dd></div>
+              <div><dt>Shared hands</dt><dd>Houses that credit the same people in a year look no more alike than others: 204 pairs of houses and years, 19 of them sharing.</dd></div>
+              <div><dt>Directors' films</dt><dd>A director's films for different houses look no more alike, beyond chance, than the houses' other films: 33 directors.</dd></div>
+              <div><dt>All the same?</dt><dd>The typical distance between two houses' campaign pictures is 24% smaller in 2022 to 2025 than in 2014 to 2017, between 15% and 32% in nine draws of ten; the homepage as a whole has not converged.</dd></div>
+              <div><dt>The show and the ad</dt><dd>51 of 14,438 ad pictures show a look from the house's own runway, against none by chance; the outfits in the ads differ from the show's beyond chance in 12 of 14 comparisons. Provisional until people check the clothes questions.</dd></div>
+            </dl>
+            <p class="qs-g" style="margin-top:2.25rem">Attention</p>
+            <dl class="pairs">
+              <div><dt>Debuts</dt><dd>Three of the four biggest debut jumps of spring-summer 2026 kept less attention than the median house one to four months on.</dd></div>
+              <div><dt>Surprise</dt><dd>A show's surprise attention lasts no better, beyond chance, than an equal jump on an ordinary day: 0.18 of it remains, against 0.15, across 484 shows.</dd></div>
+              <div><dt>Before attention</dt><dd>Nothing in the pictures comes before attention beyond chance: not a more distinct shop window, across 340 half-years at 28 houses, nor a change in the pictures.</dd></div>
+              <div><dt>Campaigns</dt><dd>Attention was higher in the weeks a house published a campaign, shows aside, at 4 of 14 houses: within chance.</dd></div>
+              <div><dt>Media value</dt><dd>The 34 shows ranked for media value in their city's week, 27 of them in the top three, placed at a median 44 of 100 for the jump in attention: media value counts volume, which the largest houses lead every season.</dd></div>
+            </dl>
+            <p class="qs-g" style="margin-top:2.25rem">The business</p>
+            <dl class="pairs">
+              <div><dt>Across the sources</dt><dd>51 of 700 pairs of measures from different sources pass the usual line once size is taken out, where about 35 would by chance; none survives allowing for the number of comparisons.</dd></div>
+              <div><dt>A year ahead of sales</dt><dd>Within each house, a more distinct shop window than its usual has come before faster organic growth the year after: +0.41 over 77 half-years at the 11 houses whose half-yearly organic growth is on file, about 8 points of growth between its more and its less distinct years, with nothing in the same year or the year before. Without Gucci, Saint Laurent and Bottega Veneta, about +0.24, within chance. It shows the reading running a year ahead of sales at these houses, not that the pictures raised them.</dd></div>
+              <div><dt>Movement and sales</dt><dd>How far the pictures moved has not come before revenue growth: 46 periods at 10 houses, within chance.</dd></div>
+              <div><dt>Attention and sales</dt><dd>Within a house, a half-year's change in attention does not track its organic growth: +0.14 in the same half-year, +0.03 in the next.</dd></div>
+            </dl>
+            <p class="qs-g" style="margin-top:2.25rem">Not yet testable</p>
+            <dl class="pairs">
+              <div><dt>The 2025 debuts in the advertising</dt><dd>The three tests frozen on 5 October 2026, set out above: the ad library keeps a year, and before the debuts it held too little brand imagery at any house.</dd></div>
+              <div><dt>The clothes</dt><dd>The clothes questions stand once people have checked them; recent runway looks are still missing at several of the largest houses, whose show pages turn away automated visits.</dd></div>
+            </dl>
+          </details>
           <p class="sub" style="margin-top:3.5rem">Reference</p>
+          <details id="season">
+            <summary>The season benchmark</summary>
+            <div class="ref-monthly">
+              <h3>What carried, and what stayed distinct?</h3>
+              <p>A collection followed from the runway into the shop window, the campaigns and the advertising, read in the same terms at every stage and set against the same stage at the other <span class="nw">thirty-nine</span> houses, then against the attention that followed.</p>
+              <ul class="four">
+                <li><span class="t">Transmission</span>Whether the advertising moves the way the runway moved, season to season. Advertising can sell more plainly than the show and still follow its direction. So far a first reading, on four collections.</li>
+                <li><span class="t">Distinctness</span>How far the brand stands from its peers at each stage, the runway among runways and the advertising among advertising, and what sets it apart: the answers on which its pictures differ most from theirs.</li>
+                <li><span class="t">Mix</span>How much of each stage is campaign imagery, product on a model and product alone.</li>
+                <li><span class="t">Movement</span>How far each stage has moved from the brand's own previous seasons. The advertising's movement is shown without a score, since staying recognisable is part of its job.</li>
+              </ul>
+            </div>
+          </details>
           <details id="status">
             <summary>Where it stands</summary>
             <p class="note ref-asof">As of 19 October 2026.</p>
             <ul class="status">
             <li><span class="t">Collections</span>784 followed so far, from 2015. Those of the first twenty-eight since autumn-winter 2022 are placed against the other brands of their season in the <a href="#/private">Private tab</a>.</li>
-            <li><span class="t">Pictures</span>10,063 homepage pictures read for how they are made, and 13,900 for their clothes, 4,224 of them runway looks.</li>
-            <li><span class="t">Attention</span>Wikipedia page views, daily for all 40 brands, in ten languages wherever a brand has a page: a like-for-like measure of attention, not of sales. 710 main shows scored for the jump around them.</li>
+            <li><span class="t">Pictures</span>10,063 homepage pictures read for how they are made, and 13,900 for their clothes, 4,224 of them readings of runway looks.</li>
+            <li><span class="t">Attention</span>Daily page views of each brand's encyclopedia entry, for all 40, in ten languages wherever it has one: a like-for-like measure of attention, not of sales. 710 main shows scored for the jump around them.</li>
             <li><span class="t">Press</span>Daily volume and tone of the news about each brand since 2017, for all 40.</li>
-            <li><span class="t">Films</span>Every film on 36 of the brands' own YouTube channels, 20,705 in all, with views and likes refreshed weekly. Public view counts include paid plays, so they are read beside the advertising, not as attention.</li>
-            <li><span class="t">Google's ads</span>87,014 ads the brands' own accounts ran in Europe, for the 35 with an account of their own, from Google's public transparency data: when and where each ran, roughly how often, on Search or YouTube, and how its audience was chosen. The data holds no pictures, so it gives the advertising its timing and weight, not its look.</li>
-            <li><span class="t">Paid social</span>The brands' ads on Facebook and Instagram, through a vendor's reading of Meta's public ad library, with Snapchat's and Pinterest's repositories for the EU beside them: each ad's dates and platforms, its reach by country and audience, who paid, and its pictures, read like every other picture. A year of ads is on file, 40,942 from the brands' fashion lines: Meta's library searched for 23 of the 40 so far, Snapchat's and Pinterest's for all 40, and nearly every picture read. What they show so far is under <a href="#/advertise">How they advertise</a>.</li>
+            <li><span class="t">Films</span>Every film on 36 of the brands' own video channels, 20,705 in all, with views and likes refreshed weekly. Public view counts include paid plays, so they are read beside the advertising, not as attention.</li>
+            <li><span class="t">Search and video ads</span>87,014 ads the brands' own accounts ran in Europe, for the 35 with an account of their own, from the largest search engine's public transparency data: when and where each ran, roughly how often, on search or video, and how its audience was chosen. The data holds no pictures, so it gives the advertising its timing and weight, not its look.</li>
+            <li><span class="t">Paid social</span>The brands' ads on the largest social platform, through a vendor's reading of its public ad library, with two other platforms' repositories for the EU beside them: each ad's dates and placements, its reach by country and audience, who paid, and its pictures, read like every other picture. A year of ads is on file, 40,942 from the brands' fashion lines: the largest platform's library searched for 23 of the 40 so far, the other two for all 40, and nearly every picture read. What they show so far is under <a href="#/advertise">How they advertise</a>.</li>
           </ul>
+            <p class="qs-g" id="coverage" style="margin-top:2.25rem">House by house</p>
+            <div class="cov houses" role="region" aria-label="What Focal has read, house by house" tabindex="0">
+<table>
+<thead><tr><th scope="col">House</th><th scope="col">Homepage</th><th scope="col">From</th><th scope="col">Runway</th><th scope="col">Latest</th><th scope="col">Credits</th><th scope="col">Social, largest</th><th scope="col">Social, others</th><th scope="col">Search</th><th scope="col">Films</th><th scope="col">Languages</th><th scope="col">Daily</th></tr></thead>
+<tbody>
+<tr><th scope="row">Alaïa</th><td>120</td><td>2019</td><td>0</td><td><span class="thin">none yet</span></td><td>38</td><td><span class="thin">not yet</span></td><td>0</td><td>180</td><td>130</td><td>9</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Alexander McQueen</th><td>310</td><td>2014</td><td>11</td><td>Spring 2027</td><td>61</td><td><span class="thin">not yet</span></td><td>0</td><td>146</td><td>654</td><td>6</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Balenciaga</th><td>247</td><td>2014</td><td>16</td><td>Spring 2027</td><td>21</td><td>2,009</td><td>72</td><td>1,523</td><td>419</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Balmain</th><td>255</td><td>2014</td><td>9</td><td>Spring 2027</td><td>59</td><td><span class="thin">not yet</span></td><td>0</td><td>1,276</td><td>571</td><td>8</td><td>4 of 4 days</td></tr>
+<tr><th scope="row">Bottega Veneta</th><td>392</td><td>2014</td><td>5</td><td>Spring 2027</td><td>17</td><td>0</td><td>172</td><td>3,276</td><td>191</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Brunello Cucinelli</th><td>91</td><td>2014</td><td>0</td><td><span class="thin">none yet</span></td><td>2</td><td><span class="thin">not yet</span></td><td>59</td><td>6,506</td><td>530</td><td>6</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Burberry</th><td>295</td><td>2014</td><td>6</td><td>Spring 2027</td><td>13</td><td>1,267</td><td>52</td><td>850</td><td>279</td><td>10</td><td><span class="thin">no pictures</span></td></tr>
+<tr><th scope="row">Celine</th><td>144</td><td>2014</td><td>6</td><td>Spring 2026</td><td>5</td><td>2,006</td><td>46</td><td>1,490</td><td>270</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Chanel</th><td>224</td><td>2014</td><td>20</td><td>Autumn 2026</td><td>69</td><td>4,392</td><td>29</td><td>5,240</td><td>2,375</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Chloé</th><td>345</td><td>2015</td><td>18</td><td>Spring 2027</td><td>43</td><td>1,622</td><td>0</td><td>280</td><td>260</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Comme des Garçons</th><td>104</td><td>2015</td><td>0</td><td><span class="thin">none yet</span></td><td>0</td><td><span class="thin">not yet</span></td><td>0</td><td>0</td><td>0</td><td>8</td><td>4 of 4 days</td></tr>
+<tr><th scope="row">Dior</th><td>381</td><td>2014</td><td>22</td><td>Autumn 2024</td><td>22</td><td>1,389</td><td>1,304</td><td>10,399</td><td>2,033</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Dolce&amp;Gabbana</th><td>294</td><td>2014</td><td>2</td><td>Autumn 2019</td><td>27</td><td><span class="thin">not yet</span></td><td>45</td><td>3,901</td><td>1,420</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Dries Van Noten</th><td>164</td><td>2014</td><td>17</td><td>Spring 2027</td><td>3</td><td>469</td><td>0</td><td>0</td><td>203</td><td>7</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Fendi</th><td>245</td><td>2014</td><td>5</td><td>Autumn 2026</td><td>3</td><td>2,018</td><td>315</td><td>1,809</td><td>274</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Ferragamo</th><td>287</td><td>2014</td><td>7</td><td>Autumn 2017 men</td><td>33</td><td><span class="thin">not yet</span></td><td>0</td><td>2,129</td><td>413</td><td>8</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Giorgio Armani</th><td>323</td><td>2014</td><td>1</td><td>Autumn 2026</td><td>23</td><td><span class="thin">not yet</span></td><td>0</td><td>2,183</td><td>630</td><td>9</td><td><span class="thin">no pictures</span></td></tr>
+<tr><th scope="row">Givenchy</th><td>341</td><td>2014</td><td>17</td><td>Spring 2027</td><td>31</td><td>1,067</td><td>0</td><td>354</td><td>0</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Gucci</th><td>264</td><td>2014</td><td>6</td><td>Autumn 2020</td><td>41</td><td>1,852</td><td>92</td><td>6</td><td>1,498</td><td>10</td><td><span class="thin">timed out</span></td></tr>
+<tr><th scope="row">Hermès</th><td>224</td><td>2015</td><td>4</td><td>Autumn 2026 men</td><td>23</td><td>2,049</td><td>204</td><td>4,675</td><td>573</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Issey Miyake</th><td>238</td><td>2018</td><td>0</td><td><span class="thin">none yet</span></td><td>8</td><td><span class="thin">not yet</span></td><td>0</td><td>40</td><td>0</td><td>8</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Jacquemus</th><td>252</td><td>2015</td><td>1</td><td>Autumn 2026 men</td><td>31</td><td><span class="thin">not yet</span></td><td>79</td><td>874</td><td>0</td><td>5</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Jil Sander</th><td>195</td><td>2014</td><td>5</td><td>Autumn 2026</td><td>28</td><td>1,339</td><td>0</td><td>566</td><td>94</td><td>3</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Lanvin</th><td>226</td><td>2015</td><td>12</td><td>Spring 2026</td><td>25</td><td><span class="thin">not yet</span></td><td>0</td><td>114</td><td>94</td><td>8</td><td>4 of 4 days</td></tr>
+<tr><th scope="row">Loewe</th><td>402</td><td>2014</td><td>30</td><td>Spring 2025</td><td>20</td><td>2,007</td><td>36</td><td>1,441</td><td>645</td><td>9</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Loro Piana</th><td>170</td><td>2014</td><td>0</td><td><span class="thin">none yet</span></td><td>13</td><td>2,012</td><td>0</td><td>818</td><td>93</td><td>10</td><td><span class="thin">timed out</span></td></tr>
+<tr><th scope="row">Louis Vuitton</th><td>148</td><td>2014</td><td>10</td><td>Autumn 2026</td><td>16</td><td>1,958</td><td>534</td><td>3,563</td><td>1,342</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Maison Margiela</th><td>220</td><td>2015</td><td>3</td><td>Spring 2027</td><td>6</td><td>450</td><td>0</td><td>109</td><td>50</td><td>8</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Max Mara</th><td>288</td><td>2014</td><td>1</td><td>Spring 2025</td><td>26</td><td><span class="thin">not yet</span></td><td>296</td><td>9,190</td><td>86</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Miu Miu</th><td>254</td><td>2014</td><td>8</td><td>Autumn 2026</td><td>18</td><td>1,379</td><td>48</td><td>10</td><td>711</td><td>7</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Moncler</th><td>369</td><td>2014</td><td>6</td><td>Autumn 2025</td><td>31</td><td><span class="thin">not yet</span></td><td>14</td><td>2,721</td><td>451</td><td>8</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Prada</th><td>205</td><td>2015</td><td>12</td><td>Spring 2022 men</td><td>14</td><td>2,011</td><td>319</td><td>6,533</td><td>817</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Saint Laurent</th><td>239</td><td>2014</td><td>17</td><td>Spring 2027</td><td>10</td><td>1,921</td><td>45</td><td>3,972</td><td>753</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Schiaparelli</th><td>133</td><td>2014</td><td>20</td><td>Spring 2027</td><td>2</td><td><span class="thin">not yet</span></td><td>0</td><td>0</td><td>47</td><td>3</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Stella McCartney</th><td>438</td><td>2014</td><td>11</td><td>Autumn 2026</td><td>23</td><td><span class="thin">not yet</span></td><td>0</td><td>359</td><td>471</td><td>9</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">The Row</th><td>186</td><td>2014</td><td>7</td><td>Spring 2027</td><td>16</td><td><span class="thin">not yet</span></td><td>0</td><td>0</td><td>2</td><td>1</td><td>4 of 4 days</td></tr>
+<tr><th scope="row">Tom Ford</th><td>100</td><td>2015</td><td>0</td><td><span class="thin">none yet</span></td><td>39</td><td>284</td><td>0</td><td>815</td><td>96</td><td>3</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Valentino</th><td>301</td><td>2014</td><td>22</td><td>Spring 2027</td><td>14</td><td>1,875</td><td>1</td><td>7,551</td><td>1,210</td><td>10</td><td>5 of 5 days</td></tr>
+<tr><th scope="row">Versace</th><td>296</td><td>2014</td><td>1</td><td>Spring 2017</td><td>40</td><td>1,576</td><td>228</td><td>2,115</td><td>719</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+<tr><th scope="row">Zegna</th><td>353</td><td>2014</td><td>4</td><td>Spring 2024 men</td><td>4</td><td><span class="thin">not yet</span></td><td>0</td><td>0</td><td>301</td><td>10</td><td><span class="thin">turned away</span></td></tr>
+</tbody>
+</table>
+</div>
+            <p class="note" style="text-align:center;margin-top:1rem">Homepage pictures read, and the year they start; runway shows with looks on file, and the latest season; campaign credits; fashion ads in the largest social platform's library, where searched so far, and in the two others; search and video ads; films on the house's own channel; languages with daily page views; and the days of the first four or five on which Focal's own daily capture got the homepage's pictures. On the largest platform, counts near 2,000 are floors: the vendor stops at about 2,000 ads a page.</p>
           </details>
           <details id="end-to-end">
             <summary>Each stage, end to end</summary>
@@ -1068,7 +1252,7 @@
               <ul class="four">
                 <li><span class="t">Character</span>Its imagery on eighteen questions, on the axes of luxury that pass the tests and in colour and light, with the cast of people who make it.</li>
                 <li><span class="t">Shift</span>How far the image has moved from its own past and against its peers, and whether it is drifting towards the brand of the moment.</li>
-                <li><span class="t">Contribution</span>The attention that follows, and in time the desire and revenue, beyond what the brand's own momentum and the reach it paid for would deliver. A brand can set it against its own sales.</li>
+                <li><span class="t">Contribution</span>The attention that follows, beyond what the brand's own momentum and the reach it paid for would deliver. No link to sales is claimed; what the tests have found so far is listed above, and a brand can set the reading against its own sales.</li>
                 <li><span class="t">Alignment</span>Its advertising set against its show notes and campaign statements, question by question.</li>
               </ul>
               <p class="note aud">For a brand's president or image director, the group that owns it, or an investor following it.</p>
@@ -1081,7 +1265,7 @@
               <div><dt>The show</dt><dd>The day before to three days after.</dd></div>
               <div><dt>The shop window</dt><dd>The homepage from the day after the show to six months on.</dd></div>
               <div><dt>The campaigns</dt><dd>By the season a campaign's title names, or else the brand's last main show within six months.</dd></div>
-              <div><dt>The advertising</dt><dd>Ads first seen from a week before the show to three weeks after, and the campaign's from six weeks after to a week before the brand's next main show. Only ads for the season's collection count towards the campaign, sorted by their own words; leather goods, beauty, jewellery and watches, capsules and the holidays are read apart. The campaign has landed when its third ad for the collection is first seen.</dd></div>
+              <div><dt>The advertising</dt><dd>Ads first seen from a week before the show to three weeks after, and the campaign's from six weeks after to a week before the brand's next main show. Only ads for the season's collection count towards the campaign, sorted by their own words; leather goods, beauty, jewellery and watches, capsules and the holidays are read apart. The campaign has landed when its third distinct ad for the collection is first seen.</dd></div>
               <div><dt>Each against its kind</dt><dd>A runway is set against the season's other runways and an advertisement against other advertisements. The show and the advertising do different jobs; what they share is the clothes.</dd></div>
             </dl>
           </details>
@@ -1245,11 +1429,11 @@
       <div class="body wide" id="advertise" style="margin-top:4.5rem">
         <div class="narrow">
           <p class="sub big">How they advertise</p>
-          <p>A year of the brands' paid social, from the ad libraries the platforms keep open in Europe: who paid for each ad, whom it reached, and its pictures, read like every other picture. Meta's library is searched for 23 of the <span class="nw">forty</span> so far, so these are first readings.</p>
+          <p>A year of the brands' paid social, from the ad libraries the platforms keep open in Europe: who paid for each ad, whom it reached, and its pictures, read like every other picture. The largest platform's library is searched for 23 of the <span class="nw">forty</span> so far, so these are first readings.</p>
         </div>
         <div class="narrow">
           <p class="sub" style="margin-top:3rem">Half is put together by the platform</p>
-          <p class="block">Of the brands' 36,952 fashion ads on Facebook and Instagram, 49% are catalogue or dynamic units the platform assembles from a product feed, not a picture the brand made: 96% of Versace's, 6% of Gucci's. A count of ads says more about how a brand buys than about what it shows.</p>
+          <p class="block">Of the brands' 36,952 fashion ads on the largest platform, 49% are catalogue or dynamic units the platform assembles from a product feed, not a picture the brand made: 96% of Versace's, 6% of Gucci's. A count of ads says more about how a brand buys than about what it shows.</p>
           <p class="sub">The show rarely becomes the ad</p>
           <p class="block">51 of 14,438 ad pictures show a look from the brand's own runway, against none by chance, most of them Chloé's and Givenchy's. In the clothes, the outfits in the ads differ from the show's beyond chance in 12 of 14 comparisons, and yet in 12 of the 14 the ads stay nearer their own brand's runway than most others'. That comparison is a first reading: people have yet to check the clothes questions.</p>
           <p class="sub">Nor the shop window</p>
@@ -1289,7 +1473,7 @@
                 <div class="ic-face ic-back" id="ic-alaia">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;01 &middot; Alaïa</p>
                   <p class="ic-stat"><span class="ic-big">64%</span> <span class="ic-t">of its homepage pictures show eveningwear</span></p>
-              <p class="ic-m">The median house: 11%</p>
+                  <p class="ic-m">The median house: 11%</p>
                   <ul class="ic-l"><li>79% carry text, against 25%; 36% are set in a landscape, against 3%.</li><li>The sixth most distinct shop window of the 35 houses read in 2025, and nearest to Balmain’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 14 homepage pictures, 2025.</p>
                 </div>
@@ -1320,8 +1504,8 @@
                 <div class="ic-face ic-back" id="ic-bottega_veneta">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;03 &middot; Bottega Veneta</p>
                   <p class="ic-stat"><span class="ic-big">91%</span> <span class="ic-t">of its homepage pictures show formal tailoring</span></p>
-              <p class="ic-m">The median house: 43%</p>
-                  <ul class="ic-l"><li>68% have nobody in them, against 25%; only 41% show a neutral expression, against 86%.</li><li>The fourth most distinct shop window of the 30 houses read in 2026, and nearest to Loewe’s.</li><li>Five years or more on, its pictures pick it out from the other houses 2 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 44%</p>
+                  <ul class="ic-l"><li>68% have nobody in them, against 24%; only 41% show a neutral expression, against 87%.</li><li>The fourth most distinct shop window of the 31 houses read in 2026, and nearest to Loewe’s.</li><li>Five years or more on, its pictures pick it out from the other houses 2 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 22 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1336,7 +1520,7 @@
                 <div class="ic-face ic-back" id="ic-brunello_cucinelli">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;04 &middot; Brunello Cucinelli</p>
                   <p class="ic-stat"><span class="ic-big">92%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
-              <p class="ic-m">The median house: 30%</p>
+                  <p class="ic-m">The median house: 30%</p>
                   <ul class="ic-l"><li>58% are lit by daylight, against 7%; 42% are set in a landscape, against 7%.</li><li>The third most distinct shop window of the 38 houses read in 2023, and nearest to Zegna’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 12 homepage pictures, 2023.</p>
                 </div>
@@ -1351,10 +1535,10 @@
                 <div class="ic-face ic-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Focal, the Burberry issue: a honey trench coat under a black umbrella on a wet London street, seen from behind"><defs><linearGradient id="burberry-vt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.27"/><stop offset=".62" stop-color="#ffffff" stop-opacity="0.15"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient><linearGradient id="burberry-vb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset=".45" stop-color="#000000" stop-opacity="0.44"/><stop offset="1" stop-color="#000000" stop-opacity="0.74"/></linearGradient></defs><image data-href="/issues/burberry-9e7423a4f0bc.webp" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidYMid slice"/><rect x="0" y="0" width="400" height="200" fill="url(#burberry-vt)"/><rect x="0" y="312" width="400" height="188" fill="url(#burberry-vb)"/><text x="200" y="68" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="66" font-weight="300" fill="#111111" style="font-variation-settings:'wdth' 125;letter-spacing:7px">F<tspan fill="#7b5a2e">O</tspan>CAL</text><text x="200" y="86" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.4" font-weight="600" fill="#111111" style="letter-spacing:2.4px">THE HOUSE ISSUES &#183; NO. 05 &#183; OCTOBER 2026</text><text x="25" y="382.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">The</text><text x="22" y="436.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="54" fill="#fbf8f2" style="letter-spacing:-0.6px">Burberry</text><text x="25" y="458.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">issue</text></svg></div>
                 <div class="ic-face ic-back" id="ic-burberry">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;05 &middot; Burberry</p>
-                  <p class="ic-stat"><span class="ic-big">76%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
-              <p class="ic-m">The median house: 29%</p>
-                  <ul class="ic-l"><li>59% are styled casually, against 27%; only 24% are shot on a studio set, against 51%.</li><li>The eighteenth most distinct shop window of the 37 houses read in 2024, and nearest to Jil Sander’s.</li><li>Five years or more on, its pictures pick it out from the other houses 4 times in 100, against 24 for the typical house.</li></ul>
-                  <p class="ic-f">Focal’s reading of 34 homepage pictures, 2024.</p>
+                  <p class="ic-stat"><span class="ic-big">79%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
+                  <p class="ic-m">The median house: 29%</p>
+                  <ul class="ic-l"><li>63% are styled casually, against 27%; only 21% are shot on a studio set, against 51%.</li><li>The twenty-first most distinct shop window of the 37 houses read in 2024, and nearest to Jil Sander’s.</li><li>Five years or more on, its pictures pick it out from the other houses 7 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-f">Focal’s reading of 38 homepage pictures, 2024.</p>
                 </div>
               </div>
             </div>
@@ -1368,7 +1552,7 @@
                 <div class="ic-face ic-back" id="ic-celine">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;06 &middot; Celine</p>
                   <p class="ic-stat"><span class="ic-big ic-long">All 8</span> <span class="ic-t">of its homepage pictures in 2024 were close-ups, with nobody in them</span></p>
-              <p class="ic-m">The median house: 20% close-ups, 23% with nobody</p>
+                  <p class="ic-m">The median house: 20% close-ups, 23% with nobody</p>
                   <ul class="ic-l"><li>The second most distinct shop window of the 37 houses read in 2024, and nearest to Jacquemus’s.</li><li>The most distinct shop window of all in 2015, and again in 2017.</li></ul>
                   <p class="ic-f">Focal’s reading of 8 homepage pictures, 2024.</p>
                 </div>
@@ -1384,9 +1568,9 @@
                 <div class="ic-face ic-back" id="ic-chanel">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;07 &middot; Chanel</p>
                   <p class="ic-stat"><span class="ic-big">74</span> <span class="ic-t">times in 100, its pictures still pick it out from the other houses five years or more on</span></p>
-              <p class="ic-m">The typical house: 24. By chance: 5.</p>
+                  <p class="ic-m">The typical house: 24. By chance: 5.</p>
                   <ul class="ic-l"><li>In 2023, 30% of its homepage pictures showed a group, against none at the median house.</li><li>In 2022, 61% read as romantic, against 27%.</li></ul>
-                  <p class="ic-f">Focal’s reading of its homepage pictures, 2014 to 2024.</p>
+                  <p class="ic-f">Focal’s reading of its homepage pictures, 2014 to 2025.</p>
                 </div>
               </div>
             </div>
@@ -1400,8 +1584,8 @@
                 <div class="ic-face ic-back" id="ic-chloe">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;08 &middot; Chloé</p>
                   <p class="ic-stat"><span class="ic-big">79%</span> <span class="ic-t">of its homepage pictures have nobody in them</span></p>
-              <p class="ic-m">The median house: 26%</p>
-                  <ul class="ic-l"><li>71% are shot in a plain studio, against 36%; only 21% look straight at the camera, against 59%.</li><li>The eleventh most distinct shop window of the 35 houses read in 2025, and nearest to Loewe’s.</li><li>Five years or more on, its pictures pick it out from the other houses 14 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 26%</p>
+                  <ul class="ic-l"><li>71% are shot in a plain studio, against 36%; only 21% look straight at the camera, against 59%.</li><li>The tenth most distinct shop window of the 35 houses read in 2025, and nearest to Loewe’s.</li><li>Five years or more on, its pictures pick it out from the other houses 14 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 34 homepage pictures, 2025.</p>
                 </div>
               </div>
@@ -1416,7 +1600,7 @@
                 <div class="ic-face ic-back" id="ic-dior">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;09 &middot; Dior</p>
                   <p class="ic-stat"><span class="ic-big">59%</span> <span class="ic-t">of its homepage pictures read as romantic</span></p>
-              <p class="ic-m">The median house: 26%</p>
+                  <p class="ic-m">The median house: 26%</p>
                   <ul class="ic-l"><li>The twenty-fifth most distinct shop window of the 37 houses read in 2024, and nearest to Max Mara’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 35 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 34 homepage pictures, 2024.</p>
                 </div>
@@ -1432,8 +1616,8 @@
                 <div class="ic-face ic-back" id="ic-dolce_gabbana">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;10 &middot; Dolce&amp;Gabbana</p>
                   <p class="ic-stat"><span class="ic-big">93%</span> <span class="ic-t">of its homepage pictures are full length</span></p>
-              <p class="ic-m">The median house: 24%</p>
-                  <ul class="ic-l"><li>All show one person, against 60%; all look straight at the camera, against 62%.</li><li>The twelfth most distinct shop window of the 30 houses read in 2026, and nearest to Versace’s.</li></ul>
+                  <p class="ic-m">The median house: 25%</p>
+                  <ul class="ic-l"><li>All show one person, against 60%; all look straight at the camera, against 63%.</li><li>The thirteenth most distinct shop window of the 31 houses read in 2026, and nearest to Versace’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 15 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1447,10 +1631,10 @@
                 <div class="ic-face ic-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Focal, the Dries Van Noten issue: a long coat in a bold floral print over striped trousers, on mustard"><defs><linearGradient id="dries_van_noten-vt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.04"/><stop offset=".62" stop-color="#ffffff" stop-opacity="0.02"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient><linearGradient id="dries_van_noten-vb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset=".45" stop-color="#000000" stop-opacity="0.49"/><stop offset="1" stop-color="#000000" stop-opacity="0.82"/></linearGradient></defs><image data-href="/issues/dries_van_noten-3392a3d6090a.webp" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidYMid slice"/><rect x="0" y="0" width="400" height="200" fill="url(#dries_van_noten-vt)"/><rect x="0" y="270" width="400" height="230" fill="url(#dries_van_noten-vb)"/><text x="200" y="68" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="66" font-weight="300" fill="#111111" style="font-variation-settings:'wdth' 125;letter-spacing:7px">F<tspan fill="#111111">O</tspan>CAL</text><text x="200" y="86" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.4" font-weight="600" fill="#111111" style="letter-spacing:2.4px">THE HOUSE ISSUES &#183; NO. 11 &#183; OCTOBER 2026</text><text x="25" y="340.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">The</text><text x="22" y="388.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="46" fill="#fbf8f2" style="letter-spacing:-0.6px">Dries</text><text x="22" y="429.4" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="46" fill="#fbf8f2" style="letter-spacing:-0.6px">Van Noten</text><text x="25" y="451.4" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">issue</text></svg></div>
                 <div class="ic-face ic-back" id="ic-dries_van_noten">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;11 &middot; Dries Van Noten</p>
-                  <p class="ic-stat"><span class="ic-big">31%</span> <span class="ic-t">of its homepage pictures are set in the street or a city</span></p>
-              <p class="ic-m">The median house: 4%</p>
-                  <ul class="ic-l"><li>Only 50% are in high-key light, against 89%.</li><li>The eighth most distinct shop window of the 34 houses read in 2021, and nearest to Jacquemus’s.</li></ul>
-                  <p class="ic-f">Focal’s reading of 16 homepage pictures, 2021.</p>
+                  <p class="ic-stat"><span class="ic-big">86%</span> <span class="ic-t">of its homepage pictures show one person</span></p>
+                  <p class="ic-m">The median house: 60%</p>
+                  <ul class="ic-l"><li>59% read as romantic, against 30%.</li><li>The eleventh most distinct shop window of the 31 houses read in 2026, and nearest to Issey Miyake’s.</li></ul>
+                  <p class="ic-f">Focal’s reading of 22 homepage pictures, 2026.</p>
                 </div>
               </div>
             </div>
@@ -1464,7 +1648,7 @@
                 <div class="ic-face ic-back" id="ic-fendi">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;12 &middot; Fendi</p>
                   <p class="ic-stat"><span class="ic-big">86%</span> <span class="ic-t">of its homepage pictures read as opulent</span></p>
-              <p class="ic-m">The median house: 50%</p>
+                  <p class="ic-m">The median house: 50%</p>
                   <ul class="ic-l"><li>64% carry a logo as their only text, against 28%; 75% show formal tailoring, against 49%.</li><li>The twenty-eighth most distinct shop window of the 37 houses read in 2024, and nearest to Givenchy’s.</li><li>Five years or more on, its pictures pick it out from the other houses 11 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 28 homepage pictures, 2024.</p>
                 </div>
@@ -1480,8 +1664,8 @@
                 <div class="ic-face ic-back" id="ic-givenchy">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;13 &middot; Givenchy</p>
                   <p class="ic-stat"><span class="ic-big">40%</span> <span class="ic-t">of its homepage pictures show eveningwear</span></p>
-              <p class="ic-m">The median house: 10%</p>
-                  <ul class="ic-l"><li>55% carry a logo as their only text, against 18%.</li><li>The twentieth most distinct shop window of the 30 houses read in 2026, and nearest to Balmain’s.</li><li>Five years or more on, its pictures pick it out from the other houses 7 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 10%</p>
+                  <ul class="ic-l"><li>55% carry a logo as their only text, against 21%.</li><li>The sixteenth most distinct shop window of the 31 houses read in 2026, and nearest to Balmain’s.</li><li>Five years or more on, its pictures pick it out from the other houses 8 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 20 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1496,7 +1680,7 @@
                 <div class="ic-face ic-back" id="ic-gucci">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;14 &middot; Gucci</p>
                   <p class="ic-stat"><span class="ic-big">69%</span> <span class="ic-t">of its homepage pictures have nobody in them</span></p>
-              <p class="ic-m">The median house: 26%</p>
+                  <p class="ic-m">The median house: 26%</p>
                   <ul class="ic-l"><li>77% are medium shots, against 37%; only 27% look straight at the camera, against 59%.</li><li>The twenty-first most distinct shop window of the 35 houses read in 2025, and nearest to Loewe’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 26 homepage pictures, 2025.</p>
                 </div>
@@ -1512,7 +1696,7 @@
                 <div class="ic-face ic-back" id="ic-hermes">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;15 &middot; Hermès</p>
                   <p class="ic-stat"><span class="ic-big">100%</span> <span class="ic-t">of its homepage pictures carry no text</span></p>
-              <p class="ic-m">The median house: 75%</p>
+                  <p class="ic-m">The median house: 75%</p>
                   <ul class="ic-l"><li>The second most distinct shop window of the 35 houses read in 2025, and nearest to Ferragamo’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 17 homepage pictures, 2025.</p>
                 </div>
@@ -1528,8 +1712,8 @@
                 <div class="ic-face ic-back" id="ic-jil_sander">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;16 &middot; Jil Sander</p>
                   <p class="ic-stat"><span class="ic-big">75%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
-              <p class="ic-m">The median house: 25%</p>
-                  <ul class="ic-l"><li>Only 55% are built around a garment, against 88%.</li><li>The fourteenth most distinct shop window of the 30 houses read in 2026, and nearest to Balmain’s.</li></ul>
+                  <p class="ic-m">The median house: 28%</p>
+                  <ul class="ic-l"><li>Only 55% are built around a garment, against 88%.</li><li>The fourteenth most distinct shop window of the 31 houses read in 2026, and nearest to Balmain’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 20 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1544,8 +1728,8 @@
                 <div class="ic-face ic-back" id="ic-loewe">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;17 &middot; Loewe</p>
                   <p class="ic-stat"><span class="ic-big">50%</span> <span class="ic-t">of its homepage pictures are close-ups</span></p>
-              <p class="ic-m">The median house: 13%</p>
-                  <ul class="ic-l"><li>53% carry a logo as their only text, against 18%; 60% have nobody in them, against 25%.</li><li>The twenty-fifth most distinct shop window of the 30 houses read in 2026, and nearest to Balmain’s.</li></ul>
+                  <p class="ic-m">The median house: 13%</p>
+                  <ul class="ic-l"><li>60% have nobody in them, against 24%; 53% carry a logo as their only text, against 21%.</li><li>The twenty-sixth most distinct shop window of the 31 houses read in 2026, and nearest to Balmain’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 30 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1560,7 +1744,7 @@
                 <div class="ic-face ic-back" id="ic-loro_piana">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;18 &middot; Loro Piana</p>
                   <p class="ic-stat"><span class="ic-big">96%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
-              <p class="ic-m">The median house: 29%</p>
+                  <p class="ic-m">The median house: 29%</p>
                   <ul class="ic-l"><li>Only 36% are in high-key light, against 85%; none is shot in a plain studio, against 30%.</li><li>The fifteenth most distinct shop window of the 37 houses read in 2024, and nearest to Jil Sander’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 25 homepage pictures, 2024.</p>
                 </div>
@@ -1576,7 +1760,7 @@
                 <div class="ic-face ic-back" id="ic-louis_vuitton">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;19 &middot; Louis Vuitton</p>
                   <p class="ic-stat"><span class="ic-big">88%</span> <span class="ic-t">of its homepage pictures read as opulent</span></p>
-              <p class="ic-m">The median house: 50%</p>
+                  <p class="ic-m">The median house: 50%</p>
                   <ul class="ic-l"><li>76% carry text, against 28%; 65% have nobody in them, against 23%.</li><li>The sixteenth most distinct shop window of the 37 houses read in 2024, and nearest to Fendi’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 17 homepage pictures, 2024.</p>
                 </div>
@@ -1592,7 +1776,7 @@
                 <div class="ic-face ic-back" id="ic-margiela">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;20 &middot; Maison Margiela</p>
                   <p class="ic-stat"><span class="ic-big">74%</span> <span class="ic-t">of its homepage pictures are shot on a studio set</span></p>
-              <p class="ic-m">The median house: 48%</p>
+                  <p class="ic-m">The median house: 48%</p>
                   <ul class="ic-l"><li>The thirty-second most distinct shop window of the 35 houses read in 2025, and nearest to Loewe’s.</li><li>Five years or more on, its pictures pick it out from the other houses 10 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 23 homepage pictures, 2025.</p>
                 </div>
@@ -1607,10 +1791,10 @@
                 <div class="ic-face ic-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Focal, the Max Mara issue: a long camel wrap coat along a stone colonnade, seen from behind"><defs><linearGradient id="max_mara-vt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.28"/><stop offset=".62" stop-color="#000000" stop-opacity="0.15"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient><linearGradient id="max_mara-vb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset=".45" stop-color="#000000" stop-opacity="0.48"/><stop offset="1" stop-color="#000000" stop-opacity="0.80"/></linearGradient></defs><image data-href="/issues/max_mara-2262fe48c6f4.webp" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidYMid slice"/><rect x="0" y="0" width="400" height="200" fill="url(#max_mara-vt)"/><rect x="0" y="312" width="400" height="188" fill="url(#max_mara-vb)"/><text x="200" y="68" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="66" font-weight="300" fill="#fbf8f2" style="font-variation-settings:'wdth' 125;letter-spacing:7px">F<tspan fill="#fbf8f2">O</tspan>CAL</text><text x="200" y="86" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.4" font-weight="600" fill="#fbf8f2" style="letter-spacing:2.4px">THE HOUSE ISSUES &#183; NO. 21 &#183; OCTOBER 2026</text><text x="25" y="382.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">The</text><text x="22" y="436.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="54" fill="#fbf8f2" style="letter-spacing:-0.6px">Max Mara</text><text x="25" y="458.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">issue</text></svg></div>
                 <div class="ic-face ic-back" id="ic-max_mara">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;21 &middot; Max Mara</p>
-                  <p class="ic-stat"><span class="ic-big">78%</span> <span class="ic-t">of its homepage pictures are full length</span></p>
-              <p class="ic-m">The median house: 24%</p>
-                  <ul class="ic-l"><li>72% read as serene, against 25%; all show one person, against 60%.</li><li>The thirteenth most distinct shop window of the 30 houses read in 2026, and nearest to Alaïa’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 69 times in 100, against 24 for the typical house.</li></ul>
-                  <p class="ic-f">Focal’s reading of 18 homepage pictures, 2026.</p>
+                  <p class="ic-stat"><span class="ic-big">67%</span> <span class="ic-t">of its homepage pictures are full length</span></p>
+                  <p class="ic-m">The median house: 25%</p>
+                  <ul class="ic-l"><li>All show one person, against 60%.</li><li>The twelfth most distinct shop window of the 31 houses read in 2026, and nearest to Alaïa’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 69 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-f">Focal’s reading of 21 homepage pictures, 2026.</p>
                 </div>
               </div>
             </div>
@@ -1624,7 +1808,7 @@
                 <div class="ic-face ic-back" id="ic-miu_miu">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;22 &middot; Miu Miu</p>
                   <p class="ic-stat"><span class="ic-big">92%</span> <span class="ic-t">of its homepage pictures have nobody in them</span></p>
-              <p class="ic-m">The median house: 23%</p>
+                  <p class="ic-m">The median house: 23%</p>
                   <ul class="ic-l"><li>All carry text, against 28%; only 25% show a neutral expression, against 88%.</li><li>The third most distinct shop window of the 37 houses read in 2024, and nearest to Bottega Veneta’s.</li><li>Five years or more on, its pictures pick it out from the other houses 6 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 24 homepage pictures, 2024.</p>
                 </div>
@@ -1640,8 +1824,8 @@
                 <div class="ic-face ic-back" id="ic-prada">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;23 &middot; Prada</p>
                   <p class="ic-stat"><span class="ic-big">79%</span> <span class="ic-t">of its homepage pictures are medium shots</span></p>
-              <p class="ic-m">The median house: 41%</p>
-                  <ul class="ic-l"><li>63% carry a logo as their only text, against 18%.</li><li>The twenty-fourth most distinct shop window of the 30 houses read in 2026, and nearest to Loewe’s.</li></ul>
+                  <p class="ic-m">The median house: 43%</p>
+                  <ul class="ic-l"><li>63% carry a logo as their only text, against 21%.</li><li>The twenty-fourth most distinct shop window of the 31 houses read in 2026, and nearest to Loewe’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 19 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1656,8 +1840,8 @@
                 <div class="ic-face ic-back" id="ic-saint_laurent">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;24 &middot; Saint Laurent</p>
                   <p class="ic-stat"><span class="ic-big">42%</span> <span class="ic-t">of its homepage pictures show eveningwear</span></p>
-              <p class="ic-m">The median house: 10%</p>
-                  <ul class="ic-l"><li>The twenty-sixth most distinct shop window of the 30 houses read in 2026, and nearest to Versace’s.</li></ul>
+                  <p class="ic-m">The median house: 10%</p>
+                  <ul class="ic-l"><li>The twenty-seventh most distinct shop window of the 31 houses read in 2026, and nearest to Versace’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 24 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1672,7 +1856,7 @@
                 <div class="ic-face ic-back" id="ic-tom_ford">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;25 &middot; Tom Ford</p>
                   <p class="ic-stat"><span class="ic-big">100%</span> <span class="ic-t">of its homepage pictures look straight at the camera</span></p>
-              <p class="ic-m">The median house: 58%</p>
+                  <p class="ic-m">The median house: 58%</p>
                   <ul class="ic-l"><li>61% are full length, against 25%; 93% show one person, against 58%.</li><li>The fourteenth most distinct shop window of the 35 houses read in 2025, and nearest to Balmain’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 28 homepage pictures, 2025.</p>
                 </div>
@@ -1688,7 +1872,7 @@
                 <div class="ic-face ic-back" id="ic-valentino">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;26 &middot; Valentino</p>
                   <p class="ic-stat"><span class="ic-big">50%</span> <span class="ic-t">of its homepage pictures carry text</span></p>
-              <p class="ic-m">The median house: 25%</p>
+                  <p class="ic-m">The median house: 25%</p>
                   <ul class="ic-l"><li>The sixteenth most distinct shop window of the 35 houses read in 2025, and nearest to Alexander McQueen’s.</li><li>Five years or more on, its pictures pick it out from the other houses 9 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 38 homepage pictures, 2025.</p>
                 </div>
@@ -1704,8 +1888,8 @@
                 <div class="ic-face ic-back" id="ic-versace">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;27 &middot; Versace</p>
                   <p class="ic-stat"><span class="ic-big">73%</span> <span class="ic-t">of its homepage pictures are medium shots</span></p>
-              <p class="ic-m">The median house: 41%</p>
-                  <ul class="ic-l"><li>The twenty-third most distinct shop window of the 30 houses read in 2026, and nearest to Saint Laurent’s.</li></ul>
+                  <p class="ic-m">The median house: 43%</p>
+                  <ul class="ic-l"><li>The twenty-third most distinct shop window of the 31 houses read in 2026, and nearest to Saint Laurent’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 22 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1720,8 +1904,8 @@
                 <div class="ic-face ic-back" id="ic-zegna">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;28 &middot; Zegna</p>
                   <p class="ic-stat"><span class="ic-big">100%</span> <span class="ic-t">of its homepage pictures read as serene</span></p>
-              <p class="ic-m">The median house: 25%</p>
-                  <ul class="ic-l"><li>Only 41% are in high-key light, against 89%; none is shot in a plain studio, against 33%.</li><li>The fifth most distinct shop window of the 30 houses read in 2026, and nearest to Ferragamo’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 34 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 28%</p>
+                  <ul class="ic-l"><li>Only 41% are in high-key light, against 89%; none is shot in a plain studio, against 32%.</li><li>The fifth most distinct shop window of the 31 houses read in 2026, and nearest to Ferragamo’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 34 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 17 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1736,7 +1920,7 @@
                 <div class="ic-face ic-back" id="ic-mcqueen">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;29 &middot; Alexander McQueen</p>
                   <p class="ic-stat"><span class="ic-big">81%</span> <span class="ic-t">of its homepage pictures read as opulent</span></p>
-              <p class="ic-m">The median house: 45%</p>
+                  <p class="ic-m">The median house: 45%</p>
                   <ul class="ic-l"><li>59% are full length, against 31%; 35% are set in the street or a city, against 7%.</li><li>The thirty-fifth most distinct shop window of the 38 houses read in 2023, and nearest to Balmain’s.</li><li>Five years or more on, its pictures pick it out from the other houses 14 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 37 homepage pictures, 2023.</p>
                 </div>
@@ -1752,7 +1936,7 @@
                 <div class="ic-face ic-back" id="ic-balmain">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;30 &middot; Balmain</p>
                   <p class="ic-stat"><span class="ic-big">69%</span> <span class="ic-t">of its homepage pictures are medium shots</span></p>
-              <p class="ic-m">The median house: 37%</p>
+                  <p class="ic-m">The median house: 37%</p>
                   <ul class="ic-l"><li>79% are shot on a studio set, against 48%; only 7% are styled casually, against 39%.</li><li>The twenty-eighth most distinct shop window of the 35 houses read in 2025, and nearest to Alexander McQueen’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 29 homepage pictures, 2025.</p>
                 </div>
@@ -1768,7 +1952,7 @@
                 <div class="ic-face ic-back" id="ic-comme_des_garcons">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;31 &middot; Comme des Garçons</p>
                   <p class="ic-stat"><span class="ic-big">92%</span> <span class="ic-t">of its homepage pictures show formal tailoring</span></p>
-              <p class="ic-m">The median house: 35%</p>
+                  <p class="ic-m">The median house: 35%</p>
                   <ul class="ic-l"><li>50% are lit by daylight, against 7%.</li><li>The second most distinct shop window of the 35 houses read in 2020, and nearest to Brunello Cucinelli’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 12 homepage pictures, 2020.</p>
                 </div>
@@ -1783,10 +1967,10 @@
                 <div class="ic-face ic-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Focal, the Ferragamo issue: a red pump with a bow on a sunlit stone stair"><defs><linearGradient id="ferragamo-vt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.03"/><stop offset=".62" stop-color="#000000" stop-opacity="0.02"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient><linearGradient id="ferragamo-vb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset=".45" stop-color="#000000" stop-opacity="0.49"/><stop offset="1" stop-color="#000000" stop-opacity="0.82"/></linearGradient></defs><image data-href="/issues/ferragamo-54e03d5fa662.webp" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidYMid slice"/><rect x="0" y="0" width="400" height="200" fill="url(#ferragamo-vt)"/><rect x="0" y="312" width="400" height="188" fill="url(#ferragamo-vb)"/><text x="200" y="68" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="66" font-weight="300" fill="#fbf8f2" style="font-variation-settings:'wdth' 125;letter-spacing:7px">F<tspan fill="#c8102e">O</tspan>CAL</text><text x="200" y="86" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.4" font-weight="600" fill="#fbf8f2" style="letter-spacing:2.4px">THE HOUSE ISSUES &#183; NO. 32 &#183; OCTOBER 2026</text><text x="25" y="382.0" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">The</text><text x="22" y="436.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="54" fill="#fbf8f2" style="letter-spacing:-0.6px">Ferragamo</text><text x="25" y="458.6" font-family="'Bodoni Moda', 'Bodoni 72', Didot, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#fbf8f2">issue</text></svg></div>
                 <div class="ic-face ic-back" id="ic-ferragamo">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;32 &middot; Ferragamo</p>
-                  <p class="ic-stat"><span class="ic-big">78%</span> <span class="ic-t">of its homepage pictures are shot on a studio set</span></p>
-              <p class="ic-m">The median house: 53%</p>
-                  <ul class="ic-l"><li>Only 48% are built around a garment, against 88%; only 30% show one person, against 65%.</li><li>The ninth most distinct shop window of the 30 houses read in 2026, and nearest to Valentino’s.</li></ul>
-                  <p class="ic-f">Focal’s reading of 23 homepage pictures, 2026.</p>
+                  <p class="ic-stat"><span class="ic-big">38%</span> <span class="ic-t">of its homepage pictures show eveningwear</span></p>
+                  <p class="ic-m">The median house: 11%</p>
+                  <ul class="ic-l"><li>Only 31% show one person, against 61%.</li><li>The twelfth most distinct shop window of the 35 houses read in 2025, and nearest to Givenchy’s.</li></ul>
+                  <p class="ic-f">Focal’s reading of 29 homepage pictures, 2025.</p>
                 </div>
               </div>
             </div>
@@ -1800,8 +1984,8 @@
                 <div class="ic-face ic-back" id="ic-armani">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;33 &middot; Giorgio Armani</p>
                   <p class="ic-stat"><span class="ic-big">41%</span> <span class="ic-t">of its homepage pictures show two people</span></p>
-              <p class="ic-m">The median house: none</p>
-                  <ul class="ic-l"><li>Only 24% read as opulent, against 50%.</li><li>The eighth most distinct shop window of the 30 houses read in 2026, and nearest to Lanvin’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 35 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 4%</p>
+                  <ul class="ic-l"><li>Only 24% read as opulent, against 51%.</li><li>The ninth most distinct shop window of the 31 houses read in 2026, and nearest to Lanvin’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 34 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 29 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1816,8 +2000,8 @@
                 <div class="ic-face ic-back" id="ic-issey_miyake">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;34 &middot; Issey Miyake</p>
                   <p class="ic-stat"><span class="ic-big">67%</span> <span class="ic-t">of its homepage pictures are full length</span></p>
-              <p class="ic-m">The median house: 24%</p>
-                  <ul class="ic-l"><li>81% show formal tailoring, against 43%; 94% show one person, against 60%.</li><li>The twenty-second most distinct shop window of the 30 houses read in 2026, and nearest to Alaïa’s.</li></ul>
+                  <p class="ic-m">The median house: 25%</p>
+                  <ul class="ic-l"><li>81% show formal tailoring, against 44%; 94% show one person, against 60%.</li><li>The twenty-second most distinct shop window of the 31 houses read in 2026, and nearest to Alaïa’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 36 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1832,7 +2016,7 @@
                 <div class="ic-face ic-back" id="ic-jacquemus">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;35 &middot; Jacquemus</p>
                   <p class="ic-stat"><span class="ic-big">67%</span> <span class="ic-t">of its homepage pictures are shot in a plain studio</span></p>
-              <p class="ic-m">The median house: 27%</p>
+                  <p class="ic-m">The median house: 27%</p>
                   <ul class="ic-l"><li>61% have nobody in them, against 23%; 52% are close-ups, against 20%.</li><li>The eleventh most distinct shop window of the 37 houses read in 2024, and nearest to Lanvin’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 33 homepage pictures, 2024.</p>
                 </div>
@@ -1848,7 +2032,7 @@
                 <div class="ic-face ic-back" id="ic-lanvin">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;36 &middot; Lanvin</p>
                   <p class="ic-stat"><span class="ic-big">59%</span> <span class="ic-t">of its homepage pictures are shot in a plain studio</span></p>
-              <p class="ic-m">The median house: 27%</p>
+                  <p class="ic-m">The median house: 27%</p>
                   <ul class="ic-l"><li>The twenty-second most distinct shop window of the 37 houses read in 2024, and nearest to Valentino’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 32 homepage pictures, 2024.</p>
                 </div>
@@ -1864,8 +2048,8 @@
                 <div class="ic-face ic-back" id="ic-moncler">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;37 &middot; Moncler</p>
                   <p class="ic-stat"><span class="ic-big">85%</span> <span class="ic-t">of its homepage pictures are styled casually</span></p>
-              <p class="ic-m">The median house: 38%</p>
-                  <ul class="ic-l"><li>Only 46% are in high-key light, against 89%.</li><li>The seventh most distinct shop window of the 30 houses read in 2026, and nearest to Giorgio Armani’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 71 times in 100, against 24 for the typical house.</li></ul>
+                  <p class="ic-m">The median house: 37%</p>
+                  <ul class="ic-l"><li>Only 46% are in high-key light, against 89%.</li><li>The sixth most distinct shop window of the 31 houses read in 2026, and nearest to Burberry’s.</li><li>Five years or more on, its pictures still pick it out from the other houses 70 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 26 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1880,8 +2064,8 @@
                 <div class="ic-face ic-back" id="ic-schiaparelli">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;38 &middot; Schiaparelli</p>
                   <p class="ic-stat"><span class="ic-big">92%</span> <span class="ic-t">of its homepage pictures are full length</span></p>
-              <p class="ic-m">The median house: 24%</p>
-                  <ul class="ic-l"><li>77% show eveningwear, against 10%; 92% read as opulent, against 50%.</li><li>The third most distinct shop window of the 30 houses read in 2026, and nearest to Alexander McQueen’s.</li></ul>
+                  <p class="ic-m">The median house: 25%</p>
+                  <ul class="ic-l"><li>77% show eveningwear, against 10%; 92% read as opulent, against 48%.</li><li>The third most distinct shop window of the 31 houses read in 2026, and nearest to Alexander McQueen’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 26 homepage pictures, 2026.</p>
                 </div>
               </div>
@@ -1896,8 +2080,8 @@
                 <div class="ic-face ic-back" id="ic-stella_mccartney">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;39 &middot; Stella McCartney</p>
                   <p class="ic-stat"><span class="ic-big">96%</span> <span class="ic-t">of its homepage pictures look straight at the camera</span></p>
-              <p class="ic-m">The median house: 58%</p>
-                  <ul class="ic-l"><li>73% are medium shots, against 37%; 92% show one person, against 58%.</li><li>The twentieth most distinct shop window of the 35 houses read in 2025, and nearest to Balmain’s.</li></ul>
+                  <p class="ic-m">The median house: 58%</p>
+                  <ul class="ic-l"><li>73% are medium shots, against 37%; 92% show one person, against 58%.</li><li>The twentieth most distinct shop window of the 35 houses read in 2025, and nearest to Balmain’s.</li><li>Five years or more on, its pictures pick it out from the other houses 14 times in 100, against 24 for the typical house.</li></ul>
                   <p class="ic-f">Focal’s reading of 26 homepage pictures, 2025.</p>
                 </div>
               </div>
@@ -1912,7 +2096,7 @@
                 <div class="ic-face ic-back" id="ic-the_row">
                   <p class="ic-k" aria-hidden="true">No.&nbsp;40 &middot; The Row</p>
                   <p class="ic-stat"><span class="ic-big">100%</span> <span class="ic-t">of its homepage pictures show one person</span></p>
-              <p class="ic-m">The median house: 58%</p>
+                  <p class="ic-m">The median house: 58%</p>
                   <ul class="ic-l"><li>Only 40% are in high-key light, against 88%.</li><li>The eighth most distinct shop window of the 35 houses read in 2025, and nearest to Alexander McQueen’s.</li></ul>
                   <p class="ic-f">Focal’s reading of 15 homepage pictures, 2025.</p>
                 </div>
@@ -2025,7 +2209,9 @@
   // pages folded into others keep their addresses: each opens the page that now holds it, at its part
   const moved = { people: ["brands"], sources: ["overview"], offer: ["overview", "benchmark"], benchmark: ["overview", "benchmark"],
                   "end-to-end": ["method", "end-to-end"], status: ["method", "status"], monthly: ["method", "monthly"],
-                  advertise: ["brands", "advertise"] };
+                  advertise: ["brands", "advertise"], proof: ["overview", "proof"], found: ["overview", "found"],
+                  example: ["overview", "example"], limits: ["overview", "limits"], record: ["overview", "record"], uses: ["overview", "uses"],
+                  tests: ["method", "tests"], calls: ["method", "calls"], season: ["method", "season"], coverage: ["method", "coverage"] };
   function route() {
     const raw = location.hash.replace(/^#\/?/, "");
     const [head, sub] = raw.split("/");
@@ -2079,7 +2265,7 @@
 (() => {
   // One invented look, changed a step at a time; the reader's answers for each picture, and how often each
   // answer comes up in two houses' runway looks (built from data/flex by the site's build).
-  const FX = /*FX*/{"q":[["garments","Garments"],["accessories","Accessories"],["colour_main","Main colour"],["colour_second","Second colour"],["pattern","Pattern"],["skin_shown","Skin shown"],["hemline","Hemline"],["layers","Layers"],["silhouette","Silhouette"],["construction","Construction"],["finishing","Finishing"],["materials","Materials"],["formality","Formality"],["street_couture_axis","Street to couture"]],"lists":["garments","accessories","finishing","materials"],"labels":{"shirt_blouse":"shirt or blouse","white_ivory":"white or ivory","beige_camel":"beige or camel","yellow_gold":"yellow or gold","logo_letters":"logo or letters","above_knee":"above the knee","knee":"at the knee","midi":"midi","ankle_floor":"ankle or floor","three_or_more":"three or more","soft_cut":"soft cut","sheer_lace":"sheer or lace","satin_silk":"satin or silk","plain_woven":"plain woven","not_distinguishable":"can't tell","formal_tailored":"formal tailored","sport_street":"sport or street","not_visible":"not visible","not_applicable":"not applicable","1":"1 of 5","2":"2 of 5","3":"3 of 5","4":"4 of 5","5":"5 of 5"},"shares":{"accessories+belt":[[18,47],[16,139]],"accessories+eyewear":[[5,47],[62,139]],"accessories+jewellery":[[33,47],[25,139]],"accessories+shoes":[[45,47],[132,139]],"colour_main=black":[[13,47],[90,139]],"colour_main=grey":[[2,47],[8,139]],"colour_second=black":[[22,47],[26,139]],"colour_second=none":[[3,47],[56,139]],"construction=soft_cut":[[7,47],[17,139]],"construction=tailored":[[20,47],[97,139]],"finishing+beaded":[[16,47],[15,139]],"finishing+none":[[12,47],[103,139]],"finishing+pleated":[[25,47],[23,139]],"formality=casual":[[9,47],[13,139]],"formality=formal_tailored":[[15,47],[82,139]],"garments+coat":[[7,47],[43,139]],"garments+dress":[[15,47],[34,139]],"garments+shirt_blouse":[[20,47],[48,139]],"garments+skirt":[[16,47],[14,139]],"garments+sweater":[[1,47],[4,139]],"garments+top":[[5,47],[10,139]],"garments+trousers":[[11,47],[97,139]],"hemline=ankle_floor":[[25,47],[110,139]],"hemline=knee":[[2,47],[19,139]],"hemline=midi":[[13,47],[10,139]],"layers=one":[[8,47],[44,139]],"layers=two":[[27,47],[82,139]],"materials+knit":[[6,47],[10,139]],"materials+leather":[[3,47],[36,139]],"materials+plain_woven":[[24,47],[98,139]],"materials+sheer_lace":[[23,47],[12,139]],"pattern=plain":[[15,47],[102,139]],"silhouette=fitted":[[12,47],[58,139]],"silhouette=flared":[[8,47],[0,139]],"silhouette=straight":[[8,47],[12,139]],"silhouette=volume":[[15,47],[68,139]],"skin_shown=covered":[[4,47],[80,139]],"skin_shown=some":[[41,47],[59,139]],"street_couture_axis=3":[[18,47],[18,139]],"street_couture_axis=4":[[3,47],[4,139]],"street_couture_axis=5":[[24,47],[96,139]]},"frames":[{"k":-5,"id":"A5","label":"More decorated, 5 of 5: a belt","alt":"A grey belt tied in a bow at the waist of the beaded top and the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery","belt"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"tailored","finishing":["beaded","pleated"],"materials":["sheer_lace","plain_woven"],"formality":"formal_tailored","street_couture_axis":"4"}},{"k":-4,"id":"A4","label":"More decorated, 4 of 5: beading","alt":"Small beads scattered over the grey top, above the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["beaded","pleated"],"materials":["sheer_lace","knit"],"formality":"casual","street_couture_axis":"3"}},{"k":-3,"id":"A3","label":"More decorated, 3 of 5: sheer tulle","alt":"The pleated skirt now sheer grey tulle over a short slip, her legs showing through it, with the grey top and gold necklace.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["pleated"],"materials":["knit","sheer_lace"],"formality":"casual","street_couture_axis":"3"}},{"k":-2,"id":"A2","label":"More decorated, 2 of 5: a pleated skirt to mid-calf","alt":"The dress replaced by a fitted grey top and a grey pleated skirt to below the knee, with the gold necklace and earrings.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"flared","construction":"soft_cut","finishing":["pleated"],"materials":["knit","plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":-1,"id":"A1","label":"More decorated, 1 of 5: gold jewellery","alt":"The same look with a bold gold chain necklace and small gold drop earrings.","a":{"garments":["dress"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":0,"id":"start","label":"As drawn","alt":"A woman walks towards the camera on a pale stone runway against a plain off-white wall, in a plain mid-grey knee-length dress with long sleeves and black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"grey","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":1,"id":"B1","label":"Plainer and darker, 1 of 5: black","alt":"The same plain knee-length dress with long sleeves, now black, with black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":2,"id":"B2","label":"Plainer and darker, 2 of 5: wide trousers to the floor","alt":"A plain black top with long sleeves and straight black trousers to the floor over black boots.","a":{"garments":["top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":3,"id":"B3","label":"Plainer and darker, 3 of 5: an oversized coat","alt":"An oversized black wool coat with wide padded shoulders, worn open over the black top and trousers.","a":{"garments":["coat","top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":4,"id":"B4","label":"Plainer and darker, 4 of 5: leather","alt":"The oversized coat now in smooth black leather, over the black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":5,"id":"B5","label":"Plainer and darker, 5 of 5: dark glasses","alt":"Dark wraparound sunglasses with the oversized black leather coat, black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes","eyewear"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}}]}/*FX*/;
+  const FX = /*FX*/{"q":[["garments","Garments"],["accessories","Accessories"],["colour_main","Main colour"],["colour_second","Second colour"],["pattern","Pattern"],["skin_shown","Skin shown"],["hemline","Hemline"],["layers","Layers"],["silhouette","Silhouette"],["construction","Construction"],["finishing","Finishing"],["materials","Materials"],["formality","Formality"],["street_couture_axis","Street to couture"]],"lists":["garments","accessories","finishing","materials"],"labels":{"shirt_blouse":"shirt or blouse","white_ivory":"white or ivory","beige_camel":"beige or camel","yellow_gold":"yellow or gold","logo_letters":"logo or letters","above_knee":"above the knee","knee":"at the knee","midi":"midi","ankle_floor":"ankle or floor","three_or_more":"three or more","soft_cut":"soft cut","sheer_lace":"sheer or lace","satin_silk":"satin or silk","plain_woven":"plain woven","not_distinguishable":"can't tell","formal_tailored":"formal tailored","sport_street":"sport or street","not_visible":"not visible","not_applicable":"not applicable","1":"1 of 5","2":"2 of 5","3":"3 of 5","4":"4 of 5","5":"5 of 5"},"shares":{"accessories+belt":[[21,72],[16,139]],"accessories+eyewear":[[8,72],[62,139]],"accessories+jewellery":[[45,72],[25,139]],"accessories+shoes":[[68,72],[132,139]],"colour_main=black":[[30,72],[90,139]],"colour_main=grey":[[2,72],[8,139]],"colour_second=black":[[26,72],[26,139]],"colour_second=none":[[13,72],[56,139]],"construction=soft_cut":[[10,72],[17,139]],"construction=tailored":[[26,72],[97,139]],"finishing+beaded":[[20,72],[15,139]],"finishing+none":[[13,72],[103,139]],"finishing+pleated":[[43,72],[23,139]],"formality=casual":[[10,72],[13,139]],"formality=formal_tailored":[[20,72],[82,139]],"garments+coat":[[8,72],[43,139]],"garments+dress":[[29,72],[34,139]],"garments+shirt_blouse":[[24,72],[48,139]],"garments+skirt":[[24,72],[14,139]],"garments+sweater":[[1,72],[4,139]],"garments+top":[[9,72],[10,139]],"garments+trousers":[[14,72],[97,139]],"hemline=ankle_floor":[[32,72],[110,139]],"hemline=knee":[[9,72],[19,139]],"hemline=midi":[[17,72],[10,139]],"layers=one":[[16,72],[44,139]],"layers=two":[[40,72],[82,139]],"materials+knit":[[13,72],[10,139]],"materials+leather":[[7,72],[36,139]],"materials+plain_woven":[[32,72],[98,139]],"materials+sheer_lace":[[36,72],[12,139]],"pattern=plain":[[31,72],[102,139]],"silhouette=fitted":[[19,72],[58,139]],"silhouette=flared":[[12,72],[0,139]],"silhouette=straight":[[9,72],[12,139]],"silhouette=volume":[[25,72],[68,139]],"skin_shown=covered":[[5,72],[80,139]],"skin_shown=some":[[64,72],[59,139]],"street_couture_axis=3":[[21,72],[18,139]],"street_couture_axis=4":[[3,72],[4,139]],"street_couture_axis=5":[[42,72],[96,139]]},"frames":[{"k":-5,"id":"A5","label":"More decorated, 5 of 5: a belt","alt":"A grey belt tied in a bow at the waist of the beaded top and the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery","belt"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"tailored","finishing":["beaded","pleated"],"materials":["sheer_lace","plain_woven"],"formality":"formal_tailored","street_couture_axis":"4"}},{"k":-4,"id":"A4","label":"More decorated, 4 of 5: beading","alt":"Small beads scattered over the grey top, above the sheer pleated skirt, with the gold necklace and earrings.","a":{"garments":["top","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["beaded","pleated"],"materials":["sheer_lace","knit"],"formality":"casual","street_couture_axis":"3"}},{"k":-3,"id":"A3","label":"More decorated, 3 of 5: sheer tulle","alt":"The pleated skirt now sheer grey tulle over a short slip, her legs showing through it, with the grey top and gold necklace.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"fitted","construction":"soft_cut","finishing":["pleated"],"materials":["knit","sheer_lace"],"formality":"casual","street_couture_axis":"3"}},{"k":-2,"id":"A2","label":"More decorated, 2 of 5: a pleated skirt to mid-calf","alt":"The dress replaced by a fitted grey top and a grey pleated skirt to below the knee, with the gold necklace and earrings.","a":{"garments":["sweater","skirt"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"midi","layers":"two","silhouette":"flared","construction":"soft_cut","finishing":["pleated"],"materials":["knit","plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":-1,"id":"A1","label":"More decorated, 1 of 5: gold jewellery","alt":"The same look with a bold gold chain necklace and small gold drop earrings.","a":{"garments":["dress"],"accessories":["shoes","jewellery"],"colour_main":"grey","colour_second":"black","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":0,"id":"start","label":"As drawn","alt":"A woman walks towards the camera on a pale stone runway against a plain off-white wall, in a plain mid-grey knee-length dress with long sleeves and black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"grey","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":1,"id":"B1","label":"Plainer and darker, 1 of 5: black","alt":"The same plain knee-length dress with long sleeves, now black, with black flat shoes.","a":{"garments":["dress"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"some","hemline":"knee","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":2,"id":"B2","label":"Plainer and darker, 2 of 5: wide trousers to the floor","alt":"A plain black top with long sleeves and straight black trousers to the floor over black boots.","a":{"garments":["top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"one","silhouette":"straight","construction":"soft_cut","finishing":["none"],"materials":["plain_woven"],"formality":"casual","street_couture_axis":"3"}},{"k":3,"id":"B3","label":"Plainer and darker, 3 of 5: an oversized coat","alt":"An oversized black wool coat with wide padded shoulders, worn open over the black top and trousers.","a":{"garments":["coat","top","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":4,"id":"B4","label":"Plainer and darker, 4 of 5: leather","alt":"The oversized coat now in smooth black leather, over the black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}},{"k":5,"id":"B5","label":"Plainer and darker, 5 of 5: dark glasses","alt":"Dark wraparound sunglasses with the oversized black leather coat, black top and trousers.","a":{"garments":["coat","shirt_blouse","trousers"],"accessories":["shoes","eyewear"],"colour_main":"black","colour_second":"none","pattern":"plain","skin_shown":"covered","hemline":"ankle_floor","layers":"two","silhouette":"volume","construction":"tailored","finishing":["none"],"materials":["leather","plain_woven"],"formality":"formal_tailored","street_couture_axis":"5"}}]}/*FX*/;
   const root = document.getElementById("fx");
   if (!root || !FX) return;
   const range = root.querySelector(".fx-range");
