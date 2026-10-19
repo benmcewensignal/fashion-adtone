@@ -723,6 +723,266 @@ def collect_runway(coverage: dict | None = None, per_show: int = PER_SHOW, worke
     return summary
 
 
+# ---------- the looks from the houses' own sites ----------
+# The archive's index times out on the largest sites (Dior's, Gucci's) and its captures of some show pages hold
+# no picture addresses (pages drawn by script); for the shows of the last LIVE_DAYS the house's own site has the
+# pages up, so they are read from it: the show sections found by hand (reference/show_pages.csv) and by the
+# coverage probe, their show pages found by the season the address names, the looks taken as from the archive.
+# A look taken this way is the same picture the archive would hold, from the same page; the row says `via: live`.
+
+LIVE_DAYS = 400
+LIVE_INDEXES_PER_HOUSE = 6
+LIVE_SEASON_AFTER_YEAR = re.compile(r"\b(20\d{2})\b\W{0,3}\b(fw|aw|ss|fall|winter|autumn|spring|summer)\b", re.I)
+
+
+def slug_season(url: str) -> str | None:
+    """The show a page address names, as a season key the calendar uses ('2027 SS rtw', '2026 AW men', '2026 AW
+    couture'): the season word and year in either order, the line by the address (men's, women's, couture);
+    None when it names none, or a pre-collection, which is not collected."""
+    from .thread import title_season
+    path = url.split("://", 1)[-1].split("/", 1)[-1]
+    text = re.sub(r"[/_\-.%+]+", " ", path.split("?")[0])
+    key = title_season(text)
+    if key is None:
+        m = LIVE_SEASON_AFTER_YEAR.search(text)
+        if not m:
+            return None
+        key = f"{m.group(1)} {'AW' if m.group(2)[0].lower() in 'fwa' else 'SS'} rtw"
+    y, half, cat = key.split()
+    if cat in ("resort", "prefall", "prespring"):
+        return None
+    line = page_line(url)
+    if line == "couture" or cat == "couture":
+        cat = "couture"
+    elif line == "men":
+        cat = "men"
+    else:
+        cat = "rtw"
+    return f"{y} {half} {cat}"
+
+
+def live_show_pages(get, prefixes: list[str], wanted: dict[str, dict], cap: int = LIVE_INDEXES_PER_HOUSE) -> tuple[dict[str, list[str]], dict]:
+    """The show pages on a house's own site for the shows `wanted` (season key -> show): each section prefix
+    opened as an index page, its links on the same site whose address names a wanted season kept, and the
+    prefix itself when its own address does. Returns {season key: [urls]} and what happened."""
+    from urllib.parse import urljoin, urlparse
+    found: dict[str, list[str]] = defaultdict(list)
+    diag = {"indexes": 0, "opened": 0, "links": 0}
+    for pre in list(dict.fromkeys(prefixes))[:cap]:
+        url = pre if pre.startswith("http") else "https://" + pre
+        k = slug_season(url)
+        if k in wanted and url not in found[k]:
+            found[k].append(url)
+        diag["indexes"] += 1
+        r = get(url)
+        if r is None or r.status_code != 200 or not getattr(r, "text", ""):
+            continue
+        diag["opened"] += 1
+        host = urlparse(url).netloc
+        for href in re.findall(r"""href\s*=\s*["']([^"'#]+)["']""", r.text):
+            absu = urljoin(url, href.strip())
+            p = urlparse(absu)
+            if p.scheme not in ("http", "https") or p.netloc != host or p.path.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".pdf")):
+                continue
+            k = slug_season(absu)
+            if k in wanted:
+                clean = absu.split("?")[0]
+                if clean not in found[k]:
+                    found[k].append(clean)
+                    diag["links"] += 1
+    return dict(found), diag
+
+
+def page_looks_live(get, house: str, url: str, keep, shrink, per_show: int = PER_SHOW, candidates: int = CANDIDATES,
+                    tries: int | None = None, deadline: float | None = None, diag: dict | None = None) -> list[dict]:
+    """One show page on the house's own site: opened, its pictures fetched in page order at the widest address
+    the page names, the portrait ones of a usable size kept once each, an even spread kept (as house_looks does
+    from the archive). `get` fetches an address live, robots honoured, None when declined."""
+    from . import media
+    d = diag if diag is not None else {}
+    d.update({"opened": 0, "pictures": 0, "fetched": 0, "refused": 0, "small": 0, "duplicates": 0, "cut": False})
+    ts = time.strftime("%Y%m%d%H%M%S", time.gmtime())
+    r = get(url)
+    if r is None or r.status_code != 200 or not getattr(r, "text", ""):
+        return []
+    d["opened"] = 1
+    page = getattr(r, "url", "") or url
+    groups = picture_variants(r.text, page, ts, cap=300)
+    d["pictures"] = len(groups)
+    found, seen = [], []
+    for vs in (spread(groups, tries) if tries else groups):
+        if len(found) >= candidates or (deadline and time.monotonic() > deadline):
+            d["cut"] = d["cut"] or len(found) < candidates
+            break
+        d["fetched"] += 1
+        got = _picture(get(vs[0]))
+        if got is None and len(vs) > 1:
+            got = _picture(get(vs[1]))
+        if got is None:
+            d["refused"] += 1
+            continue
+        content, img = got
+        if img.height < MIN_HEIGHT or img.height < PORTRAIT * img.width:
+            d["small"] += 1
+            continue
+        ph = media.phash(img)
+        if any(media.hamming(ph, s) <= DUP_BITS for s in seen):
+            d["duplicates"] += 1
+            continue
+        seen.append(ph)
+        found.append({"sha": hashlib.sha256(content).hexdigest(), "house": house, "page": url, "ts": ts, "via": "live",
+                      "order": len(found), "w": img.width, "h": img.height, "phash": ph, "_copies": shrink(img)})
+        del img
+    chosen = spread(found, per_show)
+    for row in chosen:
+        keep(row["sha"], *row.pop("_copies"))
+    for row in found:
+        row.pop("_copies", None)
+    d["kept"] = len(chosen)
+    return chosen
+
+
+def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers: int = 3, pause: float = 1.0,
+                 budget_min: float = 30, session_factory=None, local: Path | None = None, clock=time.monotonic,
+                 today=None, days: int = LIVE_DAYS, houses: list[str] | None = None) -> dict:
+    """The looks of the shows of the last `days` that have none on file, from the houses' own sites: for each
+    house, its show sections (reference/show_pages.csv and the coverage probe's) opened live as index pages, the
+    show pages found by the season their address names, and the looks taken from them. Pages and pictures are
+    asked for as the identified research crawler with robots.txt honoured; a site that declines is left.
+    Rows go to data/clothes/runway.jsonl with `via: live`; the show's status says the same."""
+    import requests
+    from datetime import date as _date, timedelta
+    from urllib import robotparser
+    from urllib.parse import urlparse
+    from . import media
+    from .backcat import UA as CRAWLER_UA
+    from .bakeoff import READ_EDGE, _jpeg
+    from .looks import seeded_sections
+    coverage = coverage if coverage is not None else json.loads((DIR / "looks_coverage.json").read_text(encoding="utf-8"))
+    local = local or RUNWAY_LOCAL
+    (local / "read").mkdir(parents=True, exist_ok=True)
+    status_path = DIR / "runway_shows.json"
+    status = json.loads(status_path.read_text()) if status_path.exists() else {}
+    rows_path = DIR / "runway.jsonl"
+    n_rows = [len(store.read_jsonl(rows_path))]
+    today = today or _date.today()
+    since = (today - timedelta(days=days)).isoformat()
+    deadline = clock() + budget_min * 60
+    wanted: dict[str, dict[str, dict]] = defaultdict(dict)      # house -> season key -> show
+    for key, sh in coverage.get("shows", {}).items():
+        st = status.get(key)
+        if sh["date"] < since or (st and st.get("status") == "collected") or (houses and sh["house"] not in houses):
+            continue
+        wanted[sh["house"]][sh["season"]] = sh
+    sections = {h: list(v) for h, v in seeded_sections().items()}
+    for h, sec in (coverage.get("sections") or {}).items():
+        for pre in sec.get("prefixes") or []:
+            if pre not in sections.setdefault(h, []):
+                sections[h].append(pre)
+    tl = threading.local()
+    lock = threading.Lock()
+    robots: dict[str, object] = {}
+    declined: dict[str, int] = {}
+    summary = {"houses": 0, "shows_wanted": sum(len(v) for v in wanted.values()), "shows_collected": 0, "shows_without_looks": 0,
+               "shows_without_page": 0, "houses_without_sections": 0, "looks": 0, "out_of_time": False}
+
+    def get(url):
+        if not hasattr(tl, "s"):
+            tl.s = session_factory() if session_factory else requests.Session()
+            tl.s.headers["User-Agent"] = CRAWLER_UA
+        p = urlparse(url)
+        base = f"{p.scheme}://{p.netloc}"
+        with lock:
+            rp = robots.get(base)
+            if declined.get(base, 0) >= LIVE_DECLINES:
+                return None
+        if rp is None:
+            rp = robotparser.RobotFileParser()
+            try:
+                r = tl.s.get(f"{base}/robots.txt", timeout=30)
+                rp.parse(r.text.splitlines() if r.status_code == 200 else [])
+            except requests.RequestException:
+                rp.parse([])
+            with lock:
+                robots[base] = rp
+        if not rp.can_fetch(CRAWLER_UA, url):
+            return None
+        try:
+            r = tl.s.get(url, timeout=LIVE_TIMEOUT_S)
+        except requests.RequestException:
+            r = None
+        if pause:
+            time.sleep(pause)
+        with lock:
+            if r is None or r.status_code != 200:
+                declined[base] = declined.get(base, 0) + 1
+            else:
+                declined[base] = 0
+        return r
+
+    def shrink(img):
+        return (_jpeg(img, READ_EDGE, 90),)
+
+    def keep(sha, read_copy):
+        (local / "read" / f"{sha}.jpg").write_bytes(read_copy)
+
+    def one(house):
+        shows = wanted[house]
+        if not shows or clock() > deadline:
+            return
+        with lock:
+            summary["houses"] += 1
+        prefixes = sections.get(house) or []
+        if not prefixes:
+            with lock:
+                summary["houses_without_sections"] += 1
+            return
+        pages, idiag = live_show_pages(get, prefixes, shows)
+        for key, sh in sorted(shows.items(), key=lambda kv: kv[1]["date"], reverse=True):
+            if clock() > deadline:
+                with lock:
+                    summary["out_of_time"] = True
+                return
+            urls = pages.get(key) or []
+            k = show_key(sh)
+            if not urls:
+                with lock:
+                    summary["shows_without_page"] += 1
+                    prev = status.get(k) or {}
+                    if prev.get("status") != "collected":
+                        status[k] = {**prev, "status": prev.get("status") or "no page", "live": {"page": None, "indexes": idiag}}
+                        status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+                continue
+            got, diag = [], {}
+            for url in urls[:2]:
+                got = page_looks_live(get, house, url, keep, shrink, per_show=per_show, candidates=per_show * 2,
+                                      tries=TRIES_PER_PAGE, deadline=deadline, diag=diag)
+                if got:
+                    break
+            for g in got:
+                g.update(date=sh["date"], season=sh["season"], category=sh["category"])
+            with lock:
+                if got:
+                    store.append_jsonl(rows_path, got)
+                    n_rows[0] += len(got)
+                    summary["shows_collected"] += 1
+                    status[k] = {"status": "collected", "looks": len(got), "via": "live", "candidates": _candidate_signature(sh),
+                                 "live": {"page": urls[0], "indexes": idiag, "diag": {x: v for x, v in diag.items() if x != "kept"}}}
+                else:
+                    summary["shows_without_looks"] += 1
+                    prev = status.get(k) or {}
+                    status[k] = {**prev, "status": prev.get("status") or "no looks",
+                                 "live": {"page": urls[0], "indexes": idiag, "diag": {x: v for x, v in diag.items() if x != "kept"}}}
+                status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
+    order = sorted(wanted, key=lambda h: (h not in set(config.priority_houses()), h))
+    with ThreadPoolExecutor(max(1, workers)) as ex:
+        list(ex.map(one, order))
+    summary["looks"] = n_rows[0]
+    _log("runway_live", **summary)
+    return summary
+
+
 def runway_to_volume(local: Path | None = None) -> int:
     from .bakeoff import to_volume as upload
     return upload(local=local or RUNWAY_LOCAL, vol_dir=RUNWAY_VOL_DIR)
@@ -1385,6 +1645,10 @@ def main(argv: list[str] | None = None) -> int:
     co.add_argument("--workers", type=int, default=4)
     co.add_argument("--shows", default="", help="show keys (house:date:category), comma-separated: those alone, read again")
     co.add_argument("--no-live", action="store_true", help="never ask the houses' own sites for a picture the archive lacks")
+    lv = sub.add_parser("live", help="the looks of the last year's shows that have none, from the houses' own sites")
+    lv.add_argument("--budget-min", type=float, default=30)
+    lv.add_argument("--workers", type=int, default=3)
+    lv.add_argument("--houses", default="", help="house ids, comma-separated: those alone")
     rd = sub.add_parser("read")
     rd.add_argument("--budget-min", type=float, default=70)
     rd.add_argument("--min-waiting", type=int, default=0, help="send nothing until this many pictures wait")
@@ -1407,6 +1671,10 @@ def main(argv: list[str] | None = None) -> int:
                                  shows=[k.strip() for k in a.shows.split(",") if k.strip()] or None)
         n = runway_to_volume()
         print(f"clothes collect: {summary}; {n} copies on the volume")
+    elif a.cmd == "live":
+        summary = collect_live(budget_min=a.budget_min, workers=a.workers, houses=[h for h in a.houses.split(",") if h] or None)
+        n = runway_to_volume()
+        print(f"clothes live: {summary}; {n} copies on the volume")
     elif a.cmd == "seal":
         print(f"clothes seal: the pictures to label sealed to {seal_labelled().name}")
     elif a.cmd == "crops":

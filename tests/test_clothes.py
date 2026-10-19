@@ -593,3 +593,69 @@ def test_a_site_that_fails_three_times_running_is_not_asked_again_in_the_run(tmp
     st = json.loads((tmp_path / "runway_shows.json").read_text())["x:2026-03-01:rtw"]
     assert st["status"] == "no looks" and st["diag"]["refused"] == 12 and "seconds" in st["diag"]
     assert len(asked) == C.LIVE_DECLINES                      # the site asked until it had declined three times, then left
+
+
+def test_the_season_a_page_address_names():
+    assert C.slug_season("https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/summer-2027-show") == "2027 SS rtw"
+    assert C.slug_season("https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2027-show") == "2027 SS men"
+    assert C.slug_season("https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/fall-winter-2026-2027-haute-couture-show") == "2026 AW couture"
+    assert C.slug_season("https://www.prada.com/us/en/pradasphere/fashion-shows/2026/fw-womenswear.html") == "2026 AW rtw"   # the year first
+    assert C.slug_season("https://gb.balmain.com/en/experience/show-women-SS26") == "2026 SS rtw"
+    assert C.slug_season("https://www.celine.com/en-gb/cm/fashion-show-winter-2026") == "2026 AW rtw"
+    assert C.slug_season("https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/cruise-2027-show") is None   # a pre-collection
+    assert C.slug_season("https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/") is None
+
+
+def test_looks_of_the_last_years_shows_come_from_the_houses_own_sites_when_the_archive_has_none(tmp_path, monkeypatch):
+    """Dior's show section is found by hand (reference/show_pages.csv); its index page links the season's show
+    page; the looks are taken from that page live, as the identified crawler, and the row says so. A house whose
+    site declines the crawler gives nothing; a show already collected from the archive is left alone."""
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(C.config, "priority_houses", lambda: [])
+    monkeypatch.setattr("adtone.looks.seeded_sections", lambda path=None: {"dior": ["www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/"],
+                                                                           "gucci": ["www.gucci.com/us/en/st/runway/"]})
+    looks = {f"https://media.dior.com/look-{i}.jpg?imwidth=1600": _jpeg(800, 1200, 700 + i) for i in range(12)}
+    index = ('<a href="/en_gb/fashion/womens-fashion/ready-to-wear-shows/summer-2027-show">Summer 2027</a>'
+             '<a href="/en_gb/fashion/womens-fashion/ready-to-wear-shows/cruise-2027-show">Cruise 2027</a>'
+             '<a href="https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-winter-2026-2027-show">Fall-Winter 2026-2027</a>')
+    show = "".join(f'<img src="{u.replace("1600", "414")}" srcset="{u.replace("1600", "414")} 414w, {u} 1600w">' for u in looks)
+    asked = []
+
+    class S:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, url, timeout=None):
+            asked.append(url)
+            assert self.headers["User-Agent"].startswith("fashion-adtone")
+            if url.endswith("/robots.txt"):
+                return _R(text="User-agent: *\nDisallow: /private/\n" if "dior" in url else "User-agent: *\nDisallow: /\n", url=url)
+            if url in looks:
+                return _R(content=looks[url])
+            if url.endswith("ready-to-wear-shows/"):
+                return _R(text=index, url=url)
+            if url.endswith("summer-2027-show"):
+                return _R(text=show, url=url)
+            return _R(status=404)
+
+    cov = {"shows": {
+        "dior:2026-09-29:rtw": {"house": "dior", "date": "2026-09-29", "season": "2027 SS rtw", "category": "rtw", "status": "index failed", "candidates": []},
+        "dior:2026-03-03:rtw": {"house": "dior", "date": "2026-03-03", "season": "2026 AW rtw", "category": "rtw", "status": "index failed", "candidates": []},
+        "dior:2016-03-04:rtw": {"house": "dior", "date": "2016-03-04", "season": "2016 AW rtw", "category": "rtw", "status": "none", "candidates": []},
+        "gucci:2026-09-23:rtw": {"house": "gucci", "date": "2026-09-23", "season": "2027 SS rtw", "category": "rtw", "status": "index failed", "candidates": []},
+        "chanel:2026-03-09:rtw": {"house": "chanel", "date": "2026-03-09", "season": "2026 AW rtw", "category": "rtw", "status": "found", "candidates": []}},
+        "sections": {"chanel": {"prefixes": ["www.chanel.com/gb/fashion/collection/"], "pages": 9}}}
+    (tmp_path / "runway_shows.json").write_text(json.dumps({"chanel:2026-03-09:rtw": {"status": "collected", "looks": 8}}))
+    from datetime import date
+    out = C.collect_live(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1, today=date(2026, 10, 19))
+    assert out["shows_wanted"] == 3 and out["shows_collected"] == 1 and out["shows_without_page"] == 1   # 2016 is past the year; Chanel is collected
+    st = json.loads((tmp_path / "runway_shows.json").read_text())
+    assert st["dior:2026-09-29:rtw"]["status"] == "collected" and st["dior:2026-09-29:rtw"]["via"] == "live" and st["dior:2026-09-29:rtw"]["looks"] == 12
+    assert st["dior:2026-03-03:rtw"]["status"] == "no looks"                   # its page was linked but gave nothing (404)
+    assert st["gucci:2026-09-23:rtw"]["status"] == "no page" and not any("gucci.com/us" in u and not u.endswith("robots.txt") for u in asked)  # declined by robots
+    rows = [json.loads(x) for x in (tmp_path / "runway.jsonl").read_text().splitlines()]
+    assert len(rows) == 12 and all(r["via"] == "live" and r["season"] == "2027 SS rtw" and r["page"].endswith("summer-2027-show") for r in rows)
+    assert all("imwidth=1600" in u for u in asked if u in looks)               # at the widest address
+    assert (tmp_path / "pics" / "read").exists() and len(list((tmp_path / "pics" / "read").glob("*.jpg"))) == 12
+    assert not C._todo(cov["shows"]["dior:2026-09-29:rtw"], st["dior:2026-09-29:rtw"])   # the archive collector leaves it

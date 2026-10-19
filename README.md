@@ -397,8 +397,12 @@ from the archive, but a show page names each look at a phone size in `src` and a
 or lazy-loading variant, and the archive saved what a browser loaded: a picture is asked of the archive at
 its widest address, then at the page's own, and when the archive holds neither, or only a copy too small
 to read, of the house's own site, as the identified research crawler with robots.txt honoured, the same
-footing as Focal's record of the homepages. The clothes workflow runs both every three hours until they are
-complete, and reads the new looks once a hundred wait.
+footing as Focal's record of the homepages. For the shows of the last year that have no looks on file, where
+the archive's index times out on the site (Dior's, Gucci's) or its captured page holds no picture addresses,
+`adtone.clothes live` reads the show page from the house's own site: the show sections found by hand and by the
+coverage probe opened as index pages, the show page found by the season its address names, the looks taken as
+from the archive and marked `via: live`; the same pictures from the same page, by another door. The clothes
+workflow runs all three every three hours until they are complete, and reads the new looks once a hundred wait.
 
 The season benchmark uses the clothes: for the runway and for the shop window's outfits, distinctness
 against the season's other brands and movement from the brand's own last one; the shop window's
