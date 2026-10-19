@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T14:45:28Z",
+ "generated_at": "2026-10-19T21:08:44Z",
  "window_days": [
   -1,
   14
@@ -31,6 +31,32 @@
    "status": "none",
    "pages": 0,
    "candidates": []
+  },
+  "armani:2020-01-21:couture": {
+   "house": "armani",
+   "date": "2020-01-21",
+   "season": "2020 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
+  },
+  "armani:2020-09-26:rtw": {
+   "house": "armani",
+   "date": "2020-09-26",
+   "season": "2021 SS rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ReadTimeout"
+   }
   },
   "armani:2021-01-26:couture": {
    "house": "armani",
@@ -1432,7 +1458,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -3358,7 +3384,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -15349,8 +15375,18 @@
    "category": "couture",
    "status": "found",
    "via": "window",
-   "pages": 1,
+   "pages": 4,
    "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+     "ts": "20260129192029",
+     "score": 5.62
+    },
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+     "ts": "20260128173650",
+     "score": 5.62
+    },
     {
      "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
      "ts": "20260209233119",
@@ -15768,7 +15804,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectTimeout"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -17111,9 +17147,10 @@
     "www.balenciaga.com/gb/men/fashionshow/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
+    "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 544
+   "pages": 545
   },
   "burberry": {
    "prefixes": [
@@ -17353,7 +17390,7 @@
     "www.therow.com/en-at/collections/",
     "www.therow.com/en-eu/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/collections/women-039-s-fall-winter-2019_grd31/"
+    "www.therow.com/collections/women-039-s-resort-2020_grd38/"
    ],
    "pages": 904
   },
@@ -17376,9 +17413,9 @@
     "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 7
+   "pages": 358
   },
   "balmain": {
    "prefixes": [
@@ -17388,18 +17425,18 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/"
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
-   "pages": 338
+   "pages": 516
   },
   "schiaparelli": {
    "prefixes": [
     "www.schiaparelli.com/en/collections/",
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-secret/",
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-bijoux-buttons/"
    ],
    "pages": 5824
   },
@@ -17420,10 +17457,9 @@
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
-    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/ru/fashion-show/kids_section/"
+    "www.stellamccartney.com/fi/en/women/s-wave-collection/"
    ],
-   "pages": 2176
+   "pages": 2175
   },
   "issey_miyake": {
    "prefixes": [
@@ -17436,7 +17472,7 @@
  "summary": {
   "by_status": {
    "found": 506,
-   "index failed": 131,
+   "index failed": 133,
    "none": 382,
    "partial": 104
   },
@@ -17446,7 +17482,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 33,
+    "shows": 35,
     "found": 3
    },
    "balenciaga": {
@@ -17624,11 +17660,11 @@
     "found": 32
    },
    "2020": {
-    "shows": 94,
+    "shows": 95,
     "found": 35
    },
    "2021": {
-    "shows": 61,
+    "shows": 62,
     "found": 28
    },
    "2022": {

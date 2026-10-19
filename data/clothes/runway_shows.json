@@ -1800,8 +1800,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
    "page": null
   },
@@ -1811,8 +1811,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
    "page": null
   },
@@ -1820,12 +1820,21 @@
  },
  "dior:2026-01-26:couture": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
-   "page": null
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/haute-couture-spring-summer-2026-show"
   },
   "status": "no looks"
  },
@@ -1833,8 +1842,8 @@
   "live": {
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
    "page": null
   },
@@ -1842,34 +1851,61 @@
  },
  "dior:2026-06-24:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
-   "page": null
+   "page": "https://www.dior.com/en_gb/fashion/mens-fashion/shows/summer-2027-show"
   },
   "status": "no looks"
  },
  "dior:2026-07-06:couture": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
-   "page": null
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/fall-winter-2026-2027-haute-couture-show"
   },
   "status": "no looks"
  },
  "dior:2026-09-29:rtw": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
     "indexes": 6,
-    "links": 0,
-    "opened": 0
+    "links": 4,
+    "opened": 3
    },
-   "page": null
+   "page": "https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/summer-2027-show"
   },
   "status": "no looks"
  },
@@ -2260,8 +2296,8 @@
   "live": {
    "indexes": {
     "indexes": 3,
-    "links": 5,
-    "opened": 1
+    "links": 0,
+    "opened": 0
    },
    "page": null
   },
@@ -2269,81 +2305,45 @@
  },
  "dolce_gabbana:2026-01-17:men": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 3,
-    "links": 5,
-    "opened": 1
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dolcegabbana.com/fashion-shows/men-fall-winter-2026-fashion-show"
+   "page": null
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-02-28:rtw": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 3,
-    "links": 5,
-    "opened": 1
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dolcegabbana.com/news/dolce-gabbana-adv-campaign-fall-winter-2026"
+   "page": null
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-06-20:men": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 3,
-    "links": 5,
-    "opened": 1
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dolcegabbana.com/fashion-shows/men-spring-summer-2027-fashion-show"
+   "page": null
   },
   "status": "no page"
  },
  "dolce_gabbana:2026-09-26:rtw": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
     "indexes": 3,
-    "links": 5,
-    "opened": 1
+    "links": 0,
+    "opened": 0
    },
-   "page": "https://www.dolcegabbana.com/fashion-shows/women-spring-summer-2027-fashion-show"
+   "page": null
   },
   "status": "no page"
  },
@@ -3162,7 +3162,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 5,
+   "seconds": 2,
    "small": 0
   },
   "live": {
@@ -7334,6 +7334,8 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
+   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
@@ -7508,7 +7510,7 @@
  "stella_mccartney:2026-09-30:rtw": {
   "live": {
    "indexes": {
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 2
    },
