@@ -15,7 +15,7 @@ ticked here in the same commit.
 
 | table | rows | houses with none |
 |---|---|---|
-| `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026; Giornetti, Rigoni, Andrew and Takahashi's show days 18 October 2026) | none |
+| `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026; Giornetti, Rigoni, Andrew and Takahashi's show days 18 October 2026; Meilland's last show 20 October 2026) | none |
 | `reference/executives.csv` | 40 (Hecquet's announcement filled 17 October 2026) | none |
 | `reference/shows.csv` | 153, February 2022 on | none |
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
@@ -69,7 +69,10 @@ Shows (`reference/shows.csv`)
       source gives them, so they have no row; on 16 October 2026 Fashionsnap and WWDJAPAN still gave only the
       Aoyama head office and their publication days, 17 January and 8 March 2022, and on 18 October 2026
       Hypebae and A Magazine Curated By gave no day either, nor on 19 October 2026 Design Scene or Fucking
-      Young!, which give only their publication days, 10 March and 17 January 2022); the 2022 rows checked
+      Young!, which give only their publication days, 10 March and 17 January 2022; on 20 October 2026 Crash
+      said the men's show was 'staged this morning, the 18th January 2022 in Tokyo', but Fashionsnap had
+      published the collection at 12:02 on 17 January 2022, Tokyo time, so the two disagree and nothing is
+      entered); the 2022 rows checked
       against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
@@ -89,7 +92,7 @@ People
       found. None new was found for McQueen after 2023 or for Lanvin.
 - [x] Credits: 115 rows, among them Sarah Burton's 2021 to 2023 McQueen campaigns, Balmain 2022 to 2026,
       Moncler 2021 to 2024, Stella McCartney 2020 to 2023 and The Row's lookbooks and Summer 2022 campaign.
-- [ ] Still open on people: Meilland's last show and departure; Andy Lew's
+- [ ] Still open on people: Meilland's departure; Andy Lew's
       announcement as the Lanvin brand's CEO and Tom Mendenhall's start (not stated in the reports of
       2025-09-08 to 2025-09-10); credits for Comme des Garçons and Schiaparelli, and for Moncler, Stella
       McCartney and The Row after 2024, whose credits sit behind a login. Filled on 17 October 2026:
@@ -100,6 +103,10 @@ People
       Takahashi's first (SS14, Paris, 2013-06-27, FashionUnited and AFP). On 19 October 2026 Lanvin Group's
       release of 2025-01-16 (SEC filing) named Lew only the group's executive president, and the reports of
       Mendenhall's appointment (The Impression, FashionUnited, 2025-09-08) still gave no start date.
+      Filled on 20 October 2026: Meilland's last show, SS22 in Milan (2021-09-25, Grazia; The Impression
+      names him as leading the in-house team), before the AW22 presentation and Maximilian Davis's start
+      (2022-03-16); no source states his departure. WWD and Modaes (2026-05-28) say only that Lew was CEO
+      'since July 2025', and WWD's report of Mendenhall (2025-09-08) gives no start date.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
