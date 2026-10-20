@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T21:08:44Z",
+ "generated_at": "2026-10-20T01:07:20Z",
  "window_days": [
   -1,
   14
@@ -31,6 +31,32 @@
    "status": "none",
    "pages": 0,
    "candidates": []
+  },
+  "armani:2019-01-22:couture": {
+   "house": "armani",
+   "date": "2019-01-22",
+   "season": "2019 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "ConnectionError"
+   }
+  },
+  "armani:2019-07-02:couture": {
+   "house": "armani",
+   "date": "2019-07-02",
+   "season": "2019 AW couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "armani.com": "HTTP 503"
+   }
   },
   "armani:2020-01-21:couture": {
    "house": "armani",
@@ -1458,7 +1484,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ConnectTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1477,7 +1503,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 503"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2256,7 +2282,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2273,7 +2299,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3384,7 +3410,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3401,7 +3427,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 504"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -15804,7 +15830,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "ConnectionError"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -15882,7 +15908,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "therow.com": "ReadTimeout"
+    "therow.com": "ConnectionError"
    }
   },
   "the_row:2023-09-27:rtw": {
@@ -15890,13 +15916,16 @@
    "date": "2023-09-27",
    "season": "2024 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "therow.com": "ReadTimeout"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.therow.com/fr/collections/spring-2024",
+     "ts": "20230929233432",
+     "score": 2.0
+    }
+   ]
   },
   "the_row:2024-02-28:rtw": {
    "house": "the_row",
@@ -17150,7 +17179,7 @@
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
     "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 545
+   "pages": 543
   },
   "burberry": {
    "prefixes": [
@@ -17158,7 +17187,7 @@
     "mo.burberry.com/london-fashion-week/",
     "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 28
+   "pages": 16
   },
   "chanel": {
    "prefixes": [
@@ -17167,7 +17196,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2378
+   "pages": 1944
   },
   "dior": {
    "prefixes": [
@@ -17390,9 +17419,9 @@
     "www.therow.com/en-at/collections/",
     "www.therow.com/en-eu/collections/",
     "www.therow.com/fi/collections/",
-    "www.therow.com/collections/women-039-s-resort-2020_grd38/"
+    "www.therow.com/us/collections/women-039-s-resort-2020_grd38/"
    ],
-   "pages": 904
+   "pages": 919
   },
   "mcqueen": {
    "prefixes": [
@@ -17405,17 +17434,17 @@
     "www.alexandermcqueen.com/en-fi/lookbooks/",
     "www.alexandermcqueen.com/en-fi/shows/"
    ],
-   "pages": 847
+   "pages": 285
   },
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 358
+   "pages": 0
   },
   "balmain": {
    "prefixes": [
@@ -17425,18 +17454,18 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/",
+    "www.balmain.com/en_us/show/"
    ],
-   "pages": 516
+   "pages": 329
   },
   "schiaparelli": {
    "prefixes": [
     "www.schiaparelli.com/en/collections/",
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-secret/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-bijoux-buttons/"
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
+    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
    ],
    "pages": 5824
   },
@@ -17457,9 +17486,10 @@
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
-    "www.stellamccartney.com/fi/en/women/s-wave-collection/"
+    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
+    "www.stellamccartney.com/fi/en/stellas-world/"
    ],
-   "pages": 2175
+   "pages": 2247
   },
   "issey_miyake": {
    "prefixes": [
@@ -17471,8 +17501,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 506,
-   "index failed": 133,
+   "found": 507,
+   "index failed": 134,
    "none": 382,
    "partial": 104
   },
@@ -17482,7 +17512,7 @@
     "found": 0
    },
    "armani": {
-    "shows": 35,
+    "shows": 37,
     "found": 3
    },
    "balenciaga": {
@@ -17619,7 +17649,7 @@
    },
    "the_row": {
     "shows": 12,
-    "found": 7
+    "found": 8
    },
    "tom_ford": {
     "shows": 18,
@@ -17656,7 +17686,7 @@
     "found": 30
    },
    "2019": {
-    "shows": 96,
+    "shows": 98,
     "found": 32
    },
    "2020": {
@@ -17677,7 +17707,7 @@
    },
    "2024": {
     "shows": 98,
-    "found": 57
+    "found": 58
    },
    "2025": {
     "shows": 92,

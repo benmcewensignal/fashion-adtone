@@ -7510,9 +7510,9 @@
  "stella_mccartney:2026-09-30:rtw": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
-    "opened": 2
+    "opened": 0
    },
    "page": null
   },
@@ -7542,6 +7542,28 @@
   },
   "looks": 0,
   "status": "no looks"
+ },
+ "the_row:2023-09-27:rtw": {
+  "candidates": [
+   "20230929233432 https://www.therow.com/fr/collections/spring-2024"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 1,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 146,
+   "refused": 23,
+   "seconds": 62,
+   "small": 0
+  },
+  "looks": 16,
+  "status": "collected"
  },
  "the_row:2024-02-28:rtw": {
   "looks": 16,
