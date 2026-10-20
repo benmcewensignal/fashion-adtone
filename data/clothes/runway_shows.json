@@ -65,7 +65,8 @@
  "armani:2025-09-28:rtw": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -76,7 +77,8 @@
  "armani:2026-01-19:men": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -87,7 +89,8 @@
  "armani:2026-01-27:couture": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -121,7 +124,8 @@
  "armani:2026-06-22:men": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -132,7 +136,8 @@
  "armani:2026-07-07:couture": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -143,7 +148,8 @@
  "armani:2026-09-27:rtw": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -1321,6 +1327,7 @@
  "chanel:2026-07-07:couture": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -1332,6 +1339,7 @@
  "chanel:2026-10-05:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -1506,20 +1514,78 @@
   "status": "collected"
  },
  "dior:2020-01-20:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20200511040939 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-spring-summer-2020-haute-couture-show/inspirations",
+   "20200511041033 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-spring-summer-2020-haute-couture-show/poetic-accessories",
+   "20200511041116 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-spring-summer-2020-haute-couture-show/the-essence-of-haute-couture"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 143,
+   "refused": 4,
+   "seconds": 210,
+   "small": 89
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "dior:2020-02-25:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20200307215006 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/fall-winter-2020-2021-ready-to-wear-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 24,
+   "seconds": 67,
+   "small": 2
+  },
+  "looks": 14,
+  "status": "collected"
  },
  "dior:2020-09-29:rtw": {
   "looks": 20,
   "status": "collected"
  },
  "dior:2021-01-29:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20210302104852 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-spring-summer-2021-haute-couture-collection/the-collection",
+   "20210302112349 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-spring-summer-2021-haute-couture-collection/the-fabric-of-dreams",
+   "20210328200250 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/spring-summer-2021-haute-couture-collection?utm_source=Rakuten&utm_medium=affiliates&ranMID=43935&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-ZPZXvFM16Ootw1wqXAF9aA"
+  ],
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 200,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 5,
+   "pages": 3,
+   "pictures": 512,
+   "refused": 47,
+   "seconds": 298,
+   "small": 131
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "dior:2021-01-29:men": {
   "looks": 5,
@@ -1534,24 +1600,104 @@
   "status": "collected"
  },
  "dior:2021-07-05:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20210704115118 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/autumn-winter-2021-2022-haute-couture-show",
+   "20210730193121 https://www.dior.com/en_us/womens-fashion/autumn-winter-2021-2022-collection",
+   "20210921141527 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-autumn-winter-2021-2022-ready-to-wear-show/set-design"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 28,
+   "seconds": 50,
+   "small": 3
+  },
+  "looks": 9,
+  "status": "collected"
  },
  "dior:2021-09-28:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20211025072844 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/spring-summer-2022-ready-to-wear-show",
+   "20211027131401 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-pret-a-porter-printemps-ete-2022/accessories",
+   "20211027133425 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-pret-a-porter-printemps-ete-2022/inspirations-looks"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 120,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 3,
+   "pictures": 417,
+   "refused": 39,
+   "seconds": 161,
+   "small": 56
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "dior:2022-01-21:men": {
   "looks": 15,
   "status": "collected"
  },
  "dior:2022-01-24:couture": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20220218055912 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-defile-haute-couture-printemps-ete-2022/art-in-dialogue",
+   "20220218210225 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-defile-haute-couture-printemps-ete-2022/excellence",
+   "20220329163735 https://www.dior.com/en_us/womens-fashion/haute-couture-shows/folder-defile-haute-couture-printemps-ete-2022/collective-works"
+  ],
+  "diag": {
+   "captures_tried": 7,
+   "cut": false,
+   "duplicates": 3,
+   "failed": 0,
+   "fetched": 280,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 7,
+   "pages": 3,
+   "pictures": 497,
+   "refused": 32,
+   "seconds": 417,
+   "small": 236
+  },
+  "looks": 9,
+  "status": "collected"
  },
  "dior:2022-03-01:rtw": {
-  "looks": 0,
-  "status": "no looks"
+  "candidates": [
+   "20220505193233 https://www.dior.com/en_us/womens-fashion/ready-to-wear-shows/folder-defile-pret-a-porter-automne-hiver-2022-2023/the-next-era",
+   "20220607221327 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2022-2023-ready-to-wear-show",
+   "20220607225704 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/folder-defile-pret-a-porter-automne-hiver-2022-2023/hybrid-wardrobe"
+  ],
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 160,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 4,
+   "pages": 3,
+   "pictures": 757,
+   "refused": 57,
+   "seconds": 206,
+   "small": 91
+  },
+  "looks": 12,
+  "status": "collected"
  },
  "dior:2022-06-24:men": {
   "candidates": [
@@ -1794,6 +1940,79 @@
    "small": 23
   },
   "looks": 6,
+  "status": "collected"
+ },
+ "dior:2024-09-24:rtw": {
+  "candidates": [
+   "20241112004147 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/spring-summer-2025-ready-to-wear-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 248,
+   "refused": 8,
+   "seconds": 70,
+   "small": 3
+  },
+  "looks": 20,
+  "status": "collected"
+ },
+ "dior:2025-01-24:men": {
+  "candidates": [
+   "20250502000517 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2025-ready-to-wear-show"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
+ },
+ "dior:2025-01-27:couture": {
+  "candidates": [
+   "20250227235812 https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/spring-summer-2025-haute-couture-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 1,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 12,
+   "seconds": 67,
+   "small": 3
+  },
+  "looks": 20,
+  "status": "collected"
+ },
+ "dior:2025-03-04:rtw": {
+  "candidates": [
+   "20250502000517 https://www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/fall-2025-ready-to-wear-show"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 7,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 1,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 300,
+   "refused": 13,
+   "seconds": 75,
+   "small": 2
+  },
+  "looks": 18,
   "status": "collected"
  },
  "dior:2025-10-01:rtw": {
@@ -3165,16 +3384,8 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 2,
+   "seconds": 87,
    "small": 0
-  },
-  "live": {
-   "indexes": {
-    "indexes": 4,
-    "links": 0,
-    "opened": 0
-   },
-   "page": null
   },
   "looks": 0,
   "status": "unread"
@@ -3299,6 +3510,7 @@
  "ferragamo:2025-09-27:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -3310,6 +3522,7 @@
  "ferragamo:2026-02-28:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -3321,6 +3534,7 @@
  "ferragamo:2026-09-26:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -4634,6 +4848,7 @@
  "issey_miyake:2025-10-03:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -4645,6 +4860,7 @@
  "issey_miyake:2026-01-22:men": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -4656,6 +4872,7 @@
  "issey_miyake:2026-03-06:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -4667,6 +4884,7 @@
  "issey_miyake:2026-06-25:men": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -4678,6 +4896,7 @@
  "issey_miyake:2026-10-02:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -4983,6 +5202,7 @@
  "lanvin:2026-01-24:men": {
   "live": {
    "indexes": {
+    "from_archive": 1,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -4994,6 +5214,7 @@
  "lanvin:2026-03-06:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 1,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -5019,12 +5240,23 @@
    "small": 0
   },
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 1,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
+    "from_archive": 1,
     "indexes": 3,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.lanvin.com/en-us/spring-summer-2027-show",
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -6474,6 +6706,7 @@
  "moncler:2026-01-31:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 6,
     "links": 0,
     "opened": 0
@@ -7337,22 +7570,37 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
+   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 13,
+    "opened": 1,
+    "pictures": 13,
+    "refused": 0,
+    "small": 7
+   },
    "indexes": {
+    "from_archive": 3,
     "indexes": 5,
     "links": 0,
     "opened": 2
    },
-   "page": null
+   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+   "tried": 1
   },
-  "looks": 0,
-  "status": "no fitting page"
+  "looks": 6,
+  "status": "collected",
+  "via": "live"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 3,
     "indexes": 5,
     "links": 0,
     "opened": 2
@@ -7511,9 +7759,10 @@
  "stella_mccartney:2026-09-30:rtw": {
   "live": {
    "indexes": {
-    "indexes": 3,
+    "from_archive": 0,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 2
    },
    "page": null
   },
@@ -7675,6 +7924,7 @@
  "tom_ford:2025-10-01:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -7686,6 +7936,7 @@
  "tom_ford:2026-03-04:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -7697,6 +7948,7 @@
  "tom_ford:2026-09-30:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
