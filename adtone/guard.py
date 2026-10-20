@@ -69,7 +69,7 @@ ALLOW = {
                 "data/results/family.json", "data/results/runway.json", "data/results/runway_events.csv",
                 "data/results/character.json", "data/results/alignment.json", "data/results/readings.json",
                 "data/results/events.json", "data/results/measures.json", "data/provenance/analyse.jsonl",
-                "data/human_check/sample-*.csv"],
+                "data/human_check/sample-*.csv", "data/human_check/coded-*.csv"],
 }
 DENY_EXT = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff", ".heic", ".avif",
             ".mp4", ".mov", ".webm", ".m4v"}

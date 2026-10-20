@@ -154,7 +154,10 @@ What is left for a person afterwards:
   Ad Library and read `view_all_page_id` from the URL.
 - Renew the Meta token every 60 days or so.
 - Code the 120-image agreement sample once a few hundred images are scored (analyse workflow,
-  agreement-sample mode).
+  agreement-sample mode). Drawn on 20 October 2026 from the Meta ads the vendor's collector holds
+  (`data/human_check/sample-tone-v1.csv`, each picture once, with its place in its ad), and coded on
+  the private labelling page's third task; `adtone.agreement labels` turns its documents into coded
+  files by role and `adtone.agreement score` gives each question's kappa.
 
 A status page built for a phone (collection per house, backlog, page picks, token expiry, forward
 tests, and what needs you) publishes to GitHub Pages after every run. One-time setup: Settings > Pages
@@ -267,6 +270,11 @@ The Meta repository forgets after a year, so older campaigns come from two other
 - **The Wayback Machine** gives the images, from captures of that source page made around the
   publication date. Campaigns published on Instagram stay metadata-only, because the archive holds
   login walls there.
+- **The source page itself**, now that models.com keeps it behind a login and its archived copies from
+  before the wall kept no link: where the listing names the house's own site, `adtone.backcat find`
+  searches the archive's index of that site around the publication date for a page whose address says
+  campaign and names the season the title names (or one of its own words), and takes only such a page.
+  Addresses only; the images stage then reads it as before.
 
 Both are read politely (robots.txt honoured, a pause between requests) and under the same rule as
 everything else: derived rows only, no images committed. Coverage is unknown until the first run, and
@@ -275,7 +283,8 @@ the probe reports it.
 A different source is a different sensor, so the back catalogue is never pooled with the live series.
 `adtone.calibrate` finds campaign images that reappear in the paid Meta ads during the overlap year,
 measures the offset between the channels from those matched pairs, and splices the back catalogue on
-only with at least 20 pairs. None of the v1 pre-registered tests use the back catalogue; it exists for
+only with at least 20 pairs. The houses' homepages, as the archive holds them, are the house's own site
+too, and are matched the same way and reported beside the campaign pages. None of the v1 pre-registered tests use the back catalogue; it exists for
 later registered questions, such as the decade-long arc towards and away from streetwear, and separating
 photographers from houses through the credits.
 

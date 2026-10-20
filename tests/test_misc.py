@@ -126,6 +126,42 @@ def test_sample_is_blind(tmp_data):
     assert all(r["light"] == "" and r["library_url"].endswith(r["ad_id"]) for r in rows)
 
 
+def test_the_check_samples_the_vendor_s_meta_ads_and_scores_the_page_s_answers(tmp_data):
+    import json
+    from adtone import adlibs
+    P = adlibs.paths("metaweb")
+    store.write_jsonl(P["ads"] / "h.jsonl", [
+        {"ad_id": str(100 + i), "house_id": "h", "page_id": "p1" if i < 25 else "p9", "media": [
+            {"sha": f"v{i}a", "w": 400, "h": 400, "kind": "image"}, {"sha": f"v{i}b", "w": 800, "h": 1000, "kind": "image"},
+            {"sha": f"v{i}f", "w": 2000, "h": 2000, "kind": "frame"}]} for i in range(30)])
+    store.write_jsonl(P["obs"] / "tone-v1.jsonl", [
+        {"sha": f"v{i}b", "ad_id": str(100 + i), "instrument": "tone-v1@m", "status": "ok",
+         "output": {"light": "low_key" if i % 2 else "high_key", "setting": "studio_plain"}} for i in range(30)])
+    store.write_jsonl(P["ads"] / "h2.jsonl", [{"ad_id": "90", "house_id": "h", "page_id": "p1",
+                                               "media": [{"sha": "v3b", "w": 800, "h": 1000, "kind": "image"}]}])  # a shared picture
+    out = agreement.sample(20, "tone-v1@m", confirmed={"h": {"p1"}})
+    rows = list(csv.DictReader(out.open()))
+    assert len(rows) == 20 and len({r["sha"] for r in rows}) == 20                         # each image once
+    assert all(r["sha"].endswith("b") and (r["picture"], r["of"]) in (("2", "2"), ("1", "1")) for r in rows)
+    assert all(int(r["ad_id"]) < 125 for r in rows) and all(r["light"] == "" for r in rows)   # confirmed pages; blind
+    # the labelling page's documents: the latest answer kept, a trained labeller by role, never by name
+    folder = tmp_data / "export"
+    folder.mkdir()
+    for k, r in enumerate(rows):
+        i = int(r["ad_id"]) - 100
+        doc = {"task": "human_check", "rubric": "tone-v1", "sha": r["sha"], "labeller": "ben", "at": 2,
+               "answers": {"light": "low_key" if i % 2 else "high_key", "setting": "studio_plain", "street_couture_axis": 3}}
+        (folder / f"b{k}.json").write_text(json.dumps({"data": doc}))
+        (folder / f"t{k}.json").write_text(json.dumps({**doc, "labeller": "trained-ann", "answers": {"light": "mixed"}}))
+    (folder / "old.json").write_text(json.dumps({**doc, "at": 1, "answers": {"light": "unclear"}}))
+    coded = agreement.import_labels(folder, "tone-v1")
+    assert sorted(coded) == ["ben", "trained-1"]
+    got = agreement.score(coded["ben"], "tone-v1@m")
+    assert got["light"]["n"] == 20 and got["light"]["kappa"] == 1.0 and got["light"]["usable"] is True
+    assert got["creative_type"]["n"] == 0 and got["creative_type"]["kappa"] is None
+    assert agreement.score(coded["trained-1"], "tone-v1@m")["light"]["usable"] is False
+
+
 def test_workflows_only_persist_as_workflows_the_guard_knows():
     import re
     import yaml

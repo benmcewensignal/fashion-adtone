@@ -660,3 +660,56 @@ def test_looks_of_the_last_years_shows_come_from_the_houses_own_sites_when_the_a
     assert (tmp_path / "pics" / "read").exists() and len(list((tmp_path / "pics" / "read").glob("*.jpg"))) == 12
     assert not C._todo(cov["shows"]["dior:2026-09-29:rtw"], st["dior:2026-09-29:rtw"])   # the archive collector leaves it
     assert out["sites"]["www.gucci.com"] == {"robots": 1} and out["sites"]["www.dior.com"]["ok"] >= 2 and out["sites"]["www.dior.com"]["404"] >= 1
+
+
+def test_the_addresses_the_archive_knows_for_a_show_are_asked_of_the_house_s_own_site():
+    shows = {"2026 AW rtw": {"house": "prada", "date": "2026-02-26", "season": "2026 AW rtw", "category": "rtw"},
+             "2027 SS rtw": {"house": "prada", "date": "2026-09-22", "season": "2027 SS rtw", "category": "rtw"}}
+    cov = {"shows": {"prada:2026-02-26:rtw": {"candidates": [{"ts": "20260228", "url": "http://www.prada.com:80/it/it/x/fw-womenswear.html?utm_source=t"}]}}}
+    status = {"prada:2026-02-26:rtw": {"candidates": ["20260301000000 https://www.prada.com/us/en/x/fw-womenswear.html"]}}
+    rows = {"www.prada.com/us/en/pradasphere/fashion-shows/": [
+        ["20261011000000", "https://www.prada.com/us/en/pradasphere/fashion-shows/2027/ss-womenswear.html"],
+        ["20261011000000", "https://www.prada.com/us/en/pradasphere/fashion-shows/2027/ss-menswear.html"],     # another line
+        ["20250101000000", "https://www.prada.com/us/en/pradasphere/fashion-shows/2024/fw-womenswear.html"]]}  # not wanted
+    got = C.archive_addresses(shows, list(rows), cov, status, index=lambda p: rows.get(p, []))
+    assert got == {"2026 AW rtw": ["https://www.prada.com/it/it/x/fw-womenswear.html", "https://www.prada.com/us/en/x/fw-womenswear.html"],
+                   "2027 SS rtw": ["https://www.prada.com/us/en/pradasphere/fashion-shows/2027/ss-womenswear.html"]}
+    assert C.archive_addresses(shows, list(rows), {}, {}) == {}                 # no index read without one
+
+
+def test_a_show_page_the_archive_kept_without_pictures_is_read_from_the_house_s_site(tmp_path, monkeypatch):
+    """Prada's index pages link no show, and the archive's copy of its show page holds no picture addresses; the
+    same page on Prada's own site carries the looks, so they are taken from there."""
+    monkeypatch.setattr(C, "DIR", tmp_path)
+    monkeypatch.setattr(C, "PROV", tmp_path / "prov.jsonl")
+    monkeypatch.setattr(C.config, "priority_houses", lambda: [])
+    monkeypatch.setattr("adtone.looks.seeded_sections", lambda path=None: {"prada": ["www.prada.com/us/en/pradasphere/fashion-shows/"]})
+    looks = {f"https://media.prada.com/look-{i}.jpg": _jpeg(800, 1200, 900 + i) for i in range(10)}
+    page = "https://www.prada.com/us/en/pradasphere/fashion-shows/2026/fw-womenswear.html"
+    show = "".join(f'<img src="{u}">' for u in looks)
+
+    class S:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, url, timeout=None):
+            if url.endswith("/robots.txt"):
+                return _R(text="User-agent: *\nDisallow: /private/\n", url=url)
+            if url in looks:
+                return _R(content=looks[url])
+            if url == page:
+                return _R(text=show, url=url)
+            if url.endswith("fashion-shows/"):
+                return _R(text="<div id=app></div>", url=url)                # an index the browser fills in
+            return _R(status=404)
+
+    cov = {"shows": {"prada:2026-02-26:rtw": {"house": "prada", "date": "2026-02-26", "season": "2026 AW rtw", "category": "rtw",
+                                              "status": "partial", "candidates": []}}}
+    (tmp_path / "runway_shows.json").write_text(json.dumps({"prada:2026-02-26:rtw": {
+        "status": "no looks", "candidates": [f"20260228234737 {page}?utm_source=twitter"]}}))
+    from datetime import date
+    out = C.collect_live(cov, pause=0, session_factory=S, local=tmp_path / "pics", workers=1, today=date(2026, 10, 19),
+                         index=lambda p: [])
+    st = json.loads((tmp_path / "runway_shows.json").read_text())["prada:2026-02-26:rtw"]
+    assert out["shows_collected"] == 1 and st["status"] == "collected" and st["via"] == "live" and st["looks"] == 10
+    assert st["live"]["page"] == page and st["live"]["indexes"]["from_archive"] == 1

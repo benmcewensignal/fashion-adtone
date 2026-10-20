@@ -2,6 +2,8 @@ name: backcat
 run-name: backcat ${{ inputs.stage || github.event_name }}
 # The back catalogue: campaigns from before the Meta repository's one-year window. models.com gives
 # the crew, date and source page; the Wayback Machine gives the images from the houses' own sites.
+# find: where the listing no longer links its source page, the page on the house's own site from the
+# archive's index (addresses only; nothing is read). both: discover, find, then images.
 on:
   schedule:
     - cron: "0 5 * * *"   # daily while some 4,000 campaign pages wait to be read, so every brand's campaigns are listed within a fortnight; weekly again once they are
@@ -10,7 +12,7 @@ on:
       stage:
         type: choice
         default: both
-        options: [both, discover, images]
+        options: [both, discover, find, images]
       max_campaigns:
         description: "campaigns to fetch images for in this run"
         default: "150"
@@ -28,7 +30,7 @@ concurrency:
 jobs:
   backcat:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest becomes Ubuntu 26 from 19 Oct 2026
-    timeout-minutes: 170
+    timeout-minutes: 200
     env:
       PYTHONUNBUFFERED: "1"
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -54,13 +56,19 @@ jobs:
           path: ~/.cache/huggingface
           key: hf-openclip-vitb32-laion2b-v1
       - name: Discover campaigns on models.com
-        if: env.STAGE != 'images'
+        if: env.STAGE == 'both' || env.STAGE == 'discover'
         id: discover
         continue-on-error: true
         timeout-minutes: 60
         run: python -m adtone.backcat discover --run "gh${GITHUB_RUN_ID}" --max "$MAX" --budget-min 50   # stops itself before the step's hour
+      - name: Source pages on the houses' own sites, from the archive's index
+        if: env.STAGE == 'both' || env.STAGE == 'find'
+        id: find
+        continue-on-error: true
+        timeout-minutes: 65
+        run: python -m adtone.backcat find --run "gh${GITHUB_RUN_ID}" --max 300 --budget-min $([ "$STAGE" = find ] && echo 55 || echo 25)
       - name: Fetch archived images
-        if: env.STAGE != 'discover'
+        if: env.STAGE == 'both' || env.STAGE == 'images'
         id: images
         continue-on-error: true
         timeout-minutes: 100   # the stage stops itself at 90 minutes and saves what it has
@@ -72,7 +80,7 @@ jobs:
         timeout-minutes: 10
         run: bash scripts/persist.sh backcat "backcat $STAGE"
       - name: Fail if a stage failed
-        if: steps.discover.outcome == 'failure' || steps.images.outcome == 'failure'
+        if: steps.discover.outcome == 'failure' || steps.find.outcome == 'failure' || steps.images.outcome == 'failure'
         run: |
           echo "::error::a back-catalogue stage failed; progress before the failure was kept"
           exit 1

@@ -1,6 +1,8 @@
 """Back catalogue: older campaigns, from sources that keep them.
 
     python -m adtone.backcat discover     # models.com: each house's campaigns, with crew, date and venue
+    python -m adtone.backcat find         # Wayback Machine's index: the source page on the house's own site,
+                                          #   where the listing no longer links it
     python -m adtone.backcat images       # Wayback Machine: what those campaigns showed on the houses' sites
     python -m adtone.backcat probe --run <run id>
 
@@ -374,6 +376,130 @@ def discover(c: Crawler, reg: registry.Registry, rid: str, max_reads: int = 400,
             "archive_checked": sum(1 for r in table.rows.values() if r.get("archive_checked"))}
 
 
+# ---------- the source page, from the house's own site ----------
+#
+# A listing names the source's domain but, behind the login wall, not the page, and the archived copies of the
+# listing from before the wall kept no link either. Where the source is the house's own site, the archive's index
+# of that site around the day the campaign was published is searched for a page whose address says campaign and
+# names the season the title names (or, where it names none, one of its own words). Only such a page is taken:
+# an address that names the season without saying campaign is as often a shop page or a lookbook, whose pictures
+# are not the campaign's.
+
+CAMPAIGN_WORDS = r"campaign|campagne|campana|campanha|kampagne|advertising"
+FIND_BEFORE_DAYS = 45      # a house's campaign page may go up before the listing is published
+FIND_AFTER_DAYS = 75
+FIND_TRIES = 2             # a listing whose site's index cannot be read is asked again on this many runs
+_TITLE_SKIP = {"campaign", "campaigns", "collection", "collections", "advertising", "fall", "winter", "spring",
+               "summer", "autumn", "women", "womens", "woman", "men", "mens", "the", "and", "for", "with", "from",
+               "pre", "film", "films", "short", "story"}
+
+
+def _words(text: str) -> set[str]:
+    s = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode().lower()
+    return {w for w in re.split(r"[^a-z0-9]+", s) if len(w) >= 3 and not w.isdigit()}
+
+
+def own_site(row: dict, sites: dict[str, list[str]]) -> str | None:
+    """The house's own domain, when the listing's source is on it: the domain as the house's sites list names it."""
+    dom = (row.get("source_domain") or "").lower().removeprefix("www.")
+    if not dom or any(dom.endswith(v) for v in NO_PIXEL_VENUES):
+        return None
+    for d in sites.get(row.get("house_id"), []):
+        d = d.lower().removeprefix("www.")
+        if dom == d or dom.endswith("." + d) or d.endswith("." + dom):
+            return d
+    return None
+
+
+def source_pattern(title: str) -> tuple[str, str | None]:
+    """The address pattern the index is searched with: campaign, and the season the title names where it names
+    one; and that season's key."""
+    from .looks import season_pattern
+    from .thread import title_season
+    key = title_season(title or "")
+    parts = key.split() if key else []
+    if len(parts) >= 2 and parts[1] in ("SS", "AW"):
+        season = season_pattern(parts[1], int(parts[0])).removeprefix("(?i)")
+        return rf"(?i)(?=.*(?:{CAMPAIGN_WORDS})).*{season.removeprefix('.*')}", key
+    return rf"(?i).*(?:{CAMPAIGN_WORDS}).*", None
+
+
+def pick_source(rows: list, title: str, house_name: str, published: date, seasonal: bool) -> dict | None:
+    """The likeliest page among the index's rows: the most of the title's own words in its address (a title that
+    names a season needs none, one that names none needs one), then the capture nearest the day published, then
+    the shortest address."""
+    own = _words(title) - _words(house_name) - _TITLE_SKIP
+    rx = re.compile(rf"(?i)(?:{CAMPAIGN_WORDS})")
+    best = None
+    for row in rows:
+        ts, url = row[0], row[1]
+        p = urlparse(url if url.startswith("http") else "https://" + url)
+        path = p.path.lower()
+        if not rx.search(path) or path.endswith((".jpg", ".jpeg", ".png", ".webp", ".pdf", ".js", ".css")):
+            continue
+        hits = len(own & _words(path))
+        if not seasonal and hits == 0:
+            continue
+        try:
+            day = date(int(ts[:4]), int(ts[4:6]), int(ts[6:8]))
+        except (ValueError, IndexError):
+            continue
+        rank = (hits, -abs((day - published).days), -len(path))
+        if best is None or rank > best[0]:
+            best = (rank, {"url": f"https://{p.netloc.split(':')[0]}{p.path}", "ts": ts, "title_words": hits})
+    return best[1] if best else None
+
+
+def find_sources(c: Crawler, rid: str, max_listings: int = 200, budget_s: float | None = None,
+                 sites: dict[str, list[str]] | None = None, names: dict[str, str] | None = None,
+                 clock=time.monotonic) -> dict:
+    """The source page of each dated campaign listing on the house's own site that has none, from the archive's
+    index (see above): newest first, as the images stage reads them, each listing asked once (or FIND_TRIES times
+    while the index cannot be read). Sets source_url, so the images stage reads the page's archived pictures."""
+    from collections import Counter
+    from .homepages import sites as house_sites
+    from .looks import index as site_index
+    sites = sites if sites is not None else house_sites()
+    names = names if names is not None else {h.id: h.name for h in registry.load().houses}
+    table = store.ShardedTable(paths()["campaigns"], "campaign_id")
+    todo = []
+    for r in table.rows.values():
+        if r.get("kind") != "campaign" or not r.get("published") or r.get("source_url"):
+            continue
+        s = r.get("source_search") or {}
+        if s.get("result") in ("found", "no page") or s.get("tries", 0) >= FIND_TRIES:
+            continue
+        if own_site(r, sites):
+            todo.append(r)
+    todo.sort(key=lambda r: r["published"], reverse=True)
+    counts, t0, asked = Counter(), clock(), 0
+    for r in todo[:max_listings]:
+        if budget_s is not None and clock() - t0 > budget_s:
+            counts["out of time"] += 1
+            break
+        dom = own_site(r, sites)
+        pattern, key = source_pattern(r.get("title") or "")
+        pub = date.fromisoformat(r["published"][:10])
+        rows, why = site_index(c, dom, pattern, pub - timedelta(days=FIND_BEFORE_DAYS), pub + timedelta(days=FIND_AFTER_DAYS))
+        asked += 1
+        prev = r.get("source_search") or {}
+        if rows is None:
+            res = {"result": "index failed", "why": why, "tries": prev.get("tries", 0) + 1, "run": rid}
+        else:
+            got = pick_source(rows, r.get("title") or "", names.get(r["house_id"], r["house_id"]), pub, key is not None)
+            res = ({"result": "found", "ts": got["ts"], "title_words": got["title_words"], "run": rid, "rows": len(rows)}
+                   if got else {"result": "no page", "run": rid, "rows": len(rows)})
+            if got:
+                r = {**r, "source_url": got["url"]}
+        counts[res["result"]] += 1
+        table.upsert({**r, "source_search": res}, shard=r["house_id"])
+        if asked % 25 == 0:
+            table.save()
+    table.save()
+    return {"listings_waiting": len(todo), "asked": asked, **dict(counts),
+            "with_source": sum(1 for x in table.rows.values() if x.get("source_url"))}
+
+
 def images(c: Crawler, embedder, scorer, rid: str, max_campaigns: int = 150, budget_s: float = 5400,
            clock=time.monotonic) -> dict:
     from .embed import VectorStore
@@ -482,7 +608,7 @@ def probe(run: str, instrument: str, embed_tag: str) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="adtone.backcat")
-    ap.add_argument("stage", choices=["discover", "images", "probe"])
+    ap.add_argument("stage", choices=["discover", "find", "images", "probe"])
     ap.add_argument("--run", default=None)
     ap.add_argument("--max", type=int, default=150)
     ap.add_argument("--budget-min", type=float, default=90)
@@ -500,6 +626,9 @@ def main(argv: list[str] | None = None) -> int:
         if a.stage == "discover":
             out = discover(c, reg, rid, max_reads=a.max * 3, budget_s=a.budget_min * 60,
                            start=store.read_state(paths()["state"]).get("next_house"))
+        elif a.stage == "find":
+            out = find_sources(c, rid, max_listings=a.max, budget_s=a.budget_min * 60,
+                               names={h.id: h.name for h in reg.houses})
         else:
             from .embed import OpenClipEmbedder
             from .score import load_rubric, make_scorer

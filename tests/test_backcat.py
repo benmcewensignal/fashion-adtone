@@ -306,3 +306,50 @@ def test_a_campaign_with_no_source_is_taken_again_once_repaired(tmp_data):
     table.upsert({**row, "source_url": "https://www.bottegaveneta.com/en-gb/stories/winter-25"}, shard="bottega_veneta")
     table.save()
     assert backcat.images(c, FakeEmbedder(), scorer, "r3")["resolved"] == 1
+
+
+def test_a_listing_s_source_page_is_found_on_the_house_s_own_site_by_the_archive_s_index(tmp_data):
+    P = backcat.paths()
+    rows = [{"campaign_id": "a", "house_id": "gucci", "kind": "campaign", "title": "Gucci Fall/Winter 2023 Campaign",
+             "published": "2023-07-20", "source_domain": "gucci.com", "url": "https://models.com/work/a"},
+            {"campaign_id": "b", "house_id": "gucci", "kind": "campaign", "title": "Gucci Valigeria Campaign",
+             "published": "2023-03-02", "source_domain": "gucci.com", "url": "https://models.com/work/b"},
+            {"campaign_id": "c", "house_id": "gucci", "kind": "campaign", "title": "Gucci Ancora",
+             "published": "2023-05-02", "source_domain": "instagram.com", "url": "https://models.com/work/c"},   # not the house's site
+            {"campaign_id": "d", "house_id": "gucci", "kind": "campaign", "title": "Gucci Spring 2024 Campaign",
+             "published": "2024-01-10", "source_domain": "vogue.com", "url": "https://models.com/work/d"},       # another site
+            {"campaign_id": "e", "house_id": "gucci", "kind": "campaign", "title": "Gucci Cruise 2025 Campaign",
+             "published": "2024-11-02", "source_domain": "gucci.com", "url": "https://models.com/work/e"}]
+    t = store.ShardedTable(P["campaigns"], "campaign_id")
+    for r in rows:
+        t.upsert(r, shard="gucci")
+    t.save()
+    asked = []
+
+    def h(url, params):
+        if url.endswith("/robots.txt"):
+            return FakeResponse(200, text="User-agent: *\nAllow: /\n")
+        assert url == backcat.CDX
+        asked.append(params)
+        f = [x for x in params["filter"] if x.startswith("original:")][0]
+        if params["from"].startswith("2023"):
+            if "2023" in f or "23" in f:          # the season pattern
+                return FakeResponse(200, payload=[["timestamp", "original"],
+                                                  ["20230721090000", "https://www.gucci.com/us/en/st/stories/fall-winter-2023-campaign"],
+                                                  ["20230801090000", "https://www.gucci.com:80/uk/en/st/stories/fall-winter-2023-campaign?x=1"],
+                                                  ["20230722090000", "https://www.gucci.com/us/en/ca/women/fall-winter-2023-c-fw23"]])
+            return FakeResponse(200, payload=[["timestamp", "original"],
+                                              ["20230301090000", "https://www.gucci.com/us/en/st/stories/valigeria-campaign"],
+                                              ["20230302090000", "https://www.gucci.com/us/en/st/stories/ancora-campaign"]])
+        return FakeResponse(503, text="busy")
+    c = backcat.Crawler(FakeSession(h), pause=0)
+    out = backcat.find_sources(c, "r1", sites={"gucci": ["gucci.com"]}, names={"gucci": "Gucci"})
+    got = {r["campaign_id"]: r for r in store.ShardedTable(P["campaigns"], "campaign_id").rows.values()}
+    assert got["a"]["source_url"] == "https://www.gucci.com/us/en/st/stories/fall-winter-2023-campaign"   # nearest the day published
+    assert got["b"]["source_url"] == "https://www.gucci.com/us/en/st/stories/valigeria-campaign"           # its own word in the address
+    assert "source_url" not in got["c"] and "source_url" not in got["d"] and "source_search" not in got["c"]
+    assert got["e"]["source_search"]["result"] == "index failed" and got["e"]["source_search"]["tries"] == 1
+    assert out["found"] == 2 and out["index failed"] == 1 and out["with_source"] == 2
+    again = backcat.find_sources(c, "r2", sites={"gucci": ["gucci.com"]}, names={"gucci": "Gucci"})
+    assert again["asked"] == 1                                    # only the one whose index could not be read
+    assert backcat.find_sources(c, "r3", sites={"gucci": ["gucci.com"]}, names={"gucci": "Gucci"})["asked"] == 0

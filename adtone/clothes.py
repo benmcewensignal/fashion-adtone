@@ -793,6 +793,51 @@ def live_show_pages(get, prefixes: list[str], wanted: dict[str, dict], cap: int 
     return dict(found), diag
 
 
+LIVE_PAGES_PER_SHOW = 3   # show pages asked of a house's own site for one show, those its index pages link first
+
+
+def _site_address(url: str) -> str | None:
+    """An address as the house's own site serves it: https, no port, no query."""
+    from urllib.parse import urlparse
+    u = url.strip()
+    if not u.startswith("http"):
+        u = "https://" + u
+    p = urlparse(u)
+    if not p.netloc:
+        return None
+    return f"https://{p.netloc.split(':')[0]}{p.path}"
+
+
+def archive_addresses(shows: dict[str, dict], prefixes: list[str], coverage: dict, status: dict,
+                      index=None) -> dict[str, list[str]]:
+    """The addresses the archive knows for a house's wanted shows (season key -> show), to ask of the house's own
+    site: the coverage probe's candidate pages and those the collector tried, and the pages the archive's index
+    holds under the house's show sections whose address names a wanted season and fits its line, whenever they were
+    first captured. The probe keeps only section pages first captured within four months of the show, and the
+    archive often reaches a show page later, or keeps a copy of it with no picture addresses, while the house's
+    site still serves it. `index(prefix)` lists a section's pages as (timestamp, address) rows."""
+    out: dict[str, list[str]] = defaultdict(list)
+
+    def add(key, url):
+        u = _site_address(url)
+        if u and u not in out[key]:
+            out[key].append(u)
+    for key, sh in sorted(shows.items()):
+        k = show_key(sh)
+        for c in ((coverage.get("shows") or {}).get(k) or {}).get("candidates") or []:
+            add(key, c["url"] if isinstance(c, dict) else str(c).split()[-1])
+        for c in (status.get(k) or {}).get("candidates") or []:
+            add(key, str(c).split()[-1])
+    if index is not None:
+        for pre in dict.fromkeys(prefixes):
+            for row in index(pre) or []:
+                url = row[1] if len(row) > 1 else row[0]
+                key = slug_season(url)
+                if key in shows and page_fits(url, shows[key]["category"]):
+                    add(key, url)
+    return dict(out)
+
+
 def page_looks_live(get, house: str, url: str, keep, shrink, per_show: int = PER_SHOW, candidates: int = CANDIDATES,
                     tries: int | None = None, deadline: float | None = None, diag: dict | None = None) -> list[dict]:
     """One show page on the house's own site: opened, its pictures fetched in page order at the widest address
@@ -842,14 +887,36 @@ def page_looks_live(get, house: str, url: str, keep, shrink, per_show: int = PER
     return chosen
 
 
+def archive_index():
+    """The archive's index of a show section, as adtone/looks.py reads it: (timestamp, address) rows, each section
+    read once, by one polite crawler per thread."""
+    from .backcat import Crawler
+    from .looks import section_index
+    tl, cache, lock = threading.local(), {}, threading.Lock()
+
+    def index(prefix):
+        with lock:
+            if prefix in cache:
+                return cache[prefix]
+        if not hasattr(tl, "c"):
+            tl.c = Crawler(pause=2.0)
+        rows = section_index(tl.c, prefix)
+        with lock:
+            cache[prefix] = rows
+        return rows
+    return index
+
+
 def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers: int = 3, pause: float = 1.0,
                  budget_min: float = 30, session_factory=None, local: Path | None = None, clock=time.monotonic,
-                 today=None, days: int = LIVE_DAYS, houses: list[str] | None = None) -> dict:
+                 today=None, days: int = LIVE_DAYS, houses: list[str] | None = None, index=None) -> dict:
     """The looks of the shows of the last `days` that have none on file, from the houses' own sites: for each
     house, its show sections (reference/show_pages.csv and the coverage probe's) opened live as index pages, the
-    show pages found by the season their address names, and the looks taken from them. Pages and pictures are
-    asked for as the identified research crawler with robots.txt honoured; a site that declines is left.
-    Rows go to data/clothes/runway.jsonl with `via: live`; the show's status says the same."""
+    show pages found by the season their address names, then the addresses the archive knows for those shows
+    (archive_addresses), and the looks taken from them. Pages and pictures are asked for as the identified
+    research crawler with robots.txt honoured; a site that declines is left. `index(prefix)` reads the archive's
+    index of a section (archive_index); without it only the addresses the coverage probe and the collector kept
+    are added. Rows go to data/clothes/runway.jsonl with `via: live`; the show's status says the same."""
     import requests
     from datetime import date as _date, timedelta
     from urllib import robotparser
@@ -933,6 +1000,12 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
     def keep(sha, read_copy):
         (local / "read" / f"{sha}.jpg").write_bytes(read_copy)
 
+    def section_rows(prefix):
+        """The archive's index of one show section (none read without `index`, or once the time is spent)."""
+        if index is None or clock() > deadline:
+            return []
+        return index(prefix)
+
     def one(house):
         shows = wanted[house]
         if not shows or clock() > deadline:
@@ -945,6 +1018,14 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
                 summary["houses_without_sections"] += 1
             return
         pages, idiag = live_show_pages(get, prefixes, shows)
+        known = archive_addresses(shows, prefixes, coverage, status, index=section_rows)
+        idiag = {**idiag, "from_archive": 0}
+        for key, urls in known.items():
+            have = pages.setdefault(key, [])
+            for u in urls:
+                if u not in have:
+                    have.append(u)
+                    idiag["from_archive"] += 1
         for key, sh in sorted(shows.items(), key=lambda kv: kv[1]["date"], reverse=True):
             if clock() > deadline:
                 with lock:
@@ -961,7 +1042,9 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
                         status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
                 continue
             got, diag = [], {}
-            for url in urls[:2]:
+            tried = []
+            for url in urls[:LIVE_PAGES_PER_SHOW]:
+                tried.append(url)
                 got = page_looks_live(get, house, url, keep, shrink, per_show=per_show, candidates=per_show * 2,
                                       tries=TRIES_PER_PAGE, deadline=deadline, diag=diag)
                 if got:
@@ -974,12 +1057,14 @@ def collect_live(coverage: dict | None = None, per_show: int = PER_SHOW, workers
                     n_rows[0] += len(got)
                     summary["shows_collected"] += 1
                     status[k] = {"status": "collected", "looks": len(got), "via": "live", "candidates": _candidate_signature(sh),
-                                 "live": {"page": urls[0], "indexes": idiag, "diag": {x: v for x, v in diag.items() if x != "kept"}}}
+                                 "live": {"page": tried[-1], "tried": len(tried), "indexes": idiag,
+                                          "diag": {x: v for x, v in diag.items() if x != "kept"}}}
                 else:
                     summary["shows_without_looks"] += 1
                     prev = status.get(k) or {}
                     status[k] = {**prev, "status": prev.get("status") or "no looks",
-                                 "live": {"page": urls[0], "indexes": idiag, "diag": {x: v for x, v in diag.items() if x != "kept"}}}
+                                 "live": {"page": urls[0], "tried": len(tried), "indexes": idiag,
+                                          "diag": {x: v for x, v in diag.items() if x != "kept"}}}
                 status_path.write_text(json.dumps(status, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     order = sorted(wanted, key=lambda h: (h not in set(config.priority_houses()), h))
@@ -1680,7 +1765,8 @@ def main(argv: list[str] | None = None) -> int:
         n = runway_to_volume()
         print(f"clothes collect: {summary}; {n} copies on the volume")
     elif a.cmd == "live":
-        summary = collect_live(budget_min=a.budget_min, workers=a.workers, houses=[h for h in a.houses.split(",") if h] or None)
+        summary = collect_live(budget_min=a.budget_min, workers=a.workers, houses=[h for h in a.houses.split(",") if h] or None,
+                               index=archive_index())
         n = runway_to_volume()
         print(f"clothes live: {summary}; {n} copies on the volume")
     elif a.cmd == "seal":
