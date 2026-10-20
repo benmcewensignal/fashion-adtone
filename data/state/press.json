@@ -1,18 +1,14 @@
 {
   "complete": [
-    "balenciaga",
-    "bottega_veneta",
-    "chanel",
-    "dior",
-    "gucci",
-    "louis_vuitton",
-    "margiela",
-    "prada",
-    "saint_laurent",
-    "valentino"
+    "alaia",
+    "chloe",
+    "givenchy",
+    "loro_piana",
+    "tom_ford",
+    "versace"
   ],
   "covered": {
-    "alaia": "2026-10-13",
+    "alaia": "2026-10-19",
     "armani": "2026-10-14",
     "balenciaga": "2026-10-18",
     "balmain": "2026-10-15",
@@ -21,14 +17,14 @@
     "burberry": "2026-10-17",
     "celine": "2026-10-16",
     "chanel": "2026-10-18",
-    "chloe": "2026-10-12",
+    "chloe": "2026-10-19",
     "comme_des_garcons": "2026-10-16",
     "dior": "2026-10-18",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
     "fendi": "2026-10-17",
     "ferragamo": "2026-10-14",
-    "givenchy": "2026-10-12",
+    "givenchy": "2026-10-19",
     "gucci": "2026-10-18",
     "hermes": "2026-10-17",
     "issey_miyake": "2026-10-16",
@@ -36,7 +32,7 @@
     "jil_sander": "2026-10-17",
     "lanvin": "2026-10-15",
     "loewe": "2026-10-17",
-    "loro_piana": "2026-10-11",
+    "loro_piana": "2026-10-19",
     "louis_vuitton": "2026-10-18",
     "margiela": "2026-10-18",
     "max_mara": "2026-10-13",
@@ -48,12 +44,12 @@
     "schiaparelli": "2026-10-15",
     "stella_mccartney": "2026-10-16",
     "the_row": "2026-10-15",
-    "tom_ford": "2026-10-13",
+    "tom_ford": "2026-10-19",
     "valentino": "2026-10-18",
-    "versace": "2026-10-12",
+    "versace": "2026-10-19",
     "zegna": "2026-10-14"
   },
-  "end": "2026-10-18",
+  "end": "2026-10-19",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -99,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh39325607438",
+  "run": "gh39373435479",
   "span": {},
-  "updated_at": "2026-10-19T21:46:27Z"
+  "updated_at": "2026-10-20T05:58:49Z"
 }
