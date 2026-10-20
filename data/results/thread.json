@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T10:11:55Z",
+ "generated_at": "2026-10-20T12:20:37Z",
  "status": "descriptive",
  "shows": 1258,
  "left_out_doubtful_dates": 8,
@@ -33692,8 +33692,8 @@
    },
    "campaign": {
     "full": 558,
-    "none": 106,
-    "part": 120
+    "none": 102,
+    "part": 124
    },
    "advertising": {
     "none": 694,
@@ -33846,32 +33846,32 @@
    }
   },
   "campaigns_unjoined": {
-   "accessories": 77,
-   "beauty": 147,
-   "collection": 503,
-   "other": 72,
+   "accessories": 79,
+   "beauty": 151,
+   "collection": 544,
+   "other": 75,
    "capsule": 3,
    "jewellery_watches": 16
   },
   "campaign_lag_after_show": {
    "AW": {
-    "campaigns": 88,
+    "campaigns": 90,
     "median_days": 154.0,
     "quartiles": [
      124.0,
-     176.5
+     176.0
     ],
-    "in_campaign_window": 71,
-    "after_it": 14
+    "in_campaign_window": 72,
+    "after_it": 15
    },
    "SS": {
-    "campaigns": 33,
-    "median_days": 131.0,
+    "campaigns": 35,
+    "median_days": 130.0,
     "quartiles": [
-     102.0,
-     189.0
+     99.0,
+     188.5
     ],
-    "in_campaign_window": 15,
+    "in_campaign_window": 17,
     "after_it": 15
    }
   },
