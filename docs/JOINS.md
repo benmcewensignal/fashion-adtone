@@ -77,6 +77,7 @@ started by editing its file in `.github/kick/`.
 ## Order of operations
 
 collect, then process (reader and fingerprint), then analyse; homepages every two hours while their
-history fills, press every four hours, attention and the back catalogue weekly, YouTube and TikTok
+history fills, press every four hours, attention weekly, the back catalogue's listings and source pages
+daily (its pictures read with the paid reader only in a run started by hand), YouTube and TikTok
 weekly once their keys exist; status after any of them. Nothing in the analyses runs on real data until the amendment that
 registers it is frozen.

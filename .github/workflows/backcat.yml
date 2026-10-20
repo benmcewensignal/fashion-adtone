@@ -3,20 +3,22 @@ run-name: backcat ${{ inputs.stage || github.event_name }}
 # The back catalogue: campaigns from before the Meta repository's one-year window. models.com gives
 # the crew, date and source page; the Wayback Machine gives the images from the houses' own sites.
 # find: where the listing no longer links its source page, the page on the house's own site from the
-# archive's index (addresses only; nothing is read). both: discover, find, then images.
+# archive's index (addresses only; nothing is read). listings: discover, then find; nothing is read.
+# images reads the pictures with the paid reader, so it runs only when started by hand (stage images or
+# both: discover, find, then images); the daily run and a kick are listings runs.
 on:
   schedule:
-    - cron: "0 5 * * *"   # daily while some 4,000 campaign pages wait to be read, so every brand's campaigns are listed within a fortnight; weekly again once they are
+    - cron: "0 5 * * *"   # daily while some 4,000 campaigns wait to be listed and their pages found
   workflow_dispatch:
     inputs:
       stage:
         type: choice
-        default: both
-        options: [both, discover, find, images]
+        default: listings
+        options: [listings, both, discover, find, images]
       max_campaigns:
         description: "campaigns to fetch images for in this run"
         default: "150"
-  push:   # editing .github/kick/backcat starts a run of both stages
+  push:   # editing .github/kick/backcat starts a listings run
     branches: [main]
     paths: [".github/kick/backcat"]
 
@@ -38,7 +40,7 @@ jobs:
       ADTONE_READER: ${{ vars.ADTONE_READER || 'modal' }}
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-      STAGE: ${{ inputs.stage || 'both' }}
+      STAGE: ${{ inputs.stage || 'listings' }}
       MAX: ${{ inputs.max_campaigns || '150' }}
     steps:
       - uses: actions/checkout@v4
@@ -56,18 +58,19 @@ jobs:
           path: ~/.cache/huggingface
           key: hf-openclip-vitb32-laion2b-v1
       - name: Discover campaigns on models.com
-        if: env.STAGE == 'both' || env.STAGE == 'discover'
+        if: env.STAGE == 'both' || env.STAGE == 'discover' || env.STAGE == 'listings'
         id: discover
         continue-on-error: true
         timeout-minutes: 60
         run: python -m adtone.backcat discover --run "gh${GITHUB_RUN_ID}" --max "$MAX" --budget-min 50   # stops itself before the step's hour
       - name: Source pages on the houses' own sites, from the archive's index
-        if: env.STAGE == 'both' || env.STAGE == 'find'
+        if: env.STAGE == 'both' || env.STAGE == 'find' || env.STAGE == 'listings'
         id: find
         continue-on-error: true
         timeout-minutes: 65
         run: python -m adtone.backcat find --run "gh${GITHUB_RUN_ID}" --max 300 --budget-min $([ "$STAGE" = find ] && echo 55 || echo 25)
       - name: Fetch archived images
+        # read with the paid reader: only in a run started by hand for it (stage images or both)
         if: env.STAGE == 'both' || env.STAGE == 'images'
         id: images
         continue-on-error: true

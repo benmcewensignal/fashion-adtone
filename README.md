@@ -263,7 +263,8 @@ only (a test holds it to that).
 ## Back catalogue
 
 The Meta repository forgets after a year, so older campaigns come from two other sources (the
-**backcat** workflow, monthly):
+**backcat** workflow: daily it lists campaigns and finds their pages, reading nothing; the images stage
+reads with the paid reader, so it runs only when started by hand):
 
 - **models.com** gives the spine: each house's campaigns with crew, publication date, the page the
   campaign was published on, and picture and film counts. It serves no images to an anonymous reader.
@@ -274,7 +275,7 @@ The Meta repository forgets after a year, so older campaigns come from two other
   before the wall kept no link: where the listing names the house's own site, `adtone.backcat find`
   searches the archive's index of that site around the publication date for a page whose address says
   campaign and names the season the title names (or one of its own words), and takes only such a page.
-  Addresses only; the images stage then reads it as before.
+  Addresses only; the images stage, when started, reads it as before.
 
 Both are read politely (robots.txt honoured, a pause between requests) and under the same rule as
 everything else: derived rows only, no images committed. Coverage is unknown until the first run, and
