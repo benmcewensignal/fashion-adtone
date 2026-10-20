@@ -26,6 +26,14 @@ rubric, which the freeze was meant to prevent. The registered test of section 3 
 first result from the collections whose advertising positions were not computed before the freeze: the
 spring-summer 2027 campaign windows onward. Positions computed before the freeze are description.
 
+On 20 October 2026, at Ben's direction, section 2's positions were computed as description
+(`adtone/shared.py`, `data/results/shared.json`): 112 runway positions from 2019 on and 34 advertising
+positions, all in the spring-summer and autumn-winter 2026 campaign windows (the only ones before
+spring-summer 2027 that the paid social record covers whole), with section 4's gap for the 13 collections
+that have both. No advertising position
+was computed for a spring-summer 2027 campaign window or later, and the code refuses to until this file's
+hash is on file. No change, cosine between changes or shuffle of section 3 was computed.
+
 ## What it does not change
 
 The frozen pre-registration and Amendments 1 and 2 stand as they are. Nothing here reads their

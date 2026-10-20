@@ -52,9 +52,20 @@ started by editing its file in `.github/kick/`.
   the campaigns and other things the house published (by the season the title names, else the house's
   last main show within 183 days), and the advertising (7 days before to 21 after, and the campaign
   from 45 days after to a week before the house's next main show). One record per collection in `data/thread/collections.jsonl`, each saying
-  which stages are filled. The stages keep their own measures; the clothes, described with the frozen
-  clothes rubric on the runway and in the shop window alike, join them (`adtone.benchmark`), provisional
-  until labels have checked the questions.
+  which stages are filled. The show carries its runway looks (the house's looks of the same kind whose
+  show date is nearest, within a week). The shop window counts Focal's own daily record of the homepages
+  beside the archive, for whether it is read, never in a comparison. The campaign is filled by a
+  campaign's own pictures where its listing brings them, and otherwise by the campaign pictures the house
+  put on its homepage in the campaign window, dated by the first capture that shows them; those are the
+  shop window's pictures too, so a stage filled by them is the campaign as the house showed it, and each
+  record says which (`campaign_from`). Paid social ads count on windows their library's record covers
+  whole, from a year before it was first read; before that only the ads still running a year later
+  survive, and they are kept beside the count without filling the stage. The stages keep their own
+  measures; the clothes, described with the frozen clothes rubric, join them: on the runway and in the
+  shop window (`adtone.benchmark`), and on the runway and in the advertising for the collection, with the
+  gap between the two (`adtone.shared`, Amendment 3's shared description, a draft: no advertising
+  position for the spring-summer 2027 campaign windows onward before its freeze), all provisional until
+  labels have checked the questions.
 - **By month.** Each house's four advertising readings (movement, distance from the market,
   consistency, drift towards the leader) set against next month's curiosity and, more thinly, desire
   and money: the forecast. Amendment 2, section 8.

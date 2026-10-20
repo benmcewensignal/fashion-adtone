@@ -1,0 +1,10636 @@
+{
+ "generated_at": "2026-10-20T10:21:21Z",
+ "status": "description: PREREGISTRATION-AMENDMENT-3.md is a draft and every clothes question is provisional until labelled; no advertising position is computed for the spring-summer 2027 campaign windows onward before the freeze, and nothing here is tested",
+ "questions": [
+  "accessories",
+  "colour_main",
+  "colour_second",
+  "construction",
+  "finishing",
+  "formality",
+  "garments",
+  "hemline",
+  "layers",
+  "materials",
+  "pattern",
+  "silhouette",
+  "skin_shown",
+  "street_couture_axis",
+  "subject"
+ ],
+ "answers": 92,
+ "min": {
+  "pictures": 8,
+  "answers": 3,
+  "placed": 4,
+  "common": 10
+ },
+ "runways_placed": 112,
+ "advertising_placed": 34,
+ "gaps": 13,
+ "advertising_held": 32,
+ "by_season": {
+  "2019 AW": {
+   "runways_placed": 5,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2020 SS": {
+   "runways_placed": 5,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2020 AW": {
+   "runways_placed": 4,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2021 AW": {
+   "runways_placed": 4,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2022 AW": {
+   "runways_placed": 6,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2023 SS": {
+   "runways_placed": 9,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2023 AW": {
+   "runways_placed": 8,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2024 SS": {
+   "runways_placed": 10,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2024 AW": {
+   "runways_placed": 10,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2025 SS": {
+   "runways_placed": 10,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2025 AW": {
+   "runways_placed": 9,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
+  "2026 SS": {
+   "runways_placed": 10,
+   "advertising_placed": 17,
+   "gaps": 6,
+   "median_gap": 0.7197
+  },
+  "2026 AW": {
+   "runways_placed": 12,
+   "advertising_placed": 17,
+   "gaps": 7,
+   "median_gap": 0.7309
+  },
+  "2027 SS": {
+   "runways_placed": 10,
+   "advertising_placed": 0,
+   "gaps": 0
+  }
+ },
+ "collections": [
+  {
+   "id": "alaia:2025:AW:rtw",
+   "house": "alaia",
+   "season": "2025 AW rtw",
+   "date": "2025-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "alaia:2026:SS:rtw",
+   "house": "alaia",
+   "season": "2026 SS rtw",
+   "date": "2025-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "alaia:2026:AW:rtw",
+   "house": "alaia",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "armani:2015:SS:couture",
+   "house": "armani",
+   "season": "2015 SS couture",
+   "date": "2015-01-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2015:AW:couture",
+   "house": "armani",
+   "season": "2015 AW couture",
+   "date": "2015-07-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2016:SS:couture",
+   "house": "armani",
+   "season": "2016 SS couture",
+   "date": "2016-01-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2016:AW:couture",
+   "house": "armani",
+   "season": "2016 AW couture",
+   "date": "2016-07-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2017:SS:couture",
+   "house": "armani",
+   "season": "2017 SS couture",
+   "date": "2017-01-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2017:AW:couture",
+   "house": "armani",
+   "season": "2017 AW couture",
+   "date": "2017-07-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2018:SS:couture",
+   "house": "armani",
+   "season": "2018 SS couture",
+   "date": "2018-01-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2018:AW:couture",
+   "house": "armani",
+   "season": "2018 AW couture",
+   "date": "2018-07-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2019:SS:couture",
+   "house": "armani",
+   "season": "2019 SS couture",
+   "date": "2019-01-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2019:AW:couture",
+   "house": "armani",
+   "season": "2019 AW couture",
+   "date": "2019-07-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2020:SS:couture",
+   "house": "armani",
+   "season": "2020 SS couture",
+   "date": "2020-01-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2021:SS:couture",
+   "house": "armani",
+   "season": "2021 SS couture",
+   "date": "2021-01-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2021:AW:couture",
+   "house": "armani",
+   "season": "2021 AW couture",
+   "date": "2021-07-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2022:AW:couture",
+   "house": "armani",
+   "season": "2022 AW couture",
+   "date": "2022-07-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2023:SS:couture",
+   "house": "armani",
+   "season": "2023 SS couture",
+   "date": "2023-01-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2023:AW:couture",
+   "house": "armani",
+   "season": "2023 AW couture",
+   "date": "2023-07-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2024:SS:couture",
+   "house": "armani",
+   "season": "2024 SS couture",
+   "date": "2024-01-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2024:AW:couture",
+   "house": "armani",
+   "season": "2024 AW couture",
+   "date": "2024-06-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2025:SS:couture",
+   "house": "armani",
+   "season": "2025 SS couture",
+   "date": "2025-01-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "armani:2025:AW:couture",
+   "house": "armani",
+   "season": "2025 AW couture",
+   "date": "2025-07-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "armani:2026:SS:couture",
+   "house": "armani",
+   "season": "2026 SS couture",
+   "date": "2026-01-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "armani:2026:AW:couture",
+   "house": "armani",
+   "season": "2026 AW couture",
+   "date": "2026-07-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "balenciaga:2015:AW:rtw",
+   "house": "balenciaga",
+   "season": "2015 AW rtw",
+   "date": "2015-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2016:SS:rtw",
+   "house": "balenciaga",
+   "season": "2016 SS rtw",
+   "date": "2015-10-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2016:AW:rtw",
+   "house": "balenciaga",
+   "season": "2016 AW rtw",
+   "date": "2016-03-06",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2017:SS:rtw",
+   "house": "balenciaga",
+   "season": "2017 SS rtw",
+   "date": "2016-10-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2017:AW:rtw",
+   "house": "balenciaga",
+   "season": "2017 AW rtw",
+   "date": "2017-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2018:SS:rtw",
+   "house": "balenciaga",
+   "season": "2018 SS rtw",
+   "date": "2017-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2018:AW:rtw",
+   "house": "balenciaga",
+   "season": "2018 AW rtw",
+   "date": "2018-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2019:SS:rtw",
+   "house": "balenciaga",
+   "season": "2019 SS rtw",
+   "date": "2018-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2019:AW:rtw",
+   "house": "balenciaga",
+   "season": "2019 AW rtw",
+   "date": "2019-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2020:SS:rtw",
+   "house": "balenciaga",
+   "season": "2020 SS rtw",
+   "date": "2019-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2020:AW:rtw",
+   "house": "balenciaga",
+   "season": "2020 AW rtw",
+   "date": "2020-03-01",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2021:SS:rtw",
+   "house": "balenciaga",
+   "season": "2021 SS rtw",
+   "date": "2020-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2022:SS:rtw",
+   "house": "balenciaga",
+   "season": "2022 SS rtw",
+   "date": "2021-10-02",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2022:AW:rtw",
+   "house": "balenciaga",
+   "season": "2022 AW rtw",
+   "date": "2022-03-06",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2023:SS:rtw",
+   "house": "balenciaga",
+   "season": "2023 SS rtw",
+   "date": "2022-10-02",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2023:AW:rtw",
+   "house": "balenciaga",
+   "season": "2023 AW rtw",
+   "date": "2023-03-05",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2024:SS:rtw",
+   "house": "balenciaga",
+   "season": "2024 SS rtw",
+   "date": "2023-10-01",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2024:AW:rtw",
+   "house": "balenciaga",
+   "season": "2024 AW rtw",
+   "date": "2024-03-03",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2025:SS:rtw",
+   "house": "balenciaga",
+   "season": "2025 SS rtw",
+   "date": "2024-09-30",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2025:AW:rtw",
+   "house": "balenciaga",
+   "season": "2025 AW rtw",
+   "date": "2025-03-09",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balenciaga:2026:SS:rtw",
+   "house": "balenciaga",
+   "season": "2026 SS rtw",
+   "date": "2025-10-04",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "balenciaga:2026:AW:rtw",
+   "house": "balenciaga",
+   "season": "2026 AW rtw",
+   "date": "2026-03-07",
+   "runway": {
+    "looks": 7,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 2,
+    "ads": 9,
+    "pictures": 1,
+    "placed": false
+   }
+  },
+  {
+   "id": "balenciaga:2027:SS:rtw",
+   "house": "balenciaga",
+   "season": "2027 SS rtw",
+   "date": "2026-10-01",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "balmain:2015:AW:rtw",
+   "house": "balmain",
+   "season": "2015 AW rtw",
+   "date": "2015-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2016:SS:rtw",
+   "house": "balmain",
+   "season": "2016 SS rtw",
+   "date": "2015-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2016:AW:rtw",
+   "house": "balmain",
+   "season": "2016 AW rtw",
+   "date": "2016-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2017:SS:rtw",
+   "house": "balmain",
+   "season": "2017 SS rtw",
+   "date": "2016-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2017:AW:rtw",
+   "house": "balmain",
+   "season": "2017 AW rtw",
+   "date": "2017-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2018:SS:rtw",
+   "house": "balmain",
+   "season": "2018 SS rtw",
+   "date": "2017-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2018:AW:rtw",
+   "house": "balmain",
+   "season": "2018 AW rtw",
+   "date": "2018-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2019:SS:rtw",
+   "house": "balmain",
+   "season": "2019 SS rtw",
+   "date": "2018-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2019:AW:rtw",
+   "house": "balmain",
+   "season": "2019 AW rtw",
+   "date": "2019-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2020:SS:rtw",
+   "house": "balmain",
+   "season": "2020 SS rtw",
+   "date": "2019-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2020:AW:rtw",
+   "house": "balmain",
+   "season": "2020 AW rtw",
+   "date": "2020-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2021:SS:rtw",
+   "house": "balmain",
+   "season": "2021 SS rtw",
+   "date": "2020-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2021:AW:rtw",
+   "house": "balmain",
+   "season": "2021 AW rtw",
+   "date": "2021-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2022:SS:rtw",
+   "house": "balmain",
+   "season": "2022 SS rtw",
+   "date": "2021-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2022:AW:rtw",
+   "house": "balmain",
+   "season": "2022 AW rtw",
+   "date": "2022-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2023:SS:rtw",
+   "house": "balmain",
+   "season": "2023 SS rtw",
+   "date": "2022-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2023:AW:rtw",
+   "house": "balmain",
+   "season": "2023 AW rtw",
+   "date": "2023-03-01",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2024:SS:rtw",
+   "house": "balmain",
+   "season": "2024 SS rtw",
+   "date": "2023-09-27",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2024:AW:rtw",
+   "house": "balmain",
+   "season": "2024 AW rtw",
+   "date": "2024-02-28",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2025:SS:rtw",
+   "house": "balmain",
+   "season": "2025 SS rtw",
+   "date": "2024-09-25",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2025:AW:rtw",
+   "house": "balmain",
+   "season": "2025 AW rtw",
+   "date": "2025-03-05",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "balmain:2026:SS:rtw",
+   "house": "balmain",
+   "season": "2026 SS rtw",
+   "date": "2025-10-01",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "balmain:2026:AW:rtw",
+   "house": "balmain",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "balmain:2027:SS:rtw",
+   "house": "balmain",
+   "season": "2027 SS rtw",
+   "date": "2026-09-30",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "bottega_veneta:2015:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2015 AW rtw",
+   "date": "2015-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2016:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2016 SS rtw",
+   "date": "2015-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2016:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2016 AW rtw",
+   "date": "2016-02-27",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2017:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2017 SS rtw",
+   "date": "2016-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2017:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2017 AW rtw",
+   "date": "2017-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2018:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2018 SS rtw",
+   "date": "2017-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2018:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2018 AW rtw",
+   "date": "2018-02-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2019:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2019 AW rtw",
+   "date": "2019-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2020:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2020 SS rtw",
+   "date": "2019-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2020:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2020 AW rtw",
+   "date": "2020-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2022:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2022 AW rtw",
+   "date": "2022-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2023:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2023 AW rtw",
+   "date": "2023-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2024:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2024 SS rtw",
+   "date": "2023-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2024:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2024 AW rtw",
+   "date": "2024-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2025:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2025 SS rtw",
+   "date": "2024-09-21",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "bottega_veneta:2026:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2026 SS rtw",
+   "date": "2025-09-27",
+   "runway": {
+    "looks": 7,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 15,
+    "ads": 38,
+    "pictures": 25,
+    "placed": true
+   }
+  },
+  {
+   "id": "bottega_veneta:2026:AW:rtw",
+   "house": "bottega_veneta",
+   "season": "2026 AW rtw",
+   "date": "2026-02-28",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 26,
+    "ads": 57,
+    "pictures": 57,
+    "placed": true
+   }
+  },
+  {
+   "id": "bottega_veneta:2027:SS:rtw",
+   "house": "bottega_veneta",
+   "season": "2027 SS rtw",
+   "date": "2026-09-26",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "brunello_cucinelli:2026:SS:men",
+   "house": "brunello_cucinelli",
+   "season": "2026 SS men",
+   "date": "2025-06-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "brunello_cucinelli:2026:AW:men",
+   "house": "brunello_cucinelli",
+   "season": "2026 AW men",
+   "date": "2026-01-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "brunello_cucinelli:2027:SS:men",
+   "house": "brunello_cucinelli",
+   "season": "2027 SS men",
+   "date": "2026-06-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "burberry:2015:AW:rtw",
+   "house": "burberry",
+   "season": "2015 AW rtw",
+   "date": "2015-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2016:SS:rtw",
+   "house": "burberry",
+   "season": "2016 SS rtw",
+   "date": "2015-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2016:AW:rtw",
+   "house": "burberry",
+   "season": "2016 AW rtw",
+   "date": "2016-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2017:SS:rtw",
+   "house": "burberry",
+   "season": "2017 SS rtw",
+   "date": "2016-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2017:AW:rtw",
+   "house": "burberry",
+   "season": "2017 AW rtw",
+   "date": "2017-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2018:SS:rtw",
+   "house": "burberry",
+   "season": "2018 SS rtw",
+   "date": "2017-09-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2018:AW:rtw",
+   "house": "burberry",
+   "season": "2018 AW rtw",
+   "date": "2018-02-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2019:SS:rtw",
+   "house": "burberry",
+   "season": "2019 SS rtw",
+   "date": "2018-09-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2019:AW:rtw",
+   "house": "burberry",
+   "season": "2019 AW rtw",
+   "date": "2019-02-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2020:SS:rtw",
+   "house": "burberry",
+   "season": "2020 SS rtw",
+   "date": "2019-09-16",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2020:AW:rtw",
+   "house": "burberry",
+   "season": "2020 AW rtw",
+   "date": "2020-02-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2021:SS:rtw",
+   "house": "burberry",
+   "season": "2021 SS rtw",
+   "date": "2020-09-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2022:AW:rtw",
+   "house": "burberry",
+   "season": "2022 AW rtw",
+   "date": "2022-03-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2023:AW:rtw",
+   "house": "burberry",
+   "season": "2023 AW rtw",
+   "date": "2023-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2024:SS:rtw",
+   "house": "burberry",
+   "season": "2024 SS rtw",
+   "date": "2023-09-18",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2024:AW:rtw",
+   "house": "burberry",
+   "season": "2024 AW rtw",
+   "date": "2024-02-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2025:SS:rtw",
+   "house": "burberry",
+   "season": "2025 SS rtw",
+   "date": "2024-09-16",
+   "runway": {
+    "looks": 10,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2025:AW:rtw",
+   "house": "burberry",
+   "season": "2025 AW rtw",
+   "date": "2025-02-24",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "burberry:2026:SS:rtw",
+   "house": "burberry",
+   "season": "2026 SS rtw",
+   "date": "2025-09-22",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 5,
+    "ads": 8,
+    "pictures": 8,
+    "placed": true
+   }
+  },
+  {
+   "id": "burberry:2026:AW:rtw",
+   "house": "burberry",
+   "season": "2026 AW rtw",
+   "date": "2026-02-23",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 44,
+    "ads": 216,
+    "pictures": 97,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.7309,
+    "answers": 88
+   }
+  },
+  {
+   "id": "burberry:2027:SS:rtw",
+   "house": "burberry",
+   "season": "2027 SS rtw",
+   "date": "2026-09-21",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "celine:2015:AW:rtw",
+   "house": "celine",
+   "season": "2015 AW rtw",
+   "date": "2015-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2016:SS:rtw",
+   "house": "celine",
+   "season": "2016 SS rtw",
+   "date": "2015-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2016:AW:rtw",
+   "house": "celine",
+   "season": "2016 AW rtw",
+   "date": "2016-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2017:SS:rtw",
+   "house": "celine",
+   "season": "2017 SS rtw",
+   "date": "2016-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2017:AW:rtw",
+   "house": "celine",
+   "season": "2017 AW rtw",
+   "date": "2017-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2018:SS:rtw",
+   "house": "celine",
+   "season": "2018 SS rtw",
+   "date": "2017-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2019:SS:rtw",
+   "house": "celine",
+   "season": "2019 SS rtw",
+   "date": "2018-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2019:AW:rtw",
+   "house": "celine",
+   "season": "2019 AW rtw",
+   "date": "2019-03-01",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2020:SS:rtw",
+   "house": "celine",
+   "season": "2020 SS rtw",
+   "date": "2019-09-27",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2020:AW:rtw",
+   "house": "celine",
+   "season": "2020 AW rtw",
+   "date": "2020-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2022:AW:rtw",
+   "house": "celine",
+   "season": "2022 AW rtw",
+   "date": "2022-03-19",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "celine:2026:SS:rtw",
+   "house": "celine",
+   "season": "2026 SS rtw",
+   "date": "2025-10-05",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 21,
+    "ads": 145,
+    "pictures": 19,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.7002,
+    "answers": 82
+   }
+  },
+  {
+   "id": "celine:2026:AW:rtw",
+   "house": "celine",
+   "season": "2026 AW rtw",
+   "date": "2026-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 23,
+    "ads": 277,
+    "pictures": 44,
+    "placed": true
+   }
+  },
+  {
+   "id": "chanel:2015:AW:rtw",
+   "house": "chanel",
+   "season": "2015 AW rtw",
+   "date": "2015-03-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2016:SS:rtw",
+   "house": "chanel",
+   "season": "2016 SS rtw",
+   "date": "2015-10-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2016:AW:rtw",
+   "house": "chanel",
+   "season": "2016 AW rtw",
+   "date": "2016-03-08",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2017:SS:rtw",
+   "house": "chanel",
+   "season": "2017 SS rtw",
+   "date": "2016-10-04",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2017:AW:rtw",
+   "house": "chanel",
+   "season": "2017 AW rtw",
+   "date": "2017-03-07",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2018:SS:rtw",
+   "house": "chanel",
+   "season": "2018 SS rtw",
+   "date": "2017-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2018:AW:rtw",
+   "house": "chanel",
+   "season": "2018 AW rtw",
+   "date": "2018-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2019:SS:rtw",
+   "house": "chanel",
+   "season": "2019 SS rtw",
+   "date": "2018-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2019:AW:rtw",
+   "house": "chanel",
+   "season": "2019 AW rtw",
+   "date": "2019-03-05",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2020:SS:rtw",
+   "house": "chanel",
+   "season": "2020 SS rtw",
+   "date": "2019-10-01",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2020:AW:rtw",
+   "house": "chanel",
+   "season": "2020 AW rtw",
+   "date": "2020-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2021:SS:rtw",
+   "house": "chanel",
+   "season": "2021 SS rtw",
+   "date": "2020-10-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2021:AW:rtw",
+   "house": "chanel",
+   "season": "2021 AW rtw",
+   "date": "2021-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2022:SS:rtw",
+   "house": "chanel",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2022:AW:rtw",
+   "house": "chanel",
+   "season": "2022 AW rtw",
+   "date": "2022-03-08",
+   "runway": {
+    "looks": 11,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2023:SS:rtw",
+   "house": "chanel",
+   "season": "2023 SS rtw",
+   "date": "2022-10-04",
+   "runway": {
+    "looks": 11,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2023:AW:rtw",
+   "house": "chanel",
+   "season": "2023 AW rtw",
+   "date": "2023-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2024:SS:rtw",
+   "house": "chanel",
+   "season": "2024 SS rtw",
+   "date": "2023-10-03",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2024:AW:rtw",
+   "house": "chanel",
+   "season": "2024 AW rtw",
+   "date": "2024-03-05",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2025:SS:rtw",
+   "house": "chanel",
+   "season": "2025 SS rtw",
+   "date": "2024-10-01",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2025:AW:rtw",
+   "house": "chanel",
+   "season": "2025 AW rtw",
+   "date": "2025-03-11",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chanel:2026:SS:rtw",
+   "house": "chanel",
+   "season": "2026 SS rtw",
+   "date": "2025-10-06",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 14,
+    "ads": 60,
+    "pictures": 61,
+    "placed": true
+   }
+  },
+  {
+   "id": "chanel:2026:AW:rtw",
+   "house": "chanel",
+   "season": "2026 AW rtw",
+   "date": "2026-03-09",
+   "runway": {
+    "looks": 7,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 22,
+    "ads": 123,
+    "pictures": 144,
+    "placed": true
+   }
+  },
+  {
+   "id": "chanel:2027:SS:rtw",
+   "house": "chanel",
+   "season": "2027 SS rtw",
+   "date": "2026-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "chloe:2015:AW:rtw",
+   "house": "chloe",
+   "season": "2015 AW rtw",
+   "date": "2015-03-08",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2016:SS:rtw",
+   "house": "chloe",
+   "season": "2016 SS rtw",
+   "date": "2015-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2016:AW:rtw",
+   "house": "chloe",
+   "season": "2016 AW rtw",
+   "date": "2016-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2017:SS:rtw",
+   "house": "chloe",
+   "season": "2017 SS rtw",
+   "date": "2016-09-29",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2017:AW:rtw",
+   "house": "chloe",
+   "season": "2017 AW rtw",
+   "date": "2017-03-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2018:SS:rtw",
+   "house": "chloe",
+   "season": "2018 SS rtw",
+   "date": "2017-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2018:AW:rtw",
+   "house": "chloe",
+   "season": "2018 AW rtw",
+   "date": "2018-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2019:SS:rtw",
+   "house": "chloe",
+   "season": "2019 SS rtw",
+   "date": "2018-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2019:AW:rtw",
+   "house": "chloe",
+   "season": "2019 AW rtw",
+   "date": "2019-02-28",
+   "runway": {
+    "looks": 18,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2020:SS:rtw",
+   "house": "chloe",
+   "season": "2020 SS rtw",
+   "date": "2019-09-26",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2020:AW:rtw",
+   "house": "chloe",
+   "season": "2020 AW rtw",
+   "date": "2020-02-27",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2021:SS:rtw",
+   "house": "chloe",
+   "season": "2021 SS rtw",
+   "date": "2020-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2021:AW:rtw",
+   "house": "chloe",
+   "season": "2021 AW rtw",
+   "date": "2021-03-03",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2022:SS:rtw",
+   "house": "chloe",
+   "season": "2022 SS rtw",
+   "date": "2021-09-30",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2022:AW:rtw",
+   "house": "chloe",
+   "season": "2022 AW rtw",
+   "date": "2022-03-03",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2023:SS:rtw",
+   "house": "chloe",
+   "season": "2023 SS rtw",
+   "date": "2022-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2023:AW:rtw",
+   "house": "chloe",
+   "season": "2023 AW rtw",
+   "date": "2023-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2024:SS:rtw",
+   "house": "chloe",
+   "season": "2024 SS rtw",
+   "date": "2023-09-28",
+   "runway": {
+    "looks": 11,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2024:AW:rtw",
+   "house": "chloe",
+   "season": "2024 AW rtw",
+   "date": "2024-02-29",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2025:SS:rtw",
+   "house": "chloe",
+   "season": "2025 SS rtw",
+   "date": "2024-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2025:AW:rtw",
+   "house": "chloe",
+   "season": "2025 AW rtw",
+   "date": "2025-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "chloe:2026:SS:rtw",
+   "house": "chloe",
+   "season": "2026 SS rtw",
+   "date": "2025-10-05",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 12,
+    "ads": 227,
+    "pictures": 9,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.6918,
+    "answers": 86
+   }
+  },
+  {
+   "id": "chloe:2026:AW:rtw",
+   "house": "chloe",
+   "season": "2026 AW rtw",
+   "date": "2026-03-05",
+   "runway": {
+    "looks": 18,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 35,
+    "ads": 505,
+    "pictures": 51,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.3568,
+    "answers": 88
+   }
+  },
+  {
+   "id": "chloe:2027:SS:rtw",
+   "house": "chloe",
+   "season": "2027 SS rtw",
+   "date": "2026-10-01",
+   "runway": {
+    "looks": 13,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "comme_des_garcons:2015:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2015 AW rtw",
+   "date": "2015-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2016:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2016 SS rtw",
+   "date": "2015-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2016:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2016 AW rtw",
+   "date": "2016-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2017:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2017 SS rtw",
+   "date": "2016-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2017:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2017 AW rtw",
+   "date": "2017-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2018:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2018 SS rtw",
+   "date": "2017-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2018:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2018 AW rtw",
+   "date": "2018-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2019:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2019 SS rtw",
+   "date": "2018-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2019:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2019 AW rtw",
+   "date": "2019-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2020:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2020 SS rtw",
+   "date": "2019-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2020:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2020 AW rtw",
+   "date": "2020-02-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2022:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2022 AW rtw",
+   "date": "2022-03-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2023:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2023 SS rtw",
+   "date": "2022-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2023:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2023 AW rtw",
+   "date": "2023-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2024:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2024 SS rtw",
+   "date": "2023-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2024:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2024 AW rtw",
+   "date": "2024-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2025:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2025 SS rtw",
+   "date": "2024-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2025:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2025 AW rtw",
+   "date": "2025-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2026:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2026 SS rtw",
+   "date": "2025-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "comme_des_garcons:2026:AW:rtw",
+   "house": "comme_des_garcons",
+   "season": "2026 AW rtw",
+   "date": "2026-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "comme_des_garcons:2027:SS:rtw",
+   "house": "comme_des_garcons",
+   "season": "2027 SS rtw",
+   "date": "2026-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "dior:2015:AW:rtw",
+   "house": "dior",
+   "season": "2015 AW rtw",
+   "date": "2015-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2016:SS:rtw",
+   "house": "dior",
+   "season": "2016 SS rtw",
+   "date": "2015-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2016:AW:rtw",
+   "house": "dior",
+   "season": "2016 AW rtw",
+   "date": "2016-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2017:SS:rtw",
+   "house": "dior",
+   "season": "2017 SS rtw",
+   "date": "2016-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2017:AW:rtw",
+   "house": "dior",
+   "season": "2017 AW rtw",
+   "date": "2017-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2018:SS:rtw",
+   "house": "dior",
+   "season": "2018 SS rtw",
+   "date": "2017-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2018:AW:rtw",
+   "house": "dior",
+   "season": "2018 AW rtw",
+   "date": "2018-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2019:SS:rtw",
+   "house": "dior",
+   "season": "2019 SS rtw",
+   "date": "2018-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2019:AW:rtw",
+   "house": "dior",
+   "season": "2019 AW rtw",
+   "date": "2019-02-26",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2020:AW:rtw",
+   "house": "dior",
+   "season": "2020 AW rtw",
+   "date": "2020-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2021:SS:rtw",
+   "house": "dior",
+   "season": "2021 SS rtw",
+   "date": "2020-09-29",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2021:AW:rtw",
+   "house": "dior",
+   "season": "2021 AW rtw",
+   "date": "2021-03-08",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2022:SS:rtw",
+   "house": "dior",
+   "season": "2022 SS rtw",
+   "date": "2021-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2022:AW:rtw",
+   "house": "dior",
+   "season": "2022 AW rtw",
+   "date": "2022-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2023:SS:rtw",
+   "house": "dior",
+   "season": "2023 SS rtw",
+   "date": "2022-09-27",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2023:AW:rtw",
+   "house": "dior",
+   "season": "2023 AW rtw",
+   "date": "2023-02-28",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2024:SS:rtw",
+   "house": "dior",
+   "season": "2024 SS rtw",
+   "date": "2023-09-26",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2024:AW:rtw",
+   "house": "dior",
+   "season": "2024 AW rtw",
+   "date": "2024-02-27",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2025:SS:rtw",
+   "house": "dior",
+   "season": "2025 SS rtw",
+   "date": "2024-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2025:AW:rtw",
+   "house": "dior",
+   "season": "2025 AW rtw",
+   "date": "2025-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dior:2026:SS:rtw",
+   "house": "dior",
+   "season": "2026 SS rtw",
+   "date": "2025-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 49,
+    "ads": 178,
+    "pictures": 123,
+    "placed": true
+   }
+  },
+  {
+   "id": "dior:2026:AW:rtw",
+   "house": "dior",
+   "season": "2026 AW rtw",
+   "date": "2026-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 99,
+    "ads": 575,
+    "pictures": 257,
+    "placed": true
+   }
+  },
+  {
+   "id": "dior:2027:SS:rtw",
+   "house": "dior",
+   "season": "2027 SS rtw",
+   "date": "2026-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "dolce_gabbana:2015:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2015 AW rtw",
+   "date": "2015-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2016:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2016 SS rtw",
+   "date": "2015-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2016:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2016 AW rtw",
+   "date": "2016-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2017:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2017 SS rtw",
+   "date": "2016-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2017:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2017 AW rtw",
+   "date": "2017-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2018:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2018 SS rtw",
+   "date": "2017-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2018:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2018 AW rtw",
+   "date": "2018-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2019:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2019 SS rtw",
+   "date": "2018-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2019:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2019 AW rtw",
+   "date": "2019-02-24",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2020:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2020 AW rtw",
+   "date": "2020-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2021:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2021 SS rtw",
+   "date": "2020-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2021:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2021 AW rtw",
+   "date": "2021-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2022:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2022 SS rtw",
+   "date": "2021-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2022:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2022 AW rtw",
+   "date": "2022-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2023:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2023 SS rtw",
+   "date": "2022-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2023:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2023 AW rtw",
+   "date": "2023-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2024:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2024 SS rtw",
+   "date": "2023-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2024:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2024 AW rtw",
+   "date": "2024-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2025:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2025 SS rtw",
+   "date": "2024-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2025:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2025 AW rtw",
+   "date": "2025-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dolce_gabbana:2026:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2026 SS rtw",
+   "date": "2025-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "dolce_gabbana:2026:AW:rtw",
+   "house": "dolce_gabbana",
+   "season": "2026 AW rtw",
+   "date": "2026-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 1,
+    "ads": 1,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "dolce_gabbana:2027:SS:rtw",
+   "house": "dolce_gabbana",
+   "season": "2027 SS rtw",
+   "date": "2026-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "dries_van_noten:2015:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2015 AW rtw",
+   "date": "2015-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2016:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2016 SS rtw",
+   "date": "2015-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2016:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2016 AW rtw",
+   "date": "2016-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2017:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2017 SS rtw",
+   "date": "2016-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2017:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2017 AW rtw",
+   "date": "2017-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2018:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2018 SS rtw",
+   "date": "2017-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2018:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2018 AW rtw",
+   "date": "2018-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2019:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2019 SS rtw",
+   "date": "2018-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2019:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2019 AW rtw",
+   "date": "2019-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2020:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2020 SS rtw",
+   "date": "2019-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2020:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2020 AW rtw",
+   "date": "2020-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2021:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2021 AW rtw",
+   "date": "2021-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2023:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2023 SS rtw",
+   "date": "2022-09-28",
+   "runway": {
+    "looks": 13,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2023:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2023 AW rtw",
+   "date": "2023-03-01",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2024:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2024 SS rtw",
+   "date": "2023-09-27",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2024:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2024 AW rtw",
+   "date": "2024-02-28",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2025:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2025 SS rtw",
+   "date": "2024-09-25",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2025:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2025 AW rtw",
+   "date": "2025-03-05",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "dries_van_noten:2026:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2026 SS rtw",
+   "date": "2025-09-30",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 6,
+    "ads": 47,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "dries_van_noten:2026:AW:rtw",
+   "house": "dries_van_noten",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 1,
+    "ads": 8,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "dries_van_noten:2027:SS:rtw",
+   "house": "dries_van_noten",
+   "season": "2027 SS rtw",
+   "date": "2026-09-30",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "fendi:2015:AW:rtw",
+   "house": "fendi",
+   "season": "2015 AW rtw",
+   "date": "2015-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2016:SS:rtw",
+   "house": "fendi",
+   "season": "2016 SS rtw",
+   "date": "2015-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2016:AW:rtw",
+   "house": "fendi",
+   "season": "2016 AW rtw",
+   "date": "2016-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2017:SS:rtw",
+   "house": "fendi",
+   "season": "2017 SS rtw",
+   "date": "2016-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2017:AW:rtw",
+   "house": "fendi",
+   "season": "2017 AW rtw",
+   "date": "2017-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2018:SS:rtw",
+   "house": "fendi",
+   "season": "2018 SS rtw",
+   "date": "2017-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2018:AW:rtw",
+   "house": "fendi",
+   "season": "2018 AW rtw",
+   "date": "2018-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2019:SS:rtw",
+   "house": "fendi",
+   "season": "2019 SS rtw",
+   "date": "2018-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2019:AW:rtw",
+   "house": "fendi",
+   "season": "2019 AW rtw",
+   "date": "2019-02-21",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2020:SS:rtw",
+   "house": "fendi",
+   "season": "2020 SS rtw",
+   "date": "2019-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2020:AW:rtw",
+   "house": "fendi",
+   "season": "2020 AW rtw",
+   "date": "2020-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2021:SS:rtw",
+   "house": "fendi",
+   "season": "2021 SS rtw",
+   "date": "2020-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2021:AW:rtw",
+   "house": "fendi",
+   "season": "2021 AW rtw",
+   "date": "2021-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2022:SS:rtw",
+   "house": "fendi",
+   "season": "2022 SS rtw",
+   "date": "2021-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2022:AW:rtw",
+   "house": "fendi",
+   "season": "2022 AW rtw",
+   "date": "2022-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2023:SS:rtw",
+   "house": "fendi",
+   "season": "2023 SS rtw",
+   "date": "2022-09-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2023:AW:rtw",
+   "house": "fendi",
+   "season": "2023 AW rtw",
+   "date": "2023-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2024:SS:rtw",
+   "house": "fendi",
+   "season": "2024 SS rtw",
+   "date": "2023-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2024:AW:rtw",
+   "house": "fendi",
+   "season": "2024 AW rtw",
+   "date": "2024-02-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2025:SS:rtw",
+   "house": "fendi",
+   "season": "2025 SS rtw",
+   "date": "2024-09-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2025:AW:rtw",
+   "house": "fendi",
+   "season": "2025 AW rtw",
+   "date": "2025-02-26",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "fendi:2026:SS:rtw",
+   "house": "fendi",
+   "season": "2026 SS rtw",
+   "date": "2025-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 10,
+    "ads": 31,
+    "pictures": 14,
+    "placed": true
+   }
+  },
+  {
+   "id": "fendi:2026:AW:rtw",
+   "house": "fendi",
+   "season": "2026 AW rtw",
+   "date": "2026-02-25",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 25,
+    "ads": 429,
+    "pictures": 97,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.4328,
+    "answers": 88
+   }
+  },
+  {
+   "id": "fendi:2027:SS:rtw",
+   "house": "fendi",
+   "season": "2027 SS rtw",
+   "date": "2026-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "ferragamo:2015:AW:rtw",
+   "house": "ferragamo",
+   "season": "2015 AW rtw",
+   "date": "2015-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2016:SS:rtw",
+   "house": "ferragamo",
+   "season": "2016 SS rtw",
+   "date": "2015-09-27",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2016:AW:rtw",
+   "house": "ferragamo",
+   "season": "2016 AW rtw",
+   "date": "2016-02-28",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2017:SS:rtw",
+   "house": "ferragamo",
+   "season": "2017 SS rtw",
+   "date": "2016-09-25",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2017:AW:rtw",
+   "house": "ferragamo",
+   "season": "2017 AW rtw",
+   "date": "2017-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2018:SS:rtw",
+   "house": "ferragamo",
+   "season": "2018 SS rtw",
+   "date": "2017-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2018:AW:rtw",
+   "house": "ferragamo",
+   "season": "2018 AW rtw",
+   "date": "2018-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2019:SS:rtw",
+   "house": "ferragamo",
+   "season": "2019 SS rtw",
+   "date": "2018-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2019:AW:rtw",
+   "house": "ferragamo",
+   "season": "2019 AW rtw",
+   "date": "2019-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2020:SS:rtw",
+   "house": "ferragamo",
+   "season": "2020 SS rtw",
+   "date": "2019-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2020:AW:rtw",
+   "house": "ferragamo",
+   "season": "2020 AW rtw",
+   "date": "2020-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2021:SS:rtw",
+   "house": "ferragamo",
+   "season": "2021 SS rtw",
+   "date": "2020-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2021:AW:rtw",
+   "house": "ferragamo",
+   "season": "2021 AW rtw",
+   "date": "2021-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2022:SS:rtw",
+   "house": "ferragamo",
+   "season": "2022 SS rtw",
+   "date": "2021-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2023:SS:rtw",
+   "house": "ferragamo",
+   "season": "2023 SS rtw",
+   "date": "2022-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2023:AW:rtw",
+   "house": "ferragamo",
+   "season": "2023 AW rtw",
+   "date": "2023-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2024:SS:rtw",
+   "house": "ferragamo",
+   "season": "2024 SS rtw",
+   "date": "2023-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2024:AW:rtw",
+   "house": "ferragamo",
+   "season": "2024 AW rtw",
+   "date": "2024-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2025:SS:rtw",
+   "house": "ferragamo",
+   "season": "2025 SS rtw",
+   "date": "2024-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2025:AW:rtw",
+   "house": "ferragamo",
+   "season": "2025 AW rtw",
+   "date": "2025-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "ferragamo:2026:SS:rtw",
+   "house": "ferragamo",
+   "season": "2026 SS rtw",
+   "date": "2025-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "ferragamo:2026:AW:rtw",
+   "house": "ferragamo",
+   "season": "2026 AW rtw",
+   "date": "2026-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "ferragamo:2027:SS:rtw",
+   "house": "ferragamo",
+   "season": "2027 SS rtw",
+   "date": "2026-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "givenchy:2015:AW:rtw",
+   "house": "givenchy",
+   "season": "2015 AW rtw",
+   "date": "2015-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2016:SS:rtw",
+   "house": "givenchy",
+   "season": "2016 SS rtw",
+   "date": "2015-09-12",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2016:AW:rtw",
+   "house": "givenchy",
+   "season": "2016 AW rtw",
+   "date": "2016-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2017:SS:rtw",
+   "house": "givenchy",
+   "season": "2017 SS rtw",
+   "date": "2016-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2018:SS:rtw",
+   "house": "givenchy",
+   "season": "2018 SS rtw",
+   "date": "2017-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2018:AW:rtw",
+   "house": "givenchy",
+   "season": "2018 AW rtw",
+   "date": "2018-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2019:SS:rtw",
+   "house": "givenchy",
+   "season": "2019 SS rtw",
+   "date": "2018-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2019:AW:rtw",
+   "house": "givenchy",
+   "season": "2019 AW rtw",
+   "date": "2019-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2020:SS:rtw",
+   "house": "givenchy",
+   "season": "2020 SS rtw",
+   "date": "2019-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2020:AW:rtw",
+   "house": "givenchy",
+   "season": "2020 AW rtw",
+   "date": "2020-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2021:SS:rtw",
+   "house": "givenchy",
+   "season": "2021 SS rtw",
+   "date": "2020-10-04",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2021:AW:rtw",
+   "house": "givenchy",
+   "season": "2021 AW rtw",
+   "date": "2021-03-07",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2022:SS:rtw",
+   "house": "givenchy",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2022:AW:rtw",
+   "house": "givenchy",
+   "season": "2022 AW rtw",
+   "date": "2022-03-06",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2023:SS:rtw",
+   "house": "givenchy",
+   "season": "2023 SS rtw",
+   "date": "2022-10-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2023:AW:rtw",
+   "house": "givenchy",
+   "season": "2023 AW rtw",
+   "date": "2023-03-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2024:SS:rtw",
+   "house": "givenchy",
+   "season": "2024 SS rtw",
+   "date": "2023-09-28",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2024:AW:rtw",
+   "house": "givenchy",
+   "season": "2024 AW rtw",
+   "date": "2024-02-29",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2025:AW:rtw",
+   "house": "givenchy",
+   "season": "2025 AW rtw",
+   "date": "2025-03-07",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "givenchy:2026:SS:rtw",
+   "house": "givenchy",
+   "season": "2026 SS rtw",
+   "date": "2025-10-03",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 3,
+    "ads": 72,
+    "pictures": 9,
+    "placed": true
+   }
+  },
+  {
+   "id": "givenchy:2026:AW:rtw",
+   "house": "givenchy",
+   "season": "2026 AW rtw",
+   "date": "2026-03-06",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 5,
+    "ads": 57,
+    "pictures": 12,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.7253,
+    "answers": 68
+   }
+  },
+  {
+   "id": "givenchy:2027:SS:rtw",
+   "house": "givenchy",
+   "season": "2027 SS rtw",
+   "date": "2026-10-02",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "gucci:2015:AW:rtw",
+   "house": "gucci",
+   "season": "2015 AW rtw",
+   "date": "2015-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2016:SS:rtw",
+   "house": "gucci",
+   "season": "2016 SS rtw",
+   "date": "2015-09-23",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2016:AW:rtw",
+   "house": "gucci",
+   "season": "2016 AW rtw",
+   "date": "2016-02-24",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2017:SS:rtw",
+   "house": "gucci",
+   "season": "2017 SS rtw",
+   "date": "2016-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2017:AW:rtw",
+   "house": "gucci",
+   "season": "2017 AW rtw",
+   "date": "2017-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2018:SS:rtw",
+   "house": "gucci",
+   "season": "2018 SS rtw",
+   "date": "2017-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2018:AW:rtw",
+   "house": "gucci",
+   "season": "2018 AW rtw",
+   "date": "2018-02-21",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2019:SS:rtw",
+   "house": "gucci",
+   "season": "2019 SS rtw",
+   "date": "2018-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2019:AW:rtw",
+   "house": "gucci",
+   "season": "2019 AW rtw",
+   "date": "2019-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2020:AW:rtw",
+   "house": "gucci",
+   "season": "2020 AW rtw",
+   "date": "2020-02-19",
+   "runway": {
+    "looks": 7,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2022:SS:rtw",
+   "house": "gucci",
+   "season": "2022 SS rtw",
+   "date": "2021-11-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2022:AW:rtw",
+   "house": "gucci",
+   "season": "2022 AW rtw",
+   "date": "2022-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2023:SS:rtw",
+   "house": "gucci",
+   "season": "2023 SS rtw",
+   "date": "2022-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2023:AW:rtw",
+   "house": "gucci",
+   "season": "2023 AW rtw",
+   "date": "2023-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2024:SS:rtw",
+   "house": "gucci",
+   "season": "2024 SS rtw",
+   "date": "2023-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2024:AW:rtw",
+   "house": "gucci",
+   "season": "2024 AW rtw",
+   "date": "2024-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2025:SS:rtw",
+   "house": "gucci",
+   "season": "2025 SS rtw",
+   "date": "2024-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2025:AW:rtw",
+   "house": "gucci",
+   "season": "2025 AW rtw",
+   "date": "2025-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "gucci:2026:SS:rtw",
+   "house": "gucci",
+   "season": "2026 SS rtw",
+   "date": "2025-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 17,
+    "ads": 135,
+    "pictures": 45,
+    "placed": true
+   }
+  },
+  {
+   "id": "gucci:2026:AW:rtw",
+   "house": "gucci",
+   "season": "2026 AW rtw",
+   "date": "2026-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 36,
+    "ads": 197,
+    "pictures": 69,
+    "placed": true
+   }
+  },
+  {
+   "id": "gucci:2027:SS:rtw",
+   "house": "gucci",
+   "season": "2027 SS rtw",
+   "date": "2026-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "hermes:2015:AW:rtw",
+   "house": "hermes",
+   "season": "2015 AW rtw",
+   "date": "2015-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2016:SS:rtw",
+   "house": "hermes",
+   "season": "2016 SS rtw",
+   "date": "2015-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2016:AW:rtw",
+   "house": "hermes",
+   "season": "2016 AW rtw",
+   "date": "2016-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2017:SS:rtw",
+   "house": "hermes",
+   "season": "2017 SS rtw",
+   "date": "2016-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2017:AW:rtw",
+   "house": "hermes",
+   "season": "2017 AW rtw",
+   "date": "2017-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2018:SS:rtw",
+   "house": "hermes",
+   "season": "2018 SS rtw",
+   "date": "2017-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2018:AW:rtw",
+   "house": "hermes",
+   "season": "2018 AW rtw",
+   "date": "2018-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2019:SS:rtw",
+   "house": "hermes",
+   "season": "2019 SS rtw",
+   "date": "2018-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2019:AW:rtw",
+   "house": "hermes",
+   "season": "2019 AW rtw",
+   "date": "2019-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2020:SS:rtw",
+   "house": "hermes",
+   "season": "2020 SS rtw",
+   "date": "2019-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2020:AW:rtw",
+   "house": "hermes",
+   "season": "2020 AW rtw",
+   "date": "2020-02-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2021:SS:rtw",
+   "house": "hermes",
+   "season": "2021 SS rtw",
+   "date": "2020-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2021:AW:rtw",
+   "house": "hermes",
+   "season": "2021 AW rtw",
+   "date": "2021-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2022:SS:rtw",
+   "house": "hermes",
+   "season": "2022 SS rtw",
+   "date": "2021-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2022:AW:rtw",
+   "house": "hermes",
+   "season": "2022 AW rtw",
+   "date": "2022-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2023:SS:rtw",
+   "house": "hermes",
+   "season": "2023 SS rtw",
+   "date": "2022-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2023:AW:rtw",
+   "house": "hermes",
+   "season": "2023 AW rtw",
+   "date": "2023-03-04",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2024:SS:rtw",
+   "house": "hermes",
+   "season": "2024 SS rtw",
+   "date": "2023-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2024:AW:rtw",
+   "house": "hermes",
+   "season": "2024 AW rtw",
+   "date": "2024-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2025:SS:rtw",
+   "house": "hermes",
+   "season": "2025 SS rtw",
+   "date": "2024-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2025:AW:rtw",
+   "house": "hermes",
+   "season": "2025 AW rtw",
+   "date": "2025-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "hermes:2026:SS:rtw",
+   "house": "hermes",
+   "season": "2026 SS rtw",
+   "date": "2025-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 5,
+    "ads": 165,
+    "pictures": 22,
+    "placed": true
+   }
+  },
+  {
+   "id": "hermes:2026:AW:rtw",
+   "house": "hermes",
+   "season": "2026 AW rtw",
+   "date": "2026-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 24,
+    "ads": 140,
+    "pictures": 41,
+    "placed": true
+   }
+  },
+  {
+   "id": "hermes:2027:SS:rtw",
+   "house": "hermes",
+   "season": "2027 SS rtw",
+   "date": "2026-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "issey_miyake:2015:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2015 AW rtw",
+   "date": "2015-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2016:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2016 SS rtw",
+   "date": "2015-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2016:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2016 AW rtw",
+   "date": "2016-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2017:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2017 SS rtw",
+   "date": "2016-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2017:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2017 AW rtw",
+   "date": "2017-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2018:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2018 SS rtw",
+   "date": "2017-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2018:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2018 AW rtw",
+   "date": "2018-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2019:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2019 SS rtw",
+   "date": "2018-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2019:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2019 AW rtw",
+   "date": "2019-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2020:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2020 SS rtw",
+   "date": "2019-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2020:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2020 AW rtw",
+   "date": "2020-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2021:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2021 SS rtw",
+   "date": "2020-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2021:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2021 AW rtw",
+   "date": "2021-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2022:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2022 SS rtw",
+   "date": "2021-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2022:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2022 AW rtw",
+   "date": "2022-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2023:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2023 SS rtw",
+   "date": "2022-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2023:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2023 AW rtw",
+   "date": "2023-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2024:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2024 SS rtw",
+   "date": "2023-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2024:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2024 AW rtw",
+   "date": "2024-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2025:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2025 SS rtw",
+   "date": "2024-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2025:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2025 AW rtw",
+   "date": "2025-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "issey_miyake:2026:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2026 SS rtw",
+   "date": "2025-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "issey_miyake:2026:AW:rtw",
+   "house": "issey_miyake",
+   "season": "2026 AW rtw",
+   "date": "2026-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "issey_miyake:2027:SS:rtw",
+   "house": "issey_miyake",
+   "season": "2027 SS rtw",
+   "date": "2026-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "jacquemus:2015:AW:rtw",
+   "house": "jacquemus",
+   "season": "2015 AW rtw",
+   "date": "2015-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2016:SS:rtw",
+   "house": "jacquemus",
+   "season": "2016 SS rtw",
+   "date": "2015-09-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2016:AW:rtw",
+   "house": "jacquemus",
+   "season": "2016 AW rtw",
+   "date": "2016-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2017:SS:rtw",
+   "house": "jacquemus",
+   "season": "2017 SS rtw",
+   "date": "2016-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2017:AW:rtw",
+   "house": "jacquemus",
+   "season": "2017 AW rtw",
+   "date": "2017-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2018:SS:rtw",
+   "house": "jacquemus",
+   "season": "2018 SS rtw",
+   "date": "2017-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2018:AW:rtw",
+   "house": "jacquemus",
+   "season": "2018 AW rtw",
+   "date": "2018-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2019:SS:rtw",
+   "house": "jacquemus",
+   "season": "2019 SS rtw",
+   "date": "2018-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2019:AW:rtw",
+   "house": "jacquemus",
+   "season": "2019 AW rtw",
+   "date": "2019-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2020:SS:rtw",
+   "house": "jacquemus",
+   "season": "2020 SS rtw",
+   "date": "2019-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2022:AW:rtw",
+   "house": "jacquemus",
+   "season": "2022 AW rtw",
+   "date": "2022-06-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2023:SS:rtw",
+   "house": "jacquemus",
+   "season": "2023 SS rtw",
+   "date": "2022-12-12",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2023:AW:rtw",
+   "house": "jacquemus",
+   "season": "2023 AW rtw",
+   "date": "2023-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2024:SS:rtw",
+   "house": "jacquemus",
+   "season": "2024 SS rtw",
+   "date": "2024-01-29",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2024:AW:rtw",
+   "house": "jacquemus",
+   "season": "2024 AW rtw",
+   "date": "2024-06-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jacquemus:2025:AW:rtw",
+   "house": "jacquemus",
+   "season": "2025 AW rtw",
+   "date": "2025-01-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2015:AW:rtw",
+   "house": "jil_sander",
+   "season": "2015 AW rtw",
+   "date": "2015-02-28",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2016:SS:rtw",
+   "house": "jil_sander",
+   "season": "2016 SS rtw",
+   "date": "2015-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2016:AW:rtw",
+   "house": "jil_sander",
+   "season": "2016 AW rtw",
+   "date": "2016-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2017:SS:rtw",
+   "house": "jil_sander",
+   "season": "2017 SS rtw",
+   "date": "2016-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2017:AW:rtw",
+   "house": "jil_sander",
+   "season": "2017 AW rtw",
+   "date": "2017-02-25",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2018:SS:rtw",
+   "house": "jil_sander",
+   "season": "2018 SS rtw",
+   "date": "2017-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2018:AW:rtw",
+   "house": "jil_sander",
+   "season": "2018 AW rtw",
+   "date": "2018-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2019:SS:rtw",
+   "house": "jil_sander",
+   "season": "2019 SS rtw",
+   "date": "2018-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2019:AW:rtw",
+   "house": "jil_sander",
+   "season": "2019 AW rtw",
+   "date": "2019-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2020:SS:rtw",
+   "house": "jil_sander",
+   "season": "2020 SS rtw",
+   "date": "2019-09-18",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2020:AW:rtw",
+   "house": "jil_sander",
+   "season": "2020 AW rtw",
+   "date": "2020-02-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2021:AW:rtw",
+   "house": "jil_sander",
+   "season": "2021 AW rtw",
+   "date": "2021-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2022:SS:rtw",
+   "house": "jil_sander",
+   "season": "2022 SS rtw",
+   "date": "2021-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2022:AW:rtw",
+   "house": "jil_sander",
+   "season": "2022 AW rtw",
+   "date": "2022-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2023:SS:rtw",
+   "house": "jil_sander",
+   "season": "2023 SS rtw",
+   "date": "2022-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2023:AW:rtw",
+   "house": "jil_sander",
+   "season": "2023 AW rtw",
+   "date": "2023-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2024:SS:rtw",
+   "house": "jil_sander",
+   "season": "2024 SS rtw",
+   "date": "2023-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2024:AW:rtw",
+   "house": "jil_sander",
+   "season": "2024 AW rtw",
+   "date": "2024-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2025:SS:rtw",
+   "house": "jil_sander",
+   "season": "2025 SS rtw",
+   "date": "2024-09-18",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2025:AW:rtw",
+   "house": "jil_sander",
+   "season": "2025 AW rtw",
+   "date": "2025-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "jil_sander:2026:SS:rtw",
+   "house": "jil_sander",
+   "season": "2026 SS rtw",
+   "date": "2025-09-24",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 3,
+    "ads": 279,
+    "pictures": 11,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.7391,
+    "answers": 86
+   }
+  },
+  {
+   "id": "jil_sander:2026:AW:rtw",
+   "house": "jil_sander",
+   "season": "2026 AW rtw",
+   "date": "2026-02-25",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 3,
+    "ads": 12,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "jil_sander:2027:SS:rtw",
+   "house": "jil_sander",
+   "season": "2027 SS rtw",
+   "date": "2026-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "lanvin:2015:AW:rtw",
+   "house": "lanvin",
+   "season": "2015 AW rtw",
+   "date": "2015-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2016:SS:rtw",
+   "house": "lanvin",
+   "season": "2016 SS rtw",
+   "date": "2015-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2016:AW:rtw",
+   "house": "lanvin",
+   "season": "2016 AW rtw",
+   "date": "2016-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2017:SS:rtw",
+   "house": "lanvin",
+   "season": "2017 SS rtw",
+   "date": "2016-09-28",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2017:AW:rtw",
+   "house": "lanvin",
+   "season": "2017 AW rtw",
+   "date": "2017-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2018:SS:rtw",
+   "house": "lanvin",
+   "season": "2018 SS rtw",
+   "date": "2017-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2018:AW:rtw",
+   "house": "lanvin",
+   "season": "2018 AW rtw",
+   "date": "2018-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2019:AW:rtw",
+   "house": "lanvin",
+   "season": "2019 AW rtw",
+   "date": "2019-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2020:SS:rtw",
+   "house": "lanvin",
+   "season": "2020 SS rtw",
+   "date": "2019-09-25",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2020:AW:rtw",
+   "house": "lanvin",
+   "season": "2020 AW rtw",
+   "date": "2020-02-26",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2021:AW:rtw",
+   "house": "lanvin",
+   "season": "2021 AW rtw",
+   "date": "2021-03-08",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2022:SS:rtw",
+   "house": "lanvin",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 13,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2022:AW:rtw",
+   "house": "lanvin",
+   "season": "2022 AW rtw",
+   "date": "2022-03-05",
+   "runway": {
+    "looks": 13,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2023:SS:rtw",
+   "house": "lanvin",
+   "season": "2023 SS rtw",
+   "date": "2022-10-03",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2023:AW:rtw",
+   "house": "lanvin",
+   "season": "2023 AW rtw",
+   "date": "2023-03-05",
+   "runway": {
+    "looks": 18,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "lanvin:2026:SS:rtw",
+   "house": "lanvin",
+   "season": "2026 SS rtw",
+   "date": "2025-09-30",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "lanvin:2026:AW:rtw",
+   "house": "lanvin",
+   "season": "2026 AW rtw",
+   "date": "2026-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "lanvin:2027:SS:rtw",
+   "house": "lanvin",
+   "season": "2027 SS rtw",
+   "date": "2026-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "loewe:2015:AW:rtw",
+   "house": "loewe",
+   "season": "2015 AW rtw",
+   "date": "2015-03-06",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2016:SS:rtw",
+   "house": "loewe",
+   "season": "2016 SS rtw",
+   "date": "2015-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2016:AW:rtw",
+   "house": "loewe",
+   "season": "2016 AW rtw",
+   "date": "2016-03-04",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2017:SS:rtw",
+   "house": "loewe",
+   "season": "2017 SS rtw",
+   "date": "2016-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2017:AW:rtw",
+   "house": "loewe",
+   "season": "2017 AW rtw",
+   "date": "2017-03-03",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2018:SS:rtw",
+   "house": "loewe",
+   "season": "2018 SS rtw",
+   "date": "2017-09-29",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2018:AW:rtw",
+   "house": "loewe",
+   "season": "2018 AW rtw",
+   "date": "2018-03-02",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2019:SS:rtw",
+   "house": "loewe",
+   "season": "2019 SS rtw",
+   "date": "2018-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2019:AW:rtw",
+   "house": "loewe",
+   "season": "2019 AW rtw",
+   "date": "2019-03-01",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2020:SS:rtw",
+   "house": "loewe",
+   "season": "2020 SS rtw",
+   "date": "2019-09-27",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2020:AW:rtw",
+   "house": "loewe",
+   "season": "2020 AW rtw",
+   "date": "2020-02-28",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2021:SS:rtw",
+   "house": "loewe",
+   "season": "2021 SS rtw",
+   "date": "2020-10-02",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2021:AW:rtw",
+   "house": "loewe",
+   "season": "2021 AW rtw",
+   "date": "2021-03-05",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2022:SS:rtw",
+   "house": "loewe",
+   "season": "2022 SS rtw",
+   "date": "2021-10-01",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2022:AW:rtw",
+   "house": "loewe",
+   "season": "2022 AW rtw",
+   "date": "2022-03-04",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2023:SS:rtw",
+   "house": "loewe",
+   "season": "2023 SS rtw",
+   "date": "2022-09-30",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2023:AW:rtw",
+   "house": "loewe",
+   "season": "2023 AW rtw",
+   "date": "2023-03-03",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2024:SS:rtw",
+   "house": "loewe",
+   "season": "2024 SS rtw",
+   "date": "2023-09-29",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2024:AW:rtw",
+   "house": "loewe",
+   "season": "2024 AW rtw",
+   "date": "2024-03-01",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2025:SS:rtw",
+   "house": "loewe",
+   "season": "2025 SS rtw",
+   "date": "2024-09-27",
+   "runway": {
+    "looks": 11,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loewe:2026:SS:rtw",
+   "house": "loewe",
+   "season": "2026 SS rtw",
+   "date": "2025-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 7,
+    "ads": 165,
+    "pictures": 14,
+    "placed": true
+   }
+  },
+  {
+   "id": "loewe:2026:AW:rtw",
+   "house": "loewe",
+   "season": "2026 AW rtw",
+   "date": "2026-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 28,
+    "ads": 231,
+    "pictures": 62,
+    "placed": true
+   }
+  },
+  {
+   "id": "loewe:2027:SS:rtw",
+   "house": "loewe",
+   "season": "2027 SS rtw",
+   "date": "2026-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "loro_piana:2024:AW:rtw",
+   "house": "loro_piana",
+   "season": "2024 AW rtw",
+   "date": "2024-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "loro_piana:2025:SS:rtw",
+   "house": "loro_piana",
+   "season": "2025 SS rtw",
+   "date": "2024-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "loro_piana:2026:AW:rtw",
+   "house": "loro_piana",
+   "season": "2026 AW rtw",
+   "date": "2026-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 26,
+    "ads": 275,
+    "pictures": 59,
+    "placed": true
+   }
+  },
+  {
+   "id": "louis_vuitton:2015:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2015 AW rtw",
+   "date": "2015-03-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2016:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2016 SS rtw",
+   "date": "2015-10-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2016:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2016 AW rtw",
+   "date": "2016-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2017:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2017 SS rtw",
+   "date": "2016-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2017:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2017 AW rtw",
+   "date": "2017-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2018:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2018 SS rtw",
+   "date": "2017-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2018:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2018 AW rtw",
+   "date": "2018-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2019:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2019 SS rtw",
+   "date": "2018-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2019:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2019 AW rtw",
+   "date": "2019-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2020:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2020 SS rtw",
+   "date": "2019-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2020:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2020 AW rtw",
+   "date": "2020-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2021:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2021 SS rtw",
+   "date": "2020-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2021:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2021 AW rtw",
+   "date": "2021-03-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2022:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2022:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2022 AW rtw",
+   "date": "2022-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2023:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2023 SS rtw",
+   "date": "2022-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2023:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2023 AW rtw",
+   "date": "2023-03-06",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2024:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2024 SS rtw",
+   "date": "2023-10-02",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2024:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2024 AW rtw",
+   "date": "2024-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2025:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2025 SS rtw",
+   "date": "2024-10-01",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2025:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2025 AW rtw",
+   "date": "2025-03-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "louis_vuitton:2026:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2026 SS rtw",
+   "date": "2025-09-30",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 37,
+    "ads": 230,
+    "pictures": 87,
+    "placed": true
+   },
+   "gap": {
+    "value": 1.1512,
+    "answers": 86
+   }
+  },
+  {
+   "id": "louis_vuitton:2026:AW:rtw",
+   "house": "louis_vuitton",
+   "season": "2026 AW rtw",
+   "date": "2026-03-10",
+   "runway": {
+    "looks": 10,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 105,
+    "ads": 383,
+    "pictures": 110,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.9626,
+    "answers": 88
+   }
+  },
+  {
+   "id": "louis_vuitton:2027:SS:rtw",
+   "house": "louis_vuitton",
+   "season": "2027 SS rtw",
+   "date": "2026-10-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "margiela:2015:AW:rtw",
+   "house": "margiela",
+   "season": "2015 AW rtw",
+   "date": "2015-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2016:SS:rtw",
+   "house": "margiela",
+   "season": "2016 SS rtw",
+   "date": "2015-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2016:AW:rtw",
+   "house": "margiela",
+   "season": "2016 AW rtw",
+   "date": "2016-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2017:SS:rtw",
+   "house": "margiela",
+   "season": "2017 SS rtw",
+   "date": "2016-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2017:AW:rtw",
+   "house": "margiela",
+   "season": "2017 AW rtw",
+   "date": "2017-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2018:SS:rtw",
+   "house": "margiela",
+   "season": "2018 SS rtw",
+   "date": "2017-09-27",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2018:AW:rtw",
+   "house": "margiela",
+   "season": "2018 AW rtw",
+   "date": "2018-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2019:SS:rtw",
+   "house": "margiela",
+   "season": "2019 SS rtw",
+   "date": "2018-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2019:AW:rtw",
+   "house": "margiela",
+   "season": "2019 AW rtw",
+   "date": "2019-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2020:SS:rtw",
+   "house": "margiela",
+   "season": "2020 SS rtw",
+   "date": "2019-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2020:AW:rtw",
+   "house": "margiela",
+   "season": "2020 AW rtw",
+   "date": "2020-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2022:SS:rtw",
+   "house": "margiela",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2024:SS:rtw",
+   "house": "margiela",
+   "season": "2024 SS rtw",
+   "date": "2023-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "margiela:2026:SS:rtw",
+   "house": "margiela",
+   "season": "2026 SS rtw",
+   "date": "2025-10-04",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 2,
+    "ads": 57,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "margiela:2027:SS:rtw",
+   "house": "margiela",
+   "season": "2027 SS rtw",
+   "date": "2026-09-29",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "max_mara:2015:AW:rtw",
+   "house": "max_mara",
+   "season": "2015 AW rtw",
+   "date": "2015-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2016:SS:rtw",
+   "house": "max_mara",
+   "season": "2016 SS rtw",
+   "date": "2015-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2016:AW:rtw",
+   "house": "max_mara",
+   "season": "2016 AW rtw",
+   "date": "2016-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2017:SS:rtw",
+   "house": "max_mara",
+   "season": "2017 SS rtw",
+   "date": "2016-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2017:AW:rtw",
+   "house": "max_mara",
+   "season": "2017 AW rtw",
+   "date": "2017-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2018:SS:rtw",
+   "house": "max_mara",
+   "season": "2018 SS rtw",
+   "date": "2017-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2018:AW:rtw",
+   "house": "max_mara",
+   "season": "2018 AW rtw",
+   "date": "2018-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2019:SS:rtw",
+   "house": "max_mara",
+   "season": "2019 SS rtw",
+   "date": "2018-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2019:AW:rtw",
+   "house": "max_mara",
+   "season": "2019 AW rtw",
+   "date": "2019-02-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2020:SS:rtw",
+   "house": "max_mara",
+   "season": "2020 SS rtw",
+   "date": "2019-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2020:AW:rtw",
+   "house": "max_mara",
+   "season": "2020 AW rtw",
+   "date": "2020-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2021:SS:rtw",
+   "house": "max_mara",
+   "season": "2021 SS rtw",
+   "date": "2020-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2021:AW:rtw",
+   "house": "max_mara",
+   "season": "2021 AW rtw",
+   "date": "2021-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2022:SS:rtw",
+   "house": "max_mara",
+   "season": "2022 SS rtw",
+   "date": "2021-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2022:AW:rtw",
+   "house": "max_mara",
+   "season": "2022 AW rtw",
+   "date": "2022-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2023:SS:rtw",
+   "house": "max_mara",
+   "season": "2023 SS rtw",
+   "date": "2022-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2023:AW:rtw",
+   "house": "max_mara",
+   "season": "2023 AW rtw",
+   "date": "2023-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2024:SS:rtw",
+   "house": "max_mara",
+   "season": "2024 SS rtw",
+   "date": "2023-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2024:AW:rtw",
+   "house": "max_mara",
+   "season": "2024 AW rtw",
+   "date": "2024-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2025:SS:rtw",
+   "house": "max_mara",
+   "season": "2025 SS rtw",
+   "date": "2024-09-19",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "max_mara:2025:AW:rtw",
+   "house": "max_mara",
+   "season": "2025 AW rtw",
+   "date": "2025-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "max_mara:2026:AW:rtw",
+   "house": "max_mara",
+   "season": "2026 AW rtw",
+   "date": "2026-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 11,
+    "ads": 16,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "max_mara:2027:SS:rtw",
+   "house": "max_mara",
+   "season": "2027 SS rtw",
+   "date": "2026-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "mcqueen:2016:SS:rtw",
+   "house": "mcqueen",
+   "season": "2016 SS rtw",
+   "date": "2015-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2016:AW:rtw",
+   "house": "mcqueen",
+   "season": "2016 AW rtw",
+   "date": "2016-02-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2017:SS:rtw",
+   "house": "mcqueen",
+   "season": "2017 SS rtw",
+   "date": "2016-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2017:AW:rtw",
+   "house": "mcqueen",
+   "season": "2017 AW rtw",
+   "date": "2017-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2018:SS:rtw",
+   "house": "mcqueen",
+   "season": "2018 SS rtw",
+   "date": "2017-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2018:AW:rtw",
+   "house": "mcqueen",
+   "season": "2018 AW rtw",
+   "date": "2018-03-05",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2019:SS:rtw",
+   "house": "mcqueen",
+   "season": "2019 SS rtw",
+   "date": "2018-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2019:AW:rtw",
+   "house": "mcqueen",
+   "season": "2019 AW rtw",
+   "date": "2019-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2020:SS:rtw",
+   "house": "mcqueen",
+   "season": "2020 SS rtw",
+   "date": "2019-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2020:AW:rtw",
+   "house": "mcqueen",
+   "season": "2020 AW rtw",
+   "date": "2020-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2022:SS:rtw",
+   "house": "mcqueen",
+   "season": "2022 SS rtw",
+   "date": "2021-09-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2022:AW:rtw",
+   "house": "mcqueen",
+   "season": "2022 AW rtw",
+   "date": "2022-03-15",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2023:AW:rtw",
+   "house": "mcqueen",
+   "season": "2023 AW rtw",
+   "date": "2023-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2024:SS:rtw",
+   "house": "mcqueen",
+   "season": "2024 SS rtw",
+   "date": "2023-09-30",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2024:AW:rtw",
+   "house": "mcqueen",
+   "season": "2024 AW rtw",
+   "date": "2024-03-02",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2025:SS:rtw",
+   "house": "mcqueen",
+   "season": "2025 SS rtw",
+   "date": "2024-09-28",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2025:AW:rtw",
+   "house": "mcqueen",
+   "season": "2025 AW rtw",
+   "date": "2025-03-08",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "mcqueen:2026:SS:rtw",
+   "house": "mcqueen",
+   "season": "2026 SS rtw",
+   "date": "2025-10-05",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "mcqueen:2026:AW:rtw",
+   "house": "mcqueen",
+   "season": "2026 AW rtw",
+   "date": "2026-03-08",
+   "runway": {
+    "looks": 18,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "mcqueen:2027:SS:rtw",
+   "house": "mcqueen",
+   "season": "2027 SS rtw",
+   "date": "2026-09-20",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "miu_miu:2015:AW:rtw",
+   "house": "miu_miu",
+   "season": "2015 AW rtw",
+   "date": "2015-03-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2016:SS:rtw",
+   "house": "miu_miu",
+   "season": "2016 SS rtw",
+   "date": "2015-10-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2016:AW:rtw",
+   "house": "miu_miu",
+   "season": "2016 AW rtw",
+   "date": "2016-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2017:SS:rtw",
+   "house": "miu_miu",
+   "season": "2017 SS rtw",
+   "date": "2016-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2017:AW:rtw",
+   "house": "miu_miu",
+   "season": "2017 AW rtw",
+   "date": "2017-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2018:SS:rtw",
+   "house": "miu_miu",
+   "season": "2018 SS rtw",
+   "date": "2017-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2018:AW:rtw",
+   "house": "miu_miu",
+   "season": "2018 AW rtw",
+   "date": "2018-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2019:SS:rtw",
+   "house": "miu_miu",
+   "season": "2019 SS rtw",
+   "date": "2018-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2019:AW:rtw",
+   "house": "miu_miu",
+   "season": "2019 AW rtw",
+   "date": "2019-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2020:SS:rtw",
+   "house": "miu_miu",
+   "season": "2020 SS rtw",
+   "date": "2019-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2020:AW:rtw",
+   "house": "miu_miu",
+   "season": "2020 AW rtw",
+   "date": "2020-03-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2021:SS:rtw",
+   "house": "miu_miu",
+   "season": "2021 SS rtw",
+   "date": "2020-10-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2021:AW:rtw",
+   "house": "miu_miu",
+   "season": "2021 AW rtw",
+   "date": "2021-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2022:SS:rtw",
+   "house": "miu_miu",
+   "season": "2022 SS rtw",
+   "date": "2021-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2022:AW:rtw",
+   "house": "miu_miu",
+   "season": "2022 AW rtw",
+   "date": "2022-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2023:SS:rtw",
+   "house": "miu_miu",
+   "season": "2023 SS rtw",
+   "date": "2022-10-04",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2023:AW:rtw",
+   "house": "miu_miu",
+   "season": "2023 AW rtw",
+   "date": "2023-03-07",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2024:SS:rtw",
+   "house": "miu_miu",
+   "season": "2024 SS rtw",
+   "date": "2023-10-03",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2024:AW:rtw",
+   "house": "miu_miu",
+   "season": "2024 AW rtw",
+   "date": "2024-03-05",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2025:SS:rtw",
+   "house": "miu_miu",
+   "season": "2025 SS rtw",
+   "date": "2024-10-01",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2025:AW:rtw",
+   "house": "miu_miu",
+   "season": "2025 AW rtw",
+   "date": "2025-03-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "miu_miu:2026:SS:rtw",
+   "house": "miu_miu",
+   "season": "2026 SS rtw",
+   "date": "2025-10-06",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 10,
+    "ads": 84,
+    "pictures": 12,
+    "placed": true
+   }
+  },
+  {
+   "id": "miu_miu:2026:AW:rtw",
+   "house": "miu_miu",
+   "season": "2026 AW rtw",
+   "date": "2026-03-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 20,
+    "ads": 153,
+    "pictures": 37,
+    "placed": true
+   }
+  },
+  {
+   "id": "miu_miu:2027:SS:rtw",
+   "house": "miu_miu",
+   "season": "2027 SS rtw",
+   "date": "2026-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "moncler:2015:AW:rtw",
+   "house": "moncler",
+   "season": "2015 AW rtw",
+   "date": "2015-02-15",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2016:SS:rtw",
+   "house": "moncler",
+   "season": "2016 SS rtw",
+   "date": "2015-10-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2016:AW:rtw",
+   "house": "moncler",
+   "season": "2016 AW rtw",
+   "date": "2016-02-14",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2017:SS:rtw",
+   "house": "moncler",
+   "season": "2017 SS rtw",
+   "date": "2016-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2017:AW:rtw",
+   "house": "moncler",
+   "season": "2017 AW rtw",
+   "date": "2017-02-15",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2018:SS:rtw",
+   "house": "moncler",
+   "season": "2018 SS rtw",
+   "date": "2017-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2020:AW:rtw",
+   "house": "moncler",
+   "season": "2020 AW rtw",
+   "date": "2020-02-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2023:SS:rtw",
+   "house": "moncler",
+   "season": "2023 SS rtw",
+   "date": "2022-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "moncler:2025:AW:rtw",
+   "house": "moncler",
+   "season": "2025 AW rtw",
+   "date": "2025-03-15",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "moncler:2026:AW:rtw",
+   "house": "moncler",
+   "season": "2026 AW rtw",
+   "date": "2026-01-31",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 4,
+    "ads": 4,
+    "pictures": 2,
+    "placed": false
+   }
+  },
+  {
+   "id": "prada:2015:AW:rtw",
+   "house": "prada",
+   "season": "2015 AW rtw",
+   "date": "2015-02-26",
+   "runway": {
+    "looks": 14,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2016:SS:rtw",
+   "house": "prada",
+   "season": "2016 SS rtw",
+   "date": "2015-09-24",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2016:AW:rtw",
+   "house": "prada",
+   "season": "2016 AW rtw",
+   "date": "2016-02-25",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2017:SS:rtw",
+   "house": "prada",
+   "season": "2017 SS rtw",
+   "date": "2016-09-22",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2017:AW:rtw",
+   "house": "prada",
+   "season": "2017 AW rtw",
+   "date": "2017-02-23",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2018:SS:rtw",
+   "house": "prada",
+   "season": "2018 SS rtw",
+   "date": "2017-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2018:AW:rtw",
+   "house": "prada",
+   "season": "2018 AW rtw",
+   "date": "2018-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2019:SS:rtw",
+   "house": "prada",
+   "season": "2019 SS rtw",
+   "date": "2018-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2019:AW:rtw",
+   "house": "prada",
+   "season": "2019 AW rtw",
+   "date": "2019-02-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2020:AW:rtw",
+   "house": "prada",
+   "season": "2020 AW rtw",
+   "date": "2020-02-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2021:SS:rtw",
+   "house": "prada",
+   "season": "2021 SS rtw",
+   "date": "2020-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2022:SS:rtw",
+   "house": "prada",
+   "season": "2022 SS rtw",
+   "date": "2021-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2022:AW:rtw",
+   "house": "prada",
+   "season": "2022 AW rtw",
+   "date": "2022-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2023:SS:rtw",
+   "house": "prada",
+   "season": "2023 SS rtw",
+   "date": "2022-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2023:AW:rtw",
+   "house": "prada",
+   "season": "2023 AW rtw",
+   "date": "2023-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2024:SS:rtw",
+   "house": "prada",
+   "season": "2024 SS rtw",
+   "date": "2023-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2024:AW:rtw",
+   "house": "prada",
+   "season": "2024 AW rtw",
+   "date": "2024-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2025:SS:rtw",
+   "house": "prada",
+   "season": "2025 SS rtw",
+   "date": "2024-09-19",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2025:AW:rtw",
+   "house": "prada",
+   "season": "2025 AW rtw",
+   "date": "2025-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "prada:2026:SS:rtw",
+   "house": "prada",
+   "season": "2026 SS rtw",
+   "date": "2025-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 20,
+    "ads": 181,
+    "pictures": 28,
+    "placed": true
+   }
+  },
+  {
+   "id": "prada:2026:AW:rtw",
+   "house": "prada",
+   "season": "2026 AW rtw",
+   "date": "2026-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 58,
+    "ads": 501,
+    "pictures": 72,
+    "placed": true
+   }
+  },
+  {
+   "id": "prada:2027:SS:rtw",
+   "house": "prada",
+   "season": "2027 SS rtw",
+   "date": "2026-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "saint_laurent:2015:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2015 AW rtw",
+   "date": "2015-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2016:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2016 SS rtw",
+   "date": "2015-10-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2016:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2016 AW rtw",
+   "date": "2016-03-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2017:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2017 SS rtw",
+   "date": "2016-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2017:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2017 AW rtw",
+   "date": "2017-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2018:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2018 SS rtw",
+   "date": "2017-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2018:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2018 AW rtw",
+   "date": "2018-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2019:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2019 SS rtw",
+   "date": "2018-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2019:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2019 AW rtw",
+   "date": "2019-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2020:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2020 SS rtw",
+   "date": "2019-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2020:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2020 AW rtw",
+   "date": "2020-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2022:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2022 SS rtw",
+   "date": "2021-09-28",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2022:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2022 AW rtw",
+   "date": "2022-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2023:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2023 SS rtw",
+   "date": "2022-09-27",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2023:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2023 AW rtw",
+   "date": "2023-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2024:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2024 SS rtw",
+   "date": "2023-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2024:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2024 AW rtw",
+   "date": "2024-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2025:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2025 SS rtw",
+   "date": "2024-09-24",
+   "runway": {
+    "looks": 19,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2025:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2025 AW rtw",
+   "date": "2025-03-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "saint_laurent:2026:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2026 SS rtw",
+   "date": "2025-09-29",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 24,
+    "ads": 269,
+    "pictures": 38,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.6856,
+    "answers": 86
+   }
+  },
+  {
+   "id": "saint_laurent:2026:AW:rtw",
+   "house": "saint_laurent",
+   "season": "2026 AW rtw",
+   "date": "2026-03-03",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 41,
+    "ads": 242,
+    "pictures": 33,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.9558,
+    "answers": 88
+   }
+  },
+  {
+   "id": "saint_laurent:2027:SS:rtw",
+   "house": "saint_laurent",
+   "season": "2027 SS rtw",
+   "date": "2026-09-29",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "schiaparelli:2015:SS:couture",
+   "house": "schiaparelli",
+   "season": "2015 SS couture",
+   "date": "2015-01-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2015:AW:couture",
+   "house": "schiaparelli",
+   "season": "2015 AW couture",
+   "date": "2015-07-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2016:SS:couture",
+   "house": "schiaparelli",
+   "season": "2016 SS couture",
+   "date": "2016-01-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2016:AW:couture",
+   "house": "schiaparelli",
+   "season": "2016 AW couture",
+   "date": "2016-07-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2017:SS:couture",
+   "house": "schiaparelli",
+   "season": "2017 SS couture",
+   "date": "2017-01-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2017:AW:couture",
+   "house": "schiaparelli",
+   "season": "2017 AW couture",
+   "date": "2017-07-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2018:SS:couture",
+   "house": "schiaparelli",
+   "season": "2018 SS couture",
+   "date": "2018-01-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2018:AW:couture",
+   "house": "schiaparelli",
+   "season": "2018 AW couture",
+   "date": "2018-07-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2019:SS:couture",
+   "house": "schiaparelli",
+   "season": "2019 SS couture",
+   "date": "2019-01-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2019:AW:couture",
+   "house": "schiaparelli",
+   "season": "2019 AW couture",
+   "date": "2019-07-01",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2020:SS:couture",
+   "house": "schiaparelli",
+   "season": "2020 SS couture",
+   "date": "2020-01-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2021:SS:couture",
+   "house": "schiaparelli",
+   "season": "2021 SS couture",
+   "date": "2021-01-25",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2021:AW:couture",
+   "house": "schiaparelli",
+   "season": "2021 AW couture",
+   "date": "2021-07-05",
+   "runway": {
+    "looks": 4,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2022:SS:couture",
+   "house": "schiaparelli",
+   "season": "2022 SS couture",
+   "date": "2022-01-24",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2022:AW:couture",
+   "house": "schiaparelli",
+   "season": "2022 AW couture",
+   "date": "2022-07-04",
+   "runway": {
+    "looks": 15,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2023:SS:couture",
+   "house": "schiaparelli",
+   "season": "2023 SS couture",
+   "date": "2023-01-23",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2023:AW:couture",
+   "house": "schiaparelli",
+   "season": "2023 AW couture",
+   "date": "2023-07-03",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2024:SS:couture",
+   "house": "schiaparelli",
+   "season": "2024 SS couture",
+   "date": "2024-01-22",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2024:AW:couture",
+   "house": "schiaparelli",
+   "season": "2024 AW couture",
+   "date": "2024-06-24",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2025:SS:couture",
+   "house": "schiaparelli",
+   "season": "2025 SS couture",
+   "date": "2025-01-27",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2025:AW:couture",
+   "house": "schiaparelli",
+   "season": "2025 AW couture",
+   "date": "2025-07-07",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "schiaparelli:2026:SS:couture",
+   "house": "schiaparelli",
+   "season": "2026 SS couture",
+   "date": "2026-01-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "schiaparelli:2026:AW:couture",
+   "house": "schiaparelli",
+   "season": "2026 AW couture",
+   "date": "2026-07-06",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "stella_mccartney:2015:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2015 AW rtw",
+   "date": "2015-03-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2016:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2016 SS rtw",
+   "date": "2015-10-05",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2016:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2016 AW rtw",
+   "date": "2016-03-07",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2017:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2017 SS rtw",
+   "date": "2016-10-03",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2017:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2017 AW rtw",
+   "date": "2017-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2018:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2018 SS rtw",
+   "date": "2017-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2018:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2018 AW rtw",
+   "date": "2018-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2019:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2019 SS rtw",
+   "date": "2018-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2019:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2019 AW rtw",
+   "date": "2019-03-04",
+   "runway": {
+    "looks": 17,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2020:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2020 AW rtw",
+   "date": "2020-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2022:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2022 SS rtw",
+   "date": "2021-10-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2022:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2022 AW rtw",
+   "date": "2022-03-07",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2023:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2023 SS rtw",
+   "date": "2022-10-03",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2023:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2023 AW rtw",
+   "date": "2023-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2024:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2024 SS rtw",
+   "date": "2023-10-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2024:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2024 AW rtw",
+   "date": "2024-03-04",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2025:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2025 SS rtw",
+   "date": "2024-09-30",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2025:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2025 AW rtw",
+   "date": "2025-03-05",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "stella_mccartney:2026:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2026 SS rtw",
+   "date": "2025-09-30",
+   "runway": {
+    "looks": 5,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "stella_mccartney:2026:AW:rtw",
+   "house": "stella_mccartney",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 7,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "stella_mccartney:2027:SS:rtw",
+   "house": "stella_mccartney",
+   "season": "2027 SS rtw",
+   "date": "2026-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "the_row:2016:AW:rtw",
+   "house": "the_row",
+   "season": "2016 AW rtw",
+   "date": "2016-02-15",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2017:AW:rtw",
+   "house": "the_row",
+   "season": "2017 AW rtw",
+   "date": "2017-02-13",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2020:SS:rtw",
+   "house": "the_row",
+   "season": "2020 SS rtw",
+   "date": "2019-09-09",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2023:SS:rtw",
+   "house": "the_row",
+   "season": "2023 SS rtw",
+   "date": "2022-09-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2023:AW:rtw",
+   "house": "the_row",
+   "season": "2023 AW rtw",
+   "date": "2023-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2024:SS:rtw",
+   "house": "the_row",
+   "season": "2024 SS rtw",
+   "date": "2023-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2024:AW:rtw",
+   "house": "the_row",
+   "season": "2024 AW rtw",
+   "date": "2024-02-28",
+   "runway": {
+    "looks": 16,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2025:SS:rtw",
+   "house": "the_row",
+   "season": "2025 SS rtw",
+   "date": "2024-09-25",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2025:AW:rtw",
+   "house": "the_row",
+   "season": "2025 AW rtw",
+   "date": "2025-03-05",
+   "runway": {
+    "looks": 13,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "the_row:2026:SS:rtw",
+   "house": "the_row",
+   "season": "2026 SS rtw",
+   "date": "2025-10-02",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "the_row:2026:AW:rtw",
+   "house": "the_row",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "the_row:2027:SS:rtw",
+   "house": "the_row",
+   "season": "2027 SS rtw",
+   "date": "2026-09-30",
+   "runway": {
+    "looks": 20,
+    "placed": true
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "tom_ford:2015:AW:rtw",
+   "house": "tom_ford",
+   "season": "2015 AW rtw",
+   "date": "2015-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2018:SS:rtw",
+   "house": "tom_ford",
+   "season": "2018 SS rtw",
+   "date": "2017-09-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2018:AW:rtw",
+   "house": "tom_ford",
+   "season": "2018 AW rtw",
+   "date": "2018-02-09",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2019:SS:rtw",
+   "house": "tom_ford",
+   "season": "2019 SS rtw",
+   "date": "2018-09-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2019:AW:rtw",
+   "house": "tom_ford",
+   "season": "2019 AW rtw",
+   "date": "2019-02-07",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2020:SS:rtw",
+   "house": "tom_ford",
+   "season": "2020 SS rtw",
+   "date": "2019-09-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2020:AW:rtw",
+   "house": "tom_ford",
+   "season": "2020 AW rtw",
+   "date": "2020-02-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2021:SS:rtw",
+   "house": "tom_ford",
+   "season": "2021 SS rtw",
+   "date": "2020-09-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2021:AW:rtw",
+   "house": "tom_ford",
+   "season": "2021 AW rtw",
+   "date": "2021-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2022:SS:rtw",
+   "house": "tom_ford",
+   "season": "2022 SS rtw",
+   "date": "2021-09-13",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2023:SS:rtw",
+   "house": "tom_ford",
+   "season": "2023 SS rtw",
+   "date": "2022-09-14",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2024:SS:rtw",
+   "house": "tom_ford",
+   "season": "2024 SS rtw",
+   "date": "2023-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2024:AW:rtw",
+   "house": "tom_ford",
+   "season": "2024 AW rtw",
+   "date": "2024-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2025:AW:rtw",
+   "house": "tom_ford",
+   "season": "2025 AW rtw",
+   "date": "2025-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "tom_ford:2026:SS:rtw",
+   "house": "tom_ford",
+   "season": "2026 SS rtw",
+   "date": "2025-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "tom_ford:2026:AW:rtw",
+   "house": "tom_ford",
+   "season": "2026 AW rtw",
+   "date": "2026-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "tom_ford:2027:SS:rtw",
+   "house": "tom_ford",
+   "season": "2027 SS rtw",
+   "date": "2026-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "valentino:2015:AW:rtw",
+   "house": "valentino",
+   "season": "2015 AW rtw",
+   "date": "2015-03-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2016:SS:rtw",
+   "house": "valentino",
+   "season": "2016 SS rtw",
+   "date": "2015-10-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2016:AW:rtw",
+   "house": "valentino",
+   "season": "2016 AW rtw",
+   "date": "2016-03-08",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2017:SS:rtw",
+   "house": "valentino",
+   "season": "2017 SS rtw",
+   "date": "2016-10-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2017:AW:rtw",
+   "house": "valentino",
+   "season": "2017 AW rtw",
+   "date": "2017-03-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2018:SS:rtw",
+   "house": "valentino",
+   "season": "2018 SS rtw",
+   "date": "2017-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2018:AW:rtw",
+   "house": "valentino",
+   "season": "2018 AW rtw",
+   "date": "2018-03-04",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2019:SS:rtw",
+   "house": "valentino",
+   "season": "2019 SS rtw",
+   "date": "2018-09-30",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2019:AW:rtw",
+   "house": "valentino",
+   "season": "2019 AW rtw",
+   "date": "2019-03-03",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2020:SS:rtw",
+   "house": "valentino",
+   "season": "2020 SS rtw",
+   "date": "2019-09-29",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2020:AW:rtw",
+   "house": "valentino",
+   "season": "2020 AW rtw",
+   "date": "2020-03-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2021:SS:rtw",
+   "house": "valentino",
+   "season": "2021 SS rtw",
+   "date": "2020-09-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2021:AW:rtw",
+   "house": "valentino",
+   "season": "2021 AW rtw",
+   "date": "2021-03-01",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2022:SS:rtw",
+   "house": "valentino",
+   "season": "2022 SS rtw",
+   "date": "2021-10-01",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2022:AW:rtw",
+   "house": "valentino",
+   "season": "2022 AW rtw",
+   "date": "2022-03-06",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2023:SS:rtw",
+   "house": "valentino",
+   "season": "2023 SS rtw",
+   "date": "2022-10-02",
+   "runway": {
+    "looks": 10,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2023:AW:rtw",
+   "house": "valentino",
+   "season": "2023 AW rtw",
+   "date": "2023-03-05",
+   "runway": {
+    "looks": 8,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2024:SS:rtw",
+   "house": "valentino",
+   "season": "2024 SS rtw",
+   "date": "2023-10-01",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2024:AW:rtw",
+   "house": "valentino",
+   "season": "2024 AW rtw",
+   "date": "2024-03-03",
+   "runway": {
+    "looks": 12,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2025:SS:rtw",
+   "house": "valentino",
+   "season": "2025 SS rtw",
+   "date": "2024-09-29",
+   "runway": {
+    "looks": 6,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2025:AW:rtw",
+   "house": "valentino",
+   "season": "2025 AW rtw",
+   "date": "2025-03-09",
+   "runway": {
+    "looks": 9,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "valentino:2026:SS:rtw",
+   "house": "valentino",
+   "season": "2026 SS rtw",
+   "date": "2025-10-05",
+   "runway": {
+    "looks": 10,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 10,
+    "ads": 85,
+    "pictures": 8,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.9326,
+    "answers": 82
+   }
+  },
+  {
+   "id": "valentino:2026:AW:rtw",
+   "house": "valentino",
+   "season": "2026 AW rtw",
+   "date": "2026-03-12",
+   "runway": {
+    "looks": 10,
+    "placed": true
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 6,
+    "ads": 15,
+    "pictures": 9,
+    "placed": true
+   },
+   "gap": {
+    "value": 0.8646,
+    "answers": 68
+   }
+  },
+  {
+   "id": "valentino:2027:SS:rtw",
+   "house": "valentino",
+   "season": "2027 SS rtw",
+   "date": "2026-10-04",
+   "runway": {
+    "looks": 3,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  },
+  {
+   "id": "versace:2015:AW:rtw",
+   "house": "versace",
+   "season": "2015 AW rtw",
+   "date": "2015-02-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2016:SS:rtw",
+   "house": "versace",
+   "season": "2016 SS rtw",
+   "date": "2015-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2016:AW:rtw",
+   "house": "versace",
+   "season": "2016 AW rtw",
+   "date": "2016-02-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2017:SS:rtw",
+   "house": "versace",
+   "season": "2017 SS rtw",
+   "date": "2016-09-23",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2017:AW:rtw",
+   "house": "versace",
+   "season": "2017 AW rtw",
+   "date": "2017-02-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2018:SS:rtw",
+   "house": "versace",
+   "season": "2018 SS rtw",
+   "date": "2017-09-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2018:AW:rtw",
+   "house": "versace",
+   "season": "2018 AW rtw",
+   "date": "2018-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2019:SS:rtw",
+   "house": "versace",
+   "season": "2019 SS rtw",
+   "date": "2018-09-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2019:AW:rtw",
+   "house": "versace",
+   "season": "2019 AW rtw",
+   "date": "2019-02-22",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2020:SS:rtw",
+   "house": "versace",
+   "season": "2020 SS rtw",
+   "date": "2019-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2020:AW:rtw",
+   "house": "versace",
+   "season": "2020 AW rtw",
+   "date": "2020-02-21",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2021:SS:rtw",
+   "house": "versace",
+   "season": "2021 SS rtw",
+   "date": "2020-09-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2021:AW:rtw",
+   "house": "versace",
+   "season": "2021 AW rtw",
+   "date": "2021-03-06",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2022:SS:rtw",
+   "house": "versace",
+   "season": "2022 SS rtw",
+   "date": "2021-09-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2022:AW:rtw",
+   "house": "versace",
+   "season": "2022 AW rtw",
+   "date": "2022-02-25",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2023:SS:rtw",
+   "house": "versace",
+   "season": "2023 SS rtw",
+   "date": "2022-09-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2023:AW:rtw",
+   "house": "versace",
+   "season": "2023 AW rtw",
+   "date": "2023-03-02",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2024:AW:rtw",
+   "house": "versace",
+   "season": "2024 AW rtw",
+   "date": "2024-02-23",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2025:SS:rtw",
+   "house": "versace",
+   "season": "2025 SS rtw",
+   "date": "2024-09-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2025:AW:rtw",
+   "house": "versace",
+   "season": "2025 AW rtw",
+   "date": "2025-02-28",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "versace:2026:SS:rtw",
+   "house": "versace",
+   "season": "2026 SS rtw",
+   "date": "2025-09-26",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 5,
+    "ads": 60,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "zegna:2015:AW:men",
+   "house": "zegna",
+   "season": "2015 AW men",
+   "date": "2015-01-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2016:SS:men",
+   "house": "zegna",
+   "season": "2016 SS men",
+   "date": "2015-06-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2016:AW:men",
+   "house": "zegna",
+   "season": "2016 AW men",
+   "date": "2016-01-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2017:AW:men",
+   "house": "zegna",
+   "season": "2017 AW men",
+   "date": "2017-01-13",
+   "runway": {
+    "looks": 11,
+    "placed": true
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2018:SS:men",
+   "house": "zegna",
+   "season": "2018 SS men",
+   "date": "2017-06-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2018:AW:men",
+   "house": "zegna",
+   "season": "2018 AW men",
+   "date": "2018-01-12",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2019:SS:men",
+   "house": "zegna",
+   "season": "2019 SS men",
+   "date": "2018-06-15",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2019:AW:men",
+   "house": "zegna",
+   "season": "2019 AW men",
+   "date": "2019-01-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2020:SS:men",
+   "house": "zegna",
+   "season": "2020 SS men",
+   "date": "2019-06-14",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2020:AW:men",
+   "house": "zegna",
+   "season": "2020 AW men",
+   "date": "2020-01-10",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2021:AW:men",
+   "house": "zegna",
+   "season": "2021 AW men",
+   "date": "2021-01-15",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2022:SS:men",
+   "house": "zegna",
+   "season": "2022 SS men",
+   "date": "2021-06-18",
+   "runway": {
+    "looks": 2,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2022:AW:men",
+   "house": "zegna",
+   "season": "2022 AW men",
+   "date": "2022-01-14",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2023:SS:men",
+   "house": "zegna",
+   "season": "2023 SS men",
+   "date": "2022-06-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2023:AW:men",
+   "house": "zegna",
+   "season": "2023 AW men",
+   "date": "2023-01-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2024:SS:men",
+   "house": "zegna",
+   "season": "2024 SS men",
+   "date": "2023-06-19",
+   "runway": {
+    "looks": 1,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2024:AW:men",
+   "house": "zegna",
+   "season": "2024 AW men",
+   "date": "2024-01-15",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2025:SS:men",
+   "house": "zegna",
+   "season": "2025 SS men",
+   "date": "2024-06-17",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2025:AW:men",
+   "house": "zegna",
+   "season": "2025 AW men",
+   "date": "2025-01-20",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "zegna:2026:SS:men",
+   "house": "zegna",
+   "season": "2026 SS men",
+   "date": "2025-06-11",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "zegna:2026:AW:men",
+   "house": "zegna",
+   "season": "2026 AW men",
+   "date": "2026-01-16",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "complete",
+    "concepts": 0,
+    "ads": 0,
+    "pictures": 0,
+    "placed": false
+   }
+  },
+  {
+   "id": "zegna:2027:SS:men",
+   "house": "zegna",
+   "season": "2027 SS men",
+   "date": "2026-06-05",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "held": true
+   }
+  }
+ ]
+}

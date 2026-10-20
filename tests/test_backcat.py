@@ -146,6 +146,18 @@ def test_unrelated_images_never_pair_across_houses_or_long_gaps():
     back = _items(5, house="a", seed=3)
     meta = [{**b, "house": "b"} for b in back] + [{**b, "date": date(2025, 1, 1)} for b in back]
     assert calibrate.match(meta, back) == []
+    assert calibrate.match_fast(meta, back) == []
+
+
+def test_the_stacked_match_finds_the_same_pairs_as_the_plain_one():
+    rng = np.random.default_rng(11)
+    back = _items(30, house="a", seed=4) + _items(20, house="b", seed=5)
+    meta = ([{**b, "vec": b["vec"] + 0.15 * rng.normal(size=64)} for b in back[::2]]      # near copies of half of them
+            + _items(40, house="a", seed=6) + _items(40, house="b", seed=7)
+            + [{**back[1], "vec": rng.normal(size=64)}])                                   # an unrelated picture, same hash
+    slow, fast = calibrate.match(meta, back), calibrate.match_fast(meta, back)
+    assert len(slow) >= 25
+    assert [(id(m), id(b), round(c, 9)) for m, b, c in slow] == [(id(m), id(b), round(c, 9)) for m, b, c in fast]
 
 
 def _two_houses():

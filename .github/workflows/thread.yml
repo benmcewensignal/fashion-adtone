@@ -71,6 +71,10 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         run: python -m adtone.benchmark
+      - name: The shared description of the clothes, runway and advertising (Amendment 3, a draft)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -m adtone.shared
       - name: Persist
         if: always()
         timeout-minutes: 5

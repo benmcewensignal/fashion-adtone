@@ -379,23 +379,92 @@ def test_each_collection_is_followed_through_its_stages(tmp_path, monkeypatch):
         "ads": [{"house_id": "h0", "start": (show_day + timedelta(days=3)).isoformat()},
                 {"house_id": "h0", "start": (show_day + timedelta(days=90)).isoformat()},
                 {"house_id": "h0", "start": (show_day + timedelta(days=91)).isoformat(), "dynamic": True, "source": "metaweb"}],
+        "paid_social_record": {"metaweb": {"first_read": "2023-06-01", "last_read": "2023-12-01"}},   # whole from 2022-06-01
+        "homepages_live": [{"house_id": "h0", "month": "2023-06"}, {"house_id": "h2", "month": "2023-06"}],
+        "homepage_campaign_pictures": [{"house_id": "h2", "sha": "p1", "day": (show_day + timedelta(days=60)).isoformat(),
+                                        "record": "archive"},
+                                       {"house_id": "h2", "sha": "p2", "day": (show_day + timedelta(days=20)).isoformat(),
+                                        "record": "archive"}],                # before the campaign window opens
+        "looks": [{"house": "h0", "category": "rtw", "date": (show_day + timedelta(days=2)).isoformat(), "sha": f"l{k}",
+                   "read": k < 9, "outfit": k < 8} for k in range(10)]
+                 + [{"house": "h1", "category": "rtw", "date": (show_day + timedelta(days=30)).isoformat(), "sha": "far",
+                     "read": True, "outfit": True}],                          # another show of the house, a month off
     }
     out = T.build(shows, att, {}, sources=sources)
     recs = {json.loads(x)["house"]: json.loads(x) for x in (tmp_path / "thread" / "collections.jsonl").read_text().splitlines()}
     h0 = recs["h0"]
     assert h0["id"] == "h0:2023:AW:rtw" and h0["scene"] == {"appointments": 1, "verified": 1, "covered": True}
     assert h0["shop_window"]["months_read"] == 4 and h0["shop_window"]["pictures_read"] == 5
+    assert h0["shop_window"]["months_read_live"] == 1 and h0["shop_window"]["months_read_either"] == 5
+    assert h0["show"]["looks"] == {"on_file": 10, "read": 9, "outfits": 8, "show": (show_day + timedelta(days=2)).isoformat()}
+    assert recs["h1"]["show"]["looks"] == {"on_file": 0, "read": 0, "outfits": 0}
     assert h0["campaign"]["entries"] == 2 and h0["campaign"]["joined_by"] == {"season": 1, "date": 1}
     assert h0["campaign"]["by_line"] == {"collection": 1, "accessories": 1} and h0["campaign"]["pictures_read"] == 1
     assert h0["advertising"] == {"show_period": 1, "campaign_period": 2, "made": {"show_period": 1, "campaign_period": 1},
-                                 "paid_social_covered": {"show_period": False, "campaign_period": True},   # the first ad on file is after the show window opens
+                                 "survivors": {"show_period": 0, "campaign_period": 0},
+                                 "paid_social_record": {"show_period": "complete", "campaign_period": "complete"},
                                  "search_video": {"show_period": {"record": "not read"}, "campaign_period": {"record": "not read"}}}
     assert h0["fill"] == {"scene": "full", "show": "part", "shop_window": "full", "campaign": "full", "advertising": "full"}
-    assert recs["h1"]["fill"]["campaign"] == "none" and "lasting" in recs["h1"]["show"]
+    assert h0["campaign_from"] == "listing"
+    # a house whose campaign has no pictures of its own: the campaign pictures on its homepage in the window fill it
+    assert recs["h2"]["campaign"]["homepage"] == {"pictures": 1, "live": 0}
+    assert recs["h2"]["fill"]["campaign"] == "full" and recs["h2"]["campaign_from"] == "homepage"
+    assert recs["h1"]["fill"]["campaign"] == "none" and recs["h1"]["campaign_from"] is None and "lasting" in recs["h1"]["show"]
     s = out["collections"]
     assert s["complete_chains"] == 0                                  # no press on file, so no show is full
+    assert s["campaign_filled_by"] == {"listing": 1, "homepage": 1} and s["show_with_runway_looks"] == 1
+    assert s["advertising"]["paid_social_record"] == {"metaweb": {"first_read": "2023-06-01", "last_read": "2023-12-01",
+                                                                  "complete_from": "2022-06-01"}}
     assert s["campaigns_unjoined"] == {"collection": 1}
     assert s["campaign_lag_after_show"]["AW"]["median_days"] == (date(2023, 7, 20) - show_day).days
+
+
+def test_paid_social_ads_count_where_their_library_holds_the_whole_window():
+    show = date(2026, 3, 2)
+    ads = [(date(2026, 2, 25), "metaweb", False), (date(2026, 3, 5), "metaweb", True), (date(2026, 3, 6), "snap", False),
+           (date(2026, 3, 4), "tiktok", False)]                                    # tiktok: on file, never read with ads found
+    rec = {"metaweb": {"first_read": "2026-10-17", "last_read": "2026-10-18"},     # whole from 2025-10-17
+           "snap": {"first_read": "2026-10-17", "last_read": "2026-10-18"}}
+    w = T.social_window(ads, show - timedelta(days=7), show + timedelta(days=21), rec)
+    assert w == {"ads": 3, "made": 2, "survivors": 1, "record": "complete"}
+    # a season the libraries reach only through ads still running a year later: survivors, which never fill the stage
+    old = [(date(2021, 2, 26), "metaweb", False), (date(2025, 3, 1), "metaweb", False)]
+    assert T.social_window(old, date(2021, 2, 20), date(2021, 3, 20), rec) == {"ads": 0, "made": 0, "survivors": 1,
+                                                                                "record": "survivors"}
+    assert T.social_window(old, date(2025, 10, 1), date(2025, 10, 30), rec)["record"] == "partly survivors"
+    assert T.social_window([], date(2026, 10, 10), date(2026, 12, 30), rec) == {"ads": 0, "made": 0, "survivors": 0,
+                                                                                 "record": "complete", "open": True}
+    assert T.social_window(old, date(2025, 3, 1), date(2025, 3, 2), {})["record"] == "not read"
+    adv = {"show_period": 0, "campaign_period": 0, "survivors": {"show_period": 1}}
+    assert not T.advertised(adv, "show_period")                                    # survivors on file are not a record
+
+
+def test_the_campaign_pictures_on_a_homepage_are_dated_by_the_capture_that_first_shows_them(tmp_path):
+    arch = {"captures": tmp_path / "a" / "captures", "obs": tmp_path / "a" / "obs"}
+    live = {"captures": tmp_path / "l" / "captures", "obs": tmp_path / "l" / "obs"}
+    for p in (*arch.values(), *live.values()):
+        p.mkdir(parents=True)
+    (arch["captures"] / "h0.jsonl").write_text("\n".join(json.dumps(r) for r in [
+        {"house_id": "h0", "month": "2024-05", "capture": "20240503101010", "status": "resolved", "images": [{"sha": "s1"}]},
+        {"house_id": "h0", "month": "2024-03", "capture": "20240311090000", "status": "resolved",
+         "images": [{"sha": "s1"}, {"sha": "s2"}]}]) + "\n")
+    # read from the later capture, as the archive is read newest first; s2 read as a packshot by the reader and as
+    # a campaign picture by the larger one, s3 never captured
+    (arch["obs"] / "tone-v1.jsonl").write_text("\n".join(json.dumps(r) for r in [
+        {"house_id": "h0", "month": "2024-05", "sha": "s1", "status": "ok", "output": {"creative_type": "brand_image"}},
+        {"house_id": "h0", "month": "2024-03", "sha": "s2", "status": "ok", "output": {"creative_type": "product_packshot"}},
+        {"house_id": "h0", "month": "2024-04", "sha": "s3", "status": "ok", "output": {"creative_type": "brand_image"}},
+        {"house_id": "h0", "month": "2024-04", "sha": "s4", "status": "invalid", "output": {"creative_type": "brand_image"}}]) + "\n")
+    larger = tmp_path / "larger.jsonl"
+    larger.write_text(json.dumps({"sha": "s2", "out": {"creative_type": "brand_image"}}) + "\n")
+    (live["captures"] / "h0.jsonl").write_text(json.dumps({"house_id": "h0", "date": "2026-10-15", "month": "2026-10",
+                                                           "images": [{"sha": "s9"}]}) + "\n")
+    (live["obs"] / "tone-v1.jsonl").write_text(json.dumps({"house_id": "h0", "date": "2026-10-16", "month": "2026-10",
+                                                          "sha": "s9", "status": "ok",
+                                                          "output": {"creative_type": "brand_image"}}) + "\n")
+    got = {r["sha"]: (r["day"], r["record"]) for r in T.homepage_campaign_pictures(arch, live, larger)}
+    assert got == {"s1": ("2024-03-11", "archive"), "s2": ("2024-03-11", "archive"), "s3": ("2024-04-01", "archive"),
+                   "s9": ("2026-10-15", "live")}
 
 
 def test_search_and_video_ads_count_where_their_record_covers_the_window(tmp_path, monkeypatch):

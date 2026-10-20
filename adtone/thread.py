@@ -539,8 +539,9 @@ def build(shows: list[dict] | None = None, attention=None, press=None, sources: 
 # The Thread's unit is the collection: a house's show of one kind in one season. Each is followed through
 # the stages on windows fixed here, counted in days from the show, and every source joins it on house and
 # date or on the season a title names. Each stage keeps its own measures; the shared description of the
-# clothes, which would let the stages be compared, is not built yet. Nothing registered is computed: the
-# attention that lasts after a show is Amendment 2's outcome and waits for the amendment to be frozen.
+# clothes, which lets the stages be compared, is adtone/shared.py's (Amendment 3, section 2), with the runway
+# looks of each show joined here. Nothing registered is computed: the attention that lasts after a show is
+# Amendment 2's outcome and waits for the amendment to be frozen.
 
 STAGES = {"scene": (-180, -1),          # ambassador appointments
           "show": (-1, 3),              # heat, surprise, press, tone
@@ -557,6 +558,8 @@ CAMPAIGN_STOP = 7
 CAMPAIGN_USUAL_END = {"AW": 203, "SS": 147}
 AMBASSADORS_FROM = date(2019, 1, 1)     # where reference/ambassadors.csv starts
 SHOP_FULL = 4                           # months with homepage readings, of the six or seven after a show
+LOOKS_MATCH_DAYS = 7                    # a runway page's show date and the collection's may differ by a few days
+RUNWAY_LOOKS_MIN = 8                    # looks read as an outfit worn, before a show has a position (Amendment 3, section 2)
 OFFERING_DAYS = 183                     # a campaign naming no season joins the house's last main show this close
 # The search and video ads (adtone/adstransparency.py) join the advertising stage beside the paid social archive's.
 # Their dataset starts on 1 March 2023, and an ad first shown before then is dated to that day, so such an ad has no
@@ -567,6 +570,13 @@ SEARCH_ADS = config.DATA / "adstransparency" / "creatives"
 SEARCH_PROV = config.PROV_DIR / "adstransparency.jsonl"
 SEARCH_FLOOR = date(2023, 3, 1)
 SEARCH_KEEP_DAYS = 365
+# The paid social libraries (adtone/adlibs.py: Meta's EU archive through the vendor, Snapchat's and Pinterest's)
+# keep an ad for a year after it was last shown, as the search and video record does: from a year before a library
+# was first read it holds every ad first shown, and before that only those still running into that year, the
+# survivors. Only ads from a library whose record covers the whole window fill the stage; the survivors are
+# counted beside them. Until 20 October 2026 the record was dated from the oldest ad on file (2 September 2020),
+# which took a few long-running ads for a record of the seasons they started in.
+PAID_SOCIAL_KEEP_DAYS = 365
 BEAUTY_TOPICS = {"Beauty & Personal Care", "Health & Beauty"}
 SEARCH_ACCOUNTS = config.ROOT / "reference" / "google_advertisers.csv"
 
@@ -619,6 +629,54 @@ def search_window(ads: list[tuple], d0: date, d1: date, record: dict, account: b
            "text": sum(f == "TEXT" for f, _ in rows), "beauty": sum(t in BEAUTY_TOPICS for _, t in rows),
            "record": "complete" if d0 >= keep_from else "survivors" if d1 < keep_from else "partly survivors"}
     if record.get("last_read") and d1 > date.fromisoformat(record["last_read"]):
+        out["open"] = True
+    return out
+
+
+def paid_social_record(sources: tuple[str, ...] | None = None) -> dict[str, dict]:
+    """The days each paid social library was first and last read with ads found, from its collector's provenance.
+    A library never read with ads found has no record: ads on file from it say nothing about a window."""
+    from . import adlibs
+    out = {}
+    for name in sources or adlibs.SOURCES:
+        p = adlibs.paths(name)["prov"]
+        if not p.exists():
+            continue
+        days = [r["updated_at"][:10] for r in store.read_jsonl(p) if len(r.get("updated_at") or "") >= 10
+                and any((r.get(k) or 0) > 0 for k in ("ads_found", "new_ads", "updated_ads"))]
+        if days:
+            out[name] = {"first_read": min(days), "last_read": max(days)}
+    return out
+
+
+def social_window(ads: list[tuple], d0: date, d1: date, record: dict[str, dict]) -> dict:
+    """The paid social ads first shown from d0 to d1. `ads` holds (day, library, dynamic) for one house. An ad
+    counts where its library's record covers the whole window, from a year before the library was first read;
+    the made ones are those that are not dynamic or catalogue units. Ads from a library whose record does not
+    cover the window, or that has no record, are the survivors, kept beside the count. The window's record is
+    complete when every library read covers it, survivors when none reaches into it, partly survivors otherwise;
+    an open window runs on past the last read."""
+    from datetime import timedelta
+    labels, counted, made, survivors = [], 0, 0, 0
+    for name in sorted({s for _, s, _ in ads} | set(record)):
+        rec = record.get(name)
+        if rec:
+            keep_from = date.fromisoformat(rec["first_read"]) - timedelta(days=PAID_SOCIAL_KEEP_DAYS)
+            label = "complete" if d0 >= keep_from else "survivors" if d1 < keep_from else "partly survivors"
+            labels.append(label)
+        else:
+            label = "no record"
+        rows = [dyn for d, s, dyn in ads if s == name and d0 <= d <= d1]
+        if label == "complete":
+            counted += len(rows)
+            made += sum(1 for dyn in rows if not dyn)
+        else:
+            survivors += len(rows)
+    whole = ("not read" if not labels else "complete" if all(x == "complete" for x in labels)
+             else "survivors" if all(x == "survivors" for x in labels) else "partly survivors")
+    out = {"ads": counted, "made": made, "survivors": survivors, "record": whole}
+    last = max((r["last_read"] for r in record.values()), default=None)
+    if last and d1 > date.fromisoformat(last):
         out["open"] = True
     return out
 
@@ -762,9 +820,80 @@ def _months(d0: date, d1: date) -> list[str]:
     return out
 
 
+CAMPAIGN_KIND = "brand_image"          # a staged campaign or editorial photograph, or a film still (rubric/tone-v1.md)
+LARGER_READER = config.DATA / "luxury" / "readings" / "qwen3-tone.jsonl"
+
+
+def _capture_day(row: dict) -> str:
+    """The day of a capture: the archive's timestamp, or the live record's own date, or the month's first day."""
+    ts = row.get("capture") or ""
+    if len(ts) >= 8 and ts[:8].isdigit():
+        return f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}"
+    return row.get("date") or f"{row.get('month')}-01"
+
+
+def homepage_campaign_pictures(archive: dict[str, Path] | None = None, live: dict[str, Path] | None = None,
+                               larger: Path | None = None) -> list[dict]:
+    """Every homepage picture read as a campaign picture, from the archive and from Focal's own daily record, each
+    once: house, the day the first capture that shows it was taken, and which record it comes from. A reading's own
+    month is usually the last month a picture was up, not the first (adtone/benchmark.py, first_shown), so the day
+    is taken from the captures. The kind is the larger reader's where it read the picture and the reader's
+    otherwise, as the season benchmark takes it."""
+    from . import homepages
+    from . import live as live_mod
+    big = {}
+    lp = larger or LARGER_READER
+    for r in store.read_jsonl(lp) if lp.exists() else []:
+        if r.get("sha"):
+            big[r["sha"]] = (r.get("out") or {}).get("creative_type")
+    out = []
+    for record, P in (("archive", archive or homepages.paths()), ("live", live or live_mod.paths())):
+        first: dict[tuple[str, str], str] = {}
+        for f in sorted(P["captures"].glob("*.jsonl")) if P["captures"].exists() else []:
+            for row in store.read_jsonl(f):
+                if not row.get("images") or not row.get("house_id"):
+                    continue
+                day = _capture_day(row)
+                for im in row["images"]:
+                    k = (row["house_id"], im.get("sha"))
+                    if k not in first or day < first[k]:
+                        first[k] = day
+        seen = set()
+        for f in sorted(P["obs"].glob("*.jsonl")) if P["obs"].exists() else []:
+            for r in store.read_jsonl(f):
+                h, sha = r.get("house_id"), r.get("sha")
+                if r.get("status", "ok") != "ok" or not h or not sha or (h, sha) in seen:
+                    continue
+                kind = big.get(sha) or (r.get("output") or {}).get("creative_type")
+                day = first.get((h, sha)) or r.get("date") or (f"{r['month']}-01" if r.get("month") else None)
+                if kind == CAMPAIGN_KIND and day:
+                    seen.add((h, sha))
+                    out.append({"house_id": h, "sha": sha, "day": day, "record": record})
+    return out
+
+
+def runway_looks(path: Path | None = None) -> list[dict]:
+    """The runway looks on file (adtone/clothes.py collect), each with its show, whether the clothes reader has read
+    it and whether it shows an outfit worn. Looks taken from a page of another line are left out, as the season
+    benchmark leaves them."""
+    from . import clothes as C
+    p = path or (C.DIR / "runway.jsonl")
+    if not p.exists():
+        return []
+    read = C.readings()
+    out = []
+    for r in store.read_jsonl(p):
+        if r.get("house") and r.get("date") and C.page_fits(r.get("page", ""), r.get("category", "")):
+            a = read.get(r.get("sha"))
+            out.append({"house": r["house"], "category": r.get("category"), "date": r["date"], "sha": r.get("sha"),
+                        "read": a is not None, "outfit": C.shows_outfit(a)})
+    return out
+
+
 def _load_sources() -> dict:
     """What the other modules have on file, read without changing it."""
     from . import backcat, homepages, readings
+    from . import live as live_mod
     amb = []
     if readings.AMBASSADORS_FILE.exists():
         with readings.AMBASSADORS_FILE.open(encoding="utf-8", newline="") as f:
@@ -772,6 +901,12 @@ def _load_sources() -> dict:
     hp = []
     for p in sorted(homepages.paths()["obs"].glob("*.jsonl")):
         hp += [{"house_id": r.get("house_id"), "month": r.get("month")} for r in store.read_jsonl(p) if r.get("status", "ok") == "ok"]
+    # Focal's own daily record of the homepages, from 14 October 2026: counted for whether a shop window is read,
+    # never pooled with the archive in a comparison (adtone/live.py)
+    hp_live = []
+    lo = live_mod.paths()["obs"]
+    for p in sorted(lo.glob("*.jsonl")) if lo.exists() else []:
+        hp_live += [{"house_id": r.get("house_id"), "month": r.get("month")} for r in store.read_jsonl(p) if r.get("status", "ok") == "ok"]
     camps = []
     for p in sorted(backcat.paths()["campaigns"].glob("*.jsonl")):
         camps += store.read_jsonl(p)
@@ -787,7 +922,9 @@ def _load_sources() -> dict:
     for p in sorted(SEARCH_ADS.glob("*.jsonl")) if SEARCH_ADS.exists() else []:
         search += [{"house_id": r.get("house"), "first": r.get("first"), "fmt": r.get("fmt"), "topic": r.get("topic")}
                    for r in store.read_jsonl(p)]
-    return {"ambassadors": amb, "homepages": hp, "campaigns": camps, "campaigns_read": read, "ads": ads,
+    return {"ambassadors": amb, "homepages": hp, "homepages_live": hp_live, "campaigns": camps, "campaigns_read": read,
+            "homepage_campaign_pictures": homepage_campaign_pictures(), "looks": runway_looks(), "ads": ads,
+            "paid_social_record": paid_social_record(),
             "search_ads": search, "search_record": search_record(), "search_accounts": search_accounts()}
 
 
@@ -832,15 +969,26 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
     for r in src.get("homepages", []):
         if r.get("house_id") and r.get("month"):
             hp[r["house_id"]][r["month"]] += 1
+    hp_live = defaultdict(Counter)
+    for r in src.get("homepages_live", []):
+        if r.get("house_id") and r.get("month"):
+            hp_live[r["house_id"]][r["month"]] += 1
+    # the campaign pictures the houses put on their own homepages, by the day first shown: what fills the campaign
+    # stage while the campaign listings bring no pictures (the source page behind the listing site's login)
+    hp_camp = defaultdict(list)
+    for r in src.get("homepage_campaign_pictures", []):
+        if r.get("house_id") and len(r.get("day") or "") == 10:
+            hp_camp[r["house_id"]].append((date.fromisoformat(r["day"]), r.get("record") or "archive"))
+    looks = defaultdict(lambda: defaultdict(list))
+    for r in src.get("looks", []):
+        looks[(r["house"], r.get("category"))][r["date"]].append(r)
+    # (day, library, dynamic) for each paid social ad: the dynamic and catalogue units are set apart as not made
     ads = defaultdict(list)
-    made = defaultdict(list)              # the made pictures' ads: the dynamic and catalogue units set apart
     for r in src.get("ads", []):
         if r.get("house_id") and len(r.get("start") or "") == 10:
-            ads[r["house_id"]].append(date.fromisoformat(r["start"]))
-            if not r.get("dynamic"):
-                made[r["house_id"]].append(date.fromisoformat(r["start"]))
+            ads[r["house_id"]].append((date.fromisoformat(r["start"]), r.get("source") or "metaweb", bool(r.get("dynamic"))))
     have_ads = any(ads.values())
-    ads_from = min((d for ds in ads.values() for d in ds), default=None)     # the libraries hold a year: earlier windows are blind
+    social = src.get("paid_social_record") or {}
     record = src.get("search_record") or {}
     accounts = src.get("search_accounts")          # None: not known, every house taken to have its account
     search = defaultdict(list)
@@ -857,23 +1005,36 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         s0, s1 = window(c, "shop_window")
         months = _months(s0, s1)
         c["shop_window"] = {"months": len(months), "months_read": sum(1 for m in months if hp[h].get(m)),
-                            "pictures_read": sum(hp[h].get(m, 0) for m in months)}
+                            "pictures_read": sum(hp[h].get(m, 0) for m in months),
+                            "months_read_live": sum(1 for m in months if hp_live[h].get(m)),
+                            "pictures_read_live": sum(hp_live[h].get(m, 0) for m in months),
+                            "months_read_either": sum(1 for m in months if hp[h].get(m) or hp_live[h].get(m))}
+        # the runway looks of the show: the house's looks of the same kind whose show date is nearest, within a week
+        d = date.fromisoformat(c["date"])
+        near = sorted((abs((date.fromisoformat(k) - d).days), k) for k in looks.get((h, c["category"]), {})
+                      if abs((date.fromisoformat(k) - d).days) <= LOOKS_MATCH_DAYS)
+        lk = looks[(h, c["category"])][near[0][1]] if near else []
+        c["show"]["looks"] = {"on_file": len(lk), "read": sum(x["read"] for x in lk), "outfits": sum(x["outfit"] for x in lk),
+                              **({"show": near[0][1]} if near else {})}
         p0, p1 = window(c, "show_period_ads")
         q0, q1 = window(c, "campaign_ads")
-        # show_period and campaign_period are the paid social archive's ads, as before; the search and video ads
-        # are counted beside them on the same windows, with how much of each window their record covers
-        c["advertising"] = {"show_period": sum(1 for d in ads.get(h, []) if p0 <= d <= p1),
-                            "campaign_period": sum(1 for d in ads.get(h, []) if q0 <= d <= q1),
-                            "made": {"show_period": sum(1 for d in made.get(h, []) if p0 <= d <= p1),
-                                     "campaign_period": sum(1 for d in made.get(h, []) if q0 <= d <= q1)},
-                            "paid_social_covered": {"show_period": bool(ads_from and p0 >= ads_from),
-                                                    "campaign_period": bool(ads_from and q0 >= ads_from)},
+        # show_period and campaign_period are the paid social archive's ads on windows its record covers whole; the
+        # search and video ads are counted beside them on the same windows, with how much of each their record covers
+        sp, cp = social_window(ads.get(h, []), p0, p1, social), social_window(ads.get(h, []), q0, q1, social)
+        c["advertising"] = {"show_period": sp["ads"], "campaign_period": cp["ads"],
+                            "made": {"show_period": sp["made"], "campaign_period": cp["made"]},
+                            "survivors": {"show_period": sp["survivors"], "campaign_period": cp["survivors"]},
+                            "paid_social_record": {"show_period": sp["record"], "campaign_period": cp["record"]},
                             "search_video": {"show_period": search_window(search.get(h, []), p0, p1, record,
                                                                           accounts is None or h in accounts),
                                              "campaign_period": search_window(search.get(h, []), q0, q1, record,
                                                                               accounts is None or h in accounts)}}
+        if cp.get("open"):
+            c["advertising"]["open"] = True
+        shown = [rec for day, rec in hp_camp.get(h, []) if q0 <= day <= q1]
         c["campaign"] = {"entries": 0, "pictures_read": 0, "by_kind": Counter(), "by_line": Counter(),
-                         "joined_by": Counter(), "ids": []}
+                         "joined_by": Counter(), "ids": [],
+                         "homepage": {"pictures": len(shown), "live": sum(1 for rec in shown if rec == "live")}}
 
     # campaigns and the other things a house publishes: by the season the title names, else by date
     read = src.get("campaigns_read", set())
@@ -911,19 +1072,31 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
         shop = c["shop_window"]
         camp = c["campaign"]
         adv = c["advertising"]
+        read = shop["months_read_either"]
         return {"scene": "full" if c["scene"]["covered"] else "none",
                 "show": ("full" if sh["heat"] is not None and sh["press"] is not None
                          else "part" if sh["heat"] is not None or sh["press"] is not None else "none"),
-                "shop_window": ("full" if shop["months_read"] >= SHOP_FULL else "part" if shop["months_read"] else "none"),
-                "campaign": ("full" if camp["pictures_read"] else "part" if camp["entries"] else "none"),
+                "shop_window": ("full" if read >= SHOP_FULL else "part" if read else "none"),
+                "campaign": ("full" if camp["pictures_read"] or camp["homepage"]["pictures"]
+                             else "part" if camp["entries"] else "none"),
                 "advertising": ("full" if advertised(adv, "show_period") and advertised(adv, "campaign_period")
                                 else "part" if advertised(adv, "show_period") or advertised(adv, "campaign_period")
                                 else "none")}
+
+    def campaign_from(c) -> str | None:
+        """Where a filled campaign stage's pictures come from: the listing's own pictures, or the homepages'
+        campaign pictures, which are the shop window's too, so a stage filled by them alone is not independent of
+        it: the campaign as the house showed it."""
+        camp = c["campaign"]
+        if camp["pictures_read"]:
+            return "listing"
+        return "homepage" if camp["homepage"]["pictures"] else None
 
     records = []
     for c in sorted(col.values(), key=lambda c: (c["house"], c["date"])):
         c["campaign"] = {k: (dict(v) if isinstance(v, Counter) else v) for k, v in c["campaign"].items()}
         c["fill"] = fill(c)
+        c["campaign_from"] = campaign_from(c)
         records.append(c)
     DIR.mkdir(parents=True, exist_ok=True)
     store.write_jsonl(DIR / "collections.jsonl", records)
@@ -947,10 +1120,26 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
                "campaign_ads": f"{CAMPAIGN_FROM} days after the show to {CAMPAIGN_STOP} before the house's next main show "
                                f"(where that is not on file: {CAMPAIGN_USUAL_END['AW']} after autumn-winter, "
                                f"{CAMPAIGN_USUAL_END['SS']} after spring-summer)"}
+    complete = [c for c in mains if all(c["fill"][s] == "full" for s in stages)]
+    but_ads = [c for c in mains if all(c["fill"][s] == "full" for s in stages if s != "advertising")]
     return {"collections": len(records), "main": len(mains), "windows": windows,
             "filled_main": by_stage, "full_by_year": dict(sorted(by_year.items())),
-            "complete_chains": sum(all(c["fill"][s] == "full" for s in stages) for c in mains),
+            "complete_chains": len(complete),
+            "complete_chains_by_campaign": dict(Counter(c["campaign_from"] for c in complete)),
+            "complete_chains_with_runway_looks": sum(c["show"]["looks"]["outfits"] >= RUNWAY_LOOKS_MIN for c in complete),
+            "complete_but_advertising": len(but_ads),
+            "complete_but_advertising_by_campaign": dict(Counter(c["campaign_from"] for c in but_ads)),
+            "campaign_filled_by": dict(Counter(c["campaign_from"] for c in mains if c["campaign_from"])),
+            "show_with_runway_looks": sum(c["show"]["looks"]["outfits"] >= RUNWAY_LOOKS_MIN for c in mains),
+            "shop_window_live_months": sum(c["shop_window"]["months_read_live"] for c in mains),
             "advertising": {"paid_social": "on file" if have_ads else "waiting on the paid social archive",
+                            "paid_social_record": {k: {**v, "complete_from": (date.fromisoformat(v["first_read"])
+                                                                              - timedelta(days=PAID_SOCIAL_KEEP_DAYS)).isoformat()}
+                                                   for k, v in sorted(social.items())},
+                            "paid_social_ads_dated": sum(len(v) for v in ads.values()),
+                            "main_with_both_windows_complete_paid_social": sum(
+                                all(c["advertising"]["paid_social_record"][p] == "complete"
+                                    for p in ("show_period", "campaign_period")) for c in mains),
                             "search_video": {**record, "ads_dated": sum(len(v) for v in search.values()),
                                              "floor": SEARCH_FLOOR.isoformat(), "keep_days": SEARCH_KEEP_DAYS,
                                              "houses_without_account": sorted({c["house"] for c in mains} - accounts)
@@ -960,8 +1149,11 @@ def collections(rows: list[dict], main: dict[str, str], sources: dict | None = N
                                                      for p in ("show_period", "campaign_period")) for c in mains)}},
             "campaigns_unjoined": dict(unjoined),
             "campaign_lag_after_show": lag_summary,
-            "note": ("each stage is filled with its own measures; the shared description of the clothes that "
-                     "would compare them across stages is not built yet")}
+            "note": ("each stage is filled with its own measures. The campaign stage is filled by a campaign's own "
+                     "pictures where the listing brings them, and otherwise by the campaign pictures the house put on "
+                     "its homepage in the campaign window, which are the shop window's too. The clothes compare the "
+                     "stages in the season benchmark (runway and shop window) and in adtone/shared.py (Amendment 3's "
+                     "shared description, the advertising with them), on questions provisional until labelled")}
 
 
 def main(argv: list[str] | None = None) -> int:

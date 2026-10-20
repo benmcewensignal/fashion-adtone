@@ -363,10 +363,17 @@ Each show's collection is then followed through the stages on windows fixed in `
 the show, the shop window (the homepages in the six months after), the campaigns and other things the
 house published (joined by the season their title names, or else by date, and sorted into collection,
 accessories, beauty, jewellery and watches, capsules and other), and the advertising in Amendment 2's two
-windows. Each record says which stages are filled. The show and the advertising are kept as separate
-channels with their own measures; the shared description of the clothes that would let them be compared
-is the next piece, and `adtone.looks` probes whether the houses' own sites, as the Wayback Machine holds
-them, carry the runway looks it would read. The thread workflow runs the probe as mode `looks`.
+windows. Each record says which stages are filled. The show carries its runway looks. The campaign
+listings bring titles and dates but, with their source links behind the listing site's login, no
+pictures, so the campaign stage is filled by the campaign pictures the house put on its homepage in the
+campaign window where the listing has none: the campaign as the house showed it, from the shop window's
+own pictures, and each record says which filled it (`campaign_from`). Paid social ads count only on
+windows their library's record covers whole, from a year before it was first read; earlier seasons hold
+only the ads still running a year later, kept beside the count. The show and the advertising are kept as
+separate channels with their own measures; `adtone.shared` places both on the clothes (Amendment 3's
+shared description, below), and `adtone.looks` probes whether the houses' own sites, as the Wayback
+Machine holds them, carry the runway looks it would read. The thread workflow runs the probe as mode
+`looks`, and the shared description after the season benchmark (`data/results/shared.json`).
 
 ## The clothes rubric
 
@@ -414,6 +421,15 @@ share is the clothes. `PREREGISTRATION-AMENDMENT-3.md`, a draft, tests whether a
 for the collection moves the way its runway moves, each channel placed against its own kind, and
 describes the shop window: its early months cannot be told from the previous show's, and it changes
 too little between seasons to carry a test.
+
+`adtone.shared` builds that amendment's shared description as description: each main collection's runway
+position (its looks read as an outfit worn, 8 or more) and the position of its advertising for the
+collection (8 or more ads, from the concepts first seen in the campaign window and sorted to the
+collection by their own text or by a full outfit worn, on windows the paid social record covers whole),
+each standardised among the season's positions of its own channel, and the gap between the two, one
+minus their cosine (`data/results/shared.json`). No advertising position is computed for the
+spring-summer 2027 campaign windows onward before the amendment is frozen, since its registered test
+reads its first result from those, and its transmission statistic is not computed at all.
 
 ## The site's illustration of the clothes reader
 
