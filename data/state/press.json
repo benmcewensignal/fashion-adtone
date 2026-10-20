@@ -1,19 +1,24 @@
 {
   "complete": [
     "alaia",
+    "armani",
+    "brunello_cucinelli",
     "chloe",
     "givenchy",
     "loro_piana",
+    "max_mara",
+    "moncler",
     "tom_ford",
-    "versace"
+    "versace",
+    "zegna"
   ],
   "covered": {
     "alaia": "2026-10-19",
-    "armani": "2026-10-14",
+    "armani": "2026-10-19",
     "balenciaga": "2026-10-18",
     "balmain": "2026-10-15",
     "bottega_veneta": "2026-10-18",
-    "brunello_cucinelli": "2026-10-14",
+    "brunello_cucinelli": "2026-10-19",
     "burberry": "2026-10-17",
     "celine": "2026-10-16",
     "chanel": "2026-10-18",
@@ -35,10 +40,10 @@
     "loro_piana": "2026-10-19",
     "louis_vuitton": "2026-10-18",
     "margiela": "2026-10-18",
-    "max_mara": "2026-10-13",
+    "max_mara": "2026-10-19",
     "mcqueen": "2026-10-15",
     "miu_miu": "2026-10-17",
-    "moncler": "2026-10-14",
+    "moncler": "2026-10-19",
     "prada": "2026-10-18",
     "saint_laurent": "2026-10-18",
     "schiaparelli": "2026-10-15",
@@ -47,7 +52,7 @@
     "tom_ford": "2026-10-19",
     "valentino": "2026-10-18",
     "versace": "2026-10-19",
-    "zegna": "2026-10-14"
+    "zegna": "2026-10-19"
   },
   "end": "2026-10-19",
   "failed": {},
@@ -95,7 +100,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh39373435479",
+  "run": "gh39433585108",
   "span": {},
-  "updated_at": "2026-10-20T05:58:49Z"
+  "updated_at": "2026-10-20T14:28:46Z"
 }
