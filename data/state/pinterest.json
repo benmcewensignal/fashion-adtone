@@ -1268,12 +1268,12 @@
   },
   "country_form": null,
   "notes": [
-    "Fendi DE 2026-09-20: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Fendi IT 2026-09-20: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Fendi DE 2026-09-21: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi IT 2026-09-21: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
   "requests": 42,
-  "run": "gh39356607100",
+  "run": "gh39523850595",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1289,7 +1289,7 @@
     "dior": "2026-10-18",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
-    "fendi": "2026-10-20",
+    "fendi": "2026-10-21",
     "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-10-18",
@@ -1359,7 +1359,8 @@
       "start_date": "str",
       "statement_of_reasons": "NoneType",
       "user_count_by_country": {
-        "France": "str"
+        "France": "str",
+        "Germany": "str"
       },
       "user_count_eu": "str",
       "violation_decision_means": "NoneType",
@@ -1370,5 +1371,5 @@
     "pin_id": "str"
   },
   "stopped": null,
-  "updated_at": "2026-10-20T02:11:43Z"
+  "updated_at": "2026-10-21T01:02:52Z"
 }
