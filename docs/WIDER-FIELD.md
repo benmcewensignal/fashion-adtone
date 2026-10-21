@@ -23,7 +23,7 @@ ticked here in the same commit.
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
 | `reference/google_advertisers.csv` | 20 accounts, 19 house and 1 doubt | the_row, schiaparelli, comme_des_garcons (none found) |
 | `reference/youtube_channels.csv` | 9 of the twelve, 3 linked from the house's own site, 6 found by search (unverified) | jacquemus, comme_des_garcons, issey_miyake (no channel of the house found) |
-| `reference/revenue.csv` | 93 | all but moncler, ferragamo, armani and lanvin |
+| `reference/revenue.csv` | 93 (Armani 2019, 2020 and 2022 to 2024 from the group's own reports 21 October 2026) | all but moncler, ferragamo, armani and lanvin |
 
 ## Still to gather
 
@@ -41,7 +41,8 @@ Identifiers
       merge. Giorgio Armani's two pages list 125 (84 main line from 2005, 41 Privé from 2005), holding every
       show on file except under the Privé Fall Winter 2026 couture show's new `-paris-2` address (the old one
       no longer opens), so it is not merged until Ben decides whether the new address may replace the old.
-      The six houses merged on 15 October 2026 list the same number of shows as on file.
+      The six houses merged on 15 October 2026 list the same number of shows as on file. On 21 October 2026
+      the fetcher again could not open nowfashion.com (permission request unanswered), so nothing was read.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -72,7 +73,7 @@ Shows (`reference/shows.csv`)
       Young!, which give only their publication days, 10 March and 17 January 2022; on 20 October 2026 Crash
       said the men's show was 'staged this morning, the 18th January 2022 in Tokyo', but Fashionsnap had
       published the collection at 12:02 on 17 January 2022, Tokyo time, so the two disagree and nothing is
-      entered); the 2022 rows checked
+      entered; on 21 October 2026 Hypebeast and WWD's review gave no day either); the 2022 rows checked
       against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
@@ -106,13 +107,17 @@ People
       Filled on 20 October 2026: Meilland's last show, SS22 in Milan (2021-09-25, Grazia; The Impression
       names him as leading the in-house team), before the AW22 presentation and Maximilian Davis's start
       (2022-03-16); no source states his departure. WWD and Modaes (2026-05-28) say only that Lew was CEO
-      'since July 2025', and WWD's report of Mendenhall (2025-09-08) gives no start date.
+      'since July 2025', and WWD's report of Mendenhall (2025-09-08) gives no start date; nor, on 21 October 2026, did
+      The Industry (2025-09-10) or The Impression (2025-09-08).
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
       2025 (2021 from the group's own release, the other years from press reports and unverified); the
       Lanvin brand's revenue from Lanvin Group's results, 2021H1 to 2026H1.
-- [ ] Still open: the Armani Group's own releases for the six years now taken from press.
+- [ ] Still open: the Armani Group's own figure for 2025, still from press. On 21 October 2026 the group's own
+      sustainability reports replaced the press figures for 2019 and 2020 (Report 2021, p. 34: 2,155.8m and
+      1,599.1m) and 2022 to 2024 (2024 Report, p. 19: 2,352.3m, 2,445.1m and 2,296.9m), all now verified; no
+      group document with 2025 was found (its 2025 report is not yet out).
 - [ ] Companies House: the filed accounts could not be opened. Stella McCartney Ltd (04169969) files full
       accounts for the one company, not group accounts, so its turnover (from press: £32.5m in 2021, £40.1m
       in 2022, £21.9m in 2023, £16m in 2024) is not the house's worldwide revenue and is not entered.
