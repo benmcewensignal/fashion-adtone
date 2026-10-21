@@ -66,7 +66,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -1009,12 +1009,27 @@
  },
  "chanel:2021-01-29:couture": {
   "candidates": [
-   "20210416112338 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-12.html",
-   "20210419180051 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-10.html",
-   "20210422035606 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2021/look-1.html"
+   "20210225053555 https://www.chanel.com/gb/haute-couture/spring-summer-2021-the-looks/",
+   "20210225145955 https://www.chanel.com/gb/haute-couture/spring-summer-2021/",
+   "20210411140138 https://www.chanel.com/gb/haute-couture/spring-summer-2021-haute-couture/l/FshCollection21SHC/the-looks/"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 4,
+   "cut": false,
+   "duplicates": 3,
+   "failed": 0,
+   "fetched": 160,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 4,
+   "pages": 3,
+   "pictures": 316,
+   "refused": 123,
+   "seconds": 160,
+   "small": 25
+  },
+  "looks": 9,
+  "status": "collected"
  },
  "chanel:2021-03-09:rtw": {
   "candidates": [
@@ -1041,12 +1056,25 @@
  },
  "chanel:2021-07-06:couture": {
   "candidates": [
-   "20210925212138 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-1.html",
-   "20210927034527 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-2.html",
-   "20210927051219 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2021-22-pre-collection/look-11.html"
+   "20210805174938 https://www.chanel.com/gb/haute-couture/fall-winter-2021-22/"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 96,
+   "refused": 21,
+   "seconds": 51,
+   "small": 9
+  },
+  "looks": 10,
+  "status": "collected"
  },
  "chanel:2021-10-03:rtw": {
   "looks": 3,
@@ -1054,12 +1082,26 @@
  },
  "chanel:2022-01-25:couture": {
   "candidates": [
-   "20220525201128 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-43.html",
-   "20220525202226 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-8.html",
-   "20220525203323 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2022-pre-collection/look-38.html"
+   "20220126134105 https://www.chanel.com/gb/haute-couture/spring-summer-2022/",
+   "20220217154518 https://www.chanel.com/gb/haute-couture/spring-summer-2022-haute-couture/l/FshCollection22SHC/the-looks/"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 80,
+   "from_live": 5,
+   "from_src": 0,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 441,
+   "refused": 53,
+   "seconds": 231,
+   "small": 14
+  },
+  "looks": 13,
+  "status": "collected"
  },
  "chanel:2022-03-08:rtw": {
   "looks": 14,
@@ -1067,12 +1109,26 @@
  },
  "chanel:2022-07-05:couture": {
   "candidates": [
-   "20220811113012 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n1.html",
-   "20220928070023 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n10.html",
-   "20221002212903 https://www.chanel.com/en_WW/fashion/collection/fall-winter-2022-23/the-looks/look-n11.html"
+   "20220709010012 https://www.chanel.com/gb/haute-couture/fall-winter-2022-23/",
+   "20220924170536 https://www.chanel.com/gb/haute-couture/fall-winter-2022-23-haute-couture/l/FshCollection22KHC/the-looks/"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 5,
+   "cut": false,
+   "duplicates": 6,
+   "failed": 0,
+   "fetched": 200,
+   "from_live": 6,
+   "from_src": 0,
+   "opened": 5,
+   "pages": 2,
+   "pictures": 867,
+   "refused": 158,
+   "seconds": 242,
+   "small": 32
+  },
+  "looks": 4,
+  "status": "collected"
  },
  "chanel:2022-10-04:rtw": {
   "looks": 11,
@@ -1080,12 +1136,25 @@
  },
  "chanel:2023-01-24:couture": {
   "candidates": [
-   "20230129124143 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023/the-looks/look-n16.html",
-   "20230212190101 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023-pre-collection/look-1.html",
-   "20230212190101 https://www.chanel.com/en_WW/fashion/collection/spring-summer-2023-pre-collection/look-10.html"
+   "20230129205126 https://www.chanel.com/gb/haute-couture/spring-summer-2023/"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 8,
+   "failed": 0,
+   "fetched": 120,
+   "from_live": 6,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 900,
+   "refused": 93,
+   "seconds": 114,
+   "small": 15
+  },
+  "looks": 4,
+  "status": "collected"
  },
  "chanel:2023-03-07:rtw": {
   "candidates": [
@@ -2831,8 +2900,9 @@
  },
  "fendi:2015-07-08:couture": {
   "candidates": [
-   "20150710170230 http://www.fendi.com:80/gb/Galleries/backstage-fashion-show-fw15.html",
-   "20150720073745 http://www.fendi.com:80/ro/woman/fall-winter-2015-16/fashion-show/The-show.html"
+   "20151026035536 http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-03.html",
+   "20151104010734 http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-04.html",
+   "20151104010809 http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-05.html"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -2911,8 +2981,7 @@
  },
  "fendi:2017-07-05:couture": {
   "candidates": [
-   "20170807211544 https://www.fendi.com/qa/woman/collections/fall-winter-2017-18",
-   "20171006132118 https://www.fendi.com/qa/woman/collections/pre-fall-2017"
+   "20170807154131 https://www.fendi.com/us/woman/collections/fall-winter-2017-18"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -3461,7 +3530,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 84,
+   "seconds": 6,
    "small": 0
   },
   "looks": 0,
@@ -3805,10 +3874,26 @@
  },
  "givenchy:2020-01-21:couture": {
   "candidates": [
-   "20200202052255 https://www.givenchy.com/fr/en/spring-summer-2020/women-summer/"
+   "20200327015036 https://www.givenchy.com/gb/en/haute-couture/spring-summer-2020/",
+   "20200411000013 https://www.givenchy.com/gb/en/discover-the-bond-lign/Look_Bond_Summer20_M.html"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 4,
+   "failed": 0,
+   "fetched": 93,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 93,
+   "refused": 60,
+   "seconds": 98,
+   "small": 27
+  },
+  "looks": 2,
+  "status": "collected"
  },
  "givenchy:2020-10-04:rtw": {
   "looks": 4,
