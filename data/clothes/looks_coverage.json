@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T22:23:23Z",
+ "generated_at": "2026-10-21T06:06:56Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -2383,7 +2383,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2400,7 +2400,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -15869,26 +15869,13 @@
    "date": "2026-01-26",
    "season": "2026 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "index failed",
    "via": "window",
-   "pages": 4,
-   "candidates": [
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-     "ts": "20260129192029",
-     "score": 5.62
-    },
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-     "ts": "20260128173650",
-     "score": 5.62
-    },
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
-     "ts": "20260209233119",
-     "score": 4.62
-    }
-   ]
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "schiaparelli.com": "ReadTimeout"
+   }
   },
   "schiaparelli:2026-03-05:rtw": {
    "house": "schiaparelli",
@@ -16300,7 +16287,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -17655,9 +17642,9 @@
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/de/unisex/collections/women-resort-18-u_section/"
+    "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 95
+   "pages": 78
   },
   "burberry": {
    "prefixes": [
@@ -17665,7 +17652,7 @@
     "mo.burberry.com/london-fashion-week/",
     "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 12
+   "pages": 0
   },
   "chanel": {
    "prefixes": [
@@ -17674,7 +17661,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2114
+   "pages": 435
   },
   "dior": {
    "prefixes": [
@@ -17911,15 +17898,14 @@
     "www.alexandermcqueen.com/en-fi/shows/",
     "www.alexandermcqueen.com/en-fi/lookbooks/"
    ],
-   "pages": 847
+   "pages": 569
   },
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
    ],
    "pages": 358
   },
@@ -17931,10 +17917,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/"
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/show/"
    ],
-   "pages": 345
+   "pages": 172
   },
   "schiaparelli": {
    "prefixes": [
@@ -17944,7 +17930,7 @@
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/",
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/"
    ],
-   "pages": 2537
+   "pages": 3300
   },
   "lanvin": {
    "prefixes": [
@@ -17964,9 +17950,9 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/nl/collectionskids_section/"
+    "www.stellamccartney.com/nl/collectionsmen_section/"
    ],
-   "pages": 2178
+   "pages": 828
   },
   "issey_miyake": {
    "prefixes": [
@@ -17978,8 +17964,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 519,
-   "index failed": 151,
+   "found": 518,
+   "index failed": 152,
    "none": 382,
    "partial": 95
   },
@@ -18118,7 +18104,7 @@
    },
    "schiaparelli": {
     "shows": 32,
-    "found": 29
+    "found": 28
    },
    "stella_mccartney": {
     "shows": 21,
@@ -18192,7 +18178,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 47
+    "found": 46
    },
    "2027": {
     "shows": 45,
