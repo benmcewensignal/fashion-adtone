@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T13:02:03Z",
+ "generated_at": "2026-10-22T18:03:00Z",
  "window_days": [
   -1,
   14
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "ConnectTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -729,16 +729,10 @@
    "date": "2017-03-05",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
-     "ts": "20170610112700",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2017-06-21:men": {
    "house": "balenciaga",
@@ -754,42 +748,20 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
-     "ts": "20171015020003",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main",
-     "ts": "20171209095713",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section",
-     "ts": "20180410223345",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
-     "ts": "20180331191909",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -903,7 +875,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "ConnectTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1116,7 +1088,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 503"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2026-10-01:rtw": {
@@ -2783,16 +2755,10 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2015-16.html?WT.mc_id=FA_en_WW_20150907_15KCollection&WT.mc_t=sma",
-     "ts": "20150910235351",
-     "score": 4.62
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2855,16 +2821,10 @@
    "date": "2016-07-05",
    "season": "2016 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-eyewear-collection.html?",
-     "ts": "20160828112445",
-     "score": 3.62
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2896,16 +2856,10 @@
    "date": "2017-01-24",
    "season": "2017 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2017.html",
-     "ts": "20170515214624",
-     "score": 4.62
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2978,26 +2932,10 @@
    "date": "2018-01-23",
    "season": "2018 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.0.html",
-     "ts": "20180323181352",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.1.html",
-     "ts": "20180323181357",
-     "score": 4.62
-    },
-    {
-     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.2.html",
-     "ts": "20180323181402",
-     "score": 4.62
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -3086,26 +3024,10 @@
    "date": "2019-07-02",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n10.html",
-     "ts": "20190822162233",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n11.html",
-     "ts": "20190817134556",
-     "score": 7.62
-    },
-    {
-     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n13.html",
-     "ts": "20190821012058",
-     "score": 7.62
-    }
-   ],
+   "candidates": [],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -3677,7 +3599,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -13690,7 +13612,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ReadTimeout"
    }
   },
   "mcqueen:2023-03-04:rtw": {
@@ -16179,16 +16101,13 @@
    "date": "2026-01-26",
    "season": "2026 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "index failed",
    "via": "window",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
-     "ts": "20260209233119",
-     "score": 4.62
-    }
-   ]
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "schiaparelli.com": "HTTP 503"
+   }
   },
   "schiaparelli:2026-03-05:rtw": {
    "house": "schiaparelli",
@@ -16600,7 +16519,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16613,7 +16532,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -17957,14 +17876,14 @@
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
     "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 112
+   "pages": 81
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 12
+   "pages": 14
   },
   "chanel": {
    "prefixes": [
@@ -17973,7 +17892,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2379
+   "pages": 2317
   },
   "dior": {
    "prefixes": [
@@ -18217,20 +18136,20 @@
     "www.alexandermcqueen.com/en-gb/collections/",
     "www.alexandermcqueen.com/en-fi/women/collections/",
     "www.alexandermcqueen.com/en-fi/men/collections/",
-    "www.alexandermcqueen.com/en-fi/shows/",
-    "www.alexandermcqueen.com/en-fi/lookbooks/"
+    "www.alexandermcqueen.com/en-fi/lookbooks/",
+    "www.alexandermcqueen.com/en-fi/shows/"
    ],
-   "pages": 272
+   "pages": 800
   },
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
+    "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/wx/giorgioarmani/women/secondary/fashion-show",
     "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 351
+   "pages": 357
   },
   "balmain": {
    "prefixes": [
@@ -18240,10 +18159,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/lookbook/collections/index/women/",
     "www.balmain.com/en_us/show/"
    ],
-   "pages": 392
+   "pages": 438
   },
   "schiaparelli": {
    "prefixes": [
@@ -18253,7 +18172,7 @@
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
    ],
-   "pages": 3299
+   "pages": 3300
   },
   "lanvin": {
    "prefixes": [
@@ -18271,9 +18190,11 @@
    "prefixes": [
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
-    "www.stellamccartney.com/fi/en/collections/"
+    "www.stellamccartney.com/fi/en/collections/",
+    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
+    "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 836
+   "pages": 2174
   },
   "issey_miyake": {
    "prefixes": [
@@ -18285,10 +18206,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 530,
-   "index failed": 163,
+   "found": 521,
+   "index failed": 164,
    "none": 383,
-   "partial": 80
+   "partial": 88
   },
   "by_house": {
    "alaia": {
@@ -18301,7 +18222,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 20
+    "found": 17
    },
    "balmain": {
     "shows": 36,
@@ -18325,7 +18246,7 @@
    },
    "chanel": {
     "shows": 47,
-    "found": 39
+    "found": 34
    },
    "chloe": {
     "shows": 24,
@@ -18425,7 +18346,7 @@
    },
    "schiaparelli": {
     "shows": 32,
-    "found": 29
+    "found": 28
    },
    "stella_mccartney": {
     "shows": 21,
@@ -18455,23 +18376,23 @@
   "by_year": {
    "2015": {
     "shows": 54,
-    "found": 28
+    "found": 27
    },
    "2016": {
     "shows": 106,
-    "found": 54
+    "found": 53
    },
    "2017": {
     "shows": 105,
-    "found": 52
+    "found": 50
    },
    "2018": {
     "shows": 103,
-    "found": 31
+    "found": 28
    },
    "2019": {
     "shows": 99,
-    "found": 33
+    "found": 32
    },
    "2020": {
     "shows": 95,
@@ -18499,7 +18420,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 48
+    "found": 47
    },
    "2027": {
     "shows": 45,
