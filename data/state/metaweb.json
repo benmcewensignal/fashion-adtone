@@ -4033,10 +4033,10 @@
     "ALL"
   ],
   "form": "library",
-  "period": "",
+  "period": "last30d",
   "problems": {},
   "requests": 1,
-  "run": "gh39071506193",
+  "run": "gh39789719235",
   "searched": {
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
@@ -4064,7 +4064,7 @@
   },
   "shape": null,
   "stopped": "Apify refused the request (HTTP 403): Monthly usage hard limit exceeded",
-  "updated_at": "2026-10-17T21:35:46Z",
+  "updated_at": "2026-10-22T13:47:17Z",
   "vendor_errors": [],
   "vendor_runs": []
 }
