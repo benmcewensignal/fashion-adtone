@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T18:03:00Z",
+ "generated_at": "2026-10-22T22:26:54Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "ReadTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -729,10 +729,16 @@
    "date": "2017-03-05",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
+     "ts": "20170610112700",
+     "score": 2.0
+    }
+   ]
   },
   "balenciaga:2017-06-21:men": {
    "house": "balenciaga",
@@ -748,20 +754,42 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 2,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
+     "ts": "20171015020003",
+     "score": 2.0
+    },
+    {
+     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main",
+     "ts": "20171209095713",
+     "score": 2.0
+    }
+   ]
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 2,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section",
+     "ts": "20180410223345",
+     "score": 2.0
+    },
+    {
+     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
+     "ts": "20180331191909",
+     "score": 2.0
+    }
+   ]
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -875,7 +903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ConnectTimeout"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1083,13 +1111,16 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81",
+     "ts": "20260710114026",
+     "score": 3.12
+    }
+   ]
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1576,7 +1607,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2355,7 +2386,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3616,7 +3647,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -4444,6 +4475,42 @@
    "via": "window",
    "pages": 0,
    "candidates": []
+  },
+  "dior:2016-01-25:couture": {
+   "house": "dior",
+   "date": "2016-01-25",
+   "season": "2016 SS couture",
+   "category": "couture",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "ReadTimeout"
+   },
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
+  },
+  "dior:2016-03-04:rtw": {
+   "house": "dior",
+   "date": "2016-03-04",
+   "season": "2016 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dior.com": "ReadTimeout"
+   },
+   "seeds": [
+    "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
+    "www.dior.com/en_gb/fashion/mens-fashion/shows/",
+    "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/"
+   ]
   },
   "dior:2016-06-25:men": {
    "house": "dior",
@@ -6123,6 +6190,32 @@
      "score": 18.0
     }
    ]
+  },
+  "dolce_gabbana:2022-02-26:rtw": {
+   "house": "dolce_gabbana",
+   "date": "2022-02-26",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dolcegabbana.com": "ReadTimeout"
+   }
+  },
+  "dolce_gabbana:2022-06-18:men": {
+   "house": "dolce_gabbana",
+   "date": "2022-06-18",
+   "season": "2023 SS men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "dolcegabbana.com": "ReadTimeout"
+   }
   },
   "dolce_gabbana:2022-09-24:rtw": {
    "house": "dolce_gabbana",
@@ -13597,36 +13690,48 @@
    "date": "2021-09-09",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/ss22-collection",
+     "ts": "20211222184350",
+     "score": 2.62
+    }
+   ]
   },
   "mcqueen:2022-03-15:rtw": {
    "house": "mcqueen",
    "date": "2022-03-15",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "alexandermcqueen.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/aw22-collection",
+     "ts": "20220707220031",
+     "score": 2.62
+    }
+   ]
   },
   "mcqueen:2023-03-04:rtw": {
    "house": "mcqueen",
    "date": "2023-03-04",
    "season": "2023 AW rtw",
    "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "alexandermcqueen.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-collection",
+     "ts": "20230629090532",
+     "score": 2.62
+    }
+   ]
   },
   "mcqueen:2023-09-30:rtw": {
    "house": "mcqueen",
@@ -16101,13 +16206,16 @@
    "date": "2026-01-26",
    "season": "2026 SS couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "schiaparelli.com": "HTTP 503"
-   }
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
+     "ts": "20260209233119",
+     "score": 4.62
+    }
+   ]
   },
   "schiaparelli:2026-03-05:rtw": {
    "house": "schiaparelli",
@@ -16519,7 +16627,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16532,7 +16640,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectTimeout"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -17874,16 +17982,17 @@
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/women/fashionshow/"
+    "www.balenciaga.com/de/f\u00fcr-sie/collections/resort-18_section/"
    ],
-   "pages": 81
+   "pages": 545
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/"
+    "mo.burberry.com/london-fashion-week/",
+    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 14
+   "pages": 28
   },
   "chanel": {
    "prefixes": [
@@ -17892,7 +18001,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2317
+   "pages": 435
   },
   "dior": {
    "prefixes": [
@@ -17902,20 +18011,22 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/",
     "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/mens-fashion/",
-    "www.dior.com/en_us/womens-fashion/"
+    "www.dior.com/en_us/shows/womens-ready-to-wear/",
+    "www.dior.com/en_us/mens-fashion/"
    ],
-   "pages": 682
+   "pages": 918
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
+    "www.dolcegabbana.com/en-fi/fashion/women/collection/",
+    "www.dolcegabbana.com/en/fashion/men/sunglasses/timeless-collection/",
+    "www.dolcegabbana.com/en/fashion/women/shoes/rainbow-lace-collection/"
    ],
-   "pages": 3626
+   "pages": 3676
   },
   "dries_van_noten": {
    "prefixes": [
@@ -18134,22 +18245,22 @@
     "www.alexandermcqueen.com/en-us/collections/",
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/",
-    "www.alexandermcqueen.com/en-fi/women/collections/",
     "www.alexandermcqueen.com/en-fi/men/collections/",
+    "www.alexandermcqueen.com/en-fi/women/collections/",
     "www.alexandermcqueen.com/en-fi/lookbooks/",
     "www.alexandermcqueen.com/en-fi/shows/"
    ],
-   "pages": 800
+   "pages": 818
   },
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
-    "www.armani.com/wx/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/giorgio-armani/",
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 357
+   "pages": 358
   },
   "balmain": {
    "prefixes": [
@@ -18160,9 +18271,9 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/show/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 438
+   "pages": 459
   },
   "schiaparelli": {
    "prefixes": [
@@ -18172,7 +18283,7 @@
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
     "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
    ],
-   "pages": 3300
+   "pages": 5836
   },
   "lanvin": {
    "prefixes": [
@@ -18192,9 +18303,9 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/",
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/ru/fashion-show/kids_section/"
+    "www.stellamccartney.com/nl/collectionsadidas_section/"
    ],
-   "pages": 2174
+   "pages": 2178
   },
   "issey_miyake": {
    "prefixes": [
@@ -18206,10 +18317,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 521,
+   "found": 529,
    "index failed": 164,
    "none": 383,
-   "partial": 88
+   "partial": 84
   },
   "by_house": {
    "alaia": {
@@ -18222,7 +18333,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 17
+    "found": 21
    },
    "balmain": {
     "shows": 36,
@@ -18257,11 +18368,11 @@
     "found": 0
    },
    "dior": {
-    "shows": 59,
+    "shows": 61,
     "found": 34
    },
    "dolce_gabbana": {
-    "shows": 35,
+    "shows": 37,
     "found": 18
    },
    "dries_van_noten": {
@@ -18326,7 +18437,7 @@
    },
    "mcqueen": {
     "shows": 24,
-    "found": 12
+    "found": 15
    },
    "miu_miu": {
     "shows": 24,
@@ -18346,7 +18457,7 @@
    },
    "schiaparelli": {
     "shows": 32,
-    "found": 28
+    "found": 29
    },
    "stella_mccartney": {
     "shows": 21,
@@ -18379,16 +18490,16 @@
     "found": 27
    },
    "2016": {
-    "shows": 106,
+    "shows": 108,
     "found": 53
    },
    "2017": {
     "shows": 105,
-    "found": 50
+    "found": 51
    },
    "2018": {
     "shows": 103,
-    "found": 28
+    "found": 30
    },
    "2019": {
     "shows": 99,
@@ -18403,12 +18514,12 @@
     "found": 32
    },
    "2022": {
-    "shows": 85,
-    "found": 45
+    "shows": 86,
+    "found": 47
    },
    "2023": {
-    "shows": 98,
-    "found": 55
+    "shows": 99,
+    "found": 56
    },
    "2024": {
     "shows": 102,
@@ -18420,7 +18531,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 47
+    "found": 49
    },
    "2027": {
     "shows": 45,
