@@ -66,7 +66,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 1,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 3
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -775,7 +775,6 @@
  },
  "chanel:2015-07-07:couture": {
   "candidates": [
-   "20150804034555 http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2015-16-pre-collection.html",
    "20150910235351 http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2015-16.html?WT.mc_id=FA_en_WW_20150907_15KCollection&WT.mc_t=sma"
   ],
   "looks": 0,
@@ -816,9 +815,7 @@
  },
  "chanel:2016-07-05:couture": {
   "candidates": [
-   "20160724013840 http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-pre-collection.html",
-   "20160906213320 http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-eyewear-collection.html?WT.mc_id=FA_EYEWEAR_sun_fw1617_en_WW_sma_20160825&WT.mc_t=sma&utm_source=Facebook&utm_medium=sma&utm_campaign=sun_fw1617",
-   "20160926030623 http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2016-17.html?WT.mc_id=FA_COLLECTION_16kcollection_en_WW_sma_20160914&WT.mc_t=sma&utm_source=facebook&utm_medium=sma&utm_campaign=16kcollection"
+   "20160828112445 http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-eyewear-collection.html?"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -829,8 +826,6 @@
  },
  "chanel:2017-01-24:couture": {
   "candidates": [
-   "20170203084321 http://www.chanel.com:80/en_WW/fashion/collections/spring-summer-2017-pre-collection.html",
-   "20170310180258 http://www.chanel.com:80/en_WW/fashion/collections/show-spring-summer-2017.html?WT.mc_id=FA_COLLECTION_17scollectionhp_en_WW_sma_20170227&WT.mc_t=sma&utm_source=facebook&utm_medium=sma&utm_campaign=17scollectionhp_20170227",
    "20170515214624 http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2017.html"
   ],
   "looks": 0,
@@ -3530,7 +3525,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 2,
+   "seconds": 4,
    "small": 0
   },
   "looks": 0,
@@ -3958,7 +3953,8 @@
  "givenchy:2026-06-25:men": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 0,
+    "indexes": 6,
     "links": 0,
     "opened": 0
    },
@@ -7732,37 +7728,35 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
-   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
    "diag": {
     "cut": false,
     "duplicates": 0,
-    "fetched": 13,
+    "fetched": 14,
     "opened": 1,
-    "pictures": 13,
+    "pictures": 14,
     "refused": 0,
     "small": 7
    },
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 1,
     "indexes": 5,
     "links": 0,
     "opened": 2
    },
-   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+   "page": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
    "tried": 1
   },
-  "looks": 6,
+  "looks": 7,
   "status": "collected",
   "via": "live"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 1,
     "indexes": 5,
     "links": 0,
     "opened": 2
@@ -7922,9 +7916,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 3,
     "links": 0,
-    "opened": 2
+    "opened": 1
    },
    "page": null
   },
