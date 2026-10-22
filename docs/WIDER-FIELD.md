@@ -17,7 +17,7 @@ ticked here in the same commit.
 |---|---|---|
 | `reference/designers.csv` | 37 (Elbaz and Meilland's dates filled 17 October 2026; Giornetti, Rigoni, Andrew and Takahashi's show days 18 October 2026; Meilland's last show 20 October 2026) | none |
 | `reference/executives.csv` | 40 (Hecquet's announcement filled 17 October 2026) | none |
-| `reference/shows.csv` | 153, February 2022 on | none |
+| `reference/shows.csv` | 155, February 2022 on (Comme des Garçons' two Tokyo shows of AW22 added 22 October 2026) | none |
 | `data/thread/shows.jsonl` (show listings) | 508; full listings for ferragamo, issey_miyake, balmain, schiaparelli, lanvin and comme_des_garcons | none |
 | `reference/ambassadors.csv` | 27, and a note row where none was found | the_row, schiaparelli, stella_mccartney, comme_des_garcons, issey_miyake (none found) |
 | `reference/credits.csv` | 312, crew only | comme_des_garcons (none found) |
@@ -43,6 +43,8 @@ Identifiers
       no longer opens), so it is not merged until Ben decides whether the new address may replace the old.
       The six houses merged on 15 October 2026 list the same number of shows as on file. On 21 October 2026
       the fetcher again could not open nowfashion.com (permission request unanswered), so nothing was read.
+      Read on 22 October 2026: the Privé page still lists 41 shows and still links the Fall Winter 2026
+      couture show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -73,7 +75,9 @@ Shows (`reference/shows.csv`)
       Young!, which give only their publication days, 10 March and 17 January 2022; on 20 October 2026 Crash
       said the men's show was 'staged this morning, the 18th January 2022 in Tokyo', but Fashionsnap had
       published the collection at 12:02 on 17 January 2022, Tokyo time, so the two disagree and nothing is
-      entered; on 21 October 2026 Hypebeast and WWD's review gave no day either); the 2022 rows checked
+      entered; on 21 October 2026 Hypebeast and WWD's review gave no day either). Filled on 22 October 2026:
+      Fashion Press states both days, men's 2022-01-17 and women's 2022-03-08, in Minami-Aoyama, matching
+      Fashionsnap's publication times, so Crash's 18 January is set aside. Still open: the 2022 rows checked
       against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
@@ -108,7 +112,9 @@ People
       names him as leading the in-house team), before the AW22 presentation and Maximilian Davis's start
       (2022-03-16); no source states his departure. WWD and Modaes (2026-05-28) say only that Lew was CEO
       'since July 2025', and WWD's report of Mendenhall (2025-09-08) gives no start date; nor, on 21 October 2026, did
-      The Industry (2025-09-10) or The Impression (2025-09-08).
+      The Industry (2025-09-10) or The Impression (2025-09-08). On 22 October 2026 Wolford's notice of Lew's
+      board candidacy (July 2025) named him only Lanvin Group's executive president since January 2025, The
+      Impression again gave Mendenhall no start date, and no report of Meilland's departure was found.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
