@@ -1,12 +1,6 @@
 {
   "complete": [
-    "celine",
-    "comme_des_garcons",
-    "fendi",
-    "issey_miyake",
-    "jil_sander",
-    "loewe",
-    "stella_mccartney"
+    "hermes"
   ],
   "covered": {
     "alaia": "2026-10-19",
@@ -27,7 +21,7 @@
     "ferragamo": "2026-10-19",
     "givenchy": "2026-10-19",
     "gucci": "2026-10-18",
-    "hermes": "2026-10-17",
+    "hermes": "2026-10-22",
     "issey_miyake": "2026-10-21",
     "jacquemus": "2026-10-19",
     "jil_sander": "2026-10-21",
@@ -50,7 +44,7 @@
     "versace": "2026-10-19",
     "zegna": "2026-10-19"
   },
-  "end": "2026-10-21",
+  "end": "2026-10-22",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -96,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh39872333220",
+  "run": "gh39904697550",
   "span": {},
-  "updated_at": "2026-10-22T23:55:32Z"
+  "updated_at": "2026-10-23T05:44:42Z"
 }
