@@ -1267,10 +1267,13 @@
     }
   },
   "country_form": null,
-  "notes": [],
+  "notes": [
+    "Fendi DE 2026-09-23: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi IT 2026-09-23: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+  ],
   "problems": {},
-  "requests": 0,
-  "run": "gh39788438960",
+  "requests": 41,
+  "run": "gh39876038409",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1286,7 +1289,7 @@
     "dior": "2026-10-18",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
-    "fendi": "2026-10-22",
+    "fendi": "2026-10-23",
     "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-10-18",
@@ -1313,7 +1316,60 @@
     "versace": "2026-10-17",
     "zegna": "2026-10-17"
   },
-  "shape": null,
+  "shape": {
+    "ad_details": {
+      "advertiser_names": "NoneType",
+      "age_buckets": [
+        "str"
+      ],
+      "content_commercial": "bool",
+      "countries": [
+        "str"
+      ],
+      "devices": [],
+      "dynamic_images": "NoneType",
+      "end_date": "str",
+      "genders": [
+        "str"
+      ],
+      "has_excluded_locations": "bool",
+      "image_link": "str",
+      "interests": [
+        "str"
+      ],
+      "internet_service_providers": [],
+      "is_local_inventory": "bool",
+      "keywords_used": "bool",
+      "metros": [],
+      "negative_keywords_used": "bool",
+      "pin_data": {
+        "content_creator_name": "NoneType",
+        "details": "str",
+        "image_link": "str",
+        "story_pin_page_blocks": [],
+        "title": "str",
+        "video_link": "str"
+      },
+      "pinner_list_types": [
+        "str"
+      ],
+      "postal_codes": [],
+      "regions": [],
+      "review_status": "NoneType",
+      "start_date": "str",
+      "statement_of_reasons": "NoneType",
+      "user_count_by_country": {
+        "France": "str",
+        "Germany": "str"
+      },
+      "user_count_eu": "str",
+      "violation_decision_means": "NoneType",
+      "violation_source": "NoneType"
+    },
+    "country_searched": "str",
+    "name_searched": "str",
+    "pin_id": "str"
+  },
   "stopped": null,
-  "updated_at": "2026-10-22T13:49:16Z"
+  "updated_at": "2026-10-23T00:13:27Z"
 }
