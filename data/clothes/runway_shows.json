@@ -285,7 +285,7 @@
    },
    "indexes": {
     "from_archive": 1,
-    "indexes": 4,
+    "indexes": 6,
     "links": 0,
     "opened": 1
    },
@@ -3531,7 +3531,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 26,
+   "seconds": 144,
    "small": 0
   },
   "looks": 0,
@@ -3756,6 +3756,7 @@
  },
  "givenchy:2015-07-07:couture": {
   "candidates": [
+   "20150905075910 http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
    "20150905083116 http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
    "20150905155521 http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection"
   ],
@@ -7758,38 +7759,21 @@
   "status": "collected"
  },
  "schiaparelli:2026-01-26:couture": {
-  "candidates": [
-   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-   "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
-  ],
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 13,
-    "opened": 1,
-    "pictures": 13,
-    "refused": 0,
-    "small": 7
-   },
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 0,
     "indexes": 5,
     "links": 0,
     "opened": 2
    },
-   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-   "tried": 1
+   "page": null
   },
-  "looks": 6,
-  "status": "collected",
-  "via": "live"
+  "status": "no page"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 0,
     "indexes": 5,
     "links": 0,
     "opened": 2
@@ -7949,9 +7933,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 3,
     "links": 0,
-    "opened": 0
+    "opened": 1
    },
    "page": null
   },
