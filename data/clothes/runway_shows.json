@@ -285,7 +285,7 @@
    },
    "indexes": {
     "from_archive": 1,
-    "indexes": 6,
+    "indexes": 4,
     "links": 0,
     "opened": 1
    },
@@ -2144,7 +2144,7 @@
    "indexes": {
     "from_archive": 0,
     "indexes": 5,
-    "links": 2,
+    "links": 1,
     "opened": 3
    },
    "page": null
@@ -2156,7 +2156,7 @@
    "indexes": {
     "from_archive": 0,
     "indexes": 5,
-    "links": 2,
+    "links": 1,
     "opened": 3
    },
    "page": null
@@ -2164,33 +2164,36 @@
   "status": "no page"
  },
  "dior:2026-01-26:couture": {
+  "candidates": [],
   "live": {
    "diag": {
     "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
+    "duplicates": 1,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 300,
+    "refused": 19,
+    "small": 1
    },
    "indexes": {
     "from_archive": 0,
     "indexes": 5,
-    "links": 2,
+    "links": 1,
     "opened": 3
    },
    "page": "https://www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/haute-couture-spring-summer-2026-show",
    "tried": 1
   },
-  "status": "no looks"
+  "looks": 19,
+  "status": "collected",
+  "via": "live"
  },
  "dior:2026-03-03:rtw": {
   "live": {
    "indexes": {
     "from_archive": 0,
     "indexes": 5,
-    "links": 2,
+    "links": 1,
     "opened": 3
    },
    "page": null
@@ -3528,7 +3531,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 107,
+   "seconds": 26,
    "small": 0
   },
   "looks": 0,
@@ -7948,7 +7951,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 2
+    "opened": 0
    },
    "page": null
   },
