@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T12:37:59Z",
+ "generated_at": "2026-10-25T17:06:15Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 503"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -1563,7 +1563,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "HTTP 504"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1582,7 +1582,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -13939,7 +13939,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ReadTimeout"
    }
   },
   "mcqueen:2023-09-30:rtw": {
@@ -16846,7 +16846,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16859,7 +16859,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18445,11 +18445,9 @@
     "www.alexandermcqueen.com/experience/us/",
     "www.alexandermcqueen.com/en-us/collections/",
     "www.alexandermcqueen.com/experience/en/",
-    "www.alexandermcqueen.com/en-gb/collections/",
-    "www.alexandermcqueen.com/en-pl/ca/men/collections/m-seasonal-edit/",
-    "www.alexandermcqueen.com/en-pl/ca/women/collections/seasonal-edit/"
+    "www.alexandermcqueen.com/en-gb/collections/"
    ],
-   "pages": 828
+   "pages": 826
   },
   "armani": {
    "prefixes": [
@@ -18466,7 +18464,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 426
+   "pages": 503
   },
   "schiaparelli": {
    "prefixes": [
@@ -18474,7 +18472,7 @@
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/"
    ],
-   "pages": 5072
+   "pages": 5834
   },
   "lanvin": {
    "prefixes": [
