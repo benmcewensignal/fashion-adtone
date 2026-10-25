@@ -1,5 +1,8 @@
 {
-  "complete": [],
+  "complete": [
+    "givenchy",
+    "versace"
+  ],
   "covered": {
     "alaia": "2026-10-19",
     "armani": "2026-10-19",
@@ -17,7 +20,7 @@
     "dries_van_noten": "2026-10-22",
     "fendi": "2026-10-21",
     "ferragamo": "2026-10-19",
-    "givenchy": "2026-10-19",
+    "givenchy": "2026-10-24",
     "gucci": "2026-10-23",
     "hermes": "2026-10-22",
     "issey_miyake": "2026-10-21",
@@ -39,7 +42,7 @@
     "the_row": "2026-10-19",
     "tom_ford": "2026-10-19",
     "valentino": "2026-10-23",
-    "versace": "2026-10-19",
+    "versace": "2026-10-24",
     "zegna": "2026-10-19"
   },
   "end": "2026-10-24",
@@ -88,7 +91,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40197081246",
+  "run": "gh40224934622",
   "span": {},
-  "updated_at": "2026-10-25T13:43:13Z"
+  "updated_at": "2026-10-25T19:42:22Z"
 }
