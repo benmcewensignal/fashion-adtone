@@ -1,6 +1,7 @@
 {
   "complete": [
     "givenchy",
+    "tom_ford",
     "versace"
   ],
   "covered": {
@@ -40,7 +41,7 @@
     "schiaparelli": "2026-10-20",
     "stella_mccartney": "2026-10-21",
     "the_row": "2026-10-19",
-    "tom_ford": "2026-10-19",
+    "tom_ford": "2026-10-24",
     "valentino": "2026-10-23",
     "versace": "2026-10-24",
     "zegna": "2026-10-19"
@@ -91,7 +92,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40224934622",
+  "run": "gh40241683150",
   "span": {},
-  "updated_at": "2026-10-25T19:42:22Z"
+  "updated_at": "2026-10-25T23:18:12Z"
 }
