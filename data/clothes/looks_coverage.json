@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T21:40:33Z",
+ "generated_at": "2026-10-25T00:23:09Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -1563,7 +1563,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1582,7 +1582,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2361,7 +2361,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ConnectTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2378,7 +2378,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3622,7 +3622,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5851,7 +5851,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ConnectionError"
+    "dior.com": "ReadTimeout"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -13911,48 +13911,36 @@
    "date": "2021-09-09",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/ss22-collection",
-     "ts": "20211222184350",
-     "score": 2.62
-    }
-   ]
+   "candidates": []
   },
   "mcqueen:2022-03-15:rtw": {
    "house": "mcqueen",
    "date": "2022-03-15",
    "season": "2022 AW rtw",
    "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/aw22-collection",
-     "ts": "20220707220031",
-     "score": 2.62
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "alexandermcqueen.com": "HTTP 503"
+   }
   },
   "mcqueen:2023-03-04:rtw": {
    "house": "mcqueen",
    "date": "2023-03-04",
    "season": "2023 AW rtw",
    "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.alexandermcqueen.com/en-fi/men/collections/men-s-aw23-collection",
-     "ts": "20230629090532",
-     "score": 2.62
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "alexandermcqueen.com": "ReadTimeout"
+   }
   },
   "mcqueen:2023-09-30:rtw": {
    "house": "mcqueen",
@@ -16858,7 +16846,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "HTTP 503"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -18227,7 +18215,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2317
+   "pages": 2114
   },
   "dior": {
    "prefixes": [
@@ -18237,7 +18225,7 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 0
+   "pages": 187
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -18458,12 +18446,10 @@
     "www.alexandermcqueen.com/en-us/collections/",
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/",
-    "www.alexandermcqueen.com/en-fi/women/collections/",
-    "www.alexandermcqueen.com/en-fi/men/collections/",
-    "www.alexandermcqueen.com/en-fi/lookbooks/",
-    "www.alexandermcqueen.com/en-fi/shows/"
+    "www.alexandermcqueen.com/en-pl/ca/women/collections/seasonal-edit/",
+    "www.alexandermcqueen.com/en-pl/ca/men/collections/m-seasonal-edit/"
    ],
-   "pages": 847
+   "pages": 277
   },
   "armani": {
    "prefixes": [
@@ -18480,7 +18466,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 390
+   "pages": 482
   },
   "schiaparelli": {
    "prefixes": [
@@ -18506,7 +18492,8 @@
    "prefixes": [
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
-    "www.stellamccartney.com/fi/en/collections/"
+    "www.stellamccartney.com/fi/en/collections/",
+    "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
    "pages": 2174
   },
@@ -18520,10 +18507,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 526,
-   "index failed": 182,
+   "found": 523,
+   "index failed": 184,
    "none": 383,
-   "partial": 84
+   "partial": 85
   },
   "by_house": {
    "alaia": {
@@ -18640,7 +18627,7 @@
    },
    "mcqueen": {
     "shows": 24,
-    "found": 15
+    "found": 12
    },
    "miu_miu": {
     "shows": 24,
@@ -18718,11 +18705,11 @@
    },
    "2022": {
     "shows": 88,
-    "found": 47
+    "found": 45
    },
    "2023": {
     "shows": 99,
-    "found": 56
+    "found": 55
    },
    "2024": {
     "shows": 103,
