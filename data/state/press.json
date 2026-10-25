@@ -1,19 +1,5 @@
 {
-  "complete": [
-    "balenciaga",
-    "bottega_veneta",
-    "chanel",
-    "chloe",
-    "dior",
-    "dolce_gabbana",
-    "gucci",
-    "loro_piana",
-    "louis_vuitton",
-    "margiela",
-    "prada",
-    "saint_laurent",
-    "valentino"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-19",
     "armani": "2026-10-19",
@@ -56,7 +42,7 @@
     "versace": "2026-10-19",
     "zegna": "2026-10-19"
   },
-  "end": "2026-10-23",
+  "end": "2026-10-24",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -102,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40139628874",
+  "run": "gh40164503423",
   "span": {},
-  "updated_at": "2026-10-24T23:15:10Z"
+  "updated_at": "2026-10-25T05:36:19Z"
 }
