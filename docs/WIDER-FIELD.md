@@ -45,6 +45,8 @@ Identifiers
       the fetcher again could not open nowfashion.com (permission request unanswered), so nothing was read.
       Read on 22 October 2026: the Privé page still lists 41 shows and still links the Fall Winter 2026
       couture show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
+      On 25 October 2026 the fetcher again could not open nowfashion.com (permission request unanswered), so
+      nothing was read.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -78,7 +80,9 @@ Shows (`reference/shows.csv`)
       entered; on 21 October 2026 Hypebeast and WWD's review gave no day either). Filled on 22 October 2026:
       Fashion Press states both days, men's 2022-01-17 and women's 2022-03-08, in Minami-Aoyama, matching
       Fashionsnap's publication times, so Crash's 18 January is set aside. Still open: the 2022 rows checked
-      against the FHCM's own calendars once they can be reached. Schiaparelli's SS23 ready-to-wear was a
+      against the FHCM's own calendars once they can be reached. On 25 October 2026 the FHCM's old calendar sites
+      (hautecouture.fhcm.paris, parisfashionweek.fhcm.paris) redirected to its home page and its news pages
+      of June 2022 hold no calendar, so the 2022 calendars still could not be read. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
 
@@ -114,7 +118,10 @@ People
       'since July 2025', and WWD's report of Mendenhall (2025-09-08) gives no start date; nor, on 21 October 2026, did
       The Industry (2025-09-10) or The Impression (2025-09-08). On 22 October 2026 Wolford's notice of Lew's
       board candidacy (July 2025) named him only Lanvin Group's executive president since January 2025, The
-      Impression again gave Mendenhall no start date, and no report of Meilland's departure was found.
+      Impression again gave Mendenhall no start date, and no report of Meilland's departure was found. On 25 October
+      2026 Lanvin Group's release of 2025-02-28 (SEC filing) again named Lew only executive president, and
+      The Impression's two Schiaparelli campaign pages (Fall 2024, Spring 2025 Accessories) credit only the
+      photographers already on file.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
