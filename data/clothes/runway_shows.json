@@ -66,9 +66,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -78,9 +78,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -90,9 +90,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -125,9 +125,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -137,9 +137,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -149,9 +149,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 4,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -2660,7 +2660,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2672,7 +2672,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2684,7 +2684,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2696,7 +2696,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2708,7 +2708,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -3531,7 +3531,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 168,
+   "seconds": 2,
    "small": 0
   },
   "live": {
@@ -4764,27 +4764,27 @@
   "status": "collected"
  },
  "hermes:2026-03-07:rtw": {
-  "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
-   "indexes": {
-    "from_archive": 5,
-    "indexes": 4,
-    "links": 0,
-    "opened": 0
-   },
-   "page": "https://www.hermes.com/us/en/content/345618-women-fall-winter-2026-runway-show/",
-   "tried": 1
+  "candidates": [
+   "20260403074232 https://www.hermes.com/us/en/content/345618-women-fall-winter-2026-runway-show/",
+   "20260404165640 https://www.hermes.com/us/en/content/344007-men-fall-winter-2026-runway-show/"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 3,
+   "failed": 0,
+   "fetched": 120,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 284,
+   "refused": 0,
+   "seconds": 202,
+   "small": 112
   },
-  "looks": 0,
-  "status": "no looks"
+  "looks": 5,
+  "status": "collected"
  },
  "hermes:2026-10-03:rtw": {
   "live": {
@@ -7800,7 +7800,7 @@
    },
    "indexes": {
     "from_archive": 3,
-    "indexes": 3,
+    "indexes": 5,
     "links": 0,
     "opened": 2
    },
@@ -7815,7 +7815,7 @@
   "live": {
    "indexes": {
     "from_archive": 3,
-    "indexes": 3,
+    "indexes": 5,
     "links": 0,
     "opened": 2
    },
