@@ -1,11 +1,9 @@
 {
   "complete": [
-    "givenchy",
-    "tom_ford",
-    "versace"
+    "alaia"
   ],
   "covered": {
-    "alaia": "2026-10-19",
+    "alaia": "2026-10-25",
     "armani": "2026-10-19",
     "balenciaga": "2026-10-23",
     "balmain": "2026-10-20",
@@ -46,7 +44,7 @@
     "versace": "2026-10-24",
     "zegna": "2026-10-19"
   },
-  "end": "2026-10-24",
+  "end": "2026-10-25",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -92,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40241683150",
+  "run": "gh40272897854",
   "span": {},
-  "updated_at": "2026-10-25T23:18:12Z"
+  "updated_at": "2026-10-26T05:41:29Z"
 }
