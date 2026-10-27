@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T12:21:19Z",
+ "generated_at": "2026-10-27T12:47:42Z",
  "status": "description: PREREGISTRATION-AMENDMENT-3.md is a draft and every clothes question is provisional until labelled; no advertising position is computed for the spring-summer 2027 campaign windows onward before the freeze, and nothing here is tested",
  "questions": [
   "accessories",
@@ -25,7 +25,7 @@
   "placed": 4,
   "common": 10
  },
- "runways_placed": 112,
+ "runways_placed": 123,
  "advertising_placed": 34,
  "gaps": 13,
  "advertising_held": 32,
@@ -41,7 +41,7 @@
    "gaps": 0
   },
   "2020 AW": {
-   "runways_placed": 4,
+   "runways_placed": 5,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -50,8 +50,13 @@
    "advertising_placed": 0,
    "gaps": 0
   },
+  "2022 SS": {
+   "runways_placed": 4,
+   "advertising_placed": 0,
+   "gaps": 0
+  },
   "2022 AW": {
-   "runways_placed": 6,
+   "runways_placed": 7,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -61,12 +66,12 @@
    "gaps": 0
   },
   "2023 AW": {
-   "runways_placed": 8,
+   "runways_placed": 9,
    "advertising_placed": 0,
    "gaps": 0
   },
   "2024 SS": {
-   "runways_placed": 10,
+   "runways_placed": 11,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -76,12 +81,12 @@
    "gaps": 0
   },
   "2025 SS": {
-   "runways_placed": 10,
+   "runways_placed": 11,
    "advertising_placed": 0,
    "gaps": 0
   },
   "2025 AW": {
-   "runways_placed": 9,
+   "runways_placed": 10,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -98,7 +103,7 @@
    "median_gap": 0.7309
   },
   "2027 SS": {
-   "runways_placed": 10,
+   "runways_placed": 11,
    "advertising_placed": 0,
    "gaps": 0
   }
@@ -2472,10 +2477,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2015:AW:rtw",
+   "id": "comme_des_garcons:2015:AW:men",
    "house": "comme_des_garcons",
-   "season": "2015 AW rtw",
-   "date": "2015-03-07",
+   "season": "2015 AW men",
+   "date": "2015-01-23",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2485,10 +2490,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2016:SS:rtw",
+   "id": "comme_des_garcons:2016:SS:men",
    "house": "comme_des_garcons",
-   "season": "2016 SS rtw",
-   "date": "2015-10-03",
+   "season": "2016 SS men",
+   "date": "2015-06-26",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2498,10 +2503,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2016:AW:rtw",
+   "id": "comme_des_garcons:2016:AW:men",
    "house": "comme_des_garcons",
-   "season": "2016 AW rtw",
-   "date": "2016-03-05",
+   "season": "2016 AW men",
+   "date": "2016-01-22",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2511,10 +2516,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2017:SS:rtw",
+   "id": "comme_des_garcons:2017:SS:men",
    "house": "comme_des_garcons",
-   "season": "2017 SS rtw",
-   "date": "2016-10-01",
+   "season": "2017 SS men",
+   "date": "2016-06-24",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2524,10 +2529,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2017:AW:rtw",
+   "id": "comme_des_garcons:2017:AW:men",
    "house": "comme_des_garcons",
-   "season": "2017 AW rtw",
-   "date": "2017-03-04",
+   "season": "2017 AW men",
+   "date": "2017-01-20",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2537,10 +2542,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2018:SS:rtw",
+   "id": "comme_des_garcons:2018:SS:men",
    "house": "comme_des_garcons",
-   "season": "2018 SS rtw",
-   "date": "2017-09-30",
+   "season": "2018 SS men",
+   "date": "2017-06-23",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2550,10 +2555,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2018:AW:rtw",
+   "id": "comme_des_garcons:2018:AW:men",
    "house": "comme_des_garcons",
-   "season": "2018 AW rtw",
-   "date": "2018-03-03",
+   "season": "2018 AW men",
+   "date": "2018-01-19",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2563,10 +2568,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2019:SS:rtw",
+   "id": "comme_des_garcons:2019:SS:men",
    "house": "comme_des_garcons",
-   "season": "2019 SS rtw",
-   "date": "2018-09-29",
+   "season": "2019 SS men",
+   "date": "2018-06-22",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2576,10 +2581,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2019:AW:rtw",
+   "id": "comme_des_garcons:2019:AW:men",
    "house": "comme_des_garcons",
-   "season": "2019 AW rtw",
-   "date": "2019-03-02",
+   "season": "2019 AW men",
+   "date": "2019-01-18",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2589,10 +2594,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2020:SS:rtw",
+   "id": "comme_des_garcons:2020:SS:men",
    "house": "comme_des_garcons",
-   "season": "2020 SS rtw",
-   "date": "2019-09-28",
+   "season": "2020 SS men",
+   "date": "2019-06-21",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2602,10 +2607,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2020:AW:rtw",
+   "id": "comme_des_garcons:2020:AW:men",
    "house": "comme_des_garcons",
-   "season": "2020 AW rtw",
-   "date": "2020-02-29",
+   "season": "2020 AW men",
+   "date": "2020-01-28",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2615,10 +2620,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2022:AW:rtw",
+   "id": "comme_des_garcons:2021:AW:men",
    "house": "comme_des_garcons",
-   "season": "2022 AW rtw",
-   "date": "2022-03-22",
+   "season": "2021 AW men",
+   "date": "2021-01-21",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2628,10 +2633,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2023:SS:rtw",
+   "id": "comme_des_garcons:2022:SS:men",
    "house": "comme_des_garcons",
-   "season": "2023 SS rtw",
-   "date": "2022-10-01",
+   "season": "2022 SS men",
+   "date": "2021-07-12",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2641,10 +2646,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2023:AW:rtw",
+   "id": "comme_des_garcons:2022:AW:men",
    "house": "comme_des_garcons",
-   "season": "2023 AW rtw",
-   "date": "2023-03-04",
+   "season": "2022 AW men",
+   "date": "2022-01-17",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2654,10 +2659,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2024:SS:rtw",
+   "id": "comme_des_garcons:2023:SS:men",
    "house": "comme_des_garcons",
-   "season": "2024 SS rtw",
-   "date": "2023-09-30",
+   "season": "2023 SS men",
+   "date": "2022-06-24",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2667,10 +2672,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2024:AW:rtw",
+   "id": "comme_des_garcons:2023:AW:men",
    "house": "comme_des_garcons",
-   "season": "2024 AW rtw",
-   "date": "2024-03-02",
+   "season": "2023 AW men",
+   "date": "2023-01-20",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2680,10 +2685,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2025:SS:rtw",
+   "id": "comme_des_garcons:2024:AW:men",
    "house": "comme_des_garcons",
-   "season": "2025 SS rtw",
-   "date": "2024-09-28",
+   "season": "2024 AW men",
+   "date": "2024-01-19",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2693,10 +2698,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2025:AW:rtw",
+   "id": "comme_des_garcons:2025:SS:men",
    "house": "comme_des_garcons",
-   "season": "2025 AW rtw",
-   "date": "2025-03-08",
+   "season": "2025 SS men",
+   "date": "2024-06-21",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2706,10 +2711,36 @@
    }
   },
   {
-   "id": "comme_des_garcons:2026:SS:rtw",
+   "id": "comme_des_garcons:2025:AW:men",
    "house": "comme_des_garcons",
-   "season": "2026 SS rtw",
-   "date": "2025-10-04",
+   "season": "2025 AW men",
+   "date": "2025-01-24",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2026:SS:men",
+   "house": "comme_des_garcons",
+   "season": "2026 SS men",
+   "date": "2025-06-27",
+   "runway": {
+    "looks": 0,
+    "placed": false
+   },
+   "advertising": {
+    "record": "partly survivors"
+   }
+  },
+  {
+   "id": "comme_des_garcons:2026:AW:men",
+   "house": "comme_des_garcons",
+   "season": "2026 AW men",
+   "date": "2026-01-23",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2723,27 +2754,10 @@
    }
   },
   {
-   "id": "comme_des_garcons:2026:AW:rtw",
+   "id": "comme_des_garcons:2027:SS:men",
    "house": "comme_des_garcons",
-   "season": "2026 AW rtw",
-   "date": "2026-03-07",
-   "runway": {
-    "looks": 0,
-    "placed": false
-   },
-   "advertising": {
-    "record": "complete",
-    "concepts": 0,
-    "ads": 0,
-    "pictures": 0,
-    "placed": false
-   }
-  },
-  {
-   "id": "comme_des_garcons:2027:SS:rtw",
-   "house": "comme_des_garcons",
-   "season": "2027 SS rtw",
-   "date": "2026-10-03",
+   "season": "2027 SS men",
+   "date": "2026-06-26",
    "runway": {
     "looks": 0,
     "placed": false
@@ -2875,8 +2889,8 @@
    "season": "2020 AW rtw",
    "date": "2020-02-25",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 13,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -2914,8 +2928,8 @@
    "season": "2022 SS rtw",
    "date": "2021-09-28",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 19,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -2927,8 +2941,8 @@
    "season": "2022 AW rtw",
    "date": "2022-03-01",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 10,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -2992,8 +3006,8 @@
    "season": "2025 SS rtw",
    "date": "2024-09-24",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 15,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -3005,8 +3019,8 @@
    "season": "2025 AW rtw",
    "date": "2025-03-04",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 18,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -3052,8 +3066,8 @@
    "season": "2027 SS rtw",
    "date": "2026-09-29",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 15,
+    "placed": true
    },
    "advertising": {
     "held": true
@@ -3931,8 +3945,8 @@
    },
    "advertising": {
     "record": "complete",
-    "concepts": 10,
-    "ads": 31,
+    "concepts": 12,
+    "ads": 33,
     "pictures": 14,
     "placed": true
    }
@@ -9402,8 +9416,8 @@
    "season": "2023 AW rtw",
    "date": "2023-03-01",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 12,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -9415,8 +9429,8 @@
    "season": "2024 SS rtw",
    "date": "2023-09-27",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 16,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
