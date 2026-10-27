@@ -49,6 +49,8 @@ Identifiers
       nothing was read.
       Read on 26 October 2026: the Privé page still lists 41 shows and still links the Fall Winter 2026 couture
       show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
+      On 27 October 2026 the fetcher again could not open nowfashion.com (permission request unanswered), so
+      nothing was read.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -85,7 +87,8 @@ Shows (`reference/shows.csv`)
       against the FHCM's own calendars once they can be reached. On 25 October 2026 the FHCM's old calendar sites
       (hautecouture.fhcm.paris, parisfashionweek.fhcm.paris) redirected to its home page and its news pages
       of June 2022 hold no calendar, so the 2022 calendars still could not be read. On 26 October 2026 the FHCM's
-      previous editions page went back only to 2023 and its news of March and June 2022 held no calendar. Schiaparelli's SS23 ready-to-wear was a
+      previous editions page went back only to 2023 and its news of March and June 2022 held no calendar. On 27 October 2026
+      its events page linked only the 2027 dates and a search found no 2022 calendar. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
 
@@ -128,6 +131,9 @@ People
       On 26 October 2026 Stella McCartney Ltd's officers at Companies House did not include Mendenhall (he
       is not a director), FashionUnited (2025-09-09) gave no start date, and BoF's profile of Meilland gave
       none for his departure.
+      On 27 October 2026 Lanvin Group's management page named Lew CEO and chairman of Lanvin without a start
+      date, its H1 2025 release (2025-08-29) named him only executive president, FashionNetwork (2025-09-08)
+      gave Mendenhall no start date, and no report of Meilland's departure was found.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
