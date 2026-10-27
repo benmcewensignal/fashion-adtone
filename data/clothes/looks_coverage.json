@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T15:55:20Z",
+ "generated_at": "2026-10-27T20:47:04Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ConnectionError"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -763,7 +763,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "ConnectionError"
    }
   },
   "balenciaga:2018-09-30:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 503"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1582,7 +1582,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2361,7 +2361,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2378,7 +2378,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3605,7 +3605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5874,7 +5874,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 503"
+    "dior.com": "ReadTimeout"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6660,7 +6660,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 503"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -7757,7 +7757,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2022-09-21:rtw": {
@@ -13959,7 +13959,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ConnectionError"
    }
   },
   "mcqueen:2023-03-04:rtw": {
@@ -13972,7 +13972,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ReadTimeout"
    }
   },
   "mcqueen:2023-09-30:rtw": {
@@ -16450,7 +16450,7 @@
    "category": "couture",
    "status": "found",
    "via": "window",
-   "pages": 3,
+   "pages": 4,
    "candidates": [
     {
      "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
@@ -16463,8 +16463,8 @@
      "score": 5.62
     },
     {
-     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look37",
-     "ts": "20260127082912",
+     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
+     "ts": "20260209233119",
      "score": 4.62
     }
    ]
@@ -16879,7 +16879,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -18258,16 +18258,16 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 153
+   "pages": 188
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/man/collection/"
    ],
-   "pages": 5009
+   "pages": 4840
   },
   "dries_van_noten": {
    "prefixes": [
@@ -18287,7 +18287,7 @@
     "www.fendi.com/us/woman/",
     "www.fendi.com/qa/woman/collections/"
    ],
-   "pages": 6727
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
@@ -18480,7 +18480,7 @@
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/"
    ],
-   "pages": 305
+   "pages": 826
   },
   "armani": {
    "prefixes": [
@@ -18497,7 +18497,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 390
+   "pages": 503
   },
   "schiaparelli": {
    "prefixes": [
@@ -18525,7 +18525,7 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/"
    ],
-   "pages": 1347
+   "pages": 2174
   },
   "issey_miyake": {
    "prefixes": [

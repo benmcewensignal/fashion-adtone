@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 1,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 3
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -3531,8 +3531,27 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 4,
+   "seconds": 40,
    "small": 0
+  },
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
+   "indexes": {
+    "from_archive": 1,
+    "indexes": 4,
+    "links": 0,
+    "opened": 0
+   },
+   "page": "https://www.fendi.com/us-en/cm/articles/women-s-and-men-s-spring-summer-2026-show-palazzo-fendi-milano",
+   "tried": 1
   },
   "looks": 0,
   "status": "unread"
@@ -4729,7 +4748,7 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 4,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -4770,7 +4789,7 @@
  "hermes:2026-10-03:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 4,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -5678,15 +5697,29 @@
   "status": "no page"
  },
  "loewe:2026-10-02:rtw": {
+  "candidates": [],
   "live": {
+   "diag": {
+    "cut": true,
+    "duplicates": 0,
+    "fetched": 5,
+    "opened": 1,
+    "pictures": 58,
+    "refused": 0,
+    "small": 1
+   },
    "indexes": {
+    "from_archive": 16,
     "indexes": 4,
     "links": 0,
     "opened": 1
    },
-   "page": null
+   "page": "https://www.loewe.com/usa/en/pd/stories-collection/ss27-runway.html",
+   "tried": 1
   },
-  "status": "no page"
+  "looks": 4,
+  "status": "collected",
+  "via": "live"
  },
  "loro_piana:2026-02-27:rtw": {
   "live": {
@@ -6049,6 +6082,7 @@
  "louis_vuitton:2026-06-23:men": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -6060,6 +6094,7 @@
  "louis_vuitton:2026-10-06:rtw": {
   "live": {
    "indexes": {
+    "from_archive": 0,
     "indexes": 1,
     "links": 0,
     "opened": 0
@@ -7765,9 +7800,9 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
-   "20260127082912 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look37",
    "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13"
+   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+   "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
    "diag": {
