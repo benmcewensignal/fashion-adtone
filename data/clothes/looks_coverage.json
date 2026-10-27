@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T09:53:38Z",
+ "generated_at": "2026-10-27T15:55:20Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "HTTP 503"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 504"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "HTTP 503"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1563,7 +1563,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1582,7 +1582,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 503"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2378,7 +2378,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3605,7 +3605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3622,7 +3622,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -4270,6 +4270,29 @@
    "via": "window",
    "pages": 0,
    "candidates": []
+  },
+  "comme_des_garcons:2022-01-17:men": {
+   "house": "comme_des_garcons",
+   "date": "2022-01-17",
+   "season": "2022 AW men",
+   "category": "men",
+   "status": "none",
+   "via": "window",
+   "pages": 0,
+   "candidates": []
+  },
+  "comme_des_garcons:2022-03-08:rtw": {
+   "house": "comme_des_garcons",
+   "date": "2022-03-08",
+   "season": "2022 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "comme-des-garcons.com": "HTTP 503"
+   }
   },
   "comme_des_garcons:2022-03-22:rtw": {
    "house": "comme_des_garcons",
@@ -5851,7 +5874,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 503"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -13936,7 +13959,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "ConnectTimeout"
+    "alexandermcqueen.com": "HTTP 503"
    }
   },
   "mcqueen:2023-03-04:rtw": {
@@ -13949,7 +13972,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "ReadTimeout"
+    "alexandermcqueen.com": "HTTP 503"
    }
   },
   "mcqueen:2023-09-30:rtw": {
@@ -16856,7 +16879,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectTimeout"
+    "stellamccartney.com": "HTTP 503"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16869,7 +16892,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 503"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18216,7 +18239,7 @@
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 26
+   "pages": 12
   },
   "chanel": {
    "prefixes": [
@@ -18225,7 +18248,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2379
+   "pages": 0
   },
   "dior": {
    "prefixes": [
@@ -18235,7 +18258,7 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 34
+   "pages": 153
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -18457,7 +18480,7 @@
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/"
    ],
-   "pages": 583
+   "pages": 305
   },
   "armani": {
    "prefixes": [
@@ -18474,17 +18497,15 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 503
+   "pages": 390
   },
   "schiaparelli": {
    "prefixes": [
     "www.schiaparelli.com/en/collections/",
     "www.schiaparelli.com/en/haute-couture/",
-    "schiaparelli.com/en/collections/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
+    "schiaparelli.com/en/collections/"
    ],
-   "pages": 5835
+   "pages": 5072
   },
   "lanvin": {
    "prefixes": [
@@ -18517,8 +18538,8 @@
  "summary": {
   "by_status": {
    "found": 524,
-   "index failed": 182,
-   "none": 384,
+   "index failed": 183,
+   "none": 385,
    "partial": 86
   },
   "by_house": {
@@ -18563,7 +18584,7 @@
     "found": 17
    },
    "comme_des_garcons": {
-    "shows": 42,
+    "shows": 44,
     "found": 0
    },
    "dior": {
@@ -18713,7 +18734,7 @@
     "found": 32
    },
    "2022": {
-    "shows": 88,
+    "shows": 90,
     "found": 45
    },
    "2023": {
