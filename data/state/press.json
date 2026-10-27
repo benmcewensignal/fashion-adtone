@@ -1,6 +1,8 @@
 {
   "complete": [
-    "balmain"
+    "balmain",
+    "lanvin",
+    "schiaparelli"
   ],
   "covered": {
     "alaia": "2026-10-25",
@@ -25,7 +27,7 @@
     "issey_miyake": "2026-10-21",
     "jacquemus": "2026-10-25",
     "jil_sander": "2026-10-21",
-    "lanvin": "2026-10-20",
+    "lanvin": "2026-10-26",
     "loewe": "2026-10-21",
     "loro_piana": "2026-10-23",
     "louis_vuitton": "2026-10-23",
@@ -36,7 +38,7 @@
     "moncler": "2026-10-25",
     "prada": "2026-10-23",
     "saint_laurent": "2026-10-23",
-    "schiaparelli": "2026-10-20",
+    "schiaparelli": "2026-10-26",
     "stella_mccartney": "2026-10-21",
     "the_row": "2026-10-25",
     "tom_ford": "2026-10-24",
@@ -90,7 +92,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40455541559",
+  "run": "gh40525199304",
   "span": {},
-  "updated_at": "2026-10-27T05:57:37Z"
+  "updated_at": "2026-10-27T15:20:51Z"
 }
