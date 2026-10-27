@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T12:02:48Z",
+ "generated_at": "2026-10-27T12:40:31Z",
  "source": "homepages",
  "status": "exploratory: descriptive readings, not in the pre-registration",
  "images": 15531,
@@ -353557,8 +353557,8 @@
   "against_market_shift_answers_vs_next_attention": {
    "pairs": 468,
    "brands": 40,
-   "spearman": -0.032,
-   "p_two_sided": 0.513
+   "spearman": -0.031,
+   "p_two_sided": 0.514
   },
   "attention_vs_next_against_market_shift_answers": {
    "pairs": 482,
@@ -353570,13 +353570,13 @@
    "pairs": 468,
    "brands": 40,
    "spearman": 0.035,
-   "p_two_sided": 0.485
+   "p_two_sided": 0.484
   },
   "attention_vs_next_against_market_shift_print": {
    "pairs": 482,
    "brands": 40,
    "spearman": 0.042,
-   "p_two_sided": 0.374
+   "p_two_sided": 0.376
   },
   "distinct_vs_next_attention": {
    "pairs": 641,
@@ -353642,55 +353642,55 @@
    "pairs": 447,
    "brands": 39,
    "spearman": -0.017,
-   "p_two_sided": 0.723
+   "p_two_sided": 0.714
   },
   "steady_attention_vs_next_like_for_like_shift_answers": {
    "pairs": 458,
    "brands": 39,
-   "spearman": -0.017,
-   "p_two_sided": 0.68
+   "spearman": -0.015,
+   "p_two_sided": 0.71
   },
   "like_for_like_shift_print_vs_next_steady_attention": {
    "pairs": 447,
    "brands": 39,
-   "spearman": 0.018,
-   "p_two_sided": 0.721
+   "spearman": 0.017,
+   "p_two_sided": 0.726
   },
   "steady_attention_vs_next_like_for_like_shift_print": {
    "pairs": 458,
    "brands": 39,
    "spearman": 0.062,
-   "p_two_sided": 0.216
+   "p_two_sided": 0.214
   },
   "against_market_shift_answers_vs_next_steady_attention": {
    "pairs": 468,
    "brands": 40,
    "spearman": -0.049,
-   "p_two_sided": 0.309
+   "p_two_sided": 0.308
   },
   "steady_attention_vs_next_against_market_shift_answers": {
    "pairs": 483,
    "brands": 40,
-   "spearman": -0.009,
-   "p_two_sided": 0.862
+   "spearman": -0.008,
+   "p_two_sided": 0.884
   },
   "against_market_shift_print_vs_next_steady_attention": {
    "pairs": 468,
    "brands": 40,
-   "spearman": 0.021,
-   "p_two_sided": 0.668
+   "spearman": 0.02,
+   "p_two_sided": 0.679
   },
   "steady_attention_vs_next_against_market_shift_print": {
    "pairs": 483,
    "brands": 40,
-   "spearman": 0.044,
-   "p_two_sided": 0.39
+   "spearman": 0.045,
+   "p_two_sided": 0.38
   },
   "distinct_vs_next_steady_attention": {
    "pairs": 641,
    "brands": 40,
-   "spearman": 0.05,
-   "p_two_sided": 0.194
+   "spearman": 0.049,
+   "p_two_sided": 0.203
   }
  },
  "moment": {
@@ -353907,7 +353907,7 @@
     "from": "2016H2",
     "to": "2017H1",
     "leader": "stella_mccartney",
-    "leader_momentum": 0.283,
+    "leader_momentum": 0.284,
     "brands": 17,
     "mean_change": 0.0068,
     "mean_change_any_brand": 0.0023,
@@ -353927,7 +353927,7 @@
     "from": "2017H2",
     "to": "2018H1",
     "leader": "gucci",
-    "leader_momentum": 0.505,
+    "leader_momentum": 0.507,
     "brands": 19,
     "mean_change": -0.0177,
     "mean_change_any_brand": -0.0078,
@@ -353977,7 +353977,7 @@
     "from": "2020H1",
     "to": "2020H2",
     "leader": "jacquemus",
-    "leader_momentum": 0.72,
+    "leader_momentum": 0.722,
     "brands": 31,
     "mean_change": 0.0059,
     "mean_change_any_brand": 0.0002,
@@ -353987,7 +353987,7 @@
     "from": "2020H2",
     "to": "2021H1",
     "leader": "jacquemus",
-    "leader_momentum": 0.481,
+    "leader_momentum": 0.483,
     "brands": 31,
     "mean_change": -0.0169,
     "mean_change_any_brand": -0.0084,
@@ -354007,7 +354007,7 @@
     "from": "2021H2",
     "to": "2022H1",
     "leader": "loro_piana",
-    "leader_momentum": 0.181,
+    "leader_momentum": 0.184,
     "brands": 26,
     "mean_change": 0.0116,
     "mean_change_any_brand": 0.0079,
@@ -354017,7 +354017,7 @@
     "from": "2022H1",
     "to": "2022H2",
     "leader": "mcqueen",
-    "leader_momentum": 0.499,
+    "leader_momentum": 0.502,
     "brands": 30,
     "mean_change": -0.007,
     "mean_change_any_brand": -0.0061,
@@ -354067,7 +354067,7 @@
     "from": "2024H2",
     "to": "2025H1",
     "leader": "givenchy",
-    "leader_momentum": 0.506,
+    "leader_momentum": 0.509,
     "brands": 29,
     "mean_change": -0.0023,
     "mean_change_any_brand": 0.0013,
@@ -354097,7 +354097,7 @@
     "from": "2026H1",
     "to": "2026H2",
     "leader": "schiaparelli",
-    "leader_momentum": 1.55,
+    "leader_momentum": 1.556,
     "brands": 26,
     "mean_change": 0.0109,
     "mean_change_any_brand": 0.014,
