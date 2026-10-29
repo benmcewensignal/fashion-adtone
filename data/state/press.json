@@ -1,5 +1,7 @@
 {
-  "complete": [],
+  "complete": [
+    "fendi"
+  ],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -15,7 +17,7 @@
     "dior": "2026-10-23",
     "dolce_gabbana": "2026-10-23",
     "dries_van_noten": "2026-10-22",
-    "fendi": "2026-10-21",
+    "fendi": "2026-10-28",
     "ferragamo": "2026-10-25",
     "givenchy": "2026-10-24",
     "gucci": "2026-10-23",
@@ -88,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40828651297",
+  "run": "gh40901910270",
   "span": {},
-  "updated_at": "2026-10-29T06:44:09Z"
+  "updated_at": "2026-10-29T15:56:30Z"
 }
