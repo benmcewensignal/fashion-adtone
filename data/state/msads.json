@@ -42,11 +42,11 @@
     "versace": "advertisers: RuntimeError: Microsoft HTTP 400: {\"error\":{\"code\":\"\",\"message\":\"The query specified in the URI is not valid. The limit of '24' for Top query has been exceeded. The value from the incoming request is '25'.\",\"detail",
     "zegna": "advertisers: RuntimeError: Microsoft HTTP 400: {\"error\":{\"code\":\"\",\"message\":\"The query specified in the URI is not valid. The limit of '24' for Top query has been exceeded. The value from the incoming request is '25'.\",\"detail"
   },
-  "requests": 76,
-  "run": "gh39784689632",
+  "requests": 57,
+  "run": "gh40893563213",
   "searched": {},
   "shape": null,
   "stopped": null,
-  "updated_at": "2026-10-22T13:23:28Z",
+  "updated_at": "2026-10-29T14:42:57Z",
   "via": "anonymous"
 }
