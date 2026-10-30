@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-30",
   "declined": {
     "balenciaga": "HTTP 403",
     "bottega_veneta": "HTTP 403",
@@ -10,8 +10,12 @@
     "hermes": "HTTP 403",
     "issey_miyake": "a challenge page instead of the homepage",
     "jacquemus": "HTTP 403",
-    "jil_sander": "HTTP 403"
+    "jil_sander": "HTTP 403",
+    "louis_vuitton": "HTTP 403",
+    "margiela": "HTTP 403",
+    "max_mara": "HTTP 403",
+    "mcqueen": "HTTP 403"
   },
-  "finished_at": "2026-10-28T11:59:10Z",
-  "last_run": "gh40681432912"
+  "finished_at": "2026-10-30T12:05:02Z",
+  "last_run": "gh41049357291"
 }
