@@ -1,7 +1,6 @@
 {
   "complete": [
-    "fendi",
-    "jil_sander"
+    "stella_mccartney"
   ],
   "covered": {
     "alaia": "2026-10-25",
@@ -38,14 +37,14 @@
     "prada": "2026-10-23",
     "saint_laurent": "2026-10-23",
     "schiaparelli": "2026-10-26",
-    "stella_mccartney": "2026-10-21",
+    "stella_mccartney": "2026-10-29",
     "the_row": "2026-10-25",
     "tom_ford": "2026-10-24",
     "valentino": "2026-10-23",
     "versace": "2026-10-24",
     "zegna": "2026-10-25"
   },
-  "end": "2026-10-28",
+  "end": "2026-10-29",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -91,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh40957116060",
+  "run": "gh41013376532",
   "span": {},
-  "updated_at": "2026-10-29T21:47:03Z"
+  "updated_at": "2026-10-30T06:47:44Z"
 }
