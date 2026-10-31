@@ -51,6 +51,8 @@ Identifiers
       show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
       On 27 October 2026 the fetcher again could not open nowfashion.com (permission request unanswered), so
       nothing was read; the same happened on 28, 29 and 30 October 2026.
+      Read on 31 October 2026: the Privé page still lists 41 shows and still links the Fall Winter 2026 couture
+      show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -91,7 +93,8 @@ Shows (`reference/shows.csv`)
       its events page linked only the 2027 dates and a search found no 2022 calendar. On 28 October 2026 a search again
       found only the FHCM's 2023 and later calendars and press reports of the 2022 schedules. On 29 October 2026 the FHCM's
       published calendar files found by search began with Fall Winter 2025-2026, so none for 2022 was read. On 30 October 2026 the FHCM's
-      news pages of October 2022 and its events page linked no 2022 calendar, so none was read. Schiaparelli's SS23 ready-to-wear was a
+      news pages of October 2022 and its events page linked no 2022 calendar, so none was read. On 31 October 2026 its
+      events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
 
@@ -145,6 +148,9 @@ People
       (2025-05-01) credited Schiaparelli's Spring 2025 campaign only to Drew Vickers, already on file.
       On 30 October 2026 WWDJAPAN (2025-09-10) and Sourcing Journal (2025-09-12) gave Mendenhall no start date,
       and the OC Business Journal (2025-01-16) named Lew only Lanvin Group's executive president.
+      On 31 October 2026 Fashion Dive (2025-01-16) named Lew only Lanvin Group's executive president, Sourcing
+      Journal (2025-09-12, on Yahoo Finance) gave Mendenhall no start date, and no report of Meilland's departure
+      was found.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
