@@ -1,13 +1,5 @@
 {
-  "complete": [
-    "burberry",
-    "comme_des_garcons",
-    "dries_van_noten",
-    "hermes",
-    "issey_miyake",
-    "miu_miu",
-    "stella_mccartney"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -50,7 +42,7 @@
     "versace": "2026-10-24",
     "zegna": "2026-10-25"
   },
-  "end": "2026-10-29",
+  "end": "2026-10-30",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -96,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41127507829",
+  "run": "gh41175551048",
   "span": {},
-  "updated_at": "2026-10-30T21:35:47Z"
+  "updated_at": "2026-10-31T06:34:49Z"
 }
