@@ -1,5 +1,6 @@
 {
   "complete": [
+    "balenciaga",
     "chanel",
     "dior",
     "gucci"
@@ -7,7 +8,7 @@
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
-    "balenciaga": "2026-10-23",
+    "balenciaga": "2026-10-30",
     "balmain": "2026-10-26",
     "bottega_veneta": "2026-10-23",
     "brunello_cucinelli": "2026-10-25",
@@ -92,7 +93,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41211343426",
+  "run": "gh41237907219",
   "span": {},
-  "updated_at": "2026-10-31T15:15:51Z"
+  "updated_at": "2026-10-31T20:40:05Z"
 }
