@@ -1,5 +1,7 @@
 {
-  "complete": [],
+  "complete": [
+    "margiela"
+  ],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -27,7 +29,7 @@
     "loewe": "2026-10-27",
     "loro_piana": "2026-10-23",
     "louis_vuitton": "2026-10-23",
-    "margiela": "2026-10-23",
+    "margiela": "2026-10-31",
     "max_mara": "2026-10-25",
     "mcqueen": "2026-10-25",
     "miu_miu": "2026-10-29",
@@ -88,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41258672423",
+  "run": "gh41273848593",
   "span": {},
-  "updated_at": "2026-11-01T01:16:00Z"
+  "updated_at": "2026-11-01T05:07:38Z"
 }
