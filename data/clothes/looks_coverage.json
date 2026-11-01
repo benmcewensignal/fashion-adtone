@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T13:23:35Z",
+ "generated_at": "2026-11-01T16:23:33Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -763,7 +763,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ConnectionError"
+    "balenciaga.com": "ConnectTimeout"
    }
   },
   "balenciaga:2018-09-30:rtw": {
@@ -1563,7 +1563,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ConnectionError"
+    "balmain.com": "ConnectTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2361,7 +2361,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ConnectTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2378,7 +2378,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3605,7 +3605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ConnectTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3622,7 +3622,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 503"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -13956,7 +13956,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ReadTimeout"
    }
   },
   "mcqueen:2023-03-04:rtw": {
@@ -16448,26 +16448,13 @@
    "date": "2026-01-26",
    "season": "2026 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "index failed",
    "via": "window",
-   "pages": 4,
-   "candidates": [
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-     "ts": "20260129192029",
-     "score": 5.62
-    },
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-     "ts": "20260128173650",
-     "score": 5.62
-    },
-    {
-     "url": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
-     "ts": "20260209233119",
-     "score": 4.62
-    }
-   ]
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "schiaparelli.com": "ReadTimeout"
+   }
   },
   "schiaparelli:2026-03-05:rtw": {
    "house": "schiaparelli",
@@ -16879,7 +16866,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectionError"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16892,7 +16879,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18232,7 +18219,7 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 451
+   "pages": 466
   },
   "burberry": {
    "prefixes": [
@@ -18248,7 +18235,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 0
+   "pages": 435
   },
   "dior": {
    "prefixes": [
@@ -18479,7 +18466,7 @@
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/"
    ],
-   "pages": 826
+   "pages": 272
   },
   "armani": {
    "prefixes": [
@@ -18496,7 +18483,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 367
+   "pages": 334
   },
   "schiaparelli": {
    "prefixes": [
@@ -18504,7 +18491,7 @@
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/"
    ],
-   "pages": 5072
+   "pages": 5834
   },
   "lanvin": {
    "prefixes": [
@@ -18536,8 +18523,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 525,
-   "index failed": 181,
+   "found": 524,
+   "index failed": 182,
    "none": 387,
    "partial": 85
   },
@@ -18676,7 +18663,7 @@
    },
    "schiaparelli": {
     "shows": 32,
-    "found": 29
+    "found": 28
    },
    "stella_mccartney": {
     "shows": 21,
@@ -18750,7 +18737,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 50
+    "found": 49
    },
    "2027": {
     "shows": 45,
