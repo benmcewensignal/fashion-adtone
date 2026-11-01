@@ -1,11 +1,5 @@
 {
-  "complete": [
-    "balenciaga",
-    "bottega_veneta",
-    "chanel",
-    "dior",
-    "gucci"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -48,7 +42,7 @@
     "versace": "2026-10-24",
     "zegna": "2026-10-25"
   },
-  "end": "2026-10-30",
+  "end": "2026-10-31",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -94,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41239779684",
+  "run": "gh41258672423",
   "span": {},
-  "updated_at": "2026-10-31T21:06:53Z"
+  "updated_at": "2026-11-01T01:16:00Z"
 }
