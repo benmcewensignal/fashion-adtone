@@ -1,9 +1,6 @@
 {
   "complete": [
-    "louis_vuitton",
-    "margiela",
-    "prada",
-    "saint_laurent"
+    "valentino"
   ],
   "covered": {
     "alaia": "2026-10-25",
@@ -43,11 +40,11 @@
     "stella_mccartney": "2026-10-29",
     "the_row": "2026-10-25",
     "tom_ford": "2026-10-24",
-    "valentino": "2026-10-23",
+    "valentino": "2026-11-01",
     "versace": "2026-10-24",
     "zegna": "2026-10-25"
   },
-  "end": "2026-10-31",
+  "end": "2026-11-01",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -93,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41347788717",
+  "run": "gh41369191579",
   "span": {},
-  "updated_at": "2026-11-01T21:09:03Z"
+  "updated_at": "2026-11-02T01:16:12Z"
 }
