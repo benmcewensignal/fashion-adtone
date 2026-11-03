@@ -1,5 +1,7 @@
 {
-  "complete": [],
+  "complete": [
+    "versace"
+  ],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -39,7 +41,7 @@
     "the_row": "2026-10-25",
     "tom_ford": "2026-10-24",
     "valentino": "2026-11-01",
-    "versace": "2026-10-24",
+    "versace": "2026-11-02",
     "zegna": "2026-10-25"
   },
   "end": "2026-11-02",
@@ -88,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41637377717",
+  "run": "gh41676124669",
   "span": {},
-  "updated_at": "2026-11-03T13:03:36Z"
+  "updated_at": "2026-11-03T17:18:41Z"
 }
