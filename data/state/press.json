@@ -1,10 +1,5 @@
 {
-  "complete": [
-    "chloe",
-    "dolce_gabbana",
-    "loro_piana",
-    "valentino"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-10-25",
     "armani": "2026-10-25",
@@ -47,7 +42,7 @@
     "versace": "2026-10-24",
     "zegna": "2026-10-25"
   },
-  "end": "2026-11-01",
+  "end": "2026-11-02",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -93,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41520895197",
+  "run": "gh41555314715",
   "span": {},
-  "updated_at": "2026-11-02T21:10:33Z"
+  "updated_at": "2026-11-03T01:15:56Z"
 }
