@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T22:24:00Z",
+ "generated_at": "2026-11-04T01:23:32Z",
  "window_days": [
   -1,
   14
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 503"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -763,7 +763,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ConnectTimeout"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2018-09-30:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "HTTP 503"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1563,7 +1563,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2378,7 +2378,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3605,7 +3605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectTimeout"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3622,7 +3622,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 503"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -13975,7 +13975,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "alexandermcqueen.com": "HTTP 503"
+    "alexandermcqueen.com": "ReadTimeout"
    }
   },
   "mcqueen:2023-03-04:rtw": {
@@ -16472,7 +16472,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "schiaparelli.com": "HTTP 503"
+    "schiaparelli.com": "ReadTimeout"
    }
   },
   "schiaparelli:2026-03-05:rtw": {
@@ -16885,7 +16885,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "ConnectTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -18238,14 +18238,14 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 465
+   "pages": 467
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 12
+   "pages": 26
   },
   "chanel": {
    "prefixes": [
@@ -18254,7 +18254,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2006
+   "pages": 373
   },
   "dior": {
    "prefixes": [
@@ -18485,7 +18485,7 @@
     "www.alexandermcqueen.com/experience/en/",
     "www.alexandermcqueen.com/en-gb/collections/"
    ],
-   "pages": 793
+   "pages": 583
   },
   "armani": {
    "prefixes": [
@@ -18502,7 +18502,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 390
+   "pages": 503
   },
   "schiaparelli": {
    "prefixes": [
@@ -18510,7 +18510,7 @@
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/"
    ],
-   "pages": 2536
+   "pages": 5834
   },
   "lanvin": {
    "prefixes": [
@@ -18530,7 +18530,7 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/"
    ],
-   "pages": 0
+   "pages": 2174
   },
   "issey_miyake": {
    "prefixes": [
