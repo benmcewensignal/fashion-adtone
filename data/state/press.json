@@ -1,15 +1,19 @@
 {
   "complete": [
+    "balmain",
     "ferragamo",
     "jacquemus",
+    "lanvin",
+    "mcqueen",
     "moncler",
+    "schiaparelli",
     "the_row"
   ],
   "covered": {
     "alaia": "2026-11-02",
     "armani": "2026-11-03",
     "balenciaga": "2026-10-30",
-    "balmain": "2026-10-26",
+    "balmain": "2026-11-04",
     "bottega_veneta": "2026-10-30",
     "brunello_cucinelli": "2026-11-02",
     "burberry": "2026-10-29",
@@ -28,18 +32,18 @@
     "issey_miyake": "2026-10-29",
     "jacquemus": "2026-11-04",
     "jil_sander": "2026-10-28",
-    "lanvin": "2026-10-26",
+    "lanvin": "2026-11-04",
     "loewe": "2026-10-27",
     "loro_piana": "2026-11-01",
     "louis_vuitton": "2026-10-31",
     "margiela": "2026-10-31",
     "max_mara": "2026-11-02",
-    "mcqueen": "2026-10-25",
+    "mcqueen": "2026-11-04",
     "miu_miu": "2026-10-29",
     "moncler": "2026-11-04",
     "prada": "2026-10-31",
     "saint_laurent": "2026-10-31",
-    "schiaparelli": "2026-10-26",
+    "schiaparelli": "2026-11-04",
     "stella_mccartney": "2026-10-29",
     "the_row": "2026-11-04",
     "tom_ford": "2026-11-02",
@@ -93,7 +97,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh42028910455",
+  "run": "gh42066434084",
   "span": {},
-  "updated_at": "2026-11-05T13:07:40Z"
+  "updated_at": "2026-11-05T17:12:15Z"
 }
