@@ -3531,7 +3531,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 82,
+   "seconds": 40,
    "small": 0
   },
   "looks": 0,
@@ -5396,7 +5396,7 @@
  "lanvin:2026-01-24:men": {
   "live": {
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -5408,7 +5408,7 @@
  "lanvin:2026-03-06:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 0
@@ -7797,7 +7797,7 @@
     "opened": 1,
     "pictures": 13,
     "refused": 0,
-    "small": 7
+    "small": 8
    },
    "indexes": {
     "from_archive": 3,
@@ -7808,7 +7808,7 @@
    "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "tried": 1
   },
-  "looks": 6,
+  "looks": 5,
   "status": "collected",
   "via": "live"
  },
