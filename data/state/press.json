@@ -1,8 +1,5 @@
 {
-  "complete": [
-    "armani",
-    "zegna"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-11-02",
     "armani": "2026-11-03",
@@ -45,7 +42,7 @@
     "versace": "2026-11-02",
     "zegna": "2026-11-03"
   },
-  "end": "2026-11-03",
+  "end": "2026-11-04",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -91,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh41908399479",
+  "run": "gh41943871043",
   "span": {},
-  "updated_at": "2026-11-04T21:01:06Z"
+  "updated_at": "2026-11-05T01:13:09Z"
 }
