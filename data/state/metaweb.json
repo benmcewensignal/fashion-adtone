@@ -4036,7 +4036,7 @@
   "period": "last30d",
   "problems": {},
   "requests": 1,
-  "run": "gh40899225031",
+  "run": "gh42064530016",
   "searched": {
     "balenciaga": "2026-10-17",
     "bottega_veneta": "2026-10-17",
@@ -4063,8 +4063,8 @@
     "versace": "2026-10-17"
   },
   "shape": null,
-  "stopped": "Apify refused the request (HTTP 403): Monthly usage hard limit exceeded",
-  "updated_at": "2026-10-29T15:14:08Z",
+  "stopped": "Apify refused the request (HTTP 403): You've reached your monthly usage limit of $50.00, so Actor runs and other Apify services are blocked until your monthly usage cycle resets. To increase the lim",
+  "updated_at": "2026-11-05T16:28:11Z",
   "vendor_errors": [],
   "vendor_runs": []
 }
