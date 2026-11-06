@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "declined": {
     "balenciaga": "HTTP 403",
     "bottega_veneta": "HTTP 403",
@@ -17,8 +17,10 @@
     "moncler": "HTTP 403",
     "saint_laurent": "HTTP 403",
     "schiaparelli": "a challenge page instead of the homepage",
-    "stella_mccartney": "a challenge page instead of the homepage"
+    "stella_mccartney": "a challenge page instead of the homepage",
+    "versace": "HTTP 403",
+    "zegna": "HTTP 403"
   },
-  "finished_at": "2026-11-05T06:05:11Z",
-  "last_run": "gh41975843979"
+  "finished_at": "2026-11-06T05:59:45Z",
+  "last_run": "gh42170189557"
 }
