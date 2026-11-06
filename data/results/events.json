@@ -1,5 +1,5 @@
 {
- "generated_on": "2026-11-03",
+ "generated_on": "2026-11-06",
  "events": [
   {
    "house": "chanel",
@@ -5510,6 +5510,15 @@
    "date": "2026-09-29"
   },
   {
+   "house": "balenciaga",
+   "who": "Pierpaolo Piccioli",
+   "scope": "both",
+   "verified": true,
+   "source": "https://www.ansa.it/english/news/2025/05/19/piccioli-named-new-creative-director-of-balenciaga_6248e8c2-19aa-40c3-95f5-50babcc0f06d.html",
+   "kind": "last show",
+   "date": "2026-10-01"
+  },
+  {
    "house": "saint_laurent",
    "who": "Anton",
    "role": "brand ambassador",
@@ -5545,6 +5554,15 @@
    "source": "https://ww.fashionnetwork.com/news/Alexander-mcqueen-names-sean-mcgirr-as-creative-director-replacing-sarah-burton,1563084.html",
    "kind": "creative lead leaving",
    "date": "2026-10-15"
+  },
+  {
+   "house": "balenciaga",
+   "who": "Pierpaolo Piccioli",
+   "scope": "both",
+   "verified": true,
+   "source": "https://www.ansa.it/english/news/2025/05/19/piccioli-named-new-creative-director-of-balenciaga_6248e8c2-19aa-40c3-95f5-50babcc0f06d.html",
+   "kind": "creative lead leaving",
+   "date": "2026-11-05"
   }
  ],
  "checks": {
@@ -5556,6 +5574,13 @@
     "left": "Pieter Mulier",
     "left_announced": "2026-01-30",
     "for_now": "design studio",
+    "record": true
+   },
+   {
+    "house": "balenciaga",
+    "left": "Pierpaolo Piccioli",
+    "left_announced": "2026-11-05",
+    "for_now": null,
     "record": true
    },
    {
@@ -5958,9 +5983,9 @@
   "ambassador named": 219,
   "chief executive appointed": 69,
   "creative lead appointed": 67,
-  "creative lead leaving": 71,
+  "creative lead leaving": 72,
   "first show": 88,
-  "last show": 76,
+  "last show": 77,
   "owner from": 2
  }
 }
