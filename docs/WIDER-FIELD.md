@@ -54,7 +54,7 @@ Identifiers
       Read on 31 October 2026: the Privé page still lists 41 shows and still links the Fall Winter 2026 couture
       show at `-paris-2`, and McQueen's markdown listing still would not load, so nothing was merged.
       On 1 November 2026 the fetcher again could not open nowfashion.com (permission request unanswered), so
-      nothing was read; the same happened on 2, 3, 4 and 5 November 2026.
+      nothing was read; the same happened on 2, 3, 4, 5 and 6 November 2026.
 - [x] YouTube: each house's official channel in `reference/youtube_channels.csv`, with the evidence that it
       is the house's own.
 - [x] Google's ad archive: once the discovery run lists the twelve houses' candidate accounts, confirm each
@@ -97,7 +97,7 @@ Shows (`reference/shows.csv`)
       published calendar files found by search began with Fall Winter 2025-2026, so none for 2022 was read. On 30 October 2026 the FHCM's
       news pages of October 2022 and its events page linked no 2022 calendar, so none was read. On 31 October 2026 its
       events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. On 1 November 2026 its news pages of
-      June and September 2022 again held no calendar. On 2 November 2026 a search again found only FashionUnited's reports of the 2022 schedules, no FHCM calendar. On 3 November 2026 the FHCM's events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. On 4 November 2026 the FHCM's events page again linked no 2022 calendar and a search found none. On 5 November 2026 its events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. Schiaparelli's SS23 ready-to-wear was a
+      June and September 2022 again held no calendar. On 2 November 2026 a search again found only FashionUnited's reports of the 2022 schedules, no FHCM calendar. On 3 November 2026 the FHCM's events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. On 4 November 2026 the FHCM's events page again linked no 2022 calendar and a search found none. On 5 November 2026 its events page linked only the 2026 and 2027 calendars and a search found no 2022 calendar. On 6 November 2026 its events page again linked only the current calendars and a search found no 2022 calendar. Schiaparelli's SS23 ready-to-wear was a
       presentation, not a show, at the Hôtel d'Évreux on 2022-09-29 (the house's own page), entered on
       16 October 2026.
 
@@ -163,6 +163,8 @@ People
       an editorial for the magazine, not the house's own work, so no credit was entered.
       On 5 November 2026 The MBS Group (2025-01-20) named Lew only Lanvin Group's executive president, and a
       search found no start date for Mendenhall and no report of Meilland's departure.
+      On 6 November 2026 The Industry (2026-05-28) again gave Lew only 'since July 2025', and a search found
+      no start date for Mendenhall and no report of Lew's announcement.
 
 Revenue (`reference/revenue.csv`, published figures only)
 - [x] Ferragamo 2020Q1 to 2026H1 from the company's releases; the Armani Group's net revenues for 2019 to
