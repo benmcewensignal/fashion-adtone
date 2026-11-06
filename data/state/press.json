@@ -2,11 +2,13 @@
   "complete": [
     "burberry",
     "celine",
+    "comme_des_garcons",
     "dries_van_noten",
     "fendi",
     "hermes",
     "jil_sander",
-    "miu_miu"
+    "miu_miu",
+    "stella_mccartney"
   ],
   "covered": {
     "alaia": "2026-11-02",
@@ -19,7 +21,7 @@
     "celine": "2026-11-05",
     "chanel": "2026-10-30",
     "chloe": "2026-11-01",
-    "comme_des_garcons": "2026-10-29",
+    "comme_des_garcons": "2026-11-05",
     "dior": "2026-10-30",
     "dolce_gabbana": "2026-11-01",
     "dries_van_noten": "2026-11-05",
@@ -43,7 +45,7 @@
     "prada": "2026-10-31",
     "saint_laurent": "2026-10-31",
     "schiaparelli": "2026-11-04",
-    "stella_mccartney": "2026-10-29",
+    "stella_mccartney": "2026-11-05",
     "the_row": "2026-11-04",
     "tom_ford": "2026-11-02",
     "valentino": "2026-11-01",
@@ -96,7 +98,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh42254171295",
+  "run": "gh42289971473",
   "span": {},
-  "updated_at": "2026-11-06T17:07:51Z"
+  "updated_at": "2026-11-06T21:08:08Z"
 }
