@@ -1,5 +1,5 @@
 {
- "generated_on": "2026-11-06",
+ "generated_on": "2026-11-07",
  "events": [
   {
    "house": "chanel",
@@ -5563,6 +5563,15 @@
    "source": "https://www.ansa.it/english/news/2025/05/19/piccioli-named-new-creative-director-of-balenciaga_6248e8c2-19aa-40c3-95f5-50babcc0f06d.html",
    "kind": "creative lead leaving",
    "date": "2026-11-05"
+  },
+  {
+   "house": "balenciaga",
+   "who": "Martine Rose",
+   "scope": "both",
+   "verified": true,
+   "source": "https://www.globenewswire.com/news-release/2026/11/06/3397325/0/en/kering-martine-rose-appointed-creative-director-of-balenciaga.html",
+   "kind": "creative lead appointed",
+   "date": "2026-11-06"
   }
  ],
  "checks": {
@@ -5574,13 +5583,6 @@
     "left": "Pieter Mulier",
     "left_announced": "2026-01-30",
     "for_now": "design studio",
-    "record": true
-   },
-   {
-    "house": "balenciaga",
-    "left": "Pierpaolo Piccioli",
-    "left_announced": "2026-11-05",
-    "for_now": null,
     "record": true
    },
    {
@@ -5982,7 +5984,7 @@
  "counts": {
   "ambassador named": 219,
   "chief executive appointed": 69,
-  "creative lead appointed": 67,
+  "creative lead appointed": 68,
   "creative lead leaving": 72,
   "first show": 88,
   "last show": 77,
