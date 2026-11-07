@@ -1,6 +1,8 @@
 {
   "complete": [
     "chanel",
+    "dior",
+    "gucci",
     "issey_miyake"
   ],
   "covered": {
@@ -15,13 +17,13 @@
     "chanel": "2026-11-06",
     "chloe": "2026-11-01",
     "comme_des_garcons": "2026-11-05",
-    "dior": "2026-10-30",
+    "dior": "2026-11-06",
     "dolce_gabbana": "2026-11-01",
     "dries_van_noten": "2026-11-05",
     "fendi": "2026-11-05",
     "ferragamo": "2026-11-04",
     "givenchy": "2026-11-02",
-    "gucci": "2026-10-30",
+    "gucci": "2026-11-06",
     "hermes": "2026-11-05",
     "issey_miyake": "2026-11-06",
     "jacquemus": "2026-11-04",
@@ -91,7 +93,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh42339255836",
+  "run": "gh42356251244",
   "span": {},
-  "updated_at": "2026-11-07T05:05:33Z"
+  "updated_at": "2026-11-07T09:06:25Z"
 }
