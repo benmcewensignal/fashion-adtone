@@ -78,9 +78,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -90,9 +90,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -125,9 +125,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -137,9 +137,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -149,9 +149,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 1,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 3
    },
    "page": null
   },
@@ -3531,7 +3531,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 72,
+   "seconds": 3,
    "small": 0
   },
   "looks": 0,
@@ -7784,21 +7784,38 @@
   "status": "collected"
  },
  "schiaparelli:2026-01-26:couture": {
+  "candidates": [
+   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+   "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
+  ],
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 13,
+    "opened": 1,
+    "pictures": 13,
+    "refused": 0,
+    "small": 8
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 3,
     "indexes": 5,
     "links": 0,
     "opened": 2
    },
-   "page": null
+   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
+   "tried": 1
   },
-  "status": "no page"
+  "looks": 5,
+  "status": "collected",
+  "via": "live"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 3,
     "indexes": 5,
     "links": 0,
     "opened": 2
@@ -7958,9 +7975,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 5,
     "links": 0,
-    "opened": 1
+    "opened": 2
    },
    "page": null
   },
