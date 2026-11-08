@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T16:23:23Z",
+ "generated_at": "2026-11-08T19:23:46Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ConnectTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 504"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -1086,16 +1086,13 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-81",
-     "ts": "20260710114026",
-     "score": 3.12
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ReadTimeout"
+   }
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1563,7 +1560,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ConnectTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1582,7 +1579,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "HTTP 504"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2378,7 +2375,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -16960,7 +16957,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -16973,7 +16970,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18312,17 +18309,18 @@
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/gb/men/fashionshow/",
-    "www.balenciaga.com/en-fi/balenciaga-show-music/",
-    "www.balenciaga.com/en-fi/all-collections/"
+    "www.balenciaga.com/en-fi/all-collections/",
+    "www.balenciaga.com/en-fi/balenciaga-show-music/"
    ],
-   "pages": 455
+   "pages": 18
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/"
+    "mo.burberry.com/london-fashion-week/",
+    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 12
+   "pages": 16
   },
   "chanel": {
    "prefixes": [
@@ -18331,7 +18329,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2379
+   "pages": 435
   },
   "dior": {
    "prefixes": [
@@ -18564,12 +18562,9 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "assets-cf.armani.com/video/upload/f_auto/q_auto:best,c_fill,ar_4:5/"
    ],
-   "pages": 358
+   "pages": 351
   },
   "balmain": {
    "prefixes": [
@@ -18578,21 +18573,17 @@
     "us.balmain.com/us/experience/",
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
-    "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
+    "be.balmain.com/en/experience/"
    ],
-   "pages": 380
+   "pages": 334
   },
   "schiaparelli": {
    "prefixes": [
     "www.schiaparelli.com/en/collections/",
     "www.schiaparelli.com/en/haute-couture/",
-    "schiaparelli.com/en/collections/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/measuring-tape/",
-    "www.schiaparelli.com/en/collections/ready-to-wear-schiaparelli/the-exhibition-at-the-musee-des-arts-decoratifs/"
+    "schiaparelli.com/en/collections/"
    ],
-   "pages": 5836
+   "pages": 0
   },
   "lanvin": {
    "prefixes": [
@@ -18610,11 +18601,9 @@
    "prefixes": [
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
-    "www.stellamccartney.com/fi/en/collections/",
-    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
-    "www.stellamccartney.com/nl/collectionsmen_section/"
+    "www.stellamccartney.com/fi/en/collections/"
    ],
-   "pages": 2178
+   "pages": 1347
   },
   "issey_miyake": {
    "prefixes": [
@@ -18626,8 +18615,8 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 526,
-   "index failed": 186,
+   "found": 525,
+   "index failed": 187,
    "none": 388,
    "partial": 83
   },
@@ -18642,7 +18631,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 18
+    "found": 17
    },
    "balmain": {
     "shows": 36,
@@ -18840,7 +18829,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 50
+    "found": 49
    },
    "2027": {
     "shows": 45,
