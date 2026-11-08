@@ -2,7 +2,9 @@
   "complete": [
     "chloe",
     "dolce_gabbana",
+    "givenchy",
     "loro_piana",
+    "tom_ford",
     "versace"
   ],
   "covered": {
@@ -22,7 +24,7 @@
     "dries_van_noten": "2026-11-05",
     "fendi": "2026-11-05",
     "ferragamo": "2026-11-04",
-    "givenchy": "2026-11-02",
+    "givenchy": "2026-11-07",
     "gucci": "2026-11-06",
     "hermes": "2026-11-05",
     "issey_miyake": "2026-11-06",
@@ -42,7 +44,7 @@
     "schiaparelli": "2026-11-04",
     "stella_mccartney": "2026-11-05",
     "the_row": "2026-11-04",
-    "tom_ford": "2026-11-02",
+    "tom_ford": "2026-11-07",
     "valentino": "2026-11-06",
     "versace": "2026-11-07",
     "zegna": "2026-11-03"
@@ -93,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh42463697338",
+  "run": "gh42481131428",
   "span": {},
-  "updated_at": "2026-11-08T09:00:57Z"
+  "updated_at": "2026-11-08T13:11:23Z"
 }
