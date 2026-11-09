@@ -1413,7 +1413,7 @@
  "chanel:2026-07-07:couture": {
   "live": {
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -1423,16 +1423,45 @@
   "status": "no page"
  },
  "chanel:2026-10-05:rtw": {
+  "candidates": [
+   "20261031044520 https://www.chanel.com/gb/fashion/collection/spring-summer-2027/"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 1,
+   "fetched": 0,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 0,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "seconds": 182,
+   "small": 0
+  },
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.chanel.com/gb/fashion/collection/spring-summer-2027/",
+   "tried": 1
   },
-  "status": "no page"
+  "looks": 0,
+  "status": "unread"
  },
  "chloe:2015-03-08:rtw": {
   "looks": 20,
@@ -3531,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 164,
+   "seconds": 6,
    "small": 0
   },
   "looks": 0,
