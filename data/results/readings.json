@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T14:40:04Z",
+ "generated_at": "2026-11-10T06:43:58Z",
  "source": "homepages",
  "status": "exploratory: descriptive readings, not in the pre-registration",
  "images": 15531,
@@ -353557,8 +353557,8 @@
   "against_market_shift_answers_vs_next_attention": {
    "pairs": 468,
    "brands": 40,
-   "spearman": -0.031,
-   "p_two_sided": 0.514
+   "spearman": -0.032,
+   "p_two_sided": 0.513
   },
   "attention_vs_next_against_market_shift_answers": {
    "pairs": 482,
@@ -353570,13 +353570,13 @@
    "pairs": 468,
    "brands": 40,
    "spearman": 0.035,
-   "p_two_sided": 0.484
+   "p_two_sided": 0.485
   },
   "attention_vs_next_against_market_shift_print": {
    "pairs": 482,
    "brands": 40,
    "spearman": 0.042,
-   "p_two_sided": 0.376
+   "p_two_sided": 0.374
   },
   "distinct_vs_next_attention": {
    "pairs": 641,
@@ -353642,13 +353642,13 @@
    "pairs": 447,
    "brands": 39,
    "spearman": -0.017,
-   "p_two_sided": 0.714
+   "p_two_sided": 0.713
   },
   "steady_attention_vs_next_like_for_like_shift_answers": {
    "pairs": 458,
    "brands": 39,
    "spearman": -0.015,
-   "p_two_sided": 0.71
+   "p_two_sided": 0.709
   },
   "like_for_like_shift_print_vs_next_steady_attention": {
    "pairs": 447,
@@ -353672,13 +353672,13 @@
    "pairs": 483,
    "brands": 40,
    "spearman": -0.008,
-   "p_two_sided": 0.884
+   "p_two_sided": 0.883
   },
   "against_market_shift_print_vs_next_steady_attention": {
    "pairs": 468,
    "brands": 40,
    "spearman": 0.02,
-   "p_two_sided": 0.679
+   "p_two_sided": 0.681
   },
   "steady_attention_vs_next_against_market_shift_print": {
    "pairs": 483,
@@ -353690,7 +353690,7 @@
    "pairs": 641,
    "brands": 40,
    "spearman": 0.049,
-   "p_two_sided": 0.203
+   "p_two_sided": 0.204
   }
  },
  "moment": {

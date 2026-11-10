@@ -1,6 +1,6 @@
 {
   "id": "designer-change-v1",
-  "evaluated_on": "2026-11-03",
+  "evaluated_on": "2026-11-10",
   "events": {
     "saint_laurent:2026-10-09:": {
       "status": "awaiting_event",
@@ -30,6 +30,15 @@
       }
     },
     "mcqueen:2026-10-15:": {
+      "status": "awaiting_event",
+      "probabilities": {
+        "magnitude": 0.42,
+        "itself": 0.25,
+        "crew": 0.9,
+        "transfer": 0.3
+      }
+    },
+    "balenciaga:2026-11-05:2026-11-06": {
       "status": "awaiting_event",
       "probabilities": {
         "magnitude": 0.42,
