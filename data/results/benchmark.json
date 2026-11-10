@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T14:43:04Z",
+ "generated_at": "2026-11-10T06:56:35Z",
  "status": "descriptive",
  "windows": {
   "shop_window": "months after the show, to the day before the next main show, 182 days at most",
@@ -16,7 +16,7 @@
    "shop_window_complete": 2,
    "distinctness": 1,
    "movement": 0,
-   "campaigns": 1,
+   "campaigns": 2,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -32,7 +32,7 @@
    "shop_window_complete": 35,
    "distinctness": 24,
    "movement": 1,
-   "campaigns": 23,
+   "campaigns": 24,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -48,7 +48,7 @@
    "shop_window_complete": 35,
    "distinctness": 20,
    "movement": 19,
-   "campaigns": 16,
+   "campaigns": 17,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -64,7 +64,7 @@
    "shop_window_complete": 36,
    "distinctness": 23,
    "movement": 17,
-   "campaigns": 21,
+   "campaigns": 24,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -96,7 +96,7 @@
    "shop_window_complete": 35,
    "distinctness": 19,
    "movement": 15,
-   "campaigns": 15,
+   "campaigns": 18,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -112,7 +112,7 @@
    "shop_window_complete": 36,
    "distinctness": 23,
    "movement": 16,
-   "campaigns": 14,
+   "campaigns": 15,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -160,7 +160,7 @@
    "shop_window_complete": 35,
    "distinctness": 27,
    "movement": 21,
-   "campaigns": 25,
+   "campaigns": 26,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 2,
@@ -176,7 +176,7 @@
    "shop_window_complete": 31,
    "distinctness": 23,
    "movement": 21,
-   "campaigns": 21,
+   "campaigns": 22,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 29,
@@ -192,7 +192,7 @@
    "shop_window_complete": 33,
    "distinctness": 26,
    "movement": 22,
-   "campaigns": 24,
+   "campaigns": 25,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 33,
@@ -208,7 +208,7 @@
    "shop_window_complete": 22,
    "distinctness": 17,
    "movement": 15,
-   "campaigns": 10,
+   "campaigns": 11,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 22,
@@ -240,7 +240,7 @@
    "shop_window_complete": 29,
    "distinctness": 21,
    "movement": 19,
-   "campaigns": 17,
+   "campaigns": 19,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 29,
@@ -272,7 +272,7 @@
    "shop_window_complete": 32,
    "distinctness": 28,
    "movement": 23,
-   "campaigns": 17,
+   "campaigns": 19,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 32,
@@ -304,7 +304,7 @@
    "shop_window_complete": 32,
    "distinctness": 29,
    "movement": 27,
-   "campaigns": 21,
+   "campaigns": 23,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 32,
@@ -336,7 +336,7 @@
    "shop_window_complete": 31,
    "distinctness": 26,
    "movement": 24,
-   "campaigns": 12,
+   "campaigns": 13,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 31,
@@ -368,7 +368,7 @@
    "shop_window_complete": 36,
    "distinctness": 32,
    "movement": 30,
-   "campaigns": 26,
+   "campaigns": 27,
    "advertising": 30,
    "advertising_on_record": 31,
    "scene": 36,
@@ -384,7 +384,7 @@
    "shop_window_complete": 35,
    "distinctness": 30,
    "movement": 27,
-   "campaigns": 35,
+   "campaigns": 36,
    "advertising": 33,
    "advertising_on_record": 33,
    "scene": 37,
@@ -476,7 +476,7 @@
   "shop_window_to_day": 120,
   "coefficients": {
    "distinctness": {
-    "estimate": -0.0101,
+    "estimate": -0.01,
     "interval_90": [
      -0.0235,
      0.0042
@@ -493,13 +493,13 @@
     "estimate": 0.0019,
     "interval_90": [
      -0.0129,
-     0.0157
+     0.0158
     ]
    },
    "momentum": {
     "estimate": -0.0271,
     "interval_90": [
-     -0.0489,
+     -0.0488,
      -0.0077
     ]
    }
@@ -1267,8 +1267,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -6032,9 +6034,9 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 6,
     "by_line": {
-     "other": 5
+     "other": 6
     }
    },
    "advertising": {
@@ -6207,8 +6209,8 @@
     "heat": -0.0275,
     "heat_z": -0.624,
     "surprise": -0.1944,
-    "lasting": 0.0093,
-    "lasting_z": 0.694,
+    "lasting": 0.0028,
+    "lasting_z": 0.63,
     "momentum": -0.1736,
     "press": 1.0966,
     "press_z": -0.794,
@@ -6340,13 +6342,13 @@
       "video": 22
      },
      "campaign_period": {
-      "ads": 325,
-      "beauty": 82,
-      "image": 147,
+      "ads": 337,
+      "beauty": 73,
+      "image": 149,
       "open": true,
       "record": "complete",
-      "text": 125,
-      "video": 53
+      "text": 130,
+      "video": 58
      }
     }
    },
@@ -8663,9 +8665,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -9856,7 +9858,7 @@
      },
      "campaign_period": {
       "ads": 32,
-      "beauty": 12,
+      "beauty": 6,
       "image": 0,
       "record": "survivors",
       "text": 32,
@@ -10368,7 +10370,7 @@
     "search_video": {
      "show_period": {
       "ads": 44,
-      "beauty": 1,
+      "beauty": 2,
       "image": 0,
       "record": "survivors",
       "text": 44,
@@ -10376,7 +10378,7 @@
      },
      "campaign_period": {
       "ads": 29,
-      "beauty": 0,
+      "beauty": 5,
       "image": 0,
       "record": "survivors",
       "text": 29,
@@ -10729,9 +10731,9 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 122,
-      "beauty": 14,
-      "image": 44,
+      "ads": 129,
+      "beauty": 16,
+      "image": 51,
       "record": "survivors",
       "text": 58,
       "video": 20
@@ -11137,9 +11139,9 @@
       "video": 7
      },
      "campaign_period": {
-      "ads": 85,
+      "ads": 86,
       "beauty": 0,
-      "image": 27,
+      "image": 28,
       "record": "complete",
       "text": 22,
       "video": 36
@@ -11225,10 +11227,10 @@
     }
    },
    "campaigns": {
-    "entries": 6,
+    "entries": 7,
     "by_line": {
      "collection": 3,
-     "other": 3
+     "other": 4
     }
    },
    "advertising": {
@@ -11730,10 +11732,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -13861,9 +13863,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -13987,8 +13990,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -14237,9 +14242,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "accessories": 2,
+     "accessories": 3,
      "collection": 2
     }
    },
@@ -14489,9 +14494,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "accessories": 1
+     "accessories": 1,
+     "jewellery_watches": 1
     }
    },
    "advertising": {
@@ -15049,8 +15055,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "jewellery_watches": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -15454,8 +15462,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
+     "accessories": 1,
      "collection": 1
     }
    },
@@ -16409,11 +16418,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 436,
-      "beauty": 6,
+      "ads": 437,
+      "beauty": 7,
       "image": 129,
       "record": "complete",
-      "text": 258,
+      "text": 259,
       "video": 49
      }
     }
@@ -16814,11 +16823,11 @@
       "video": 1
      },
      "campaign_period": {
-      "ads": 376,
-      "beauty": 6,
-      "image": 178,
+      "ads": 381,
+      "beauty": 7,
+      "image": 180,
       "record": "complete",
-      "text": 129,
+      "text": 132,
       "video": 69
      }
     }
@@ -17155,7 +17164,7 @@
     "search_video": {
      "show_period": {
       "ads": 55,
-      "beauty": 1,
+      "beauty": 0,
       "image": 47,
       "record": "complete",
       "text": 3,
@@ -17685,9 +17694,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -18242,9 +18251,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -18768,8 +18777,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -20198,11 +20209,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 11,
+      "ads": 12,
       "beauty": 2,
       "image": 0,
       "record": "survivors",
-      "text": 11,
+      "text": 12,
       "video": 0
      },
      "campaign_period": {
@@ -20352,7 +20363,7 @@
      },
      "campaign_period": {
       "ads": 6,
-      "beauty": 2,
+      "beauty": 3,
       "image": 0,
       "record": "survivors",
       "text": 6,
@@ -20496,7 +20507,7 @@
      },
      "campaign_period": {
       "ads": 15,
-      "beauty": 4,
+      "beauty": 3,
       "image": 0,
       "record": "survivors",
       "text": 15,
@@ -20640,11 +20651,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 503,
-      "beauty": 51,
+      "ads": 504,
+      "beauty": 53,
       "image": 98,
       "record": "survivors",
-      "text": 315,
+      "text": 316,
       "video": 90
      }
     }
@@ -20895,16 +20906,16 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 120,
-      "beauty": 8,
+      "ads": 121,
+      "beauty": 9,
       "image": 0,
       "record": "partly survivors",
-      "text": 113,
+      "text": 114,
       "video": 7
      },
      "campaign_period": {
       "ads": 79,
-      "beauty": 5,
+      "beauty": 4,
       "image": 43,
       "record": "complete",
       "text": 28,
@@ -21061,12 +21072,12 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 1136,
-      "beauty": 46,
-      "image": 737,
+      "ads": 1141,
+      "beauty": 49,
+      "image": 739,
       "record": "complete",
-      "text": 331,
-      "video": 68
+      "text": 332,
+      "video": 70
      }
     }
    },
@@ -21203,11 +21214,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 17,
+      "ads": 19,
       "beauty": 0,
-      "image": 16,
+      "image": 17,
       "record": "complete",
-      "text": 1,
+      "text": 2,
       "video": 0
      },
      "campaign_period": {
@@ -21642,20 +21653,20 @@
     "search_video": {
      "show_period": {
       "ads": 377,
-      "beauty": 16,
+      "beauty": 19,
       "image": 169,
       "record": "complete",
       "text": 88,
       "video": 120
      },
      "campaign_period": {
-      "ads": 1228,
-      "beauty": 34,
-      "image": 646,
+      "ads": 1261,
+      "beauty": 35,
+      "image": 648,
       "open": true,
       "record": "complete",
-      "text": 130,
-      "video": 452
+      "text": 133,
+      "video": 480
      }
     }
    },
@@ -25076,10 +25087,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
      "collection": 1,
-     "other": 1
+     "other": 3
     }
    },
    "advertising": {
@@ -25089,21 +25100,21 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 99,
-      "beauty": 10,
-      "image": 18,
+      "ads": 103,
+      "beauty": 11,
+      "image": 19,
       "record": "complete",
       "text": 24,
-      "video": 57
+      "video": 60
      },
      "campaign_period": {
-      "ads": 0,
-      "beauty": 0,
+      "ads": 22,
+      "beauty": 8,
       "image": 0,
       "open": true,
       "record": "complete",
       "text": 0,
-      "video": 0
+      "video": 22
      }
     }
    },
@@ -27557,7 +27568,7 @@
      },
      "campaign_period": {
       "ads": 701,
-      "beauty": 101,
+      "beauty": 95,
       "image": 41,
       "record": "survivors",
       "text": 660,
@@ -27683,7 +27694,7 @@
      },
      "campaign_period": {
       "ads": 126,
-      "beauty": 8,
+      "beauty": 7,
       "image": 38,
       "record": "complete",
       "text": 44,
@@ -27939,7 +27950,7 @@
      },
      "campaign_period": {
       "ads": 53,
-      "beauty": 5,
+      "beauty": 4,
       "image": 0,
       "record": "complete",
       "text": 33,
@@ -32527,7 +32538,7 @@
      },
      "campaign_period": {
       "ads": 169,
-      "beauty": 151,
+      "beauty": 152,
       "image": 29,
       "record": "survivors",
       "text": 140,
@@ -32628,7 +32639,7 @@
     "search_video": {
      "show_period": {
       "ads": 120,
-      "beauty": 78,
+      "beauty": 71,
       "image": 1,
       "record": "survivors",
       "text": 119,
@@ -32636,7 +32647,7 @@
      },
      "campaign_period": {
       "ads": 97,
-      "beauty": 81,
+      "beauty": 80,
       "image": 2,
       "record": "survivors",
       "text": 95,
@@ -32743,7 +32754,7 @@
      },
      "campaign_period": {
       "ads": 155,
-      "beauty": 142,
+      "beauty": 141,
       "image": 2,
       "record": "survivors",
       "text": 153,
@@ -32851,7 +32862,7 @@
      },
      "campaign_period": {
       "ads": 163,
-      "beauty": 107,
+      "beauty": 106,
       "image": 5,
       "record": "survivors",
       "text": 158,
@@ -32956,16 +32967,16 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 47,
+      "ads": 48,
       "beauty": 24,
       "image": 0,
       "record": "survivors",
-      "text": 47,
+      "text": 48,
       "video": 0
      },
      "campaign_period": {
       "ads": 378,
-      "beauty": 290,
+      "beauty": 279,
       "image": 80,
       "record": "survivors",
       "text": 295,
@@ -33092,18 +33103,18 @@
     "search_video": {
      "show_period": {
       "ads": 649,
-      "beauty": 567,
+      "beauty": 568,
       "image": 62,
       "record": "partly survivors",
       "text": 580,
       "video": 7
      },
      "campaign_period": {
-      "ads": 658,
+      "ads": 659,
       "beauty": 505,
       "image": 66,
       "record": "complete",
-      "text": 441,
+      "text": 442,
       "video": 151
      }
     }
@@ -33224,18 +33235,18 @@
     "search_video": {
      "show_period": {
       "ads": 241,
-      "beauty": 134,
+      "beauty": 129,
       "image": 10,
       "record": "complete",
       "text": 195,
       "video": 36
      },
      "campaign_period": {
-      "ads": 931,
-      "beauty": 679,
+      "ads": 937,
+      "beauty": 684,
       "image": 41,
       "record": "complete",
-      "text": 654,
+      "text": 660,
       "video": 236
      }
     }
@@ -33319,9 +33330,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
-     "collection": 1,
+     "collection": 3,
      "other": 1
     }
    },
@@ -33332,11 +33343,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 272,
-      "beauty": 247,
+      "ads": 286,
+      "beauty": 232,
       "image": 73,
       "record": "complete",
-      "text": 187,
+      "text": 201,
       "video": 12
      },
      "campaign_period": {
@@ -33463,9 +33474,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "beauty": 2
+     "beauty": 2,
+     "collection": 1
     }
    },
    "advertising": {
@@ -34106,8 +34118,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -34785,8 +34799,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -40171,9 +40187,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 4
+     "collection": 4,
+     "other": 1
     }
    },
    "advertising": {
@@ -47707,7 +47724,7 @@
     "search_video": {
      "show_period": {
       "ads": 131,
-      "beauty": 28,
+      "beauty": 30,
       "image": 0,
       "record": "survivors",
       "text": 131,
@@ -48430,11 +48447,11 @@
       "video": 32
      },
      "campaign_period": {
-      "ads": 548,
-      "beauty": 38,
+      "ads": 549,
+      "beauty": 39,
       "image": 108,
       "record": "survivors",
-      "text": 392,
+      "text": 393,
       "video": 48
      }
     }
@@ -48837,7 +48854,7 @@
    "advertising": {
     "paid_social": {
      "show_period": 0,
-     "campaign_period": 745
+     "campaign_period": 750
     },
     "search_video": {
      "show_period": {
@@ -49071,11 +49088,11 @@
       "video": 9
      },
      "campaign_period": {
-      "ads": 1189,
-      "beauty": 207,
+      "ads": 1191,
+      "beauty": 208,
       "image": 295,
       "record": "complete",
-      "text": 838,
+      "text": 840,
       "video": 56
      }
     }
@@ -49151,23 +49168,24 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 5,
     "by_line": {
-     "collection": 3
+     "collection": 4,
+     "other": 1
     }
    },
    "advertising": {
     "paid_social": {
-     "show_period": 191,
+     "show_period": 194,
      "campaign_period": 0
     },
     "search_video": {
      "show_period": {
-      "ads": 276,
-      "beauty": 59,
+      "ads": 311,
+      "beauty": 53,
       "image": 0,
       "record": "complete",
-      "text": 273,
+      "text": 308,
       "video": 3
      },
      "campaign_period": {
@@ -52805,12 +52823,12 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 167,
-      "beauty": 29,
-      "image": 55,
+      "ads": 175,
+      "beauty": 32,
+      "image": 58,
       "record": "survivors",
-      "text": 78,
-      "video": 34
+      "text": 81,
+      "video": 36
      }
     }
    },
@@ -53082,12 +53100,12 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 6,
-      "beauty": 2,
+      "ads": 7,
+      "beauty": 3,
       "image": 1,
       "record": "survivors",
       "text": 5,
-      "video": 0
+      "video": 1
      },
      "campaign_period": {
       "ads": 5,
@@ -53327,7 +53345,7 @@
      },
      "campaign_period": {
       "ads": 383,
-      "beauty": 213,
+      "beauty": 212,
       "image": 161,
       "record": "survivors",
       "text": 141,
@@ -53753,16 +53771,16 @@
     "search_video": {
      "show_period": {
       "ads": 286,
-      "beauty": 105,
+      "beauty": 107,
       "image": 125,
       "record": "complete",
       "text": 82,
       "video": 79
      },
      "campaign_period": {
-      "ads": 818,
+      "ads": 820,
       "beauty": 407,
-      "image": 342,
+      "image": 344,
       "record": "complete",
       "text": 278,
       "video": 198
@@ -53972,7 +53990,7 @@
     "search_video": {
      "show_period": {
       "ads": 105,
-      "beauty": 51,
+      "beauty": 52,
       "image": 49,
       "record": "complete",
       "text": 23,
@@ -55364,9 +55382,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -56535,9 +56553,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -59692,10 +59710,11 @@
     }
    },
    "campaigns": {
-    "entries": 10,
+    "entries": 11,
     "by_line": {
      "accessories": 1,
-     "collection": 9
+     "collection": 9,
+     "other": 1
     }
    },
    "advertising": {
@@ -61034,11 +61053,11 @@
     }
    },
    "campaigns": {
-    "entries": 7,
+    "entries": 9,
     "by_line": {
      "accessories": 1,
      "capsule": 2,
-     "collection": 3,
+     "collection": 5,
      "other": 1
     }
    },
@@ -61193,9 +61212,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 3,
+     "collection": 4,
      "other": 1
     }
    },
@@ -61473,11 +61492,11 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 6,
     "by_line": {
      "accessories": 1,
      "collection": 3,
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -61757,8 +61776,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -62442,13 +62463,15 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
      "show_period": 0,
-     "campaign_period": 765
+     "campaign_period": 949
     },
     "search_video": {
      "show_period": {
@@ -62461,7 +62484,7 @@
      },
      "campaign_period": {
       "ads": 500,
-      "beauty": 4,
+      "beauty": 3,
       "image": 192,
       "record": "complete",
       "text": 259,
@@ -62668,7 +62691,7 @@
    },
    "advertising": {
     "paid_social": {
-     "show_period": 229,
+     "show_period": 240,
      "campaign_period": 907
     },
     "search_video": {
@@ -66522,7 +66545,7 @@
      },
      "campaign_period": {
       "ads": 138,
-      "beauty": 21,
+      "beauty": 22,
       "image": 0,
       "record": "survivors",
       "text": 138,
@@ -66900,7 +66923,7 @@
     "search_video": {
      "show_period": {
       "ads": 1,
-      "beauty": 1,
+      "beauty": 0,
       "image": 0,
       "record": "survivors",
       "text": 1,
@@ -67321,7 +67344,7 @@
      },
      "campaign_period": {
       "ads": 603,
-      "beauty": 103,
+      "beauty": 104,
       "image": 195,
       "record": "complete",
       "text": 355,
@@ -67526,12 +67549,12 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 158,
-      "beauty": 48,
+      "ads": 170,
+      "beauty": 51,
       "image": 30,
       "record": "complete",
-      "text": 124,
-      "video": 4
+      "text": 130,
+      "video": 10
      },
      "campaign_period": {
       "ads": 0,
@@ -67854,8 +67877,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "beauty": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -68068,9 +68093,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 3,
     "by_line": {
-     "beauty": 1
+     "beauty": 3
     }
    },
    "advertising": {
@@ -70773,9 +70798,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -72305,7 +72331,7 @@
      },
      "campaign_period": {
       "ads": 32,
-      "beauty": 2,
+      "beauty": 3,
       "image": 13,
       "record": "survivors",
       "text": 7,
@@ -72708,7 +72734,7 @@
      },
      "campaign_period": {
       "ads": 124,
-      "beauty": 31,
+      "beauty": 29,
       "image": 1,
       "record": "survivors",
       "text": 116,
@@ -73253,7 +73279,7 @@
     "search_video": {
      "show_period": {
       "ads": 58,
-      "beauty": 19,
+      "beauty": 16,
       "image": 14,
       "record": "complete",
       "text": 30,
@@ -75110,11 +75136,11 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
      "accessories": 1,
      "beauty": 2,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -76097,10 +76123,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
      "beauty": 2,
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -76596,8 +76622,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
+     "accessories": 1,
      "other": 2
     }
    },
@@ -77105,10 +77132,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -77534,9 +77561,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -78045,11 +78072,11 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "beauty": 1,
      "collection": 1,
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -80022,7 +80049,7 @@
      },
      "campaign_period": {
       "ads": 211,
-      "beauty": 82,
+      "beauty": 81,
       "image": 19,
       "record": "survivors",
       "text": 192,
@@ -80170,7 +80197,7 @@
      },
      "campaign_period": {
       "ads": 124,
-      "beauty": 28,
+      "beauty": 26,
       "image": 79,
       "record": "survivors",
       "text": 45,
@@ -80427,11 +80454,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 271,
-      "beauty": 63,
+      "ads": 272,
+      "beauty": 65,
       "image": 66,
       "record": "survivors",
-      "text": 205,
+      "text": 206,
       "video": 0
      }
     }
@@ -80684,19 +80711,19 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 132,
-      "beauty": 30,
+      "ads": 133,
+      "beauty": 31,
       "image": 1,
       "record": "survivors",
-      "text": 131,
+      "text": 132,
       "video": 0
      },
      "campaign_period": {
-      "ads": 1252,
-      "beauty": 375,
+      "ads": 1253,
+      "beauty": 370,
       "image": 47,
       "record": "survivors",
-      "text": 1205,
+      "text": 1206,
       "video": 0
      }
     }
@@ -80845,18 +80872,18 @@
     "search_video": {
      "show_period": {
       "ads": 47,
-      "beauty": 9,
+      "beauty": 7,
       "image": 0,
       "record": "survivors",
       "text": 47,
       "video": 0
      },
      "campaign_period": {
-      "ads": 584,
-      "beauty": 191,
+      "ads": 585,
+      "beauty": 194,
       "image": 25,
       "record": "survivors",
-      "text": 559,
+      "text": 560,
       "video": 0
      }
     }
@@ -81072,11 +81099,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 385,
-      "beauty": 105,
+      "ads": 386,
+      "beauty": 100,
       "image": 61,
       "record": "complete",
-      "text": 300,
+      "text": 301,
       "video": 24
      }
     }
@@ -81169,18 +81196,18 @@
     "search_video": {
      "show_period": {
       "ads": 144,
-      "beauty": 44,
+      "beauty": 47,
       "image": 2,
       "record": "complete",
       "text": 130,
       "video": 12
      },
      "campaign_period": {
-      "ads": 588,
-      "beauty": 177,
+      "ads": 592,
+      "beauty": 168,
       "image": 106,
       "record": "complete",
-      "text": 470,
+      "text": 474,
       "video": 12
      }
     }
@@ -81262,23 +81289,24 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 2,
+     "other": 1
     }
    },
    "advertising": {
     "paid_social": {
-     "show_period": 334,
+     "show_period": 340,
      "campaign_period": 0
     },
     "search_video": {
      "show_period": {
-      "ads": 97,
-      "beauty": 5,
+      "ads": 103,
+      "beauty": 9,
       "image": 12,
       "record": "complete",
-      "text": 82,
+      "text": 88,
       "video": 3
      },
      "campaign_period": {
@@ -83948,7 +83976,7 @@
      },
      "campaign_period": {
       "ads": 19,
-      "beauty": 7,
+      "beauty": 9,
       "image": 0,
       "record": "survivors",
       "text": 19,
@@ -92385,7 +92413,7 @@
      },
      "campaign_period": {
       "ads": 144,
-      "beauty": 51,
+      "beauty": 47,
       "image": 29,
       "record": "complete",
       "text": 109,
@@ -93063,8 +93091,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
+     "beauty": 1,
      "collection": 1
     }
    },
@@ -94112,8 +94141,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
+     "collection": 1,
      "other": 1
     }
    },
@@ -94524,10 +94554,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "collection": 1,
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -97178,8 +97208,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
+     "capsule": 1,
      "collection": 3
     }
    },
@@ -97199,7 +97230,7 @@
      },
      "campaign_period": {
       "ads": 13,
-      "beauty": 1,
+      "beauty": 4,
       "image": 1,
       "record": "complete",
       "text": 12,
@@ -97473,7 +97504,13 @@
    },
    "clothes": {
     "status": "provisional",
-    "runway": null,
+    "runway": {
+     "show": "2026-10-02",
+     "looks": 0,
+     "profile": null,
+     "distinctness": {},
+     "movement": {}
+    },
     "shop_window": {
      "read": 4,
      "worn": 0,
@@ -103030,19 +103067,19 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 392,
-      "beauty": 146,
+      "ads": 393,
+      "beauty": 134,
       "image": 0,
       "record": "survivors",
-      "text": 392,
+      "text": 393,
       "video": 0
      },
      "campaign_period": {
-      "ads": 33,
+      "ads": 34,
       "beauty": 25,
       "image": 0,
       "record": "survivors",
-      "text": 33,
+      "text": 34,
       "video": 0
      }
     }
@@ -103444,7 +103481,7 @@
      },
      "campaign_period": {
       "ads": 129,
-      "beauty": 20,
+      "beauty": 30,
       "image": 33,
       "record": "survivors",
       "text": 91,
@@ -103848,7 +103885,7 @@
      },
      "campaign_period": {
       "ads": 159,
-      "beauty": 34,
+      "beauty": 35,
       "image": 64,
       "record": "complete",
       "text": 85,
@@ -104102,11 +104139,11 @@
     }
    },
    "campaigns": {
-    "entries": 10,
+    "entries": 11,
     "by_line": {
      "beauty": 1,
      "collection": 3,
-     "other": 6
+     "other": 7
     }
    },
    "advertising": {
@@ -104117,18 +104154,18 @@
     "search_video": {
      "show_period": {
       "ads": 42,
-      "beauty": 18,
+      "beauty": 17,
       "image": 7,
       "record": "complete",
       "text": 35,
       "video": 0
      },
      "campaign_period": {
-      "ads": 324,
-      "beauty": 75,
+      "ads": 326,
+      "beauty": 78,
       "image": 33,
       "record": "complete",
-      "text": 291,
+      "text": 293,
       "video": 0
      }
     }
@@ -104383,7 +104420,7 @@
     "search_video": {
      "show_period": {
       "ads": 75,
-      "beauty": 11,
+      "beauty": 12,
       "image": 22,
       "record": "complete",
       "text": 41,
@@ -104833,11 +104870,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 248,
+      "ads": 250,
       "beauty": 3,
       "image": 32,
       "record": "complete",
-      "text": 211,
+      "text": 213,
       "video": 5
      },
      "campaign_period": {
@@ -107352,11 +107389,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 113,
-      "beauty": 19,
+      "ads": 112,
+      "beauty": 21,
       "image": 4,
       "record": "survivors",
-      "text": 109,
+      "text": 108,
       "video": 0
      }
     }
@@ -107918,7 +107955,7 @@
      },
      "campaign_period": {
       "ads": 131,
-      "beauty": 6,
+      "beauty": 5,
       "image": 38,
       "record": "survivors",
       "text": 93,
@@ -108355,18 +108392,18 @@
     "search_video": {
      "show_period": {
       "ads": 36,
-      "beauty": 8,
+      "beauty": 7,
       "image": 0,
       "record": "survivors",
       "text": 36,
       "video": 0
      },
      "campaign_period": {
-      "ads": 213,
-      "beauty": 99,
+      "ads": 214,
+      "beauty": 100,
       "image": 86,
       "record": "survivors",
-      "text": 101,
+      "text": 102,
       "video": 26
      }
     }
@@ -108454,7 +108491,7 @@
     "search_video": {
      "show_period": {
       "ads": 153,
-      "beauty": 14,
+      "beauty": 16,
       "image": 78,
       "record": "partly survivors",
       "text": 29,
@@ -108690,11 +108727,11 @@
       "video": 31
      },
      "campaign_period": {
-      "ads": 732,
-      "beauty": 38,
-      "image": 335,
+      "ads": 734,
+      "beauty": 37,
+      "image": 336,
       "record": "complete",
-      "text": 91,
+      "text": 92,
       "video": 306
      }
     }
@@ -108896,10 +108933,10 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 7,
     "by_line": {
      "collection": 4,
-     "other": 1
+     "other": 3
     }
    },
    "advertising": {
@@ -108909,11 +108946,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 157,
+      "ads": 164,
       "beauty": 0,
-      "image": 68,
+      "image": 71,
       "record": "complete",
-      "text": 16,
+      "text": 20,
       "video": 73
      },
      "campaign_period": {
@@ -110983,9 +111020,9 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 25,
+      "ads": 26,
       "beauty": 10,
-      "image": 4,
+      "image": 5,
       "record": "survivors",
       "text": 19,
       "video": 2
@@ -111248,7 +111285,7 @@
      },
      "campaign_period": {
       "ads": 70,
-      "beauty": 7,
+      "beauty": 8,
       "image": 26,
       "record": "complete",
       "text": 40,
@@ -111599,9 +111636,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -112373,9 +112410,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -112519,10 +112556,11 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "capsule": 1,
+     "collection": 2
     }
    },
    "advertising": {
@@ -112666,8 +112704,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -112809,8 +112849,11 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "accessories": 1,
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -112953,9 +112996,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -113099,8 +113142,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -113243,9 +113288,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -113394,8 +113439,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -113674,8 +113721,11 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 1,
+     "other": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -113818,9 +113868,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -113962,8 +114012,11 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 1,
+     "other": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -114117,9 +114170,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -114817,8 +114870,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -114835,11 +114890,11 @@
       "video": 155
      },
      "campaign_period": {
-      "ads": 3331,
-      "beauty": 79,
+      "ads": 3337,
+      "beauty": 71,
       "image": 1092,
       "record": "complete",
-      "text": 1662,
+      "text": 1668,
       "video": 577
      }
     }
@@ -114928,12 +114983,12 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 617,
-      "beauty": 112,
+      "ads": 627,
+      "beauty": 115,
       "image": 228,
       "record": "complete",
-      "text": 269,
-      "video": 120
+      "text": 274,
+      "video": 125
      },
      "campaign_period": {
       "ads": 0,
@@ -116518,9 +116573,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -116903,9 +116958,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -117384,9 +117439,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
-     "collection": 1,
+     "collection": 3,
      "other": 1
     }
    },
@@ -117651,8 +117706,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
+     "accessories": 1,
      "collection": 4
     }
    },
@@ -120600,8 +120656,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -120902,8 +120960,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 3,
+    "by_line": {
+     "collection": 3
+    }
    },
    "advertising": {
     "paid_social": {
@@ -121091,9 +121151,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 2,
+     "collection": 3,
      "other": 1
     }
    },
@@ -121323,8 +121383,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
+     "collection": 2,
      "other": 2
     }
    },
@@ -121584,10 +121645,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -124586,7 +124647,7 @@
    },
    "advertising": {
     "paid_social": {
-     "show_period": 361,
+     "show_period": 362,
      "campaign_period": 0
     },
     "search_video": {
@@ -124721,8 +124782,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -124968,8 +125031,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -125221,9 +125286,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -126367,9 +126432,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 2
     }
    },
@@ -126383,11 +126448,11 @@
       "record": "before the dataset"
      },
      "campaign_period": {
-      "ads": 975,
+      "ads": 976,
       "beauty": 46,
       "image": 138,
       "record": "survivors",
-      "text": 737,
+      "text": 738,
       "video": 100
      }
     }
@@ -126666,7 +126731,7 @@
      },
      "campaign_period": {
       "ads": 749,
-      "beauty": 19,
+      "beauty": 20,
       "image": 212,
       "record": "partly survivors",
       "text": 508,
@@ -127075,18 +127140,18 @@
     "search_video": {
      "show_period": {
       "ads": 66,
-      "beauty": 0,
+      "beauty": 1,
       "image": 22,
       "record": "complete",
       "text": 16,
       "video": 28
      },
      "campaign_period": {
-      "ads": 777,
+      "ads": 785,
       "beauty": 4,
       "image": 148,
       "record": "complete",
-      "text": 629,
+      "text": 637,
       "video": 0
      }
     }
@@ -130837,7 +130902,7 @@
      },
      "campaign_period": {
       "ads": 2230,
-      "beauty": 291,
+      "beauty": 289,
       "image": 453,
       "record": "complete",
       "text": 1528,
@@ -131365,9 +131430,9 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 268,
+      "ads": 270,
       "beauty": 45,
-      "image": 62,
+      "image": 64,
       "record": "complete",
       "text": 145,
       "video": 61
@@ -132701,10 +132766,11 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 6,
     "by_line": {
      "accessories": 1,
-     "collection": 3
+     "collection": 4,
+     "other": 1
     }
    },
    "advertising": {
@@ -132793,9 +132859,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 7,
     "by_line": {
-     "collection": 2,
+     "collection": 5,
      "other": 2
     }
    },
@@ -133514,8 +133580,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -133897,11 +133965,11 @@
     }
    },
    "campaigns": {
-    "entries": 6,
+    "entries": 7,
     "by_line": {
      "collection": 3,
      "jewellery_watches": 1,
-     "other": 2
+     "other": 3
     }
    },
    "advertising": {
@@ -134360,7 +134428,7 @@
     "search_video": {
      "show_period": {
       "ads": 35,
-      "beauty": 2,
+      "beauty": 1,
       "image": 0,
       "record": "survivors",
       "text": 35,
@@ -134368,7 +134436,7 @@
      },
      "campaign_period": {
       "ads": 1098,
-      "beauty": 79,
+      "beauty": 82,
       "image": 262,
       "record": "survivors",
       "text": 642,
@@ -134649,17 +134717,17 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 103,
+      "ads": 104,
       "beauty": 10,
       "image": 24,
       "record": "survivors",
       "text": 52,
-      "video": 27
+      "video": 28
      },
      "campaign_period": {
-      "ads": 206,
-      "beauty": 9,
-      "image": 38,
+      "ads": 205,
+      "beauty": 15,
+      "image": 37,
       "record": "survivors",
       "text": 142,
       "video": 26
@@ -135076,7 +135144,7 @@
     "search_video": {
      "show_period": {
       "ads": 213,
-      "beauty": 11,
+      "beauty": 7,
       "image": 115,
       "record": "survivors",
       "text": 98,
@@ -135370,7 +135438,7 @@
      },
      "campaign_period": {
       "ads": 543,
-      "beauty": 104,
+      "beauty": 109,
       "image": 336,
       "record": "complete",
       "text": 167,
@@ -135789,11 +135857,11 @@
       "video": 20
      },
      "campaign_period": {
-      "ads": 854,
-      "beauty": 78,
+      "ads": 856,
+      "beauty": 80,
       "image": 532,
       "record": "complete",
-      "text": 150,
+      "text": 152,
       "video": 172
      }
     }
@@ -139668,8 +139736,8 @@
     "heat": 2.1816,
     "heat_z": 2.214,
     "surprise": 0.2101,
-    "lasting": 0.0958,
-    "lasting_z": 1.704,
+    "lasting": 0.0962,
+    "lasting_z": 1.725,
     "momentum": 0.2368,
     "press": 1.5905,
     "press_z": 0.504,
@@ -144450,7 +144518,7 @@
     "search_video": {
      "show_period": {
       "ads": 2,
-      "beauty": 1,
+      "beauty": 2,
       "image": 0,
       "record": "survivors",
       "text": 2,
@@ -144458,7 +144526,7 @@
      },
      "campaign_period": {
       "ads": 49,
-      "beauty": 14,
+      "beauty": 13,
       "image": 6,
       "record": "survivors",
       "text": 39,
@@ -145654,11 +145722,11 @@
     }
    },
    "campaigns": {
-    "entries": 8,
+    "entries": 9,
     "by_line": {
      "accessories": 1,
      "collection": 3,
-     "other": 4
+     "other": 5
     }
    },
    "advertising": {
@@ -149373,9 +149441,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "beauty": 2,
+     "beauty": 3,
      "collection": 1
     }
    },
@@ -149554,9 +149622,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
+     "beauty": 1,
      "collection": 2
     }
    },
@@ -149916,10 +149985,10 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 6,
     "by_line": {
      "accessories": 1,
-     "beauty": 1,
+     "beauty": 2,
      "collection": 3
     }
    },
@@ -150554,9 +150623,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -151324,7 +151393,7 @@
      },
      "campaign_period": {
       "ads": 359,
-      "beauty": 109,
+      "beauty": 110,
       "image": 122,
       "record": "complete",
       "text": 197,
@@ -151894,8 +151963,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -152356,9 +152427,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "collection": 1
     }
    },
    "advertising": {
@@ -152920,8 +152992,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -157131,12 +157205,12 @@
       "video": 19
      },
      "campaign_period": {
-      "ads": 1734,
-      "beauty": 300,
-      "image": 591,
+      "ads": 1753,
+      "beauty": 292,
+      "image": 594,
       "record": "complete",
-      "text": 929,
-      "video": 214
+      "text": 934,
+      "video": 225
      }
     }
    },
@@ -157396,7 +157470,7 @@
     "search_video": {
      "show_period": {
       "ads": 59,
-      "beauty": 6,
+      "beauty": 4,
       "image": 24,
       "record": "complete",
       "text": 31,
@@ -161355,7 +161429,7 @@
      },
      "campaign_period": {
       "ads": 76,
-      "beauty": 34,
+      "beauty": 33,
       "image": 17,
       "record": "survivors",
       "text": 59,
@@ -161631,7 +161705,7 @@
      },
      "campaign_period": {
       "ads": 449,
-      "beauty": 146,
+      "beauty": 152,
       "image": 65,
       "record": "survivors",
       "text": 367,
@@ -161891,7 +161965,7 @@
     "search_video": {
      "show_period": {
       "ads": 23,
-      "beauty": 12,
+      "beauty": 15,
       "image": 1,
       "record": "survivors",
       "text": 21,
@@ -161899,7 +161973,7 @@
      },
      "campaign_period": {
       "ads": 420,
-      "beauty": 244,
+      "beauty": 259,
       "image": 88,
       "record": "survivors",
       "text": 281,
@@ -162114,7 +162188,7 @@
      },
      "campaign_period": {
       "ads": 137,
-      "beauty": 47,
+      "beauty": 58,
       "image": 38,
       "record": "survivors",
       "text": 79,
@@ -162239,11 +162313,11 @@
       "video": 3
      },
      "campaign_period": {
-      "ads": 217,
-      "beauty": 143,
+      "ads": 218,
+      "beauty": 144,
       "image": 116,
       "record": "complete",
-      "text": 83,
+      "text": 84,
       "video": 18
      }
     }
