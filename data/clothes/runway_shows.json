@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -287,7 +287,7 @@
     "from_archive": 1,
     "indexes": 6,
     "links": 0,
-    "opened": 3
+    "opened": 1
    },
    "page": "https://www.balenciaga.com/en-gb/lookbook",
    "tried": 1
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 84,
+   "seconds": 22,
    "small": 0
   },
   "looks": 0,
@@ -7813,21 +7813,36 @@
   "status": "collected"
  },
  "schiaparelli:2026-01-26:couture": {
+  "candidates": [
+   "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
+  ],
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 14,
+    "opened": 1,
+    "pictures": 14,
+    "refused": 0,
+    "small": 8
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 5,
     "links": 0,
     "opened": 2
    },
-   "page": null
+   "page": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
+   "tried": 1
   },
-  "status": "no page"
+  "looks": 6,
+  "status": "collected",
+  "via": "live"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 5,
     "links": 0,
     "opened": 2
