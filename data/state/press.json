@@ -1,5 +1,7 @@
 {
-  "complete": [],
+  "complete": [
+    "issey_miyake"
+  ],
   "covered": {
     "alaia": "2026-11-07",
     "armani": "2026-11-07",
@@ -20,7 +22,7 @@
     "givenchy": "2026-11-07",
     "gucci": "2026-11-09",
     "hermes": "2026-11-08",
-    "issey_miyake": "2026-11-06",
+    "issey_miyake": "2026-11-10",
     "jacquemus": "2026-11-08",
     "jil_sander": "2026-11-08",
     "lanvin": "2026-11-08",
@@ -88,7 +90,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh42934078436",
+  "run": "gh42960512827",
   "span": {},
-  "updated_at": "2026-11-11T01:12:00Z"
+  "updated_at": "2026-11-11T05:06:43Z"
 }
