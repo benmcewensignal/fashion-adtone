@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 5,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 1
+   "tried": 3
   },
   "looks": 0,
   "status": "no looks"
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 133,
    "small": 0
   },
   "looks": 0,
@@ -3785,9 +3785,9 @@
  },
  "givenchy:2015-07-07:couture": {
   "candidates": [
-   "20150905075910 http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
-   "20150905083116 http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
-   "20150905155521 http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection"
+   "20150710115100 http://www.givenchy.com:80/en/collection-accessories-men-fall-2015",
+   "20150718093535 http://www.givenchy.com:80/en/collection-women-fall-winter-2015-show-collection/backstage",
+   "20150718121257 http://www.givenchy.com:80/en/collection-women-fall-winter-2015-show-collection/guests"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -3990,23 +3990,13 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
-   "tried": 1
+   "page": null
   },
   "status": "no page"
  },
