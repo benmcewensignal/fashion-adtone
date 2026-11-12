@@ -2701,7 +2701,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2713,7 +2713,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2725,7 +2725,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2737,7 +2737,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 74,
    "small": 0
   },
   "looks": 0,
@@ -5695,15 +5695,29 @@
   "status": "no page"
  },
  "loewe:2026-03-06:rtw": {
+  "candidates": [],
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 13,
+    "opened": 1,
+    "pictures": 13,
+    "refused": 0,
+    "small": 3
+   },
    "indexes": {
+    "from_archive": 4,
     "indexes": 4,
     "links": 0,
     "opened": 1
    },
-   "page": null
+   "page": "https://www.loewe.com/usa/en/pd/stories-collection/fw26-campaign.html",
+   "tried": 1
   },
-  "status": "no page"
+  "looks": 10,
+  "status": "collected",
+  "via": "live"
  },
  "loewe:2026-10-02:rtw": {
   "candidates": [],
