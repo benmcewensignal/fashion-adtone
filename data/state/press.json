@@ -1,6 +1,7 @@
 {
   "complete": [
-    "armani"
+    "armani",
+    "moncler"
   ],
   "covered": {
     "alaia": "2026-11-10",
@@ -33,7 +34,7 @@
     "max_mara": "2026-11-10",
     "mcqueen": "2026-11-08",
     "miu_miu": "2026-11-08",
-    "moncler": "2026-11-07",
+    "moncler": "2026-11-11",
     "prada": "2026-11-09",
     "saint_laurent": "2026-11-09",
     "schiaparelli": "2026-11-08",
@@ -90,7 +91,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh43130011470",
+  "run": "gh43156055941",
   "span": {},
-  "updated_at": "2026-11-12T01:14:25Z"
+  "updated_at": "2026-11-12T05:02:44Z"
 }
