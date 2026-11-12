@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 157,
+   "seconds": 159,
    "small": 0
   },
   "looks": 0,
@@ -3990,13 +3990,23 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
+   "tried": 1
   },
   "status": "no page"
  },
@@ -7828,35 +7838,37 @@
  },
  "schiaparelli:2026-01-26:couture": {
   "candidates": [
+   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
+   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
   ],
   "live": {
    "diag": {
     "cut": false,
     "duplicates": 0,
-    "fetched": 14,
+    "fetched": 13,
     "opened": 1,
-    "pictures": 14,
+    "pictures": 13,
     "refused": 0,
     "small": 8
    },
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 3,
     "indexes": 3,
     "links": 0,
     "opened": 2
    },
-   "page": "https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1",
+   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
    "tried": 1
   },
-  "looks": 6,
+  "looks": 5,
   "status": "collected",
   "via": "live"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 3,
     "indexes": 3,
     "links": 0,
     "opened": 2
