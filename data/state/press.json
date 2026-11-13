@@ -1,5 +1,6 @@
 {
   "complete": [
+    "hermes",
     "jil_sander"
   ],
   "covered": {
@@ -21,7 +22,7 @@
     "ferragamo": "2026-11-11",
     "givenchy": "2026-11-10",
     "gucci": "2026-11-09",
-    "hermes": "2026-11-08",
+    "hermes": "2026-11-12",
     "issey_miyake": "2026-11-10",
     "jacquemus": "2026-11-08",
     "jil_sander": "2026-11-12",
@@ -90,7 +91,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh43366731910",
+  "run": "gh43394668070",
   "span": {},
-  "updated_at": "2026-11-13T05:05:29Z"
+  "updated_at": "2026-11-13T09:09:46Z"
 }
