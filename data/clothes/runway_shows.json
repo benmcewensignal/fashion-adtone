@@ -2186,7 +2186,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2223,7 +2223,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 41,
+   "seconds": 206,
    "small": 0
   },
   "looks": 0,
@@ -4000,13 +4000,23 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
+   "tried": 1
   },
   "status": "no page"
  },
@@ -4596,19 +4606,19 @@
    "captures_tried": 1,
    "cut": false,
    "duplicates": 0,
-   "failed": 1,
-   "fetched": 0,
-   "from_live": 0,
+   "failed": 0,
+   "fetched": 17,
+   "from_live": 17,
    "from_src": 0,
-   "opened": 0,
+   "opened": 1,
    "pages": 1,
-   "pictures": 0,
+   "pictures": 17,
    "refused": 0,
-   "seconds": 41,
-   "small": 0
+   "seconds": 314,
+   "small": 17
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "hermes:2022-06-25:men": {
   "candidates": [
