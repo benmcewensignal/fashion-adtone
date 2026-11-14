@@ -1,9 +1,13 @@
 {
   "complete": [
     "balmain",
+    "chanel",
+    "dior",
     "jacquemus",
+    "lanvin",
     "mcqueen",
     "schiaparelli",
+    "stella_mccartney",
     "the_row"
   ],
   "covered": {
@@ -15,10 +19,10 @@
     "brunello_cucinelli": "2026-11-10",
     "burberry": "2026-11-12",
     "celine": "2026-11-11",
-    "chanel": "2026-11-09",
+    "chanel": "2026-11-13",
     "chloe": "2026-11-10",
     "comme_des_garcons": "2026-11-09",
-    "dior": "2026-11-09",
+    "dior": "2026-11-13",
     "dolce_gabbana": "2026-11-10",
     "dries_van_noten": "2026-11-12",
     "fendi": "2026-11-11",
@@ -29,7 +33,7 @@
     "issey_miyake": "2026-11-10",
     "jacquemus": "2026-11-13",
     "jil_sander": "2026-11-12",
-    "lanvin": "2026-11-08",
+    "lanvin": "2026-11-13",
     "loewe": "2026-11-10",
     "loro_piana": "2026-11-10",
     "louis_vuitton": "2026-11-09",
@@ -41,7 +45,7 @@
     "prada": "2026-11-09",
     "saint_laurent": "2026-11-09",
     "schiaparelli": "2026-11-13",
-    "stella_mccartney": "2026-11-08",
+    "stella_mccartney": "2026-11-13",
     "the_row": "2026-11-13",
     "tom_ford": "2026-11-10",
     "valentino": "2026-11-09",
@@ -94,7 +98,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh43576671337",
+  "run": "gh43595744469",
   "span": {},
-  "updated_at": "2026-11-14T09:17:51Z"
+  "updated_at": "2026-11-14T13:12:15Z"
 }
