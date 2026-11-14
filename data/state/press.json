@@ -1,11 +1,5 @@
 {
-  "complete": [
-    "burberry",
-    "dries_van_noten",
-    "hermes",
-    "jil_sander",
-    "miu_miu"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-11-10",
     "armani": "2026-11-11",
@@ -48,7 +42,7 @@
     "versace": "2026-11-10",
     "zegna": "2026-11-10"
   },
-  "end": "2026-11-12",
+  "end": "2026-11-13",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -94,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh43503233111",
+  "run": "gh43536310300",
   "span": {},
-  "updated_at": "2026-11-13T21:00:49Z"
+  "updated_at": "2026-11-14T01:08:54Z"
 }
