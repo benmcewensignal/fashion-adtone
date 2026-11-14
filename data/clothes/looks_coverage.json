@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T04:24:54Z",
+ "generated_at": "2026-11-14T07:23:52Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "ConnectionError"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "ConnectionError"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1086,16 +1086,13 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-13",
-     "ts": "20260720074521",
-     "score": 3.12
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ReadTimeout"
+   }
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1563,7 +1560,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1582,7 +1579,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 503"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2361,7 +2358,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "ReadTimeout"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2378,7 +2375,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2761,10 +2758,16 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": [],
+   "candidates": [
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collections/show-fall-winter-2015-16.html?WT.mc_id=FA_en_WW_20150907_15KCollection&WT.mc_t=sma",
+     "ts": "20150910235351",
+     "score": 4.62
+    }
+   ],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2827,10 +2830,16 @@
    "date": "2016-07-05",
    "season": "2016 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": [],
+   "candidates": [
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collections/fall-winter-2016-17-eyewear-collection.html?",
+     "ts": "20160828112445",
+     "score": 3.62
+    }
+   ],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2862,10 +2871,16 @@
    "date": "2017-01-24",
    "season": "2017 SS couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": [],
+   "candidates": [
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2017.html",
+     "ts": "20170515214624",
+     "score": 4.62
+    }
+   ],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -2938,10 +2953,26 @@
    "date": "2018-01-23",
    "season": "2018 SS couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": [],
+   "candidates": [
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.0.html",
+     "ts": "20180323181352",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.1.html",
+     "ts": "20180323181357",
+     "score": 4.62
+    },
+    {
+     "url": "http://www.chanel.com:80/en_WW/fashion/collection/show-spring-summer-2018.d.slideshow.2.html",
+     "ts": "20180323181402",
+     "score": 4.62
+    }
+   ],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -3030,10 +3061,26 @@
    "date": "2019-07-02",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": [],
+   "candidates": [
+    {
+     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n10.html",
+     "ts": "20190822162233",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n11.html",
+     "ts": "20190817134556",
+     "score": 7.62
+    },
+    {
+     "url": "https://www.chanel.com/en_WW/fashion/collection/fall-winter-2019-20/the-looks/look-n13.html",
+     "ts": "20190821012058",
+     "score": 7.62
+    }
+   ],
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
     "www.chanel.com/gb/haute-couture/"
@@ -3612,7 +3659,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5863,7 +5910,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 503"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -5881,7 +5928,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "HTTP 503"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6654,7 +6701,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "HTTP 503"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -6667,7 +6714,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -9849,16 +9896,10 @@
    "date": "2019-03-02",
    "season": "2019 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/177946-men-fashion-show-autumn-winter-19/",
-     "ts": "20190327070800",
-     "score": 3.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2019-06-22:men": {
    "house": "hermes",
@@ -9913,16 +9954,10 @@
    "date": "2020-02-29",
    "season": "2020 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/men-fall-winter-2020-runway-show/",
-     "ts": "20200314003109",
-     "score": 5.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2020-10-03:rtw": {
    "house": "hermes",
@@ -9961,16 +9996,10 @@
    "date": "2021-06-26",
    "season": "2022 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/us/en/story/289994-women-fashion-show-spring-summer-22/",
-     "ts": "20211004141424",
-     "score": 3.94
-    }
-   ]
+   "candidates": []
   },
   "hermes:2021-10-02:rtw": {
    "house": "hermes",
@@ -10059,11 +10088,6 @@
      "url": "https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/",
      "ts": "20230119054321",
      "score": 8.94
-    },
-    {
-     "url": "https://www.hermes.com/us/en/story/315186-women-fall-winter-2023-runway-show/",
-     "ts": "20230301100418",
-     "score": 3.94
     }
    ]
   },
@@ -10104,16 +10128,10 @@
    "date": "2023-09-30",
    "season": "2024 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.hermes.com/jp/ja/content/321439-men-spring-summer-2024-runway-show/",
-     "ts": "20240105002127",
-     "score": 3.0
-    }
-   ]
+   "candidates": []
   },
   "hermes:2024-01-20:men": {
    "house": "hermes",
@@ -17089,7 +17107,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ConnectionError"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -18442,14 +18460,14 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 474
+   "pages": 19
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 0
+   "pages": 27
   },
   "chanel": {
    "prefixes": [
@@ -18458,7 +18476,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 0
+   "pages": 2318
   },
   "dior": {
    "prefixes": [
@@ -18468,7 +18486,7 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 188
+   "pages": 152
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -18476,7 +18494,7 @@
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/"
    ],
-   "pages": 0
+   "pages": 2283
   },
   "dries_van_noten": {
    "prefixes": [
@@ -18701,7 +18719,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 494
+   "pages": 334
   },
   "schiaparelli": {
    "prefixes": [
@@ -18709,7 +18727,7 @@
     "www.schiaparelli.com/en/haute-couture/",
     "schiaparelli.com/en/collections/"
    ],
-   "pages": 5078
+   "pages": 2539
   },
   "lanvin": {
    "prefixes": [
@@ -18729,7 +18747,7 @@
     "www.stellamccartney.com/fi/en/women/",
     "www.stellamccartney.com/fi/en/collections/"
    ],
-   "pages": 2174
+   "pages": 2165
   },
   "issey_miyake": {
    "prefixes": [
@@ -18742,9 +18760,9 @@
  "summary": {
   "by_status": {
    "found": 535,
-   "index failed": 192,
+   "index failed": 193,
    "none": 390,
-   "partial": 71
+   "partial": 70
   },
   "by_house": {
    "alaia": {
@@ -18757,7 +18775,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 18
+    "found": 17
    },
    "balmain": {
     "shows": 36,
@@ -18781,7 +18799,7 @@
    },
    "chanel": {
     "shows": 47,
-    "found": 35
+    "found": 40
    },
    "chloe": {
     "shows": 24,
@@ -18821,7 +18839,7 @@
    },
    "hermes": {
     "shows": 44,
-    "found": 34
+    "found": 30
    },
    "issey_miyake": {
     "shows": 47,
@@ -18911,19 +18929,19 @@
   "by_year": {
    "2015": {
     "shows": 61,
-    "found": 27
+    "found": 28
    },
    "2016": {
     "shows": 112,
-    "found": 53
+    "found": 54
    },
    "2017": {
     "shows": 107,
-    "found": 50
+    "found": 51
    },
    "2018": {
     "shows": 104,
-    "found": 28
+    "found": 29
    },
    "2019": {
     "shows": 100,
@@ -18931,7 +18949,7 @@
    },
    "2020": {
     "shows": 98,
-    "found": 40
+    "found": 39
    },
    "2021": {
     "shows": 64,
@@ -18939,7 +18957,7 @@
    },
    "2022": {
     "shows": 91,
-    "found": 48
+    "found": 47
    },
    "2023": {
     "shows": 101,
@@ -18947,7 +18965,7 @@
    },
    "2024": {
     "shows": 103,
-    "found": 60
+    "found": 59
    },
    "2025": {
     "shows": 93,
@@ -18955,7 +18973,7 @@
    },
    "2026": {
     "shows": 109,
-    "found": 49
+    "found": 48
    },
    "2027": {
     "shows": 45,

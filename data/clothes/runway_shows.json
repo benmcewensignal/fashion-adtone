@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 41,
    "small": 0
   },
   "looks": 0,
@@ -4594,7 +4594,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 216,
    "small": 0
   },
   "looks": 0,
@@ -4623,23 +4623,22 @@
  },
  "hermes:2023-01-21:men": {
   "candidates": [
-   "20230119054321 https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/",
-   "20230301100418 https://www.hermes.com/us/en/story/315186-women-fall-winter-2023-runway-show/"
+   "20230119054321 https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/"
   ],
   "diag": {
    "captures_tried": 3,
    "cut": false,
    "duplicates": 0,
-   "failed": 1,
-   "fetched": 80,
-   "from_live": 78,
+   "failed": 2,
+   "fetched": 40,
+   "from_live": 38,
    "from_src": 0,
-   "opened": 2,
+   "opened": 1,
    "pages": 1,
-   "pictures": 123,
-   "refused": 2,
-   "seconds": 1550,
-   "small": 78
+   "pictures": 63,
+   "refused": 1,
+   "seconds": 832,
+   "small": 39
   },
   "looks": 0,
   "status": "no looks"
