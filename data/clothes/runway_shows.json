@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 2,
+    "indexes": 1,
     "links": 0,
     "opened": 1
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 2,
+    "indexes": 1,
     "links": 0,
     "opened": 1
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 2,
+    "indexes": 1,
     "links": 0,
     "opened": 1
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 2,
+    "indexes": 1,
     "links": 0,
     "opened": 1
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 2,
+    "indexes": 1,
     "links": 0,
     "opened": 1
    },
@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 1,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 3
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -2186,7 +2186,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2223,7 +2223,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2701,7 +2701,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2713,7 +2713,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2725,7 +2725,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2737,7 +2737,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -4407,8 +4407,11 @@
   "status": "no looks"
  },
  "hermes:2019-03-02:rtw": {
+  "candidates": [
+   "20190327070800 https://www.hermes.com/us/en/story/177946-men-fashion-show-autumn-winter-19/"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "hermes:2019-06-22:men": {
   "candidates": [
@@ -4434,8 +4437,23 @@
  },
  "hermes:2019-09-28:rtw": {
   "candidates": [
-   "20191207160516 https://www.hermes.com/us/en/story/225281-women-fashion-show-spring-summer-20/?utm_campaign=PAPF_PE20_Social_WW&utm_source=Twitter&utm_medium=Social&utm_content=ORGANIC"
+   "20191018155506 https://www.hermes.com/us/en/story/225281-women-fashion-show-spring-summer-20/"
   ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 2,
+   "fetched": 40,
+   "from_live": 18,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 42,
+   "refused": 22,
+   "seconds": 801,
+   "small": 18
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -4462,8 +4480,11 @@
   "status": "no looks"
  },
  "hermes:2020-02-29:rtw": {
+  "candidates": [
+   "20200314003109 https://www.hermes.com/us/en/story/men-fall-winter-2020-runway-show/"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "hermes:2020-10-03:rtw": {
   "candidates": [
@@ -4509,8 +4530,11 @@
   "status": "no looks"
  },
  "hermes:2021-06-26:men": {
+  "candidates": [
+   "20211004141424 https://www.hermes.com/us/en/story/289994-women-fashion-show-spring-summer-22/"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "hermes:2021-10-02:rtw": {
   "candidates": [
@@ -4556,10 +4580,25 @@
  },
  "hermes:2022-03-05:rtw": {
   "candidates": [
-   "20220316100930 https://www.hermes.com/us/en/story/298408-women-autumn-winter-2022-runway-show/?utm_campaign=PAPF_AH22_Display_US&utm_source=TheCut&utm_medium=Display&hymnal_variant=02859a167ed8d11249d2295b5bdd1294"
+   "20220313210058 https://www.hermes.com/us/en/story/298408-women-autumn-winter-2022-runway-show/"
   ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 1,
+   "fetched": 0,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 0,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "seconds": 40,
+   "small": 0
+  },
   "looks": 0,
-  "status": "no looks"
+  "status": "unread"
  },
  "hermes:2022-06-25:men": {
   "candidates": [
@@ -4584,8 +4623,24 @@
  },
  "hermes:2023-01-21:men": {
   "candidates": [
-   "20230121135329 https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/?utm_campaign=PAPH_AH23_Social_WW&utm_source=&utm_medium=Social"
+   "20230119054321 https://www.hermes.com/us/en/story/313420-men-winter-2023-runway-show/",
+   "20230301100418 https://www.hermes.com/us/en/story/315186-women-fall-winter-2023-runway-show/"
   ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 1,
+   "fetched": 80,
+   "from_live": 78,
+   "from_src": 0,
+   "opened": 2,
+   "pages": 1,
+   "pictures": 123,
+   "refused": 2,
+   "seconds": 1550,
+   "small": 78
+  },
   "looks": 0,
   "status": "no looks"
  },
@@ -4613,8 +4668,11 @@
   "status": "collected"
  },
  "hermes:2023-09-30:rtw": {
+  "candidates": [
+   "20240105002127 https://www.hermes.com/jp/ja/content/321439-men-spring-summer-2024-runway-show/"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "hermes:2024-01-20:men": {
   "candidates": [
@@ -7827,38 +7885,21 @@
   "status": "collected"
  },
  "schiaparelli:2026-01-26:couture": {
-  "candidates": [
-   "20260128173650 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-27",
-   "20260129192029 https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-   "20260209233119 https://schiaparelli.com/en/pages/looks/pret-a-porter-printemps-ete-2026-look1"
-  ],
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 13,
-    "opened": 1,
-    "pictures": 13,
-    "refused": 0,
-    "small": 8
-   },
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 2
    },
-   "page": "https://schiaparelli.com/en/pages/looks/hc-printemps-ete-2026-look-13",
-   "tried": 1
+   "page": null
   },
-  "looks": 5,
-  "status": "collected",
-  "via": "live"
+  "status": "no page"
  },
  "schiaparelli:2026-03-05:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 3,
+    "from_archive": 0,
     "indexes": 3,
     "links": 0,
     "opened": 2
