@@ -2186,7 +2186,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2223,7 +2223,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 42,
    "small": 0
   },
   "looks": 0,
@@ -6898,6 +6898,28 @@
   "looks": 20,
   "status": "collected"
  },
+ "miu_miu:2025-03-11:rtw": {
+  "candidates": [
+   "20250614073406 https://www.miumiu.com/us/en/miumiu-club/fashion-shows/fw25-fashion-show.html?clickref=1100lAtF6teW"
+  ],
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 1,
+   "fetched": 0,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 0,
+   "pages": 1,
+   "pictures": 0,
+   "refused": 0,
+   "seconds": 41,
+   "small": 0
+  },
+  "looks": 0,
+  "status": "unread"
+ },
  "miu_miu:2025-10-06:rtw": {
   "looks": 8,
   "status": "collected"
@@ -7453,12 +7475,23 @@
    "small": 0
   },
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "indexes": 4,
+    "from_archive": 2,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.prada.com/it/it/pradasphere/fashion-shows/2026/fw-womenswear.html",
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -7466,7 +7499,8 @@
  "prada:2026-06-21:men": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 2,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
@@ -7477,7 +7511,8 @@
  "prada:2026-09-22:rtw": {
   "live": {
    "indexes": {
-    "indexes": 4,
+    "from_archive": 2,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
@@ -7602,8 +7637,11 @@
   "status": "collected"
  },
  "saint_laurent:2023-01-17:men": {
+  "candidates": [
+   "20230330045335 https://www.ysl.com/en-gb/collections/women-s-winter-23"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "saint_laurent:2023-02-28:rtw": {
   "looks": 6,
@@ -7629,6 +7667,29 @@
   "looks": 0,
   "status": "no fitting page"
  },
+ "saint_laurent:2025-03-11:rtw": {
+  "candidates": [
+   "20250318042618 https://www.ysl.com/en-gb/collections/la-maison-women-winter-25-show",
+   "20250707194152 https://www.ysl.com/en-gb/collections/page-women-fall-25-digital"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 2,
+   "fetched": 0,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 0,
+   "pages": 2,
+   "pictures": 0,
+   "refused": 0,
+   "seconds": 81,
+   "small": 0
+  },
+  "looks": 0,
+  "status": "unread"
+ },
  "saint_laurent:2025-06-24:men": {
   "looks": 20,
   "status": "collected"
@@ -7646,16 +7707,11 @@
   "status": "collected"
  },
  "saint_laurent:2026-06-23:men": {
-  "live": {
-   "indexes": {
-    "indexes": 6,
-    "links": 0,
-    "opened": 0
-   },
-   "page": null
-  },
+  "candidates": [
+   "20261006173911 https://www.ysl.com/en-us/collections/la-maison-women-summer-27-show"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "saint_laurent:2026-09-29:rtw": {
   "candidates": [
