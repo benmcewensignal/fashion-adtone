@@ -2186,7 +2186,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 0
+    "opened": 3
    },
    "page": null
   },
@@ -2223,7 +2223,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 0
+    "opened": 3
    },
    "page": null
   },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 47,
+   "seconds": 40,
    "small": 0
   },
   "looks": 0,
@@ -5892,8 +5892,7 @@
  },
  "louis_vuitton:2021-01-21:men": {
   "candidates": [
-   "20210121110914 https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2021-show-paris",
-   "20210311095912 https://uk.louisvuitton.com/eng-gb/magazine/articles/women-fall-winter-2021-show-paris"
+   "20210121110914 https://uk.louisvuitton.com/eng-gb/magazine/articles/men-fall-winter-2021-show-paris"
   ],
   "diag": {
    "captures_tried": 3,
@@ -5907,7 +5906,7 @@
    "pages": 1,
    "pictures": 97,
    "refused": 40,
-   "seconds": 721,
+   "seconds": 785,
    "small": 0
   },
   "looks": 0,
@@ -6195,15 +6194,15 @@
    "captures_tried": 1,
    "cut": false,
    "duplicates": 0,
-   "failed": 1,
-   "fetched": 0,
+   "failed": 0,
+   "fetched": 9,
    "from_live": 0,
    "from_src": 0,
-   "opened": 0,
+   "opened": 1,
    "pages": 1,
-   "pictures": 0,
-   "refused": 0,
-   "seconds": 46,
+   "pictures": 9,
+   "refused": 9,
+   "seconds": 263,
    "small": 0
   },
   "live": {
@@ -6226,7 +6225,7 @@
    "tried": 1
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "louis_vuitton:2026-10-06:rtw": {
   "live": {
