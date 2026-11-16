@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 5,
+    "from_archive": 1,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 3
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -2186,7 +2186,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2223,7 +2223,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 21,
    "small": 0
   },
   "looks": 0,
@@ -6284,12 +6284,22 @@
   "status": "no looks"
  },
  "margiela:2017-01-25:couture": {
+  "candidates": [
+   "20170408033641 https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-01-0",
+   "20170408144412 https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-02",
+   "20170415021937 https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-03"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "margiela:2017-03-01:rtw": {
+  "candidates": [
+   "20170405003844 https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-03",
+   "20170406051920 https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-02",
+   "20170408144135 https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-01"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "margiela:2017-07-05:couture": {
   "candidates": [
