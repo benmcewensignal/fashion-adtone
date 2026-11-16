@@ -285,9 +285,9 @@
    },
    "indexes": {
     "from_archive": 1,
-    "indexes": 6,
+    "indexes": 4,
     "links": 0,
-    "opened": 3
+    "opened": 1
    },
    "page": "https://www.balenciaga.com/en-gb/lookbook",
    "tried": 1
@@ -2701,7 +2701,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2713,7 +2713,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2725,7 +2725,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -2737,7 +2737,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 3,
+    "indexes": 4,
     "links": 0,
     "opened": 0
    },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 56,
+   "seconds": 41,
    "small": 0
   },
   "looks": 0,
@@ -6914,7 +6914,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 74,
+   "seconds": 41,
    "small": 0
   },
   "looks": 0,
@@ -8644,31 +8644,6 @@
  "valentino:2025-10-05:rtw": {
   "looks": 20,
   "status": "collected"
- },
- "valentino:2026-01-28:couture": {
-  "candidates": [],
-  "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 4,
-    "fetched": 40,
-    "opened": 1,
-    "pictures": 300,
-    "refused": 0,
-    "small": 10
-   },
-   "indexes": {
-    "from_archive": 2,
-    "indexes": 4,
-    "links": 0,
-    "opened": 4
-   },
-   "page": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
-   "tried": 1
-  },
-  "looks": 20,
-  "status": "collected",
-  "via": "live"
  },
  "valentino:2026-03-12:rtw": {
   "looks": 20,
