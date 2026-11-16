@@ -558,7 +558,7 @@
       "refused": []
     },
     "fendi": {
-      "checked": "2026-10-17",
+      "checked": "2026-11-16",
       "keep": [
         {
           "id": "Fendi",
@@ -585,6 +585,66 @@
         {
           "id": "fendixi",
           "name": "fendixi"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "    Foivos P Paradeisis",
+          "name": "    Foivos P Paradeisis"
+        },
+        {
+          "id": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊",
+          "name": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊"
+        },
+        {
+          "id": " A2A Energia S.P.A",
+          "name": " A2A Energia S.P.A"
+        },
+        {
+          "id": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " AGCO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " ALSHAYA POLAND SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " American Society of Civil Engineers",
+          "name": " American Society of Civil Engineers"
+        },
+        {
+          "id": " ATRYOS DMCC LIMITED",
+          "name": " ATRYOS DMCC LIMITED"
+        },
+        {
+          "id": " AVTENTA, d.o.o.",
+          "name": " AVTENTA, d.o.o."
+        },
+        {
+          "id": " Bianchessi S.r.l.",
+          "name": " Bianchessi S.r.l."
+        },
+        {
+          "id": " Blinde Bonde & Babe AS",
+          "name": " Blinde Bonde & Babe AS"
+        },
+        {
+          "id": " BODY HEALTH REHABILITATION CENTER E.E.",
+          "name": " BODY HEALTH REHABILITATION CENTER E.E."
+        },
+        {
+          "id": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " BRO INVESTMENTS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " BS DACH-TECHNIK SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "name": " BS DACH-TECHNIK SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ"
+        },
+        {
+          "id": " Cat Crack",
+          "name": " Cat Crack"
         }
       ]
     },
@@ -1268,12 +1328,12 @@
   },
   "country_form": null,
   "notes": [
-    "Fendi DE 2026-10-16: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Fendi IT 2026-10-16: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Fendi DE 2026-10-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi IT 2026-10-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 38,
-  "run": "gh43660196954",
+  "requests": 40,
+  "run": "gh43783178066",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1289,7 +1349,7 @@
     "dior": "2026-11-05",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
-    "fendi": "2026-11-15",
+    "fendi": "2026-11-16",
     "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-11-05",
@@ -1369,5 +1429,5 @@
     "pin_id": "str"
   },
   "stopped": null,
-  "updated_at": "2026-11-15T01:15:00Z"
+  "updated_at": "2026-11-16T01:06:44Z"
 }
