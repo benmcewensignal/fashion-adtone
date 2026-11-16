@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T10:28:47Z",
+ "generated_at": "2026-11-16T13:45:58Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ConnectTimeout"
+    "armani.com": "ConnectionError"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -763,7 +763,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 504"
+    "balenciaga.com": "ConnectionError"
    }
   },
   "balenciaga:2018-09-30:rtw": {
@@ -1544,7 +1544,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ConnectTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1579,7 +1579,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2358,7 +2358,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3072,7 +3072,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "HTTP 503"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5860,7 +5860,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "ConnectionError"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6651,7 +6651,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -7298,10 +7298,26 @@
    "date": "2015-07-08",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-03.html",
+     "ts": "20151026035536",
+     "score": 13.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-04.html",
+     "ts": "20151104010734",
+     "score": 13.81
+    },
+    {
+     "url": "http://www.fendi.com:80/us/woman/fall-winter-2015-16/fashion-show/looks/look-05.html",
+     "ts": "20151104010809",
+     "score": 13.81
+    }
+   ]
   },
   "fendi:2015-09-24:rtw": {
    "house": "fendi",
@@ -7436,10 +7452,16 @@
    "date": "2017-07-05",
    "season": "2017 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.fendi.com/us/woman/collections/fall-winter-2017-18",
+     "ts": "20170807154131",
+     "score": 2.81
+    }
+   ]
   },
   "fendi:2017-09-21:rtw": {
    "house": "fendi",
@@ -7761,7 +7783,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ConnectionError"
+    "fendi.com": "ReadTimeout"
    }
   },
   "fendi:2022-09-21:rtw": {
@@ -8575,13 +8597,21 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "givenchy.com": "ConnectionError"
-   }
+   "pages": 10,
+   "candidates": [
+    {
+     "url": "http://www.givenchy.com:80/en/collection-accessories-men-fall-2015",
+     "ts": "20150710115100",
+     "score": 2.62
+    },
+    {
+     "url": "http://www.givenchy.com:80/en/collection-accessories-men-fall-2015/inspiration",
+     "ts": "20150710115123",
+     "score": 2.62
+    }
+   ]
   },
   "givenchy:2015-09-12:rtw": {
    "house": "givenchy",
@@ -9575,7 +9605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "ConnectionError"
+    "gucci.com": "HTTP 503"
    }
   },
   "hermes:2015-01-24:men": {
@@ -11199,10 +11229,16 @@
    "date": "2016-01-16",
    "season": "2016 AW men",
    "category": "men",
-   "status": "partial",
-   "via": "section",
+   "status": "found",
+   "via": "window",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "http://www.jilsander.com:80/en/man/fall-winter-2016-men",
+     "ts": "20160121162044",
+     "score": 3.62
+    }
+   ]
   },
   "jil_sander:2016-02-27:rtw": {
    "house": "jil_sander",
@@ -11251,13 +11287,10 @@
    "date": "2017-02-25",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "none",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "jilsander.com": "ConnectionError"
-   }
+   "pages": 3,
+   "candidates": []
   },
   "jil_sander:2017-09-23:rtw": {
    "house": "jil_sander",
@@ -11380,13 +11413,16 @@
    "date": "2021-09-22",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "jilsander.com": "ConnectionError"
-   }
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.jilsander.com/en-se/spring%2Fsummer-2022-men%27s-collection/project57A.html",
+     "ts": "20210925183653",
+     "score": 0.62
+    }
+   ]
   },
   "jil_sander:2022-01-21:men": {
    "house": "jil_sander",
@@ -17321,7 +17357,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18748,18 +18784,16 @@
     "www.balenciaga.com/gb/women/fashionshow/",
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
-    "www.balenciaga.com/gb/men/fashionshow/",
-    "www.balenciaga.com/en-fi/all-collections/",
-    "www.balenciaga.com/en-fi/balenciaga-show-music/"
+    "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 483
+   "pages": 479
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 13
+   "pages": 27
   },
   "chanel": {
    "prefixes": [
@@ -18768,7 +18802,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2381
+   "pages": 375
   },
   "dior": {
    "prefixes": [
@@ -18778,7 +18812,7 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 188
+   "pages": 86
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -18806,7 +18840,7 @@
     "www.fendi.com/us/woman/",
     "www.fendi.com/qa/woman/collections/"
    ],
-   "pages": 0
+   "pages": 6728
   },
   "givenchy": {
    "prefixes": [
@@ -18815,7 +18849,7 @@
     "www.givenchy.com/gb/en/",
     "www.givenchy.com/apac/en/cm/explore/collections/"
    ],
-   "pages": 0
+   "pages": 13
   },
   "jil_sander": {
    "prefixes": [
@@ -18833,14 +18867,14 @@
     "www.hermes.com/fi/en/content/",
     "www.hermes.com/us/en/content/"
    ],
-   "pages": 864
+   "pages": 242
   },
   "gucci": {
    "prefixes": [
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/"
    ],
-   "pages": 0
+   "pages": 93
   },
   "loewe": {
    "prefixes": [
@@ -18995,7 +19029,7 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/"
    ],
-   "pages": 503
+   "pages": 494
   },
   "schiaparelli": {
    "prefixes": [
@@ -19035,10 +19069,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 539,
-   "index failed": 212,
-   "none": 392,
-   "partial": 63
+   "found": 544,
+   "index failed": 209,
+   "none": 393,
+   "partial": 60
   },
   "by_house": {
    "alaia": {
@@ -19099,7 +19133,7 @@
    },
    "fendi": {
     "shows": 54,
-    "found": 33
+    "found": 35
    },
    "ferragamo": {
     "shows": 30,
@@ -19107,7 +19141,7 @@
    },
    "givenchy": {
     "shows": 40,
-    "found": 22
+    "found": 23
    },
    "gucci": {
     "shows": 30,
@@ -19127,7 +19161,7 @@
    },
    "jil_sander": {
     "shows": 32,
-    "found": 9
+    "found": 11
    },
    "lanvin": {
     "shows": 31,
@@ -19205,15 +19239,15 @@
   "by_year": {
    "2015": {
     "shows": 61,
-    "found": 27
+    "found": 29
    },
    "2016": {
     "shows": 112,
-    "found": 53
+    "found": 54
    },
    "2017": {
     "shows": 110,
-    "found": 50
+    "found": 51
    },
    "2018": {
     "shows": 107,
@@ -19233,7 +19267,7 @@
    },
    "2022": {
     "shows": 91,
-    "found": 47
+    "found": 48
    },
    "2023": {
     "shows": 104,
