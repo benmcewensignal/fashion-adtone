@@ -1,7 +1,8 @@
 {
   "complete": [
     "prada",
-    "saint_laurent"
+    "saint_laurent",
+    "valentino"
   ],
   "covered": {
     "alaia": "2026-11-10",
@@ -41,7 +42,7 @@
     "stella_mccartney": "2026-11-13",
     "the_row": "2026-11-13",
     "tom_ford": "2026-11-10",
-    "valentino": "2026-11-09",
+    "valentino": "2026-11-15",
     "versace": "2026-11-10",
     "zegna": "2026-11-10"
   },
@@ -91,7 +92,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh43834248656",
+  "run": "gh43870463920",
   "span": {},
-  "updated_at": "2026-11-16T09:12:01Z"
+  "updated_at": "2026-11-16T13:19:45Z"
 }
