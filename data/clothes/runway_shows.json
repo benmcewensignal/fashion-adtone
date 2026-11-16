@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 40,
+   "seconds": 41,
    "small": 0
   },
   "looks": 0,
@@ -3572,20 +3572,30 @@
  },
  "fendi:2026-07-09:couture": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-couture-fall-winter-2026-2027-collection",
+   "tried": 1
   },
   "status": "no page"
  },
  "fendi:2026-09-23:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
@@ -3785,8 +3795,9 @@
  },
  "givenchy:2015-07-07:couture": {
   "candidates": [
-   "20150710115100 http://www.givenchy.com:80/en/collection-accessories-men-fall-2015",
-   "20150710115123 http://www.givenchy.com:80/en/collection-accessories-men-fall-2015/inspiration"
+   "20150905075910 http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
+   "20150905083116 http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
+   "20150905155521 http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -3989,13 +4000,23 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
+   "tried": 1
   },
   "status": "no page"
  },
@@ -5290,22 +5311,22 @@
    "20160121162044 http://www.jilsander.com:80/en/man/fall-winter-2016-men"
   ],
   "diag": {
-   "captures_tried": 1,
+   "captures_tried": 3,
    "cut": false,
    "duplicates": 0,
-   "failed": 1,
-   "fetched": 0,
+   "failed": 2,
+   "fetched": 40,
    "from_live": 0,
    "from_src": 0,
-   "opened": 0,
+   "opened": 1,
    "pages": 1,
-   "pictures": 0,
-   "refused": 0,
-   "seconds": 152,
+   "pictures": 58,
+   "refused": 40,
+   "seconds": 723,
    "small": 0
   },
   "looks": 0,
-  "status": "unread"
+  "status": "no looks"
  },
  "jil_sander:2016-02-27:rtw": {
   "candidates": [
