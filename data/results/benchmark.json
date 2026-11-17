@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-10T06:56:35Z",
+ "generated_at": "2026-11-17T06:56:17Z",
  "status": "descriptive",
  "windows": {
   "shop_window": "months after the show, to the day before the next main show, 182 days at most",
   "lasting": "30 to 120 days after the show, net of the median brand"
  },
- "pictures": 10055,
- "last_month": "2026-10",
+ "pictures": 10061,
+ "last_month": "2026-11",
  "seasons": {
   "2015 SS": {
    "brands": 2,
@@ -32,7 +32,7 @@
    "shop_window_complete": 35,
    "distinctness": 24,
    "movement": 1,
-   "campaigns": 24,
+   "campaigns": 25,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -48,7 +48,7 @@
    "shop_window_complete": 35,
    "distinctness": 20,
    "movement": 19,
-   "campaigns": 17,
+   "campaigns": 18,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -64,7 +64,7 @@
    "shop_window_complete": 36,
    "distinctness": 23,
    "movement": 17,
-   "campaigns": 24,
+   "campaigns": 26,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -80,7 +80,7 @@
    "shop_window_complete": 34,
    "distinctness": 16,
    "movement": 14,
-   "campaigns": 11,
+   "campaigns": 15,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -96,7 +96,7 @@
    "shop_window_complete": 35,
    "distinctness": 19,
    "movement": 15,
-   "campaigns": 18,
+   "campaigns": 19,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -112,7 +112,7 @@
    "shop_window_complete": 36,
    "distinctness": 23,
    "movement": 16,
-   "campaigns": 15,
+   "campaigns": 16,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -144,7 +144,7 @@
    "shop_window_complete": 33,
    "distinctness": 22,
    "movement": 19,
-   "campaigns": 24,
+   "campaigns": 25,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 0,
@@ -176,7 +176,7 @@
    "shop_window_complete": 31,
    "distinctness": 23,
    "movement": 21,
-   "campaigns": 22,
+   "campaigns": 23,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 29,
@@ -224,7 +224,7 @@
    "shop_window_complete": 24,
    "distinctness": 20,
    "movement": 16,
-   "campaigns": 15,
+   "campaigns": 16,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 24,
@@ -288,13 +288,13 @@
    "shop_window_complete": 33,
    "distinctness": 31,
    "movement": 28,
-   "campaigns": 22,
+   "campaigns": 24,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 33,
-   "runway": 9,
+   "runway": 10,
    "clothes_window": 20,
-   "own_runway": 5
+   "own_runway": 6
   },
   "2024 SS": {
    "brands": 32,
@@ -336,7 +336,7 @@
    "shop_window_complete": 31,
    "distinctness": 26,
    "movement": 24,
-   "campaigns": 13,
+   "campaigns": 14,
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 31,
@@ -356,9 +356,9 @@
    "advertising": 0,
    "advertising_on_record": 0,
    "scene": 33,
-   "runway": 10,
+   "runway": 11,
    "clothes_window": 20,
-   "own_runway": 8
+   "own_runway": 9
   },
   "2026 SS": {
    "brands": 36,
@@ -368,7 +368,7 @@
    "shop_window_complete": 36,
    "distinctness": 32,
    "movement": 30,
-   "campaigns": 27,
+   "campaigns": 28,
    "advertising": 30,
    "advertising_on_record": 31,
    "scene": 36,
@@ -388,15 +388,15 @@
    "advertising": 33,
    "advertising_on_record": 33,
    "scene": 37,
-   "runway": 12,
+   "runway": 13,
    "clothes_window": 20,
-   "own_runway": 8
+   "own_runway": 9
   },
   "2027 SS": {
    "brands": 32,
    "show": 32,
    "lasting": 3,
-   "shop_window": 19,
+   "shop_window": 20,
    "shop_window_complete": 0,
    "distinctness": 13,
    "movement": 12,
@@ -404,7 +404,7 @@
    "advertising": 27,
    "advertising_on_record": 29,
    "scene": 32,
-   "runway": 11,
+   "runway": 12,
    "clothes_window": 1,
    "own_runway": 0
   }
@@ -451,9 +451,9 @@
   },
   "labellers": {},
   "reader": "qwen3",
-  "runways": 140,
+  "runways": 144,
   "windows": 391,
-  "pictures_read": 14216,
+  "pictures_read": 14343,
   "min": {
    "looks": 8,
    "worn": 5,
@@ -476,7 +476,7 @@
   "shop_window_to_day": 120,
   "coefficients": {
    "distinctness": {
-    "estimate": -0.01,
+    "estimate": -0.0101,
     "interval_90": [
      -0.0235,
      0.0042
@@ -492,14 +492,14 @@
    "image_share": {
     "estimate": 0.0019,
     "interval_90": [
-     -0.0129,
+     -0.0128,
      0.0158
     ]
    },
    "momentum": {
-    "estimate": -0.0271,
+    "estimate": -0.0272,
     "interval_90": [
-     -0.0488,
+     -0.0489,
      -0.0077
     ]
    }
@@ -1017,8 +1017,8 @@
     "heat": 0.2541,
     "heat_z": 0.078,
     "surprise": -0.1396,
-    "lasting": -0.0486,
-    "lasting_z": -0.096,
+    "lasting": -0.0492,
+    "lasting_z": -0.097,
     "momentum": 0.1276,
     "press": 0.9691,
     "press_z": -0.416,
@@ -1059,7 +1059,7 @@
       "value": 0.2007,
       "n": 7,
       "peers": 25,
-      "percentile": 48
+      "percentile": 52
      },
      "product": {
       "value": 0.3022,
@@ -1068,7 +1068,7 @@
       "percentile": 71
      },
      "value": 0.2376,
-     "percentile": 56
+     "percentile": 59
     },
     "movement": {
      "image": {
@@ -1267,9 +1267,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -1517,9 +1517,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "collection": 1
     }
    },
    "advertising": {
@@ -1776,9 +1777,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "collection": 1
     }
    },
    "advertising": {
@@ -2294,8 +2296,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -3018,9 +3022,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "beauty": 4
+     "beauty": 4,
+     "collection": 1
     }
    },
    "advertising": {
@@ -3567,9 +3572,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "beauty": 3
+     "beauty": 3,
+     "collection": 1
     }
    },
    "advertising": {
@@ -6206,18 +6212,18 @@
    "date": "2026-07-07",
    "category": "couture",
    "show": {
-    "heat": -0.0275,
-    "heat_z": -0.624,
-    "surprise": -0.1944,
-    "lasting": 0.0028,
-    "lasting_z": 0.63,
+    "heat": -0.0468,
+    "heat_z": -0.632,
+    "surprise": -0.2137,
+    "lasting": 0.0145,
+    "lasting_z": 0.689,
     "momentum": -0.1736,
     "press": 1.0966,
     "press_z": -0.794,
     "tone": -1.2834,
     "tone_z": -0.847,
-    "heat_percentile": 14,
-    "lasting_percentile": 50
+    "heat_percentile": 11,
+    "lasting_percentile": 53
    },
    "scene": {
     "appointments": 0,
@@ -6234,46 +6240,46 @@
      "2026-12"
     ],
     "complete": false,
-    "pictures": 12,
+    "pictures": 14,
     "by_kind": {
-     "image": 5,
-     "product": 7
+     "image": 6,
+     "product": 8
     },
     "mix": {
-     "image": 0.417,
-     "product": 0.583,
+     "image": 0.429,
+     "product": 0.571,
      "other": 0.0
     },
-    "mix_shift": 0.154,
+    "mix_shift": 0.142,
     "distinctness": {
      "image": {
-      "value": 0.207,
-      "n": 5,
+      "value": 0.1967,
+      "n": 6,
       "peers": 18,
-      "percentile": 52
+      "percentile": 48
      },
      "product": {
-      "value": 0.2565,
-      "n": 7,
+      "value": 0.2337,
+      "n": 8,
       "peers": 20,
-      "percentile": 46
+      "percentile": 38
      },
-     "value": 0.2359,
-     "percentile": 48
+     "value": 0.2178,
+     "percentile": 42
     },
     "movement": {
      "image": {
-      "value": 0.3011,
-      "n": 5,
-      "percentile": 56
+      "value": 0.2936,
+      "n": 6,
+      "percentile": 38
      },
      "product": {
-      "value": 0.355,
+      "value": 0.3637,
       "n": 6,
       "percentile": 70
      },
-     "value": 0.3305,
-     "percentile": 64
+     "value": 0.3286,
+     "percentile": 54
     },
     "previous": "2026-01-27",
     "while_attention": {
@@ -6322,9 +6328,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -6342,13 +6348,13 @@
       "video": 22
      },
      "campaign_period": {
-      "ads": 337,
-      "beauty": 73,
-      "image": 149,
+      "ads": 355,
+      "beauty": 82,
+      "image": 163,
       "open": true,
       "record": "complete",
-      "text": 130,
-      "video": 58
+      "text": 132,
+      "video": 60
      }
     }
    },
@@ -9858,7 +9864,7 @@
      },
      "campaign_period": {
       "ads": 32,
-      "beauty": 6,
+      "beauty": 14,
       "image": 0,
       "record": "survivors",
       "text": 32,
@@ -9973,10 +9979,10 @@
       }
      },
      "distinctness": {
-      "value": 0.2996,
-      "runways": 8,
-      "told_apart": 8,
-      "percentile": 100
+      "value": 0.2947,
+      "runways": 9,
+      "told_apart": 9,
+      "percentile": 89
      },
      "movement": {
       "value": 0.1827,
@@ -10240,7 +10246,7 @@
       "value": 0.1511,
       "previous": "2023-03-05",
       "told_apart": true,
-      "percentile": 75
+      "percentile": 78
      }
     },
     "shop_window": {
@@ -10378,7 +10384,7 @@
      },
      "campaign_period": {
       "ads": 29,
-      "beauty": 5,
+      "beauty": 2,
       "image": 0,
       "record": "survivors",
       "text": 29,
@@ -10603,7 +10609,7 @@
     "search_video": {
      "show_period": {
       "ads": 31,
-      "beauty": 1,
+      "beauty": 3,
       "image": 0,
       "record": "survivors",
       "text": 31,
@@ -10732,7 +10738,7 @@
      },
      "campaign_period": {
       "ads": 129,
-      "beauty": 16,
+      "beauty": 19,
       "image": 51,
       "record": "survivors",
       "text": 58,
@@ -10851,16 +10857,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1475,
-      "runways": 9,
-      "told_apart": 7,
-      "percentile": 78
+      "value": 0.1661,
+      "runways": 10,
+      "told_apart": 8,
+      "percentile": 70
      },
      "movement": {
       "value": 0.1704,
       "previous": "2024-03-03",
       "told_apart": true,
-      "percentile": 57
+      "percentile": 50
      }
     },
     "shop_window": {
@@ -11027,8 +11033,8 @@
     "heat": 0.4258,
     "heat_z": 0.517,
     "surprise": -0.1937,
-    "lasting": 0.069,
-    "lasting_z": 0.37,
+    "lasting": 0.0676,
+    "lasting_z": 0.364,
     "momentum": -0.0742,
     "press": 1.3419,
     "press_z": 0.193,
@@ -11140,7 +11146,7 @@
      },
      "campaign_period": {
       "ads": 86,
-      "beauty": 0,
+      "beauty": 1,
       "image": 28,
       "record": "complete",
       "text": 22,
@@ -11176,17 +11182,17 @@
    "date": "2026-10-01",
    "category": "rtw",
    "show": {
-    "heat": 0.2731,
-    "heat_z": -0.33,
-    "surprise": -0.3371,
+    "heat": 0.2699,
+    "heat_z": -0.368,
+    "surprise": -0.3403,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.3566,
+    "momentum": -0.3645,
     "press": 1.824,
     "press_z": 0.766,
     "tone": -1.4785,
     "tone_z": -1.795,
-    "heat_percentile": 48,
+    "heat_percentile": 45,
     "lasting_percentile": null
    },
    "scene": {
@@ -11373,16 +11379,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1733,
-      "runways": 10,
-      "told_apart": 9,
-      "percentile": 10
+      "value": 0.1708,
+      "runways": 11,
+      "told_apart": 10,
+      "percentile": 9
      },
      "movement": {
       "value": 0.1977,
       "previous": "2025-03-09",
       "told_apart": true,
-      "percentile": 80
+      "percentile": 82
      }
     },
     "shop_window": {
@@ -13032,9 +13038,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 4
+     "collection": 5
     }
    },
    "advertising": {
@@ -13659,9 +13665,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 5,
     "by_line": {
-     "collection": 3
+     "collection": 5
     }
    },
    "advertising": {
@@ -13863,9 +13869,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -14494,9 +14500,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
+     "collection": 2,
      "jewellery_watches": 1
     }
    },
@@ -14759,9 +14766,9 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 7,
     "by_line": {
-     "collection": 3,
+     "collection": 5,
      "jewellery_watches": 1,
      "other": 1
     }
@@ -15055,8 +15062,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 4,
     "by_line": {
+     "collection": 3,
      "jewellery_watches": 1
     }
    },
@@ -15462,10 +15470,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -15983,9 +15991,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -16131,16 +16139,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1285,
-      "runways": 9,
-      "told_apart": 8,
-      "percentile": 22
+      "value": 0.142,
+      "runways": 10,
+      "told_apart": 9,
+      "percentile": 40
      },
      "movement": {
       "value": 0.1759,
       "previous": "2024-09-25",
       "told_apart": true,
-      "percentile": 71
+      "percentile": 62
      }
     },
     "shop_window": {
@@ -16275,12 +16283,12 @@
       "by_chance": 0.7552,
       "questions": 14,
       "told_apart": true,
-      "percentile": 57
+      "percentile": 62
      },
      "recognisable": {
-      "value": 0.222,
-      "less_like": 2,
-      "of": 9
+      "value": 0.3,
+      "less_like": 3,
+      "of": 10
      }
     }
    }
@@ -16419,7 +16427,7 @@
      },
      "campaign_period": {
       "ads": 437,
-      "beauty": 7,
+      "beauty": 5,
       "image": 129,
       "record": "complete",
       "text": 259,
@@ -16712,15 +16720,15 @@
     "heat": 0.1965,
     "heat_z": -0.069,
     "surprise": -0.707,
-    "lasting": 0.0153,
-    "lasting_z": 0.157,
+    "lasting": 0.0179,
+    "lasting_z": 0.168,
     "momentum": -0.1379,
     "press": 1.4259,
     "press_z": 0.33,
     "tone": -0.2966,
     "tone_z": -0.008,
     "heat_percentile": 50,
-    "lasting_percentile": 53
+    "lasting_percentile": 56
    },
    "scene": {
     "appointments": 0,
@@ -16823,11 +16831,11 @@
       "video": 1
      },
      "campaign_period": {
-      "ads": 381,
-      "beauty": 7,
-      "image": 180,
+      "ads": 383,
+      "beauty": 11,
+      "image": 181,
       "record": "complete",
-      "text": 132,
+      "text": 133,
       "video": 69
      }
     }
@@ -16950,10 +16958,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1663,
-      "runways": 11,
-      "told_apart": 10,
-      "percentile": 45
+      "value": 0.1866,
+      "runways": 12,
+      "told_apart": 11,
+      "percentile": 58
      },
      "movement": {
       "value": 0.345,
@@ -17085,12 +17093,12 @@
       "by_chance": 0.7373,
       "questions": 13,
       "told_apart": false,
-      "percentile": 29
+      "percentile": 25
      },
      "recognisable": {
-      "value": 0.909,
-      "less_like": 10,
-      "of": 11
+      "value": 0.917,
+      "less_like": 11,
+      "of": 12
      }
     }
    }
@@ -17102,12 +17110,12 @@
    "date": "2026-09-30",
    "category": "rtw",
    "show": {
-    "heat": 0.1746,
-    "heat_z": -0.653,
-    "surprise": -0.6967,
+    "heat": 0.1796,
+    "heat_z": -0.659,
+    "surprise": -0.6917,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.2245,
+    "momentum": -0.287,
     "press": 1.2661,
     "press_z": 0.333,
     "tone": 0.063,
@@ -17151,9 +17159,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 4,
     "by_line": {
-     "collection": 1
+     "collection": 4
     }
    },
    "advertising": {
@@ -17298,16 +17306,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2016,
-      "runways": 10,
-      "told_apart": 9,
-      "percentile": 40
+      "value": 0.1942,
+      "runways": 11,
+      "told_apart": 10,
+      "percentile": 27
      },
      "movement": {
       "value": 0.1402,
       "previous": "2026-03-04",
       "told_apart": true,
-      "percentile": 60
+      "percentile": 64
      }
     },
     "shop_window": {
@@ -19582,9 +19590,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 2,
+     "collection": 3,
      "other": 1
     }
    },
@@ -20062,9 +20070,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -20197,9 +20205,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 4
+     "collection": 5
     }
    },
    "advertising": {
@@ -20210,7 +20218,7 @@
     "search_video": {
      "show_period": {
       "ads": 12,
-      "beauty": 2,
+      "beauty": 1,
       "image": 0,
       "record": "survivors",
       "text": 12,
@@ -20218,7 +20226,7 @@
      },
      "campaign_period": {
       "ads": 16,
-      "beauty": 5,
+      "beauty": 4,
       "image": 0,
       "record": "survivors",
       "text": 16,
@@ -20341,9 +20349,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 5,
     "by_line": {
-     "collection": 2,
+     "collection": 4,
      "other": 1
     }
    },
@@ -20362,11 +20370,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 6,
-      "beauty": 3,
+      "ads": 7,
+      "beauty": 2,
       "image": 0,
       "record": "survivors",
-      "text": 6,
+      "text": 7,
       "video": 0
      }
     }
@@ -20486,9 +20494,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -20507,7 +20516,7 @@
      },
      "campaign_period": {
       "ads": 15,
-      "beauty": 3,
+      "beauty": 4,
       "image": 0,
       "record": "survivors",
       "text": 15,
@@ -20630,9 +20639,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -20651,11 +20660,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 504,
-      "beauty": 53,
+      "ads": 505,
+      "beauty": 46,
       "image": 98,
       "record": "survivors",
-      "text": 316,
+      "text": 317,
       "video": 90
      }
     }
@@ -20907,18 +20916,18 @@
     "search_video": {
      "show_period": {
       "ads": 121,
-      "beauty": 9,
+      "beauty": 6,
       "image": 0,
       "record": "partly survivors",
       "text": 114,
       "video": 7
      },
      "campaign_period": {
-      "ads": 79,
-      "beauty": 4,
+      "ads": 80,
+      "beauty": 6,
       "image": 43,
       "record": "complete",
-      "text": 28,
+      "text": 29,
       "video": 8
      }
     }
@@ -20954,8 +20963,8 @@
     "heat": 0.3275,
     "heat_z": 0.266,
     "surprise": -0.1091,
-    "lasting": 0.0573,
-    "lasting_z": 0.324,
+    "lasting": 0.0605,
+    "lasting_z": 0.336,
     "momentum": -0.2521,
     "press": 1.5445,
     "press_z": 0.524,
@@ -21072,11 +21081,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 1141,
-      "beauty": 49,
+      "ads": 1143,
+      "beauty": 45,
       "image": 739,
       "record": "complete",
-      "text": 332,
+      "text": 334,
       "video": 70
      }
     }
@@ -21109,12 +21118,12 @@
    "date": "2026-09-26",
    "category": "rtw",
    "show": {
-    "heat": 0.6015,
-    "heat_z": 0.746,
-    "surprise": 0.1717,
+    "heat": 0.6351,
+    "heat_z": 0.806,
+    "surprise": 0.2053,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.313,
+    "momentum": -0.3444,
     "press": 1.3943,
     "press_z": 0.432,
     "tone": -0.496,
@@ -21149,12 +21158,12 @@
     "mix_shift": 0.286,
     "distinctness": {
      "product": {
-      "value": 0.4352,
+      "value": 0.4283,
       "n": 3,
       "peers": 9,
       "percentile": 88
      },
-     "value": 0.4352,
+     "value": 0.4283,
      "percentile": 88
     },
     "movement": {
@@ -21182,12 +21191,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.4352,
+       "value": 0.4283,
        "n": 3,
        "peers": 9,
        "percentile": 88
       },
-      "value": 0.4352,
+      "value": 0.4283,
       "percentile": 88
      },
      "movement": {
@@ -21202,9 +21211,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -21349,8 +21359,8 @@
       }
      },
      "distinctness": {
-      "value": 0.1284,
-      "runways": 10,
+      "value": 0.1247,
+      "runways": 11,
       "told_apart": 5,
       "percentile": 0
      },
@@ -21358,7 +21368,7 @@
       "value": 0.1002,
       "previous": "2024-09-21",
       "told_apart": true,
-      "percentile": 10
+      "percentile": 18
      }
     },
     "shop_window": {
@@ -21592,10 +21602,10 @@
    "category": "men",
    "show": {
     "heat": 0.0976,
-    "heat_z": 0.52,
+    "heat_z": 0.529,
     "surprise": -0.1608,
-    "lasting": 0.1701,
-    "lasting_z": 0.883,
+    "lasting": 0.1598,
+    "lasting_z": 0.832,
     "momentum": -0.1985,
     "press": 1.3561,
     "press_z": 0.492,
@@ -21652,21 +21662,20 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 377,
-      "beauty": 19,
+      "ads": 379,
+      "beauty": 20,
       "image": 169,
       "record": "complete",
-      "text": 88,
+      "text": 90,
       "video": 120
      },
      "campaign_period": {
-      "ads": 1261,
-      "beauty": 35,
-      "image": 648,
-      "open": true,
+      "ads": 1603,
+      "beauty": 98,
+      "image": 878,
       "record": "complete",
-      "text": 133,
-      "video": 480
+      "text": 139,
+      "video": 586
      }
     }
    },
@@ -24529,16 +24538,16 @@
       }
      },
      "distinctness": {
-      "value": 0.0927,
-      "runways": 9,
-      "told_apart": 7,
+      "value": 0.1027,
+      "runways": 10,
+      "told_apart": 8,
       "percentile": 0
      },
      "movement": {
       "value": 0.1405,
       "previous": "2024-09-16",
       "told_apart": true,
-      "percentile": 29
+      "percentile": 25
      }
     },
     "shop_window": {
@@ -24711,8 +24720,8 @@
     "heat": 0.0223,
     "heat_z": -0.514,
     "surprise": -0.4841,
-    "lasting": -0.0527,
-    "lasting_z": -0.112,
+    "lasting": -0.0536,
+    "lasting_z": -0.115,
     "momentum": 0.0989,
     "press": 2.2919,
     "press_z": 1.744,
@@ -24963,16 +24972,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1708,
-      "runways": 11,
-      "told_apart": 11,
-      "percentile": 55
+      "value": 0.1834,
+      "runways": 12,
+      "told_apart": 12,
+      "percentile": 50
      },
      "movement": {
       "value": 0.0082,
       "previous": "2025-02-24",
       "told_apart": false,
-      "percentile": 9
+      "percentile": 8
      }
     },
     "shop_window": {
@@ -24994,17 +25003,17 @@
    "date": "2026-09-21",
    "category": "rtw",
    "show": {
-    "heat": 0.3452,
-    "heat_z": -0.094,
-    "surprise": -0.1357,
+    "heat": 0.3527,
+    "heat_z": -0.102,
+    "surprise": -0.1282,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1532,
+    "momentum": -0.1797,
     "press": 2.6851,
     "press_z": 1.436,
     "tone": -0.365,
     "tone_z": -0.28,
-    "heat_percentile": 58,
+    "heat_percentile": 55,
     "lasting_percentile": null
    },
    "scene": {
@@ -25034,12 +25043,12 @@
     "mix_shift": 0.364,
     "distinctness": {
      "product": {
-      "value": 0.409,
+      "value": 0.4114,
       "n": 3,
       "peers": 9,
       "percentile": 75
      },
-     "value": 0.409,
+     "value": 0.4114,
      "percentile": 75
     },
     "movement": {
@@ -25067,12 +25076,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.409,
+       "value": 0.4114,
        "n": 3,
        "peers": 9,
        "percentile": 75
       },
-      "value": 0.409,
+      "value": 0.4114,
       "percentile": 75
      },
      "movement": {
@@ -25108,13 +25117,13 @@
       "video": 60
      },
      "campaign_period": {
-      "ads": 22,
-      "beauty": 8,
+      "ads": 80,
+      "beauty": 38,
       "image": 0,
       "open": true,
       "record": "complete",
-      "text": 0,
-      "video": 22
+      "text": 6,
+      "video": 74
      }
     }
    },
@@ -25237,10 +25246,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1987,
-      "runways": 10,
-      "told_apart": 8,
-      "percentile": 30
+      "value": 0.2062,
+      "runways": 11,
+      "told_apart": 9,
+      "percentile": 45
      },
      "movement": {
       "value": 0.2919,
@@ -27567,11 +27576,11 @@
       "record": "before the dataset"
      },
      "campaign_period": {
-      "ads": 701,
-      "beauty": 95,
+      "ads": 702,
+      "beauty": 99,
       "image": 41,
       "record": "survivors",
-      "text": 660,
+      "text": 661,
       "video": 0
      }
     }
@@ -27686,7 +27695,7 @@
     "search_video": {
      "show_period": {
       "ads": 179,
-      "beauty": 0,
+      "beauty": 4,
       "image": 0,
       "record": "partly survivors",
       "text": 164,
@@ -27853,8 +27862,8 @@
     "heat": 0.1621,
     "heat_z": -0.157,
     "surprise": -0.4431,
-    "lasting": 0.03,
-    "lasting_z": 0.216,
+    "lasting": 0.0256,
+    "lasting_z": 0.198,
     "momentum": -0.0209,
     "press": 1.3833,
     "press_z": 0.26,
@@ -32538,7 +32547,7 @@
      },
      "campaign_period": {
       "ads": 169,
-      "beauty": 152,
+      "beauty": 151,
       "image": 29,
       "record": "survivors",
       "text": 140,
@@ -32639,18 +32648,18 @@
     "search_video": {
      "show_period": {
       "ads": 120,
-      "beauty": 71,
+      "beauty": 69,
       "image": 1,
       "record": "survivors",
       "text": 119,
       "video": 0
      },
      "campaign_period": {
-      "ads": 97,
-      "beauty": 80,
+      "ads": 98,
+      "beauty": 81,
       "image": 2,
       "record": "survivors",
-      "text": 95,
+      "text": 96,
       "video": 0
      }
     }
@@ -32862,7 +32871,7 @@
      },
      "campaign_period": {
       "ads": 163,
-      "beauty": 106,
+      "beauty": 107,
       "image": 5,
       "record": "survivors",
       "text": 158,
@@ -32976,7 +32985,7 @@
      },
      "campaign_period": {
       "ads": 378,
-      "beauty": 279,
+      "beauty": 282,
       "image": 80,
       "record": "survivors",
       "text": 295,
@@ -33110,11 +33119,11 @@
       "video": 7
      },
      "campaign_period": {
-      "ads": 659,
+      "ads": 660,
       "beauty": 505,
       "image": 66,
       "record": "complete",
-      "text": 442,
+      "text": 443,
       "video": 151
      }
     }
@@ -33150,8 +33159,8 @@
     "heat": 0.0798,
     "heat_z": -0.367,
     "surprise": -0.233,
-    "lasting": -0.1131,
-    "lasting_z": -0.352,
+    "lasting": -0.1121,
+    "lasting_z": -0.346,
     "momentum": -0.0418,
     "press": 1.4661,
     "press_z": 0.396,
@@ -33235,18 +33244,18 @@
     "search_video": {
      "show_period": {
       "ads": 241,
-      "beauty": 129,
+      "beauty": 128,
       "image": 10,
       "record": "complete",
       "text": 195,
       "video": 36
      },
      "campaign_period": {
-      "ads": 937,
-      "beauty": 684,
+      "ads": 939,
+      "beauty": 686,
       "image": 41,
       "record": "complete",
-      "text": 660,
+      "text": 662,
       "video": 236
      }
     }
@@ -33279,12 +33288,12 @@
    "date": "2026-10-05",
    "category": "rtw",
    "show": {
-    "heat": 0.3037,
-    "heat_z": -0.23,
-    "surprise": 0.0015,
+    "heat": 0.3046,
+    "heat_z": -0.257,
+    "surprise": 0.0024,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1976,
+    "momentum": -0.2192,
     "press": -2.5209,
     "press_z": -2.612,
     "tone": null,
@@ -33330,9 +33339,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 6,
     "by_line": {
-     "collection": 3,
+     "collection": 4,
+     "jewellery_watches": 1,
      "other": 1
     }
    },
@@ -33343,11 +33353,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 286,
-      "beauty": 232,
-      "image": 73,
+      "ads": 292,
+      "beauty": 236,
+      "image": 76,
       "record": "complete",
-      "text": 201,
+      "text": 204,
       "video": 12
      },
      "campaign_period": {
@@ -34799,9 +34809,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -38532,7 +38542,7 @@
       "value": 0.2215,
       "previous": "2022-03-03",
       "told_apart": true,
-      "percentile": 88
+      "percentile": 89
      }
     },
     "shop_window": {
@@ -38668,7 +38678,7 @@
      },
      "campaign_period": {
       "ads": 8,
-      "beauty": 3,
+      "beauty": 2,
       "image": 1,
       "record": "survivors",
       "text": 7,
@@ -39517,7 +39527,7 @@
       "value": 0.1198,
       "previous": "2024-02-29",
       "told_apart": true,
-      "percentile": 62
+      "percentile": 50
      }
     },
     "shop_window": {
@@ -39671,8 +39681,8 @@
     "heat": 0.3275,
     "heat_z": 0.266,
     "surprise": -0.1828,
-    "lasting": 0.0506,
-    "lasting_z": 0.297,
+    "lasting": 0.0495,
+    "lasting_z": 0.293,
     "momentum": -0.2989,
     "press": 0.8924,
     "press_z": -0.541,
@@ -39931,16 +39941,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2353,
-      "runways": 11,
-      "told_apart": 10,
-      "percentile": 91
+      "value": 0.2341,
+      "runways": 12,
+      "told_apart": 11,
+      "percentile": 83
      },
      "movement": {
       "value": 0.1104,
       "previous": "2025-10-05",
       "told_apart": true,
-      "percentile": 73
+      "percentile": 75
      }
     },
     "shop_window": {
@@ -40079,9 +40089,9 @@
       "percentile": 100
      },
      "recognisable": {
-      "value": 0.909,
-      "less_like": 10,
-      "of": 11
+      "value": 0.917,
+      "less_like": 11,
+      "of": 12
      }
     }
    }
@@ -40093,17 +40103,17 @@
    "date": "2026-10-01",
    "category": "rtw",
    "show": {
-    "heat": 0.3545,
-    "heat_z": -0.063,
-    "surprise": -0.1475,
+    "heat": 0.374,
+    "heat_z": -0.034,
+    "surprise": -0.128,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1724,
+    "momentum": -0.2267,
     "press": 1.1859,
     "press_z": 0.27,
     "tone": -0.0095,
     "tone_z": 0.203,
-    "heat_percentile": 65,
+    "heat_percentile": 61,
     "lasting_percentile": null
    },
    "scene": {
@@ -40134,12 +40144,12 @@
     "mix_shift": 0.25,
     "distinctness": {
      "product": {
-      "value": 0.2834,
+      "value": 0.2802,
       "n": 3,
       "peers": 9,
       "percentile": 38
      },
-     "value": 0.2834,
+     "value": 0.2802,
      "percentile": 38
     },
     "movement": {
@@ -40167,12 +40177,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.2834,
+       "value": 0.2802,
        "n": 3,
        "peers": 9,
        "percentile": 38
       },
-      "value": 0.2834,
+      "value": 0.2802,
       "percentile": 38
      },
      "movement": {
@@ -40335,16 +40345,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2846,
-      "runways": 10,
-      "told_apart": 10,
-      "percentile": 90
+      "value": 0.2808,
+      "runways": 11,
+      "told_apart": 11,
+      "percentile": 91
      },
      "movement": {
       "value": 0.1155,
       "previous": "2026-03-05",
       "told_apart": true,
-      "percentile": 20
+      "percentile": 27
      }
     },
     "shop_window": {
@@ -42522,17 +42532,17 @@
    "date": "2026-06-26",
    "category": "men",
    "show": {
-    "heat": -0.0352,
-    "heat_z": -0.093,
-    "surprise": -0.1234,
-    "lasting": 0.0858,
-    "lasting_z": 0.425,
+    "heat": -0.0385,
+    "heat_z": -0.099,
+    "surprise": -0.1267,
+    "lasting": 0.0957,
+    "lasting_z": 0.493,
     "momentum": -0.1226,
     "press": -0.2136,
     "press_z": -1.783,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 3,
+    "heat_percentile": 0,
     "lasting_percentile": 50
    },
    "scene": {
@@ -47724,7 +47734,7 @@
     "search_video": {
      "show_period": {
       "ads": 131,
-      "beauty": 30,
+      "beauty": 29,
       "image": 0,
       "record": "survivors",
       "text": 131,
@@ -48574,16 +48584,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1338,
-      "runways": 9,
-      "told_apart": 7,
-      "percentile": 33
+      "value": 0.139,
+      "runways": 10,
+      "told_apart": 8,
+      "percentile": 30
      },
      "movement": {
       "value": 0.1759,
       "previous": "2024-09-24",
       "told_apart": true,
-      "percentile": 86
+      "percentile": 75
      }
     },
     "shop_window": {
@@ -48716,12 +48726,12 @@
       "by_chance": 0.7421,
       "questions": 14,
       "told_apart": true,
-      "percentile": 43
+      "percentile": 50
      },
      "recognisable": {
-      "value": 0.556,
-      "less_like": 5,
-      "of": 9
+      "value": 0.6,
+      "less_like": 6,
+      "of": 10
      }
     }
    }
@@ -48866,11 +48876,11 @@
       "video": 1
      },
      "campaign_period": {
-      "ads": 1911,
+      "ads": 1912,
       "beauty": 398,
       "image": 239,
       "record": "complete",
-      "text": 1602,
+      "text": 1603,
       "video": 70
      }
     }
@@ -49019,8 +49029,8 @@
     "heat": -0.0229,
     "heat_z": -0.629,
     "surprise": -0.2328,
-    "lasting": -0.0022,
-    "lasting_z": 0.088,
+    "lasting": 0.0017,
+    "lasting_z": 0.104,
     "momentum": -0.064,
     "press": 0.8838,
     "press_z": -0.555,
@@ -49088,11 +49098,11 @@
       "video": 9
      },
      "campaign_period": {
-      "ads": 1191,
-      "beauty": 208,
+      "ads": 1192,
+      "beauty": 207,
       "image": 295,
       "record": "complete",
-      "text": 840,
+      "text": 841,
       "video": 56
      }
     }
@@ -49119,17 +49129,17 @@
    "date": "2026-09-29",
    "category": "rtw",
    "show": {
-    "heat": 0.062,
-    "heat_z": -1.021,
-    "surprise": -0.1369,
+    "heat": 0.0593,
+    "heat_z": -1.046,
+    "surprise": -0.1396,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.2696,
+    "momentum": -0.275,
     "press": 1.1961,
     "press_z": 0.278,
     "tone": 0.1723,
     "tone_z": 0.45,
-    "heat_percentile": 13,
+    "heat_percentile": 10,
     "lasting_percentile": null
    },
    "scene": {
@@ -49181,11 +49191,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 311,
-      "beauty": 53,
+      "ads": 318,
+      "beauty": 54,
       "image": 0,
       "record": "complete",
-      "text": 308,
+      "text": 315,
       "video": 3
      },
      "campaign_period": {
@@ -49317,16 +49327,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2046,
-      "runways": 10,
-      "told_apart": 9,
-      "percentile": 50
+      "value": 0.207,
+      "runways": 11,
+      "told_apart": 10,
+      "percentile": 55
      },
      "movement": {
       "value": 0.1296,
       "previous": "2025-03-04",
       "told_apart": true,
-      "percentile": 50
+      "percentile": 55
      }
     },
     "shop_window": {
@@ -52823,11 +52833,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 175,
-      "beauty": 32,
-      "image": 58,
+      "ads": 177,
+      "beauty": 34,
+      "image": 59,
       "record": "survivors",
-      "text": 81,
+      "text": 82,
       "video": 36
      }
     }
@@ -53100,11 +53110,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 7,
-      "beauty": 3,
-      "image": 1,
+      "ads": 9,
+      "beauty": 5,
+      "image": 2,
       "record": "survivors",
-      "text": 5,
+      "text": 6,
       "video": 1
      },
      "campaign_period": {
@@ -53345,7 +53355,7 @@
      },
      "campaign_period": {
       "ads": 383,
-      "beauty": 212,
+      "beauty": 213,
       "image": 161,
       "record": "survivors",
       "text": 141,
@@ -53658,8 +53668,8 @@
     "heat": 0.3685,
     "heat_z": 0.37,
     "surprise": 0.0658,
-    "lasting": 0.1018,
-    "lasting_z": 0.501,
+    "lasting": 0.1079,
+    "lasting_z": 0.523,
     "momentum": -0.0053,
     "press": 1.7146,
     "press_z": 0.801,
@@ -53771,7 +53781,7 @@
     "search_video": {
      "show_period": {
       "ads": 286,
-      "beauty": 107,
+      "beauty": 106,
       "image": 125,
       "record": "complete",
       "text": 82,
@@ -53779,7 +53789,7 @@
      },
      "campaign_period": {
       "ads": 820,
-      "beauty": 407,
+      "beauty": 406,
       "image": 344,
       "record": "complete",
       "text": 278,
@@ -53930,17 +53940,17 @@
    "date": "2026-09-26",
    "category": "rtw",
    "show": {
-    "heat": 0.3095,
-    "heat_z": -0.211,
-    "surprise": 0.0036,
+    "heat": 0.3855,
+    "heat_z": 0.003,
+    "surprise": 0.0796,
     "lasting": null,
     "lasting_z": null,
-    "momentum": 0.108,
+    "momentum": -0.1231,
     "press": 2.212,
     "press_z": 1.068,
     "tone": 0.3153,
     "tone_z": 0.645,
-    "heat_percentile": 55,
+    "heat_percentile": 65,
     "lasting_percentile": null
    },
    "scene": {
@@ -53958,8 +53968,10 @@
      "2027-03"
     ],
     "complete": false,
-    "pictures": 0,
-    "by_kind": {},
+    "pictures": 2,
+    "by_kind": {
+     "image": 2
+    },
     "mix": null,
     "mix_shift": null,
     "distinctness": {},
@@ -53972,7 +53984,7 @@
       "2026-12",
       "2027-01"
      ],
-     "pictures": 0,
+     "pictures": 2,
      "mix": null,
      "distinctness": {},
      "movement": {}
@@ -56003,10 +56015,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1729,
-      "runways": 8,
-      "told_apart": 7,
-      "percentile": 12
+      "value": 0.1675,
+      "runways": 9,
+      "told_apart": 8,
+      "percentile": 22
      },
      "movement": {
       "value": 0.0595,
@@ -56232,7 +56244,7 @@
       "value": 0.1345,
       "previous": "2023-03-01",
       "told_apart": true,
-      "percentile": 62
+      "percentile": 67
      }
     },
     "shop_window": {
@@ -56971,16 +56983,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1338,
-      "runways": 9,
-      "told_apart": 6,
-      "percentile": 44
+      "value": 0.1429,
+      "runways": 10,
+      "told_apart": 7,
+      "percentile": 50
      },
      "movement": {
       "value": 0.1196,
       "previous": "2024-09-25",
       "told_apart": true,
-      "percentile": 14
+      "percentile": 12
      }
     },
     "shop_window": {
@@ -57116,12 +57128,12 @@
       "by_chance": 0.6894,
       "questions": 13,
       "told_apart": false,
-      "percentile": 71
+      "percentile": 75
      },
      "recognisable": {
-      "value": 0.778,
-      "less_like": 7,
-      "of": 9
+      "value": 0.8,
+      "less_like": 8,
+      "of": 10
      }
     }
    }
@@ -57548,8 +57560,8 @@
     "heat": 0.3229,
     "heat_z": 0.254,
     "surprise": -0.2809,
-    "lasting": 0.2663,
-    "lasting_z": 1.153,
+    "lasting": 0.2584,
+    "lasting_z": 1.118,
     "momentum": -0.1337,
     "press": 0.747,
     "press_z": -0.779,
@@ -57604,7 +57616,7 @@
      "image": {
       "value": 0.2981,
       "n": 3,
-      "percentile": 50
+      "percentile": 56
      },
      "product": {
       "value": 0.3134,
@@ -57612,7 +57624,7 @@
       "percentile": 35
      },
      "value": 0.3103,
-     "percentile": 38
+     "percentile": 39
     },
     "previous": "2025-09-30",
     "while_attention": {
@@ -57801,16 +57813,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1767,
-      "runways": 11,
-      "told_apart": 11,
-      "percentile": 64
+      "value": 0.1824,
+      "runways": 12,
+      "told_apart": 12,
+      "percentile": 42
      },
      "movement": {
       "value": 0.1647,
       "previous": "2025-09-30",
       "told_apart": true,
-      "percentile": 91
+      "percentile": 92
      }
     },
     "shop_window": {
@@ -57948,12 +57960,12 @@
       "by_chance": 0.7395,
       "questions": 14,
       "told_apart": false,
-      "percentile": 71
+      "percentile": 75
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 11,
-      "of": 11
+      "less_like": 12,
+      "of": 12
      }
     }
    }
@@ -57965,12 +57977,12 @@
    "date": "2026-09-30",
    "category": "rtw",
    "show": {
-    "heat": 1.0295,
-    "heat_z": 2.148,
-    "surprise": 0.4405,
+    "heat": 1.0357,
+    "heat_z": 2.094,
+    "surprise": 0.4467,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.2815,
+    "momentum": -0.3076,
     "press": 1.2086,
     "press_z": 0.288,
     "tone": -0.2737,
@@ -58153,16 +58165,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2526,
-      "runways": 10,
-      "told_apart": 10,
-      "percentile": 70
+      "value": 0.2645,
+      "runways": 11,
+      "told_apart": 11,
+      "percentile": 82
      },
      "movement": {
       "value": 0.2534,
       "previous": "2026-03-04",
       "told_apart": true,
-      "percentile": 90
+      "percentile": 91
      }
     },
     "shop_window": {
@@ -60744,9 +60756,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
+     "capsule": 1,
      "collection": 2
     }
    },
@@ -61053,10 +61066,10 @@
     }
    },
    "campaigns": {
-    "entries": 9,
+    "entries": 10,
     "by_line": {
      "accessories": 1,
-     "capsule": 2,
+     "capsule": 3,
      "collection": 5,
      "other": 1
     }
@@ -62212,10 +62225,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1364,
-      "runways": 9,
-      "told_apart": 8,
-      "percentile": 56
+      "value": 0.1495,
+      "runways": 10,
+      "told_apart": 9,
+      "percentile": 60
      },
      "movement": {}
     },
@@ -62356,9 +62369,9 @@
       "percentile": 0
      },
      "recognisable": {
-      "value": 0.444,
+      "value": 0.4,
       "less_like": 4,
-      "of": 9
+      "of": 10
      }
     }
    }
@@ -62471,7 +62484,7 @@
    "advertising": {
     "paid_social": {
      "show_period": 0,
-     "campaign_period": 949
+     "campaign_period": 1022
     },
     "search_video": {
      "show_period": {
@@ -62635,8 +62648,8 @@
     "heat": 0.1452,
     "heat_z": -0.2,
     "surprise": -0.4558,
-    "lasting": -0.2083,
-    "lasting_z": -0.729,
+    "lasting": -0.209,
+    "lasting_z": -0.728,
     "momentum": 0.4208,
     "press": 2.4587,
     "press_z": 2.016,
@@ -62691,7 +62704,7 @@
    },
    "advertising": {
     "paid_social": {
-     "show_period": 240,
+     "show_period": 255,
      "campaign_period": 907
     },
     "search_video": {
@@ -62832,16 +62845,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1341,
-      "runways": 11,
-      "told_apart": 9,
-      "percentile": 18
+      "value": 0.144,
+      "runways": 12,
+      "told_apart": 10,
+      "percentile": 17
      },
      "movement": {
       "value": 0.0962,
       "previous": "2025-02-26",
       "told_apart": true,
-      "percentile": 64
+      "percentile": 67
      }
     },
     "shop_window": {
@@ -62863,17 +62876,17 @@
    "date": "2026-09-23",
    "category": "rtw",
    "show": {
-    "heat": 0.2386,
-    "heat_z": -0.443,
-    "surprise": -0.3426,
+    "heat": 0.2409,
+    "heat_z": -0.462,
+    "surprise": -0.3403,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.168,
+    "momentum": -0.1809,
     "press": 1.9999,
     "press_z": 0.903,
     "tone": -0.845,
     "tone_z": -0.933,
-    "heat_percentile": 39,
+    "heat_percentile": 42,
     "lasting_percentile": null
    },
    "scene": {
@@ -62912,9 +62925,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -62932,12 +62946,12 @@
       "video": 1
      },
      "campaign_period": {
-      "ads": 0,
+      "ads": 4,
       "beauty": 0,
-      "image": 0,
+      "image": 1,
       "open": true,
       "record": "complete",
-      "text": 0,
+      "text": 3,
       "video": 0
      }
     }
@@ -66931,7 +66945,7 @@
      },
      "campaign_period": {
       "ads": 133,
-      "beauty": 51,
+      "beauty": 52,
       "image": 0,
       "record": "survivors",
       "text": 132,
@@ -67232,8 +67246,8 @@
     "heat": 0.1794,
     "heat_z": -0.112,
     "surprise": -0.2209,
-    "lasting": -0.0643,
-    "lasting_z": -0.158,
+    "lasting": -0.0651,
+    "lasting_z": -0.16,
     "momentum": 0.01,
     "press": 1.9007,
     "press_z": 1.105,
@@ -67343,11 +67357,11 @@
       "video": 10
      },
      "campaign_period": {
-      "ads": 603,
+      "ads": 604,
       "beauty": 104,
       "image": 195,
       "record": "complete",
-      "text": 355,
+      "text": 356,
       "video": 53
      }
     }
@@ -67490,17 +67504,17 @@
    "date": "2026-09-26",
    "category": "rtw",
    "show": {
-    "heat": 0.352,
-    "heat_z": -0.071,
-    "surprise": -0.0378,
+    "heat": 0.365,
+    "heat_z": -0.063,
+    "surprise": -0.0248,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.3824,
+    "momentum": -0.4089,
     "press": 0.5093,
     "press_z": -0.256,
     "tone": -0.0313,
     "tone_z": 0.174,
-    "heat_percentile": 61,
+    "heat_percentile": 58,
     "lasting_percentile": null
    },
    "scene": {
@@ -67549,20 +67563,20 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 170,
-      "beauty": 51,
+      "ads": 180,
+      "beauty": 54,
       "image": 30,
       "record": "complete",
-      "text": 130,
-      "video": 10
+      "text": 139,
+      "video": 11
      },
      "campaign_period": {
-      "ads": 0,
+      "ads": 1,
       "beauty": 0,
       "image": 0,
       "open": true,
       "record": "complete",
-      "text": 0,
+      "text": 1,
       "video": 0
      }
     }
@@ -67974,8 +67988,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
+     "accessories": 1,
      "beauty": 1
     }
    },
@@ -71645,10 +71660,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1747,
-      "runways": 8,
+      "value": 0.1604,
+      "runways": 9,
       "told_apart": 7,
-      "percentile": 25
+      "percentile": 11
      },
      "movement": {
       "value": 0.0458,
@@ -71791,12 +71806,12 @@
       "by_chance": 0.7774,
       "questions": 14,
       "told_apart": true,
-      "percentile": 25
+      "percentile": 20
      },
      "recognisable": {
-      "value": 0.875,
-      "less_like": 7,
-      "of": 8
+      "value": 0.889,
+      "less_like": 8,
+      "of": 9
      }
     }
    }
@@ -72054,7 +72069,7 @@
       "value": 0.0482,
       "previous": "2023-03-02",
       "told_apart": false,
-      "percentile": 12
+      "percentile": 22
      }
     },
     "shop_window": {
@@ -72331,7 +72346,7 @@
      },
      "campaign_period": {
       "ads": 32,
-      "beauty": 3,
+      "beauty": 6,
       "image": 13,
       "record": "survivors",
       "text": 7,
@@ -72734,7 +72749,7 @@
      },
      "campaign_period": {
       "ads": 124,
-      "beauty": 29,
+      "beauty": 21,
       "image": 1,
       "record": "survivors",
       "text": 116,
@@ -72861,10 +72876,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1153,
-      "runways": 9,
-      "told_apart": 6,
-      "percentile": 11
+      "value": 0.1262,
+      "runways": 10,
+      "told_apart": 7,
+      "percentile": 10
      },
      "movement": {
       "value": -0.0556,
@@ -72998,12 +73013,12 @@
       "by_chance": 0.6953,
       "questions": 14,
       "told_apart": false,
-      "percentile": 86
+      "percentile": 88
      },
      "recognisable": {
-      "value": 0.889,
-      "less_like": 8,
-      "of": 9
+      "value": 0.9,
+      "less_like": 9,
+      "of": 10
      }
     }
    }
@@ -73128,7 +73143,7 @@
      },
      "campaign_period": {
       "ads": 61,
-      "beauty": 23,
+      "beauty": 25,
       "image": 11,
       "record": "complete",
       "text": 42,
@@ -73167,8 +73182,8 @@
     "heat": 0.1442,
     "heat_z": -0.202,
     "surprise": -0.2273,
-    "lasting": 0.0495,
-    "lasting_z": 0.293,
+    "lasting": 0.0482,
+    "lasting_z": 0.287,
     "momentum": -0.412,
     "press": 1.0808,
     "press_z": -0.234,
@@ -73279,7 +73294,7 @@
     "search_video": {
      "show_period": {
       "ads": 58,
-      "beauty": 16,
+      "beauty": 8,
       "image": 14,
       "record": "complete",
       "text": 30,
@@ -73411,10 +73426,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1368,
-      "runways": 11,
-      "told_apart": 9,
-      "percentile": 27
+      "value": 0.156,
+      "runways": 12,
+      "told_apart": 10,
+      "percentile": 25
      },
      "movement": {
       "value": 0.002,
@@ -73553,12 +73568,12 @@
       "by_chance": 0.718,
       "questions": 14,
       "told_apart": true,
-      "percentile": 14
+      "percentile": 12
      },
      "recognisable": {
-      "value": 0.455,
-      "less_like": 5,
-      "of": 11
+      "value": 0.5,
+      "less_like": 6,
+      "of": 12
      }
     }
    }
@@ -73570,17 +73585,17 @@
    "date": "2026-10-02",
    "category": "rtw",
    "show": {
-    "heat": 0.1396,
-    "heat_z": -0.767,
-    "surprise": -0.2205,
+    "heat": 0.1389,
+    "heat_z": -0.79,
+    "surprise": -0.2212,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.2219,
+    "momentum": -0.2404,
     "press": -0.5821,
     "press_z": -1.105,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 29,
+    "heat_percentile": 26,
     "lasting_percentile": null
    },
    "scene": {
@@ -74040,11 +74055,12 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
      "beauty": 1,
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -74858,9 +74874,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -75692,11 +75709,11 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 6,
     "by_line": {
      "accessories": 1,
      "beauty": 1,
-     "collection": 2,
+     "collection": 3,
      "other": 1
     }
    },
@@ -76033,9 +76050,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 1,
+     "other": 1
     }
    },
    "advertising": {
@@ -76312,11 +76330,12 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 5,
     "by_line": {
      "accessories": 1,
      "capsule": 1,
-     "other": 1
+     "collection": 1,
+     "other": 2
     }
    },
    "advertising": {
@@ -76505,10 +76524,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "collection": 2,
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -76622,9 +76641,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
+     "collection": 1,
      "other": 2
     }
    },
@@ -76888,10 +76908,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
-     "other": 2
+     "other": 3
     }
    },
    "advertising": {
@@ -77281,8 +77301,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "other": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -77561,9 +77583,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 2,
+     "collection": 3,
      "other": 1
     }
    },
@@ -77879,15 +77901,15 @@
     "heat": 0.1491,
     "heat_z": -0.19,
     "surprise": -0.1735,
-    "lasting": -0.1175,
-    "lasting_z": -0.369,
+    "lasting": -0.1165,
+    "lasting_z": -0.363,
     "momentum": 0.3744,
     "press": 0.9396,
     "press_z": -0.464,
     "tone": 0.0938,
     "tone_z": 0.462,
     "heat_percentile": 39,
-    "lasting_percentile": 25
+    "lasting_percentile": 22
    },
    "scene": {
     "appointments": 0,
@@ -77969,11 +77991,11 @@
     }
    },
    "campaigns": {
-    "entries": 11,
+    "entries": 12,
     "by_line": {
      "accessories": 2,
      "beauty": 1,
-     "collection": 3,
+     "collection": 4,
      "other": 5
     }
    },
@@ -78023,17 +78045,17 @@
    "date": "2026-09-25",
    "category": "rtw",
    "show": {
-    "heat": 0.2693,
-    "heat_z": -0.342,
-    "surprise": -0.0441,
+    "heat": 0.2714,
+    "heat_z": -0.364,
+    "surprise": -0.042,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.4971,
+    "momentum": -0.5059,
     "press": 0.4474,
     "press_z": -0.304,
     "tone": 0.5404,
     "tone_z": 0.951,
-    "heat_percentile": 45,
+    "heat_percentile": 48,
     "lasting_percentile": null
    },
    "scene": {
@@ -80049,7 +80071,7 @@
      },
      "campaign_period": {
       "ads": 211,
-      "beauty": 81,
+      "beauty": 82,
       "image": 19,
       "record": "survivors",
       "text": 192,
@@ -80197,7 +80219,7 @@
      },
      "campaign_period": {
       "ads": 124,
-      "beauty": 26,
+      "beauty": 27,
       "image": 79,
       "record": "survivors",
       "text": 45,
@@ -80454,11 +80476,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 272,
-      "beauty": 65,
+      "ads": 273,
+      "beauty": 67,
       "image": 66,
       "record": "survivors",
-      "text": 206,
+      "text": 207,
       "video": 0
      }
     }
@@ -80711,19 +80733,19 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 133,
+      "ads": 134,
       "beauty": 31,
       "image": 1,
       "record": "survivors",
-      "text": 132,
+      "text": 133,
       "video": 0
      },
      "campaign_period": {
-      "ads": 1253,
-      "beauty": 370,
+      "ads": 1255,
+      "beauty": 373,
       "image": 47,
       "record": "survivors",
-      "text": 1206,
+      "text": 1208,
       "video": 0
      }
     }
@@ -80879,11 +80901,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 585,
-      "beauty": 194,
+      "ads": 587,
+      "beauty": 192,
       "image": 25,
       "record": "survivors",
-      "text": 560,
+      "text": 562,
       "video": 0
      }
     }
@@ -81092,18 +81114,18 @@
     "search_video": {
      "show_period": {
       "ads": 108,
-      "beauty": 8,
+      "beauty": 7,
       "image": 53,
       "record": "partly survivors",
       "text": 55,
       "video": 0
      },
      "campaign_period": {
-      "ads": 386,
-      "beauty": 100,
+      "ads": 387,
+      "beauty": 101,
       "image": 61,
       "record": "complete",
-      "text": 301,
+      "text": 302,
       "video": 24
      }
     }
@@ -81133,8 +81155,8 @@
     "heat": 0.3642,
     "heat_z": 0.359,
     "surprise": 0.1361,
-    "lasting": 0.0867,
-    "lasting_z": 0.441,
+    "lasting": 0.0775,
+    "lasting_z": 0.403,
     "momentum": 0.0769,
     "press": 0.8513,
     "press_z": -0.608,
@@ -81196,18 +81218,18 @@
     "search_video": {
      "show_period": {
       "ads": 144,
-      "beauty": 47,
+      "beauty": 44,
       "image": 2,
       "record": "complete",
       "text": 130,
       "video": 12
      },
      "campaign_period": {
-      "ads": 592,
-      "beauty": 168,
+      "ads": 595,
+      "beauty": 169,
       "image": 106,
       "record": "complete",
-      "text": 474,
+      "text": 477,
       "video": 12
      }
     }
@@ -81216,7 +81238,7 @@
     "status": "provisional",
     "runway": {
      "show": "2026-03-07",
-     "looks": 0,
+     "looks": 5,
      "profile": null,
      "distinctness": {},
      "movement": {}
@@ -81240,17 +81262,17 @@
    "date": "2026-10-03",
    "category": "rtw",
    "show": {
-    "heat": 0.0586,
-    "heat_z": -1.033,
-    "surprise": -0.1757,
+    "heat": 0.0679,
+    "heat_z": -1.018,
+    "surprise": -0.1664,
     "lasting": null,
     "lasting_z": null,
-    "momentum": 0.1013,
+    "momentum": 0.0552,
     "press": -0.6168,
     "press_z": -1.132,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 10,
+    "heat_percentile": 13,
     "lasting_percentile": null
    },
    "scene": {
@@ -81302,11 +81324,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 103,
-      "beauty": 9,
+      "ads": 105,
+      "beauty": 8,
       "image": 12,
       "record": "complete",
-      "text": 88,
+      "text": 90,
       "video": 3
      },
      "campaign_period": {
@@ -83976,7 +83998,7 @@
      },
      "campaign_period": {
       "ads": 19,
-      "beauty": 9,
+      "beauty": 8,
       "image": 0,
       "record": "survivors",
       "text": 19,
@@ -84255,7 +84277,7 @@
     "search_video": {
      "show_period": {
       "ads": 2,
-      "beauty": 1,
+      "beauty": 2,
       "image": 0,
       "record": "survivors",
       "text": 2,
@@ -85268,15 +85290,15 @@
     "heat": 0.0616,
     "heat_z": -0.413,
     "surprise": -0.2346,
-    "lasting": 0.0975,
-    "lasting_z": 0.483,
+    "lasting": 0.1002,
+    "lasting_z": 0.493,
     "momentum": 0.2532,
     "press": 1.0284,
     "press_z": -0.319,
     "tone": -2.0109,
     "tone_z": -2.07,
     "heat_percentile": 22,
-    "lasting_percentile": 83
+    "lasting_percentile": 81
    },
    "scene": {
     "appointments": 0,
@@ -85554,12 +85576,12 @@
    "date": "2026-10-02",
    "category": "rtw",
    "show": {
-    "heat": 0.1217,
-    "heat_z": -0.826,
-    "surprise": -0.1639,
+    "heat": 0.1193,
+    "heat_z": -0.853,
+    "surprise": -0.1663,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1551,
+    "momentum": -0.1604,
     "press": 0.3839,
     "press_z": -0.353,
     "tone": null,
@@ -85594,12 +85616,12 @@
     "mix_shift": 0.208,
     "distinctness": {
      "image": {
-      "value": 0.2822,
+      "value": 0.2479,
       "n": 4,
-      "peers": 4,
+      "peers": 5,
       "percentile": 33
      },
-     "value": 0.2822,
+     "value": 0.2479,
      "percentile": 33
     },
     "movement": {
@@ -85627,12 +85649,12 @@
      },
      "distinctness": {
       "image": {
-       "value": 0.2822,
+       "value": 0.2479,
        "n": 4,
-       "peers": 4,
+       "peers": 5,
        "percentile": 33
       },
-      "value": 0.2822,
+      "value": 0.2479,
       "percentile": 33
      },
      "movement": {
@@ -88741,9 +88763,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 3,
     "by_line": {
-     "collection": 1
+     "collection": 3
     }
    },
    "advertising": {
@@ -88922,8 +88944,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -89322,9 +89346,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "beauty": 1
+     "beauty": 1,
+     "collection": 1
     }
    },
    "advertising": {
@@ -89516,10 +89541,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 5,
     "by_line": {
      "beauty": 1,
-     "collection": 2
+     "collection": 4
     }
    },
    "advertising": {
@@ -91992,7 +92017,7 @@
      },
      "campaign_period": {
       "ads": 213,
-      "beauty": 51,
+      "beauty": 52,
       "image": 101,
       "record": "complete",
       "text": 87,
@@ -92276,15 +92301,15 @@
     "heat": 0.215,
     "heat_z": -0.021,
     "surprise": -0.4352,
-    "lasting": -0.2103,
-    "lasting_z": -0.737,
+    "lasting": -0.2233,
+    "lasting_z": -0.785,
     "momentum": 0.1845,
     "press": 1.1248,
     "press_z": -0.162,
     "tone": -1.262,
     "tone_z": -1.169,
     "heat_percentile": 56,
-    "lasting_percentile": 14
+    "lasting_percentile": 11
    },
    "scene": {
     "appointments": 0,
@@ -92412,11 +92437,11 @@
       "video": 15
      },
      "campaign_period": {
-      "ads": 144,
-      "beauty": 47,
+      "ads": 145,
+      "beauty": 48,
       "image": 29,
       "record": "complete",
-      "text": 109,
+      "text": 110,
       "video": 6
      }
     }
@@ -92533,16 +92558,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2458,
-      "runways": 11,
-      "told_apart": 11,
-      "percentile": 100
+      "value": 0.2615,
+      "runways": 12,
+      "told_apart": 12,
+      "percentile": 92
      },
      "movement": {
       "value": 0.1314,
       "previous": "2025-09-24",
       "told_apart": true,
-      "percentile": 82
+      "percentile": 83
      }
     },
     "shop_window": {
@@ -92675,9 +92700,9 @@
       "percentile": 0
      },
      "recognisable": {
-      "value": 0.727,
+      "value": 0.667,
       "less_like": 8,
-      "of": 11
+      "of": 12
      }
     }
    }
@@ -92689,12 +92714,12 @@
    "date": "2026-09-23",
    "category": "rtw",
    "show": {
-    "heat": 0.7708,
-    "heat_z": 1.3,
-    "surprise": 0.1413,
+    "heat": 0.8663,
+    "heat_z": 1.55,
+    "surprise": 0.2368,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1315,
+    "momentum": -0.2653,
     "press": 2.5239,
     "press_z": 1.311,
     "tone": -0.7986,
@@ -92729,12 +92754,12 @@
     "mix_shift": 0.312,
     "distinctness": {
      "product": {
-      "value": 0.2663,
+      "value": 0.2688,
       "n": 4,
       "peers": 9,
       "percentile": 25
      },
-     "value": 0.2663,
+     "value": 0.2688,
      "percentile": 25
     },
     "movement": {
@@ -92762,12 +92787,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.2663,
+       "value": 0.2688,
        "n": 4,
        "peers": 9,
        "percentile": 25
       },
-      "value": 0.2663,
+      "value": 0.2688,
       "percentile": 25
      },
      "movement": {
@@ -92802,9 +92827,9 @@
       "video": 5
      },
      "campaign_period": {
-      "ads": 0,
+      "ads": 2,
       "beauty": 0,
-      "image": 0,
+      "image": 2,
       "open": true,
       "record": "complete",
       "text": 0,
@@ -96673,8 +96698,8 @@
       }
      },
      "distinctness": {
-      "value": 0.1575,
-      "runways": 8,
+      "value": 0.1456,
+      "runways": 9,
       "told_apart": 6,
       "percentile": 0
      },
@@ -96822,9 +96847,9 @@
       "percentile": 0
      },
      "recognisable": {
-      "value": 0.75,
-      "less_like": 6,
-      "of": 8
+      "value": 0.778,
+      "less_like": 7,
+      "of": 9
      }
     }
    }
@@ -97105,8 +97130,8 @@
     "heat": 0.1544,
     "heat_z": -0.176,
     "surprise": -0.5033,
-    "lasting": 0.0607,
-    "lasting_z": 0.338,
+    "lasting": 0.0619,
+    "lasting_z": 0.342,
     "momentum": -0.0708,
     "press": 1.4815,
     "press_z": 0.421,
@@ -97230,7 +97255,7 @@
      },
      "campaign_period": {
       "ads": 13,
-      "beauty": 4,
+      "beauty": 3,
       "image": 1,
       "record": "complete",
       "text": 12,
@@ -97379,17 +97404,17 @@
    "date": "2026-10-02",
    "category": "rtw",
    "show": {
-    "heat": 0.1373,
-    "heat_z": -0.775,
-    "surprise": -0.4889,
+    "heat": 0.152,
+    "heat_z": -0.748,
+    "surprise": -0.4742,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1629,
+    "momentum": -0.1842,
     "press": 1.1745,
     "press_z": 0.261,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 26,
+    "heat_percentile": 29,
     "lasting_percentile": null
    },
    "scene": {
@@ -97419,12 +97444,12 @@
     "mix_shift": 0.733,
     "distinctness": {
      "product": {
-      "value": 0.5369,
+      "value": 0.5409,
       "n": 4,
       "peers": 9,
       "percentile": 100
      },
-     "value": 0.5369,
+     "value": 0.5409,
      "percentile": 100
     },
     "movement": {
@@ -97452,12 +97477,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.5369,
+       "value": 0.5409,
        "n": 4,
        "peers": 9,
        "percentile": 100
       },
-      "value": 0.5369,
+      "value": 0.5409,
       "percentile": 100
      },
      "movement": {
@@ -97506,10 +97531,132 @@
     "status": "provisional",
     "runway": {
      "show": "2026-10-02",
-     "looks": 0,
-     "profile": null,
-     "distinctness": {},
-     "movement": {}
+     "looks": 18,
+     "profile": {
+      "accessories": {
+       "n": 18,
+       "shares": {
+        "shoes": 0.944,
+        "bag": 0.389,
+        "belt": 0.222
+       }
+      },
+      "colour_main": {
+       "n": 18,
+       "shares": {
+        "black": 0.667,
+        "white_ivory": 0.167,
+        "grey": 0.056
+       }
+      },
+      "colour_second": {
+       "n": 18,
+       "shares": {
+        "white_ivory": 0.222,
+        "black": 0.167,
+        "none": 0.167
+       }
+      },
+      "construction": {
+       "n": 17,
+       "shares": {
+        "tailored": 0.706,
+        "draped": 0.294
+       }
+      },
+      "finishing": {
+       "n": 17,
+       "shares": {
+        "none": 0.529,
+        "pleated": 0.353,
+        "beaded": 0.118
+       }
+      },
+      "formality": {
+       "n": 18,
+       "shares": {
+        "formal_tailored": 0.722,
+        "eveningwear": 0.222,
+        "casual": 0.056
+       }
+      },
+      "garments": {
+       "n": 18,
+       "shares": {
+        "trousers": 0.444,
+        "shirt_blouse": 0.333,
+        "dress": 0.333
+       }
+      },
+      "hemline": {
+       "n": 16,
+       "shares": {
+        "ankle_floor": 0.562,
+        "midi": 0.25,
+        "knee": 0.188
+       }
+      },
+      "layers": {
+       "n": 17,
+       "shares": {
+        "two": 0.588,
+        "one": 0.353,
+        "three_or_more": 0.059
+       }
+      },
+      "materials": {
+       "n": 18,
+       "shares": {
+        "plain_woven": 0.444,
+        "leather": 0.389,
+        "sheer_lace": 0.222
+       }
+      },
+      "pattern": {
+       "n": 18,
+       "shares": {
+        "plain": 0.667,
+        "graphic": 0.167,
+        "check": 0.111
+       }
+      },
+      "silhouette": {
+       "n": 17,
+       "shares": {
+        "fitted": 0.706,
+        "volume": 0.235,
+        "straight": 0.059
+       }
+      },
+      "skin_shown": {
+       "n": 18,
+       "shares": {
+        "some": 0.611,
+        "covered": 0.333,
+        "much": 0.056
+       }
+      },
+      "street_couture_axis": {
+       "n": 18,
+       "shares": {
+        "5": 0.833,
+        "4": 0.111,
+        "3": 0.056
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1969,
+      "runways": 11,
+      "told_apart": 9,
+      "percentile": 36
+     },
+     "movement": {
+      "value": -0.0164,
+      "previous": "2023-03-05",
+      "told_apart": false,
+      "percentile": 0
+     }
     },
     "shop_window": {
      "read": 4,
@@ -102353,10 +102500,10 @@
       }
      },
      "distinctness": {
-      "value": 0.2319,
-      "runways": 8,
-      "told_apart": 7,
-      "percentile": 62
+      "value": 0.2383,
+      "runways": 9,
+      "told_apart": 8,
+      "percentile": 67
      },
      "movement": {
       "value": 0.1866,
@@ -102499,12 +102646,12 @@
       "by_chance": 0.6704,
       "questions": 14,
       "told_apart": false,
-      "percentile": 50
+      "percentile": 60
      },
      "recognisable": {
-      "value": 0.875,
-      "less_like": 7,
-      "of": 8
+      "value": 0.889,
+      "less_like": 8,
+      "of": 9
      }
     }
    }
@@ -102787,7 +102934,7 @@
       "value": 0.1039,
       "previous": "2023-03-03",
       "told_apart": true,
-      "percentile": 38
+      "percentile": 44
      }
     },
     "shop_window": {
@@ -103067,16 +103214,16 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 393,
-      "beauty": 134,
+      "ads": 394,
+      "beauty": 150,
       "image": 0,
       "record": "survivors",
-      "text": 393,
+      "text": 394,
       "video": 0
      },
      "campaign_period": {
       "ads": 34,
-      "beauty": 25,
+      "beauty": 26,
       "image": 0,
       "record": "survivors",
       "text": 34,
@@ -103481,7 +103628,7 @@
      },
      "campaign_period": {
       "ads": 129,
-      "beauty": 30,
+      "beauty": 37,
       "image": 33,
       "record": "survivors",
       "text": 91,
@@ -103884,11 +104031,11 @@
       "video": 6
      },
      "campaign_period": {
-      "ads": 159,
+      "ads": 160,
       "beauty": 35,
       "image": 64,
       "record": "complete",
-      "text": 85,
+      "text": 86,
       "video": 10
      }
     }
@@ -104036,8 +104183,8 @@
     "heat": 0.6253,
     "heat_z": 1.026,
     "surprise": -0.0216,
-    "lasting": 0.1696,
-    "lasting_z": 0.769,
+    "lasting": 0.1733,
+    "lasting_z": 0.781,
     "momentum": -0.2059,
     "press": 0.7088,
     "press_z": -0.841,
@@ -104139,11 +104286,11 @@
     }
    },
    "campaigns": {
-    "entries": 11,
+    "entries": 12,
     "by_line": {
      "beauty": 1,
      "collection": 3,
-     "other": 7
+     "other": 8
     }
    },
    "advertising": {
@@ -104153,26 +104300,149 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 42,
-      "beauty": 17,
+      "ads": 43,
+      "beauty": 21,
       "image": 7,
       "record": "complete",
-      "text": 35,
+      "text": 36,
       "video": 0
      },
      "campaign_period": {
-      "ads": 326,
-      "beauty": 78,
+      "ads": 328,
+      "beauty": 82,
       "image": 33,
       "record": "complete",
-      "text": 293,
+      "text": 295,
       "video": 0
      }
     }
    },
    "clothes": {
     "status": "provisional",
-    "runway": null,
+    "runway": {
+     "show": "2026-03-06",
+     "looks": 8,
+     "profile": {
+      "accessories": {
+       "n": 7,
+       "shares": {
+        "bag": 0.714,
+        "shoes": 0.571,
+        "eyewear": 0.286
+       }
+      },
+      "colour_main": {
+       "n": 8,
+       "shares": {
+        "beige_camel": 0.25,
+        "brown": 0.25,
+        "green": 0.25
+       }
+      },
+      "colour_second": {
+       "n": 8,
+       "shares": {
+        "white_ivory": 0.25,
+        "blue": 0.25,
+        "yellow_gold": 0.25
+       }
+      },
+      "construction": {
+       "n": 7,
+       "shares": {
+        "tailored": 0.429,
+        "soft_cut": 0.429,
+        "mixed": 0.143
+       }
+      },
+      "finishing": {
+       "n": 8,
+       "shares": {
+        "none": 0.75,
+        "pleated": 0.25
+       }
+      },
+      "formality": {
+       "n": 8,
+       "shares": {
+        "casual": 0.375,
+        "sport_street": 0.375,
+        "mixed": 0.25
+       }
+      },
+      "garments": {
+       "n": 8,
+       "shares": {
+        "shirt_blouse": 0.5,
+        "top": 0.5,
+        "trousers": 0.5
+       }
+      },
+      "hemline": {
+       "n": 4,
+       "shares": {
+        "knee": 0.5,
+        "ankle_floor": 0.5
+       }
+      },
+      "layers": {
+       "n": 8,
+       "shares": {
+        "two": 0.625,
+        "three_or_more": 0.25,
+        "one": 0.125
+       }
+      },
+      "materials": {
+       "n": 8,
+       "shares": {
+        "plain_woven": 0.875,
+        "leather": 0.625,
+        "knit": 0.125
+       }
+      },
+      "pattern": {
+       "n": 8,
+       "shares": {
+        "stripe": 0.375,
+        "logo_letters": 0.25,
+        "mixed": 0.25
+       }
+      },
+      "silhouette": {
+       "n": 7,
+       "shares": {
+        "volume": 0.857,
+        "fitted": 0.143
+       }
+      },
+      "skin_shown": {
+       "n": 8,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 8,
+       "shares": {
+        "2": 0.5,
+        "3": 0.5
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.2879,
+      "runways": 12,
+      "told_apart": 12,
+      "percentile": 100
+     },
+     "movement": {
+      "value": 0.0613,
+      "previous": "2024-09-27",
+      "told_apart": false,
+      "percentile": 50
+     }
+    },
     "shop_window": {
      "read": 21,
      "worn": 7,
@@ -104301,8 +104571,19 @@
       "told_apart": false,
       "percentile": 5
      },
-     "own_runway": {},
-     "recognisable": {}
+     "own_runway": {
+      "value": 0.9685,
+      "in_common": 0.6352,
+      "by_chance": 0.6559,
+      "questions": 14,
+      "told_apart": false,
+      "percentile": 62
+     },
+     "recognisable": {
+      "value": 1.0,
+      "less_like": 12,
+      "of": 12
+     }
     }
    }
   },
@@ -104313,12 +104594,12 @@
    "date": "2026-10-02",
    "category": "rtw",
    "show": {
-    "heat": 0.2089,
-    "heat_z": -0.54,
-    "surprise": -0.437,
+    "heat": 0.2097,
+    "heat_z": -0.562,
+    "surprise": -0.4362,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1178,
+    "momentum": -0.1253,
     "press": 1.0761,
     "press_z": 0.185,
     "tone": null,
@@ -104353,12 +104634,12 @@
     "mix_shift": 0.286,
     "distinctness": {
      "product": {
-      "value": 0.2493,
+      "value": 0.251,
       "n": 3,
       "peers": 9,
       "percentile": 12
      },
-     "value": 0.2493,
+     "value": 0.251,
      "percentile": 12
     },
     "movement": {
@@ -104386,12 +104667,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.2493,
+       "value": 0.251,
        "n": 3,
        "peers": 9,
        "percentile": 12
       },
-      "value": 0.2493,
+      "value": 0.251,
       "percentile": 12
      },
      "movement": {
@@ -104406,10 +104687,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
      "collection": 3,
-     "other": 1
+     "other": 2
     }
    },
    "advertising": {
@@ -104419,11 +104700,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 75,
+      "ads": 78,
       "beauty": 12,
-      "image": 22,
+      "image": 24,
       "record": "complete",
-      "text": 41,
+      "text": 42,
       "video": 12
      },
      "campaign_period": {
@@ -104441,7 +104722,7 @@
     "status": "provisional",
     "runway": {
      "show": "2026-10-02",
-     "looks": 0,
+     "looks": 4,
      "profile": null,
      "distinctness": {},
      "movement": {}
@@ -104811,8 +105092,8 @@
     "heat": -0.2366,
     "heat_z": -1.175,
     "surprise": -0.5002,
-    "lasting": -0.1633,
-    "lasting_z": -0.551,
+    "lasting": -0.1608,
+    "lasting_z": -0.538,
     "momentum": 0.1876,
     "press": 0.6449,
     "press_z": -0.945,
@@ -104960,8 +105241,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -105135,8 +105418,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -106872,9 +107157,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
+     "collection": 1,
      "other": 1
     }
    },
@@ -107390,7 +107676,7 @@
      },
      "campaign_period": {
       "ads": 112,
-      "beauty": 21,
+      "beauty": 19,
       "image": 4,
       "record": "survivors",
       "text": 108,
@@ -107516,10 +107802,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1931,
-      "runways": 8,
-      "told_apart": 8,
-      "percentile": 50
+      "value": 0.1877,
+      "runways": 9,
+      "told_apart": 9,
+      "percentile": 33
      },
      "movement": {}
     },
@@ -108392,18 +108678,18 @@
     "search_video": {
      "show_period": {
       "ads": 36,
-      "beauty": 7,
+      "beauty": 8,
       "image": 0,
       "record": "survivors",
       "text": 36,
       "video": 0
      },
      "campaign_period": {
-      "ads": 214,
-      "beauty": 100,
+      "ads": 215,
+      "beauty": 101,
       "image": 86,
       "record": "survivors",
-      "text": 102,
+      "text": 103,
       "video": 26
      }
     }
@@ -108635,7 +108921,7 @@
       "value": 0.1125,
       "previous": "2024-10-01",
       "told_apart": true,
-      "percentile": 38
+      "percentile": 25
      }
     },
     "shop_window": {
@@ -108660,15 +108946,15 @@
     "heat": -0.0476,
     "heat_z": -0.692,
     "surprise": -0.2481,
-    "lasting": -0.1179,
-    "lasting_z": -0.371,
+    "lasting": -0.1137,
+    "lasting_z": -0.352,
     "momentum": 0.0436,
     "press": 0.7598,
     "press_z": -0.758,
     "tone": 0.1584,
     "tone_z": 0.54,
     "heat_percentile": 8,
-    "lasting_percentile": 22
+    "lasting_percentile": 25
    },
    "scene": {
     "appointments": 2,
@@ -108853,16 +109139,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2002,
-      "runways": 11,
-      "told_apart": 10,
-      "percentile": 82
+      "value": 0.1945,
+      "runways": 12,
+      "told_apart": 11,
+      "percentile": 67
      },
      "movement": {
       "value": 0.0593,
       "previous": "2025-09-30",
       "told_apart": false,
-      "percentile": 45
+      "percentile": 42
      }
     },
     "shop_window": {
@@ -108884,12 +109170,12 @@
    "date": "2026-10-06",
    "category": "rtw",
    "show": {
-    "heat": -0.0184,
-    "heat_z": -1.285,
-    "surprise": -0.2076,
+    "heat": -0.0107,
+    "heat_z": -1.271,
+    "surprise": -0.1999,
     "lasting": null,
     "lasting_z": null,
-    "momentum": 0.1078,
+    "momentum": 0.0966,
     "press": -1.7703,
     "press_z": -2.029,
     "tone": null,
@@ -108946,11 +109232,11 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 164,
+      "ads": 172,
       "beauty": 0,
-      "image": 71,
+      "image": 76,
       "record": "complete",
-      "text": 20,
+      "text": 23,
       "video": 73
      },
      "campaign_period": {
@@ -111285,7 +111571,7 @@
      },
      "campaign_period": {
       "ads": 70,
-      "beauty": 8,
+      "beauty": 6,
       "image": 26,
       "record": "complete",
       "text": 40,
@@ -111321,12 +111607,12 @@
    "date": "2026-09-29",
    "category": "rtw",
    "show": {
-    "heat": 0.1312,
-    "heat_z": -0.795,
-    "surprise": -0.3995,
+    "heat": 0.1307,
+    "heat_z": -0.816,
+    "surprise": -0.4,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.3036,
+    "momentum": -0.3165,
     "press": 1.3281,
     "press_z": 0.381,
     "tone": 0.6678,
@@ -111527,16 +111813,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2359,
-      "runways": 10,
-      "told_apart": 10,
-      "percentile": 60
+      "value": 0.2425,
+      "runways": 11,
+      "told_apart": 11,
+      "percentile": 73
      },
      "movement": {
       "value": 0.1167,
       "previous": "2017-09-27",
       "told_apart": true,
-      "percentile": 30
+      "percentile": 36
      }
     },
     "shop_window": {
@@ -112556,11 +112842,11 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
      "accessories": 1,
      "capsule": 1,
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -112849,10 +113135,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -114012,9 +114298,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -114768,15 +115054,15 @@
     "heat": 0.3578,
     "heat_z": 0.343,
     "surprise": -0.0921,
-    "lasting": 0.0154,
-    "lasting_z": 0.158,
+    "lasting": 0.012,
+    "lasting_z": 0.145,
     "momentum": -0.0133,
     "press": 0.5642,
     "press_z": -1.077,
     "tone": -1.6644,
     "tone_z": -1.653,
     "heat_percentile": 81,
-    "lasting_percentile": 56
+    "lasting_percentile": 50
    },
    "scene": {
     "appointments": 0,
@@ -114815,10 +115101,10 @@
       "value": 0.242,
       "n": 3,
       "peers": 27,
-      "percentile": 42
+      "percentile": 46
      },
      "value": 0.2168,
-     "percentile": 56
+     "percentile": 57
     },
     "movement": {
      "image": {
@@ -114890,11 +115176,11 @@
       "video": 155
      },
      "campaign_period": {
-      "ads": 3337,
-      "beauty": 71,
+      "ads": 3343,
+      "beauty": 73,
       "image": 1092,
       "record": "complete",
-      "text": 1668,
+      "text": 1674,
       "video": 577
      }
     }
@@ -114921,12 +115207,12 @@
    "date": "2026-09-24",
    "category": "rtw",
    "show": {
-    "heat": 1.0781,
-    "heat_z": 2.307,
-    "surprise": 0.6326,
+    "heat": 1.1067,
+    "heat_z": 2.323,
+    "surprise": 0.6612,
     "lasting": null,
     "lasting_z": null,
-    "momentum": 0.0078,
+    "momentum": -0.0517,
     "press": 1.8452,
     "press_z": 0.783,
     "tone": 1.5019,
@@ -114983,21 +115269,21 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 627,
-      "beauty": 115,
-      "image": 228,
+      "ads": 633,
+      "beauty": 111,
+      "image": 230,
       "record": "complete",
-      "text": 274,
+      "text": 278,
       "video": 125
      },
      "campaign_period": {
-      "ads": 0,
+      "ads": 52,
       "beauty": 0,
-      "image": 0,
+      "image": 39,
       "open": true,
       "record": "complete",
-      "text": 0,
-      "video": 0
+      "text": 1,
+      "video": 12
      }
     }
    },
@@ -116321,8 +116607,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -116824,9 +117112,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 3,
     "by_line": {
-     "collection": 1
+     "collection": 3
     }
    },
    "advertising": {
@@ -117197,9 +117485,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -117439,9 +117727,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 3,
+     "collection": 4,
      "other": 1
     }
    },
@@ -117706,10 +117994,10 @@
     }
    },
    "campaigns": {
-    "entries": 5,
+    "entries": 7,
     "by_line": {
      "accessories": 1,
-     "collection": 4
+     "collection": 6
     }
    },
    "advertising": {
@@ -117740,9 +118028,125 @@
     "status": "provisional",
     "runway": {
      "show": "2023-03-04",
-     "looks": 0,
-     "profile": null,
-     "distinctness": {},
+     "looks": 18,
+     "profile": {
+      "accessories": {
+       "n": 18,
+       "shares": {
+        "shoes": 1.0,
+        "jewellery": 0.833,
+        "bag": 0.389
+       }
+      },
+      "colour_main": {
+       "n": 18,
+       "shares": {
+        "black": 0.778,
+        "red": 0.111,
+        "beige_camel": 0.056
+       }
+      },
+      "colour_second": {
+       "n": 18,
+       "shares": {
+        "white_ivory": 0.278,
+        "none": 0.222,
+        "black": 0.167
+       }
+      },
+      "construction": {
+       "n": 18,
+       "shares": {
+        "tailored": 0.889,
+        "draped": 0.056,
+        "knitted": 0.056
+       }
+      },
+      "finishing": {
+       "n": 15,
+       "shares": {
+        "pleated": 0.667,
+        "none": 0.267,
+        "beaded": 0.267
+       }
+      },
+      "formality": {
+       "n": 18,
+       "shares": {
+        "formal_tailored": 0.722,
+        "eveningwear": 0.222,
+        "utilitarian": 0.056
+       }
+      },
+      "garments": {
+       "n": 16,
+       "shares": {
+        "dress": 0.562,
+        "trousers": 0.438,
+        "jacket": 0.312
+       }
+      },
+      "hemline": {
+       "n": 18,
+       "shares": {
+        "ankle_floor": 0.889,
+        "above_knee": 0.056,
+        "midi": 0.056
+       }
+      },
+      "layers": {
+       "n": 18,
+       "shares": {
+        "one": 0.5,
+        "two": 0.333,
+        "three_or_more": 0.167
+       }
+      },
+      "materials": {
+       "n": 17,
+       "shares": {
+        "leather": 0.471,
+        "plain_woven": 0.412,
+        "satin_silk": 0.353
+       }
+      },
+      "pattern": {
+       "n": 18,
+       "shares": {
+        "plain": 0.778,
+        "graphic": 0.111,
+        "stripe": 0.056
+       }
+      },
+      "silhouette": {
+       "n": 18,
+       "shares": {
+        "fitted": 0.611,
+        "volume": 0.222,
+        "mixed": 0.111
+       }
+      },
+      "skin_shown": {
+       "n": 18,
+       "shares": {
+        "some": 0.722,
+        "covered": 0.278
+       }
+      },
+      "street_couture_axis": {
+       "n": 18,
+       "shares": {
+        "5": 0.944,
+        "3": 0.056
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.1897,
+      "runways": 9,
+      "told_apart": 7,
+      "percentile": 56
+     },
      "movement": {}
     },
     "shop_window": {
@@ -117873,8 +118277,19 @@
       "told_apart": false,
       "percentile": 47
      },
-     "own_runway": {},
-     "recognisable": {}
+     "own_runway": {
+      "value": 0.9147,
+      "in_common": 0.7335,
+      "by_chance": 0.8019,
+      "questions": 14,
+      "told_apart": true,
+      "percentile": 40
+     },
+     "recognisable": {
+      "value": 0.667,
+      "less_like": 6,
+      "of": 9
+     }
     }
    }
   },
@@ -117990,9 +118405,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 4,
     "by_line": {
-     "other": 1
+     "collection": 2,
+     "other": 2
     }
    },
    "advertising": {
@@ -118142,7 +118558,12 @@
       "told_apart": 9,
       "percentile": 50
      },
-     "movement": {}
+     "movement": {
+      "value": 0.0399,
+      "previous": "2023-03-04",
+      "told_apart": false,
+      "percentile": 11
+     }
     },
     "shop_window": {
      "read": 16,
@@ -118394,9 +118815,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -119551,7 +119972,7 @@
       "value": 0.1186,
       "previous": "2024-03-02",
       "told_apart": true,
-      "percentile": 50
+      "percentile": 38
      }
     },
     "shop_window": {
@@ -119704,15 +120125,15 @@
     "heat": 0.084,
     "heat_z": -0.356,
     "surprise": -0.4876,
-    "lasting": -0.2234,
-    "lasting_z": -0.789,
+    "lasting": -0.2206,
+    "lasting_z": -0.774,
     "momentum": 0.0053,
     "press": 0.9429,
     "press_z": -0.459,
     "tone": 0.0731,
     "tone_z": 0.437,
     "heat_percentile": 28,
-    "lasting_percentile": 11
+    "lasting_percentile": 14
    },
    "scene": {
     "appointments": 0,
@@ -119966,16 +120387,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1143,
-      "runways": 11,
-      "told_apart": 8,
-      "percentile": 9
+      "value": 0.1314,
+      "runways": 12,
+      "told_apart": 9,
+      "percentile": 8
      },
      "movement": {
       "value": 0.0773,
       "previous": "2025-10-05",
       "told_apart": true,
-      "percentile": 55
+      "percentile": 58
      }
     },
     "shop_window": {
@@ -120107,12 +120528,12 @@
       "by_chance": 0.7592,
       "questions": 14,
       "told_apart": false,
-      "percentile": 57
+      "percentile": 50
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 11,
-      "of": 11
+      "less_like": 12,
+      "of": 12
      }
     }
    }
@@ -120124,12 +120545,12 @@
    "date": "2026-09-20",
    "category": "rtw",
    "show": {
-    "heat": 0.5938,
-    "heat_z": 0.721,
-    "surprise": 0.0479,
+    "heat": 0.6068,
+    "heat_z": 0.715,
+    "surprise": 0.0609,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.0056,
+    "momentum": -0.047,
     "press": 1.3443,
     "press_z": 0.393,
     "tone": -0.3047,
@@ -120164,12 +120585,12 @@
     "mix_shift": 0.474,
     "distinctness": {
      "product": {
-      "value": 0.3874,
+      "value": 0.385,
       "n": 3,
       "peers": 9,
       "percentile": 62
      },
-     "value": 0.3874,
+     "value": 0.385,
      "percentile": 62
     },
     "movement": {
@@ -120197,12 +120618,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.3874,
+       "value": 0.385,
        "n": 3,
        "peers": 9,
        "percentile": 62
       },
-      "value": 0.3874,
+      "value": 0.385,
       "percentile": 62
      },
      "movement": {
@@ -120217,9 +120638,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -120363,16 +120784,16 @@
       }
      },
      "distinctness": {
-      "value": 0.2581,
-      "runways": 10,
-      "told_apart": 10,
-      "percentile": 80
+      "value": 0.2407,
+      "runways": 11,
+      "told_apart": 11,
+      "percentile": 64
      },
      "movement": {
       "value": 0.0495,
       "previous": "2026-03-08",
       "told_apart": false,
-      "percentile": 0
+      "percentile": 9
      }
     },
     "shop_window": {
@@ -123136,10 +123557,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1882,
-      "runways": 8,
-      "told_apart": 8,
-      "percentile": 38
+      "value": 0.1887,
+      "runways": 9,
+      "told_apart": 9,
+      "percentile": 44
      },
      "movement": {}
     },
@@ -123395,7 +123816,7 @@
       "value": 0.0958,
       "previous": "2023-03-07",
       "told_apart": true,
-      "percentile": 25
+      "percentile": 33
      }
     },
     "shop_window": {
@@ -124255,8 +124676,8 @@
     "heat": 0.3495,
     "heat_z": 0.322,
     "surprise": -0.4101,
-    "lasting": 0.1881,
-    "lasting_z": 0.843,
+    "lasting": 0.1909,
+    "lasting_z": 0.851,
     "momentum": -0.0273,
     "press": 3.23,
     "press_z": 3.276,
@@ -124311,7 +124732,7 @@
      "image": {
       "value": 0.2965,
       "n": 5,
-      "percentile": 44
+      "percentile": 50
      },
      "product": {
       "value": 0.2698,
@@ -124319,7 +124740,7 @@
       "percentile": 13
      },
      "value": 0.2809,
-     "percentile": 26
+     "percentile": 28
     },
     "previous": "2025-10-06",
     "while_attention": {
@@ -124545,17 +124966,17 @@
    "date": "2026-10-04",
    "category": "rtw",
    "show": {
-    "heat": 0.7459,
-    "heat_z": 1.219,
-    "surprise": 0.0049,
+    "heat": 0.7388,
+    "heat_z": 1.14,
+    "surprise": -0.0022,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1553,
+    "momentum": -0.1521,
     "press": -1.3867,
     "press_z": -1.73,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 90,
+    "heat_percentile": 87,
     "lasting_percentile": null
    },
    "scene": {
@@ -124586,12 +125007,12 @@
     "mix_shift": 0.212,
     "distinctness": {
      "product": {
-      "value": 0.23,
+      "value": 0.2332,
       "n": 3,
       "peers": 9,
       "percentile": 0
      },
-     "value": 0.23,
+     "value": 0.2332,
      "percentile": 0
     },
     "movement": {
@@ -124619,12 +125040,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.23,
+       "value": 0.2332,
        "n": 3,
        "peers": 9,
        "percentile": 0
       },
-      "value": 0.23,
+      "value": 0.2332,
       "percentile": 0
      },
      "movement": {
@@ -125286,9 +125707,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -125636,8 +126057,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -125911,8 +126334,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "other": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -126165,10 +126590,11 @@
     }
    },
    "campaigns": {
-    "entries": 10,
+    "entries": 11,
     "by_line": {
      "accessories": 1,
-     "collection": 9
+     "collection": 9,
+     "other": 1
     }
    },
    "advertising": {
@@ -126432,9 +126858,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 2,
+     "collection": 3,
      "other": 2
     }
    },
@@ -126448,9 +126874,9 @@
       "record": "before the dataset"
      },
      "campaign_period": {
-      "ads": 976,
+      "ads": 978,
       "beauty": 46,
-      "image": 138,
+      "image": 140,
       "record": "survivors",
       "text": 738,
       "video": 100
@@ -126730,11 +127156,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 749,
-      "beauty": 20,
-      "image": 212,
+      "ads": 753,
+      "beauty": 19,
+      "image": 213,
       "record": "partly survivors",
-      "text": 508,
+      "text": 511,
       "video": 29
      }
     }
@@ -126855,9 +127281,9 @@
       }
      },
      "distinctness": {
-      "value": 0.245,
-      "runways": 9,
-      "told_apart": 9,
+      "value": 0.2555,
+      "runways": 10,
+      "told_apart": 10,
       "percentile": 100
      },
      "movement": {}
@@ -126993,12 +127419,12 @@
       "by_chance": 0.7782,
       "questions": 14,
       "told_apart": true,
-      "percentile": 14
+      "percentile": 12
      },
      "recognisable": {
-      "value": 0.889,
+      "value": 0.8,
       "less_like": 8,
-      "of": 9
+      "of": 10
      }
     }
    }
@@ -127014,7 +127440,7 @@
     "heat_z": 0.203,
     "surprise": -0.0325,
     "lasting": -0.5014,
-    "lasting_z": -1.892,
+    "lasting_z": -1.883,
     "momentum": 0.4937,
     "press": 1.0169,
     "press_z": -0.338,
@@ -127126,9 +127552,9 @@
     }
    },
    "campaigns": {
-    "entries": 8,
+    "entries": 9,
     "by_line": {
-     "collection": 6,
+     "collection": 7,
      "other": 2
     }
    },
@@ -127140,18 +127566,18 @@
     "search_video": {
      "show_period": {
       "ads": 66,
-      "beauty": 1,
+      "beauty": 0,
       "image": 22,
       "record": "complete",
       "text": 16,
       "video": 28
      },
      "campaign_period": {
-      "ads": 785,
+      "ads": 791,
       "beauty": 4,
       "image": 148,
       "record": "complete",
-      "text": 637,
+      "text": 643,
       "video": 0
      }
     }
@@ -131044,8 +131470,8 @@
     "heat": 0.1194,
     "heat_z": -0.266,
     "surprise": -0.1993,
-    "lasting": 0.2434,
-    "lasting_z": 1.062,
+    "lasting": 0.242,
+    "lasting_z": 1.053,
     "momentum": 0.1901,
     "press": 0.3421,
     "press_z": -1.44,
@@ -131324,12 +131750,12 @@
    "date": "2026-09-22",
    "category": "rtw",
    "show": {
-    "heat": 0.503,
-    "heat_z": 0.423,
-    "surprise": 0.1943,
+    "heat": 0.5091,
+    "heat_z": 0.401,
+    "surprise": 0.2004,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.7838,
+    "momentum": -0.8022,
     "press": 0.5337,
     "press_z": -0.237,
     "tone": 0.5154,
@@ -131364,12 +131790,12 @@
     "mix_shift": 0.5,
     "distinctness": {
      "product": {
-      "value": 0.3125,
+      "value": 0.3049,
       "n": 3,
       "peers": 9,
       "percentile": 50
      },
-     "value": 0.3125,
+     "value": 0.3049,
      "percentile": 50
     },
     "movement": {
@@ -131397,12 +131823,12 @@
      },
      "distinctness": {
       "product": {
-       "value": 0.3125,
+       "value": 0.3049,
        "n": 3,
        "peers": 9,
        "percentile": 50
       },
-      "value": 0.3125,
+      "value": 0.3049,
       "percentile": 50
      },
      "movement": {
@@ -131438,13 +131864,13 @@
       "video": 61
      },
      "campaign_period": {
-      "ads": 0,
+      "ads": 22,
       "beauty": 0,
-      "image": 0,
+      "image": 3,
       "open": true,
       "record": "complete",
-      "text": 0,
-      "video": 0
+      "text": 14,
+      "video": 5
      }
     }
    },
@@ -133070,9 +133496,9 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
-     "collection": 3
+     "collection": 4
     }
    },
    "advertising": {
@@ -133965,9 +134391,9 @@
     }
    },
    "campaigns": {
-    "entries": 7,
+    "entries": 8,
     "by_line": {
-     "collection": 3,
+     "collection": 4,
      "jewellery_watches": 1,
      "other": 3
     }
@@ -134241,9 +134667,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "collection": 2,
+     "collection": 3,
      "other": 2
     }
    },
@@ -134436,7 +134862,7 @@
      },
      "campaign_period": {
       "ads": 1098,
-      "beauty": 82,
+      "beauty": 102,
       "image": 262,
       "record": "survivors",
       "text": 642,
@@ -134705,8 +135131,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
+     "collection": 1,
      "other": 2
     }
    },
@@ -134718,7 +135145,7 @@
     "search_video": {
      "show_period": {
       "ads": 104,
-      "beauty": 10,
+      "beauty": 16,
       "image": 24,
       "record": "survivors",
       "text": 52,
@@ -134726,7 +135153,7 @@
      },
      "campaign_period": {
       "ads": 205,
-      "beauty": 15,
+      "beauty": 22,
       "image": 37,
       "record": "survivors",
       "text": 142,
@@ -135144,7 +135571,7 @@
     "search_video": {
      "show_period": {
       "ads": 213,
-      "beauty": 7,
+      "beauty": 16,
       "image": 115,
       "record": "survivors",
       "text": 98,
@@ -135152,7 +135579,7 @@
      },
      "campaign_period": {
       "ads": 54,
-      "beauty": 16,
+      "beauty": 17,
       "image": 45,
       "record": "survivors",
       "text": 6,
@@ -135162,7 +135589,132 @@
    },
    "clothes": {
     "status": "provisional",
-    "runway": null,
+    "runway": {
+     "show": "2025-03-11",
+     "looks": 16,
+     "profile": {
+      "accessories": {
+       "n": 16,
+       "shares": {
+        "shoes": 0.938,
+        "hosiery": 0.688,
+        "eyewear": 0.625
+       }
+      },
+      "colour_main": {
+       "n": 16,
+       "shares": {
+        "black": 0.312,
+        "brown": 0.312,
+        "red": 0.25
+       }
+      },
+      "colour_second": {
+       "n": 16,
+       "shares": {
+        "black": 0.312,
+        "beige_camel": 0.125,
+        "none": 0.125
+       }
+      },
+      "construction": {
+       "n": 16,
+       "shares": {
+        "tailored": 0.562,
+        "draped": 0.188,
+        "soft_cut": 0.188
+       }
+      },
+      "finishing": {
+       "n": 10,
+       "shares": {
+        "pleated": 0.6,
+        "none": 0.4
+       }
+      },
+      "formality": {
+       "n": 16,
+       "shares": {
+        "formal_tailored": 0.25,
+        "mixed": 0.25,
+        "eveningwear": 0.188
+       }
+      },
+      "garments": {
+       "n": 16,
+       "shares": {
+        "skirt": 0.75,
+        "jacket": 0.688,
+        "shirt_blouse": 0.562
+       }
+      },
+      "hemline": {
+       "n": 15,
+       "shares": {
+        "ankle_floor": 0.867,
+        "knee": 0.067,
+        "midi": 0.067
+       }
+      },
+      "layers": {
+       "n": 16,
+       "shares": {
+        "two": 0.562,
+        "three_or_more": 0.438
+       }
+      },
+      "materials": {
+       "n": 16,
+       "shares": {
+        "sheer_lace": 0.5,
+        "satin_silk": 0.5,
+        "leather": 0.438
+       }
+      },
+      "pattern": {
+       "n": 16,
+       "shares": {
+        "check": 0.375,
+        "plain": 0.188,
+        "mixed": 0.188
+       }
+      },
+      "silhouette": {
+       "n": 16,
+       "shares": {
+        "mixed": 0.625,
+        "fitted": 0.188,
+        "straight": 0.062
+       }
+      },
+      "skin_shown": {
+       "n": 16,
+       "shares": {
+        "some": 1.0
+       }
+      },
+      "street_couture_axis": {
+       "n": 16,
+       "shares": {
+        "3": 0.5,
+        "5": 0.375,
+        "2": 0.062
+       }
+      }
+     },
+     "distinctness": {
+      "value": 0.247,
+      "runways": 10,
+      "told_apart": 9,
+      "percentile": 90
+     },
+     "movement": {
+      "value": 0.1906,
+      "previous": "2024-09-24",
+      "told_apart": true,
+      "percentile": 88
+     }
+    },
     "shop_window": {
      "read": 21,
      "worn": 17,
@@ -135290,8 +135842,19 @@
       "told_apart": false,
       "percentile": 67
      },
-     "own_runway": {},
-     "recognisable": {}
+     "own_runway": {
+      "value": 0.7843,
+      "in_common": 0.6124,
+      "by_chance": 0.7808,
+      "questions": 14,
+      "told_apart": true,
+      "percentile": 25
+     },
+     "recognisable": {
+      "value": 0.2,
+      "less_like": 2,
+      "of": 10
+     }
     }
    }
   },
@@ -135417,9 +135980,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 2
+     "collection": 3
     }
    },
    "advertising": {
@@ -135430,7 +135993,7 @@
     "search_video": {
      "show_period": {
       "ads": 33,
-      "beauty": 1,
+      "beauty": 2,
       "image": 23,
       "record": "partly survivors",
       "text": 7,
@@ -135438,7 +136001,7 @@
      },
      "campaign_period": {
       "ads": 543,
-      "beauty": 109,
+      "beauty": 112,
       "image": 336,
       "record": "complete",
       "text": 167,
@@ -135569,10 +136132,10 @@
       "percentile": 22
      },
      "movement": {
-      "value": 0.0755,
-      "previous": "2024-09-24",
+      "value": 0.1346,
+      "previous": "2025-03-11",
       "told_apart": true,
-      "percentile": 25
+      "percentile": 62
      }
     },
     "shop_window": {
@@ -135723,14 +136286,14 @@
     "heat": -0.0391,
     "heat_z": -0.67,
     "surprise": -0.3655,
-    "lasting": -0.0979,
-    "lasting_z": -0.291,
+    "lasting": -0.0966,
+    "lasting_z": -0.284,
     "momentum": -0.0976,
     "press": 1.8176,
     "press_z": 0.969,
     "tone": -0.0251,
     "tone_z": 0.319,
-    "heat_percentile": 11,
+    "heat_percentile": 14,
     "lasting_percentile": 31
    },
    "scene": {
@@ -135780,7 +136343,7 @@
      "image": {
       "value": 0.2954,
       "n": 9,
-      "percentile": 38
+      "percentile": 44
      },
      "product": {
       "value": 0.4007,
@@ -135788,7 +136351,7 @@
       "percentile": 83
      },
      "value": 0.3375,
-     "percentile": 56
+     "percentile": 60
     },
     "previous": "2025-09-29",
     "while_attention": {
@@ -135858,7 +136421,7 @@
      },
      "campaign_period": {
       "ads": 856,
-      "beauty": 80,
+      "beauty": 83,
       "image": 532,
       "record": "complete",
       "text": 152,
@@ -135986,16 +136549,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1043,
-      "runways": 11,
-      "told_apart": 7,
+      "value": 0.1185,
+      "runways": 12,
+      "told_apart": 8,
       "percentile": 0
      },
      "movement": {
       "value": 0.0575,
       "previous": "2025-09-29",
       "told_apart": false,
-      "percentile": 36
+      "percentile": 33
      }
     },
     "shop_window": {
@@ -136132,12 +136695,12 @@
       "by_chance": 0.8103,
       "questions": 14,
       "told_apart": false,
-      "percentile": 86
+      "percentile": 88
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 11,
-      "of": 11
+      "less_like": 12,
+      "of": 12
      }
     }
    }
@@ -136149,17 +136712,17 @@
    "date": "2026-09-29",
    "category": "rtw",
    "show": {
-    "heat": 0.2401,
-    "heat_z": -0.438,
-    "surprise": -0.0681,
+    "heat": 0.2395,
+    "heat_z": -0.466,
+    "surprise": -0.0687,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.326,
+    "momentum": -0.3521,
     "press": 2.0456,
     "press_z": 0.939,
     "tone": 0.7559,
     "tone_z": 1.244,
-    "heat_percentile": 42,
+    "heat_percentile": 39,
     "lasting_percentile": null
    },
    "scene": {
@@ -136209,7 +136772,7 @@
     "search_video": {
      "show_period": {
       "ads": 100,
-      "beauty": 24,
+      "beauty": 29,
       "image": 11,
       "record": "complete",
       "text": 4,
@@ -136343,16 +136906,16 @@
       }
      },
      "distinctness": {
-      "value": 0.3186,
-      "runways": 10,
-      "told_apart": 10,
+      "value": 0.3024,
+      "runways": 11,
+      "told_apart": 11,
       "percentile": 100
      },
      "movement": {
       "value": 0.1644,
       "previous": "2026-03-03",
       "told_apart": true,
-      "percentile": 70
+      "percentile": 73
      }
     },
     "shop_window": {
@@ -139733,18 +140296,18 @@
    "date": "2026-07-06",
    "category": "couture",
    "show": {
-    "heat": 2.1816,
-    "heat_z": 2.214,
-    "surprise": 0.2101,
-    "lasting": 0.0962,
-    "lasting_z": 1.725,
+    "heat": 2.185,
+    "heat_z": 2.211,
+    "surprise": 0.2135,
+    "lasting": 0.1002,
+    "lasting_z": 1.683,
     "momentum": 0.2368,
     "press": 1.5905,
     "press_z": 0.504,
     "tone": -1.9646,
     "tone_z": -1.366,
     "heat_percentile": 100,
-    "lasting_percentile": 81
+    "lasting_percentile": 83
    },
    "scene": {
     "appointments": 0,
@@ -139774,12 +140337,12 @@
     "mix_shift": 0.1,
     "distinctness": {
      "image": {
-      "value": 0.2849,
+      "value": 0.2929,
       "n": 9,
       "peers": 18,
       "percentile": 91
      },
-     "value": 0.2849,
+     "value": 0.2929,
      "percentile": 91
     },
     "movement": {
@@ -140350,8 +140913,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -140914,8 +141479,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 2,
+    "by_line": {
+     "collection": 2
+    }
    },
    "advertising": {
     "paid_social": {
@@ -144377,7 +144944,7 @@
       "value": 0.1211,
       "previous": "2022-10-03",
       "told_apart": true,
-      "percentile": 50
+      "percentile": 56
      }
     },
     "shop_window": {
@@ -144526,7 +145093,7 @@
      },
      "campaign_period": {
       "ads": 49,
-      "beauty": 13,
+      "beauty": 14,
       "image": 6,
       "record": "survivors",
       "text": 39,
@@ -145208,7 +145775,7 @@
      },
      "campaign_period": {
       "ads": 71,
-      "beauty": 19,
+      "beauty": 20,
       "image": 22,
       "record": "survivors",
       "text": 48,
@@ -145630,8 +146197,8 @@
     "heat": 1.8824,
     "heat_z": 4.236,
     "surprise": 1.3884,
-    "lasting": 0.6421,
-    "lasting_z": 2.643,
+    "lasting": 0.6468,
+    "lasting_z": 2.651,
     "momentum": 0.0337,
     "press": 1.4243,
     "press_z": 0.327,
@@ -145745,7 +146312,7 @@
      },
      "campaign_period": {
       "ads": 27,
-      "beauty": 7,
+      "beauty": 8,
       "image": 10,
       "record": "complete",
       "text": 15,
@@ -145900,17 +146467,17 @@
    "date": "2026-09-30",
    "category": "rtw",
    "show": {
-    "heat": 0.7443,
-    "heat_z": 1.214,
-    "surprise": 0.1772,
+    "heat": 0.7396,
+    "heat_z": 1.142,
+    "surprise": 0.1725,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.8459,
+    "momentum": -0.8429,
     "press": 2.4754,
     "press_z": 1.273,
     "tone": -1.2015,
     "tone_z": -1.418,
-    "heat_percentile": 87,
+    "heat_percentile": 90,
     "lasting_percentile": null
    },
    "scene": {
@@ -146908,10 +147475,10 @@
       }
      },
      "distinctness": {
-      "value": 0.2653,
-      "runways": 8,
-      "told_apart": 8,
-      "percentile": 75
+      "value": 0.2575,
+      "runways": 9,
+      "told_apart": 9,
+      "percentile": 78
      },
      "movement": {
       "value": 0.1425,
@@ -147047,12 +147614,12 @@
       "by_chance": 0.8214,
       "questions": 14,
       "told_apart": false,
-      "percentile": 75
+      "percentile": 80
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 8,
-      "of": 8
+      "less_like": 9,
+      "of": 9
      }
     }
    }
@@ -148197,10 +148764,10 @@
       }
      },
      "distinctness": {
-      "value": 0.1674,
-      "runways": 9,
-      "told_apart": 8,
-      "percentile": 89
+      "value": 0.1857,
+      "runways": 10,
+      "told_apart": 9,
+      "percentile": 80
      },
      "movement": {
       "value": 0.2101,
@@ -148339,12 +148906,12 @@
       "by_chance": 0.7919,
       "questions": 14,
       "told_apart": true,
-      "percentile": 29
+      "percentile": 38
      },
      "recognisable": {
-      "value": 0.444,
-      "less_like": 4,
-      "of": 9
+      "value": 0.5,
+      "less_like": 5,
+      "of": 10
      }
     }
    }
@@ -148617,8 +149184,8 @@
     "heat": -0.1076,
     "heat_z": -0.845,
     "surprise": -0.6491,
-    "lasting": -0.0382,
-    "lasting_z": -0.055,
+    "lasting": -0.039,
+    "lasting_z": -0.057,
     "momentum": 0.4175,
     "press": 0.836,
     "press_z": -0.633,
@@ -148826,16 +149393,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1489,
-      "runways": 11,
-      "told_apart": 10,
-      "percentile": 36
+      "value": 0.1604,
+      "runways": 12,
+      "told_apart": 11,
+      "percentile": 33
      },
      "movement": {
       "value": 0.0508,
       "previous": "2025-10-02",
       "told_apart": false,
-      "percentile": 27
+      "percentile": 25
      }
     },
     "shop_window": {
@@ -148965,12 +149532,12 @@
       "by_chance": 0.8068,
       "questions": 14,
       "told_apart": false,
-      "percentile": 43
+      "percentile": 38
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 11,
-      "of": 11
+      "less_like": 12,
+      "of": 12
      }
     }
    }
@@ -148982,17 +149549,17 @@
    "date": "2026-09-30",
    "category": "rtw",
    "show": {
-    "heat": -0.0424,
-    "heat_z": -1.363,
-    "surprise": -0.519,
+    "heat": -0.0382,
+    "heat_z": -1.359,
+    "surprise": -0.5148,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.0213,
+    "momentum": -0.0295,
     "press": -0.2865,
     "press_z": -0.875,
     "tone": null,
     "tone_z": null,
-    "heat_percentile": 0,
+    "heat_percentile": 3,
     "lasting_percentile": null
    },
    "scene": {
@@ -149169,16 +149736,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1905,
-      "runways": 10,
-      "told_apart": 8,
-      "percentile": 20
+      "value": 0.1887,
+      "runways": 11,
+      "told_apart": 9,
+      "percentile": 18
      },
      "movement": {
       "value": 0.119,
       "previous": "2026-03-04",
       "told_apart": true,
-      "percentile": 40
+      "percentile": 45
      }
     },
     "shop_window": {
@@ -149260,9 +149827,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "beauty": 1,
+     "beauty": 2,
      "collection": 3
     }
    },
@@ -149350,9 +149917,9 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
-     "beauty": 3,
+     "beauty": 4,
      "collection": 1
     }
    },
@@ -149622,10 +150189,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 6,
     "by_line": {
      "accessories": 1,
-     "beauty": 1,
+     "beauty": 3,
      "collection": 2
     }
    },
@@ -149713,10 +150280,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -149894,10 +150461,10 @@
     }
    },
    "campaigns": {
-    "entries": 3,
+    "entries": 4,
     "by_line": {
      "accessories": 1,
-     "beauty": 2
+     "beauty": 3
     }
    },
    "advertising": {
@@ -150197,9 +150764,10 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "accessories": 1
+     "accessories": 1,
+     "collection": 1
     }
    },
    "advertising": {
@@ -151138,8 +151706,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -151295,8 +151865,8 @@
     "heat": 0.2027,
     "heat_z": -0.053,
     "surprise": -0.3389,
-    "lasting": -0.2601,
-    "lasting_z": -0.935,
+    "lasting": -0.2642,
+    "lasting_z": -0.946,
     "momentum": -0.2627,
     "press": 0.9122,
     "press_z": -0.509,
@@ -151393,7 +151963,7 @@
      },
      "campaign_period": {
       "ads": 359,
-      "beauty": 110,
+      "beauty": 111,
       "image": 122,
       "record": "complete",
       "text": 197,
@@ -151423,12 +151993,12 @@
    "date": "2026-09-30",
    "category": "rtw",
    "show": {
-    "heat": 0.4033,
-    "heat_z": 0.097,
-    "surprise": -0.0899,
+    "heat": 0.4158,
+    "heat_z": 0.101,
+    "surprise": -0.0774,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.2399,
+    "momentum": -0.2823,
     "press": 1.9082,
     "press_z": 0.832,
     "tone": -0.9087,
@@ -151464,12 +152034,12 @@
     "mix_shift": 0.625,
     "distinctness": {
      "image": {
-      "value": 0.2445,
+      "value": 0.2347,
       "n": 3,
-      "peers": 4,
+      "peers": 5,
       "percentile": 0
      },
-     "value": 0.2445,
+     "value": 0.2347,
      "percentile": 0
     },
     "movement": {},
@@ -151489,12 +152059,12 @@
      },
      "distinctness": {
       "image": {
-       "value": 0.2445,
+       "value": 0.2347,
        "n": 3,
-       "peers": 4,
+       "peers": 5,
        "percentile": 0
       },
-      "value": 0.2445,
+      "value": 0.2347,
       "percentile": 0
      },
      "movement": {}
@@ -151602,8 +152172,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
+     "accessories": 1,
      "collection": 1
     }
    },
@@ -151781,9 +152352,9 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
-     "collection": 1,
+     "collection": 2,
      "other": 1
     }
    },
@@ -151963,9 +152534,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -152427,10 +152998,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "beauty": 1,
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -152992,9 +153563,9 @@
     }
    },
    "campaigns": {
-    "entries": 1,
+    "entries": 2,
     "by_line": {
-     "collection": 1
+     "collection": 2
     }
    },
    "advertising": {
@@ -154922,8 +155493,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -155065,10 +155638,10 @@
       }
      },
      "distinctness": {
-      "value": 0.2854,
-      "runways": 8,
-      "told_apart": 7,
-      "percentile": 88
+      "value": 0.2994,
+      "runways": 9,
+      "told_apart": 8,
+      "percentile": 100
      },
      "movement": {
       "value": 0.1631,
@@ -155215,8 +155788,8 @@
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 8,
-      "of": 8
+      "less_like": 9,
+      "of": 9
      }
     }
    }
@@ -156484,16 +157057,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1372,
-      "runways": 9,
+      "value": 0.1312,
+      "runways": 10,
       "told_apart": 5,
-      "percentile": 67
+      "percentile": 20
      },
      "movement": {
       "value": 0.1646,
       "previous": "2024-03-03",
       "told_apart": true,
-      "percentile": 43
+      "percentile": 38
      }
     },
     "shop_window": {
@@ -156635,8 +157208,8 @@
      },
      "recognisable": {
       "value": 1.0,
-      "less_like": 9,
-      "of": 9
+      "less_like": 10,
+      "of": 10
      }
     }
    }
@@ -157071,8 +157644,8 @@
     "heat": -0.7243,
     "heat_z": -2.42,
     "surprise": -1.1998,
-    "lasting": -0.8398,
-    "lasting_z": -3.234,
+    "lasting": -0.8432,
+    "lasting_z": -3.233,
     "momentum": -0.0519,
     "press": 2.1427,
     "press_z": 1.5,
@@ -157118,10 +157691,10 @@
       "value": 0.2397,
       "n": 4,
       "peers": 27,
-      "percentile": 38
+      "percentile": 42
      },
      "value": 0.2148,
-     "percentile": 33
+     "percentile": 35
     },
     "movement": {
      "image": {
@@ -157205,12 +157778,12 @@
       "video": 19
      },
      "campaign_period": {
-      "ads": 1753,
-      "beauty": 292,
+      "ads": 1756,
+      "beauty": 301,
       "image": 594,
       "record": "complete",
-      "text": 934,
-      "video": 225
+      "text": 936,
+      "video": 226
      }
     }
    },
@@ -157332,16 +157905,16 @@
       }
      },
      "distinctness": {
-      "value": 0.1968,
-      "runways": 11,
-      "told_apart": 10,
-      "percentile": 73
+      "value": 0.196,
+      "runways": 12,
+      "told_apart": 11,
+      "percentile": 75
      },
      "movement": {
       "value": 0.0246,
       "previous": "2025-10-05",
       "told_apart": false,
-      "percentile": 18
+      "percentile": 17
      }
     },
     "shop_window": {
@@ -157363,12 +157936,12 @@
    "date": "2026-10-04",
    "category": "rtw",
    "show": {
-    "heat": 0.4169,
-    "heat_z": 0.141,
-    "surprise": -0.0041,
+    "heat": 0.4308,
+    "heat_z": 0.149,
+    "surprise": 0.0098,
     "lasting": null,
     "lasting_z": null,
-    "momentum": -0.1898,
+    "momentum": -0.2434,
     "press": -0.8007,
     "press_z": -1.275,
     "tone": null,
@@ -157404,12 +157977,12 @@
     "mix_shift": 0.321,
     "distinctness": {
      "image": {
-      "value": 0.3311,
+      "value": 0.3047,
       "n": 3,
-      "peers": 4,
+      "peers": 5,
       "percentile": 67
      },
-     "value": 0.3311,
+     "value": 0.3047,
      "percentile": 67
     },
     "movement": {
@@ -157437,12 +158010,12 @@
      },
      "distinctness": {
       "image": {
-       "value": 0.3311,
+       "value": 0.3047,
        "n": 3,
-       "peers": 4,
+       "peers": 5,
        "percentile": 100
       },
-      "value": 0.3311,
+      "value": 0.3047,
       "percentile": 100
      },
      "movement": {
@@ -157469,12 +158042,12 @@
     },
     "search_video": {
      "show_period": {
-      "ads": 59,
-      "beauty": 4,
-      "image": 24,
+      "ads": 62,
+      "beauty": 5,
+      "image": 25,
       "record": "complete",
-      "text": 31,
-      "video": 4
+      "text": 32,
+      "video": 5
      },
      "campaign_period": {
       "ads": 0,
@@ -157782,8 +158355,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "beauty": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -157910,8 +158485,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "beauty": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -159551,8 +160128,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -160340,8 +160919,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "beauty": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -160594,9 +161175,10 @@
     }
    },
    "campaigns": {
-    "entries": 2,
+    "entries": 3,
     "by_line": {
      "accessories": 1,
+     "beauty": 1,
      "other": 1
     }
    },
@@ -161410,8 +161992,10 @@
     }
    },
    "campaigns": {
-    "entries": 0,
-    "by_line": {}
+    "entries": 1,
+    "by_line": {
+     "collection": 1
+    }
    },
    "advertising": {
     "paid_social": {
@@ -161429,7 +162013,7 @@
      },
      "campaign_period": {
       "ads": 76,
-      "beauty": 33,
+      "beauty": 35,
       "image": 17,
       "record": "survivors",
       "text": 59,
@@ -161704,11 +162288,11 @@
       "video": 0
      },
      "campaign_period": {
-      "ads": 449,
-      "beauty": 152,
+      "ads": 451,
+      "beauty": 141,
       "image": 65,
       "record": "survivors",
-      "text": 367,
+      "text": 369,
       "video": 17
      }
     }
@@ -161965,7 +162549,7 @@
     "search_video": {
      "show_period": {
       "ads": 23,
-      "beauty": 15,
+      "beauty": 18,
       "image": 1,
       "record": "survivors",
       "text": 21,
@@ -161973,7 +162557,7 @@
      },
      "campaign_period": {
       "ads": 420,
-      "beauty": 259,
+      "beauty": 245,
       "image": 88,
       "record": "survivors",
       "text": 281,
@@ -162188,7 +162772,7 @@
      },
      "campaign_period": {
       "ads": 137,
-      "beauty": 58,
+      "beauty": 48,
       "image": 38,
       "record": "survivors",
       "text": 79,
@@ -162291,9 +162875,10 @@
     }
    },
    "campaigns": {
-    "entries": 4,
+    "entries": 5,
     "by_line": {
      "accessories": 1,
+     "beauty": 1,
      "collection": 2,
      "other": 1
     }
@@ -162306,7 +162891,7 @@
     "search_video": {
      "show_period": {
       "ads": 15,
-      "beauty": 11,
+      "beauty": 8,
       "image": 8,
       "record": "partly survivors",
       "text": 4,
@@ -166970,10 +167555,10 @@
    "category": "men",
    "show": {
     "heat": 0.4582,
-    "heat_z": 2.182,
+    "heat_z": 2.193,
     "surprise": 0.1765,
-    "lasting": -0.1135,
-    "lasting_z": -0.659,
+    "lasting": -0.1127,
+    "lasting_z": -0.607,
     "momentum": -0.2104,
     "press": 0.8019,
     "press_z": -0.311,
@@ -167010,12 +167595,12 @@
     "mix_shift": 0.25,
     "distinctness": {
      "image": {
-      "value": 0.3646,
+      "value": 0.3726,
       "n": 6,
       "peers": 21,
       "percentile": 100
      },
-     "value": 0.3646,
+     "value": 0.3726,
      "percentile": 100
     },
     "movement": {

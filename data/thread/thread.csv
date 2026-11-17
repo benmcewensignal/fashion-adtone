@@ -1,7 +1,7 @@
 house,date,season,category,city,main,heat,surprise,press,tone,lasting,momentum,heat_z,surprise_z,press_z,tone_z,lasting_z,heat_missing,url
 alaia,2025-03-04,2025 AW rtw,rtw,Paris,True,0.3635,,0.8834,,0.364,-0.3504,-0.483,,-0.821,,1.651,,https://nowfashion.com/alaia-ready-to-wear-fall-winter-2025-paris
 alaia,2025-10-04,2026 SS rtw,rtw,Paris,True,0.424,,0.4781,-1.588,0.0135,-0.1873,-0.192,,-1.489,-1.554,0.418,,https://nowfashion.com/alaia-ready-to-wear-spring-summer-2026-paris
-alaia,2026-03-04,2026 AW rtw,rtw,Paris,True,0.2541,-0.1396,0.9691,-1.2413,-0.0486,0.1276,0.078,0.262,-0.416,-1.144,-0.096,,https://nowfashion.com/alaia-ready-to-wear-fall-winter-2026-paris
+alaia,2026-03-04,2026 AW rtw,rtw,Paris,True,0.2541,-0.1396,0.9691,-1.2413,-0.0492,0.1276,0.078,0.262,-0.416,-1.144,-0.097,,https://nowfashion.com/alaia-ready-to-wear-fall-winter-2026-paris
 armani,2015-01-27,2015 SS couture,couture,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/giorgio-armani-prive-couture-spring-summer-2015-paris
 armani,2015-07-07,2015 AW couture,couture,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/giorgio-armani-prive-couture-fall-winter-2015-paris
 armani,2016-01-26,2016 SS couture,couture,Paris,True,-0.0886,,,,-0.0675,0.0607,-1.955,,,,-0.912,,https://nowfashion.com/giorgio-armani-prive-couture-spring-summer-2016-paris
@@ -43,10 +43,10 @@ armani,2025-07-08,2025 AW couture,couture,Paris,True,0.2515,0.0919,2.825,-2.7243
 armani,2025-09-28,2026 SS rtw,rtw,Milan,False,0.0945,0.0053,2.0552,0.844,-0.7196,-0.0818,-1.063,-0.106,0.653,1.121,-3.283,,https://nowfashion.com/giorgio-armani-ready-to-wear-spring-summer-2026-milan
 armani,2026-01-19,2026 AW men,men,Milan,False,0.9697,0.8368,2.6658,0.7246,-0.1192,-1.1479,0.87,1.517,2.154,1.222,-0.717,,https://nowfashion.com/giorgio-armani-menswear-fall-winter-2026-milan
 armani,2026-01-27,2026 SS couture,couture,Paris,True,0.206,0.0413,0.7773,1.8095,-0.1048,-1.2973,,,-1.343,1.702,,,https://nowfashion.com/giorgio-armani-prive-couture-spring-summer-2026-paris
-armani,2026-03-01,2026 AW rtw,rtw,Milan,False,-0.1133,-0.203,1.4527,-0.3162,-0.2437,-0.1589,-0.86,0.094,0.374,-0.031,-0.87,,https://nowfashion.com/giorgio-armani-ready-to-wear-fall-winter-2026-milan
-armani,2026-06-22,2027 SS men,men,Milan,False,-0.1034,-0.32,1.7683,-1.1295,0.043,-0.3504,-0.407,-0.285,1.09,-0.273,0.192,,https://nowfashion.com/giorgio-armani-menswear-spring-summer-2027-milan
-armani,2026-07-07,2026 AW couture,couture,Paris,True,-0.0275,-0.1944,1.0966,-1.2834,0.0028,-0.1736,-0.624,-0.374,-0.794,-0.847,0.63,,https://nowfashion.com/giorgio-armani-prive-couture-fall-winter-2026-paris
-armani,2026-09-27,2027 SS rtw,rtw,Milan,False,0.166,0.0947,2.1304,-0.9963,,-0.183,-0.681,0.633,1.005,-1.139,,,https://nowfashion.com/giorgio-armani-ready-to-wear-spring-summer-2027-milan
+armani,2026-03-01,2026 AW rtw,rtw,Milan,False,-0.1133,-0.203,1.4527,-0.3162,-0.2426,-0.1589,-0.86,0.094,0.374,-0.031,-0.861,,https://nowfashion.com/giorgio-armani-ready-to-wear-fall-winter-2026-milan
+armani,2026-06-22,2027 SS men,men,Milan,False,-0.1073,-0.3239,1.7683,-1.1295,0.0439,-0.3504,-0.417,-0.302,1.09,-0.273,0.22,,https://nowfashion.com/giorgio-armani-menswear-spring-summer-2027-milan
+armani,2026-07-07,2026 AW couture,couture,Paris,True,-0.0468,-0.2137,1.0966,-1.2834,0.0145,-0.1736,-0.632,-0.409,-0.794,-0.847,0.689,,https://nowfashion.com/giorgio-armani-prive-couture-fall-winter-2026-paris
+armani,2026-09-27,2027 SS rtw,rtw,Milan,False,0.1622,0.0909,2.1304,-0.9963,,-0.1948,-0.715,0.568,1.005,-1.139,,,https://nowfashion.com/giorgio-armani-ready-to-wear-spring-summer-2027-milan
 balenciaga,2015-03-06,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/balenciaga-ready-to-wear-fall-winter-2015-paris
 balenciaga,2015-10-02,2016 SS rtw,rtw,Paris,True,1.0366,,,,-0.1623,,1.328,,,,-0.952,,https://nowfashion.com/balenciaga-ready-to-wear-spring-summer-2016-paris
 balenciaga,2016-03-06,2016 AW rtw,rtw,Paris,True,0.8793,,,,-0.0575,-0.2212,1.65,,,,-0.112,,https://nowfashion.com/balenciaga-ready-to-wear-fall-winter-2016-paris
@@ -75,9 +75,9 @@ balenciaga,2024-06-26,2024 AW couture,couture,Paris,False,1.2963,0.8651,2.53,1.0
 balenciaga,2024-09-30,2025 SS rtw,rtw,Paris,True,0.249,-0.3407,1.8215,0.3162,-0.0848,0.2548,-0.862,-1.312,0.377,0.421,-0.573,,https://nowfashion.com/balenciaga-ready-to-wear-spring-summer-2025-paris
 balenciaga,2025-03-09,2025 AW rtw,rtw,Paris,True,0.7201,0.1493,1.1511,-0.8077,-0.1766,-0.1777,0.442,0.188,-0.411,-0.735,-1.084,,https://nowfashion.com/balenciaga-ready-to-wear-fall-winter-2025-paris
 balenciaga,2025-10-04,2026 SS rtw,rtw,Paris,True,1.3953,0.8167,2.4637,0.897,-0.0094,-0.1665,2.376,2.148,1.208,1.179,0.303,,https://nowfashion.com/balenciaga-ready-to-wear-spring-summer-2026-paris
-balenciaga,2026-03-07,2026 AW rtw,rtw,Paris,True,0.4258,-0.1937,1.3419,-0.4389,0.069,-0.0742,0.517,0.119,0.193,-0.179,0.37,,https://nowfashion.com/balenciaga-ready-to-wear-fall-winter-2026-paris
-balenciaga,2026-07-08,2026 AW couture,couture,Paris,False,0.1513,-0.4962,1.6912,0.3869,-0.0966,0.1379,-0.394,-1.757,0.768,0.427,-0.535,,https://nowfashion.com/balenciaga-couture-fall-winter-2026-paris
-balenciaga,2026-10-01,2027 SS rtw,rtw,Paris,True,0.2731,-0.3371,1.824,-1.4785,,-0.3566,-0.33,-0.948,0.766,-1.795,,,https://nowfashion.com/balenciaga-men-women-spring-summer-2027-paris
+balenciaga,2026-03-07,2026 AW rtw,rtw,Paris,True,0.4258,-0.1937,1.3419,-0.4389,0.0676,-0.0742,0.517,0.119,0.193,-0.179,0.364,,https://nowfashion.com/balenciaga-ready-to-wear-fall-winter-2026-paris
+balenciaga,2026-07-08,2026 AW couture,couture,Paris,False,0.1325,-0.515,1.6912,0.3869,-0.0866,0.1379,-0.404,-1.744,0.768,0.427,-0.484,,https://nowfashion.com/balenciaga-couture-fall-winter-2026-paris
+balenciaga,2026-10-01,2027 SS rtw,rtw,Paris,True,0.2699,-0.3403,1.824,-1.4785,,-0.3645,-0.368,-0.978,0.766,-1.795,,,https://nowfashion.com/balenciaga-men-women-spring-summer-2027-paris
 balmain,2015-03-05,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/balmain-ready-to-wear-fall-winter-2015-paris
 balmain,2015-06-27,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/balmain-menswear-spring-summer-2016-paris
 balmain,2015-10-01,2016 SS rtw,rtw,Paris,True,1.9139,,,,0.6338,,3.385,,,,3.205,,https://nowfashion.com/balmain-ready-to-wear-spring-summer-2016-paris
@@ -112,8 +112,8 @@ balmain,2024-02-28,2024 AW rtw,rtw,Paris,True,1.0419,0.0684,1.5655,-0.6347,0.160
 balmain,2024-09-25,2025 SS rtw,rtw,Paris,True,0.6413,-0.336,2.0287,-0.8021,0.0002,-0.2638,0.143,-1.299,0.758,-1.209,-0.022,,https://nowfashion.com/balmain-ready-to-wear-spring-summer-2025-paris
 balmain,2025-03-05,2025 AW rtw,rtw,Paris,True,0.231,-0.7286,2.0538,0.1813,0.0354,0.0806,-0.827,-2.283,0.97,0.269,-0.012,,https://nowfashion.com/balmain-ready-to-wear-fall-winter-2025-paris
 balmain,2025-10-01,2026 SS rtw,rtw,Paris,True,0.5096,-0.4136,1.1924,0.4372,0.1322,-0.327,0.034,-1.27,-0.519,0.673,1.018,,https://nowfashion.com/balmain-ready-to-wear-spring-summer-2026-paris
-balmain,2026-03-04,2026 AW rtw,rtw,Paris,True,0.1965,-0.707,1.4259,-0.2966,0.0153,-0.1379,-0.069,-1.238,0.33,-0.008,0.157,,https://nowfashion.com/balmain-ready-to-wear-fall-winter-2026-paris
-balmain,2026-09-30,2027 SS rtw,rtw,Paris,True,0.1746,-0.6967,1.2661,0.063,,-0.2245,-0.653,-2.265,0.333,0.302,,,https://nowfashion.com/balmain-men-women-spring-summer-2027-paris
+balmain,2026-03-04,2026 AW rtw,rtw,Paris,True,0.1965,-0.707,1.4259,-0.2966,0.0179,-0.1379,-0.069,-1.238,0.33,-0.008,0.168,,https://nowfashion.com/balmain-ready-to-wear-fall-winter-2026-paris
+balmain,2026-09-30,2027 SS rtw,rtw,Paris,True,0.1796,-0.6917,1.2661,0.063,,-0.287,-0.659,-2.237,0.333,0.302,,,https://nowfashion.com/balmain-men-women-spring-summer-2027-paris
 bottega_veneta,2015-01-18,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/bottega-veneta-menswear-fall-winter-2015-milan
 bottega_veneta,2015-02-28,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/bottega-veneta-ready-to-wear-fall-winter-2015-milan
 bottega_veneta,2015-06-21,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/bottega-veneta-menswear-spring-summer-2016-milan-2
@@ -133,13 +133,13 @@ bottega_veneta,2023-09-23,2024 SS rtw,rtw,Milan,True,0.4642,0.1014,0.9052,-0.155
 bottega_veneta,2024-02-24,2024 AW rtw,rtw,Milan,True,0.2769,-0.0943,1.1158,-0.4365,-0.1084,0.1063,-0.312,-0.173,-0.452,-0.52,-0.702,,https://nowfashion.com/bottega-veneta-men-women-fall-winter-2024-milan
 bottega_veneta,2024-09-21,2025 SS rtw,rtw,Milan,True,0.8823,0.5183,1.6959,0.3423,0.0338,-0.0765,0.76,0.986,0.146,0.459,0.195,,https://nowfashion.com/bottega-veneta-men-women-spring-summer-2025-milan
 bottega_veneta,2025-09-27,2026 SS rtw,rtw,Milan,True,0.935,0.534,2.8648,-0.1175,-0.268,0.1209,1.159,1.363,1.753,0.063,-1.003,,https://nowfashion.com/bottega-veneta-men-women-spring-summer-2026-milan
-bottega_veneta,2026-02-28,2026 AW rtw,rtw,Milan,True,0.3275,-0.1091,1.5445,-0.2711,0.0573,-0.2521,0.266,0.342,0.524,0.023,0.324,,https://nowfashion.com/bottega-veneta-men-women-fall-winter-2026-milan
-bottega_veneta,2026-09-26,2027 SS rtw,rtw,Milan,True,0.6015,0.1717,1.3943,-0.496,,-0.313,0.746,0.915,0.432,-0.459,,,https://nowfashion.com/bottega-veneta-men-women-spring-summer-2027-milan
+bottega_veneta,2026-02-28,2026 AW rtw,rtw,Milan,True,0.3275,-0.1091,1.5445,-0.2711,0.0605,-0.2521,0.266,0.342,0.524,0.023,0.336,,https://nowfashion.com/bottega-veneta-men-women-fall-winter-2026-milan
+bottega_veneta,2026-09-26,2027 SS rtw,rtw,Milan,True,0.6351,0.2053,1.3943,-0.496,,-0.3444,0.806,0.978,0.432,-0.459,,,https://nowfashion.com/bottega-veneta-men-women-spring-summer-2027-milan
 brunello_cucinelli,2021-02-24,2021 AW rtw,rtw,Milan,False,0.3327,,1.3274,1.822,0.0713,-0.0966,-0.133,,-0.019,2.232,0.804,,https://nowfashion.com/brunello-cucinelli-ready-to-wear-fall-winter-2021-milan
 brunello_cucinelli,2025-06-20,2026 SS men,men,Milan,True,0.2177,,-0.7619,,0.1095,-0.2716,-0.25,,0.296,,0.557,,https://nowfashion.com/brunello-cucinelli-menswear-spring-summer-2026-milan
 brunello_cucinelli,2026-01-16,2026 AW men,men,Milan,True,0.2991,,1.6013,-0.2797,-0.3287,-0.0028,-0.458,,0.478,0.159,-1.816,,https://nowfashion.com/brunello-cucinelli-menswear-fall-winter-2026-milan
-brunello_cucinelli,2026-02-25,2026 AW rtw,rtw,Milan,False,0.4745,,0.7584,-0.4068,-0.2428,0.3047,0.641,,-0.76,-0.14,-0.866,,https://nowfashion.com/brunello-cucinelli-ready-to-wear-fall-winter-2026-milan
-brunello_cucinelli,2026-06-19,2027 SS men,men,Milan,True,0.0976,-0.1608,1.3561,1.5526,0.1701,-0.1985,0.52,0.386,0.492,1.57,0.883,,https://nowfashion.com/brunello-cucinelli-menswear-spring-summer-2027-milan
+brunello_cucinelli,2026-02-25,2026 AW rtw,rtw,Milan,False,0.4745,,0.7584,-0.4068,-0.2432,0.3047,0.641,,-0.76,-0.14,-0.863,,https://nowfashion.com/brunello-cucinelli-ready-to-wear-fall-winter-2026-milan
+brunello_cucinelli,2026-06-19,2027 SS men,men,Milan,True,0.0976,-0.1608,1.3561,1.5526,0.1598,-0.1985,0.529,0.404,0.492,1.57,0.832,,https://nowfashion.com/brunello-cucinelli-menswear-spring-summer-2027-milan
 burberry,2015-01-12,2015 AW men,men,London,False,,,,,,,,,,,,before the views,https://nowfashion.com/burberry-prorsum-menswear-fall-winter-2015-london
 burberry,2015-02-23,2015 AW rtw,rtw,London,True,,,,,,,,,,,,before the views,https://nowfashion.com/burberry-prorsum-ready-to-wear-fall-winter-2015-london
 burberry,2015-06-15,2016 SS men,men,London,False,,,,,,,,,,,,before the views,https://nowfashion.com/burberry-prorsum-menswear-spring-summer-2016-london
@@ -163,8 +163,8 @@ burberry,2024-02-19,2024 AW rtw,rtw,London,True,0.2041,-0.3701,2.0163,0.886,0.10
 burberry,2024-09-16,2025 SS rtw,rtw,London,True,0.3671,-0.1825,1.2345,1.2275,-0.0632,-0.1587,-0.559,-0.889,-0.702,1.749,-0.433,,https://nowfashion.com/burberry-men-women-spring-summer-2025-london
 burberry,2025-02-24,2025 AW rtw,rtw,London,True,0.2047,-0.3335,1.4992,0.6442,-0.0189,-0.128,-0.895,-1.171,0.121,0.739,-0.286,,https://nowfashion.com/burberry-men-women-fall-winter-2025-london
 burberry,2025-09-22,2026 SS rtw,rtw,London,True,0.2999,-0.2186,1.6375,0.5557,0.0558,-0.1903,-0.52,-0.728,0.086,0.804,0.632,,https://nowfashion.com/burberry-men-women-spring-summer-2026-london
-burberry,2026-02-23,2026 AW rtw,rtw,London,True,0.0223,-0.4841,2.2919,2.1868,-0.0527,0.0989,-0.514,-0.649,1.744,2.981,-0.112,,https://nowfashion.com/burberry-men-women-fall-winter-2026-london
-burberry,2026-09-21,2027 SS rtw,rtw,London,True,0.3452,-0.1357,2.6851,-0.365,,-0.1532,-0.094,-0.211,1.436,-0.28,,,https://nowfashion.com/burberry-men-women-spring-summer-2027-london
+burberry,2026-02-23,2026 AW rtw,rtw,London,True,0.0223,-0.4841,2.2919,2.1868,-0.0536,0.0989,-0.514,-0.649,1.744,2.981,-0.115,,https://nowfashion.com/burberry-men-women-fall-winter-2026-london
+burberry,2026-09-21,2027 SS rtw,rtw,London,True,0.3527,-0.1282,2.6851,-0.365,,-0.1797,-0.102,-0.217,1.436,-0.28,,,https://nowfashion.com/burberry-men-women-spring-summer-2027-london
 celine,2015-03-08,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/celine-ready-to-wear-fall-winter-2015-paris
 celine,2015-10-04,2016 SS rtw,rtw,Paris,True,0.3027,,,,0.0247,,-0.394,,,,0.025,,https://nowfashion.com/celine-ready-to-wear-spring-summer-2016-paris
 celine,2016-03-06,2016 AW rtw,rtw,Paris,True,0.1408,,,,-0.1154,-0.011,-0.658,,,,-0.491,,https://nowfashion.com/celine-ready-to-wear-fall-winter-2016-paris
@@ -180,7 +180,7 @@ celine,2020-02-28,2020 AW rtw,rtw,Paris,True,0.3751,-0.2704,1.9322,-0.6748,0.050
 celine,2022-03-19,2022 AW rtw,rtw,Paris,True,0.0522,-0.5632,0.2936,-1.6155,0.0978,0.1534,-0.815,-1.167,-1.803,-1.202,0.806,,https://nowfashion.com/celine-ready-to-wear-fall-winter-2022-paris
 celine,2022-06-26,2023 SS men,men,Paris,False,1.7294,0.8233,2.0649,-0.2177,0.0413,-0.163,3.351,2.806,0.524,-0.146,0.376,,https://nowfashion.com/celine-menswear-spring-summer-2023-paris
 celine,2025-10-05,2026 SS rtw,rtw,Paris,True,1.0657,0.5066,1.8931,0.0605,-0.1316,0.1678,1.504,1.286,0.433,0.259,-0.314,,https://nowfashion.com/celine-ready-to-wear-spring-summer-2026-paris
-celine,2026-03-07,2026 AW rtw,rtw,Paris,True,0.1621,-0.4431,1.3833,-0.3026,0.03,-0.0209,-0.157,-0.541,0.26,-0.015,0.216,,https://nowfashion.com/celine-ready-to-wear-fall-winter-2026-paris
+celine,2026-03-07,2026 AW rtw,rtw,Paris,True,0.1621,-0.4431,1.3833,-0.3026,0.0256,-0.0209,-0.157,-0.541,0.26,-0.015,0.198,,https://nowfashion.com/celine-ready-to-wear-fall-winter-2026-paris
 chanel,2015-01-27,2015 SS couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/chanel-couture-spring-summer-2015-paris
 chanel,2015-03-10,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/chanel-ready-to-wear-fall-winter-2015-paris
 chanel,2015-07-07,2015 AW couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/chanel-couture-fall-winter-2015-paris
@@ -225,9 +225,9 @@ chanel,2025-03-11,2025 AW rtw,rtw,Paris,True,0.1095,-0.1903,0.6644,0.1548,-0.034
 chanel,2025-07-08,2025 AW couture,couture,Paris,False,0.0933,-0.0414,2.0839,0.5508,0.0825,-0.0686,,,,,,,https://nowfashion.com/chanel-couture-fall-winter-2025-paris
 chanel,2025-10-06,2026 SS rtw,rtw,Paris,True,0.7621,0.4718,1.6501,0.233,0.0571,-0.024,0.702,1.19,0.103,0.449,0.639,,https://nowfashion.com/chanel-ready-to-wear-spring-summer-2026-paris
 chanel,2026-01-27,2026 SS couture,couture,Paris,False,0.0295,-0.1031,1.375,-3.1316,-0.0948,0.0921,,,-0.174,-1.324,,,https://nowfashion.com/chanel-couture-spring-summer-2026-paris
-chanel,2026-03-09,2026 AW rtw,rtw,Paris,True,0.0798,-0.233,1.4661,0.1182,-0.1131,-0.0418,-0.367,0.015,0.396,0.492,-0.352,,https://nowfashion.com/chanel-ready-to-wear-fall-winter-2026-paris
-chanel,2026-07-07,2026 AW couture,couture,Paris,False,0.071,-0.0564,0.8778,-0.9664,-0.045,-0.0822,-0.498,0.258,-1.369,-0.605,0.07,,https://nowfashion.com/chanel-couture-fall-winter-2026-paris
-chanel,2026-10-05,2027 SS rtw,rtw,Paris,True,0.3037,0.0015,-2.5209,,,-0.1976,-0.23,0.292,-2.612,,,,https://nowfashion.com/chanel-ready-to-wear-spring-summer-2027-paris
+chanel,2026-03-09,2026 AW rtw,rtw,Paris,True,0.0798,-0.233,1.4661,0.1182,-0.1121,-0.0418,-0.367,0.015,0.396,0.492,-0.346,,https://nowfashion.com/chanel-ready-to-wear-fall-winter-2026-paris
+chanel,2026-07-07,2026 AW couture,couture,Paris,False,0.0408,-0.0866,0.8778,-0.9664,-0.0441,-0.0822,-0.521,0.155,-1.369,-0.605,0.009,,https://nowfashion.com/chanel-couture-fall-winter-2026-paris
+chanel,2026-10-05,2027 SS rtw,rtw,Paris,True,0.3046,0.0024,-2.5209,,,-0.2192,-0.257,0.251,-2.612,,,,https://nowfashion.com/chanel-ready-to-wear-spring-summer-2027-paris
 chloe,2015-03-08,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/chloe-ready-to-wear-fall-winter-2015-paris
 chloe,2015-10-01,2016 SS rtw,rtw,Paris,True,0.8444,,,,0.0692,,0.877,,,,0.257,,https://nowfashion.com/chloe-ready-to-wear-spring-summer-2016-paris
 chloe,2016-03-03,2016 AW rtw,rtw,Paris,True,0.4216,,,,0.107,0.0253,0.22,,,,0.964,,https://nowfashion.com/chloe-ready-to-wear-fall-winter-2016-paris
@@ -250,8 +250,8 @@ chloe,2024-02-29,2024 AW rtw,rtw,Paris,True,1.0074,0.5221,2.2564,-0.2026,0.342,-
 chloe,2024-09-26,2025 SS rtw,rtw,Paris,True,0.5797,0.0654,1.0637,-0.1787,-0.3088,0.3369,-0.015,-0.225,-1.016,-0.301,-2.023,,https://nowfashion.com/chloe-ready-to-wear-spring-summer-2025-paris
 chloe,2025-03-06,2025 AW rtw,rtw,Paris,True,0.4752,-0.0425,0.5339,0.7658,-0.0012,-0.059,-0.193,-0.352,-1.356,0.862,-0.197,,https://nowfashion.com/chloe-ready-to-wear-fall-winter-2025-paris
 chloe,2025-10-05,2026 SS rtw,rtw,Paris,True,0.4045,-0.1111,0.422,0.8851,-0.0349,0.0849,-0.244,-0.429,-1.565,1.166,0.174,,https://nowfashion.com/chloe-ready-to-wear-spring-summer-2026-paris
-chloe,2026-03-05,2026 AW rtw,rtw,Paris,True,0.3275,-0.1828,0.8924,0.2762,0.0506,-0.2989,0.266,0.148,-0.541,0.682,0.297,,https://nowfashion.com/chloe-ready-to-wear-fall-winter-2026-paris
-chloe,2026-10-01,2027 SS rtw,rtw,Paris,True,0.3545,-0.1475,1.1859,-0.0095,,-0.1724,-0.063,-0.254,0.27,0.203,,,https://nowfashion.com/chloe-ready-to-wear-spring-summer-2027-paris
+chloe,2026-03-05,2026 AW rtw,rtw,Paris,True,0.3275,-0.1828,0.8924,0.2762,0.0495,-0.2989,0.266,0.148,-0.541,0.682,0.293,,https://nowfashion.com/chloe-ready-to-wear-fall-winter-2026-paris
+chloe,2026-10-01,2027 SS rtw,rtw,Paris,True,0.374,-0.128,1.1859,-0.0095,,-0.2267,-0.034,-0.217,0.27,0.203,,,https://nowfashion.com/chloe-ready-to-wear-spring-summer-2027-paris
 comme_des_garcons,2015-01-23,2015 AW men,men,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/comme-des-garcons-homme-plus-menswear-fall-winter-2015-paris
 comme_des_garcons,2015-03-07,2015 AW rtw,rtw,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/comme-des-garcons-ready-to-wear-fall-winter-2015-paris
 comme_des_garcons,2015-06-26,2016 SS men,men,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/comme-des-garcons-homme-plus-menswear-spring-summer-2016-paris
@@ -293,9 +293,9 @@ comme_des_garcons,2025-03-08,2025 AW rtw,rtw,Paris,False,0.291,0.1387,0.598,,0.0
 comme_des_garcons,2025-06-27,2026 SS men,men,Paris,True,0.0789,0.0011,-0.3036,,-0.0896,-0.0301,-0.535,-0.06,0.599,,-0.659,,https://nowfashion.com/comme-des-garcons-menswear-spring-summer-2026-paris
 comme_des_garcons,2025-10-04,2026 SS rtw,rtw,Paris,False,0.1935,0.0331,0.9485,,-0.0719,-0.1208,-0.801,-0.029,-0.85,,-0.013,,https://nowfashion.com/comme-des-garcons-ready-to-wear-spring-summer-2026-paris
 comme_des_garcons,2026-01-23,2026 AW men,men,Paris,True,0.2751,0.1973,1.0035,,0.0745,0.0195,-0.506,0.12,-0.463,,0.3,,https://nowfashion.com/comme-des-garcons-homme-plus-menswear-fall-winter-2026-paris
-comme_des_garcons,2026-03-07,2026 AW rtw,rtw,Paris,False,0.0013,-0.161,0.5821,,-0.0155,-0.006,-0.567,0.205,-1.048,,0.035,,https://nowfashion.com/comme-des-garcons-ready-to-wear-fall-winter-2026-paris
-comme_des_garcons,2026-06-26,2027 SS men,men,Paris,True,-0.0352,-0.1234,-0.2136,,0.0858,-0.1226,-0.093,0.544,-1.783,,0.425,,https://nowfashion.com/comme-des-garcons-homme-plus-menswear-spring-summer-2027-paris
-comme_des_garcons,2026-10-03,2027 SS rtw,rtw,Paris,False,0.1549,0.0011,-0.0272,,,-0.1595,-0.717,0.29,-0.673,,,,https://nowfashion.com/comme-des-garcons-ready-to-wear-spring-summer-2027-paris
+comme_des_garcons,2026-03-07,2026 AW rtw,rtw,Paris,False,0.0013,-0.161,0.5821,,-0.0178,-0.006,-0.567,0.205,-1.048,,0.027,,https://nowfashion.com/comme-des-garcons-ready-to-wear-fall-winter-2026-paris
+comme_des_garcons,2026-06-26,2027 SS men,men,Paris,True,-0.0385,-0.1267,-0.2136,,0.0957,-0.1226,-0.099,0.552,-1.783,,0.493,,https://nowfashion.com/comme-des-garcons-homme-plus-menswear-spring-summer-2027-paris
+comme_des_garcons,2026-10-03,2027 SS rtw,rtw,Paris,False,0.1561,0.0023,-0.0272,,,-0.1771,-0.734,0.25,-0.673,,,,https://nowfashion.com/comme-des-garcons-ready-to-wear-spring-summer-2027-paris
 dior,2015-01-24,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/dior-homme-menswear-fall-winter-2015-paris
 dior,2015-01-26,2015 SS couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/dior-couture-spring-summer-2015-paris
 dior,2015-03-06,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/dior-ready-to-wear-fall-winter-2015-paris
@@ -360,10 +360,10 @@ dior,2025-06-27,2026 SS men,men,Paris,False,0.3527,0.1496,-3.2804,,-0.027,-0.110
 dior,2025-10-01,2026 SS rtw,rtw,Paris,True,0.435,0.2369,1.1143,0.4979,-0.2418,-0.1408,-0.163,0.537,-0.625,0.74,-0.87,,https://nowfashion.com/christian-dior-ready-to-wear-spring-summer-2026-paris
 dior,2026-01-21,2026 AW men,men,Paris,False,0.607,0.3961,1.2131,0.6474,0.1174,-0.3333,0.152,0.554,-0.133,1.14,0.525,,https://nowfashion.com/dior-homme-menswear-fall-winter-2026-paris
 dior,2026-01-26,2026 SS couture,couture,Paris,False,0.3513,0.0648,1.3293,-0.5795,0.0967,-0.2457,,,-0.263,0.239,,,https://nowfashion.com/dior-couture-spring-summer-2026-paris
-dior,2026-03-03,2026 AW rtw,rtw,Paris,True,-0.0229,-0.2328,0.8838,-0.2934,-0.0022,-0.064,-0.629,0.015,-0.555,-0.004,0.088,,https://nowfashion.com/christian-dior-ready-to-wear-fall-winter-2026-paris
-dior,2026-06-24,2027 SS men,men,Paris,False,-0.1654,-0.3962,0.9034,-2.7358,-0.1597,-0.2128,-0.693,-0.607,-0.164,-1.377,-0.91,,https://nowfashion.com/dior-homme-menswear-spring-summer-2027-paris
-dior,2026-07-06,2026 AW couture,couture,Paris,False,0.3228,0.0329,1.9727,1.4821,-0.1764,0.0109,-0.174,0.667,1.508,1.262,-1.47,,https://nowfashion.com/christian-dior-couture-fall-winter-2026-paris
-dior,2026-09-29,2027 SS rtw,rtw,Paris,True,0.062,-0.1369,1.1961,0.1723,,-0.2696,-1.021,-0.215,0.278,0.45,,,https://nowfashion.com/dior-ready-to-wear-spring-summer-2027-paris
+dior,2026-03-03,2026 AW rtw,rtw,Paris,True,-0.0229,-0.2328,0.8838,-0.2934,0.0017,-0.064,-0.629,0.015,-0.555,-0.004,0.104,,https://nowfashion.com/christian-dior-ready-to-wear-fall-winter-2026-paris
+dior,2026-06-24,2027 SS men,men,Paris,False,-0.1876,-0.4183,0.9034,-2.7358,-0.1578,-0.2128,-0.787,-0.711,-0.164,-1.377,-0.846,,https://nowfashion.com/dior-homme-menswear-spring-summer-2027-paris
+dior,2026-07-06,2026 AW couture,couture,Paris,False,0.331,0.0411,1.9727,1.4821,-0.1761,0.0109,-0.151,0.721,1.508,1.262,-1.523,,https://nowfashion.com/christian-dior-couture-fall-winter-2026-paris
+dior,2026-09-29,2027 SS rtw,rtw,Paris,True,0.0593,-0.1396,1.1961,0.1723,,-0.275,-1.046,-0.258,0.278,0.45,,,https://nowfashion.com/dior-ready-to-wear-spring-summer-2027-paris
 dolce_gabbana,2015-01-17,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/dolce-gabbana-menswear-fall-winter-2015-milan
 dolce_gabbana,2015-03-01,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/dolce-gabbana-ready-to-wear-fall-winter-2015-milan
 dolce_gabbana,2015-06-20,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/dolce-gabbana-menswear-spring-summer-2016-milan-2
@@ -405,9 +405,9 @@ dolce_gabbana,2025-03-01,2025 AW rtw,rtw,Milan,True,0.1672,-0.1435,2.2407,0.4871
 dolce_gabbana,2025-06-21,2026 SS men,men,Milan,False,-0.0131,-0.3013,-1.8251,,0.0671,-0.1858,-0.724,-1.693,-0.407,,0.298,,https://nowfashion.com/dolce-gabbana-menswear-spring-summer-2026-milan
 dolce_gabbana,2025-09-27,2026 SS rtw,rtw,Milan,True,0.2953,-0.0078,2.5673,-2.4519,-0.1414,0.1659,-0.532,-0.142,1.349,-2.505,-0.364,,https://nowfashion.com/dolce-gabbana-ready-to-wear-spring-summer-2026-milan
 dolce_gabbana,2026-01-17,2026 AW men,men,Milan,False,1.3418,1.0713,0.8991,-1.323,0.3144,-0.1644,1.607,2.03,-0.627,-0.945,1.559,,https://nowfashion.com/dolcegabbana-menswear-fall-winter-2026-milan
-dolce_gabbana,2026-02-28,2026 AW rtw,rtw,Milan,True,0.3685,0.0658,1.7146,-0.3591,0.1018,-0.0053,0.37,0.805,0.801,-0.083,0.501,,https://nowfashion.com/dolcegabbana-ready-to-wear-fall-winter-2026-milan
-dolce_gabbana,2026-06-20,2027 SS men,men,Milan,False,-0.1334,-0.4634,1.4313,-0.1849,-0.131,0.1172,-0.545,-0.89,0.601,0.376,-0.754,,https://nowfashion.com/dolcegabbana-menswear-spring-summer-2027-milan
-dolce_gabbana,2026-09-26,2027 SS rtw,rtw,Milan,True,0.3095,0.0036,2.212,0.3153,,0.108,-0.211,0.299,1.068,0.645,,,https://nowfashion.com/dolcegabbana-ready-to-wear-spring-summer-2027-milan
+dolce_gabbana,2026-02-28,2026 AW rtw,rtw,Milan,True,0.3685,0.0658,1.7146,-0.3591,0.1079,-0.0053,0.37,0.805,0.801,-0.083,0.523,,https://nowfashion.com/dolcegabbana-ready-to-wear-fall-winter-2026-milan
+dolce_gabbana,2026-06-20,2027 SS men,men,Milan,False,-0.1162,-0.4462,1.4313,-0.1849,-0.1962,0.1172,-0.458,-0.831,0.601,0.376,-1.048,,https://nowfashion.com/dolcegabbana-menswear-spring-summer-2027-milan
+dolce_gabbana,2026-09-26,2027 SS rtw,rtw,Milan,True,0.3855,0.0796,2.212,0.3153,,-0.1231,0.003,0.527,1.068,0.645,,,https://nowfashion.com/dolcegabbana-ready-to-wear-spring-summer-2027-milan
 dries_van_noten,2015-01-22,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/dries-van-noten-menswear-fall-winter-2015-paris
 dries_van_noten,2015-03-04,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/dries-van-noten-ready-to-wear-fall-winter-2015-paris
 dries_van_noten,2015-06-25,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/dries-van-noten-menswear-spring-summer-2016-paris
@@ -447,9 +447,9 @@ dries_van_noten,2025-03-05,2025 AW rtw,rtw,Paris,True,0.5438,-0.0674,2.1493,0.04
 dries_van_noten,2025-06-26,2026 SS men,men,Paris,False,0.3323,-0.2781,-0.5755,,0.0325,-0.1425,-0.015,-1.568,0.419,,0.087,,https://nowfashion.com/dries-van-noten-menswear-spring-summer-2026-paris
 dries_van_noten,2025-09-30,2026 SS rtw,rtw,Paris,True,0.5458,-0.0614,1.0558,-0.301,0.0609,-0.1589,0.13,-0.291,-0.704,-0.139,0.658,,https://nowfashion.com/dries-van-noten-ready-to-wear-spring-summer-2026-paris
 dries_van_noten,2026-01-22,2026 AW men,men,Paris,False,0.5246,-0.0694,1.6025,-1.072,0.4518,0.0628,-0.011,-0.463,0.48,-0.68,2.28,,https://nowfashion.com/dries-van-noten-menswear-fall-winter-2026-paris
-dries_van_noten,2026-03-04,2026 AW rtw,rtw,Paris,True,0.3229,-0.2809,0.747,-0.9553,0.2663,-0.1337,0.254,-0.112,-0.779,-0.8,1.153,,https://nowfashion.com/dries-van-noten-ready-to-wear-fall-winter-2026-paris
-dries_van_noten,2026-06-25,2027 SS men,men,Paris,False,0.076,-0.5142,0.4239,-1.6305,0.1399,0.1952,0.42,-1.105,-0.859,-0.618,0.719,,https://nowfashion.com/dries-van-noten-menswear-spring-summer-2027-paris
-dries_van_noten,2026-09-30,2027 SS rtw,rtw,Paris,True,1.0295,0.4405,1.2086,-0.2737,,-0.2815,2.148,1.899,0.288,-0.156,,,https://nowfashion.com/dries-van-noten-ready-to-wear-spring-summer-2027-paris
+dries_van_noten,2026-03-04,2026 AW rtw,rtw,Paris,True,0.3229,-0.2809,0.747,-0.9553,0.2584,-0.1337,0.254,-0.112,-0.779,-0.8,1.118,,https://nowfashion.com/dries-van-noten-ready-to-wear-fall-winter-2026-paris
+dries_van_noten,2026-06-25,2027 SS men,men,Paris,False,0.1042,-0.486,0.4239,-1.6305,0.1346,0.1952,0.559,-1.004,-0.859,-0.618,0.699,,https://nowfashion.com/dries-van-noten-menswear-spring-summer-2027-paris
+dries_van_noten,2026-09-30,2027 SS rtw,rtw,Paris,True,1.0357,0.4467,1.2086,-0.2737,,-0.3076,2.094,1.843,0.288,-0.156,,,https://nowfashion.com/dries-van-noten-ready-to-wear-spring-summer-2027-paris
 fendi,2015-01-19,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/fendi-menswear-fall-winter-2015-milan
 fendi,2015-02-26,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/fendi-ready-to-wear-fall-winter-2015-milan
 fendi,2015-06-22,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/fendi-menswear-spring-summer-2016-milan-2
@@ -501,9 +501,9 @@ fendi,2024-06-15,2025 SS men,men,Milan,False,0.3717,-0.1053,2.2385,-2.2439,-0.18
 fendi,2024-09-17,2025 SS rtw,rtw,Milan,True,0.2942,-0.3031,2.1773,-0.363,-0.0632,-0.2599,-0.746,-1.211,1.031,-0.569,-0.433,,https://nowfashion.com/fendi-ready-to-wear-spring-summer-2025-milan
 fendi,2025-02-26,2025 AW rtw,rtw,Milan,True,0.8865,0.3043,1.6931,0.2056,-0.0045,-0.113,0.874,0.625,0.418,0.293,-0.213,,https://nowfashion.com/fendi-men-women-fall-winter-2025-milan
 fendi,2025-09-24,2026 SS rtw,rtw,Milan,True,0.6921,0.0954,2.0627,0.8695,0.2169,-0.0671,0.517,0.144,0.664,1.149,1.445,,https://nowfashion.com/fendi-men-women-spring-summer-2026-milan
-fendi,2026-02-25,2026 AW rtw,rtw,Milan,True,0.1452,-0.4558,2.4587,0.0925,-0.2083,0.4208,-0.2,-0.574,2.016,0.461,-0.729,,https://nowfashion.com/fendi-ready-to-wear-fall-winter-2026-milan
-fendi,2026-07-09,2026 AW couture,couture,Rome,False,0.0506,-0.1722,1.1639,1.3093,-0.0867,-0.0413,-0.524,-0.273,-0.617,1.13,-0.419,,https://nowfashion.com/fendi-couture-fall-winter-2026-rome
-fendi,2026-09-23,2027 SS rtw,rtw,Milan,True,0.2386,-0.3426,1.9999,-0.845,,-0.168,-0.443,-0.968,0.903,-0.933,,,https://nowfashion.com/fendi-ready-to-wear-spring-summer-2027-milan
+fendi,2026-02-25,2026 AW rtw,rtw,Milan,True,0.1452,-0.4558,2.4587,0.0925,-0.209,0.4208,-0.2,-0.574,2.016,0.461,-0.728,,https://nowfashion.com/fendi-ready-to-wear-fall-winter-2026-milan
+fendi,2026-07-09,2026 AW couture,couture,Rome,False,0.0544,-0.1684,1.1639,1.3093,-0.077,-0.0413,-0.503,-0.208,-0.617,1.13,-0.373,,https://nowfashion.com/fendi-couture-fall-winter-2026-rome
+fendi,2026-09-23,2027 SS rtw,rtw,Milan,True,0.2409,-0.3403,1.9999,-0.845,,-0.1809,-0.462,-0.978,0.903,-0.933,,,https://nowfashion.com/fendi-ready-to-wear-spring-summer-2027-milan
 ferragamo,2015-01-18,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/salvatore-ferragamo-menswear-fall-winter-2015-milan
 ferragamo,2015-03-01,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/salvatore-ferragamo-ready-to-wear-fall-winter-2015-milan
 ferragamo,2015-06-21,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/salvatore-ferragamo-menswear-spring-summer-2016-milan-2
@@ -532,8 +532,8 @@ ferragamo,2024-02-24,2024 AW rtw,rtw,Milan,True,0.2878,-0.0738,2.3052,0.5552,0.1
 ferragamo,2024-09-21,2025 SS rtw,rtw,Milan,True,0.4582,0.1009,1.6384,-0.1374,-0.0213,-0.1299,-0.326,-0.13,0.04,-0.24,-0.162,,https://nowfashion.com/ferragamo-men-women-spring-summer-2025-milan
 ferragamo,2025-03-01,2025 AW rtw,rtw,Milan,True,1.2893,0.9264,1.1512,1.3835,0.3764,0.0464,1.92,2.376,-0.411,1.489,1.714,,https://nowfashion.com/ferragamo-men-women-fall-winter-2025-milan
 ferragamo,2025-09-27,2026 SS rtw,rtw,Milan,True,0.1852,-0.2264,2.1853,0.5606,-0.1018,0.1787,-0.823,-0.75,0.83,0.809,-0.164,,https://nowfashion.com/ferragamo-men-women-spring-summer-2026-milan
-ferragamo,2026-02-28,2026 AW rtw,rtw,Milan,True,0.1794,-0.2209,1.9007,-0.3106,-0.0643,0.01,-0.112,0.047,1.105,-0.024,-0.158,,https://nowfashion.com/salvatore-ferragamo-men-women-fall-winter-2026-milan
-ferragamo,2026-09-26,2027 SS rtw,rtw,Milan,True,0.352,-0.0378,0.5093,-0.0313,,-0.3824,-0.071,0.148,-0.256,0.174,,,https://nowfashion.com/salvatore-ferragamo-men-women-spring-summer-2027-milan
+ferragamo,2026-02-28,2026 AW rtw,rtw,Milan,True,0.1794,-0.2209,1.9007,-0.3106,-0.0651,0.01,-0.112,0.047,1.105,-0.024,-0.16,,https://nowfashion.com/salvatore-ferragamo-men-women-fall-winter-2026-milan
+ferragamo,2026-09-26,2027 SS rtw,rtw,Milan,True,0.365,-0.0248,0.5093,-0.0313,,-0.4089,-0.063,0.153,-0.256,0.174,,,https://nowfashion.com/salvatore-ferragamo-men-women-spring-summer-2027-milan
 givenchy,2015-01-23,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/givenchy-menswear-fall-winter-2015-paris
 givenchy,2015-03-08,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/givenchy-ready-to-wear-fall-winter-2015-paris
 givenchy,2015-06-26,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/givenchy-menswear-spring-summer-2016-paris
@@ -571,9 +571,9 @@ givenchy,2024-01-17,2024 AW men,men,Paris,False,0.2487,0.0484,2.5481,-0.1069,0.0
 givenchy,2024-02-29,2024 AW rtw,rtw,Paris,True,0.1414,-0.2425,0.5619,0.3281,0.5663,0.2144,-0.618,-0.658,-1.267,0.522,2.332,,https://nowfashion.com/givenchy-ready-to-wear-fall-winter-2024-paris
 givenchy,2025-03-07,2025 AW rtw,rtw,Paris,True,0.3807,0.011,1.2109,-1.2315,-0.1794,-0.2052,-0.438,-0.201,-0.32,-1.166,-1.099,,https://nowfashion.com/givenchy-ready-to-wear-fall-winter-2025-paris
 givenchy,2025-10-03,2026 SS rtw,rtw,Paris,True,0.3928,0.0225,0.6031,0.1044,-0.1223,-0.1938,-0.275,-0.058,-1.319,0.307,-0.267,,https://nowfashion.com/givenchy-ready-to-wear-spring-summer-2026-paris
-givenchy,2026-03-06,2026 AW rtw,rtw,Paris,True,0.1442,-0.2273,1.0808,-0.1824,0.0495,-0.412,-0.202,0.03,-0.234,0.13,0.293,,https://nowfashion.com/givenchy-ready-to-wear-fall-winter-2026-paris
-givenchy,2026-06-25,2027 SS men,men,Paris,False,-0.1261,-0.3324,0.4834,-1.1166,-0.0547,-0.1152,-0.512,-0.338,-0.773,-0.264,-0.339,,https://nowfashion.com/givenchy-menswear-spring-summer-2027-paris
-givenchy,2026-10-02,2027 SS rtw,rtw,Paris,True,0.1396,-0.2205,-0.5821,,,-0.2219,-0.767,-0.521,-1.105,,,,https://nowfashion.com/givenchy-ready-to-wear-spring-summer-2027-paris
+givenchy,2026-03-06,2026 AW rtw,rtw,Paris,True,0.1442,-0.2273,1.0808,-0.1824,0.0482,-0.412,-0.202,0.03,-0.234,0.13,0.287,,https://nowfashion.com/givenchy-ready-to-wear-fall-winter-2026-paris
+givenchy,2026-06-25,2027 SS men,men,Paris,False,-0.1334,-0.3397,0.4834,-1.1166,-0.052,-0.1152,-0.537,-0.37,-0.773,-0.264,-0.287,,https://nowfashion.com/givenchy-menswear-spring-summer-2027-paris
+givenchy,2026-10-02,2027 SS rtw,rtw,Paris,True,0.1389,-0.2212,-0.5821,,,-0.2404,-0.79,-0.551,-1.105,,,,https://nowfashion.com/givenchy-ready-to-wear-spring-summer-2027-paris
 gucci,2015-01-19,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/gucci-menswear-fall-winter-2015-milan
 gucci,2015-02-25,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/gucci-ready-to-wear-fall-winter-2015-milan
 gucci,2015-06-22,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/gucci-menswear-spring-summer-2016-milan-2
@@ -602,8 +602,8 @@ gucci,2024-06-17,2025 SS men,men,Milan,False,-0.3335,-0.6826,0.9305,0.6444,-0.26
 gucci,2024-09-20,2025 SS rtw,rtw,Milan,True,0.1622,-0.1846,1.037,0.107,0.1316,-0.1466,-1.084,-0.894,-1.065,0.116,0.829,,https://nowfashion.com/gucci-ready-to-wear-spring-summer-2025-milan
 gucci,2025-02-25,2025 AW rtw,rtw,Milan,True,0.0062,-0.329,1.03,0.8981,-0.0389,-0.0806,-1.41,-1.158,-0.597,0.996,-0.388,,https://nowfashion.com/gucci-men-women-fall-winter-2025-milan
 gucci,2025-09-23,2026 SS rtw,rtw,Milan,True,0.4361,0.1202,1.6031,0.753,0.0154,-0.1029,-0.16,0.213,0.039,1.021,0.428,,https://nowfashion.com/gucci-men-women-spring-summer-2026-milan
-gucci,2026-02-27,2026 AW rtw,rtw,Milan,True,0.1491,-0.1735,0.9396,0.0938,-0.1175,0.3744,-0.19,0.172,-0.464,0.462,-0.369,,https://nowfashion.com/gucci-men-women-fall-winter-2026-milan
-gucci,2026-09-25,2027 SS rtw,rtw,Milan,True,0.2693,-0.0441,0.4474,0.5404,,-0.4971,-0.342,0.125,-0.304,0.951,,,https://nowfashion.com/gucci-men-women-spring-summer-2027-milan
+gucci,2026-02-27,2026 AW rtw,rtw,Milan,True,0.1491,-0.1735,0.9396,0.0938,-0.1165,0.3744,-0.19,0.172,-0.464,0.462,-0.363,,https://nowfashion.com/gucci-men-women-fall-winter-2026-milan
+gucci,2026-09-25,2027 SS rtw,rtw,Milan,True,0.2714,-0.042,0.4474,0.5404,,-0.5059,-0.364,0.091,-0.304,0.951,,,https://nowfashion.com/gucci-men-women-spring-summer-2027-milan
 hermes,2015-01-24,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/hermes-menswear-fall-winter-2015-paris
 hermes,2015-03-09,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/hermes-ready-to-wear-fall-winter-2015-paris
 hermes,2015-06-27,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/hermes-menswear-spring-summer-2016-paris
@@ -646,8 +646,8 @@ hermes,2025-01-25,2025 AW men,men,Paris,False,-0.1649,-0.2772,1.9012,-0.2288,0.0
 hermes,2025-03-08,2025 AW rtw,rtw,Paris,True,0.7329,0.5239,0.7375,-0.0869,0.1771,0.1266,0.476,1.243,-1.045,-0.004,0.706,,https://nowfashion.com/hermes-ready-to-wear-fall-winter-2025-paris
 hermes,2025-10-04,2026 SS rtw,rtw,Paris,True,0.0866,-0.1486,0.8506,-0.8162,-0.1037,0.275,-1.084,-0.534,-0.983,-0.705,-0.173,,https://nowfashion.com/hermes-ready-to-wear-spring-summer-2026-paris
 hermes,2026-01-24,2026 AW men,men,Paris,False,-0.028,-0.124,1.0467,0.5496,0.0099,-0.1428,-1.106,-0.583,-0.395,1.037,-0.039,,https://nowfashion.com/hermes-menswear-fall-winter-2026-paris
-hermes,2026-03-07,2026 AW rtw,rtw,Paris,True,0.3642,0.1361,0.8513,-0.6113,0.0867,0.0769,0.359,0.991,-0.608,-0.386,0.441,,https://nowfashion.com/hermes-ready-to-wear-fall-winter-2026-paris
-hermes,2026-10-03,2027 SS rtw,rtw,Paris,True,0.0586,-0.1757,-0.6168,,,0.1013,-1.033,-0.357,-1.132,,,,https://nowfashion.com/hermes-ready-to-wear-spring-summer-2027-paris
+hermes,2026-03-07,2026 AW rtw,rtw,Paris,True,0.3642,0.1361,0.8513,-0.6113,0.0775,0.0769,0.359,0.991,-0.608,-0.386,0.403,,https://nowfashion.com/hermes-ready-to-wear-fall-winter-2026-paris
+hermes,2026-10-03,2027 SS rtw,rtw,Paris,True,0.0679,-0.1664,-0.6168,,,0.0552,-1.018,-0.354,-1.132,,,,https://nowfashion.com/hermes-ready-to-wear-spring-summer-2027-paris
 issey_miyake,2015-01-22,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/issey-miyake-men-menswear-fall-winter-2015-paris
 issey_miyake,2015-03-06,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/issey-miyake-ready-to-wear-fall-winter-2015-paris
 issey_miyake,2015-06-25,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/issey-miyake-men-menswear-spring-summer-2016-paris
@@ -692,9 +692,9 @@ issey_miyake,2025-06-22,2026 SS men,men,Milan,False,0.0524,0.0386,-0.5015,,-0.08
 issey_miyake,2025-06-26,2026 SS men,men,Paris,False,0.12,0.104,-0.5095,,-0.0853,0.0638,-0.451,0.495,0.463,,-0.633,,https://nowfashion.com/issey-miyake-menswear-spring-summer-2026-paris
 issey_miyake,2025-10-03,2026 SS rtw,rtw,Paris,True,0.6986,0.4225,1.5387,-0.0922,0.0686,-0.0762,0.534,1.053,-0.048,0.091,0.697,,https://nowfashion.com/issey-miyake-ready-to-wear-spring-summer-2026-paris
 issey_miyake,2026-01-22,2026 AW men,men,Paris,False,0.0471,0.0257,1.4905,-1.2691,-0.1559,0.521,-0.957,-0.256,0.304,-0.888,-0.909,,https://nowfashion.com/issey-miyake-menswear-fall-winter-2026-paris
-issey_miyake,2026-03-06,2026 AW rtw,rtw,Paris,True,0.0616,-0.2346,1.0284,-2.0109,0.0975,0.2532,-0.413,0.011,-0.319,-2.07,0.483,,https://nowfashion.com/issey-miyake-ready-to-wear-fall-winter-2026-paris
-issey_miyake,2026-06-25,2027 SS men,men,Paris,False,0.0634,0.0407,2.4885,-2.7549,0.3425,0.0134,0.362,1.236,2.134,-1.39,1.82,,https://nowfashion.com/issey-miyake-menswear-spring-summer-2027-paris
-issey_miyake,2026-10-02,2027 SS rtw,rtw,Paris,True,0.1217,-0.1639,0.3839,,,-0.1551,-0.826,-0.314,-0.353,,,,https://nowfashion.com/issey-miyake-ready-to-wear-spring-summer-2027-paris
+issey_miyake,2026-03-06,2026 AW rtw,rtw,Paris,True,0.0616,-0.2346,1.0284,-2.0109,0.1002,0.2532,-0.413,0.011,-0.319,-2.07,0.493,,https://nowfashion.com/issey-miyake-ready-to-wear-fall-winter-2026-paris
+issey_miyake,2026-06-25,2027 SS men,men,Paris,False,0.0546,0.0319,2.4885,-2.7549,0.3459,0.0134,0.33,1.238,2.134,-1.39,1.815,,https://nowfashion.com/issey-miyake-menswear-spring-summer-2027-paris
+issey_miyake,2026-10-02,2027 SS rtw,rtw,Paris,True,0.1193,-0.1663,0.3839,,,-0.1604,-0.853,-0.354,-0.353,,,,https://nowfashion.com/issey-miyake-ready-to-wear-spring-summer-2027-paris
 jacquemus,2015-03-03,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/jacquemus-ready-to-wear-fall-winter-2015-paris
 jacquemus,2015-09-29,2016 SS rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/jacquemus-ready-to-wear-spring-summer-2016-paris
 jacquemus,2016-03-01,2016 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/jacquemus-ready-to-wear-fall-winter-2016-paris
@@ -744,8 +744,8 @@ jil_sander,2024-02-24,2024 AW rtw,rtw,Milan,True,0.7274,0.1075,1.3053,-0.0639,0.
 jil_sander,2024-09-18,2025 SS rtw,rtw,Milan,True,0.8017,0.1755,1.6066,-0.3968,-0.2428,-0.3353,0.554,0.069,-0.018,-0.619,-1.596,,https://nowfashion.com/jil-sander-men-women-spring-summer-2025-milan
 jil_sander,2025-02-26,2025 AW rtw,rtw,Milan,True,0.826,0.1901,2.2457,-1.6959,-0.0611,-0.311,0.717,0.303,1.264,-1.637,-0.5,,https://nowfashion.com/jil-sander-men-women-fall-winter-2025-milan
 jil_sander,2025-09-24,2026 SS rtw,rtw,Milan,True,0.7317,0.0857,2.6595,-1.2783,0.1625,-0.0397,0.621,0.117,1.474,-1.214,1.171,,https://nowfashion.com/jil-sander-men-women-spring-summer-2026-milan
-jil_sander,2026-02-25,2026 AW rtw,rtw,Milan,True,0.215,-0.4352,1.1248,-1.262,-0.2103,0.1845,-0.021,-0.52,-0.162,-1.169,-0.737,,https://nowfashion.com/jil-sander-men-women-fall-winter-2026-milan
-jil_sander,2026-09-23,2027 SS rtw,rtw,Milan,True,0.7708,0.1413,2.5239,-0.7986,,-0.1315,1.3,0.804,1.311,-0.87,,,https://nowfashion.com/jil-sander-men-women-spring-summer-2027-milan
+jil_sander,2026-02-25,2026 AW rtw,rtw,Milan,True,0.215,-0.4352,1.1248,-1.262,-0.2233,0.1845,-0.021,-0.52,-0.162,-1.169,-0.785,,https://nowfashion.com/jil-sander-men-women-fall-winter-2026-milan
+jil_sander,2026-09-23,2027 SS rtw,rtw,Milan,True,0.8663,0.2368,2.5239,-0.7986,,-0.2653,1.55,1.091,1.311,-0.87,,,https://nowfashion.com/jil-sander-men-women-spring-summer-2027-milan
 lanvin,2015-01-25,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/lanvin-menswear-fall-winter-2015-paris
 lanvin,2015-03-05,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/lanvin-ready-to-wear-fall-winter-2015-paris
 lanvin,2015-06-28,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/lanvin-menswear-spring-summer-2016-paris
@@ -775,8 +775,8 @@ lanvin,2023-03-05,2023 AW rtw,rtw,Paris,True,0.3507,-0.3503,3.647,0.5677,-0.1239
 lanvin,2025-01-26,2025 AW men,men,Paris,False,0.5394,0.2995,2.5765,-1.7146,0.1784,-0.0056,0.682,0.565,1.62,-1.506,0.982,,https://nowfashion.com/lanvin-menswear-fall-winter-2025-paris
 lanvin,2025-09-30,2026 SS rtw,rtw,Paris,True,0.4008,-0.2752,1.0137,-0.8073,0.1344,-0.0514,-0.253,-0.885,-0.761,-0.696,1.029,,https://nowfashion.com/lanvin-ready-to-wear-spring-summer-2026-paris
 lanvin,2026-01-24,2026 AW men,men,Paris,False,0.1712,-0.0987,0.1878,-2.037,-0.0878,0.4397,-0.711,-0.527,-1.746,-1.701,-0.552,,https://nowfashion.com/lanvin-menswear-fall-winter-2026-paris
-lanvin,2026-03-06,2026 AW rtw,rtw,Paris,True,0.1544,-0.5033,1.4815,-0.2982,0.0607,-0.0708,-0.176,-0.7,0.421,-0.009,0.338,,https://nowfashion.com/lanvin-ready-to-wear-fall-winter-2026-paris
-lanvin,2026-10-02,2027 SS rtw,rtw,Paris,True,0.1373,-0.4889,1.1745,,,-0.1629,-0.775,-1.504,0.261,,,,https://nowfashion.com/lanvin-ready-to-wear-spring-summer-2027-paris
+lanvin,2026-03-06,2026 AW rtw,rtw,Paris,True,0.1544,-0.5033,1.4815,-0.2982,0.0619,-0.0708,-0.176,-0.7,0.421,-0.009,0.342,,https://nowfashion.com/lanvin-ready-to-wear-fall-winter-2026-paris
+lanvin,2026-10-02,2027 SS rtw,rtw,Paris,True,0.152,-0.4742,1.1745,,,-0.1842,-0.748,-1.458,0.261,,,,https://nowfashion.com/lanvin-ready-to-wear-spring-summer-2027-paris
 loewe,2015-03-06,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/loewe-ready-to-wear-fall-winter-2015-paris
 loewe,2015-10-02,2016 SS rtw,rtw,Paris,True,0.6728,,,,0.077,,0.474,,,,0.298,,https://nowfashion.com/loewe-ready-to-wear-spring-summer-2016-paris
 loewe,2016-01-22,2016 AW men,men,Paris,False,0.0457,,,,0.0993,0.0763,-0.826,,,,1.102,,https://nowfashion.com/loewe-menswear-fall-winter-2016-paris
@@ -811,11 +811,11 @@ loewe,2024-03-01,2024 AW rtw,rtw,Paris,True,0.5242,-0.0297,1.3123,0.8631,0.389,-
 loewe,2024-06-22,2025 SS men,men,Paris,False,0.2594,-0.053,0.9838,0.5991,-0.2297,0.1907,-0.07,-0.171,-0.854,0.297,-1.624,,https://nowfashion.com/loewe-menswear-spring-summer-2025-paris
 loewe,2024-09-27,2025 SS rtw,rtw,Paris,True,1.8598,1.3075,1.4746,0.3304,0.2352,-0.4261,3.263,3.097,-0.261,0.442,1.5,,https://nowfashion.com/loewe-ready-to-wear-spring-summer-2025-paris
 loewe,2025-10-03,2026 SS rtw,rtw,Paris,True,1.1371,0.516,1.5006,0.2128,-0.2418,-0.259,1.693,1.313,-0.1,0.426,-0.87,,https://nowfashion.com/loewe-ready-to-wear-spring-summer-2026-paris
-loewe,2026-03-06,2026 AW rtw,rtw,Paris,True,0.6253,-0.0216,0.7088,0.0429,0.1696,-0.2059,1.026,0.574,-0.841,0.401,0.769,,https://nowfashion.com/loewe-ready-to-wear-fall-winter-2026-paris
-loewe,2026-10-02,2027 SS rtw,rtw,Paris,True,0.2089,-0.437,1.0761,,,-0.1178,-0.54,-1.314,0.185,,,,https://nowfashion.com/loewe-ready-to-wear-spring-summer-2027-paris
+loewe,2026-03-06,2026 AW rtw,rtw,Paris,True,0.6253,-0.0216,0.7088,0.0429,0.1733,-0.2059,1.026,0.574,-0.841,0.401,0.781,,https://nowfashion.com/loewe-ready-to-wear-fall-winter-2026-paris
+loewe,2026-10-02,2027 SS rtw,rtw,Paris,True,0.2097,-0.4362,1.0761,,,-0.1253,-0.562,-1.321,0.185,,,,https://nowfashion.com/loewe-ready-to-wear-spring-summer-2027-paris
 loro_piana,2024-02-23,2024 AW rtw,rtw,Milan,True,0.0349,,1.0863,-0.3897,-0.2377,0.118,-0.858,,-0.496,-0.456,-1.283,,https://nowfashion.com/loro-piana-men-women-fall-winter-2024-milan
 loro_piana,2024-09-20,2025 SS rtw,rtw,Milan,True,0.4923,,1.8458,0.8683,0.3297,-0.2355,-0.239,,0.421,1.226,2.111,,https://nowfashion.com/loro-piana-men-women-spring-summer-2025-milan
-loro_piana,2026-02-27,2026 AW rtw,rtw,Milan,True,-0.2366,-0.5002,0.6449,-1.1421,-0.1633,0.1876,-1.175,-0.692,-0.945,-1.025,-0.551,,https://nowfashion.com/loro-piana-men-women-fall-winter-2026-milan
+loro_piana,2026-02-27,2026 AW rtw,rtw,Milan,True,-0.2366,-0.5002,0.6449,-1.1421,-0.1608,0.1876,-1.175,-0.692,-0.945,-1.025,-0.538,,https://nowfashion.com/loro-piana-men-women-fall-winter-2026-milan
 louis_vuitton,2015-01-22,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/louis-vuitton-menswear-fall-winter-2015-paris
 louis_vuitton,2015-03-11,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/louis-vuitton-ready-to-wear-fall-winter-2015-paris
 louis_vuitton,2015-06-25,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/louis-vuitton-menswear-spring-summer-2016-paris
@@ -860,9 +860,9 @@ louis_vuitton,2025-03-10,2025 AW rtw,rtw,Paris,True,0.5315,0.3388,1.0495,-0.1887
 louis_vuitton,2025-06-24,2026 SS men,men,Paris,False,0.3876,0.1113,-3.5267,,-0.1929,0.1822,0.099,0.535,-1.532,,-1.291,,https://nowfashion.com/louis-vuitton-menswear-spring-summer-2026-paris
 louis_vuitton,2025-09-30,2026 SS rtw,rtw,Paris,True,0.0191,-0.1905,0.843,1.339,-0.2292,-0.1726,-1.263,-0.65,-0.993,1.665,-0.807,,https://nowfashion.com/louis-vuitton-ready-to-wear-spring-summer-2026-paris
 louis_vuitton,2026-01-20,2026 AW men,men,Paris,False,0.2949,0.0127,1.1221,0.1173,-0.061,-0.2198,-0.466,-0.284,-0.276,0.579,-0.411,,https://nowfashion.com/louis-vuitton-menswear-fall-winter-2026-paris
-louis_vuitton,2026-03-10,2026 AW rtw,rtw,Paris,True,-0.0476,-0.2481,0.7598,0.1584,-0.1179,0.0436,-0.692,-0.025,-0.758,0.54,-0.371,,https://nowfashion.com/louis-vuitton-ready-to-wear-fall-winter-2026-paris
-louis_vuitton,2026-06-23,2027 SS men,men,Paris,False,0.1891,-0.0937,0.9637,-0.6049,0.0878,-0.2669,0.941,0.669,-0.076,0.087,0.436,,https://nowfashion.com/louis-vuitton-menswear-spring-summer-2027-paris
-louis_vuitton,2026-10-06,2027 SS rtw,rtw,Paris,True,-0.0184,-0.2076,-1.7703,,,0.1078,-1.285,-0.474,-2.029,,,,https://nowfashion.com/louis-vuitton-ready-to-wear-spring-summer-2027-paris
+louis_vuitton,2026-03-10,2026 AW rtw,rtw,Paris,True,-0.0476,-0.2481,0.7598,0.1584,-0.1137,0.0436,-0.692,-0.025,-0.758,0.54,-0.352,,https://nowfashion.com/louis-vuitton-ready-to-wear-fall-winter-2026-paris
+louis_vuitton,2026-06-23,2027 SS men,men,Paris,False,0.1797,-0.1031,0.9637,-0.6049,0.0873,-0.2669,0.907,0.654,-0.076,0.087,0.449,,https://nowfashion.com/louis-vuitton-menswear-spring-summer-2027-paris
+louis_vuitton,2026-10-06,2027 SS rtw,rtw,Paris,True,-0.0107,-0.1999,-1.7703,,,0.0966,-1.271,-0.474,-2.029,,,,https://nowfashion.com/louis-vuitton-ready-to-wear-spring-summer-2027-paris
 margiela,2015-01-23,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/maison-margiela-menswear-fall-winter-2015-paris
 margiela,2015-01-28,2015 SS couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/maison-margiela-couture-spring-summer-2015-paris
 margiela,2015-03-06,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/maison-margiela-ready-to-wear-fall-winter-2015-paris
@@ -896,7 +896,7 @@ margiela,2023-10-02,2024 SS rtw,rtw,Paris,True,0.5425,0.0388,0.7801,0.4283,0.188
 margiela,2024-01-25,2024 SS couture,couture,Paris,False,2.3242,1.8068,2.4803,-0.558,0.4487,-0.0793,1.471,2.287,0.951,-1.139,1.603,,https://nowfashion.com/maison-margiela-couture-spring-summer-2024-paris
 margiela,2025-07-09,2025 AW couture,couture,Paris,False,1.1165,0.3983,2.8199,-1.4646,0.0879,-0.2981,,,,,,,registry/houses.yml (verified 5 October 2026)
 margiela,2025-10-04,2026 SS rtw,rtw,Paris,True,0.8162,0.3093,3.2132,-1.6168,-0.027,0.1366,0.845,0.738,2.226,-1.586,0.214,,https://nowfashion.com/maison-margiela-ready-to-wear-spring-summer-2026-paris
-margiela,2026-09-29,2027 SS rtw,rtw,Paris,True,0.1312,-0.3995,1.3281,0.6678,,-0.3036,-0.795,-1.177,0.381,1.125,,,https://nowfashion.com/maison-margiela-men-women-spring-summer-2027-paris
+margiela,2026-09-29,2027 SS rtw,rtw,Paris,True,0.1307,-0.4,1.3281,0.6678,,-0.3165,-0.816,-1.192,0.381,1.125,,,https://nowfashion.com/maison-margiela-men-women-spring-summer-2027-paris
 max_mara,2015-02-26,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2015-milan
 max_mara,2015-09-24,2016 SS rtw,rtw,Milan,True,0.2888,,,,-0.1013,,-0.426,,,,-0.633,,https://nowfashion.com/max-mara-ready-to-wear-spring-summer-2016-milan-2
 max_mara,2016-02-25,2016 AW rtw,rtw,Milan,True,0.2226,,,,0.0089,-0.1728,-0.402,,,,0.322,,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2016-milan-2
@@ -918,8 +918,8 @@ max_mara,2023-09-20,2024 SS rtw,rtw,Milan,True,0.4665,0.019,0.6104,0.6631,0.2322
 max_mara,2024-02-22,2024 AW rtw,rtw,Milan,True,0.459,0.0104,2.0976,-0.7657,-0.0145,0.0306,0.099,0.17,0.991,-0.968,-0.28,,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2024-milan
 max_mara,2024-09-19,2025 SS rtw,rtw,Milan,True,0.5951,0.1459,2.3178,-1.2875,0.2605,-0.0163,0.025,-0.01,1.289,-1.917,1.663,,https://nowfashion.com/max-mara-ready-to-wear-spring-summer-2025-milan
 max_mara,2025-02-27,2025 AW rtw,rtw,Milan,True,0.3172,-0.1396,1.495,-0.2139,-0.0202,-0.0711,-0.603,-0.625,0.115,-0.133,-0.293,,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2025-milan
-max_mara,2026-02-26,2026 AW rtw,rtw,Milan,True,0.3578,-0.0921,0.5642,-1.6644,0.0154,-0.0133,0.343,0.387,-1.077,-1.653,0.158,,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2026-milan
-max_mara,2026-09-24,2027 SS rtw,rtw,Milan,True,1.0781,0.6326,1.8452,1.5019,,0.0078,2.307,2.603,0.783,2.259,,,https://nowfashion.com/max-mara-ready-to-wear-spring-summer-2027-milan
+max_mara,2026-02-26,2026 AW rtw,rtw,Milan,True,0.3578,-0.0921,0.5642,-1.6644,0.012,-0.0133,0.343,0.387,-1.077,-1.653,0.145,,https://nowfashion.com/max-mara-ready-to-wear-fall-winter-2026-milan
+max_mara,2026-09-24,2027 SS rtw,rtw,Milan,True,1.1067,0.6612,1.8452,1.5019,,-0.0517,2.323,2.612,0.783,2.259,,,https://nowfashion.com/max-mara-ready-to-wear-spring-summer-2027-milan
 mcqueen,2015-10-04,2016 SS rtw,rtw,Paris,True,0.309,,,,-0.0566,,-0.379,,,,-0.4,,https://nowfashion.com/alexander-mcqueen-ready-to-wear-spring-summer-2016-paris
 mcqueen,2016-01-10,2016 AW men,men,London,False,0.5388,,,,0.1094,0.1311,2.394,,,,1.185,,https://nowfashion.com/alexander-mcqueen-menswear-fall-winter-2016-london
 mcqueen,2016-02-21,2016 AW rtw,rtw,London,True,0.4795,,,,0.0042,-0.0936,0.401,,,,0.291,,https://nowfashion.com/alexander-mcqueen-ready-to-wear-fall-winter-2016-london
@@ -942,8 +942,8 @@ mcqueen,2024-03-02,2024 AW rtw,rtw,Paris,True,1.0552,0.5804,1.7048,-0.7238,-0.03
 mcqueen,2024-09-28,2025 SS rtw,rtw,Paris,True,0.4747,-0.0388,1.9205,-1.1231,0.0808,-0.3176,-0.284,-0.504,0.559,-1.677,0.5,,https://nowfashion.com/mcqueen-ready-to-wear-spring-summer-2025-paris
 mcqueen,2025-03-08,2025 AW rtw,rtw,Paris,True,1.0816,0.5706,0.9559,-0.2887,-0.0419,0.0087,1.381,1.374,-0.71,-0.209,-0.403,,https://nowfashion.com/mcqueen-ready-to-wear-fall-winter-2025-paris
 mcqueen,2025-10-05,2026 SS rtw,rtw,Paris,True,1.0308,0.4862,0.5827,-0.1004,-0.2785,0.4021,1.412,1.23,-1.347,0.082,-1.056,,https://nowfashion.com/mcqueen-ready-to-wear-spring-summer-2026-paris
-mcqueen,2026-03-08,2026 AW rtw,rtw,Paris,True,0.084,-0.4876,0.9429,0.0731,-0.2234,0.0053,-0.356,-0.658,-0.459,0.437,-0.789,,https://nowfashion.com/mcqueen-ready-to-wear-fall-winter-2026-paris
-mcqueen,2026-09-20,2027 SS rtw,rtw,London,True,0.5938,0.0479,1.3443,-0.3047,,-0.0056,0.721,0.462,0.393,-0.198,,,https://nowfashion.com/mcqueen-men-women-spring-summer-2027-london
+mcqueen,2026-03-08,2026 AW rtw,rtw,Paris,True,0.084,-0.4876,0.9429,0.0731,-0.2206,0.0053,-0.356,-0.658,-0.459,0.437,-0.774,,https://nowfashion.com/mcqueen-ready-to-wear-fall-winter-2026-paris
+mcqueen,2026-09-20,2027 SS rtw,rtw,London,True,0.6068,0.0609,1.3443,-0.3047,,-0.047,0.715,0.46,0.393,-0.198,,,https://nowfashion.com/mcqueen-men-women-spring-summer-2027-london
 miu_miu,2015-03-11,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/miu-miu-ready-to-wear-fall-winter-2015-paris
 miu_miu,2015-10-07,2016 SS rtw,rtw,Paris,True,0.3461,,,,-0.2131,,-0.292,,,,-1.217,,https://nowfashion.com/miu-miu-ready-to-wear-spring-summer-2016-paris
 miu_miu,2016-03-09,2016 AW rtw,rtw,Paris,True,0.5854,,,,0.015,-0.0866,0.732,,,,0.362,,https://nowfashion.com/miu-miu-ready-to-wear-fall-winter-2016-paris
@@ -966,8 +966,8 @@ miu_miu,2024-03-05,2024 AW rtw,rtw,Paris,True,0.9438,0.2286,1.5726,-0.1692,0.187
 miu_miu,2024-10-01,2025 SS rtw,rtw,Paris,True,0.8791,0.1512,2.5248,0.7603,-0.1735,-0.1113,0.752,0.004,1.669,1.068,-1.147,,https://nowfashion.com/miu-miu-ready-to-wear-spring-summer-2025-paris
 miu_miu,2025-03-11,2025 AW rtw,rtw,Paris,True,1.3609,0.625,2.8189,0.5386,0.3695,-0.1747,2.105,1.527,2.141,0.631,1.679,,https://www.fhcm.paris/sites/default/files/w/files/paris-fashion-week-r-official-calendar-fw25-26_9-1_0.pdf
 miu_miu,2025-10-06,2026 SS rtw,rtw,Paris,True,0.6089,-0.1582,1.8122,0.1279,-0.1914,-0.2627,0.297,-0.56,0.323,0.333,-0.616,,https://nowfashion.com/miu-miu-ready-to-wear-spring-summer-2026-paris
-miu_miu,2026-03-10,2026 AW rtw,rtw,Paris,True,0.3495,-0.4101,3.23,0.2804,0.1881,-0.0273,0.322,-0.453,3.276,0.687,0.843,,https://nowfashion.com/miu-miu-ready-to-wear-fall-winter-2026-paris
-miu_miu,2026-10-04,2027 SS rtw,rtw,Paris,True,0.7459,0.0049,-1.3867,,,-0.1553,1.219,0.304,-1.73,,,,https://nowfashion.com/miu-miu-ready-to-wear-spring-summer-2027-paris
+miu_miu,2026-03-10,2026 AW rtw,rtw,Paris,True,0.3495,-0.4101,3.23,0.2804,0.1909,-0.0273,0.322,-0.453,3.276,0.687,0.851,,https://nowfashion.com/miu-miu-ready-to-wear-fall-winter-2026-paris
+miu_miu,2026-10-04,2027 SS rtw,rtw,Paris,True,0.7388,-0.0022,-1.3867,,,-0.1521,1.14,0.234,-1.73,,,,https://nowfashion.com/miu-miu-ready-to-wear-spring-summer-2027-paris
 moncler,2015-01-18,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/moncler-gamme-bleu-menswear-fall-winter-2015-milan
 moncler,2015-02-15,2015 AW rtw,rtw,New York,True,,,,,,,,,,,,before the views,https://nowfashion.com/moncler-grenoble-ready-to-wear-fall-winter-2015-new-york
 moncler,2015-03-11,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/moncler-gamme-rouge-ready-to-wear-fall-winter-2015-paris
@@ -986,7 +986,7 @@ moncler,2017-10-03,2018 SS rtw,rtw,Paris,True,0.452,0.2822,3.8089,0.5118,0.7352,
 moncler,2020-02-19,2020 AW rtw,rtw,Milan,True,0.5226,0.3125,1.6086,1.4077,-0.4295,0.3933,0.884,1.659,-0.018,2.436,-2.614,,https://nowfashion.com/moncler-ready-to-wear-fall-winter-2020-milan-2
 moncler,2022-09-24,2023 SS rtw,rtw,Milan,True,1.1917,0.9425,1.2448,0.0,0.4291,0.1266,1.108,1.889,-0.915,-0.101,1.51,,https://nowfashion.com/moncler-ready-to-wear-spring-summer-2023-milan
 moncler,2025-03-15,2025 AW rtw,rtw,Courchevel,True,0.1693,-0.1846,0.8615,0.2785,-0.3753,0.1519,-0.987,-0.752,-0.855,0.367,-2.09,,https://www.wmagazine.com/fashion/moncler-grenoble-fall-2025-courchevel-show-photos
-moncler,2026-01-31,2026 AW rtw,rtw,Aspen,True,0.3029,-0.0325,1.0169,0.2282,-0.5014,0.4937,0.203,0.545,-0.338,0.624,-1.892,,https://www.complex.com/style/a/aria-hughes/moncler-grenoble-fall-winter-2026-aspen-fashion-show-review
+moncler,2026-01-31,2026 AW rtw,rtw,Aspen,True,0.3029,-0.0325,1.0169,0.2282,-0.5014,0.4937,0.203,0.545,-0.338,0.624,-1.883,,https://www.complex.com/style/a/aria-hughes/moncler-grenoble-fall-winter-2026-aspen-fashion-show-review
 prada,2015-01-18,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/prada-menswear-fall-winter-2015-milan
 prada,2015-02-26,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/prada-ready-to-wear-fall-winter-2015-milan
 prada,2015-06-21,2016 SS men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/prada-menswear-spring-summer-2016-milan-2
@@ -1026,9 +1026,9 @@ prada,2025-02-27,2025 AW rtw,rtw,Milan,True,0.3925,0.065,0.6367,0.568,0.2714,-0.
 prada,2025-06-22,2026 SS men,men,Milan,False,0.2283,0.0281,-3.4904,,-0.0171,0.3611,-0.228,0.086,-1.508,,-0.216,,https://nowfashion.com/prada-menswear-spring-summer-2026-milan
 prada,2025-09-25,2026 SS rtw,rtw,Milan,True,0.0946,-0.2365,1.38,0.1542,-0.1146,-0.0041,-1.063,-0.778,-0.264,0.362,-0.228,,https://nowfashion.com/prada-ready-to-wear-spring-summer-2026-milan
 prada,2026-01-18,2026 AW men,men,Milan,False,0.4847,0.2827,0.6197,1.0522,0.1587,-0.2133,-0.09,0.306,-1.067,1.569,0.742,,https://nowfashion.com/prada-menswear-fall-winter-2026-milan
-prada,2026-02-26,2026 AW rtw,rtw,Milan,True,0.1194,-0.1993,0.3421,0.8692,0.2434,0.1901,-0.266,0.104,-1.44,1.395,1.062,,https://nowfashion.com/prada-ready-to-wear-fall-winter-2026-milan
-prada,2026-06-21,2027 SS men,men,Milan,False,-0.4784,-0.697,0.4203,1.8154,-0.3986,-0.0518,-2.136,-1.876,-0.864,1.751,-2.209,,https://nowfashion.com/prada-menswear-spring-summer-2027-milan
-prada,2026-09-22,2027 SS rtw,rtw,,True,0.503,0.1943,0.5337,0.5154,,-0.7838,0.423,0.998,-0.237,0.917,,,https://nowfashion.com/prada-ready-to-wear-spring-summer-2027
+prada,2026-02-26,2026 AW rtw,rtw,Milan,True,0.1194,-0.1993,0.3421,0.8692,0.242,0.1901,-0.266,0.104,-1.44,1.395,1.053,,https://nowfashion.com/prada-ready-to-wear-fall-winter-2026-milan
+prada,2026-06-21,2027 SS men,men,Milan,False,-0.4689,-0.6875,0.4203,1.8154,-0.4033,-0.0518,-2.085,-1.876,-0.864,1.751,-2.142,,https://nowfashion.com/prada-menswear-spring-summer-2027-milan
+prada,2026-09-22,2027 SS rtw,rtw,,True,0.5091,0.2004,0.5337,0.5154,,-0.8022,0.401,0.96,-0.237,0.917,,,https://nowfashion.com/prada-ready-to-wear-spring-summer-2027
 saint_laurent,2015-01-25,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/saint-laurent-menswear-fall-winter-2015-paris
 saint_laurent,2015-03-09,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/saint-laurent-ready-to-wear-fall-winter-2015-paris
 saint_laurent,2015-06-28,2016 SS men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/saint-laurent-menswear-spring-summer-2016-paris
@@ -1057,9 +1057,9 @@ saint_laurent,2025-03-11,2025 AW rtw,rtw,Paris,True,0.7299,0.3989,2.5476,-0.1606
 saint_laurent,2025-06-24,2026 SS men,men,Paris,False,0.3793,0.3743,-2.0545,,0.2346,-0.0935,0.082,1.955,-0.559,,1.322,,https://nowfashion.com/saint-laurent-menswear-spring-summer-2026-paris
 saint_laurent,2025-09-29,2026 SS rtw,rtw,Paris,True,-0.1551,-0.5083,1.6872,-1.8272,-0.4735,-0.0216,-1.723,-1.533,0.153,-1.818,-2.04,,https://nowfashion.com/saint-laurent-ready-to-wear-spring-summer-2026-paris
 saint_laurent,2026-01-27,2026 AW men,men,Paris,False,0.2062,0.1076,0.6601,-1.4515,-0.0591,-0.4655,-0.642,-0.077,-1.003,-1.082,-0.401,,https://nowfashion.com/saint-laurent-menswear-fall-winter-2026-paris
-saint_laurent,2026-03-03,2026 AW rtw,rtw,Paris,True,-0.0391,-0.3655,1.8176,-0.0251,-0.0979,-0.0976,-0.67,-0.335,0.969,0.319,-0.291,,https://nowfashion.com/saint-laurent-ready-to-wear-fall-winter-2026-paris
-saint_laurent,2026-06-23,2027 SS men,men,Paris,False,-0.024,-0.1441,1.3703,-1.6363,0.0806,-0.1984,-0.041,0.457,0.513,-0.622,0.396,,https://nowfashion.com/saint-laurent-menswear-spring-summer-2027-paris
-saint_laurent,2026-09-29,2027 SS rtw,rtw,Paris,True,0.2401,-0.0681,2.0456,0.7559,,-0.326,-0.438,0.037,0.939,1.244,,,https://nowfashion.com/saint-laurent-ready-to-wear-spring-summer-2027-paris
+saint_laurent,2026-03-03,2026 AW rtw,rtw,Paris,True,-0.0391,-0.3655,1.8176,-0.0251,-0.0966,-0.0976,-0.67,-0.335,0.969,0.319,-0.284,,https://nowfashion.com/saint-laurent-ready-to-wear-fall-winter-2026-paris
+saint_laurent,2026-06-23,2027 SS men,men,Paris,False,-0.046,-0.1661,1.3703,-1.6363,0.0825,-0.1984,-0.134,0.381,0.513,-0.622,0.424,,https://nowfashion.com/saint-laurent-menswear-spring-summer-2027-paris
+saint_laurent,2026-09-29,2027 SS rtw,rtw,Paris,True,0.2395,-0.0687,2.0456,0.7559,,-0.3521,-0.466,-0.004,0.939,1.244,,,https://nowfashion.com/saint-laurent-ready-to-wear-spring-summer-2027-paris
 schiaparelli,2015-01-26,2015 SS couture,couture,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/schiaparelli-couture-spring-summer-2015-paris
 schiaparelli,2015-07-06,2015 AW couture,couture,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/schiaparelli-couture-fall-winter-2015-paris
 schiaparelli,2016-01-25,2016 SS couture,couture,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/schiaparelli-couture-spring-summer-2016-paris
@@ -1089,9 +1089,9 @@ schiaparelli,2025-03-06,2025 AW rtw,rtw,Paris,False,1.1549,0.4595,1.0115,0.869,-
 schiaparelli,2025-07-07,2025 AW couture,couture,Paris,True,,,3.3187,-1.0167,,,,,,,,thin views,https://www.fhcm.paris/sites/default/files/w/files/official-calendar-haute-couture-week-fall-winter-2025-2026.pdf_0.pdf
 schiaparelli,2025-10-02,2026 SS rtw,rtw,Paris,False,,,1.7796,-1.1694,,,,,0.279,-1.094,,thin views,https://nowfashion.com/schiaparelli-ready-to-wear-spring-summer-2026-paris
 schiaparelli,2026-01-26,2026 SS couture,couture,Paris,True,,,2.3639,-1.1059,,,,,1.76,-0.083,,thin views,https://nowfashion.com/schiaparelli-couture-spring-summer-2026-paris
-schiaparelli,2026-03-05,2026 AW rtw,rtw,Paris,False,1.0345,0.2242,0.3961,-2.6377,0.539,-0.5492,2.071,1.223,-1.351,-2.825,2.234,,https://nowfashion.com/schiaparelli-ready-to-wear-fall-winter-2026-paris
-schiaparelli,2026-07-06,2026 AW couture,couture,Paris,True,2.1816,0.2101,1.5905,-1.9646,0.0962,0.2368,2.214,1.479,0.504,-1.366,1.725,,https://nowfashion.com/schiaparelli-couture-fall-winter-2026-paris
-schiaparelli,2026-10-01,2027 SS rtw,rtw,Paris,False,1.0953,0.2402,0.1236,,,0.0565,2.363,1.166,-0.556,,,,https://nowfashion.com/schiaparelli-ready-to-wear-spring-summer-2027-paris
+schiaparelli,2026-03-05,2026 AW rtw,rtw,Paris,False,1.0345,0.2242,0.3961,-2.6377,0.5446,-0.5492,2.071,1.223,-1.351,-2.825,2.248,,https://nowfashion.com/schiaparelli-ready-to-wear-fall-winter-2026-paris
+schiaparelli,2026-07-06,2026 AW couture,couture,Paris,True,2.185,0.2135,1.5905,-1.9646,0.1002,0.2368,2.211,1.485,0.504,-1.366,1.683,,https://nowfashion.com/schiaparelli-couture-fall-winter-2026-paris
+schiaparelli,2026-10-01,2027 SS rtw,rtw,Paris,False,1.0876,0.2325,0.1236,,,0.0513,2.261,1.075,-0.556,,,,https://nowfashion.com/schiaparelli-ready-to-wear-spring-summer-2027-paris
 stella_mccartney,2015-03-09,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/stella-mccartney-ready-to-wear-fall-winter-2015-paris
 stella_mccartney,2015-10-05,2016 SS rtw,rtw,Paris,True,0.5909,,,,0.0461,,0.282,,,,0.136,,https://nowfashion.com/stella-mccartney-ready-to-wear-spring-summer-2016-paris
 stella_mccartney,2016-03-07,2016 AW rtw,rtw,Paris,True,0.8007,,,,0.148,0.0848,1.404,,,,1.233,,https://nowfashion.com/stella-mccartney-ready-to-wear-fall-winter-2016-paris
@@ -1111,8 +1111,8 @@ stella_mccartney,2024-03-04,2024 AW rtw,rtw,Paris,True,0.8956,0.4279,2.1122,-1.1
 stella_mccartney,2024-09-30,2025 SS rtw,rtw,Paris,True,0.7664,0.2702,2.2909,-0.7129,0.0587,-0.5463,0.463,0.322,1.239,-1.079,0.357,,https://nowfashion.com/stella-mccartney-ready-to-wear-spring-summer-2025-paris
 stella_mccartney,2025-03-05,2025 AW rtw,rtw,Paris,True,0.1245,-0.3886,1.5163,-0.5022,0.0226,0.1949,-1.103,-1.326,0.148,-0.425,-0.076,,https://nowfashion.com/stella-mccartney-ready-to-wear-fall-winter-2025-paris
 stella_mccartney,2025-09-30,2026 SS rtw,rtw,Paris,True,0.5581,0.0678,2.1603,-1.0227,0.0396,-0.0705,0.162,0.068,0.796,-0.933,0.55,,https://nowfashion.com/stella-mccartney-ready-to-wear-spring-summer-2026-paris
-stella_mccartney,2026-03-04,2026 AW rtw,rtw,Paris,True,1.8824,1.3884,1.4243,0.1085,0.6421,0.0337,4.236,4.301,0.327,0.48,2.643,,https://nowfashion.com/stella-mccartney-ready-to-wear-fall-winter-2026-paris
-stella_mccartney,2026-09-30,2027 SS rtw,rtw,Paris,True,0.7443,0.1772,2.4754,-1.2015,,-0.8459,1.214,0.935,1.273,-1.418,,,https://nowfashion.com/stella-mccartney-ready-to-wear-spring-summer-2027-paris
+stella_mccartney,2026-03-04,2026 AW rtw,rtw,Paris,True,1.8824,1.3884,1.4243,0.1085,0.6468,0.0337,4.236,4.301,0.327,0.48,2.651,,https://nowfashion.com/stella-mccartney-ready-to-wear-fall-winter-2026-paris
+stella_mccartney,2026-09-30,2027 SS rtw,rtw,Paris,True,0.7396,0.1725,2.4754,-1.2015,,-0.8429,1.142,0.86,1.273,-1.418,,,https://nowfashion.com/stella-mccartney-ready-to-wear-spring-summer-2027-paris
 the_row,2016-02-15,2016 AW rtw,rtw,New York,True,,,,,,,,,,,,before the views,https://nowfashion.com/the-row-ready-to-wear-fall-winter-2016-new-york
 the_row,2017-02-13,2017 AW rtw,rtw,New York,True,0.0077,,,0.6426,0.0428,0.132,-1.331,,,0.943,0.203,,https://nowfashion.com/the-row-ready-to-wear-fall-winter-2017-new-york
 the_row,2019-09-09,2020 SS rtw,rtw,New York,True,1.0687,,1.5143,0.8681,0.055,-0.3797,1.216,,-0.537,0.895,0.366,,https://nowfashion.com/the-row-ready-to-wear-spring-summer-2020-new-york
@@ -1123,8 +1123,8 @@ the_row,2024-02-28,2024 AW rtw,rtw,Paris,True,0.7755,0.3301,0.7011,-2.4126,-0.09
 the_row,2024-09-25,2025 SS rtw,rtw,Paris,True,1.0759,0.5755,0.7633,0.6829,0.1558,-0.1304,1.256,1.139,-1.567,0.956,0.985,,https://www.fhcm.paris/sites/default/files/edition/pdf/paris-fashion-weekr-official-calendar-ss25_12.pdf
 the_row,2025-03-05,2025 AW rtw,rtw,Paris,True,1.0364,0.4538,0.8098,0.516,0.3418,-0.043,1.263,1.045,-0.934,0.608,1.539,,https://www.fhcm.paris/sites/default/files/edition/pdf/paris-fashion-week-r-official-calendar-fw25-26.pdf
 the_row,2025-10-02,2026 SS rtw,rtw,Paris,True,-0.2415,-0.8808,0.1179,,0.1351,-0.0574,-1.951,-2.567,-1.978,,1.032,,https://www.fhcm.paris/sites/default/files/edition/pdf/paris-fashion-week-r-official-calendar-ss26_3.pdf
-the_row,2026-03-04,2026 AW rtw,rtw,Paris,True,-0.1076,-0.6491,0.836,-0.3615,-0.0382,0.4175,-0.845,-1.085,-0.633,-0.086,-0.055,,https://www.fhcm.paris/sites/default/files/w/files/paris-fashion-week-r-official-calendar-womenswear-fw26-27_7_0.pdf
-the_row,2026-09-30,2027 SS rtw,rtw,Paris,True,-0.0424,-0.519,-0.2865,,,-0.0213,-1.363,-1.614,-0.875,,,,https://www.fhcm.paris/sites/default/files/edition/pdf/paris-fashion-week-r-official-calendar-womenswear-ss27_6.pdf
+the_row,2026-03-04,2026 AW rtw,rtw,Paris,True,-0.1076,-0.6491,0.836,-0.3615,-0.039,0.4175,-0.845,-1.085,-0.633,-0.086,-0.057,,https://www.fhcm.paris/sites/default/files/w/files/paris-fashion-week-r-official-calendar-womenswear-fw26-27_7_0.pdf
+the_row,2026-09-30,2027 SS rtw,rtw,Paris,True,-0.0382,-0.5148,-0.2865,,,-0.0295,-1.359,-1.603,-0.875,,,,https://www.fhcm.paris/sites/default/files/edition/pdf/paris-fashion-week-r-official-calendar-womenswear-ss27_6.pdf
 tom_ford,2015-02-23,2015 AW rtw,rtw,London,True,,,,,,,,,,,,before the views,https://nowfashion.com/tom-ford-ready-to-wear-fall-winter-2015-london
 tom_ford,2017-09-07,2018 SS rtw,rtw,New York,True,,,3.9357,0.2742,,,,,1.735,0.351,,before the views,https://nowfashion.com/tom-ford-ready-to-wear-spring-summer-2018-new-york
 tom_ford,2018-02-09,2018 AW rtw,rtw,New York,True,,,2.5525,-0.0597,,,,,0.215,0.02,,before the views,https://nowfashion.com/tom-ford-ready-to-wear-fall-winter-2018-new-york
@@ -1141,8 +1141,8 @@ tom_ford,2023-09-21,2024 SS rtw,rtw,Milan,True,0.5597,0.0207,1.8262,-0.1409,0.17
 tom_ford,2024-02-22,2024 AW rtw,rtw,Milan,True,0.1752,-0.3707,1.2904,0.1584,0.0175,0.2866,-0.541,-1.078,-0.196,0.291,-0.136,,https://nowfashion.com/tom-ford-men-women-fall-winter-2024-milan
 tom_ford,2025-03-05,2025 AW rtw,rtw,Paris,True,0.8023,0.3491,1.5245,-0.3412,0.1471,0.0,0.656,0.751,0.16,-0.262,0.554,,https://nowfashion.com/tom-ford-ready-to-wear-fall-winter-2025-paris
 tom_ford,2025-10-01,2026 SS rtw,rtw,Paris,True,0.6346,0.1116,1.8276,-0.5565,0.1502,-0.0463,0.365,0.189,0.344,-0.42,1.109,,https://nowfashion.com/tom-ford-ready-to-wear-spring-summer-2026-paris
-tom_ford,2026-03-04,2026 AW rtw,rtw,Paris,True,0.2027,-0.3389,0.9122,-0.0306,-0.2601,-0.2627,-0.053,-0.265,-0.509,0.313,-0.935,,https://nowfashion.com/tom-ford-ready-to-wear-fall-winter-2026-paris
-tom_ford,2026-09-30,2027 SS rtw,rtw,Paris,True,0.4033,-0.0899,1.9082,-0.9087,,-0.2399,0.097,-0.043,0.832,-1.02,,,https://nowfashion.com/tom-ford-men-women-spring-summer-2027-paris
+tom_ford,2026-03-04,2026 AW rtw,rtw,Paris,True,0.2027,-0.3389,0.9122,-0.0306,-0.2642,-0.2627,-0.053,-0.265,-0.509,0.313,-0.946,,https://nowfashion.com/tom-ford-ready-to-wear-fall-winter-2026-paris
+tom_ford,2026-09-30,2027 SS rtw,rtw,Paris,True,0.4158,-0.0774,1.9082,-0.9087,,-0.2823,0.101,-0.035,0.832,-1.02,,,https://nowfashion.com/tom-ford-men-women-spring-summer-2027-paris
 valentino,2015-01-21,2015 AW men,men,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/valentino-menswear-fall-winter-2015-paris
 valentino,2015-01-28,2015 SS couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/valentino-couture-spring-summer-2015-paris
 valentino,2015-03-10,2015 AW rtw,rtw,Paris,True,,,,,,,,,,,,before the views,https://nowfashion.com/valentino-ready-to-wear-fall-winter-2015-paris
@@ -1198,8 +1198,8 @@ valentino,2025-01-29,2025 SS couture,couture,Paris,False,0.5391,-0.02,1.6237,-0.
 valentino,2025-03-09,2025 AW rtw,rtw,Paris,True,0.3458,-0.1157,2.0775,-2.1825,0.0065,0.0183,-0.529,-0.558,1.007,-2.131,-0.158,,https://nowfashion.com/valentino-ready-to-wear-fall-winter-2025-paris
 valentino,2025-10-05,2026 SS rtw,rtw,Paris,True,0.8722,0.4165,2.3521,-0.6572,0.2035,-0.2185,0.993,1.036,1.057,-0.531,1.378,,https://nowfashion.com/valentino-ready-to-wear-spring-summer-2026-paris
 valentino,2026-01-28,2026 SS couture,couture,Paris,False,2.3014,1.7435,1.4742,-1.8434,0.1275,-0.2637,,,0.02,-0.535,,,https://nowfashion.com/valentino-couture-spring-summer-2026-paris
-valentino,2026-03-12,2026 AW rtw,rtw,Rome,True,-0.7243,-1.1998,2.1427,0.7279,-0.8398,-0.0519,-2.42,-2.541,1.5,1.225,-3.234,,https://nowfashion.com/valentino-ready-to-wear-fall-winter-2026-rome
-valentino,2026-10-04,2027 SS rtw,rtw,Paris,True,0.4169,-0.0041,-0.8007,,,-0.1898,0.141,0.271,-1.275,,,,https://nowfashion.com/valentino-ready-to-wear-spring-summer-2027-paris
+valentino,2026-03-12,2026 AW rtw,rtw,Rome,True,-0.7243,-1.1998,2.1427,0.7279,-0.8432,-0.0519,-2.42,-2.541,1.5,1.225,-3.233,,https://nowfashion.com/valentino-ready-to-wear-fall-winter-2026-rome
+valentino,2026-10-04,2027 SS rtw,rtw,Paris,True,0.4308,0.0098,-0.8007,,,-0.2434,0.149,0.277,-1.275,,,,https://nowfashion.com/valentino-ready-to-wear-spring-summer-2027-paris
 versace,2015-01-17,2015 AW men,men,Milan,False,,,,,,,,,,,,before the views,https://nowfashion.com/versace-menswear-fall-winter-2015-milan
 versace,2015-01-25,2015 SS couture,couture,Paris,False,,,,,,,,,,,,before the views,https://nowfashion.com/versace-couture-spring-summer-2015-paris
 versace,2015-02-27,2015 AW rtw,rtw,Milan,True,,,,,,,,,,,,before the views,https://nowfashion.com/versace-ready-to-wear-fall-winter-2015-milan
@@ -1257,4 +1257,4 @@ zegna,2024-06-17,2025 SS men,men,Milan,True,0.1842,-0.0815,1.0438,1.3028,0.0641,
 zegna,2025-01-20,2025 AW men,men,Milan,True,0.3391,0.085,1.4097,0.0258,-0.0409,-0.0631,0.181,-0.008,0.132,0.627,-0.421,,https://nowfashion.com/ermenegildo-zegna-menswear-fall-winter-2025-milan
 zegna,2025-06-11,2026 SS men,men,Dubai,True,0.3147,0.05,1.4484,0.2037,-0.0688,-0.1754,-0.051,0.204,1.757,,-0.532,,https://nowfashion.com/zegna-menswear-spring-summer-2026-milan
 zegna,2026-01-16,2026 AW men,men,Milan,True,0.3845,0.1142,1.8639,-0.7102,-0.0557,0.0732,-0.289,-0.062,0.892,-0.297,-0.383,,https://nowfashion.com/zegna-menswear-fall-winter-2026-milan
-zegna,2026-06-05,2027 SS men,men,Los Angeles,True,0.4582,0.1765,0.8019,0.3749,-0.1135,-0.2104,2.182,1.809,-0.311,0.761,-0.659,,https://nowfashion.com/zegna-menswear-spring-summer-2027-milan
+zegna,2026-06-05,2027 SS men,men,Los Angeles,True,0.4582,0.1765,0.8019,0.3749,-0.1127,-0.2104,2.193,1.864,-0.311,0.761,-0.607,,https://nowfashion.com/zegna-menswear-spring-summer-2027-milan

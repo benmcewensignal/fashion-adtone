@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T06:56:40Z",
+ "generated_at": "2026-11-17T06:56:20Z",
  "status": "description: PREREGISTRATION-AMENDMENT-3.md is a draft and every clothes question is provisional until labelled; no advertising position is computed for the spring-summer 2027 campaign windows onward before the freeze, and nothing here is tested",
  "questions": [
   "accessories",
@@ -25,9 +25,9 @@
   "placed": 4,
   "common": 10
  },
- "runways_placed": 123,
+ "runways_placed": 127,
  "advertising_placed": 34,
- "gaps": 13,
+ "gaps": 14,
  "advertising_held": 32,
  "by_season": {
   "2019 AW": {
@@ -66,7 +66,7 @@
    "gaps": 0
   },
   "2023 AW": {
-   "runways_placed": 9,
+   "runways_placed": 10,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -86,7 +86,7 @@
    "gaps": 0
   },
   "2025 AW": {
-   "runways_placed": 10,
+   "runways_placed": 11,
    "advertising_placed": 0,
    "gaps": 0
   },
@@ -97,13 +97,13 @@
    "median_gap": 0.7193
   },
   "2026 AW": {
-   "runways_placed": 12,
+   "runways_placed": 13,
    "advertising_placed": 17,
-   "gaps": 7,
-   "median_gap": 0.7309
+   "gaps": 8,
+   "median_gap": 0.7
   },
   "2027 SS": {
-   "runways_placed": 11,
+   "runways_placed": 12,
    "advertising_placed": 0,
    "gaps": 0
   }
@@ -1630,7 +1630,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.7309,
+    "value": 0.7159,
     "answers": 88
    }
   },
@@ -2459,7 +2459,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.3568,
+    "value": 0.3398,
     "answers": 88
    }
   },
@@ -3945,8 +3945,8 @@
    },
    "advertising": {
     "record": "complete",
-    "concepts": 16,
-    "ads": 41,
+    "concepts": 17,
+    "ads": 42,
     "pictures": 15,
     "placed": true
    }
@@ -3968,7 +3968,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.4328,
+    "value": 0.4467,
     "answers": 88
    }
   },
@@ -4573,7 +4573,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.7253,
+    "value": 0.6841,
     "answers": 68
    }
   },
@@ -5167,7 +5167,7 @@
    "season": "2026 AW rtw",
    "date": "2026-03-07",
    "runway": {
-    "looks": 0,
+    "looks": 5,
     "placed": false
    },
    "advertising": {
@@ -6265,8 +6265,8 @@
    "season": "2027 SS rtw",
    "date": "2026-10-02",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 18,
+    "placed": true
    },
    "advertising": {
     "held": true
@@ -6555,8 +6555,8 @@
    "season": "2026 AW rtw",
    "date": "2026-03-06",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 8,
+    "placed": true
    },
    "advertising": {
     "record": "complete",
@@ -6564,6 +6564,10 @@
     "ads": 231,
     "pictures": 62,
     "placed": true
+   },
+   "gap": {
+    "value": 0.68,
+    "answers": 88
    }
   },
   {
@@ -6572,7 +6576,7 @@
    "season": "2027 SS rtw",
    "date": "2026-10-02",
    "runway": {
-    "looks": 0,
+    "looks": 4,
     "placed": false
    },
    "advertising": {
@@ -6933,7 +6937,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.9626,
+    "value": 1.0595,
     "answers": 88
    }
   },
@@ -7614,8 +7618,8 @@
    "season": "2023 AW rtw",
    "date": "2023-03-04",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 18,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -8708,8 +8712,8 @@
    "season": "2025 AW rtw",
    "date": "2025-03-11",
    "runway": {
-    "looks": 0,
-    "placed": false
+    "looks": 16,
+    "placed": true
    },
    "advertising": {
     "record": "survivors"
@@ -8753,7 +8757,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.9558,
+    "value": 0.936,
     "answers": 88
    }
   },
@@ -10062,7 +10066,7 @@
     "placed": true
    },
    "gap": {
-    "value": 0.8646,
+    "value": 0.8454,
     "answers": 68
    }
   },
