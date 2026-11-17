@@ -1328,12 +1328,12 @@
   },
   "country_form": null,
   "notes": [
-    "Fendi DE 2026-10-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Fendi IT 2026-10-17: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Fendi DE 2026-10-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Fendi IT 2026-10-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 40,
-  "run": "gh43783178066",
+  "requests": 38,
+  "run": "gh43990624760",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1349,7 +1349,7 @@
     "dior": "2026-11-05",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
-    "fendi": "2026-11-16",
+    "fendi": "2026-11-17",
     "ferragamo": "2026-10-18",
     "givenchy": "2026-10-17",
     "gucci": "2026-11-05",
@@ -1429,5 +1429,5 @@
     "pin_id": "str"
   },
   "stopped": null,
-  "updated_at": "2026-11-16T01:06:44Z"
+  "updated_at": "2026-11-17T01:19:46Z"
 }
