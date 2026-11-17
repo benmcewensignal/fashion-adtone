@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T06:49:02Z",
+ "generated_at": "2026-11-17T06:51:13Z",
  "status": "exploratory: descriptive, not in the pre-registration",
  "images": "homepages, every creative type",
  "window_months": 6,
@@ -1117,15 +1117,15 @@
     {
      "question": "people",
      "stated": "one",
-     "house": 0.357,
-     "peers": 0.508,
-     "lift": -0.151
+     "house": 0.438,
+     "peers": 0.515,
+     "lift": -0.077
     }
    ],
-   "n_house": 14,
-   "n_peers": 305,
-   "agreement": -0.151,
-   "p_two_sided": 0.286
+   "n_house": 16,
+   "n_peers": 309,
+   "agreement": -0.077,
+   "p_two_sided": 0.623
   },
   {
    "house": "mcqueen",
@@ -1152,7 +1152,7 @@
    "key": "dolce_gabbana:2026-09-26:d7bdd01c2b61",
    "spoken": 14,
    "months": "2026-09 to 2027-02",
-   "note": "0 homepage images in the window; at least 6 needed"
+   "note": "2 homepage images in the window; at least 6 needed"
   },
   {
    "house": "ferragamo",
@@ -1247,57 +1247,57 @@
      "question": "colour_temperature",
      "stated": "neutral",
      "house": 1.0,
-     "peers": 0.902,
-     "lift": 0.098
+     "peers": 0.903,
+     "lift": 0.097
     },
     {
      "question": "expression",
      "stated": "neutral",
      "house": 0.875,
-     "peers": 0.668,
-     "lift": 0.207
+     "peers": 0.673,
+     "lift": 0.202
     },
     {
      "question": "framing",
      "stated": "full_length",
      "house": 0.375,
-     "peers": 0.266,
-     "lift": 0.109
+     "peers": 0.27,
+     "lift": 0.105
     },
     {
      "question": "gaze",
      "stated": "to_camera",
      "house": 0.75,
-     "peers": 0.457,
-     "lift": 0.293
+     "peers": 0.466,
+     "lift": 0.284
     },
     {
      "question": "people",
      "stated": "group",
      "house": 0.0,
-     "peers": 0.019,
-     "lift": -0.019
+     "peers": 0.018,
+     "lift": -0.018
     },
     {
      "question": "pose",
      "stated": "posed_static",
      "house": 0.875,
-     "peers": 0.793,
-     "lift": 0.082
+     "peers": 0.796,
+     "lift": 0.079
     },
     {
      "question": "primary_subject",
      "stated": "garment",
      "house": 0.75,
-     "peers": 0.729,
-     "lift": 0.021
+     "peers": 0.733,
+     "lift": 0.017
     },
     {
      "question": "production",
      "stated": "polished_commercial",
      "house": 1.0,
-     "peers": 0.949,
-     "lift": 0.051
+     "peers": 0.95,
+     "lift": 0.05
     },
     {
      "question": "saturation",
@@ -1310,35 +1310,35 @@
      "question": "styling_register",
      "stated": "casual",
      "house": 0.5,
-     "peers": 0.348,
-     "lift": 0.152
+     "peers": 0.346,
+     "lift": 0.154
     },
     {
      "question": "mood",
      "stated": "serene",
      "house": 1.0,
-     "peers": 0.295,
-     "lift": 0.705
+     "peers": 0.293,
+     "lift": 0.707
     },
     {
      "question": "mood",
      "stated": "sensual",
      "house": 0.0,
-     "peers": 0.739,
-     "lift": -0.739
+     "peers": 0.741,
+     "lift": -0.741
     },
     {
      "question": "street_couture_axis",
      "stated": 3,
      "house": 3.0,
-     "peers": 3.096,
-     "lift": -0.096
+     "peers": 3.094,
+     "lift": -0.094
     }
    ],
    "n_house": 8,
-   "n_peers": 376,
-   "agreement": 0.088,
-   "p_two_sided": 0.166
+   "n_peers": 382,
+   "agreement": 0.086,
+   "p_two_sided": 0.177
   },
   {
    "house": "armani",
@@ -1373,7 +1373,7 @@
    "n_house": 18,
    "n_peers": 534,
    "agreement": 0.102,
-   "p_two_sided": 0.119
+   "p_two_sided": 0.117
   },
   {
    "house": "armani",
@@ -1386,50 +1386,50 @@
     {
      "question": "colour_temperature",
      "stated": "warm",
-     "house": 0.056,
-     "peers": 0.055,
-     "lift": 0.001
+     "house": 0.05,
+     "peers": 0.054,
+     "lift": -0.004
     },
     {
      "question": "light",
      "stated": "high_key",
-     "house": 0.778,
-     "peers": 0.825,
-     "lift": -0.047
+     "house": 0.8,
+     "peers": 0.827,
+     "lift": -0.027
     },
     {
      "question": "setting",
      "stated": "urban_exterior",
      "house": 0.0,
-     "peers": 0.087,
-     "lift": -0.087
+     "peers": 0.086,
+     "lift": -0.086
     },
     {
      "question": "mood",
      "stated": "serene",
-     "house": 0.556,
-     "peers": 0.298,
-     "lift": 0.258
+     "house": 0.55,
+     "peers": 0.295,
+     "lift": 0.255
     },
     {
      "question": "mood",
      "stated": "sensual",
-     "house": 0.778,
-     "peers": 0.721,
-     "lift": 0.056
+     "house": 0.75,
+     "peers": 0.724,
+     "lift": 0.026
     },
     {
      "question": "street_couture_axis",
      "stated": 3,
      "house": 3.0,
-     "peers": 3.098,
-     "lift": -0.098
+     "peers": 3.097,
+     "lift": -0.097
     }
    ],
-   "n_house": 18,
-   "n_peers": 366,
-   "agreement": 0.036,
-   "p_two_sided": 0.233
+   "n_house": 20,
+   "n_peers": 370,
+   "agreement": 0.033,
+   "p_two_sided": 0.252
   },
   {
    "house": "armani",
@@ -1447,8 +1447,8 @@
      "lift": 0.0
     }
    ],
-   "n_house": 8,
-   "n_peers": 174,
+   "n_house": 11,
+   "n_peers": 178,
    "agreement": 0.0,
    "p_two_sided": 1.0
   },
@@ -1506,7 +1506,7 @@
    "n_house": 13,
    "n_peers": 520,
    "agreement": 0.027,
-   "p_two_sided": 0.665
+   "p_two_sided": 0.638
   },
   {
    "house": "prada",
@@ -1529,21 +1529,21 @@
      "question": "colour_temperature",
      "stated": "neutral",
      "house": 1.0,
-     "peers": 0.901,
-     "lift": 0.099
+     "peers": 0.902,
+     "lift": 0.098
     },
     {
      "question": "expression",
      "stated": "neutral",
      "house": 0.667,
-     "peers": 0.672,
-     "lift": -0.005
+     "peers": 0.677,
+     "lift": -0.011
     }
    ],
    "n_house": 12,
-   "n_peers": 372,
-   "agreement": 0.047,
-   "p_two_sided": 0.63
+   "n_peers": 378,
+   "agreement": 0.044,
+   "p_two_sided": 0.616
   },
   {
    "house": "prada",
@@ -1557,14 +1557,14 @@
      "question": "primary_subject",
      "stated": "garment",
      "house": 0.857,
-     "peers": 0.76,
-     "lift": 0.097
+     "peers": 0.769,
+     "lift": 0.088
     }
    ],
    "n_house": 7,
-   "n_peers": 175,
-   "agreement": 0.097,
-   "p_two_sided": 0.681
+   "n_peers": 182,
+   "agreement": 0.088,
+   "p_two_sided": 0.694
   },
   {
    "house": "fendi",
@@ -1630,7 +1630,7 @@
    "n_house": 9,
    "n_peers": 484,
    "agreement": -0.083,
-   "p_two_sided": 0.638
+   "p_two_sided": 0.637
   },
   {
    "house": "hermes",
@@ -1719,7 +1719,7 @@
    "n_house": 21,
    "n_peers": 472,
    "agreement": 0.058,
-   "p_two_sided": 0.076
+   "p_two_sided": 0.075
   },
   {
    "house": "loewe",
@@ -1765,7 +1765,7 @@
    "n_house": 13,
    "n_peers": 537,
    "agreement": -0.251,
-   "p_two_sided": 0.047
+   "p_two_sided": 0.04
   },
   {
    "house": "chloe",
@@ -1895,7 +1895,7 @@
    "n_house": 10,
    "n_peers": 483,
    "agreement": -0.007,
-   "p_two_sided": 0.931
+   "p_two_sided": 0.93
   },
   {
    "house": "schiaparelli",

@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-11-10T06:39:54Z",
+  "generated_at": "2026-11-17T06:41:47Z",
   "shows_from": "the Thread's calendar, main shows with a measured jump",
   "n_show_dates": 508,
   "attention_half": {
     "n_events": 486,
     "n_with_surprise": 430,
-    "slope": 0.1785,
+    "slope": 0.1787,
     "status": "ok",
-    "placebo_mean": 0.1531,
-    "placebo_q95": 0.307,
-    "p": 0.2498
+    "placebo_mean": 0.1563,
+    "placebo_q95": 0.3098,
+    "p": 0.2807
   },
   "attention_half_scene": {
     "n_events": 305,
     "n_with_surprise": 295,
-    "slope": 0.237,
+    "slope": 0.2372,
     "held_constant": "fashion ambassador appointments in the 180 days before",
     "status": "ok",
-    "placebo_mean": 0.1601,
-    "placebo_q95": 0.3408,
-    "p": 0.1429,
+    "placebo_mean": 0.1628,
+    "placebo_q95": 0.3485,
+    "p": 0.1558,
     "declared": "an extra run added on 11 October 2026, after the registered result above had been seen (Amendment 2, section 13); never in its place"
   },
   "what_the_clothes_add": {
@@ -33,13 +33,13 @@
     ],
     "target": "lasting",
     "status": "ok",
-    "r2_without_term": 0.1886,
-    "r2_with_term": 0.1898,
+    "r2_without_term": 0.1889,
+    "r2_with_term": 0.1901,
     "increment": 0.0012,
-    "p": 0.5065,
-    "coefficient": 0.0065,
+    "p": 0.5055,
+    "coefficient": 0.0066,
     "interval_90": [
-      -0.0067,
+      -0.0066,
       0.0224
     ],
     "supported": false

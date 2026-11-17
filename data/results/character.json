@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-11-10T06:40:26Z",
+ "generated_at": "2026-11-17T06:42:20Z",
  "source": "homepages",
  "period": "half",
  "types": [
   "brand_image",
   "product_on_model"
  ],
- "images": 12430,
+ "images": 12439,
  "identity": {
   "brands": 35,
   "split": "2025-07",
   "answers_hits": 4,
   "answers_mean_rank": 8.94,
   "fingerprint_hits": 22,
-  "fingerprint_mean_rank": 5.06
+  "fingerprint_mean_rank": 5.09
  },
  "houses": {
   "alaia": {
@@ -2842,70 +2842,70 @@
      "street_couture": 3.0
     },
     "2026H2": {
-     "n": 11,
+     "n": 13,
      "light": {
-      "high_key": 0.909,
-      "low_key": 0.091
+      "high_key": 0.923,
+      "low_key": 0.077
      },
      "colour_temperature": {
-      "warm": 0.091,
-      "cool": 0.091,
-      "neutral": 0.818
+      "warm": 0.077,
+      "cool": 0.077,
+      "neutral": 0.846
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.364,
-      "studio_set": 0.636
+      "studio_plain": 0.308,
+      "studio_set": 0.692
      },
      "people": {
-      "none": 0.182,
-      "one": 0.455,
-      "two": 0.273,
-      "group": 0.091
+      "none": 0.154,
+      "one": 0.538,
+      "two": 0.231,
+      "group": 0.077
      },
      "gaze": {
-      "to_camera": 0.818,
-      "not_applicable": 0.182
+      "to_camera": 0.846,
+      "not_applicable": 0.154
      },
      "expression": {
-      "neutral": 0.909,
-      "not_applicable": 0.091
+      "neutral": 0.923,
+      "not_applicable": 0.077
      },
      "pose": {
-      "posed_static": 0.909,
-      "not_applicable": 0.091
+      "posed_static": 0.923,
+      "not_applicable": 0.077
      },
      "framing": {
-      "close_up": 0.182,
-      "medium": 0.273,
-      "full_length": 0.545
+      "close_up": 0.154,
+      "medium": 0.308,
+      "full_length": 0.538
      },
      "primary_subject": {
-      "garment": 0.818,
-      "footwear": 0.091,
-      "accessory": 0.091
+      "garment": 0.846,
+      "footwear": 0.077,
+      "accessory": 0.077
      },
      "styling_register": {
-      "formal_tailored": 0.545,
-      "casual": 0.455
+      "formal_tailored": 0.615,
+      "casual": 0.385
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.545,
-      "logo_only": 0.364,
-      "headline": 0.091
+      "none": 0.538,
+      "logo_only": 0.385,
+      "headline": 0.077
      },
      "mood": {
-      "serene": 0.455,
-      "intimate": 0.818,
-      "sensual": 0.818,
-      "playful": 0.091,
-      "opulent": 0.273,
-      "romantic": 0.364
+      "serene": 0.462,
+      "intimate": 0.846,
+      "sensual": 0.769,
+      "playful": 0.077,
+      "opulent": 0.385,
+      "romantic": 0.308
      },
      "street_couture": 3.0
     }
@@ -3637,37 +3637,37 @@
      "from": "2026H1",
      "to": "2026H2",
      "n0": 18,
-     "n1": 11,
+     "n1": 13,
      "months0": 6,
-     "months1": 4,
-     "rubric": 0.1475,
-     "rubric_p": 0.1333,
-     "rubric_chance": 0.1205,
+     "months1": 5,
+     "rubric": 0.1479,
+     "rubric_p": 0.0693,
+     "rubric_chance": 0.1138,
      "null": "months",
-     "splits": 210,
-     "fingerprint": 0.0928,
-     "fingerprint_p": 0.6714,
-     "fingerprint_chance": 0.0989,
+     "splits": 462,
+     "fingerprint": 0.0876,
+     "fingerprint_p": 0.5693,
+     "fingerprint_chance": 0.0898,
      "moved": [
       {
        "question": "framing",
        "answer": "medium",
-       "change": -0.449
-      },
-      {
-       "question": "framing",
-       "answer": "full_length",
-       "change": 0.323
+       "change": -0.415
       },
       {
        "question": "styling_register",
        "answer": "formal_tailored",
-       "change": 0.323
+       "change": 0.393
       },
       {
-       "question": "people",
-       "answer": "two",
-       "change": -0.227
+       "question": "framing",
+       "answer": "full_length",
+       "change": 0.316
+      },
+      {
+       "question": "styling_register",
+       "answer": "casual",
+       "change": -0.282
       }
      ]
     }
@@ -3695,7 +3695,7 @@
     "2020H1": 0.1015,
     "2023H1": 0.192,
     "2023H2": 0.1727,
-    "2026H2": 0.1229
+    "2026H2": 0.1187
    }
   },
   "balenciaga": {
@@ -8031,7 +8031,7 @@
     "2019H1": 0.2361,
     "2023H1": 0.0912,
     "2023H2": 0.1554,
-    "2026H2": 0.1291,
+    "2026H2": 0.1297,
     "2018H1": 0.125,
     "2018H2": 0.1603
    }
@@ -10515,7 +10515,7 @@
     "2020H1": 0.1407,
     "2023H1": 0.2993,
     "2023H2": 0.2368,
-    "2026H2": 0.2288,
+    "2026H2": 0.2287,
     "2018H1": 0.1373,
     "2018H2": 0.1389
    }
@@ -20389,7 +20389,7 @@
     "2020H1": 0.1299,
     "2023H1": 0.3149,
     "2023H2": 0.1237,
-    "2026H2": 0.1102,
+    "2026H2": 0.1114,
     "2018H1": 0.1755,
     "2018H2": 0.1079
    }
@@ -25169,7 +25169,7 @@
      "street_couture": 3.0
     },
     "2026H2": {
-     "n": 8,
+     "n": 10,
      "light": {
       "high_key": 1.0
      },
@@ -25180,8 +25180,8 @@
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.125,
-      "studio_set": 0.875
+      "studio_plain": 0.1,
+      "studio_set": 0.9
      },
      "people": {
       "one": 1.0
@@ -25202,23 +25202,23 @@
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.125,
-      "eveningwear": 0.25,
-      "casual": 0.625
+      "formal_tailored": 0.2,
+      "eveningwear": 0.3,
+      "casual": 0.5
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.75,
-      "logo_only": 0.25
+      "none": 0.6,
+      "logo_only": 0.4
      },
      "mood": {
-      "serene": 0.5,
+      "serene": 0.4,
       "intimate": 1.0,
-      "sensual": 0.625,
-      "opulent": 0.75,
-      "romantic": 0.125
+      "sensual": 0.7,
+      "opulent": 0.8,
+      "romantic": 0.1
      },
      "street_couture": 3.0
     }
@@ -25646,37 +25646,37 @@
      "from": "2026H1",
      "to": "2026H2",
      "n0": 7,
-     "n1": 8,
+     "n1": 10,
      "months0": 2,
-     "months1": 2,
-     "rubric": 0.0464,
-     "rubric_p": 1.0,
-     "rubric_chance": 0.0611,
+     "months1": 3,
+     "rubric": 0.0454,
+     "rubric_p": 0.9,
+     "rubric_chance": 0.059,
      "null": "months",
-     "splits": 6,
-     "fingerprint": 0.1326,
-     "fingerprint_p": 0.6667,
-     "fingerprint_chance": 0.1326,
+     "splits": 10,
+     "fingerprint": 0.1225,
+     "fingerprint_p": 1.0,
+     "fingerprint_chance": 0.1331,
      "moved": [
       {
        "question": "mood",
        "answer": "romantic",
-       "change": -0.446
-      },
-      {
-       "question": "mood",
-       "answer": "sensual",
-       "change": -0.375
-      },
-      {
-       "question": "mood",
-       "answer": "serene",
-       "change": 0.357
+       "change": -0.471
       },
       {
        "question": "mood",
        "answer": "opulent",
-       "change": 0.321
+       "change": 0.371
+      },
+      {
+       "question": "mood",
+       "answer": "sensual",
+       "change": -0.3
+      },
+      {
+       "question": "mood",
+       "answer": "intimate",
+       "change": 0.286
       }
      ]
     }
@@ -25698,7 +25698,7 @@
     "2020H1": 0.0833,
     "2023H1": 0.152,
     "2023H2": 0.1323,
-    "2026H2": 0.2021
+    "2026H2": 0.2055
    }
   },
   "dries_van_noten": {
@@ -27234,7 +27234,7 @@
     "2026H1": 0.1519,
     "2017H1": 0.2114,
     "2020H1": 0.214,
-    "2026H2": 0.1328,
+    "2026H2": 0.132,
     "2018H2": 0.1555
    }
   },
@@ -31004,7 +31004,7 @@
     "2020H1": 0.1332,
     "2023H1": 0.145,
     "2023H2": 0.1087,
-    "2026H2": 0.1827,
+    "2026H2": 0.1813,
     "2018H1": 0.1649,
     "2018H2": 0.1504
    }
@@ -33298,7 +33298,7 @@
     "2020H1": 0.1176,
     "2023H1": 0.104,
     "2023H2": 0.1332,
-    "2026H2": 0.1446,
+    "2026H2": 0.1436,
     "2018H1": 0.1178,
     "2018H2": 0.1021
    }
@@ -37864,7 +37864,7 @@
     "2020H1": 0.243,
     "2023H1": 0.1393,
     "2023H2": 0.1621,
-    "2026H2": 0.1856,
+    "2026H2": 0.1848,
     "2018H1": 0.1935,
     "2018H2": 0.1973
    }
@@ -41282,7 +41282,7 @@
     "2026H1": 0.1168,
     "2023H1": 0.1761,
     "2023H2": 0.1559,
-    "2026H2": 0.2207,
+    "2026H2": 0.2209,
     "2018H1": 0.1758,
     "2018H2": 0.2099
    }
@@ -42870,7 +42870,7 @@
     "2020H1": 0.1276,
     "2023H1": 0.1086,
     "2023H2": 0.1125,
-    "2026H2": 0.1745,
+    "2026H2": 0.1761,
     "2018H2": 0.1259
    }
   },
@@ -45493,7 +45493,7 @@
     "2020H1": 0.2202,
     "2023H1": 0.1412,
     "2023H2": 0.1562,
-    "2026H2": 0.1537,
+    "2026H2": 0.1544,
     "2018H1": 0.1525,
     "2018H2": 0.1552
    }
@@ -50365,7 +50365,7 @@
     "2020H1": 0.1394,
     "2023H1": 0.1193,
     "2023H2": 0.1496,
-    "2026H2": 0.1254
+    "2026H2": 0.1256
    }
   },
   "max_mara": {
@@ -52791,7 +52791,7 @@
     "2020H1": 0.1467,
     "2023H1": 0.1322,
     "2023H2": 0.127,
-    "2026H2": 0.1765,
+    "2026H2": 0.1761,
     "2018H1": 0.1722,
     "2018H2": 0.1409
    }
@@ -55047,7 +55047,7 @@
     "2020H1": 0.2076,
     "2023H1": 0.2044,
     "2023H2": 0.1527,
-    "2026H2": 0.1677,
+    "2026H2": 0.1685,
     "2018H1": 0.2481,
     "2018H2": 0.1691
    }
@@ -57052,7 +57052,7 @@
     "2020H1": 0.1926,
     "2023H1": 0.2308,
     "2023H2": 0.1613,
-    "2026H2": 0.2117
+    "2026H2": 0.2124
    }
   },
   "moncler": {
@@ -59664,7 +59664,7 @@
     "2020H1": 0.1905,
     "2023H1": 0.1804,
     "2023H2": 0.1447,
-    "2026H2": 0.2023,
+    "2026H2": 0.2033,
     "2018H1": 0.1651,
     "2018H2": 0.1207
    }
@@ -61276,7 +61276,7 @@
     "2020H1": 0.1141,
     "2023H1": 0.1196,
     "2023H2": 0.1016,
-    "2026H2": 0.1569
+    "2026H2": 0.1559
    }
   },
   "saint_laurent": {
@@ -63294,7 +63294,7 @@
     "2017H2": 0.1811,
     "2023H1": 0.1495,
     "2023H2": 0.1513,
-    "2026H2": 0.1363,
+    "2026H2": 0.1359,
     "2018H1": 0.1569,
     "2018H2": 0.2028
    }
@@ -64721,7 +64721,7 @@
     "2025H1": 0.1385,
     "2025H2": 0.1394,
     "2026H1": 0.2615,
-    "2026H2": 0.2235
+    "2026H2": 0.222
    }
   },
   "stella_mccartney": {
@@ -70195,7 +70195,7 @@
     "2025H1": 0.1717,
     "2025H2": 0.1782,
     "2016H2": 0.1976,
-    "2026H2": 0.1658
+    "2026H2": 0.165
    }
   },
   "valentino": {
@@ -72147,7 +72147,7 @@
     "2020H1": 0.1207,
     "2023H1": 0.1003,
     "2023H2": 0.1071,
-    "2026H2": 0.127,
+    "2026H2": 0.1276,
     "2018H2": 0.1551
    }
   },
@@ -73641,25 +73641,25 @@
      "street_couture": 3.0
     },
     "2026H2": {
-     "n": 10,
+     "n": 12,
      "light": {
       "high_key": 1.0
      },
      "colour_temperature": {
-      "warm": 0.1,
-      "neutral": 0.9
+      "warm": 0.083,
+      "neutral": 0.917
      },
      "saturation": {
       "vivid": 1.0
      },
      "setting": {
-      "studio_plain": 0.1,
-      "studio_set": 0.8,
-      "landscape_nature": 0.1
+      "studio_plain": 0.083,
+      "studio_set": 0.833,
+      "landscape_nature": 0.083
      },
      "people": {
-      "one": 0.9,
-      "group": 0.1
+      "one": 0.917,
+      "group": 0.083
      },
      "gaze": {
       "to_camera": 1.0
@@ -73671,31 +73671,31 @@
       "posed_static": 1.0
      },
      "framing": {
-      "close_up": 0.1,
-      "medium": 0.8,
-      "full_length": 0.1
+      "close_up": 0.083,
+      "medium": 0.833,
+      "full_length": 0.083
      },
      "primary_subject": {
       "garment": 1.0
      },
      "styling_register": {
-      "formal_tailored": 0.3,
-      "eveningwear": 0.1,
-      "casual": 0.6
+      "formal_tailored": 0.333,
+      "eveningwear": 0.083,
+      "casual": 0.583
      },
      "production": {
       "polished_commercial": 1.0
      },
      "text_in_image": {
-      "none": 0.9,
-      "logo_only": 0.1
+      "none": 0.917,
+      "logo_only": 0.083
      },
      "mood": {
       "intimate": 1.0,
       "sensual": 1.0,
-      "playful": 0.1,
-      "opulent": 0.3,
-      "romantic": 0.6
+      "playful": 0.083,
+      "opulent": 0.25,
+      "romantic": 0.667
      },
      "street_couture": 3.0
     }
@@ -74313,17 +74313,17 @@
      "from": "2026H1",
      "to": "2026H2",
      "n0": 12,
-     "n1": 10,
+     "n1": 12,
      "months0": 4,
-     "months1": 3,
-     "rubric": 0.1537,
-     "rubric_p": 0.2286,
-     "rubric_chance": 0.1196,
+     "months1": 4,
+     "rubric": 0.1565,
+     "rubric_p": 0.1143,
+     "rubric_chance": 0.1096,
      "null": "months",
-     "splits": 35,
-     "fingerprint": 0.1934,
-     "fingerprint_p": 0.1143,
-     "fingerprint_chance": 0.1316,
+     "splits": 70,
+     "fingerprint": 0.2028,
+     "fingerprint_p": 0.0286,
+     "fingerprint_chance": 0.1149,
      "moved": [
       {
        "question": "gaze",
@@ -74331,19 +74331,19 @@
        "change": 0.417
       },
       {
+       "question": "setting",
+       "answer": "studio_plain",
+       "change": -0.333
+      },
+      {
+       "question": "mood",
+       "answer": "opulent",
+       "change": -0.333
+      },
+      {
        "question": "people",
        "answer": "none",
        "change": -0.333
-      },
-      {
-       "question": "gaze",
-       "answer": "not_applicable",
-       "change": -0.333
-      },
-      {
-       "question": "setting",
-       "answer": "studio_plain",
-       "change": -0.317
       }
      ]
     }
@@ -74365,7 +74365,7 @@
     "2020H1": 0.1572,
     "2023H1": 0.113,
     "2023H2": 0.155,
-    "2026H2": 0.1814,
+    "2026H2": 0.1844,
     "2018H1": 0.1263,
     "2018H2": 0.1034
    }
@@ -76737,7 +76737,7 @@
     "2017H1": 0.1566,
     "2023H1": 0.2227,
     "2023H2": 0.1832,
-    "2026H2": 0.1722,
+    "2026H2": 0.1718,
     "2018H1": 0.1783,
     "2018H2": 0.1759
    }
