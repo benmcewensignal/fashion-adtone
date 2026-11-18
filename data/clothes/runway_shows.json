@@ -285,9 +285,9 @@
    },
    "indexes": {
     "from_archive": 1,
-    "indexes": 6,
+    "indexes": 4,
     "links": 0,
-    "opened": 3
+    "opened": 1
    },
    "page": "https://www.balenciaga.com/en-gb/lookbook",
    "tried": 1
@@ -2184,7 +2184,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 6,
     "links": 0,
     "opened": 0
    },
@@ -2221,7 +2221,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 6,
     "links": 0,
     "opened": 0
    },
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 3,
+   "seconds": 40,
    "small": 0
   },
   "looks": 0,
@@ -4000,13 +4000,23 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
+    "from_archive": 1,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
+   "tried": 1
   },
   "status": "no page"
  },
