@@ -733,13 +733,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 6,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 1
+   "tried": 3
   },
   "looks": 0,
   "status": "no looks"
@@ -3011,7 +3011,7 @@
  },
  "fendi:2017-07-05:couture": {
   "candidates": [
-   "20170807154131 https://www.fendi.com/us/woman/collections/fall-winter-2017-18"
+   "20170807211544 https://www.fendi.com/qa/woman/collections/fall-winter-2017-18"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -3560,7 +3560,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 5,
+   "seconds": 2,
    "small": 0
   },
   "looks": 0,
@@ -3795,9 +3795,8 @@
  },
  "givenchy:2015-07-07:couture": {
   "candidates": [
-   "20150905075910 http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
-   "20150905083116 http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
-   "20150905155521 http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection"
+   "20150718093535 http://www.givenchy.com:80/en/collection-women-fall-winter-2015-show-collection/backstage",
+   "20150718121257 http://www.givenchy.com:80/en/collection-women-fall-winter-2015-show-collection/guests"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -8258,9 +8257,9 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 3,
     "links": 0,
-    "opened": 2
+    "opened": 1
    },
    "page": null
   },
