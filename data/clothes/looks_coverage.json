@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T04:26:00Z",
+ "generated_at": "2026-11-18T07:25:41Z",
  "window_days": [
   -1,
   14
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -763,7 +763,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 504"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2018-09-30:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 503"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1544,7 +1544,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2375,7 +2375,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3609,7 +3609,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "HTTP 504"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5878,7 +5878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "HTTP 503"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -17403,7 +17403,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ConnectionError"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -17416,7 +17416,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18927,16 +18927,18 @@
     "www.balenciaga.com/gb/women/fashionshow/",
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
-    "www.balenciaga.com/gb/men/fashionshow/"
+    "www.balenciaga.com/gb/men/fashionshow/",
+    "www.balenciaga.com/en-fi/all-collections/",
+    "www.balenciaga.com/en-fi/balenciaga-show-music/"
    ],
-   "pages": 481
+   "pages": 483
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 0
+   "pages": 27
   },
   "chanel": {
    "prefixes": [
@@ -18945,7 +18947,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 110
+   "pages": 2381
   },
   "dior": {
    "prefixes": [
@@ -18953,12 +18955,9 @@
     "www.dior.com/en_gb/fashion/mens-fashion/shows/",
     "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/",
     "www.dior.com/en_us/mens-fashion/shows/",
-    "www.dior.com/en_us/womens-fashion/haute-couture-shows/",
-    "www.dior.com/couture/mode-homme/pret-a-porter/",
-    "www.dior.com/couture/fr_fr/mode-femme/pret-a-porter/defile-pret-a-porter-printemps-ete-2017/",
-    "www.dior.com/couture/horlogerie/collections-horlogeres/la-d-de-dior/"
+    "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 183
+   "pages": 188
   },
   "dolce_gabbana": {
    "prefixes": [
