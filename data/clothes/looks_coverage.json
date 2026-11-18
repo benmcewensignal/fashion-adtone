@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T13:24:28Z",
+ "generated_at": "2026-11-18T16:24:30Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "HTTP 504"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 504"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -878,7 +878,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "HTTP 504"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1544,7 +1544,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 504"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2375,7 +2375,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3609,7 +3609,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "HTTP 503"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -17416,7 +17416,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 503"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18927,11 +18927,9 @@
     "www.balenciaga.com/gb/women/fashionshow/",
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
-    "www.balenciaga.com/gb/men/fashionshow/",
-    "www.balenciaga.com/en-fi/balenciaga-show-music/",
-    "www.balenciaga.com/en-fi/all-collections/"
+    "www.balenciaga.com/gb/men/fashionshow/"
    ],
-   "pages": 483
+   "pages": 481
   },
   "burberry": {
    "prefixes": [
@@ -18948,7 +18946,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2381
+   "pages": 2319
   },
   "dior": {
    "prefixes": [
@@ -19208,9 +19206,11 @@
    "prefixes": [
     "www.stellamccartney.com/experience/en/",
     "www.stellamccartney.com/fi/en/women/",
-    "www.stellamccartney.com/fi/en/collections/"
+    "www.stellamccartney.com/fi/en/collections/",
+    "www.stellamccartney.com/fi/en/women/s-wave-collection/",
+    "www.stellamccartney.com/fi/en/stellas-world/"
    ],
-   "pages": 2174
+   "pages": 2249
   },
   "issey_miyake": {
    "prefixes": [
