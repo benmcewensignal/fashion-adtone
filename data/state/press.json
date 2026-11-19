@@ -1,20 +1,13 @@
 {
   "complete": [
-    "burberry",
-    "chanel",
-    "dior",
-    "dries_van_noten",
-    "hermes",
-    "jacquemus",
-    "mcqueen",
-    "miu_miu",
-    "the_row"
+    "balmain",
+    "schiaparelli"
   ],
   "covered": {
     "alaia": "2026-11-16",
     "armani": "2026-11-16",
     "balenciaga": "2026-11-14",
-    "balmain": "2026-11-13",
+    "balmain": "2026-11-18",
     "bottega_veneta": "2026-11-14",
     "brunello_cucinelli": "2026-11-16",
     "burberry": "2026-11-17",
@@ -44,7 +37,7 @@
     "moncler": "2026-11-16",
     "prada": "2026-11-15",
     "saint_laurent": "2026-11-15",
-    "schiaparelli": "2026-11-13",
+    "schiaparelli": "2026-11-18",
     "stella_mccartney": "2026-11-13",
     "the_row": "2026-11-17",
     "tom_ford": "2026-11-16",
@@ -52,7 +45,7 @@
     "versace": "2026-11-16",
     "zegna": "2026-11-16"
   },
-  "end": "2026-11-17",
+  "end": "2026-11-18",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -98,7 +91,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh44392862457",
+  "run": "gh44431981682",
   "span": {},
-  "updated_at": "2026-11-18T21:15:38Z"
+  "updated_at": "2026-11-19T01:15:09Z"
 }
