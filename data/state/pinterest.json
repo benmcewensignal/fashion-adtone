@@ -454,7 +454,7 @@
       "refused": []
     },
     "dior": {
-      "checked": "2026-10-17",
+      "checked": "2026-11-19",
       "keep": [
         {
           "id": "Dior",
@@ -477,6 +477,10 @@
         {
           "id": "Diorah Jewellers",
           "name": "Diorah Jewellers"
+        },
+        {
+          "id": "Diorama World",
+          "name": "Diorama World"
         },
         {
           "id": "Dioramapresepe",
@@ -521,6 +525,22 @@
         {
           "id": "DiorSun",
           "name": "DiorSun"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "    Foivos P Paradeisis",
+          "name": "    Foivos P Paradeisis"
+        },
+        {
+          "id": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊",
+          "name": "̊  ̊⋆୨♡୧⋆ ̊ Ally  ̊ ⋆୨♡୧⋆ ̊"
+        },
+        {
+          "id": " A2A Energia S.P.A",
+          "name": " A2A Energia S.P.A"
         }
       ]
     },
@@ -1328,12 +1348,12 @@
   },
   "country_form": null,
   "notes": [
-    "Fendi DE 2026-10-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
-    "Fendi IT 2026-10-18: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
+    "Dior DE 2026-10-20: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    ",
+    "Dior IT 2026-10-20: TimeoutError: Locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Search\", exact=True)\n    "
   ],
   "problems": {},
-  "requests": 38,
-  "run": "gh43990624760",
+  "requests": 109,
+  "run": "gh44498196044",
   "searched": {
     "alaia": "2026-10-17",
     "armani": "2026-10-17",
@@ -1346,7 +1366,7 @@
     "chanel": "2026-11-05",
     "chloe": "2026-10-17",
     "comme_des_garcons": "2026-10-18",
-    "dior": "2026-11-05",
+    "dior": "2026-11-19",
     "dolce_gabbana": "2026-10-17",
     "dries_van_noten": "2026-10-17",
     "fendi": "2026-11-17",
@@ -1410,15 +1430,17 @@
         "title": "str",
         "video_link": "str"
       },
-      "pinner_list_types": [],
+      "pinner_list_types": [
+        "str"
+      ],
       "postal_codes": [],
       "regions": [],
       "review_status": "NoneType",
       "start_date": "str",
       "statement_of_reasons": "NoneType",
       "user_count_by_country": {
-        "France": "str",
-        "Germany": "str"
+        "Belgium": "str",
+        "France": "str"
       },
       "user_count_eu": "str",
       "violation_decision_means": "NoneType",
@@ -1429,5 +1451,5 @@
     "pin_id": "str"
   },
   "stopped": null,
-  "updated_at": "2026-11-17T01:19:46Z"
+  "updated_at": "2026-11-19T10:10:41Z"
 }
