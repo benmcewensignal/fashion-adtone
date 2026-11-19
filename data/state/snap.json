@@ -125,7 +125,7 @@
       "refused": []
     },
     "chanel": {
-      "checked": "2026-10-17",
+      "checked": "2026-11-19",
       "keep": [
         {
           "id": "Chanel",
@@ -642,48 +642,10 @@
     }
   },
   "date_form": "year",
-  "names_answered": {
-    "balenciaga": [
-      "Balenciaga"
-    ],
-    "bottega_veneta": [
-      "Bottega Veneta"
-    ],
-    "celine": [
-      "Celine"
-    ],
-    "chanel": [
-      "Chanel"
-    ],
-    "dior": [
-      "Dior"
-    ],
-    "fendi": [
-      "Fendi"
-    ],
-    "gucci": [
-      "Gucci"
-    ],
-    "hermes": [
-      "Hermès",
-      "Hermes"
-    ],
-    "loewe": [
-      "Loewe"
-    ],
-    "louis_vuitton": [
-      "Louis Vuitton"
-    ],
-    "miu_miu": [
-      "Prada spa"
-    ],
-    "prada": [
-      "Prada"
-    ]
-  },
+  "names_answered": {},
   "problems": {},
-  "requests": 440,
-  "run": "gh42057262040",
+  "requests": 40,
+  "run": "gh44479944329",
   "searched": {
     "alaia": "2026-10-18",
     "armani": "2026-10-18",
@@ -765,6 +727,7 @@
       "should_loop": "bool"
     },
     "creative_type": "str",
+    "end_date": "str",
     "headline": "str",
     "id": "str",
     "impressions_map": {
@@ -801,10 +764,6 @@
     "languages": [
       "str"
     ],
-    "lens_preview": {
-      "icon_url": "str",
-      "preview_image_url": "str"
-    },
     "name": "str",
     "name_searched": "str",
     "paying_advertiser_name": "str",
@@ -815,6 +774,7 @@
     "start_date": "str",
     "status": "str",
     "status_searched": "str",
+    "sticker_display_mode": "str",
     "stickers": [],
     "targeting_v2": {
       "demographics": [
@@ -830,7 +790,13 @@
           "operation": "str"
         }
       ],
-      "devices": [],
+      "devices": [
+        {
+          "carrier_id": [],
+          "marketing_name": [],
+          "model": []
+        }
+      ],
       "regulated_content": "bool"
     },
     "top_snap_crop_position": "str",
@@ -840,6 +806,6 @@
       "url": "str"
     }
   },
-  "stopped": "budget",
-  "updated_at": "2026-11-05T16:43:23Z"
+  "stopped": "Snap refused 8 requests in a row (HTTP 429)",
+  "updated_at": "2026-11-19T07:44:56Z"
 }
