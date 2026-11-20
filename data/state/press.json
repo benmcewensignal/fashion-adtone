@@ -1,6 +1,9 @@
 {
   "complete": [
-    "saint_laurent"
+    "chloe",
+    "loro_piana",
+    "saint_laurent",
+    "valentino"
   ],
   "covered": {
     "alaia": "2026-11-16",
@@ -12,7 +15,7 @@
     "burberry": "2026-11-17",
     "celine": "2026-11-16",
     "chanel": "2026-11-17",
-    "chloe": "2026-11-15",
+    "chloe": "2026-11-19",
     "comme_des_garcons": "2026-11-15",
     "dior": "2026-11-17",
     "dolce_gabbana": "2026-11-16",
@@ -27,7 +30,7 @@
     "jil_sander": "2026-11-16",
     "lanvin": "2026-11-18",
     "loewe": "2026-11-18",
-    "loro_piana": "2026-11-15",
+    "loro_piana": "2026-11-19",
     "louis_vuitton": "2026-11-18",
     "margiela": "2026-11-18",
     "max_mara": "2026-11-16",
@@ -40,7 +43,7 @@
     "stella_mccartney": "2026-11-18",
     "the_row": "2026-11-17",
     "tom_ford": "2026-11-16",
-    "valentino": "2026-11-15",
+    "valentino": "2026-11-19",
     "versace": "2026-11-16",
     "zegna": "2026-11-16"
   },
@@ -90,7 +93,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh44675705187",
+  "run": "gh44704076895",
   "span": {},
-  "updated_at": "2026-11-20T05:08:23Z"
+  "updated_at": "2026-11-20T09:15:11Z"
 }
