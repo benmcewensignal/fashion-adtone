@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T22:24:06Z",
+ "generated_at": "2026-11-20T01:23:57Z",
  "window_days": [
   -1,
   14
@@ -903,7 +903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "HTTP 504"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1569,7 +1569,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ConnectionError"
+    "balmain.com": "HTTP 504"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2400,7 +2400,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ConnectionError"
+    "burberry.com": "HTTP 504"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -15604,16 +15604,10 @@
    "date": "2018-09-20",
    "season": "2019 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "http://www.prada.com/en/collections/fashion-show/man-ss-2019.html?cc=GB",
-     "ts": "20181113051431",
-     "score": 6.62
-    }
-   ]
+   "candidates": []
   },
   "prada:2019-01-13:men": {
    "house": "prada",
@@ -15646,16 +15640,10 @@
    "date": "2020-01-12",
    "season": "2020 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/fw-2020-womenswear.html",
-     "ts": "20200425181945",
-     "score": 9.94
-    }
-   ]
+   "candidates": []
   },
   "prada:2020-02-20:rtw": {
    "house": "prada",
@@ -16264,16 +16252,10 @@
    "date": "2023-01-17",
    "season": "2023 AW men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.ysl.com/en-gb/collections/women-s-winter-23",
-     "ts": "20230330045335",
-     "score": 1.12
-    }
-   ]
+   "candidates": []
   },
   "saint_laurent:2023-02-28:rtw": {
    "house": "saint_laurent",
@@ -16344,26 +16326,10 @@
    "date": "2025-01-28",
    "season": "2025 SS couture",
    "category": "couture",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 3,
-   "candidates": [
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25-2/looks",
-     "ts": "20250429191346",
-     "score": 6.12
-    },
-    {
-     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25/looks",
-     "ts": "20250423074757",
-     "score": 6.12
-    },
-    {
-     "url": "https://www.ysl.com/de-de/collections/page-men-spring-25/looks",
-     "ts": "20250210203510",
-     "score": 5.0
-    }
-   ]
+   "candidates": []
   },
   "saint_laurent:2025-03-11:rtw": {
    "house": "saint_laurent",
@@ -16460,16 +16426,10 @@
    "date": "2026-06-23",
    "season": "2027 SS men",
    "category": "men",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.ysl.com/en-us/collections/la-maison-women-summer-27-show",
-     "ts": "20261006173911",
-     "score": 3.88
-    }
-   ]
+   "candidates": []
   },
   "saint_laurent:2026-09-29:rtw": {
    "house": "saint_laurent",
@@ -17616,7 +17576,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -19329,17 +19289,17 @@
     "www.balenciaga.com/gb/men/fashionshow/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/women/fashionshow/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 518
+   "pages": 517
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/"
+    "mo.burberry.com/london-fashion-week/",
+    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
    ],
-   "pages": 0
+   "pages": 29
   },
   "chanel": {
    "prefixes": [
@@ -19577,9 +19537,9 @@
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 7
+   "pages": 358
   },
   "balmain": {
    "prefixes": [
@@ -19590,9 +19550,9 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 504
+   "pages": 345
   },
   "schiaparelli": {
    "prefixes": [
@@ -19622,7 +19582,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 1351
+   "pages": 840
   },
   "issey_miyake": {
    "prefixes": [
@@ -19634,10 +19594,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 548,
+   "found": 543,
    "index failed": 249,
    "none": 386,
-   "partial": 56
+   "partial": 61
   },
   "by_house": {
    "alaia": {
@@ -19766,11 +19726,11 @@
    },
    "prada": {
     "shows": 42,
-    "found": 18
+    "found": 16
    },
    "saint_laurent": {
     "shows": 31,
-    "found": 25
+    "found": 22
    },
    "schiaparelli": {
     "shows": 32,
@@ -19820,11 +19780,11 @@
    },
    "2019": {
     "shows": 105,
-    "found": 33
+    "found": 32
    },
    "2020": {
     "shows": 100,
-    "found": 40
+    "found": 39
    },
    "2021": {
     "shows": 67,
@@ -19836,7 +19796,7 @@
    },
    "2023": {
     "shows": 106,
-    "found": 59
+    "found": 58
    },
    "2024": {
     "shows": 107,
@@ -19844,7 +19804,7 @@
    },
    "2025": {
     "shows": 94,
-    "found": 50
+    "found": 49
    },
    "2026": {
     "shows": 110,
@@ -19852,7 +19812,7 @@
    },
    "2027": {
     "shows": 45,
-    "found": 15
+    "found": 14
    }
   }
  }
