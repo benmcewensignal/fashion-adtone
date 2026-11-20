@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T10:24:16Z",
+ "generated_at": "2026-11-20T13:24:33Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 504"
+    "armani.com": "ReadTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -729,16 +729,10 @@
    "date": "2017-03-05",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main",
-     "ts": "20170610112700",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2017-06-21:men": {
    "house": "balenciaga",
@@ -754,42 +748,20 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
-     "ts": "20171015020003",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main",
-     "ts": "20171209095713",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section",
-     "ts": "20180410223345",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
-     "ts": "20180331191909",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -1111,16 +1083,13 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 1,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-03",
-     "ts": "20260722194128",
-     "score": 3.12
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ReadTimeout"
+   }
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1604,7 +1573,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 504"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -17585,7 +17554,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -19374,7 +19343,7 @@
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 559
+   "pages": 74
   },
   "burberry": {
    "prefixes": [
@@ -19609,9 +19578,9 @@
     "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 358
+   "pages": 351
   },
   "balmain": {
    "prefixes": [
@@ -19621,10 +19590,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/",
-    "www.balmain.com/en_us/show/"
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 513
+   "pages": 327
   },
   "schiaparelli": {
    "prefixes": [
@@ -19654,7 +19623,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 2178
+   "pages": 2169
   },
   "issey_miyake": {
    "prefixes": [
@@ -19666,10 +19635,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 543,
-   "index failed": 256,
+   "found": 539,
+   "index failed": 257,
    "none": 383,
-   "partial": 61
+   "partial": 64
   },
   "by_house": {
    "alaia": {
@@ -19682,7 +19651,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 21
+    "found": 17
    },
    "balmain": {
     "shows": 36,
@@ -19844,11 +19813,11 @@
    },
    "2017": {
     "shows": 115,
-    "found": 51
+    "found": 50
    },
    "2018": {
     "shows": 108,
-    "found": 30
+    "found": 28
    },
    "2019": {
     "shows": 106,
@@ -19880,7 +19849,7 @@
    },
    "2026": {
     "shows": 110,
-    "found": 49
+    "found": 48
    },
    "2027": {
     "shows": 45,
