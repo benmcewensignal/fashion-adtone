@@ -8766,6 +8766,28 @@
   "looks": 0,
   "status": "no looks"
  },
+ "zegna:2016-01-16:men": {
+  "candidates": [
+   "20160206021420 http://www.zegna.com:80/gb/z-zegna/presentation-fw16.html"
+  ],
+  "diag": {
+   "captures_tried": 3,
+   "cut": false,
+   "duplicates": 8,
+   "failed": 0,
+   "fetched": 120,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 3,
+   "pages": 1,
+   "pictures": 213,
+   "refused": 48,
+   "seconds": 148,
+   "small": 60
+  },
+  "looks": 4,
+  "status": "collected"
+ },
  "zegna:2017-01-13:men": {
   "looks": 11,
   "status": "collected"
