@@ -4,7 +4,8 @@
     "brunello_cucinelli",
     "dolce_gabbana",
     "max_mara",
-    "tom_ford"
+    "tom_ford",
+    "zegna"
   ],
   "covered": {
     "alaia": "2026-11-20",
@@ -46,7 +47,7 @@
     "tom_ford": "2026-11-20",
     "valentino": "2026-11-19",
     "versace": "2026-11-19",
-    "zegna": "2026-11-16"
+    "zegna": "2026-11-20"
   },
   "end": "2026-11-20",
   "failed": {},
@@ -94,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh44867039773",
+  "run": "gh44885758917",
   "span": {},
-  "updated_at": "2026-11-21T05:05:51Z"
+  "updated_at": "2026-11-21T09:02:36Z"
 }
