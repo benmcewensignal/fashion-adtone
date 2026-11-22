@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -2685,6 +2685,29 @@
   "looks": 0,
   "status": "no looks"
  },
+ "dolce_gabbana:2025-01-18:men": {
+  "candidates": [
+   "20250121152353 https://world.dolcegabbana.com/fashion-shows/men-fall-winter-2025-fashion-show?_gl=1*fbt2bu*_gcl_au*MzAwMTI5NTI0LjE3Mzc0NzAwNjg.*_ga*NTk3Njc0NzYwLjE3Mzc0NzAwNjg.*_ga_2S6SQZ66CV*MTczNzQ3Mjc0Ni4yLjAuMTczNzQ3Mjc0Ny41OS4wLjA.",
+   "20250206232307 https://world.dolcegabbana.com/fashion-shows/men-fall-winter-2025-fashion-show/looks"
+  ],
+  "diag": {
+   "captures_tried": 2,
+   "cut": false,
+   "duplicates": 2,
+   "failed": 0,
+   "fetched": 46,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 2,
+   "pages": 2,
+   "pictures": 143,
+   "refused": 0,
+   "seconds": 120,
+   "small": 4
+  },
+  "looks": 20,
+  "status": "collected"
+ },
  "dolce_gabbana:2025-09-27:rtw": {
   "live": {
    "indexes": {
@@ -3560,7 +3583,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 2,
+   "seconds": 32,
    "small": 0
   },
   "looks": 0,
