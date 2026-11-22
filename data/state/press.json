@@ -1,22 +1,5 @@
 {
-  "complete": [
-    "alaia",
-    "armani",
-    "brunello_cucinelli",
-    "burberry",
-    "chanel",
-    "dior",
-    "dolce_gabbana",
-    "dries_van_noten",
-    "ferragamo",
-    "hermes",
-    "issey_miyake",
-    "max_mara",
-    "miu_miu",
-    "moncler",
-    "tom_ford",
-    "zegna"
-  ],
+  "complete": [],
   "covered": {
     "alaia": "2026-11-20",
     "armani": "2026-11-20",
@@ -59,7 +42,7 @@
     "versace": "2026-11-19",
     "zegna": "2026-11-20"
   },
-  "end": "2026-11-20",
+  "end": "2026-11-21",
   "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -105,7 +88,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh44947211724",
+  "run": "gh44968575948",
   "span": {},
-  "updated_at": "2026-11-21T21:06:32Z"
+  "updated_at": "2026-11-22T01:15:25Z"
 }
