@@ -175,23 +175,40 @@
  },
  "balenciaga:2017-03-05:rtw": {
   "candidates": [
-   "20170610112700 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-17-18_section/main"
+   "20170416202512 https://www.balenciaga.com/us/men/collections/fallwinter-17-18_section",
+   "20170417042756 https://www.balenciaga.com/us/women/collections/fallwinter-17-18_section",
+   "20170610093155 https://www.balenciaga.com/us/men/collections/fallwinter-17-18_section/main"
   ],
-  "looks": 0,
-  "status": "no fitting page"
+  "diag": {
+   "captures_tried": 1,
+   "cut": false,
+   "duplicates": 0,
+   "failed": 0,
+   "fetched": 40,
+   "from_live": 0,
+   "from_src": 0,
+   "opened": 1,
+   "pages": 1,
+   "pictures": 51,
+   "refused": 0,
+   "seconds": 66,
+   "small": 2
+  },
+  "looks": 20,
+  "status": "collected"
  },
  "balenciaga:2017-10-01:rtw": {
   "candidates": [
-   "20171015020003 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
-   "20171209095713 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main"
+   "20171005190816 https://www.balenciaga.com/us/men/collections/springsummer-18_section",
+   "20171209081743 https://www.balenciaga.com/us/men/collections/springsummer-18_section/main"
   ],
   "looks": 0,
   "status": "no fitting page"
  },
  "balenciaga:2018-03-04:rtw": {
   "candidates": [
-   "20180331191909 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
-   "20180410223345 https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section"
+   "20180331193103 https://www.balenciaga.com/us/men/collections/fallwinter-18-m_section/main",
+   "20180410222957 https://www.balenciaga.com/us/men/collections/fallwinter-18-m_section"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -733,13 +750,13 @@
     "small": 0
    },
    "indexes": {
-    "from_archive": 6,
+    "from_archive": 1,
     "indexes": 6,
     "links": 0,
     "opened": 0
    },
    "page": "https://www.celine.com/en-gb/cm/fashion-show-winter-2026",
-   "tried": 3
+   "tried": 1
   },
   "looks": 0,
   "status": "no looks"
@@ -2184,7 +2201,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 5,
     "links": 0,
     "opened": 0
    },
@@ -2221,7 +2238,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 5,
     "links": 0,
     "opened": 0
    },
@@ -2724,7 +2741,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2736,7 +2753,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2748,7 +2765,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2760,7 +2777,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -4023,23 +4040,13 @@
  },
  "givenchy:2026-06-25:men": {
   "live": {
-   "diag": {
-    "cut": false,
-    "duplicates": 0,
-    "fetched": 0,
-    "opened": 0,
-    "pictures": 0,
-    "refused": 0,
-    "small": 0
-   },
    "indexes": {
-    "from_archive": 1,
+    "from_archive": 0,
     "indexes": 4,
     "links": 0,
     "opened": 0
    },
-   "page": "https://www.givenchy.com/gb/en/cm/explore/campaigns/spring-summer-2027-men-campaign",
-   "tried": 1
+   "page": null
   },
   "status": "no page"
  },
@@ -4178,7 +4185,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
@@ -4190,7 +4197,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
@@ -8710,13 +8717,29 @@
   "status": "collected"
  },
  "valentino:2026-01-28:couture": {
-  "candidates": [
-   "20260128163157 https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
-   "20260307024345 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection",
-   "20260307052555 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection-man"
-  ],
-  "looks": 0,
-  "status": "no fitting page"
+  "candidates": [],
+  "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 6,
+    "fetched": 40,
+    "opened": 1,
+    "pictures": 300,
+    "refused": 0,
+    "small": 5
+   },
+   "indexes": {
+    "from_archive": 3,
+    "indexes": 4,
+    "links": 0,
+    "opened": 4
+   },
+   "page": "https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
+   "tried": 1
+  },
+  "looks": 20,
+  "status": "collected",
+  "via": "live"
  },
  "valentino:2026-03-12:rtw": {
   "looks": 20,

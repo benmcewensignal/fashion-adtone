@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T19:23:43Z",
+ "generated_at": "2026-11-23T22:24:51Z",
  "window_days": [
   -1,
   14
@@ -623,7 +623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ReadTimeout"
    }
   },
   "balenciaga:2015-03-06:rtw": {
@@ -729,10 +729,26 @@
    "date": "2017-03-05",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
-   "pages": 1,
-   "candidates": []
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/us/women/collections/fallwinter-17-18_section",
+     "ts": "20170417042756",
+     "score": 4.81
+    },
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/fallwinter-17-18_section",
+     "ts": "20170416202512",
+     "score": 0.81
+    },
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/fallwinter-17-18_section/main",
+     "ts": "20170610093155",
+     "score": 0.81
+    }
+   ]
   },
   "balenciaga:2017-06-21:men": {
    "house": "balenciaga",
@@ -748,23 +764,42 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 2,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/springsummer-18_section",
+     "ts": "20171005190816",
+     "score": 0.81
+    },
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/springsummer-18_section/main",
+     "ts": "20171209081743",
+     "score": 0.81
+    }
+   ]
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "HTTP 503"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/fallwinter-18-m_section",
+     "ts": "20180410222957",
+     "score": 0.81
+    },
+    {
+     "url": "https://www.balenciaga.com/us/men/collections/fallwinter-18-m_section/main",
+     "ts": "20180331193103",
+     "score": 0.81
+    }
+   ]
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -878,7 +913,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ConnectionError"
+    "balenciaga.com": "HTTP 504"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1086,13 +1121,16 @@
    "date": "2026-07-08",
    "season": "2026 AW couture",
    "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "balenciaga.com": "HTTP 503"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.balenciaga.com/en-gb/lookbook?cid=winter-26-look-03",
+     "ts": "20260722194128",
+     "score": 3.12
+    }
+   ]
   },
   "balenciaga:2026-10-01:rtw": {
    "house": "balenciaga",
@@ -1541,7 +1579,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1576,7 +1614,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2372,7 +2410,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3069,7 +3107,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3606,7 +3644,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5875,7 +5913,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "ReadTimeout"
+    "dior.com": "ConnectionError"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6669,7 +6707,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "ConnectionError"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -7766,7 +7804,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "HTTP 503"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2022-09-21:rtw": {
@@ -8580,26 +8618,13 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "found",
-   "via": "section",
-   "pages": 3,
-   "candidates": [
-    {
-     "url": "http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
-     "ts": "20150905075910",
-     "score": 5.62
-    },
-    {
-     "url": "http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
-     "ts": "20150905083116",
-     "score": 5.62
-    },
-    {
-     "url": "http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection",
-     "ts": "20150905155521",
-     "score": 2.62
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "givenchy.com": "ConnectionError"
+   }
   },
   "givenchy:2015-09-12:rtw": {
    "house": "givenchy",
@@ -18786,6 +18811,32 @@
     }
    ]
   },
+  "versace:2018-01-13:men": {
+   "house": "versace",
+   "date": "2018-01-13",
+   "season": "2018 AW men",
+   "category": "men",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "versace.com": "ConnectionError"
+   }
+  },
+  "versace:2018-02-23:rtw": {
+   "house": "versace",
+   "date": "2018-02-23",
+   "season": "2018 AW rtw",
+   "category": "rtw",
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "versace.com": "ConnectionError"
+   }
+  },
   "versace:2018-06-16:men": {
    "house": "versace",
    "date": "2018-06-16",
@@ -19315,12 +19366,13 @@
    "date": "2025-06-11",
    "season": "2026 SS men",
    "category": "men",
-   "status": "partial",
+   "status": "index failed",
    "via": "window",
    "pages": 0,
    "candidates": [],
    "errors": {
-    "zegna.com": "ConnectionError"
+    "zegna.com": "ConnectionError",
+    "ermenegildozegna.com": "ConnectionError"
    },
    "seeds": [
     "www.zegna.us/us-en/editorial/fashion-show/"
@@ -19415,18 +19467,19 @@
     "www.balenciaga.com/en-gb/lookbook",
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/gb/men/fashionshow/",
-    "www.balenciaga.com/de/unisex/collections/",
-    "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
+    "www.balenciaga.com/us/unisex/collections/",
+    "www.balenciaga.com/us/women/collections/",
+    "www.balenciaga.com/us/men/collections/",
+    "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 0
+   "pages": 567
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 14
+   "pages": 0
   },
   "chanel": {
    "prefixes": [
@@ -19435,7 +19488,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 375
+   "pages": 0
   },
   "dior": {
    "prefixes": [
@@ -19445,19 +19498,15 @@
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 100
+   "pages": 0
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
-    "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/women/collection/",
-    "www.dolcegabbana.com/en-fi/fashion/men/collection/",
-    "www.dolcegabbana.com/en/dg-essentials-collection/",
-    "www.dolcegabbana.com/en/fashion/women/shoes/"
+    "www.dolcegabbana.com/child/collection/"
    ],
-   "pages": 2207
+   "pages": 0
   },
   "dries_van_noten": {
    "prefixes": [
@@ -19475,23 +19524,18 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/us/woman/",
-    "www.fendi.com/qa/woman/collections/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/qa/timepieces/collections/fendi-my-way/"
+    "www.fendi.com/qa/woman/collections/"
    ],
-   "pages": 17
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
     "www.givenchy.com/gb/en/cm/explore/collections/",
     "www.givenchy.com/en/homepage/",
     "www.givenchy.com/gb/en/",
-    "www.givenchy.com/apac/en/cm/explore/collections/",
-    "www.givenchy.com/int/en/cm/explore/collections/",
-    "www.givenchy.com/fr/en/cm/explore/collections/",
-    "www.givenchy.com/en/collection-haute-couture-givenchy-haute-couture-savoir-faire/"
+    "www.givenchy.com/apac/en/cm/explore/collections/"
    ],
-   "pages": 5439
+   "pages": 0
   },
   "jil_sander": {
    "prefixes": [
@@ -19659,12 +19703,12 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
-   "pages": 351
+   "pages": 358
   },
   "balmain": {
    "prefixes": [
@@ -19675,9 +19719,9 @@
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
     "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 245
+   "pages": 513
   },
   "schiaparelli": {
    "prefixes": [
@@ -19707,7 +19751,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 2177
+   "pages": 2178
   },
   "issey_miyake": {
    "prefixes": [
@@ -19719,10 +19763,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 542,
-   "index failed": 260,
+   "found": 545,
+   "index failed": 262,
    "none": 382,
-   "partial": 62
+   "partial": 59
   },
   "by_house": {
    "alaia": {
@@ -19735,7 +19779,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 17
+    "found": 21
    },
    "balmain": {
     "shows": 36,
@@ -19791,7 +19835,7 @@
    },
    "givenchy": {
     "shows": 40,
-    "found": 23
+    "found": 22
    },
    "gucci": {
     "shows": 30,
@@ -19878,7 +19922,7 @@
     "found": 20
    },
    "versace": {
-    "shows": 20,
+    "shows": 22,
     "found": 1
    },
    "zegna": {
@@ -19889,7 +19933,7 @@
   "by_year": {
    "2015": {
     "shows": 67,
-    "found": 28
+    "found": 27
    },
    "2016": {
     "shows": 122,
@@ -19897,11 +19941,11 @@
    },
    "2017": {
     "shows": 115,
-    "found": 50
+    "found": 51
    },
    "2018": {
-    "shows": 108,
-    "found": 28
+    "shows": 110,
+    "found": 30
    },
    "2019": {
     "shows": 109,
@@ -19933,7 +19977,7 @@
    },
    "2026": {
     "shows": 110,
-    "found": 48
+    "found": 49
    },
    "2027": {
     "shows": 45,
