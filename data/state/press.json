@@ -1,5 +1,6 @@
 {
   "complete": [
+    "balmain",
     "louis_vuitton",
     "margiela",
     "prada"
@@ -8,7 +9,7 @@
     "alaia": "2026-11-20",
     "armani": "2026-11-20",
     "balenciaga": "2026-11-21",
-    "balmain": "2026-11-18",
+    "balmain": "2026-11-22",
     "bottega_veneta": "2026-11-21",
     "brunello_cucinelli": "2026-11-20",
     "burberry": "2026-11-20",
@@ -47,7 +48,9 @@
     "zegna": "2026-11-20"
   },
   "end": "2026-11-22",
-  "failed": {},
+  "failed": {
+    "schiaparelli": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Schiaparelli%22+%28fashion+OR+runway+OR+collection+OR+handbag+OR+couture%29&mode=tim"
+  },
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -92,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45218828007",
+  "run": "gh45261303260",
   "span": {},
-  "updated_at": "2026-11-23T17:02:15Z"
+  "updated_at": "2026-11-23T21:11:30Z"
 }
