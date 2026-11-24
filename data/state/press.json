@@ -1,6 +1,12 @@
 {
   "complete": [
-    "schiaparelli"
+    "celine",
+    "fendi",
+    "jil_sander",
+    "lanvin",
+    "saint_laurent",
+    "schiaparelli",
+    "stella_mccartney"
   ],
   "covered": {
     "alaia": "2026-11-20",
@@ -10,22 +16,22 @@
     "bottega_veneta": "2026-11-21",
     "brunello_cucinelli": "2026-11-20",
     "burberry": "2026-11-20",
-    "celine": "2026-11-19",
+    "celine": "2026-11-23",
     "chanel": "2026-11-20",
     "chloe": "2026-11-19",
     "comme_des_garcons": "2026-11-19",
     "dior": "2026-11-20",
     "dolce_gabbana": "2026-11-20",
     "dries_van_noten": "2026-11-20",
-    "fendi": "2026-11-19",
+    "fendi": "2026-11-23",
     "ferragamo": "2026-11-20",
     "givenchy": "2026-11-19",
     "gucci": "2026-11-21",
     "hermes": "2026-11-20",
     "issey_miyake": "2026-11-20",
     "jacquemus": "2026-11-21",
-    "jil_sander": "2026-11-19",
-    "lanvin": "2026-11-18",
+    "jil_sander": "2026-11-23",
+    "lanvin": "2026-11-23",
     "loewe": "2026-11-21",
     "loro_piana": "2026-11-19",
     "louis_vuitton": "2026-11-22",
@@ -35,9 +41,9 @@
     "miu_miu": "2026-11-20",
     "moncler": "2026-11-20",
     "prada": "2026-11-22",
-    "saint_laurent": "2026-11-19",
+    "saint_laurent": "2026-11-23",
     "schiaparelli": "2026-11-23",
-    "stella_mccartney": "2026-11-18",
+    "stella_mccartney": "2026-11-23",
     "the_row": "2026-11-21",
     "tom_ford": "2026-11-20",
     "valentino": "2026-11-19",
@@ -90,7 +96,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45299793902",
+  "run": "gh45327710041",
   "span": {},
-  "updated_at": "2026-11-24T01:22:54Z"
+  "updated_at": "2026-11-24T05:31:33Z"
 }
