@@ -6,7 +6,8 @@
     "lanvin",
     "saint_laurent",
     "schiaparelli",
-    "stella_mccartney"
+    "stella_mccartney",
+    "valentino"
   ],
   "covered": {
     "alaia": "2026-11-20",
@@ -46,7 +47,7 @@
     "stella_mccartney": "2026-11-23",
     "the_row": "2026-11-21",
     "tom_ford": "2026-11-20",
-    "valentino": "2026-11-19",
+    "valentino": "2026-11-23",
     "versace": "2026-11-19",
     "zegna": "2026-11-20"
   },
@@ -96,7 +97,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45357881884",
+  "run": "gh45395742137",
   "span": {},
-  "updated_at": "2026-11-24T09:04:49Z"
+  "updated_at": "2026-11-24T13:10:39Z"
 }
