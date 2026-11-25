@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 5,
+    "indexes": 4,
     "links": 0,
     "opened": 3
    },
@@ -2741,7 +2741,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2753,7 +2753,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2765,7 +2765,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -2777,7 +2777,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 3,
     "links": 0,
     "opened": 0
    },
@@ -3600,7 +3600,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 2,
+   "seconds": 4,
    "small": 0
   },
   "looks": 0,
@@ -7396,7 +7396,8 @@
  },
  "prada:2018-09-20:rtw": {
   "candidates": [
-   "20181113051431 http://www.prada.com/en/collections/fashion-show/man-ss-2019.html?cc=GB"
+   "20181113051431 http://www.prada.com/en/collections/fashion-show/man-ss-2019.html?cc=GB",
+   "20181119015802 https://www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-men/man-ss-2019-c.html"
   ],
   "looks": 0,
   "status": "no fitting page"
@@ -8529,6 +8530,7 @@
  },
  "valentino:2019-01-23:couture": {
   "candidates": [
+   "20190403010656 https://www.valentino.com/de-de/collections/women/spring-summer-2019",
    "20190403060512 https://www.valentino.com/en-fi/collections/men/spring-summer-2019-section",
    "20190404012800 https://www.valentino.com/en-fi/collections/women/spring-summer-2019-section"
   ],
@@ -8725,6 +8727,15 @@
  "valentino:2025-10-05:rtw": {
   "looks": 20,
   "status": "collected"
+ },
+ "valentino:2026-01-28:couture": {
+  "candidates": [
+   "20260128163157 https://www.valentino.com/en-gb/experience/valentino-spring-2026-collection",
+   "20260307024345 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection",
+   "20260307052555 https://www.valentino.com/en-gb/experience/valentino-fireflies-spring-summer-2026-collection-man"
+  ],
+  "looks": 0,
+  "status": "no fitting page"
  },
  "valentino:2026-03-12:rtw": {
   "looks": 20,
