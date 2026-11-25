@@ -4,6 +4,8 @@
     "comme_des_garcons",
     "dior",
     "givenchy",
+    "hermes",
+    "miu_miu",
     "versace"
   ],
   "covered": {
@@ -25,7 +27,7 @@
     "ferragamo": "2026-11-20",
     "givenchy": "2026-11-24",
     "gucci": "2026-11-21",
-    "hermes": "2026-11-20",
+    "hermes": "2026-11-24",
     "issey_miyake": "2026-11-20",
     "jacquemus": "2026-11-21",
     "jil_sander": "2026-11-23",
@@ -36,7 +38,7 @@
     "margiela": "2026-11-22",
     "max_mara": "2026-11-20",
     "mcqueen": "2026-11-21",
-    "miu_miu": "2026-11-20",
+    "miu_miu": "2026-11-24",
     "moncler": "2026-11-20",
     "prada": "2026-11-22",
     "saint_laurent": "2026-11-23",
@@ -49,7 +51,9 @@
     "zegna": "2026-11-20"
   },
   "end": "2026-11-24",
-  "failed": {},
+  "failed": {
+    "burberry": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=60)"
+  },
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -94,7 +98,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45578108208",
+  "run": "gh45616105068",
   "span": {},
-  "updated_at": "2026-11-25T09:08:46Z"
+  "updated_at": "2026-11-25T13:18:06Z"
 }
