@@ -1,5 +1,9 @@
 {
-  "complete": [],
+  "complete": [
+    "chanel",
+    "comme_des_garcons",
+    "dior"
+  ],
   "covered": {
     "alaia": "2026-11-20",
     "armani": "2026-11-20",
@@ -9,10 +13,10 @@
     "brunello_cucinelli": "2026-11-20",
     "burberry": "2026-11-20",
     "celine": "2026-11-23",
-    "chanel": "2026-11-20",
+    "chanel": "2026-11-24",
     "chloe": "2026-11-23",
-    "comme_des_garcons": "2026-11-19",
-    "dior": "2026-11-20",
+    "comme_des_garcons": "2026-11-24",
+    "dior": "2026-11-24",
     "dolce_gabbana": "2026-11-20",
     "dries_van_noten": "2026-11-20",
     "fendi": "2026-11-23",
@@ -43,7 +47,10 @@
     "zegna": "2026-11-20"
   },
   "end": "2026-11-24",
-  "failed": {},
+  "failed": {
+    "givenchy": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Givenchy%22&mode=timelinevolraw&format=json&startdatetime=20261120000000&enddatetime",
+    "versace": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=60)"
+  },
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -88,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45521111850",
+  "run": "gh45548073271",
   "span": {},
-  "updated_at": "2026-11-25T01:19:08Z"
+  "updated_at": "2026-11-25T05:10:47Z"
 }
