@@ -52,7 +52,7 @@
   },
   "end": "2026-11-24",
   "failed": {
-    "burberry": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=60)"
+    "burberry": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Burberry%22&mode=timelinetone&format=json&startdatetime=20261121000000&enddatetime=2"
   },
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
@@ -98,7 +98,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45616105068",
+  "run": "gh45655793833",
   "span": {},
-  "updated_at": "2026-11-25T13:18:06Z"
+  "updated_at": "2026-11-25T17:09:11Z"
 }
