@@ -1,11 +1,14 @@
 {
   "complete": [
+    "burberry",
     "chanel",
     "comme_des_garcons",
     "dior",
+    "dries_van_noten",
     "givenchy",
     "hermes",
     "miu_miu",
+    "tom_ford",
     "versace"
   ],
   "covered": {
@@ -15,14 +18,14 @@
     "balmain": "2026-11-22",
     "bottega_veneta": "2026-11-21",
     "brunello_cucinelli": "2026-11-20",
-    "burberry": "2026-11-20",
+    "burberry": "2026-11-24",
     "celine": "2026-11-23",
     "chanel": "2026-11-24",
     "chloe": "2026-11-23",
     "comme_des_garcons": "2026-11-24",
     "dior": "2026-11-24",
     "dolce_gabbana": "2026-11-20",
-    "dries_van_noten": "2026-11-20",
+    "dries_van_noten": "2026-11-24",
     "fendi": "2026-11-23",
     "ferragamo": "2026-11-20",
     "givenchy": "2026-11-24",
@@ -45,15 +48,13 @@
     "schiaparelli": "2026-11-23",
     "stella_mccartney": "2026-11-23",
     "the_row": "2026-11-21",
-    "tom_ford": "2026-11-20",
+    "tom_ford": "2026-11-24",
     "valentino": "2026-11-23",
     "versace": "2026-11-24",
     "zegna": "2026-11-20"
   },
   "end": "2026-11-24",
-  "failed": {
-    "burberry": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Burberry%22&mode=timelinetone&format=json&startdatetime=20261121000000&enddatetime=2"
-  },
+  "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -98,7 +99,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45655793833",
+  "run": "gh45696749010",
   "span": {},
-  "updated_at": "2026-11-25T17:09:11Z"
+  "updated_at": "2026-11-25T21:12:59Z"
 }
