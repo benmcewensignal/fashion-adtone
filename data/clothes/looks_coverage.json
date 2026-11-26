@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T04:26:49Z",
+ "generated_at": "2026-11-26T07:26:41Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "ReadTimeout"
+    "armani.com": "HTTP 503"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -754,42 +754,23 @@
    "date": "2017-10-01",
    "season": "2018 SS rtw",
    "category": "rtw",
-   "status": "found",
+   "status": "partial",
    "via": "section",
    "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section",
-     "ts": "20171015020003",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/springsummer-18_section/main",
-     "ts": "20171209095713",
-     "score": 2.0
-    }
-   ]
+   "candidates": []
   },
   "balenciaga:2018-03-04:rtw": {
    "house": "balenciaga",
    "date": "2018-03-04",
    "season": "2018 AW rtw",
    "category": "rtw",
-   "status": "found",
-   "via": "section",
-   "pages": 2,
-   "candidates": [
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section",
-     "ts": "20180410223345",
-     "score": 2.0
-    },
-    {
-     "url": "https://www.balenciaga.com/de/f%C3%BCr-ihn/collections/fallwinter-18-m_section/main",
-     "ts": "20180331191909",
-     "score": 2.0
-    }
-   ]
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "balenciaga.com": "ReadTimeout"
+   }
   },
   "balenciaga:2018-09-30:rtw": {
    "house": "balenciaga",
@@ -903,7 +884,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "ReadTimeout"
+    "balenciaga.com": "HTTP 503"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1569,7 +1550,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 503"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1604,7 +1585,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "ReadTimeout"
+    "balmain.com": "HTTP 503"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2400,7 +2381,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "HTTP 503"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3097,7 +3078,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "HTTP 503"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3634,7 +3615,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ReadTimeout"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -6697,7 +6678,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ReadTimeout"
+    "dolcegabbana.com": "HTTP 504"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -17589,7 +17570,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "ReadTimeout"
+    "stellamccartney.com": "HTTP 503"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -17602,7 +17583,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -19538,15 +19519,14 @@
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
     "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 604
+   "pages": 521
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/",
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 29
+   "pages": 13
   },
   "chanel": {
    "prefixes": [
@@ -19564,20 +19544,21 @@
     "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/",
     "www.dior.com/en_us/mens-fashion/shows/",
     "www.dior.com/en_us/womens-fashion/haute-couture-shows/",
-    "www.dior.com/en_us/womens-fashion/",
-    "www.dior.com/en_us/mens-fashion/",
-    "www.dior.com/en_us/shows/haute-couture/"
+    "www.dior.com/couture/horlogerie/collections-horlogeres/la-d-de-dior/",
+    "www.dior.com/couture/fr_fr/mode-femme/pret-a-porter/defile-pret-a-porter-printemps-ete-2017/",
+    "www.dior.com/diormag/fr_fr/article/la-vid\u00e9o-du-show-6/"
    ],
-   "pages": 978
+   "pages": 180
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
     "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/man/collection/"
+    "www.dolcegabbana.com/man/collection/",
+    "www.dolcegabbana.com/woman/collection/"
    ],
-   "pages": 4840
+   "pages": 4150
   },
   "dries_van_noten": {
    "prefixes": [
@@ -19797,8 +19778,8 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
+    "www.armani.com/experience/giorgio-armani/",
     "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
     "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
    ],
@@ -19812,10 +19793,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/lookbook/collections/index/women/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/"
+    "www.balmain.com/en_us/show/",
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/"
    ],
-   "pages": 515
+   "pages": 198
   },
   "schiaparelli": {
    "prefixes": [
@@ -19845,7 +19826,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 2178
+   "pages": 2174
   },
   "issey_miyake": {
    "prefixes": [
@@ -19857,10 +19838,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 545,
-   "index failed": 263,
+   "found": 543,
+   "index failed": 264,
    "none": 384,
-   "partial": 63
+   "partial": 64
   },
   "by_house": {
    "alaia": {
@@ -19873,7 +19854,7 @@
    },
    "balenciaga": {
     "shows": 31,
-    "found": 21
+    "found": 19
    },
    "balmain": {
     "shows": 36,
@@ -20039,7 +20020,7 @@
    },
    "2018": {
     "shows": 112,
-    "found": 30
+    "found": 28
    },
    "2019": {
     "shows": 109,
