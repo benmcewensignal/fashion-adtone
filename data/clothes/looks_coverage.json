@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T10:25:08Z",
+ "generated_at": "2026-11-26T13:25:34Z",
  "window_days": [
   -1,
   14
@@ -903,7 +903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 503"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1569,7 +1569,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 504"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2383,7 +2383,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 504"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2400,7 +2400,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3097,7 +3097,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3634,7 +3634,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ReadTimeout"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5903,7 +5903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 503"
+    "dior.com": "ConnectionError"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6697,7 +6697,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "HTTP 504"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dries_van_noten:2015-01-22:men": {
@@ -7765,7 +7765,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2022-07-07:couture": {
@@ -7794,7 +7794,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2022-09-21:rtw": {
@@ -8608,10 +8608,13 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "partial",
-   "via": "section",
-   "pages": 3,
-   "candidates": []
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "givenchy.com": "ConnectionError"
+   }
   },
   "givenchy:2015-09-12:rtw": {
    "house": "givenchy",
@@ -9605,7 +9608,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "gucci.com": "HTTP 504"
+    "gucci.com": "ConnectionError"
    }
   },
   "hermes:2015-01-24:men": {
@@ -10194,7 +10197,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "hermes.com": "ConnectionError"
+    "hermes.com": "ReadTimeout"
    }
   },
   "hermes:2025-01-25:men": {
@@ -11416,10 +11419,13 @@
    "date": "2021-09-22",
    "season": "2022 SS rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "index failed",
    "via": "window",
-   "pages": 3,
-   "candidates": []
+   "pages": 0,
+   "candidates": [],
+   "errors": {
+    "jilsander.com": "ReadTimeout"
+   }
   },
   "jil_sander:2022-01-21:men": {
    "house": "jil_sander",
@@ -14224,7 +14230,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "maxmara.com": "ConnectionError"
+    "maxmara.com": "ReadTimeout"
    }
   },
   "max_mara:2025-02-27:rtw": {
@@ -16278,10 +16284,16 @@
    "date": "2023-01-17",
    "season": "2023 AW men",
    "category": "men",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/women-s-winter-23",
+     "ts": "20230330045335",
+     "score": 1.12
+    }
+   ]
   },
   "saint_laurent:2023-02-28:rtw": {
    "house": "saint_laurent",
@@ -16352,10 +16364,26 @@
    "date": "2025-01-28",
    "season": "2025 SS couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25-2/looks",
+     "ts": "20250429191346",
+     "score": 6.12
+    },
+    {
+     "url": "https://www.ysl.com/en-gb/collections/page-women-summer-25/looks",
+     "ts": "20250423074757",
+     "score": 6.12
+    },
+    {
+     "url": "https://www.ysl.com/de-de/collections/page-men-spring-25/looks",
+     "ts": "20250210203510",
+     "score": 5.0
+    }
+   ]
   },
   "saint_laurent:2025-03-11:rtw": {
    "house": "saint_laurent",
@@ -16452,10 +16480,16 @@
    "date": "2026-06-23",
    "season": "2027 SS men",
    "category": "men",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.ysl.com/en-us/collections/la-maison-women-summer-27-show",
+     "ts": "20261006173911",
+     "score": 3.88
+    }
+   ]
   },
   "saint_laurent:2026-09-29:rtw": {
    "house": "saint_laurent",
@@ -17589,7 +17623,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -19536,17 +19570,16 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/de/f\u00fcr-sie/collections/resort-18_section/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 605
+   "pages": 604
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
     "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 27
+   "pages": 0
   },
   "chanel": {
    "prefixes": [
@@ -19555,7 +19588,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2381
+   "pages": 0
   },
   "dior": {
    "prefixes": [
@@ -19563,21 +19596,17 @@
     "www.dior.com/en_gb/fashion/mens-fashion/shows/",
     "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/",
     "www.dior.com/en_us/mens-fashion/shows/",
-    "www.dior.com/en_us/womens-fashion/haute-couture-shows/",
-    "www.dior.com/couture/horlogerie/collections-horlogeres/la-d-de-dior/",
-    "www.dior.com/couture/fr_fr/mode-femme/pret-a-porter/defile-pret-a-porter-printemps-ete-2017/",
-    "www.dior.com/diormag/fr_fr/article/la-vid\u00e9o-du-show-6/"
+    "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 180
+   "pages": 0
   },
   "dolce_gabbana": {
    "prefixes": [
     "www.dolcegabbana.com/man/fashion-show/",
     "www.dolcegabbana.com/woman/fashion-show/",
-    "www.dolcegabbana.com/child/collection/",
-    "www.dolcegabbana.com/woman/collection/"
+    "www.dolcegabbana.com/child/collection/"
    ],
-   "pages": 5009
+   "pages": 2202
   },
   "dries_van_noten": {
    "prefixes": [
@@ -19595,24 +19624,18 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/us/woman/",
-    "www.fendi.com/qa/woman/collections/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/qa/woman/collections/fendi-couture/"
+    "www.fendi.com/qa/woman/collections/"
    ],
-   "pages": 6735
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
     "www.givenchy.com/gb/en/cm/explore/collections/",
     "www.givenchy.com/en/homepage/",
     "www.givenchy.com/gb/en/",
-    "www.givenchy.com/apac/en/cm/explore/collections/",
-    "www.givenchy.com/int/en/cm/explore/collections/",
-    "www.givenchy.com/fr/en/cm/explore/collections/",
-    "www.givenchy.com/eur/en/collections/",
-    "www.givenchy.com/eur/en/collections/archives/"
+    "www.givenchy.com/apac/en/cm/explore/collections/"
    ],
-   "pages": 5477
+   "pages": 0
   },
   "jil_sander": {
    "prefixes": [
@@ -19621,7 +19644,7 @@
     "www.jilsander.com/en/man/",
     "www.jilsander.com/de-de/damen-und-herren%3Cbr%3Efr%C3%BChjahr-sommer/"
    ],
-   "pages": 1363
+   "pages": 2590
   },
   "hermes": {
    "prefixes": [
@@ -19637,7 +19660,7 @@
     "www.gucci.com/us/en/st/stories/runway/article/",
     "www.gucci.com/us/en/lo/runway/women/cruise-2016/"
    ],
-   "pages": 129
+   "pages": 0
   },
   "loewe": {
    "prefixes": [
@@ -19658,9 +19681,10 @@
    "prefixes": [
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/"
+    "www.maisonmargiela.com/us/collections/",
+    "www.maisonmargiela.com/us/collection/hc-men_section/"
    ],
-   "pages": 0
+   "pages": 1280
   },
   "miu_miu": {
    "prefixes": [
@@ -19696,11 +19720,11 @@
     "www.ysl.com/corporate/us/saint-laurent-collections/",
     "www.ysl.com/en-us/collections/",
     "www.ysl.com/corporate/saint-laurent-collections/",
-    "www.ysl.com/corporate/us/saint-laurent-collections/archives/",
     "www.ysl.com/corporate/saint-laurent-collections/archives/",
+    "www.ysl.com/corporate/us/saint-laurent-collections/archives/",
     "www.ysl.com/de-de/collections/"
    ],
-   "pages": 1097
+   "pages": 977
   },
   "tom_ford": {
    "prefixes": [
@@ -19797,9 +19821,8 @@
   "armani": {
    "prefixes": [
     "www.armani.com/en-us/experience/giorgio-armani/",
-    "www.armani.com/experience/emporio-armani/",
-    "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
+    "assets-cf.armani.com/video/upload/f_auto/q_auto:best,c_fill,ar_4:5/"
    ],
    "pages": 358
   },
@@ -19811,9 +19834,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/de/balmain/couture-show/"
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/lookbook/collections/index/men/"
    ],
-   "pages": 391
+   "pages": 380
   },
   "schiaparelli": {
    "prefixes": [
@@ -19855,10 +19879,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 545,
-   "index failed": 263,
+   "found": 548,
+   "index failed": 265,
    "none": 384,
-   "partial": 63
+   "partial": 58
   },
   "by_house": {
    "alaia": {
@@ -19991,7 +20015,7 @@
    },
    "saint_laurent": {
     "shows": 31,
-    "found": 22
+    "found": 25
    },
    "schiaparelli": {
     "shows": 32,
@@ -20057,7 +20081,7 @@
    },
    "2023": {
     "shows": 106,
-    "found": 58
+    "found": 59
    },
    "2024": {
     "shows": 107,
@@ -20065,7 +20089,7 @@
    },
    "2025": {
     "shows": 94,
-    "found": 50
+    "found": 51
    },
    "2026": {
     "shows": 110,
@@ -20073,7 +20097,7 @@
    },
    "2027": {
     "shows": 45,
-    "found": 14
+    "found": 15
    }
   }
  }
