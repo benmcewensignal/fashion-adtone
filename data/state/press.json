@@ -1,7 +1,8 @@
 {
   "complete": [
     "alaia",
-    "dolce_gabbana"
+    "dolce_gabbana",
+    "max_mara"
   ],
   "covered": {
     "alaia": "2026-11-25",
@@ -31,7 +32,7 @@
     "loro_piana": "2026-11-23",
     "louis_vuitton": "2026-11-22",
     "margiela": "2026-11-22",
-    "max_mara": "2026-11-20",
+    "max_mara": "2026-11-25",
     "mcqueen": "2026-11-21",
     "miu_miu": "2026-11-24",
     "moncler": "2026-11-20",
@@ -46,11 +47,7 @@
     "zegna": "2026-11-20"
   },
   "end": "2026-11-25",
-  "failed": {
-    "brunello_cucinelli": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=60)",
-    "max_mara": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Max+Mara%22&mode=timelinetone&format=json&startdatetime=20261121000000&enddatetime=2",
-    "zegna": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Zegna%22&mode=timelinevolraw&format=json&startdatetime=20261121000000&enddatetime=20"
-  },
+  "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -95,7 +92,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45784864478",
+  "run": "gh45821861835",
   "span": {},
-  "updated_at": "2026-11-26T09:07:41Z"
+  "updated_at": "2026-11-26T13:08:45Z"
 }
