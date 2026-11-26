@@ -1,8 +1,10 @@
 {
   "complete": [
     "alaia",
+    "brunello_cucinelli",
     "dolce_gabbana",
-    "max_mara"
+    "max_mara",
+    "zegna"
   ],
   "covered": {
     "alaia": "2026-11-25",
@@ -10,7 +12,7 @@
     "balenciaga": "2026-11-21",
     "balmain": "2026-11-22",
     "bottega_veneta": "2026-11-21",
-    "brunello_cucinelli": "2026-11-20",
+    "brunello_cucinelli": "2026-11-25",
     "burberry": "2026-11-24",
     "celine": "2026-11-23",
     "chanel": "2026-11-24",
@@ -44,7 +46,7 @@
     "tom_ford": "2026-11-24",
     "valentino": "2026-11-23",
     "versace": "2026-11-24",
-    "zegna": "2026-11-20"
+    "zegna": "2026-11-25"
   },
   "end": "2026-11-25",
   "failed": {},
@@ -92,7 +94,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45821861835",
+  "run": "gh45860631886",
   "span": {},
-  "updated_at": "2026-11-26T13:08:45Z"
+  "updated_at": "2026-11-26T17:06:47Z"
 }
