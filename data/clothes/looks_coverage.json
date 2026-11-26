@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T19:24:27Z",
+ "generated_at": "2026-11-26T22:24:06Z",
  "window_days": [
   -1,
   14
@@ -610,7 +610,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "armani.com": "HTTP 503"
+    "armani.com": "ReadTimeout"
    }
   },
   "armani:2026-09-27:rtw": {
@@ -903,7 +903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 503"
+    "balenciaga.com": "HTTP 504"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -1569,7 +1569,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ConnectionError"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -1604,7 +1604,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balmain.com": "HTTP 503"
+    "balmain.com": "ReadTimeout"
    },
    "seeds": [
     "us.balmain.com/en/experience/",
@@ -2383,7 +2383,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "HTTP 504"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2400,7 +2400,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3097,7 +3097,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "ConnectionError"
+    "chanel.com": "HTTP 504"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -3634,7 +3634,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 503"
+    "chanel.com": "HTTP 504"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -17605,7 +17605,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 503"
+    "stellamccartney.com": "HTTP 504"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -19539,21 +19539,16 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
-    "www.balenciaga.com/women/fashionshow/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
    ],
-   "pages": 548
+   "pages": 604
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/",
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/",
-    "cn.burberry.com/c/signature-bags/the-pocket-bag-collection/",
-    "cn.burberry.com/c/signature-bags/the-frances-bag-collection/",
-    "cn.burberry.com/c/shows/"
+    "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 35
+   "pages": 0
   },
   "chanel": {
    "prefixes": [
@@ -19814,8 +19809,7 @@
     "www.armani.com/en-us/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
-    "www.armani.com/experience/emporio-armani/sfilata-uomo-primavera-estate/"
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
    ],
    "pages": 358
   },
@@ -19827,10 +19821,10 @@
     "gb.balmain.com/en/experience/",
     "fr.balmain.com/fr/experience/",
     "be.balmain.com/en/experience/",
-    "www.balmain.com/en_us/show/",
-    "www.balmain.com/en_us/lookbook/collections/index/men/"
+    "www.balmain.com/en_us/lookbook/collections/index/catwalk/",
+    "www.balmain.com/en_us/lookbook/collections/index/women/"
    ],
-   "pages": 345
+   "pages": 495
   },
   "schiaparelli": {
    "prefixes": [
@@ -19860,7 +19854,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 840
+   "pages": 2178
   },
   "issey_miyake": {
    "prefixes": [
