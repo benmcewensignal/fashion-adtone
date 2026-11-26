@@ -46,7 +46,11 @@
     "zegna": "2026-11-20"
   },
   "end": "2026-11-25",
-  "failed": {},
+  "failed": {
+    "brunello_cucinelli": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=60)",
+    "max_mara": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Max+Mara%22&mode=timelinetone&format=json&startdatetime=20261121000000&enddatetime=2",
+    "zegna": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Zegna%22&mode=timelinevolraw&format=json&startdatetime=20261121000000&enddatetime=20"
+  },
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -91,7 +95,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45756400647",
+  "run": "gh45784864478",
   "span": {},
-  "updated_at": "2026-11-26T05:03:12Z"
+  "updated_at": "2026-11-26T09:07:41Z"
 }
