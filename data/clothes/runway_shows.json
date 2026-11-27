@@ -2203,7 +2203,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -2240,7 +2240,7 @@
     "from_archive": 0,
     "indexes": 5,
     "links": 0,
-    "opened": 3
+    "opened": 0
    },
    "page": null
   },
@@ -3600,7 +3600,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 53,
+   "seconds": 3,
    "small": 0
   },
   "looks": 0,
@@ -3612,21 +3612,31 @@
  },
  "fendi:2026-07-09:couture": {
   "live": {
+   "diag": {
+    "cut": false,
+    "duplicates": 0,
+    "fetched": 0,
+    "opened": 0,
+    "pictures": 0,
+    "refused": 0,
+    "small": 0
+   },
    "indexes": {
-    "from_archive": 0,
-    "indexes": 4,
+    "from_archive": 1,
+    "indexes": 6,
     "links": 0,
     "opened": 0
    },
-   "page": null
+   "page": "https://www.fendi.com/hk-en/cm/fashion-shows/fendi-couture-fall-winter-2026-2027-collection",
+   "tried": 1
   },
   "status": "no page"
  },
  "fendi:2026-09-23:rtw": {
   "live": {
    "indexes": {
-    "from_archive": 0,
-    "indexes": 4,
+    "from_archive": 1,
+    "indexes": 6,
     "links": 0,
     "opened": 0
    },
@@ -4194,7 +4204,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
@@ -4206,7 +4216,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 2,
     "links": 0,
     "opened": 0
    },
