@@ -1,5 +1,7 @@
 {
   "complete": [
+    "ferragamo",
+    "issey_miyake",
     "moncler"
   ],
   "covered": {
@@ -18,11 +20,11 @@
     "dolce_gabbana": "2026-11-25",
     "dries_van_noten": "2026-11-24",
     "fendi": "2026-11-23",
-    "ferragamo": "2026-11-20",
+    "ferragamo": "2026-11-26",
     "givenchy": "2026-11-24",
     "gucci": "2026-11-21",
     "hermes": "2026-11-24",
-    "issey_miyake": "2026-11-20",
+    "issey_miyake": "2026-11-26",
     "jacquemus": "2026-11-21",
     "jil_sander": "2026-11-23",
     "lanvin": "2026-11-23",
@@ -45,9 +47,7 @@
     "zegna": "2026-11-25"
   },
   "end": "2026-11-26",
-  "failed": {
-    "ferragamo": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%22Ferragamo%22&mode=timelinevolraw&format=json&startdatetime=20261121000000&enddatetim"
-  },
+  "failed": {},
   "last_error": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
   "queries": {
     "alaia": "\"Alaia\"",
@@ -92,7 +92,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh45918934441",
+  "run": "gh45941078764",
   "span": {},
-  "updated_at": "2026-11-27T01:17:30Z"
+  "updated_at": "2026-11-27T05:08:16Z"
 }
