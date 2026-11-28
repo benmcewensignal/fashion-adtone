@@ -1,12 +1,13 @@
 {
   "complete": [
+    "balmain",
     "prada"
   ],
   "covered": {
     "alaia": "2026-11-25",
     "armani": "2026-11-25",
     "balenciaga": "2026-11-26",
-    "balmain": "2026-11-22",
+    "balmain": "2026-11-27",
     "bottega_veneta": "2026-11-26",
     "brunello_cucinelli": "2026-11-25",
     "burberry": "2026-11-24",
@@ -90,7 +91,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh46108414437",
+  "run": "gh46126690579",
   "span": {},
-  "updated_at": "2026-11-28T05:01:10Z"
+  "updated_at": "2026-11-28T09:05:09Z"
 }
