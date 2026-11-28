@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T22:23:59Z",
+ "generated_at": "2026-11-28T01:24:32Z",
  "window_days": [
   -1,
   14
@@ -903,7 +903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "balenciaga.com": "HTTP 504"
+    "balenciaga.com": "ReadTimeout"
    }
   },
   "balenciaga:2022-10-02:rtw": {
@@ -2383,7 +2383,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "HTTP 503"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -2400,7 +2400,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "burberry.com": "ReadTimeout"
+    "burberry.com": "ConnectionError"
    },
    "seeds": [
     "ca.burberry.com/c/burberry-world/collections/",
@@ -3634,7 +3634,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "chanel.com": "HTTP 504"
+    "chanel.com": "ConnectionError"
    },
    "seeds": [
     "www.chanel.com/gb/fashion/collection/",
@@ -5903,7 +5903,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dior.com": "HTTP 504"
+    "dior.com": "ConnectionError"
    },
    "seeds": [
     "www.dior.com/en_gb/fashion/womens-fashion/ready-to-wear-shows/",
@@ -6684,7 +6684,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "dolcegabbana.com": "ConnectionError"
+    "dolcegabbana.com": "ReadTimeout"
    }
   },
   "dolce_gabbana:2026-09-26:rtw": {
@@ -7794,7 +7794,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "fendi.com": "ReadTimeout"
+    "fendi.com": "ConnectionError"
    }
   },
   "fendi:2022-09-21:rtw": {
@@ -8608,13 +8608,26 @@
    "date": "2015-07-07",
    "season": "2015 AW couture",
    "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "givenchy.com": "ConnectionError"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "http://www.givenchy.com/en/homepage/men-show-collection-fall-winter-2015",
+     "ts": "20150905075910",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.givenchy.com/en/homepage/women-show-collection-fall-winter-2015",
+     "ts": "20150905083116",
+     "score": 5.62
+    },
+    {
+     "url": "http://www.givenchy.com/en/homepage/fall-winter-2015-womens-accessories-collection",
+     "ts": "20150905155521",
+     "score": 2.62
+    }
+   ]
   },
   "givenchy:2015-09-12:rtw": {
    "house": "givenchy",
@@ -9879,10 +9892,16 @@
    "date": "2019-03-02",
    "season": "2019 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/us/en/story/177946-men-fashion-show-autumn-winter-19/",
+     "ts": "20190327070800",
+     "score": 3.94
+    }
+   ]
   },
   "hermes:2019-06-22:men": {
    "house": "hermes",
@@ -9937,10 +9956,16 @@
    "date": "2020-02-29",
    "season": "2020 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/us/en/story/men-fall-winter-2020-runway-show/",
+     "ts": "20200314003109",
+     "score": 5.94
+    }
+   ]
   },
   "hermes:2020-10-03:rtw": {
    "house": "hermes",
@@ -9979,10 +10004,16 @@
    "date": "2021-06-26",
    "season": "2022 SS men",
    "category": "men",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 1,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/us/en/story/289994-women-fashion-show-spring-summer-22/",
+     "ts": "20211004141424",
+     "score": 3.94
+    }
+   ]
   },
   "hermes:2021-10-02:rtw": {
    "house": "hermes",
@@ -10111,13 +10142,16 @@
    "date": "2023-09-30",
    "season": "2024 SS rtw",
    "category": "rtw",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "hermes.com": "ConnectionError"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.hermes.com/jp/ja/content/321439-men-spring-summer-2024-runway-show/",
+     "ts": "20240105002127",
+     "score": 3.0
+    }
+   ]
   },
   "hermes:2024-01-20:men": {
    "house": "hermes",
@@ -12739,7 +12773,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "loropiana.com": "ConnectionError"
+    "loropiana.com": "ReadTimeout"
    },
    "seeds": [
     "fi.loropiana.com/lookbook/"
@@ -12755,7 +12789,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "loropiana.com": "ConnectionError"
+    "loropiana.com": "HTTP 503"
    },
    "seeds": [
     "fi.loropiana.com/lookbook/"
@@ -13498,10 +13532,13 @@
    "date": "2025-06-24",
    "season": "2026 SS men",
    "category": "men",
-   "status": "partial",
-   "via": "section",
-   "pages": 1,
+   "status": "index failed",
+   "via": "window",
+   "pages": 0,
    "candidates": [],
+   "errors": {
+    "louisvuitton.com": "ReadTimeout"
+   },
    "seeds": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ]
@@ -13673,13 +13710,18 @@
    "date": "2016-01-27",
    "season": "2016 SS couture",
    "category": "couture",
-   "status": "index failed",
+   "status": "found",
    "via": "window",
-   "pages": 0,
-   "candidates": [],
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "http://mmmphoto.maisonmartinmargiela.com:80/collections-homme/spring-summer-2016",
+     "ts": "20160128105843",
+     "score": 1.0
+    }
+   ],
    "errors": {
-    "maisonmargiela.com": "ConnectionError",
-    "maisonmartinmargiela.com": "ConnectionError"
+    "maisonmargiela.com": "ConnectionError"
    }
   },
   "margiela:2016-03-02:rtw": {
@@ -13733,30 +13775,78 @@
    "date": "2017-01-25",
    "season": "2017 SS couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-01-0",
+     "ts": "20170408033641",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-02",
+     "ts": "20170408144412",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-ss17-show-look-03",
+     "ts": "20170415021937",
+     "score": 7.81
+    }
+   ]
   },
   "margiela:2017-03-01:rtw": {
    "house": "margiela",
    "date": "2017-03-01",
    "season": "2017 AW rtw",
    "category": "rtw",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-01",
+     "ts": "20170408144135",
+     "score": 8.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-02",
+     "ts": "20170406051920",
+     "score": 8.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/menswear-aw17-show-look-03",
+     "ts": "20170405003844",
+     "score": 8.81
+    }
+   ]
   },
   "margiela:2017-07-05:couture": {
    "house": "margiela",
    "date": "2017-07-05",
    "season": "2017 AW couture",
    "category": "couture",
-   "status": "partial",
+   "status": "found",
    "via": "section",
    "pages": 3,
-   "candidates": []
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-1",
+     "ts": "20170911162045",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-10",
+     "ts": "20170911175548",
+     "score": 7.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collections/look/mm6-aw-17-show-look-2",
+     "ts": "20170911153135",
+     "score": 7.81
+    }
+   ]
   },
   "margiela:2017-09-27:rtw": {
    "house": "margiela",
@@ -13829,14 +13919,26 @@
    "date": "2019-01-23",
    "season": "2019 SS couture",
    "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 3,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/women-ss19_section",
+     "ts": "20190517113436",
+     "score": 2.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_ss19_2_section",
+     "ts": "20190516090125",
+     "score": 1.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/mm6-pre-ss19_section",
+     "ts": "20190517123459",
+     "score": 1.81
+    }
+   ]
   },
   "margiela:2019-02-27:rtw": {
    "house": "margiela",
@@ -13864,14 +13966,21 @@
    "date": "2019-07-03",
    "season": "2019 AW couture",
    "category": "couture",
-   "status": "index failed",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout",
-    "maisonmartinmargiela.com": "ConnectionError"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 2,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_aw19_section",
+     "ts": "20190718114219",
+     "score": 1.81
+    },
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_aw19_section_section",
+     "ts": "20190823195351",
+     "score": 1.81
+    }
+   ]
   },
   "margiela:2019-09-25:rtw": {
    "house": "margiela",
@@ -13899,13 +14008,16 @@
    "date": "2020-01-22",
    "season": "2020 SS couture",
    "category": "couture",
-   "status": "partial",
-   "via": "window",
-   "pages": 0,
-   "candidates": [],
-   "errors": {
-    "maisonmargiela.com": "ReadTimeout"
-   }
+   "status": "found",
+   "via": "section",
+   "pages": 1,
+   "candidates": [
+    {
+     "url": "https://www.maisonmargiela.com/us/collection/cp_artisanal_coed_ss20_section",
+     "ts": "20200307051827",
+     "score": 1.81
+    }
+   ]
   },
   "margiela:2020-02-26:rtw": {
    "house": "margiela",
@@ -13989,7 +14101,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "maisonmargiela.com": "ConnectionError",
+    "maisonmargiela.com": "HTTP 503",
     "maisonmartinmargiela.com": "ConnectionError"
    }
   },
@@ -17599,7 +17711,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "ReadTimeout"
    }
   },
   "stella_mccartney:2026-09-30:rtw": {
@@ -17612,7 +17724,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "stellamccartney.com": "HTTP 504"
+    "stellamccartney.com": "HTTP 502"
    }
   },
   "the_row:2016-02-15:rtw": {
@@ -18748,7 +18860,7 @@
    "pages": 0,
    "candidates": [],
    "errors": {
-    "valentino.com": "ConnectionError"
+    "valentino.com": "ReadTimeout"
    }
   },
   "valentino:2026-10-04:rtw": {
@@ -19602,17 +19714,17 @@
     "www.balenciaga.com/en-gb/explore/explore-collections/",
     "www.balenciaga.com/de/unisex/collections/",
     "www.balenciaga.com/de/f\u00fcr-sie/collections/",
-    "www.balenciaga.com/de/f\u00fcr-ihn/collections/"
+    "www.balenciaga.com/de/f\u00fcr-ihn/collections/",
+    "www.balenciaga.com/women/fashionshow/"
    ],
-   "pages": 562
+   "pages": 605
   },
   "burberry": {
    "prefixes": [
     "ca.burberry.com/c/burberry-world/collections/",
-    "mo.burberry.com/london-fashion-week/",
-    "mo.burberry.com/london-fashion-week/spring-summer-2020-show/"
+    "mo.burberry.com/london-fashion-week/"
    ],
-   "pages": 29
+   "pages": 0
   },
   "chanel": {
    "prefixes": [
@@ -19621,7 +19733,7 @@
     "www.chanel.com/en_WW/fashion/collection/",
     "www.chanel.com/en_WW/fashion/collections/"
    ],
-   "pages": 2319
+   "pages": 0
   },
   "dior": {
    "prefixes": [
@@ -19629,12 +19741,9 @@
     "www.dior.com/en_gb/fashion/mens-fashion/shows/",
     "www.dior.com/en_gb/fashion/womens-fashion/haute-couture-shows/",
     "www.dior.com/en_us/mens-fashion/shows/",
-    "www.dior.com/en_us/womens-fashion/haute-couture-shows/",
-    "www.dior.com/en_us/shows/haute-couture/",
-    "www.dior.com/en_us/shows/mens-ready-to-wear/",
-    "www.dior.com/en_us/mens-fashion/"
+    "www.dior.com/en_us/womens-fashion/haute-couture-shows/"
    ],
-   "pages": 751
+   "pages": 0
   },
   "dolce_gabbana": {
    "prefixes": [
@@ -19660,12 +19769,9 @@
     "www.fendi.com/hk-en/cm/fashion-shows/",
     "www.fendi.com/fi-en/cm/inside-fendi/fashion-show/",
     "www.fendi.com/us/woman/",
-    "www.fendi.com/qa/woman/collections/",
-    "www.fendi.com/qa/man/collections/",
-    "www.fendi.com/qa/timepieces/collections/policromia/",
-    "www.fendi.com/qa/timepieces/collections/run-away/"
+    "www.fendi.com/qa/woman/collections/"
    ],
-   "pages": 6736
+   "pages": 0
   },
   "givenchy": {
    "prefixes": [
@@ -19674,7 +19780,7 @@
     "www.givenchy.com/gb/en/",
     "www.givenchy.com/apac/en/cm/explore/collections/"
    ],
-   "pages": 0
+   "pages": 5424
   },
   "jil_sander": {
    "prefixes": [
@@ -19690,9 +19796,12 @@
     "www.hermes.com/us/en/story/",
     "www.hermes.com/jp/ja/content/",
     "www.hermes.com/fi/en/content/",
-    "www.hermes.com/us/en/content/"
+    "www.hermes.com/us/en/content/",
+    "www.hermes.com/fi/en/content/308227-tableware-collections/",
+    "www.hermes.com/fi/en/category/men/ready-wear/",
+    "www.hermes.com/fi/en/category/women/ready-wear/"
    ],
-   "pages": 0
+   "pages": 887
   },
   "gucci": {
    "prefixes": [
@@ -19712,17 +19821,21 @@
   },
   "loro_piana": {
    "prefixes": [
-    "fi.loropiana.com/lookbook/"
+    "fi.loropiana.com/lookbook/",
+    "fi.loropiana.com/en/lookbook/",
+    "fi.loropiana.com/lookbook/menswear-fall-winter-2022/",
+    "fi.loropiana.com/lookbook/womenswear-fall-winter-2022/"
    ],
-   "pages": 0
+   "pages": 23
   },
   "margiela": {
    "prefixes": [
     "www.maisonmargiela.com/us/collection/",
     "www.maisonmargiela.com/en-gb/maison-margiela/",
-    "www.maisonmargiela.com/us/collections/"
+    "www.maisonmargiela.com/us/collections/",
+    "www.maisonmargiela.com/us/collection/hc-men_section/"
    ],
-   "pages": 0
+   "pages": 1280
   },
   "miu_miu": {
    "prefixes": [
@@ -19736,7 +19849,7 @@
    "prefixes": [
     "uk.louisvuitton.com/eng-gb/magazine/articles/"
    ],
-   "pages": 498
+   "pages": 0
   },
   "max_mara": {
    "prefixes": [],
@@ -19746,12 +19859,11 @@
    "prefixes": [
     "www.prada.com/en/collections/fashion-show/",
     "www.prada.com/us/en/pradasphere/fashion-shows/fashion-shows-women/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2022/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2026/",
-    "www.prada.com/fi/en/pradasphere/fashion-shows/2023/",
-    "www.prada.com/fi/en/womens/womens-collection/c/10525EU/"
+    "www.prada.com/en/collections/",
+    "www.prada.com/us/en/men/sunglasses/",
+    "www.prada.com/us/en/women/sunglasses/"
    ],
-   "pages": 204
+   "pages": 1292
   },
   "saint_laurent": {
    "prefixes": [
@@ -19848,7 +19960,8 @@
     "www.armani.com/en-us/experience/giorgio-armani/",
     "www.armani.com/experience/emporio-armani/",
     "www.armani.com/experience/giorgio-armani/",
-    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show"
+    "www.armani.com/us/giorgioarmani/women/secondary/fashion-show",
+    "www.armani.com/experience/giorgio-armani/sfilata-uomo-primavera-estate/"
    ],
    "pages": 358
   },
@@ -19893,7 +20006,7 @@
     "www.stellamccartney.com/fi/en/women/s-wave-collection/",
     "www.stellamccartney.com/ru/fashion-show/kids_section/"
    ],
-   "pages": 2177
+   "pages": 2178
   },
   "issey_miyake": {
    "prefixes": [
@@ -19905,10 +20018,10 @@
  "note": "addresses only; no page or picture is kept",
  "summary": {
   "by_status": {
-   "found": 545,
-   "index failed": 273,
+   "found": 557,
+   "index failed": 269,
    "none": 384,
-   "partial": 57
+   "partial": 49
   },
   "by_house": {
    "alaia": {
@@ -19977,7 +20090,7 @@
    },
    "givenchy": {
     "shows": 40,
-    "found": 22
+    "found": 23
    },
    "gucci": {
     "shows": 30,
@@ -19985,7 +20098,7 @@
    },
    "hermes": {
     "shows": 44,
-    "found": 30
+    "found": 34
    },
    "issey_miyake": {
     "shows": 47,
@@ -20017,7 +20130,7 @@
    },
    "margiela": {
     "shows": 34,
-    "found": 8
+    "found": 15
    },
    "max_mara": {
     "shows": 23,
@@ -20075,15 +20188,15 @@
   "by_year": {
    "2015": {
     "shows": 68,
-    "found": 27
+    "found": 28
    },
    "2016": {
     "shows": 128,
-    "found": 55
+    "found": 56
    },
    "2017": {
     "shows": 117,
-    "found": 51
+    "found": 54
    },
    "2018": {
     "shows": 112,
@@ -20091,11 +20204,11 @@
    },
    "2019": {
     "shows": 109,
-    "found": 32
+    "found": 35
    },
    "2020": {
     "shows": 101,
-    "found": 39
+    "found": 41
    },
    "2021": {
     "shows": 67,
@@ -20103,7 +20216,7 @@
    },
    "2022": {
     "shows": 95,
-    "found": 47
+    "found": 48
    },
    "2023": {
     "shows": 106,
@@ -20111,7 +20224,7 @@
    },
    "2024": {
     "shows": 107,
-    "found": 60
+    "found": 61
    },
    "2025": {
     "shows": 94,

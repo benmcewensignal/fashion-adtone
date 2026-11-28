@@ -78,7 +78,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -90,7 +90,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -125,7 +125,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -137,7 +137,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -149,7 +149,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 4,
+    "indexes": 5,
     "links": 0,
     "opened": 3
    },
@@ -2201,7 +2201,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 5,
     "links": 0,
     "opened": 0
    },
@@ -2238,7 +2238,7 @@
   "live": {
    "indexes": {
     "from_archive": 0,
-    "indexes": 6,
+    "indexes": 5,
     "links": 0,
     "opened": 0
    },
@@ -3600,7 +3600,7 @@
    "pages": 1,
    "pictures": 0,
    "refused": 0,
-   "seconds": 2,
+   "seconds": 3,
    "small": 0
   },
   "looks": 0,
@@ -6310,8 +6310,11 @@
   "status": "no page"
  },
  "margiela:2016-01-27:couture": {
+  "candidates": [
+   "20160128105843 http://mmmphoto.maisonmartinmargiela.com:80/collections-homme/spring-summer-2016"
+  ],
   "looks": 0,
-  "status": "no looks"
+  "status": "no fitting page"
  },
  "margiela:2016-03-02:rtw": {
   "candidates": [
