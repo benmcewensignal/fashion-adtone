@@ -2,6 +2,7 @@
   "complete": [
     "balmain",
     "celine",
+    "fendi",
     "prada"
   ],
   "covered": {
@@ -19,7 +20,7 @@
     "dior": "2026-11-24",
     "dolce_gabbana": "2026-11-25",
     "dries_van_noten": "2026-11-24",
-    "fendi": "2026-11-23",
+    "fendi": "2026-11-27",
     "ferragamo": "2026-11-26",
     "givenchy": "2026-11-24",
     "gucci": "2026-11-26",
@@ -92,7 +93,7 @@
     "zegna": "\"Zegna\""
   },
   "rate_limited": "GDELT kept refusing (HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic us)",
-  "run": "gh46145648416",
+  "run": "gh46166144491",
   "span": {},
-  "updated_at": "2026-11-28T13:04:12Z"
+  "updated_at": "2026-11-28T17:06:44Z"
 }
